@@ -1,0 +1,43 @@
+[ {
+  "id" : "a7000007-0001-0001-0001-000000000001",
+  "name" : "autoplay_seconds",
+  "label" : "Autoplay seconds (0 = off)",
+  "type" : "number",
+  "default" : 7
+}, {
+  "id" : "a7000007-0001-0001-0001-000000000002",
+  "name" : "items",
+  "label" : "Testimonials",
+  "type" : "group",
+  "occurrence" : { "min" : 1, "max" : 20, "default" : 3 },
+  "default" : [
+    { "quote" : "<p>SunRiver rewired our cloud stack in six weeks. Outage rates dropped 80% and our team finally trusts deploy day.</p>", "name" : "Alex P.", "role" : "CTO, FinScale" },
+    { "quote" : "<p>The HubSpot rebuild paid for itself in the first quarter. Our marketing team can finally ship campaigns without a developer.</p>", "name" : "Sam R.", "role" : "VP Marketing, Verge" },
+    { "quote" : "<p>Smart, calm, fast. They surface the real risks early and fix them before they become incidents.</p>", "name" : "Jordan K.", "role" : "Head of Eng, NorthLoop" }
+  ],
+  "children" : [ {
+    "id" : "a7000007-0001-0001-0001-000000000010",
+    "name" : "quote",
+    "label" : "Quote",
+    "type" : "richtext",
+    "default" : "<p>Quote text.</p>"
+  }, {
+    "id" : "a7000007-0001-0001-0001-000000000011",
+    "name" : "name",
+    "label" : "Name",
+    "type" : "text",
+    "default" : "Name"
+  }, {
+    "id" : "a7000007-0001-0001-0001-000000000012",
+    "name" : "role",
+    "label" : "Role / Company",
+    "type" : "text",
+    "default" : "Role, Company"
+  }, {
+    "id" : "a7000007-0001-0001-0001-000000000013",
+    "name" : "avatar",
+    "label" : "Avatar",
+    "type" : "image",
+    "default" : { "src" : "", "alt" : "" }
+  } ]
+} ]

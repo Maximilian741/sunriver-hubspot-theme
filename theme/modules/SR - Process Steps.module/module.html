@@ -1,0 +1,20 @@
+<div class="sr-process sr-process--{{ module.layout|default('horizontal') }}" style="--sr-step-count: {{ module.steps|length }};">
+  <ol class="sr-process__list" role="list">
+    {% for step in module.steps %}
+      <li class="sr-process__item" style="--sr-step-index: {{ loop.index0 }};">
+        <div class="sr-process__bullet" aria-hidden="true">
+          <span class="sr-process__num">{{ loop.index }}</span>
+          <span class="sr-process__pulse"></span>
+        </div>
+        <div class="sr-process__body">
+          {% if step.title %}
+            <h3 class="sr-process__title">{{ step.title }}</h3>
+          {% endif %}
+          {% if step.description %}
+            <div class="sr-process__desc">{{ step.description }}</div>
+          {% endif %}
+        </div>
+      </li>
+    {% endfor %}
+  </ol>
+</div>

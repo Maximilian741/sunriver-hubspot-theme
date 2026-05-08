@@ -1,0 +1,22 @@
+<section class="sr-cta sr-cta--{{ module.style|default('gradient') }}">
+  <div class="sr-cta__bg" aria-hidden="true">
+    <span class="sr-cta__orb sr-cta__orb--1"></span>
+    <span class="sr-cta__orb sr-cta__orb--2"></span>
+    <span class="sr-cta__orb sr-cta__orb--3"></span>
+  </div>
+  <div class="sr-cta__inner">
+    <div class="sr-cta__copy">
+      <h2 class="sr-cta__heading">{{ module.heading }}</h2>
+      {% if module.subheading %}
+        <p class="sr-cta__subheading">{{ module.subheading }}</p>
+      {% endif %}
+    </div>
+    {% if module.cta_text %}
+      <a class="sr-cta__btn" href="{{ module.cta_url.url.href }}"
+        {% if module.cta_url.open_in_new_tab %}target="_blank" rel="noopener"{% endif %}>
+        {{ module.cta_text }}
+        <span class="sr-cta__btn-arrow">&rarr;</span>
+      </a>
+    {% endif %}
+  </div>
+</section>

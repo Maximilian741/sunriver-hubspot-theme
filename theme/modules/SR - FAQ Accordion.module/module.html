@@ -1,0 +1,16 @@
+<div class="sr-faq" data-open-first="{{ 'true' if module.open_first else 'false' }}">
+  {% for item in module.items %}
+    <details class="sr-faq__item"{% if loop.first and module.open_first %} open{% endif %}>
+      <summary class="sr-faq__question">
+        <span class="sr-faq__q-text">{{ item.question }}</span>
+        <span class="sr-faq__icon" aria-hidden="true">
+          <span class="sr-faq__icon-bar sr-faq__icon-bar--h"></span>
+          <span class="sr-faq__icon-bar sr-faq__icon-bar--v"></span>
+        </span>
+      </summary>
+      <div class="sr-faq__answer">
+        {{ item.answer }}
+      </div>
+    </details>
+  {% endfor %}
+</div>

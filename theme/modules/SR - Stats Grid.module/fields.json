@@ -1,0 +1,32 @@
+[ {
+  "id" : "a9000009-0001-0001-0001-000000000001",
+  "name" : "stats",
+  "label" : "Stats",
+  "type" : "group",
+  "occurrence" : { "min" : 1, "max" : 8, "default" : 4 },
+  "default" : [
+    { "value" : "120", "suffix" : "+", "label" : "Projects shipped" },
+    { "value" : "99", "suffix" : "%", "label" : "Client retention" },
+    { "value" : "24", "suffix" : "/7", "label" : "Monitoring & support" },
+    { "value" : "10", "suffix" : "yrs", "label" : "Average team experience" }
+  ],
+  "children" : [ {
+    "id" : "a9000009-0001-0001-0001-000000000010",
+    "name" : "value",
+    "label" : "Number",
+    "type" : "text",
+    "default" : "100"
+  }, {
+    "id" : "a9000009-0001-0001-0001-000000000011",
+    "name" : "suffix",
+    "label" : "Suffix (e.g. % or +)",
+    "type" : "text",
+    "default" : "+"
+  }, {
+    "id" : "a9000009-0001-0001-0001-000000000012",
+    "name" : "label",
+    "label" : "Label",
+    "type" : "text",
+    "default" : "Stat label"
+  } ]
+} ]

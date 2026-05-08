@@ -1,0 +1,37 @@
+[ {
+  "id" : "a2000002-0001-0001-0001-000000000001",
+  "name" : "eyebrow",
+  "label" : "Eyebrow",
+  "required" : false,
+  "type" : "text",
+  "default" : "What we do"
+}, {
+  "id" : "a2000002-0001-0001-0001-000000000002",
+  "name" : "heading",
+  "label" : "Heading",
+  "required" : true,
+  "type" : "text",
+  "default" : "Solutions tailored to your business"
+}, {
+  "id" : "a2000002-0001-0001-0001-000000000003",
+  "name" : "intro",
+  "label" : "Intro",
+  "required" : false,
+  "type" : "richtext",
+  "default" : "<p>Cloud, security, and CMS expertise — under one roof.</p>"
+}, {
+  "id" : "a2000002-0001-0001-0001-000000000004",
+  "name" : "alignment",
+  "label" : "Alignment",
+  "display" : "select",
+  "type" : "choice",
+  "choices" : [ [ "center", "Center" ], [ "left", "Left" ] ],
+  "default" : "center"
+}, {
+  "id" : "a2000002-0001-0001-0001-000000000005",
+  "name" : "show_accent",
+  "label" : "Show Accent Underline",
+  "display" : "checkbox",
+  "type" : "boolean",
+  "default" : true
+} ]

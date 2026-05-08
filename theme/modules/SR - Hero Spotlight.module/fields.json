@@ -1,0 +1,67 @@
+[ {
+  "id" : "a1000001-0001-0001-0001-000000000001",
+  "name" : "eyebrow",
+  "label" : "Eyebrow",
+  "required" : false,
+  "type" : "text",
+  "default" : "SunRiver Consulting"
+}, {
+  "id" : "a1000001-0001-0001-0001-000000000002",
+  "name" : "heading",
+  "label" : "Heading",
+  "required" : true,
+  "type" : "text",
+  "default" : "Build, scale, and automate with confidence"
+}, {
+  "id" : "a1000001-0001-0001-0001-000000000003",
+  "name" : "subheading",
+  "label" : "Subheading",
+  "required" : false,
+  "type" : "richtext",
+  "default" : "<p>Innovative cloud, security, and CMS solutions tailored for modern businesses.</p>"
+}, {
+  "id" : "a1000001-0001-0001-0001-000000000004",
+  "name" : "primary_cta_text",
+  "label" : "Primary CTA Text",
+  "required" : false,
+  "type" : "text",
+  "default" : "Get a Quote"
+}, {
+  "id" : "a1000001-0001-0001-0001-000000000005",
+  "name" : "primary_cta_url",
+  "label" : "Primary CTA URL",
+  "required" : false,
+  "type" : "url",
+  "default" : { "url" : { "content_id" : null, "href" : "/get-a-quote", "type" : "EXTERNAL" }, "open_in_new_tab" : false }
+}, {
+  "id" : "a1000001-0001-0001-0001-000000000006",
+  "name" : "secondary_cta_text",
+  "label" : "Secondary CTA Text",
+  "required" : false,
+  "type" : "text",
+  "default" : "Our Services"
+}, {
+  "id" : "a1000001-0001-0001-0001-000000000007",
+  "name" : "secondary_cta_url",
+  "label" : "Secondary CTA URL",
+  "required" : false,
+  "type" : "url",
+  "default" : { "url" : { "content_id" : null, "href" : "/solutions-products", "type" : "EXTERNAL" }, "open_in_new_tab" : false }
+}, {
+  "id" : "a1000001-0001-0001-0001-000000000008",
+  "name" : "background_style",
+  "label" : "Background Style",
+  "required" : false,
+  "display" : "select",
+  "choices" : [ [ "gradient", "Brand Gradient" ], [ "dark", "Dark Ink" ], [ "light", "Light" ] ],
+  "type" : "choice",
+  "default" : "gradient"
+}, {
+  "id" : "a1000001-0001-0001-0001-000000000009",
+  "name" : "show_shapes",
+  "label" : "Show Floating Shapes",
+  "required" : false,
+  "display" : "checkbox",
+  "type" : "boolean",
+  "default" : true
+} ]

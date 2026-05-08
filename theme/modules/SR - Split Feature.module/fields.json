@@ -1,0 +1,63 @@
+[ {
+  "id" : "aa00000a-0001-0001-0001-000000000001",
+  "name" : "image",
+  "label" : "Image",
+  "type" : "image",
+  "default" : { "src" : "https://47738410.fs1.hubspotusercontent-na2.net/hubfs/47738410/icon%20transparent.png", "alt" : "SunRiver Consulting" }
+}, {
+  "id" : "aa00000a-0001-0001-0001-000000000002",
+  "name" : "image_side",
+  "label" : "Image Side",
+  "display" : "select",
+  "type" : "choice",
+  "choices" : [ [ "left", "Left" ], [ "right", "Right" ] ],
+  "default" : "left"
+}, {
+  "id" : "aa00000a-0001-0001-0001-000000000003",
+  "name" : "eyebrow",
+  "label" : "Eyebrow",
+  "type" : "text",
+  "default" : "Why SunRiver"
+}, {
+  "id" : "aa00000a-0001-0001-0001-000000000004",
+  "name" : "heading",
+  "label" : "Heading",
+  "type" : "text",
+  "default" : "Engineering, design, and ops — under one roof"
+}, {
+  "id" : "aa00000a-0001-0001-0001-000000000005",
+  "name" : "body",
+  "label" : "Body",
+  "type" : "richtext",
+  "default" : "<p>Most consultancies hand you a deck. We hand you a working system. We pair senior engineering with thoughtful design and rigorous ops so your team can move fast without breaking things.</p>"
+}, {
+  "id" : "aa00000a-0001-0001-0001-000000000006",
+  "name" : "bullets",
+  "label" : "Bullet points",
+  "type" : "group",
+  "occurrence" : { "min" : 0, "max" : 6, "default" : 3 },
+  "default" : [
+    { "text" : "Senior team — no junior hand-offs" },
+    { "text" : "Weekly milestones and shipping cadence" },
+    { "text" : "Built-in security and observability" }
+  ],
+  "children" : [ {
+    "id" : "aa00000a-0001-0001-0001-000000000020",
+    "name" : "text",
+    "label" : "Bullet text",
+    "type" : "text",
+    "default" : "Bullet"
+  } ]
+}, {
+  "id" : "aa00000a-0001-0001-0001-000000000007",
+  "name" : "cta_text",
+  "label" : "CTA Text",
+  "type" : "text",
+  "default" : "Learn more"
+}, {
+  "id" : "aa00000a-0001-0001-0001-000000000008",
+  "name" : "cta_url",
+  "label" : "CTA URL",
+  "type" : "url",
+  "default" : { "url" : { "href" : "/our-vision-and-mission", "type" : "EXTERNAL" }, "open_in_new_tab" : false }
+} ]

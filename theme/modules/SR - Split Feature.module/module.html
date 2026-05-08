@@ -1,0 +1,33 @@
+<div class="sr-split sr-split--image-{{ module.image_side|default('left') }}">
+  <div class="sr-split__media">
+    {% if module.image.src %}
+      <img class="sr-split__img" src="{{ module.image.src }}" alt="{{ module.image.alt }}">
+    {% endif %}
+    <span class="sr-split__media-glow" aria-hidden="true"></span>
+  </div>
+  <div class="sr-split__content">
+    {% if module.eyebrow %}
+      <div class="sr-split__eyebrow">{{ module.eyebrow }}</div>
+    {% endif %}
+    {% if module.heading %}
+      <h2 class="sr-split__heading">{{ module.heading }}</h2>
+    {% endif %}
+    {% if module.body %}
+      <div class="sr-split__body">{{ module.body }}</div>
+    {% endif %}
+    {% if module.bullets %}
+      <ul class="sr-split__bullets">
+        {% for b in module.bullets %}
+          <li>{{ b.text }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+    {% if module.cta_text %}
+      <a class="sr-split__cta" href="{{ module.cta_url.url.href }}"
+        {% if module.cta_url.open_in_new_tab %}target="_blank" rel="noopener"{% endif %}>
+        {{ module.cta_text }}
+        <span class="sr-split__cta-arrow">&rarr;</span>
+      </a>
+    {% endif %}
+  </div>
+</div>

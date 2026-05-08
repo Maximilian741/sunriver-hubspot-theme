@@ -1,0 +1,34 @@
+[ {
+  "id" : "a8000008-0001-0001-0001-000000000001",
+  "name" : "heading",
+  "label" : "Heading",
+  "required" : true,
+  "type" : "text",
+  "default" : "Ready to grow with confidence?"
+}, {
+  "id" : "a8000008-0001-0001-0001-000000000002",
+  "name" : "subheading",
+  "label" : "Subheading",
+  "type" : "text",
+  "default" : "Tell us where you want to go. We'll show you the road."
+}, {
+  "id" : "a8000008-0001-0001-0001-000000000003",
+  "name" : "cta_text",
+  "label" : "CTA Text",
+  "type" : "text",
+  "default" : "Schedule a Consultation"
+}, {
+  "id" : "a8000008-0001-0001-0001-000000000004",
+  "name" : "cta_url",
+  "label" : "CTA URL",
+  "type" : "url",
+  "default" : { "url" : { "href" : "/get-a-quote", "type" : "EXTERNAL" }, "open_in_new_tab" : false }
+}, {
+  "id" : "a8000008-0001-0001-0001-000000000005",
+  "name" : "style",
+  "label" : "Style",
+  "display" : "select",
+  "type" : "choice",
+  "choices" : [ [ "gradient", "Gradient" ], [ "ink", "Ink" ], [ "gold", "Gold Accent" ] ],
+  "default" : "gradient"
+} ]

@@ -1,0 +1,27 @@
+<div class="sr-pricing">
+  {% for tier in module.tiers %}
+    <article class="sr-pricing__card{% if tier.featured %} sr-pricing__card--featured{% endif %}">
+      {% if tier.featured %}
+        <div class="sr-pricing__badge">Most Popular</div>
+      {% endif %}
+      <h3 class="sr-pricing__name">{{ tier.name }}</h3>
+      <div class="sr-pricing__price-row">
+        <span class="sr-pricing__price">{{ tier.price }}</span>
+        {% if tier.period %}<span class="sr-pricing__period">{{ tier.period }}</span>{% endif %}
+      </div>
+      {% if tier.summary %}
+        <p class="sr-pricing__summary">{{ tier.summary }}</p>
+      {% endif %}
+      {% if tier.features %}
+        <div class="sr-pricing__features">{{ tier.features }}</div>
+      {% endif %}
+      {% if tier.cta_text %}
+        <a class="sr-pricing__cta{% if tier.featured %} sr-pricing__cta--featured{% endif %}"
+           href="{{ tier.cta_url.url.href }}"
+           {% if tier.cta_url.open_in_new_tab %}target="_blank" rel="noopener"{% endif %}>
+          {{ tier.cta_text }}
+        </a>
+      {% endif %}
+    </article>
+  {% endfor %}
+</div>

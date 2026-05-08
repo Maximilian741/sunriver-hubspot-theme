@@ -1,0 +1,51 @@
+[ {
+  "id" : "a3000003-0001-0001-0001-000000000001",
+  "name" : "columns",
+  "label" : "Columns",
+  "display" : "select",
+  "type" : "choice",
+  "choices" : [ [ "2", "2" ], [ "3", "3" ], [ "4", "4" ] ],
+  "default" : "3"
+}, {
+  "id" : "a3000003-0001-0001-0001-000000000002",
+  "name" : "cards",
+  "label" : "Cards",
+  "type" : "group",
+  "occurrence" : { "min" : 1, "max" : 12, "default" : 3 },
+  "default" : [
+    { "icon_text" : "☁", "title" : "Cloud Solutions", "description" : "Architect, deploy, and scale on AWS, Azure, and GCP.", "link_text" : "Learn more", "link_url" : { "url" : { "href" : "/solutions-products", "type" : "EXTERNAL" } } },
+    { "icon_text" : "🔒", "title" : "Security", "description" : "Protect your stack with modern, audit-ready controls.", "link_text" : "Learn more", "link_url" : { "url" : { "href" : "/solutions-products", "type" : "EXTERNAL" } } },
+    { "icon_text" : "⚡", "title" : "CMS & Automation", "description" : "HubSpot, headless CMS, and workflow automation done right.", "link_text" : "Learn more", "link_url" : { "url" : { "href" : "/solutions-products", "type" : "EXTERNAL" } } }
+  ],
+  "children" : [ {
+    "id" : "a3000003-0001-0001-0001-000000000010",
+    "name" : "icon_text",
+    "label" : "Icon (emoji or text)",
+    "type" : "text",
+    "default" : "✨"
+  }, {
+    "id" : "a3000003-0001-0001-0001-000000000011",
+    "name" : "title",
+    "label" : "Title",
+    "type" : "text",
+    "default" : "Service title"
+  }, {
+    "id" : "a3000003-0001-0001-0001-000000000012",
+    "name" : "description",
+    "label" : "Description",
+    "type" : "richtext",
+    "default" : "<p>Short description of the service.</p>"
+  }, {
+    "id" : "a3000003-0001-0001-0001-000000000013",
+    "name" : "link_text",
+    "label" : "Link Text",
+    "type" : "text",
+    "default" : "Learn more"
+  }, {
+    "id" : "a3000003-0001-0001-0001-000000000014",
+    "name" : "link_url",
+    "label" : "Link URL",
+    "type" : "url",
+    "default" : { "url" : { "href" : "#", "type" : "EXTERNAL" }, "open_in_new_tab" : false }
+  } ]
+} ]

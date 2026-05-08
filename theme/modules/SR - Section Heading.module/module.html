@@ -1,0 +1,14 @@
+<div class="sr-section-heading sr-section-heading--{{ module.alignment|default('center') }}">
+  {% if module.eyebrow %}
+    <div class="sr-section-heading__eyebrow">{{ module.eyebrow }}</div>
+  {% endif %}
+  <h2 class="sr-section-heading__title">
+    {{ module.heading }}
+    {% if module.show_accent %}
+      <span class="sr-section-heading__accent" aria-hidden="true"></span>
+    {% endif %}
+  </h2>
+  {% if module.intro %}
+    <div class="sr-section-heading__intro">{{ module.intro }}</div>
+  {% endif %}
+</div>

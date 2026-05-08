@@ -1,0 +1,45 @@
+<div class="sr-testi" data-autoplay="{{ module.autoplay_seconds|default(0) }}">
+  <div class="sr-testi__viewport">
+    <ul class="sr-testi__track" role="list">
+      {% for item in module.items %}
+        <li class="sr-testi__slide{% if loop.first %} sr-testi__slide--active{% endif %}" role="listitem" data-index="{{ loop.index0 }}">
+          <div class="sr-testi__card">
+            <div class="sr-testi__quote-mark" aria-hidden="true">&ldquo;</div>
+            <div class="sr-testi__quote">{{ item.quote }}</div>
+            <div class="sr-testi__author">
+              {% if item.avatar.src %}
+                <img class="sr-testi__avatar" src="{{ item.avatar.src }}" alt="{{ item.avatar.alt|default(item.name) }}">
+              {% else %}
+                <span class="sr-testi__avatar sr-testi__avatar--initials" aria-hidden="true">
+                  {{ item.name|truncate(1, true, '') }}
+                </span>
+              {% endif %}
+              <div class="sr-testi__meta">
+                <span class="sr-testi__name">{{ item.name }}</span>
+                {% if item.role %}<span class="sr-testi__role">{{ item.role }}</span>{% endif %}
+              </div>
+            </div>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  {% if module.items|length > 1 %}
+    <div class="sr-testi__controls">
+      <button class="sr-testi__btn sr-testi__btn--prev" type="button" aria-label="Previous testimonial">&larr;</button>
+      <ol class="sr-testi__dots" role="tablist">
+        {% for item in module.items %}
+          <li>
+            <button class="sr-testi__dot{% if loop.first %} sr-testi__dot--active{% endif %}"
+                    type="button"
+                    data-index="{{ loop.index0 }}"
+                    role="tab"
+                    aria-label="Go to testimonial {{ loop.index }}"></button>
+          </li>
+        {% endfor %}
+      </ol>
+      <button class="sr-testi__btn sr-testi__btn--next" type="button" aria-label="Next testimonial">&rarr;</button>
+    </div>
+  {% endif %}
+</div>

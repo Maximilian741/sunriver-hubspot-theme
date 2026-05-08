@@ -1,0 +1,33 @@
+[ {
+  "id" : "a6000006-0001-0001-0001-000000000001",
+  "name" : "items",
+  "label" : "FAQ Items",
+  "type" : "group",
+  "occurrence" : { "min" : 1, "max" : 30, "default" : 4 },
+  "default" : [
+    { "question" : "How long does a typical engagement take?", "answer" : "<p>Most projects ship a measurable win within 4–6 weeks. Larger engagements run quarterly with weekly milestones.</p>" },
+    { "question" : "Do you work with our existing tech stack?", "answer" : "<p>Yes. We meet you where you are — AWS, Azure, GCP, HubSpot, Salesforce, custom apps. We integrate, we don't replace for the sake of replacing.</p>" },
+    { "question" : "What does pricing look like?", "answer" : "<p>Fixed-fee per milestone or monthly retainer, depending on scope. We share a clear scope and price after a 30-min discovery call.</p>" },
+    { "question" : "Can you help with ongoing support?", "answer" : "<p>Absolutely. Most clients move into a managed-services retainer once the build is shipped.</p>" }
+  ],
+  "children" : [ {
+    "id" : "a6000006-0001-0001-0001-000000000010",
+    "name" : "question",
+    "label" : "Question",
+    "type" : "text",
+    "default" : "Question?"
+  }, {
+    "id" : "a6000006-0001-0001-0001-000000000011",
+    "name" : "answer",
+    "label" : "Answer",
+    "type" : "richtext",
+    "default" : "<p>Answer.</p>"
+  } ]
+}, {
+  "id" : "a6000006-0001-0001-0001-000000000020",
+  "name" : "open_first",
+  "label" : "Open first item by default",
+  "display" : "checkbox",
+  "type" : "boolean",
+  "default" : true
+} ]

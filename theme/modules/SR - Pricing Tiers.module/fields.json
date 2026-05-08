@@ -1,0 +1,62 @@
+[ {
+  "id" : "a5000005-0001-0001-0001-000000000001",
+  "name" : "tiers",
+  "label" : "Tiers",
+  "type" : "group",
+  "occurrence" : { "min" : 1, "max" : 5, "default" : 3 },
+  "default" : [
+    { "name" : "Starter", "price" : "$1,500", "period" : "/ month", "summary" : "Perfect for small teams getting started.", "features" : "<ul><li>Cloud audit</li><li>HubSpot setup</li><li>Email support</li></ul>", "cta_text" : "Get started", "cta_url" : { "url" : { "href" : "/get-a-quote", "type" : "EXTERNAL" } }, "featured" : false },
+    { "name" : "Growth", "price" : "$3,800", "period" : "/ month", "summary" : "For scaling teams who need a partner.", "features" : "<ul><li>Everything in Starter</li><li>Security hardening</li><li>Custom automations</li><li>Priority support</li></ul>", "cta_text" : "Most popular", "cta_url" : { "url" : { "href" : "/get-a-quote", "type" : "EXTERNAL" } }, "featured" : true },
+    { "name" : "Enterprise", "price" : "Custom", "period" : "", "summary" : "Bespoke engagements with full ownership.", "features" : "<ul><li>Dedicated team</li><li>SLA & uptime</li><li>Compliance support</li><li>White-glove onboarding</li></ul>", "cta_text" : "Talk to us", "cta_url" : { "url" : { "href" : "/get-a-quote", "type" : "EXTERNAL" } }, "featured" : false }
+  ],
+  "children" : [ {
+    "id" : "a5000005-0001-0001-0001-000000000010",
+    "name" : "name",
+    "label" : "Tier name",
+    "type" : "text",
+    "default" : "Starter"
+  }, {
+    "id" : "a5000005-0001-0001-0001-000000000011",
+    "name" : "price",
+    "label" : "Price",
+    "type" : "text",
+    "default" : "$1,500"
+  }, {
+    "id" : "a5000005-0001-0001-0001-000000000012",
+    "name" : "period",
+    "label" : "Period",
+    "type" : "text",
+    "default" : "/ month"
+  }, {
+    "id" : "a5000005-0001-0001-0001-000000000013",
+    "name" : "summary",
+    "label" : "Summary",
+    "type" : "text",
+    "default" : "Tier summary"
+  }, {
+    "id" : "a5000005-0001-0001-0001-000000000014",
+    "name" : "features",
+    "label" : "Features (use bullet list)",
+    "type" : "richtext",
+    "default" : "<ul><li>Feature one</li></ul>"
+  }, {
+    "id" : "a5000005-0001-0001-0001-000000000015",
+    "name" : "cta_text",
+    "label" : "CTA Text",
+    "type" : "text",
+    "default" : "Get started"
+  }, {
+    "id" : "a5000005-0001-0001-0001-000000000016",
+    "name" : "cta_url",
+    "label" : "CTA URL",
+    "type" : "url",
+    "default" : { "url" : { "href" : "/get-a-quote", "type" : "EXTERNAL" }, "open_in_new_tab" : false }
+  }, {
+    "id" : "a5000005-0001-0001-0001-000000000017",
+    "name" : "featured",
+    "label" : "Highlight as featured",
+    "display" : "checkbox",
+    "type" : "boolean",
+    "default" : false
+  } ]
+} ]
