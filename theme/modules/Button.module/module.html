@@ -1,0 +1,25 @@
+{% if module.button.button_styling == 'solid' %}
+  {% set buttonColor = 'atmc-btn-'+ module.button.button_color %}
+	{% if module.button.button_color == 'lightgray' || module.button.button_color == 'light' || module.button.button_color == 'white' %}
+		{% set textColor = 'text-base' %}
+		{% set fillColor = 'fill-base' %}
+    {% set borderColor = 'border-l-2 border-base' %}
+	{% else %}
+		{% set textColor = 'text-white' %}
+		{% set fillColor = 'fill-white' %}
+    {% set borderColor = 'border-l-2 border-white' %}
+	{% endif %}
+{% else %}
+  {% set buttonColor = 'atmc-btn-outline-'+ module.button.button_color %}
+  {% set textColor = 'text-'+ module.button.button_color %}
+  {% set fillColor = 'fill-'+ module.button.button_color %}
+  {% set borderColor = 'border-l-2 border-'+ module.button.button_color %}
+{% endif %}
+{% set buttonSize = 'atmc-btn-'+module.button.button_size %}
+{% set buttonCompile = buttonColor + ' ' + textColor + ' ' + fillColor + ' ' + buttonSize %}
+
+<div id="{{ module.custom_id }}" class="{{ module.custom_class }} text-{{ module.button.alignment }} {% if module.enable_animation %}sr-invisible {{ module.animation }}{% endif %}">
+	<a href="{{ module.button.url.href }}" {% if module.button.open_in_a_new_tab %}target="_blank"{% endif %} 
+		 class=" atmc-btn {% if module.button.enable_icon %}atmc-btn-icon atmc-btn-icon-{{ module.button.icon_variant|replace('var_', '') }}{% endif %}
+						atmc-btn-module {{ buttonCompile }}">{{ module.button.button_text }}{% if module.button.enable_icon %} <span class="atmc-btn-icon_icon {{ borderColor }}">{% icon name="{{ module.button.icon.name }}"	style="{{ module.button.icon.type }}"	unicode="{{ module.button.icon.unicode }}", no_wrapper=true %}</span>{% endif %}</a>
+</div>

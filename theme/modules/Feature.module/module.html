@@ -1,0 +1,49 @@
+{% set is_clickable = module.make_clickable and module.link.url.href %}
+{% set tag = is_clickable ? 'a' : 'div' %}
+
+<div id="{{ module.custom_id }}" class="atmc-feature {{ module.custom_class }}">
+  <{{ tag }}
+    class="atmc-feature-01 p-12 shadow-xl rounded bg-white
+      {% if module.enable_animation %}sr-invisible {{ module.animation }}{% endif %}
+      {% if !module.enable_style_tab %}text-{{ module.alignment }}{% endif %}
+      {% if is_clickable %}atmc-feature-01--clickable{% endif %}"
+    {% if is_clickable %}
+      href="{{ module.link.url.href }}"
+      {% if module.link.open_in_new_tab %}target="_blank" rel="noopener"{% endif %}
+      {% if module.aria_label %}
+        aria-label="{{ module.aria_label|escape }}"
+      {% elif module.heading %}
+        aria-label="{{ module.heading|striptags|escape }}"
+      {% else %}
+        aria-label="Open"
+      {% endif %}
+      data-click-style="{{ module.click_style }}"
+    {% endif %}
+  >
+
+    {% if module.icon_type == 'icon' %}
+      <div class="fill-primary">
+        {% icon name="{{ module.icon.name }}" style="{{ module.icon.type }}" unicode="{{ module.icon.unicode }}" %}
+      </div>
+    {% else %}
+      {% if module.image.src %}
+        {% set sizeAttrs = 'width="{{ module.image.width }}" height="{{ module.image.height }}"' %}
+        {% if module.image.size_type == 'auto' %}
+          {% set sizeAttrs = 'style="max-width: 100%; height: auto;"' %}
+        {% elif module.image.size_type == 'auto_custom_max' %}
+          {% set sizeAttrs = 'width="100%" height="auto" style="max-width: {{ module.image.max_width }}px; max-height: {{ module.image.max_height }}px"' %}
+        {% endif %}
+        <img src="{{ module.image.src }}" alt="{{ module.image.alt }}" {{ sizeAttrs }}>
+      {% endif %}
+    {% endif %}
+
+    {% if module.heading %}
+      <h3 class="atmc-h4 mt-3">{{ module.heading }}</h3>
+    {% endif %}
+
+    {% if module.description %}
+      <p>{{ module.description }}</p>
+    {% endif %}
+
+  </{{ tag }}>
+</div>

@@ -1,0 +1,195 @@
+<!--
+  templateType: "none"
+  isAvailableForNewContent: false
+-->
+{# Convert an image field into an HTML image #}
+{% macro image_field(image, args = {}) %}
+  {% set options = {
+    class: '',
+    attrs: {},
+    splide: false,
+    loading: null,
+    width: null,
+    animation: null
+  } %}
+
+  {% do options.update(args) %}
+
+  {% if image.src %}
+    {% set width = image.width %}
+    {% set height = image.height %}
+
+    {% if options.width %}
+      {% set width = options.width %}
+      {% set height = (image.height / image.width) * options.width %}
+    {% endif %}
+
+    {% set animation = "animate animate--fade-"~options.animation if (options.animation && options.animation != 'none') %}
+
+    {% set src = resize_image_url(image.src, width|round) %}
+    <img {% if options.splide %}
+          data-splide-src="{{ src }}"
+          {% else %}
+            src="{{ src }}"
+          {% endif %}
+          alt="{{ image.alt }}"
+          width="{{ width|round }}"
+          height="{{ height|round }}"
+          class="{{ options.class }} {{ animation }}"
+          loading="{{ options.loading or image.loading|default('lazy') }}"
+          {{ options.attrs|xmlattr }}>
+  {% endif %}
+{% endmacro %}
+
+{# Convert a link field to an HTML link. #}
+{% macro link_field(link, text, class = "", attrs = {}) %}
+  <a href="{% if link.url.href %}{{ 'mailto:' if link.url.type == 'EMAIL_ADDRESS' }}{{ link.url.href }}{% else %}javascript:void(0){% endif %}"
+    {% if class %}class="{{ class }}"{% endif %}
+    {% if link.open_in_new_tab %}target="_blank"{% endif %}
+    {% if link.rel %}rel="{{ link.rel }}"{% endif %}
+    {{ attrs|xmlattr }}>{{ text }}</a>
+{% endmacro %}
+
+{# Convert a simple menu field into a link list. #}
+{% macro simple_menu_field(link_list, list_classes, link_classes) %}
+  <ul {% if list_classes %}class="{{ list_classes }}"{% endif %}>
+    {% for link in link_list %}
+      <li {% if link_classes %}class="{{ link_classes }}"{% endif %}>
+        {% if link.pageLinkId || link.linkUrl %}
+          {% if link.pageLinkId %}
+            {% set page = content_by_id(link.pageLinkId) %}
+
+            {% unless page %}
+              {% set page = blog_by_id(link.pageLinkId) %}
+            {% endunless %}
+
+            {% set href = page.absolute_url %}
+          {% else if link.linkUrl %}
+            {% set href = link.linkUrl %}
+          {% endif %}
+
+          {% if link.linkParams %}
+            {% set href = href~link.linkParams %}
+          {% endif %}
+
+          <a href="{{ href }}"
+            {% if link.linkTarget %}
+              target="{{ link.linkTarget }}"
+              rel="noopener"
+            {% endif %}
+          >
+            {{ link.linkLabel }}
+          </a>
+        {% else %}
+          {{ link.linkLabel }}
+        {% endif %}
+
+        {% if link.children %}
+          {{ simple_menu_field(link.children) }}
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+{% endmacro %}
+
+{# Convert a color field to RGBA #}
+{%- macro field_color(color) -%}
+  {%- if color.opacity == 100 -%}
+    {{ color.color }}
+  {%- elif color.color -%}
+    rgba({{ color.color|convert_rgb }}, {{ color.opacity / 100 }})
+  {%- endif -%}
+{%- endmacro -%}
+
+{# Convert an icon field to an HTML icon #}
+{% macro icon_field(icon) %}
+  {% icon
+    name="{{ icon.name }}"
+    style="{{ icon.type }}"
+    unicode="{{ icon.unicode }}"
+    icon_set="{{ icon.icon_set }}",
+    no_wrapper=true
+  %}
+{% endmacro %}
+
+{# Convert a drop shadow group of fields to a style element #}
+{% macro shadow(group, custom_var = "box-shadow") %}
+  {% if group.offset_x %}
+    --{{ custom_var }}-offset-x: {{ group.offset_x }}px;
+  {% endif %}
+  {% if group.offset_y %}
+    --{{ custom_var }}-offset-y: {{ group.offset_y }}px;
+  {% endif %}
+  {% if group.color.css %}
+    {% set primary_color = group.color.colors[0].color %}
+    --{{ custom_var }}-image: {{ group.color.css }};
+    --{{ custom_var }}-color: rgba({{ primary_color.r }}, {{ primary_color.g }}, {{ primary_color.b }}, {{ primary_color.a }});
+  {% endif %}
+{% endmacro %}
+
+{# Convert a border field and border radius field to style elements #}
+{% macro borders(group, variable, border_sides = [], radius = null, radius_variable = null) %}
+  {% if group.css && group.css is not string_containing "border: ;" %}
+    {% if variable %}
+      --{{ variable }}: {{ group.css|replace('border: ','') }};
+    {% else %}
+      {% for side in border_sides %}
+        {% if group[side].style %}
+          {{ side }}-style: {{ group.style }};
+        {% endif %}
+
+        {% if group[side].width %}
+          {{ side }}-width: {{ group.width }}px;
+        {% endif %}
+
+        {% if group[side].color.color %}
+          {{ side }}-color: {{ group.color.color }};
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+  {% endif %}
+
+  {% if radius && radius_variable %}
+    --{{ radius_variable }}: {{ radius }}px;
+  {% else if radius %}
+    border-radius: {{ radius }}px;
+  {% endif %}
+{% endmacro %}
+
+{# Convert a spacing field to style elements #}
+{% macro padding(group, slug) %}
+  {% set full = [] %}
+  {% for side in ['top', 'right', 'bottom', 'left'] %}
+    {% if group.padding[side].value && group.padding[side].value > 0 %}
+      --padding-{{ side }}-{{ slug }}: {{ group.padding[side].value + group.padding[side].units }};
+    {% endif %}
+    {% do full.append((group.padding[side].value or 0) ~ group.padding[side].units) %}
+  {% endfor %}
+  {% if full|count > 0 %}
+    --padding-{{ slug }}: {{ full|join(' ') }};
+  {% endif %}
+{% endmacro %}
+
+{# Convert a background fields to style elements #}
+{% macro background(group, type) %}
+  {% if group.bg_type %}
+    {% set type = group.bg_type %}
+  {% endif %}
+
+  {%- if type && type != 'none' -%}
+    {%- if type == 'color' && group.bg_color.color -%}
+      background-color: {{ field_color(group.bg_color) }};
+    {%- elif type == 'gradient' -%}
+      background-image: {{ group.bg_gradient.css }};
+    {%- elif type == 'image' -%}
+      {{ group.bg_image.css }}
+    {%- endif -%}
+  {%- endif -%}
+{% endmacro %}
+
+{# Convert field to style variable #}
+{% macro variable(render, style, variable) %}
+  {% if render %}
+    --{{ variable }}: {{ style }};
+  {% endif %}
+{% endmacro %}

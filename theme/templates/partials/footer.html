@@ -1,0 +1,22 @@
+<!--
+    templateType: global_partial
+    isAvailableForNewContent: false
+    label: Page footer
+-->
+
+
+  {% dnd_area 'footer-global' label='Header' %}
+    {% dnd_section vertical_alignment="MIDDLE" full_width=true,
+			padding={
+				"top": 0,
+				"bottom": 0,
+				"left": 0,
+				"right": 0
+			} 
+			%}
+			{% dnd_module "footer_flobal" 
+				path="../../global/Atomic - Footer"
+			%}
+			{% end_dnd_module %}
+    {% end_dnd_section %}
+  {% end_dnd_area %}

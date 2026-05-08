@@ -1,0 +1,23 @@
+{
+  "label" : "Atomic_Lite child",
+  "preview_path" : "./templates/pages/Home.html",
+  "screenshot_path" : "./images/template-previews/home.jpg",
+  "enable_domain_stylesheets" : false,
+  "is_available_for_new_content" : true,
+  "extends" : "@marketplace/GiantFocal/Atomic_Lite",
+  "responsive_breakpoints" : [ {
+    "mediaQuery" : "@media (max-width:767px)",
+    "messages" : { },
+    "name" : "mobile",
+    "previewWidth" : {
+      "units" : "px",
+      "value" : 520
+    }
+  } ],
+  "version" : "17",
+  "author" : {
+    "name" : "",
+    "email" : ""
+  },
+  "hide_all_default_modules" : false
+}

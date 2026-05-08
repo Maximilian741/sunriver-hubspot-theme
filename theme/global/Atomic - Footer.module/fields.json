@@ -1,0 +1,425 @@
+[ {
+  "id" : "520d93c9-3ac4-4314-7288-001f9f2c6abd",
+  "name" : "site_footer_background_image",
+  "label" : "Site Footer Background Image",
+  "required" : false,
+  "locked" : true,
+  "responsive" : true,
+  "resizable" : false,
+  "show_loading" : false,
+  "type" : "image",
+  "display_width" : null,
+  "default" : {
+    "size_type" : "auto",
+    "src" : "https://cdn2.hubspot.net/hubfs/2333817/GiantFocal_Marketplace/Atomic/images/atomic-footer-bg.jpg",
+    "alt" : "atomic-footer-bg",
+    "width" : 1980,
+    "height" : 1080,
+    "max_width" : 1980,
+    "max_height" : 1080
+  }
+}, {
+  "id" : "a03e7fbe-8ecc-85b1-6bcb-562f9677f6c8",
+  "name" : "enable_background_overlay",
+  "label" : "Enable Background Overlay",
+  "required" : false,
+  "locked" : true,
+  "display" : "checkbox",
+  "type" : "boolean",
+  "display_width" : null,
+  "default" : true
+}, {
+  "id" : "e5ff0eb5-63f3-46ea-3f5b-5d4a6ba3d651",
+  "name" : "site_footer_text_white",
+  "label" : "Site Footer Text White",
+  "required" : false,
+  "locked" : true,
+  "display" : "checkbox",
+  "type" : "boolean",
+  "display_width" : null,
+  "default" : true
+}, {
+  "id" : "2820984b-2e5e-53bc-e47c-d68591f0df77",
+  "name" : "site_footer_logo",
+  "label" : "Site Footer Logo",
+  "required" : false,
+  "locked" : true,
+  "responsive" : true,
+  "resizable" : true,
+  "show_loading" : false,
+  "type" : "image",
+  "display_width" : null,
+  "default" : {
+    "size_type" : "auto_custom_max",
+    "src" : "https://cdn2.hubspot.net/hubfs/2333817/GiantFocal_Marketplace/Atomic/logos/atomic-lite.svg",
+    "alt" : "atomic-lite",
+    "width" : 58,
+    "height" : 58,
+    "max_width" : 70,
+    "max_height" : 70
+  }
+}, {
+  "id" : "270cc267-0ada-61a1-b46c-c1c244838511",
+  "name" : "menu",
+  "label" : "Site Footer Menu",
+  "required" : false,
+  "locked" : true,
+  "type" : "simplemenu",
+  "display_width" : null,
+  "default" : [ {
+    "isPublished" : false,
+    "pageLinkId" : null,
+    "pageLinkName" : null,
+    "isDeleted" : null,
+    "categoryId" : null,
+    "subCategory" : null,
+    "contentType" : null,
+    "state" : null,
+    "linkLabel" : "About Us",
+    "linkUrl" : "#",
+    "linkParams" : null,
+    "linkTarget" : null,
+    "type" : "URL_LINK",
+    "children" : [ {
+      "isPublished" : false,
+      "pageLinkId" : null,
+      "pageLinkName" : null,
+      "isDeleted" : null,
+      "categoryId" : null,
+      "subCategory" : null,
+      "contentType" : null,
+      "state" : null,
+      "linkLabel" : "Our Vision & Mission",
+      "linkUrl" : "#",
+      "linkParams" : null,
+      "linkTarget" : null,
+      "type" : "URL_LINK",
+      "children" : [ ]
+    }, {
+      "isPublished" : false,
+      "pageLinkId" : null,
+      "pageLinkName" : null,
+      "isDeleted" : null,
+      "categoryId" : null,
+      "subCategory" : null,
+      "contentType" : null,
+      "state" : null,
+      "linkLabel" : "Our Team",
+      "linkUrl" : "#",
+      "linkParams" : null,
+      "linkTarget" : null,
+      "type" : "URL_LINK",
+      "children" : [ ]
+    }, {
+      "isPublished" : false,
+      "pageLinkId" : null,
+      "pageLinkName" : null,
+      "isDeleted" : null,
+      "categoryId" : null,
+      "subCategory" : null,
+      "contentType" : null,
+      "state" : null,
+      "linkLabel" : "Services",
+      "linkUrl" : "#",
+      "linkParams" : null,
+      "linkTarget" : null,
+      "type" : "URL_LINK",
+      "children" : [ ]
+    }, {
+      "isPublished" : false,
+      "pageLinkId" : null,
+      "pageLinkName" : null,
+      "isDeleted" : null,
+      "categoryId" : null,
+      "subCategory" : null,
+      "contentType" : null,
+      "state" : null,
+      "linkLabel" : "Products",
+      "linkUrl" : "#",
+      "linkParams" : null,
+      "linkTarget" : null,
+      "type" : "URL_LINK",
+      "children" : [ ]
+    } ]
+  }, {
+    "isPublished" : false,
+    "pageLinkId" : null,
+    "pageLinkName" : null,
+    "isDeleted" : null,
+    "categoryId" : null,
+    "subCategory" : null,
+    "contentType" : null,
+    "state" : null,
+    "linkLabel" : "Resources",
+    "linkUrl" : "#",
+    "linkParams" : null,
+    "linkTarget" : null,
+    "type" : "URL_LINK",
+    "children" : [ {
+      "isPublished" : false,
+      "pageLinkId" : null,
+      "pageLinkName" : null,
+      "isDeleted" : null,
+      "categoryId" : null,
+      "subCategory" : null,
+      "contentType" : null,
+      "state" : null,
+      "linkLabel" : "Blog",
+      "linkUrl" : "#",
+      "linkParams" : null,
+      "linkTarget" : null,
+      "type" : "URL_LINK",
+      "children" : [ ]
+    }, {
+      "isPublished" : false,
+      "pageLinkId" : null,
+      "pageLinkName" : null,
+      "isDeleted" : null,
+      "categoryId" : null,
+      "subCategory" : null,
+      "contentType" : null,
+      "state" : null,
+      "linkLabel" : "News",
+      "linkUrl" : "#",
+      "linkParams" : null,
+      "linkTarget" : null,
+      "type" : "URL_LINK",
+      "children" : [ ]
+    }, {
+      "isPublished" : false,
+      "pageLinkId" : null,
+      "pageLinkName" : null,
+      "isDeleted" : null,
+      "categoryId" : null,
+      "subCategory" : null,
+      "contentType" : null,
+      "state" : null,
+      "linkLabel" : "Ebooks",
+      "linkUrl" : "#",
+      "linkParams" : null,
+      "linkTarget" : null,
+      "type" : "URL_LINK",
+      "children" : [ ]
+    }, {
+      "isPublished" : false,
+      "pageLinkId" : null,
+      "pageLinkName" : null,
+      "isDeleted" : null,
+      "categoryId" : null,
+      "subCategory" : null,
+      "contentType" : null,
+      "state" : null,
+      "linkLabel" : "Videos",
+      "linkUrl" : "#",
+      "linkParams" : null,
+      "linkTarget" : null,
+      "type" : "URL_LINK",
+      "children" : [ ]
+    } ]
+  }, {
+    "isPublished" : false,
+    "pageLinkId" : null,
+    "pageLinkName" : null,
+    "isDeleted" : null,
+    "categoryId" : null,
+    "subCategory" : null,
+    "contentType" : null,
+    "state" : null,
+    "linkLabel" : "Contact Us",
+    "linkUrl" : "#",
+    "linkParams" : null,
+    "linkTarget" : null,
+    "type" : "URL_LINK",
+    "children" : [ {
+      "isPublished" : false,
+      "pageLinkId" : null,
+      "pageLinkName" : null,
+      "isDeleted" : null,
+      "categoryId" : null,
+      "subCategory" : null,
+      "contentType" : null,
+      "state" : null,
+      "linkLabel" : "Subscribe",
+      "linkUrl" : "#",
+      "linkParams" : null,
+      "linkTarget" : null,
+      "type" : "URL_LINK",
+      "children" : [ ]
+    }, {
+      "isPublished" : false,
+      "pageLinkId" : null,
+      "pageLinkName" : null,
+      "isDeleted" : null,
+      "categoryId" : null,
+      "subCategory" : null,
+      "contentType" : null,
+      "state" : null,
+      "linkLabel" : "Get a Quote",
+      "linkUrl" : "#",
+      "linkParams" : null,
+      "linkTarget" : null,
+      "type" : "URL_LINK",
+      "children" : [ ]
+    }, {
+      "isPublished" : false,
+      "pageLinkId" : null,
+      "pageLinkName" : null,
+      "isDeleted" : null,
+      "categoryId" : null,
+      "subCategory" : null,
+      "contentType" : null,
+      "state" : null,
+      "linkLabel" : "",
+      "linkUrl" : "#",
+      "linkParams" : null,
+      "linkTarget" : null,
+      "type" : "URL_LINK",
+      "children" : [ ]
+    } ]
+  } ]
+}, {
+  "id" : "f0f2ef2f-70d4-8460-7258-8c4f02dec2d9",
+  "name" : "social_link",
+  "label" : "Social link",
+  "required" : false,
+  "locked" : true,
+  "occurrence" : {
+    "min" : 1,
+    "max" : null,
+    "sorting_label_field" : "a8b775e4-d98e-737d-4042-27fd88b54b60",
+    "default" : 4
+  },
+  "children" : [ {
+    "id" : "01126609-5e16-3aa6-d591-cd74cc3df40f",
+    "name" : "link",
+    "label" : "Link",
+    "required" : false,
+    "locked" : false,
+    "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG" ],
+    "type" : "url",
+    "display_width" : null,
+    "default" : {
+      "type" : "EXTERNAL",
+      "href" : "https://www.giantfocal.com/",
+      "content_id" : null
+    }
+  }, {
+    "id" : "009a2f52-f626-ab33-0bc6-ecd2a39c0add",
+    "name" : "social_icon",
+    "label" : "Social Icon",
+    "required" : false,
+    "locked" : false,
+    "icon_set" : "fontawesome-5.0.10",
+    "type" : "icon",
+    "display_width" : null,
+    "default" : {
+      "name" : "facebook-f",
+      "unicode" : "f39e",
+      "type" : "REGULAR"
+    }
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : [ {
+    "link" : {
+      "type" : "EXTERNAL",
+      "href" : "https://www.giantfocal.com/",
+      "content_id" : null
+    },
+    "social_icon" : {
+      "name" : "facebook-f",
+      "unicode" : "f39e",
+      "type" : "REGULAR"
+    }
+  }, {
+    "link" : {
+      "type" : "EXTERNAL",
+      "href" : "https://www.giantfocal.com/",
+      "content_id" : null
+    },
+    "social_icon" : {
+      "name" : "facebook-f",
+      "unicode" : "f39e",
+      "type" : "REGULAR"
+    }
+  }, {
+    "link" : {
+      "type" : "EXTERNAL",
+      "href" : "https://www.giantfocal.com/",
+      "content_id" : null
+    },
+    "social_icon" : {
+      "name" : "facebook-f",
+      "unicode" : "f39e",
+      "type" : "REGULAR"
+    }
+  }, {
+    "link" : {
+      "type" : "EXTERNAL",
+      "href" : "https://www.giantfocal.com/",
+      "content_id" : null
+    },
+    "social_icon" : {
+      "name" : "facebook-f",
+      "unicode" : "f39e",
+      "type" : "REGULAR"
+    }
+  } ]
+}, {
+  "id" : "5aeec087-e425-22b7-a8ba-e73dbd18ac8d",
+  "name" : "footer_content",
+  "label" : "Footer Content",
+  "required" : false,
+  "locked" : true,
+  "type" : "richtext",
+  "display_width" : null,
+  "default" : "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ut lorem ornare, sodales nibh vel, condimentum velit. Etiam ac lorem auctor, laoreet enim ut, ornare lacus.</p>"
+}, {
+  "id" : "967b74af-7e69-5c6a-b09b-a37addf26572",
+  "name" : "styles",
+  "label" : "Styles",
+  "required" : false,
+  "locked" : true,
+  "children" : [ {
+    "id" : "f004d648-6fe0-373b-ec7a-1884ec64fed6",
+    "name" : "background_color",
+    "label" : "Site Footer Background Color",
+    "required" : false,
+    "locked" : false,
+    "aliases_mapping" : {
+      "property_aliases_paths" : {
+        "color" : [ "site_footer_background" ]
+      }
+    },
+    "show_opacity" : false,
+    "type" : "color",
+    "display_width" : null,
+    "default" : {
+      "color" : "#4a5278",
+      "opacity" : 100
+    }
+  } ],
+  "tab" : "STYLE",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : {
+    "background_color" : {
+      "color" : "#4a5278",
+      "opacity" : 100
+    }
+  }
+}, {
+  "id" : "68da97cf-3e88-f337-9406-68422344cd89",
+  "name" : "copyright_text",
+  "label" : "Copyright Text",
+  "required" : false,
+  "locked" : true,
+  "type" : "richtext",
+  "display_width" : null,
+  "default" : "© {{ year }} All rights reserved."
+} ]

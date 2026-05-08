@@ -1,0 +1,248 @@
+{% include './macros.css' %}
+{% include './fontawesome.css' %}
+
+:root {
+  --max-width: {{ theme.global.max_width }}px;
+  --vertical-spacing: {{ theme.global.spacing.vertical_spacing }}px;
+  --borders: {{ theme.global.borders.style.css|replace('border: ','') }};
+  --box-shadow: {{ box_shadow(theme.global.box_shadow) }};
+  --glow: {{ box_shadow(theme.global.glow) }};
+  --glow-color: {{ field_color(theme.global.glow.color) }};
+}
+
+:root,
+.module-wrapper--base {
+  /* Colors */
+  --background-color: {{ theme.global.colors.background_color.color }};
+  --accent-color: {{ theme.global.colors.accent.color }};
+  --accent-hover-color: {{ theme.global.colors.accent_hover.color }};
+  --text-color: {{ theme.global.colors.text.color }};
+  --medium-light-bg: {{ field_color(theme.global.colors.background_medium_light) }};
+  --light-bg: {{ field_color(theme.global.colors.background_light) }};
+
+  /* Typography */
+  --primary-font: {{ font_stack(theme.global.fonts.primary_font.font, theme.global.fonts.primary_font.fallback) }};
+  --secondary-font: {{ font_stack(theme.global.fonts.secondary_font.font, theme.global.fonts.secondary_font.fallback) }};
+
+  {% set t = theme.typography %}
+  {% set types = [
+      {"font": t.body_text, "slug": "base"},
+      {"font": t.heading_one, "slug": "h1"},
+      {"font": t.heading_two, "slug": "h2"},
+      {"font": t.heading_three, "slug": "h3"},
+      {"font": t.heading_four, "slug": "h4"},
+      {"font": t.heading_five, "slug": "h5"},
+      {"font": t.heading_six, "slug": "h6"},
+      {"font": t.cta_headline, "slug": "cta-headline"},
+      {"font": t.blockquote, "slug": "blockquote"},
+      {"font": t.eyebrow, "slug": "eyebrow"},
+      {"font": t.subheadline, "slug": "subheadline"}
+    ]
+  %}
+  {% for type in types %}
+    {{ typography(type.font, type.slug, false) }}
+    {{ typography(type.font, type.slug ~ '-light', true) }}
+  {% endfor %}
+
+  /* Links */
+  --links: {{ t.links.link_color.color }};
+  --links-hover: {{ t.links.link_hover_color.color }};
+  --links-light: {{ t.links.light_mode_link.color }};
+  --links-hover-light: {{ t.links.light_mode_link_hover.color }};
+
+  /* Buttons */
+  {{ typography(theme.global.buttons, "button", false) }}
+
+  --button-border-radius: {{ theme.global.buttons.corners }}px;
+  --button-border-width: {{ theme.global.buttons.border_width }}px;
+  --button-padding: {{ theme.global.buttons.vertical_padding }}px {{ theme.global.buttons.horizontal_padding }}px;
+  --header-button-padding: {{ (theme.global.buttons.vertical_padding - 5) if (theme.global.buttons.vertical_padding - 5) > 0 else theme.global.buttons.vertical_padding }}px {{ (theme.global.buttons.horizontal_padding - 10) if (theme.global.buttons.horizontal_padding - 10) > 10 else theme.global.buttons.horizontal_padding }}px;
+
+  {% set b = theme.buttons %}
+  {% set buttons = [
+      {"name": b.primary_colors, "slug": "primary"},
+      {"name": b.secondary_colors, "slug": "secondary"},
+      {"name": b.tertiary_colors, "slug": "tertiary"},
+      {"name": b.form, "slug": "form"},
+      {"name": b.simple_form, "slug": "simple-form"},
+      {"name": b.link_button, "slug": "text-link"},
+      {"name": theme.tabs.horizontal, "slug": "horizontal-tabs"}
+    ]
+  %}
+  {% for button in buttons %}
+    {{ button_colors(button.name, button.slug) }}
+  {% endfor %}
+
+   /** Icons **/
+  --icon-color: {{ theme.icons.color.color }};
+  --icon-hover-color: {{ theme.icons.hover_color.color }};
+  --icon-enclosed-radius: {{ theme.icons.enclosed.radius }}px;
+  --icon-enclosed-color: {{ theme.icons.enclosed.color.color }};
+  --icon-enclosed-hover-color: {{ theme.icons.enclosed.hover_color.color }};
+  --icon-enclosed-bg-color: {{ theme.icons.enclosed.bg_color.color }};
+  --icon-enclosed-bg-hover-color: {{ theme.icons.enclosed.bg_hover_color.color }};
+  --icon-enclosed-border: {{ theme.icons.enclosed.border.css }};
+  --icon-enclosed-border-hover-color: {{ theme.icons.enclosed.border_hover_color.color }};
+
+  /** Lists **/
+  --list-spacing: {{ theme.lists.vertical_spacing }}px;
+  --bullet-content: "{{ "\\"~theme.lists.bullet_type }}";
+  --bullet-color: {{ theme.lists.bullet_color.color }};
+
+  /** Forms **/
+  {% set f = theme.forms.fields %}
+  {% set forms = [
+      {"font": f.label_text, "slug": "labels"},
+      {"font": f.help_text, "slug": "help"},
+      {"font": f.input_text, "slug": "input"},
+      {"font": f.placeholders_text, "slug": "placeholders"},
+      {"font": f.choice.text, "slug": "choice"},
+      {"font": f.errors.text, "slug": "errors"},
+      {"font": f.gdpr.text, "slug": "gdpr"}
+    ]
+  %}
+
+  {% for text in forms %}
+    --{{ text.slug }}-font: {{ font_short(text.font, 1) }};
+    --{{ text.slug }}-color: {{ text.font.color }};
+  {% endfor %}
+
+  --field-bg: {{ field_color(theme.forms.fields.bg_color) }};
+  --field-radius: {{ theme.forms.fields.border.radius }}px;
+  --field-border: {{ theme.forms.fields.border.style.css|replace('border: ','') }};
+  --field-border-color: {{ theme.forms.fields.border.style.top.color }};
+  --field-focus: {{ theme.forms.fields.border.focus_color.color }};
+  --field-error: {{ theme.forms.fields.border.error_color.color }};
+
+  --input-height: {{ theme.forms.fields.input.height }}px;
+
+  --multi-height: {{ theme.forms.fields.multiline.height }}px;
+
+  --choice-height: {{ theme.forms.fields.choice.height }}px;
+  --choice-checked-bg: {{ theme.forms.fields.choice.bg_color_checked.color }};
+
+  --errors-bg: {{ field_color(theme.forms.fields.errors.bg_color) }};
+
+  --select-arrow: url({{ get_asset_url('../icons/select-arrow.svg') }});
+
+  /** Box In **/
+  --boxin-bg: {{ field_color(theme.forms.boxin.bg_color) }};
+  --boxin-border: {{ theme.forms.boxin.border.style.css|replace('border: ','') }};
+  --boxin-radius: {{ theme.forms.boxin.border.radius }}px;
+  --boxin-shadow-image: {{ gradient(theme.forms.boxin.shadow.color_1.color, theme.forms.boxin.shadow.color_2.color, 'to bottom') }};
+  --boxin-shadow-color: {{ theme.forms.boxin.shadow.color_1.color }};
+  --boxin-shadow-offset-x: {{ theme.forms.boxin.shadow.offset_x or 0 }}px;
+  --boxin-shadow-offset-y: {{ theme.forms.boxin.shadow.offset_y or 0 }}px;
+
+  {{ padding(theme.forms.boxin, "boxin") }}
+
+  /** Vertical Tabs */
+  --tab-vertical-accent-hover: {{ field_color(theme.tabs.vertical.hover_accent) }};
+  --tab-vertical-arrow: {{ field_color(theme.tabs.vertical.arrow) }};
+
+  /** Sliders **/
+  --arrows: {{ field_color(theme.sliders.arrow_color) }};
+  --arrows-hover: {{ field_color(theme.sliders.arrow_color_hover) }};
+  --pagination: {{ field_color(theme.sliders.pagination_color) }};
+  --pagination-active: {{ field_color(theme.sliders.pagination_color_active) }};
+
+  /** Header **/
+  --header-sticky: {{ "fixed" if theme.header.sticky else "relative" }};
+  --dropdown-background: {{ field_color(theme.header.child_menu_links.background_color) }};
+  --header-search-bg: {{ field_color(theme.header.search.background_color) }};
+  --header-search-text: {{ field_color(theme.header.search.text_color) }};
+
+  /** Menus **/
+  {{ typography(theme.header.menu_links, "menu-link", false) }}
+  {{ typography(theme.header.child_menu_links, "child-link", false) }}
+
+  /** Footer **/
+  --footer-links: {{ theme.footer.text.link_color.color }};
+  --footer-links-hover: {{ theme.footer.text.link_hover_color.color }};
+
+  {{ typography(theme.footer.text, "footer", false) }}
+  {{ typography(theme.footer.menu_links, "footer-menu", false) }}
+  {{ typography(theme.footer.child_menu_links, "footer-child", false) }}
+}
+
+/** Light Mode **/
+.module-wrapper--light {
+  /* Typography */
+  {% for type in types %}
+    {{ typography(type.font, type.slug, true) }}
+  {% endfor %}
+
+  /* Links */
+  --links: {{ t.links.light_mode_link.color }};
+  --links-hover: {{ t.links.light_mode_link_hover.color }};
+
+  /* Buttons */
+  {{ button_colors(theme.buttons.form_light, "form") }}
+  {{ button_colors(theme.buttons.simple_form_light, "simple-form") }}
+  {{ button_colors(theme.buttons.text_link_light, "text-link") }}
+
+  --button-text-link-text: {{ theme.buttons.link_button.light_text.color }};
+  --button-text-link-text-hover: {{ theme.buttons.link_button.light_text_hover.color }};
+  --button-text-link-underline: {{ theme.buttons.link_button.light_underline.color }};
+  --button-text-link-underline-hover: {{ theme.buttons.link_button.light_underline_hover.color }};
+
+  /** Icons **/
+  --icon-color: {{ theme.icons.light_mode.color.color }};
+  --icon-hover-color: {{ theme.icons.light_mode.hover_color.color }};
+  --icon-enclosed-color: {{ theme.icons.light_mode.enclosed.color.color }};
+  --icon-enclosed-hover-color: {{ theme.icons.light_mode.enclosed.hover_color.color }};
+  --icon-enclosed-bg-color: {{ theme.icons.light_mode.enclosed.bg_color.color }};
+  --icon-enclosed-bg-hover-color: {{ theme.icons.light_mode.enclosed.bg_hover_color.color }};
+  --icon-enclosed-border: {{ theme.icons.light_mode.enclosed.border.css }};
+  --icon-enclosed-border-hover-color: {{ theme.icons.light_mode.enclosed.border_hover_color.color }};
+
+  /** Lists **/
+  --bullet-color: {{ theme.lists.bullet_color_light.color }};
+
+  /** Forms **/
+  {% set fl = theme.forms.light_mode %}
+  {% set light_forms = [
+      {"font": fl.labels, "slug": "labels-color"},
+      {"font": fl.help, "slug": "help-color"},
+      {"font": fl.input, "slug": "input-color"},
+      {"font": fl.placeholders, "slug": "placeholders-color"},
+      {"font": fl.choice, "slug": "choice-color"},
+      {"font": fl.errors, "slug": "errors-color"},
+      {"font": fl.gdpr, "slug": "gdpr-color"},
+      {"font": fl.border_color, "slug": "field-border-color"},
+      {"font": fl.border_focus_color, "slug": "field-focus"},
+      {"font": fl.error_background_color, "slug": "errors-bg"},
+      {"font": fl.error_text_color, "slug": "errors-color"}
+    ]
+  %}
+
+  {% for color in light_forms %}
+    --{{ color.slug }}: {{ color.font.color }};
+  {% endfor %}
+
+  /** Vertical Tabs */
+  --tab-vertical-accent-hover: {{ field_color(theme.tabs.vertical.accent_hover_light) }};
+  --tab-vertical-arrow: {{ field_color(theme.tabs.vertical.arrow_light) }};
+
+  /** Sliders **/
+  --arrows: {{ field_color(theme.sliders.light_mode.arrow_color) }};
+  --arrows-hover: {{ field_color(theme.sliders.light_mode.arrow_color_hover) }};
+  --pagination: {{ field_color(theme.sliders.light_mode.pagination_color) }};
+  --pagination-active: {{ field_color(theme.sliders.light_mode.pagination_color_active) }};
+}
+
+/* Default Form Module */
+{% set default_form = theme.forms.default_form_module %}
+.widget-type-form {
+  background-color: {{ field_color(default_form.background_color) }};
+  {{ default_form.padding.css }}
+  {{ default_form.border.css }}
+}
+
+.widget-type-form .form-title {
+  color: {{ field_color(default_form.title_text) }};
+  background-color: {{ field_color(default_form.title_background) }};
+  {{ default_form.title_spacing.css }}
+}
+
+{% include './brightlane-style.css' %}

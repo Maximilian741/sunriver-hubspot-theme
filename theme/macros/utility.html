@@ -1,0 +1,9 @@
+<!--
+  templateType: "none"
+  isAvailableForNewContent: false
+-->
+{# Converts any string into a standardized "slug". Useful for element IDs! #}
+{% macro slug(str) %}{{ str|lower|trim|regex_replace('[^A-z0-9]', '-')|regex_replace('-+', '-') }}{% endmacro %}
+
+{# Run through array of classes and their dependent logic to add them to an element; array should be a set of objects containing "class" and "setting" #}
+{% macro set_classes(element_settings) %}{%- set element_classes = [] -%}{%- for element_setting in element_settings -%}{%- do element_classes.append(element_setting.class) if element_setting.setting -%}{%- endfor -%}{{ element_classes|join(" ") }}{% endmacro %}

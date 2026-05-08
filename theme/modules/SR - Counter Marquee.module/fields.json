@@ -1,0 +1,22 @@
+[ {
+  "id" : "3238cd95-e9c1-ffdf-1284-acab1d88d99b",
+  "name" : "style",
+  "label" : "Style",
+  "required" : false,
+  "locked" : false,
+  "children" : [ ],
+  "tab" : "STYLE",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : { }
+}, {
+  "id" : "dc03f1b3-9413-8c67-5b04-688c03182b7d",
+  "name" : "blog_field",
+  "label" : "Blog",
+  "required" : false,
+  "locked" : false,
+  "type" : "blog",
+  "display_width" : null
+} ]

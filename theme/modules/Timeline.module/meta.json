@@ -1,0 +1,17 @@
+{
+  "global" : false,
+  "content_types" : [ "LANDING_PAGE", "SITE_PAGE", "BLOG_LISTING", "BLOG_POST" ],
+  "host_template_types" : [ "PAGE", "BLOG_LISTING", "BLOG_POST" ],
+  "module_id" : 281561516787,
+  "js_assets" : [ {
+    "autoload" : true,
+    "path" : "../../../@marketplace/Lynton/Brightlane/assets/js/components/TabbedSection.js",
+    "name" : "TabbedSection.js"
+  }, {
+    "autoload" : true,
+    "path" : "../../../@marketplace/Lynton/Brightlane/assets/js/components/Accordion.js",
+    "name" : "Accordion.js"
+  } ],
+  "label" : "Timeline",
+  "is_available_for_new_content" : true
+}

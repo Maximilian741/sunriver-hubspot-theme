@@ -1,0 +1,92 @@
+{%- macro field_color(color) -%}
+  {%- if color.opacity == 100 or not (color.opacity is defined) -%}
+    {{ color.color }}
+  {%- else -%}
+    rgba({{ color.color|convert_rgb }}, {{ color.opacity / 100 }})
+  {%- endif -%}
+{%- endmacro -%}
+
+{%- macro font_stack(primary, type) -%}
+  {%- if type == 'serif' -%}
+    {{ primary|tojson }}, Georgia, Times, Times New Roman, serif
+  {%- else -%}
+    {{ primary|tojson }}, Helvetica Neue, Helvetica, Arial, sans-serif
+  {%- endif -%}
+{%- endmacro -%}
+
+{% macro font_short(group, line_height) %}
+  {% set style = "italic" if group.variant is containing ("Italic" || "italic") else "normal" %}
+  {% set weight = group.variant|replace('italic','')|replace('Italic','')|replace('Thin', 100)|replace('Extra Light', 200)|replace('Light', 300)|replace('Regular',400)|replace('regular',400)|replace('Medium', 500)|replace('Semi Bold', 600)|replace('Extra Bold', 800)|replace('Bold', 700)|replace('Black', 900) %}
+
+  {{ style
+    ~" "~weight
+    ~" "~group.size~"px"
+    ~"/"~line_height
+    ~" "~font_stack(group.font, group.fallback) }}
+{% endmacro %}
+
+{% macro typography(group, slug, light = false) %}
+{% if not light %}
+  --{{ slug }}-font: {{ font_short(group.text_font, group.line_height) }};
+  --{{ slug }}-size: {{ group.text_font.size }}px;
+  --{{ slug }}-line-height: {{ group.line_height }};
+  --{{ slug }}-mobile-size: {{ group.mobile if group.mobile else group.text_font.size }}px;
+  --{{ slug }}-mobile-line-height: {{ group.mobile_line_height if group.mobile_line_height else group.line_height }};
+  --{{ slug }}-letter-spacing: {{ group.letter_spacing }}em;
+  --{{ slug }}-transform: {{ "uppercase" if group.uppercase else "none" }};
+  --{{ slug }}-color: {{ theme.buttons.design.primary.text.color if group == theme.buttons.design else group.text_font.color }};
+  {% if group.hover_color.color %}
+    --{{ slug }}-hover: {{ group.hover_color.color }};
+  {% endif %}
+  {% if group.hover_font_weight %}
+    --{{ slug }}-hover-font-weight: {{ group.hover_font_weight }};
+  {% endif %}
+  {% if group.accent_color.color %}
+    --{{ slug }}-accent-color: {{ group.accent_color.color }};
+  {% endif %}
+  {% if group.homepage %}
+    --{{ slug }}-homepage-size: {{ group.homepage }}px;
+  {% endif %}
+  {% if group.homepage_line_height %}
+    --{{ slug }}-homepage-line-height: {{ group.homepage_line_height }};
+  {% endif %}
+{% else %}
+  --{{ slug }}-color: {{ group.light_mode.color }};
+  {% if group.light_accent_color.color %}
+    --{{ slug }}-accent-color: {{ group.light_accent_color.color }};
+  {% endif %}
+{% endif %}
+{% endmacro %}
+
+{% macro gradient(color_1, color_2, angle = '140deg') %}
+  {% if color_1 == color_2 %}none{% else %}linear-gradient({{ angle }}, {{ color_1 }}, {{ color_2 }}){% endif %}
+{% endmacro %}
+
+{% macro button_colors(group, slug) %}
+  --button-{{ slug }}-text: {{ group.text.color }};
+  --button-{{ slug }}-text-hover: {{ group.text_hover.color }};
+  --button-{{ slug }}-bg-image: {{ gradient(field_color(group.background_1), field_color(group.background_2)) }};
+  --button-{{ slug }}-bg-image-hover: {{ gradient(field_color(group.background_hover_1), field_color(group.background_hover_2)) }};
+  --button-{{ slug }}-bg: {{ field_color(group.background_1) }};
+  --button-{{ slug }}-bg-hover: {{ field_color(group.background_hover_1) }};
+  --button-{{ slug }}-border: {{ field_color(group.border) or 'transparent' }};
+  --button-{{ slug }}-border-hover: {{ field_color(group.border_hover) or 'transparent' }};
+  --button-{{ slug }}-transform: {{ "uppercase" if group.uppercase else "none" }};
+  {% if group.underline.color %}
+    --button-{{ slug }}-underline: {{ field_color(group.underline) }};
+  {% endif %}
+  {% if group.underline_hover.color %}
+    --button-{{ slug }}-underline: {{ field_color(group.underline_hover) }};
+  {% endif %}
+  --button-{{ slug }}-glow-hover: {{ 'var(--glow)' if group.glow_hover }};
+{% endmacro %}
+
+{% macro box_shadow(group) %}
+  {{ group.offset_x or 0 }}px {{ group.offset_y or 0 }}px {{ group.blur_radius }}px {{ group.spread_radius or 0 }}px {{ field_color(group.color) }}
+{% endmacro %}
+
+{% macro padding(group, slug) %}
+  {% for side in ['top', 'right', 'bottom', 'left'] %}
+    --padding-{{ side }}-{{ slug }}: {{ group.spacing.padding[side].value + group.spacing.padding[side].units }};
+  {% endfor %}
+{% endmacro %}

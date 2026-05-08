@@ -1,0 +1,81 @@
+<!--
+    templateType: none
+    isAvailableForNewContent: false
+-->
+
+<!doctype html>
+<html lang="{{ html_lang }}" {{ html_lang_dir }}>
+  <head>
+    <meta charset="utf-8">
+    <title>{{ page_meta.html_title }}</title>
+    {% if site_settings.favicon_src %}<link rel="shortcut icon" href="{{ site_settings.favicon_src }}" />{% endif %}
+    <meta name="description" content="{{ page_meta.meta_description }}">
+    {{ require_css(get_asset_url("../../css/main.css")) }}
+		
+    {{ require_js(get_asset_url("../../child.js")) }}
+{{ standard_header_includes }}
+{{ require_css(get_public_template_url("../../child.css")) }}
+  </head>
+	
+	{# --------- Header + Footer options -------- #}
+	{# Header #}
+	{% choice "header" label='Header Option', value='Default', choices='Default, Landing', required=True, export_to_template_context=True %}
+	
+	{% set header_class = widget_data.header.value|lower %}
+	
+	{% if header_class == 'landing' %}
+	  {% set header_class = 'default' %}
+	{% endif %}
+	
+	{# Footer #}
+	{% choice "footer" label='Footer Option', value='Default', choices='Default, Landing', required=True, export_to_template_context=True %}
+	
+	{# --------- END Header + Footer options -------- #}
+		
+  <body class="{% if header_class %}atmc-body-header-{{ header_class }}{% else %}atmc-body-header-default{% endif %}">
+    <div class="body-wrapper {{ builtin_body_classes }}">
+		
+			{% global_partial path="../partials/header.html" %}
+			
+			{% set placeholder = {
+					'src': 'https://cdn2.hubspot.net/hubfs/2333817/GiantFocal_Marketplace/Atomic/images/atomic-img-02.jpg',
+					'alt': 'Atomic',
+					'size_type': 'auto'
+				}
+			%}
+
+			<div id="main-content">
+      {% block body %}
+        <!-- Nothing to see here -->
+      {% endblock body %}
+			</div>
+			
+      {% global_partial path="../partials/footer.html" %}
+    </div>
+    
+		{# Import #}
+		
+		{{ require_css('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css') }}
+		{{ require_css('https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css') }}
+		{{ require_css('https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css') }}
+		{{ require_css('https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css') }}
+		{{ require_css('https://cdnjs.cloudflare.com/ajax/libs/hamburgers/1.1.3/hamburgers.min.css') }}
+		{{ require_css('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.0/animate.min.css') }}
+		
+		{% if not site_settings.include_jquery %}
+			{{ require_js("https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js") }}
+			{{ require_js("https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.3.1/jquery-migrate.min.js") }}
+		{% endif %}
+    {{ require_js('https://cdnjs.cloudflare.com/ajax/libs/jquery.matchHeight/0.7.2/jquery.matchHeight-min.js') }}
+		{{ require_js('https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js') }}
+    {{ require_js('https://unpkg.com/scrollreveal') }}
+		{{ require_js('https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js') }}
+		{{ require_js('https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js') }}
+		
+		{# END Import #}
+		
+    {{ require_js(get_asset_url("../../js/main.js")) }}
+
+    {{ standard_footer_includes }}
+  </body>
+</html>

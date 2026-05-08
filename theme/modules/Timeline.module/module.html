@@ -1,0 +1,91 @@
+{% import '../../macros/components.html' as components %}
+{% import '../../macros/modules.html' as modules %}
+{% import '../../macros/fields.html' as fields %}
+
+{% macro tab_id(loop) %}{{ name }}-{{ loop.index }}{% endmacro %}
+
+{%- call components.styles([
+  module.styles.events.background_color.color,
+  module.styles.events.line_color.color,
+  module.styles.events.radius,
+  module.styles.events.border.css,
+  module.styles.events.dot_color.color,
+  module.styles.events.add_glow_on_active_events
+]) -%}
+  .timeline {
+    {{ fields.variable(module.styles.events.background_color.color, fields.field_color(module.styles.events.background_color), 'event-color') }}
+    {{ fields.variable(module.styles.events.line_color.color, fields.field_color(module.styles.events.line_color), 'line-color') }}
+    {{ fields.variable(module.styles.events.dot_color.color, fields.field_color(module.styles.events.dot_color), 'dot-color') }}
+    {{ fields.variable(module.styles.events.radius, module.styles.events.radius ~ "px", "event-radius") }}
+    {{ fields.variable(module.styles.events.border.css, module.styles.events.border.css|replace('border:', '')|replace(';', ''), "event-border") }}
+    {% if module.styles.events.border.css %}
+      --event-border-width: {% if module.styles.events.border.top.style == "none" %}0px{% else %}{{ module.styles.events.border.top.width.value }}{{ module.styles.events.border.top.width.units }}{% endif %};
+    {% endif %}
+  }
+
+  {% if module.styles.events.add_glow_on_active_events %}
+    .timeline-event:hover,
+    .timeline-event.active {
+      box-shadow: var(--glow);
+      border-color: var(--glow-color);
+    }
+  {% endif %}
+{%- endcall -%}
+
+{% call modules.module_wrapper(module, 'timeline-wrapper') %}
+  {{ modules.theme_text(module.heading, module.styles.heading, "heading") }}
+
+  <div class="tabs tabs--timline tabs--horizontal" data-direction="horizontal">
+    {% if module.tabs|count > 1 %}
+      <ul class="tabs__navigation tabs__navigation--horizontal" role="tablist">
+        {% for tab in module.tabs %}
+          <li role="tab" aria-controls="{{ tab_id(loop) }}" aria-selected="false" tabindex="0" class="tabs__navigation-item button button--horizontal-tabs">
+            {{ tab.title }}
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+
+    {% for tab in module.tabs %}
+      <section class="tabs__body" id="{{ tab_id(loop) }}" role="tabpanel" tabindex="0" aria-label="Tab {{ loop.index }} of {{ module.tabs|count }}">
+        <div class="tabs__body-content">
+          <ol class="timeline" style="--items: {{ tab.events|count }};">
+            {% for event in tab.events %}
+              <li class="timeline-event {{ 'module-wrapper--light' if module.styles.events.light_mode else 'module-wrapper--base' }}" style="--index: {{ loop.index0 }};">
+                {% set summary %}
+                  <div class="timeline-event__summary">
+                    {{ components.eyebrow(event.eyebrow) }}
+                    <{{ module.event_heading_level }} class="h5">{{ event.event_title }}</{{ module.event_heading_level }}>
+                    {{ event.preview_text }}
+                  </div>
+                {% endset %}
+                {% set details %}
+                  <div class="timeline-event__details">
+                    {{ event.details_text }}
+                    {{ modules.ctas(event) }}
+                  </div>
+                {% endset %}
+                {% if event.hide_details and (event.add_cta or event.details_text) %}
+                  <details>
+                    <summary>
+                      {{ summary }}
+                    </summary>
+
+                    <div class="accordion-content">
+                      {{ details }}
+                    </div>
+                  </details>
+                {% else %}
+                  {{ summary }}
+                  {{ details }}
+                {% endif %}
+              </li>
+            {% endfor %}
+          </ol>
+        </div>
+      </section>
+    {% endfor %}
+  </div>
+
+  {{ modules.ctas(module) }}
+{% endcall %}

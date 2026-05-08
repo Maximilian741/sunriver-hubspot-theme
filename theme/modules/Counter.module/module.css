@@ -1,0 +1,61 @@
+.atmc-counter_number{
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+/* keep your breathing room */
+.atmc-counter {
+  padding-bottom: 6rem;
+}
+
+/* card */
+.atmc-counter-03 {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 1.75rem 2rem;
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.18),
+    0 4px 10px rgba(0, 0, 0, 0.12);
+  backdrop-filter: saturate(120%) blur(2px);
+}
+
+.atmc-counter-03_icon svg { fill: currentColor; }
+
+.atmc-counter-03_number {
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+
+.atmc-counter-03_content label { opacity: 0.9; }
+
+/* ============================
+   Slider (scroll-snap)
+   Works when multiple counters share class: sr-mission-counters
+   ============================ */
+
+.sr-mission-counters{
+  flex: 0 0 auto !important;
+  width: clamp(300px, 33vw, 420px);
+  scroll-snap-align: start;
+}
+
+/* this class is added by JS to the correct parent wrapper */
+.sr-counter-slider-parent{
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  gap: 22px;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+
+  padding-bottom: 1rem;
+
+  mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+}
+
+.sr-counter-slider-parent::-webkit-scrollbar{ display:none; }
+.sr-counter-slider-parent{ scrollbar-width:none; }

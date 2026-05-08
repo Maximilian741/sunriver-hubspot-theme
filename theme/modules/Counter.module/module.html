@@ -1,0 +1,62 @@
+<div class="atmc-counter">
+  <div id="{{ name }}" class="atmc-counter-03 {% if !module.enable_style_tab and module.text_white %}text-white{% endif %} {% if module.enable_style_tab and module.styles.shadow.shadow %}shadow-md{% endif %} {% if module.enable_animation %}sr-invisible {{ module.animation }}{% endif %} {{ module.custom_class }}">
+    <div class="atmc-counter-03_inner flex items-start">
+      {% if module.icon.unicode %}
+        <div class="atmc-counter-03_icon atmc-icon-primary mr-4 mt-1 w-8">
+          {% icon name="{{ module.icon.name }}" style="{{ module.icon.type }}" unicode="{{ module.icon.unicode }}", no_wrapper=true %}
+        </div>
+      {% endif %}
+      <div class="atmc-counter-03_content">
+        <div class="flex items-end">
+          <div id="{{ name }}_counter" class="atmc-counter_number atmc-counter-03_number atmc-h2" data-count="{{ module.number }}">
+            0
+          </div>
+          {% if module.description %}
+            <div class="ml-2">{{ module.description }}</div>
+          {% endif %}
+        </div>
+        {% if module.content %}
+          <label class="block mt-2">{{ module.content }}</label>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% if module.enable_style_tab %}
+  {% require_css %}
+  <style>
+    {% scope_css %}
+      .atmc-counter {
+        {% if module.styles.background.background_option == 'solid' %}
+          background-color: {{ module.styles.background.bg_color.color }};
+        {% elif module.styles.background.background_option == 'image' %}
+          {{ module.styles.background.bg_image.css }}
+        {% endif %}
+        {% if module.styles.border.enable_border %}{{ module.styles.border.border.css }}{% endif %}
+        {{ module.styles.spacing.spacing.css }}
+        {{ module.styles.typography.text_alignment.css }}
+      }
+
+      {% if module.styles.typography.customize_heading_color %}
+      .atmc-counter h1,
+      .atmc-counter h2,
+      .atmc-counter h3,
+      .atmc-counter h4,
+      .atmc-counter h5,
+      .atmc-counter h6 {
+        color: {{ module.styles.typography.heading_color.color }};
+        opacity: {{ module.styles.typography.heading_color.opacity /100 }};
+      }
+      {% endif %}
+
+      {% if module.styles.typography.customize_text_color %}
+      .atmc-counter *:not(a):not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
+        color: {{ module.styles.typography.text_color.color }};
+        opacity: {{ module.styles.typography.text_color.opacity /100 }};
+      }
+      {% endif %}
+    {% end_scope_css %}
+  </style>
+  {% end_require_css %}
+{% endif %}

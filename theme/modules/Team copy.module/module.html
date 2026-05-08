@@ -1,0 +1,67 @@
+<div id="{{ module.custom_id }}" class="atmc-team-01 {% if module.layout == 'grid' %}atmc-grid atmc-grid-{{ module.items_per_row }}col{% else %}atmc-slider{% endif %} {% if !module.enable_style_tab %}text-{{ module.alignment }}{% endif %} {% if !module.enable_style_tab and module.text_white %}text-white{% endif %} {% if module.layout == 'slider' %}{% if module.enable_animation %}sr-invisible {{ module.animation }}{% endif %}{% endif %} {{ name }} {% if module.enable_style_tab and module.styles.shadow.shadow %}shadow-md{% endif %} {{ module.custom_class }}"
+		{% if module.layout == 'slider' %}
+			data-slider-item="{{ module.items_per_row }}" 
+			data-slider-arrows="{% if module.slider_settings.arrows %}true{% else %}false{% endif %}"
+			data-slider-dots="{% if module.slider_settings.dots %}true{% else %}false{% endif %}"
+			data-slider-autoplay="{% if module.slider_settings.autoplay %}true{% else %}false{% endif %}"
+			data-slider-autoplayspeed="{{ module.slider_settings.autoplay_speed }}"
+			data-slider-infinite="{% if module.slider_settings.infinite %}true{% else %}false{% endif %}"
+		{% endif %}>
+		{% for item in module.team_repeater %}
+			<div class="atmc-team-01_item atmc-grid-col {% if module.layout != 'slider' %}{% if module.enable_animation %}sr-invisible {{ module.animation }}{% endif %}{% endif %}">
+				{% if item.portrait.src %}
+					<div class="atmc-team-01_img" style="background-image:url('{{ item.portrait.src }}');"></div>
+				{% endif %}
+				<h4>{{ item.person_name }}</h4>
+				{% if item.job_title %}
+					<p class="atmc-cap">{{ item.job_title }}</p>
+				{% endif %}
+				{% if item.bio %}<p class="atmc-team-01_bio">{{ item.bio }}</p>{% endif %}
+				{% if item.social_links %}
+					<div class="inline-flex">
+						{% for item2 in item.social_links %}
+							<a class="atmc-social atmc-social-01 atmc-hover-translateY" href="{{ item2.url.href }}" target="_blank">
+								{% icon name="{{ item2.icon.name }}" style="{{ item2.icon.type }}" unicode="{{ item2.icon.unicode }}", no_wrapper=true %}
+							</a>
+						{% endfor %}
+					</div>
+				{% endif %}
+			</div>
+		{% endfor %}
+</div> 
+
+{% if module.enable_style_tab %}
+	{% require_css %}
+	<style>
+		{% scope_css %}
+			.atmc-team-01 {
+				{% if module.styles.background.background_option == 'solid' %}
+				background-color: {{ module.styles.background.bg_color.color }};
+				{% elif module.styles.background.background_option == 'image' %}
+				{{ module.styles.background.bg_image.css }}
+				{% endif %}
+				{% if module.styles.border.enable_border %}{{ module.styles.border.border.css }}{% endif %}
+				{{ module.styles.spacing.spacing.css }}
+				{{ module.styles.typography.text_alignment.css }}
+			}
+			{% if module.styles.typography.customize_heading_color %}
+			.atmc-team-01 h1,
+			.atmc-team-01 h2,
+			.atmc-team-01 h3,
+			.atmc-team-01 h4,
+			.atmc-team-01 h5,
+			.atmc-team-01 h6 {
+				color: {{ module.styles.typography.heading_color.color }};
+				opacity: {{ module.styles.typography.heading_color.opacity /100 }};
+			}
+			{% endif %}
+			{% if module.styles.typography.customize_text_color %}
+			.atmc-team-01 *:not(a):not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
+				color: {{ module.styles.typography.text_color.color }};
+				opacity: {{ module.styles.typography.text_color.opacity /100 }};
+			}
+			{% endif %}
+		{% end_scope_css %}
+	</style>
+	{% end_require_css %} 
+{% endif %}

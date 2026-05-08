@@ -1,0 +1,242 @@
+/* === SunRiver Pine Growth (WORKING / self-contained) === */
+:root{
+  --sr-green:#21c700;
+  --sr-teal:#06e0ad;
+  --sr-gold:#f1c233;
+  --sr-ink:#06130d;
+  --sr-shadow:rgba(0,0,0,.35);
+}
+
+/* Container: makes it tall like the white cards */
+.sr-pine-wrap{
+  width: min(360px, 100%);
+  height: min(640px, 72vh);        /* <- makes it big */
+  margin: 24px auto 0 auto;        /* centered */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sr-pine{
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  filter: drop-shadow(0 12px 26px var(--sr-shadow));
+}
+
+/* Always show something even before animation */
+.sr-pine__ground{
+  fill: none;
+  stroke: rgba(0,0,0,.35);
+  stroke-width: 3.5;
+  stroke-linecap: round;
+  opacity: .75;
+}
+
+.sr-pine__sprout,
+.sr-pine__tree,
+.sr-pine__nodes{
+  opacity: 1;
+}
+
+/* ===== Branch styling (THIS is what makes “lines” appear) ===== */
+.sr-pine__branch{
+  fill: none;
+  stroke: url(#srPineBranchGrad);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+
+  /* default visible */
+  stroke-width: 3.2;
+  opacity: 0.95;
+}
+
+/* taper by tier */
+.sr-pine__trunk{ stroke-width: 5; }
+.sr-pine__tier1{ stroke-width: 3.6; }
+.sr-pine__tier2{ stroke-width: 3.3; }
+.sr-pine__tier3{ stroke-width: 3.1; }
+.sr-pine__tier4{ stroke-width: 2.9; opacity:.93; }
+.sr-pine__tier5{ stroke-width: 2.7; opacity:.9;  }
+.sr-pine__tier6{ stroke-width: 2.5; opacity:.88; }
+.sr-pine__crown{ stroke-width: 2.3; opacity:.86; }
+
+/* Nodes */
+.sr-pine__node{
+  fill: var(--sr-ink);
+  stroke: var(--sr-teal);
+  stroke-width: 2.2;
+  vector-effect: non-scaling-stroke;
+  opacity: .95;
+}
+
+.sr-pine__node--tip{
+  fill: var(--sr-teal);
+  stroke: var(--sr-gold);
+  stroke-width: 2.6;
+}
+
+.sr-pine__halo{
+  opacity: .95;
+}
+
+/* Seed visuals */
+.sr-pine__seed-core{
+  fill: var(--sr-gold);
+  stroke: rgba(0,0,0,.35);
+  stroke-width: 1.6;
+}
+.sr-pine__seed-ring{
+  fill: none;
+  stroke: rgba(241,194,51,.55);
+  stroke-width: 2;
+}
+
+/* Sprout */
+.sr-pine__sprout-stem{
+  fill: none;
+  stroke: var(--sr-teal);
+  stroke-width: 3.2;
+  stroke-linecap: round;
+}
+.sr-pine__sprout-leaf{
+  fill: none;
+  stroke: var(--sr-green);
+  stroke-width: 3;
+  stroke-linecap: round;
+  opacity: .9;
+}
+
+/* ===== Animation gate (only runs when JS adds .sr-pine--inview) ===== */
+.sr-pine-wrap:not(.sr-pine--inview) .sr-pine__seed,
+.sr-pine-wrap:not(.sr-pine--inview) .sr-pine__sprout{
+  opacity: 0;
+}
+
+/* draw animation uses dash */
+.sr-pine-wrap:not(.sr-pine--inview) .sr-pine__branch{
+  stroke-dasharray: 220;
+  stroke-dashoffset: 220;
+}
+
+.sr-pine-wrap:not(.sr-pine--inview) .sr-pine__node{
+  opacity: 0;
+  transform-origin: center;
+  transform: scale(.6);
+}
+
+/* When in view: run the sequence */
+.sr-pine-wrap.sr-pine--inview .sr-pine__seed{
+  opacity: 1;
+  animation: srSeedDrop 1.0s ease-out forwards;
+  transform-origin: center;
+}
+
+.sr-pine-wrap.sr-pine--inview .sr-pine__sprout{
+  opacity: 1;
+  animation: srSproutIn .55s ease-out forwards;
+  animation-delay: 0.95s;
+  transform-origin: center;
+}
+
+/* draw branches */
+.sr-pine-wrap.sr-pine--inview .sr-pine__branch{
+  animation: srDraw 1.25s ease-out forwards;
+}
+
+/* stagger tiers (this is what makes it feel like it grows upward) */
+.sr-pine-wrap.sr-pine--inview .sr-pine__trunk{  animation-delay: 1.05s; }
+.sr-pine-wrap.sr-pine--inview .sr-pine__tier1{  animation-delay: 1.25s; }
+.sr-pine-wrap.sr-pine--inview .sr-pine__tier2{  animation-delay: 1.45s; }
+.sr-pine-wrap.sr-pine--inview .sr-pine__tier3{  animation-delay: 1.65s; }
+.sr-pine-wrap.sr-pine--inview .sr-pine__tier4{  animation-delay: 1.85s; }
+.sr-pine-wrap.sr-pine--inview .sr-pine__tier5{  animation-delay: 2.05s; }
+.sr-pine-wrap.sr-pine--inview .sr-pine__tier6{  animation-delay: 2.25s; }
+.sr-pine-wrap.sr-pine--inview .sr-pine__crown{  animation-delay: 2.45s; }
+
+/* nodes pop after the drawing */
+.sr-pine-wrap.sr-pine--inview .sr-pine__node{
+  animation: srNodePop .42s ease-out forwards;
+  animation-delay: 2.6s;
+}
+.sr-pine-wrap.sr-pine--inview .sr-pine__node--tip{
+  animation: srNodePop .42s ease-out forwards, srTipPulse 2.8s ease-in-out 3.0s infinite;
+}
+
+/* subtle whole-tree “breathing” once done */
+.sr-pine-wrap.sr-pine--inview .sr-pine{
+  animation: srBreathe 10s ease-in-out 3.2s infinite;
+}
+
+/* Keyframes */
+@keyframes srDraw{
+  to{ stroke-dashoffset: 0; }
+}
+
+@keyframes srNodePop{
+  0%{ opacity:0; transform: scale(.6); }
+  70%{ opacity:1; transform: scale(1.12); }
+  100%{ opacity:.95; transform: scale(1); }
+}
+
+@keyframes srSeedDrop{
+  0%{ transform: translateY(0); opacity:1; }
+  85%{ transform: translateY(485px); opacity:1; }
+  100%{ transform: translateY(485px); opacity:0; }
+}
+
+@keyframes srSproutIn{
+  0%{ transform: translateY(12px) scale(.85); opacity:0; }
+  100%{ transform: translateY(0) scale(1); opacity:1; }
+}
+
+@keyframes srTipPulse{
+  0%{ stroke-width:2.6; opacity:1; }
+  50%{ stroke-width:3.3; opacity:.9; }
+  100%{ stroke-width:2.6; opacity:1; }
+}
+
+@keyframes srBreathe{
+  0%{ transform: scale(1); }
+  50%{ transform: scale(1.02); }
+  100%{ transform: scale(1); }
+}
+
+/* Mobile */
+@media (max-width: 640px){
+  .sr-pine-wrap{
+    width: min(300px, 100%);
+    height: min(520px, 62vh);
+    margin-top: 18px;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .sr-pine-wrap .sr-pine,
+  .sr-pine-wrap .sr-pine__branch,
+  .sr-pine-wrap .sr-pine__node,
+  .sr-pine-wrap .sr-pine__seed,
+  .sr-pine-wrap .sr-pine__sprout{
+    animation: none !important;
+  }
+  .sr-pine__seed{ display:none; }
+  .sr-pine__branch{ stroke-dashoffset: 0 !important; }
+  .sr-pine__node{ opacity: .95 !important; transform: none !important; }
+}
+
+/* === FORCE TREE LINES TO RENDER (debug + fix) === */
+.sr-pine__branch,
+.sr-tree-branch,
+.sr-tech-tree__branch,
+.sr-growth-tree__stem {
+  stroke: #06e0ad !important;   /* force visible teal */
+  fill: none !important;
+  opacity: 1 !important;
+  stroke-width: 3.2 !important;
+  stroke-linecap: round !important;
+  stroke-linejoin: round !important;
+  stroke-dasharray: none !important;
+  stroke-dashoffset: 0 !important;
+}

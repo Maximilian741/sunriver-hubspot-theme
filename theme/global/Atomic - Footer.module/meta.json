@@ -1,0 +1,10 @@
+{
+  "global" : true,
+  "content_types" : [ "LANDING_PAGE", "SITE_PAGE", "BLOG_LISTING", "BLOG_POST" ],
+  "smart_type" : "NOT_SMART",
+  "host_template_types" : [ "PAGE", "BLOG_POST", "BLOG_LISTING" ],
+  "module_id" : 271152514791,
+  "label" : "Atomic - Footer",
+  "icon" : "https://cdn2.hubspot.net/hubfs/2333817/GiantFocal_Marketplace/Atomic/icons/footer.svg",
+  "is_available_for_new_content" : true
+}

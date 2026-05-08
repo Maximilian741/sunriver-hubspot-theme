@@ -1,0 +1,17 @@
+[ {
+  "id" : "b925d320-46bb-7069-951a-408325fa5fa6",
+  "name" : "icon_field",
+  "label" : "Icon",
+  "required" : false,
+  "locked" : false,
+  "occurrence" : {
+    "min" : 3,
+    "max" : 8,
+    "sorting_label_field" : null,
+    "default" : 3
+  },
+  "icon_set" : "fontawesome-5.14.0",
+  "type" : "icon",
+  "display_width" : null,
+  "default" : [ { }, { }, { } ]
+} ]

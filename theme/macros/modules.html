@@ -1,0 +1,702 @@
+<!--
+  templateType: "none"
+  isAvailableForNewContent: false
+-->
+{% import './utility.html' as utility %}
+{% import './fields.html' as fields %}
+{% import './components.html' as components %}
+
+{# This macro adds the standard module wrapper.
+  --Use style fields from src/json-styles/module.json
+#}
+
+{% macro module_wrapper(group, additional_classes) %}
+  {% set styles = module.styles.module %}
+
+  {# --- Set background and padding on the module --- #}
+  {%- call components.styles([
+    (styles.background_base.css),
+    (styles.background.bg_type && styles.background.bg_type != 'none'),
+    (styles.mobile_background.bg_type && styles.mobile_background.bg_type != 'none'),
+    (styles.padding.desktop.css && styles.padding.desktop.css is not string_containing "padding: 0px"),
+    (styles.padding.mobile.css && styles.padding.mobile.css is not string_containing "padding: 0px"),
+    (styles.border.style.css && styles.border.style.css is not string_containing "border: ;"),
+    (styles.border.radius)])
+  -%}
+    .module-wrapper {
+      {{ fields.padding(styles.padding.desktop, "desktop") }}
+      {{ fields.padding(styles.padding.mobile, "mobile") }}
+      {{ styles.background_base.css }}
+    }
+
+    .module-wrapper__background {
+      {{ fields.background(styles.background) }}
+      {{ styles.border.style.css }}
+      {{ "border-radius:"~styles.border.radius~"px;" if styles.border.radius > 0 }}
+    }
+
+    {% if styles.mobile_background.bg_type == "none" && styles.background.bg_type != "none" %}
+      @media (max-width: 768px) {
+        .module-wrapper__background {
+          background-image: none;
+          background-color: transparent;
+        }
+      }
+    {% elif styles.mobile_background.bg_type && styles.mobile_background.bg_type != 'desktop' %}
+      @media (max-width: 768px) {
+        .module-wrapper__background {
+          {{ fields.background(styles.mobile_background) }}
+        }
+      }
+    {%- endif -%}
+  {%- endcall -%}
+
+  {# --- Frequently Used Settings --- #}
+  {%- set module_settings = [
+      {
+        "class": "module-wrapper--light",
+        "setting": styles.light_mode
+      },
+      {
+        "class": "scanline-background",
+        "setting": styles.scanlines
+      },
+      {
+        "class": "has-background-base-layer",
+        "setting": styles.background_base.css
+      },
+      {
+        "class": "has-background-base-layer--blurred",
+        "setting": styles.background_base.css and styles.blur_background_base
+      },
+      {
+        "class": "text--" ~ styles.alignment,
+        "setting": styles.alignment
+      }
+    ]
+  -%}
+
+  <div id="{{ group.section_id || name }}" class="lazy module-wrapper {{ additional_classes }} {{ utility.set_classes(module_settings) }}">
+    <div class="module-wrapper__background"></div>
+    <div class="module-wrapper__inner">
+      {{ caller() }}
+    </div>
+  </div>
+{% endmacro %}
+
+{# CTA section
+  --Use fields from src/json-fields/cta-section.json
+#}
+{% macro ctas(module, click_control = false, full_click = false, cta_alignment) %}
+  {%- set module_settings = [
+      {
+        "class": "text--"~module.cta_alignment || cta_alignment,
+        "setting": module.cta_alignment || cta_alignment
+      },
+      {
+        "class": "text-mobile--"~module.cta_mobile_alignment,
+        "setting": module.cta_mobile_alignment
+      }
+    ]
+  %}
+
+  {% if module.add_cta %}
+    <div class="theme-ctas {{ utility.set_classes(module_settings) }}">
+      {% for cta in module.cta %}
+        {% set cta_settings = [
+            {
+              "class": "button button--"~cta.color,
+              "setting": cta.color
+            },
+            {
+              "class": "theme-video-link",
+              "setting": cta.trigger_video
+            },
+            {
+              "class": "click-control-element",
+              "setting": not full_click and click_control and loop.first and not (module.full_click or cta.trigger_video)
+            }
+          ]
+        %}
+
+        {% set cta_classes = utility.set_classes(cta_settings) %}
+
+        {% set text = cta.text %}
+
+        {% if full_click %}
+          <span class="{{ cta_classes }}" aria-hidden="true">
+            {{ text }}
+          </span>
+        {% elif cta.trigger_video %}
+          <button class="{{ cta_classes }}" aria-controls="{{ name }}-{{ loop.index0 }}-video">
+            <span class="button--play">
+              {{ components.inline_svg('play') }}
+            </span>
+
+            {{ text }}
+          </button>
+        {% else %}
+          {{ fields.link_field(cta.link, text, cta_classes) }}
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    {% require_js "footer" %}
+      {% for cta in module.cta %}
+        {% if cta.trigger_video %}
+          {{ video_modal(cta.video, name ~ '-' ~ loop.index0 ~ '-video') }}
+        {% endif %}
+      {% endfor %}
+    {% end_require_js %}
+  {% endif %}
+{% endmacro %}
+
+{# Theme Text Section
+  --Use fields from src/json-fields/text-section.json
+  --Use style fields from src/json-styles/text-section.json
+#}
+{% macro theme_text(group, settings, text_classes, custom_text = false, show_ctas = true, click_control = false, full_click = false, show_socials = true) %}
+  {% set bullet = settings.lists.type %}
+  {% set bullet_style = settings.lists.icon.unicode if bullet == "fontawesome" else bullet %}
+
+  {%- call components.styles([
+    bullet,
+    settings.lists.spacing,
+    settings.heading_size,
+    settings.heading_size_mobile
+  ]) -%}
+    .theme-rich-text ul li,
+    .theme-rich-text ul li::before {
+      {{ fields.variable(settings.lists.spacing, settings.lists.spacing~"px", "list-spacing") }}
+
+      {% if bullet == "image" %}
+        {{ fields.variable(settings.lists.image.src, "url("~settings.lists.image.src~")", "bullet-image") }}
+        {{ fields.variable(settings.lists.image.height, settings.lists.image.height~"px", "bullet-image-height") }}
+        {{ fields.variable(settings.lists.image.width, settings.lists.image.width~"px", "bullet-image-width") }}
+      {% else %}
+        {{ fields.variable(bullet_style, '\"\\'~bullet_style~'\"', "bullet-content") }}
+        {{ fields.variable(settings.lists.color.color, fields.field_color(settings.lists.color), "bullet-color") }}
+
+        {% if bullet == "fontawesome" %}
+          {% set weight = "900" if settings.lists.icon.type == "SOLID" else "400" %}
+          {{ fields.variable(settings.lists.icon.type , weight, "bullet-weight") }}
+        {% endif %}
+      {% endif %}
+    }
+    {% if settings.heading_size %}
+      @media (min-width: 768px) {
+        .theme-rich-text__main {
+          --{{ group.heading_level }}-size: {{ settings.heading_size }}px;
+        }
+      }
+    {% endif %}
+
+    {% if settings.heading_size_mobile %}
+      @media not screen and (min-width: 768px) {
+        .theme-rich-text__main {
+          --{{ group.heading_level }}-size: {{ settings.heading_size_mobile }}px;
+        }
+      }
+    {% endif %}
+  {%- endcall -%}
+
+  {% set module_settings = [
+      {
+        "class": "module-wrapper--light",
+        "setting": settings.light_mode
+      },
+      {
+        "class": "text--"~settings.alignment,
+        "setting": settings.alignment
+      },
+      {
+        "class": "text-mobile--"~settings.mobile_alignment,
+        "setting": settings.mobile_alignment
+      },
+      {
+        "class": "lists--split",
+        "setting": settings.lists.columns
+      },
+      {
+        "class": "lists--icon",
+        "setting": (bullet == "fontawesome")
+      },
+      {
+        "class": "lists--image",
+        "setting": (bullet == "image")
+      }
+    ]
+  %}
+
+  <div class="theme-rich-text {{ text_classes }} {{ utility.set_classes(module_settings) }}">
+    {{ group.slots.before }}
+    <div class="theme-rich-text__main">
+      {% if custom_text %}
+        {{ caller() }}
+      {% else %}
+        {{ components.eyebrow(group.eyebrow) }}
+
+        {% if group.heading && group.heading_level %}
+          <{{ group.heading_level }}>
+            {{ group.heading|replace('\n', '<br>') }}
+          </{{ group.heading_level }}>
+        {% endif %}
+
+        {% if group.subheading %}
+          <div class="subheading">{{ group.subheading|replace('\n', '<br>') }}</div>
+        {% endif %}
+
+        {{ group.slots.after_heading }}
+
+        {{ group.text }}
+      {% endif %}
+    </div>
+
+    {% if group.speakers|count > 0 %}
+      {% set speaker_heading_level = "h" ~ (group.heading_level|replace("h", "")|int + 1) %}
+      <ul class="theme-rich-text__speakers people-list">
+        {% for speaker in group.speakers %}
+          <li class="person">
+            {% if speaker.portrait.src %}
+              <div class="person__avatar">
+                {{ fields.image_field(speaker.portrait) }}
+              </div>
+            {% endif %}
+
+            <div class="person__bio">
+              <{{ speaker_heading_level }} class="h5">{{ speaker.speaker_name }}</{{ speaker_heading_level }}>
+              {{ speaker.text }}
+
+              {% if speaker.socials|count > 0 %}
+                {{ socials(speaker.socials, "person__social", settings.icons) }}
+              {% endif %}
+            </div>
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+
+    {% if group.questions|count > 0 %}
+      <div class="theme-rich-text__questions">
+        {{ faq_section({
+          questions: group.questions
+        }) }}
+      </div>
+    {% endif %}
+
+    {% if show_ctas %}
+      {{ ctas(group, click_control, full_click) }}
+    {% endif %}
+
+
+    {% if group.socials|count > 0 and show_socials %}
+      {{ socials(group.socials, "theme-rich-text__social", settings.icons) }}
+    {% endif %}
+
+    {{ group.slots.after }}
+  </div>
+{% endmacro %}
+
+{# Theme Form
+  --Use fields from src/json-fields/form.json
+  --Use style fields from src/json-styles/form.json
+#}
+  {% macro theme_form(group, settings, form_classes, alt_heading = null, animation = "") %}
+    {%- call components.styles([
+      settings.boxin_styles.bg_color.color,
+      settings.boxin_styles.shadow.color.css,
+      settings.boxin_styles.shadow.offset_x,
+      settings.boxin_styles.shadow.offset_y,
+      settings.boxin_styles.border.radius,
+      (settings.boxin_styles.border.style.css && settings.boxin_styles.border.style.css is not string_containing "border: ;"),
+      (settings.boxin_styles.spacing.css && settings.boxin_styles.spacing.css is not string_containing "padding: 0px")
+    ])
+    -%}
+      .theme-form-wrapper,
+      .theme-form-wrapper .theme-form {
+        {{ fields.borders(settings.boxin_styles.border.style, "boxin-border", radius = settings.boxin_styles.border.radius) }}
+        {{ fields.padding(settings.boxin_styles.spacing, "boxin") }}
+        {{ fields.background(settings.boxin_styles, "color") }}
+        {{ fields.shadow(settings.boxin_styles.shadow, "boxin-shadow") }}
+      }
+    {%- endcall -%}
+
+    {% set module_settings = [
+      {
+        "class": "theme-form--label-"~settings.label_position,
+        "setting": settings.label_position
+      },
+      {
+        "class": "theme-form--button-"~settings.button_position,
+        "setting": settings.button_position
+      },
+      {
+        "class": "theme-form--button-"~settings.button_color,
+        "setting": settings.button_color
+      },
+      {
+        "class": "theme-form--message-"~settings.heading.alignment,
+        "setting": settings.heading.alignment
+      },
+      {
+        "class": "theme-form--boxin",
+        "setting": settings.boxin
+      },
+      {
+        "class": "module-wrapper--light",
+        "setting": ((settings.light_mode && !settings.boxin) || (settings.boxin && settings.boxin_styles.light_mode))
+      },
+      {
+        "class": "animate animate--fade-"~settings.animation,
+        "setting": (settings.animation && (settings.animation != 'none'))
+      },
+      {
+        "class": animation,
+        "setting": animation
+      },
+      {
+        "class": "theme-form--simple",
+        "setting": settings.simple
+      }
+    ] %}
+
+    {% set wrapper_settings = [
+      {
+        "class": "theme-form-wrapper--animated",
+        "setting": (settings.animation && (settings.animation != 'none')) or animation
+      },
+      {
+        "class": "theme-form-wrapper--boxin",
+        "setting": settings.boxin
+      }
+    ] %}
+
+    <div class="theme-form-wrapper {{ utility.set_classes(wrapper_settings) }}">
+      <div class="theme-form {{ form_classes }} {{ utility.set_classes(module_settings) }}">
+        {% set heading = alt_heading if alt_heading else group.heading %}
+
+        {{ theme_text(heading, settings.heading, "heading heading--small") }}
+
+        {% form
+          form_key='{{ name }}',
+          form_to_use='{{ group.form.form_id }}',
+          no_title=true,
+          follow_up_type_simple='{{ group.follow_up_type_simple }}',
+          simple_email_for_live_id='{{ group.simple_email_for_live_id }}',
+          follow_up_type_automation='{{ group.follow_up_type_automation }}',
+          response_response_type='{{ group.form.response_type }}',
+          response_redirect_id='{{ group.form.redirect_id }}',
+          response_redirect_url='{{ group.form.redirect_url }}',
+          response_message='{{ group.form.message }}',
+          notifications_are_overridden='{{ group.notifications_are_overridden }}',
+          notifications_override_email_addresses='{{ group.notifications_override_email_addresses }}'
+          gotowebinar_webinar_key='{{ group.form.gotowebinar_webinar_key }}'
+          sfdc_campaign='{{ group.sfdc_campaign }}',
+          no_wrapper=true
+        %}
+      </div>
+    </div>
+  {% endmacro %}
+
+{# FAQ Section
+#}
+{% macro faq_section(group, styles = {}) %}
+  <div class="faq-section">
+    {% if group.heading %}
+      {{ theme_text(group.heading, styles.heading, "heading") }}
+    {% endif %}
+
+    <div class="faq-section__body">
+      {% for question in group.questions %}
+        <details class="faq-question">
+          <summary class="faq-question__question-wrapper">
+            <div class="faq-question__question">
+              <div class="faq-question__question-text">{{ question.question }}</div>
+            </div>
+          </summary>
+
+          <div class="faq-question__answer accordion-content" tabindex="-1">
+            {{ theme_text({
+              text: question.answer
+            }, styles.collapsible_item) }}
+          </div>
+        </details>
+      {% endfor %}
+    </div>
+  </div>
+{% endmacro %}
+
+{# Splide Slider
+  --Set Splide options in data argument
+#}
+{% macro splide(data, extra_classes) %}
+  <div class="theme-slider splide {{ extra_classes }}" data-splide='{{ data|tojson }}'>
+    <div class="splide__track">
+      <div class="splide__list">
+        {{ caller() }}
+      </div>
+    </div>
+  </div>
+{% endmacro %}
+
+{# Logos
+  --Use fields from src/json-fields/logo-section.json
+#}
+{% macro logos(module, settings, light_mode = false, render) %}
+  {% if module.add_logos || render %}
+    <div class="logos {{ 'module-wrapper--light' if light_mode }}">
+      <div class="logos__heading">{{ module.heading }}</div>
+      {% if settings.per_slide < module.logos|length %}
+        {% set data = {
+          type: "loop",
+          pagination: false,
+          perPage: settings.per_slide,
+          breakpoints: {
+            "600": {
+              perPage: 2
+            }
+          }
+        } %}
+
+        {% call splide(data, "logos__slider sans-pagination", arrow_svg = "chevron-down") %}
+          {% for logo in module.logos %}
+            <li class="splide__slide logos__item">
+              {{ fields.image_field(logo) }}
+            </li>
+          {% endfor %}
+        {% endcall %}
+      {% else %}
+        <ul class="logos__list">
+          {% for logo in module.logos %}
+            <li class="logos__item">
+              {{ fields.image_field(logo) }}
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </div>
+  {% endif %}
+{% endmacro %}
+
+{# Video modal popup #}
+{% macro video_thumbnail(group, embed_id, styles, image_link = false, animation = "") %}
+  {% set styles = module.styles.video %}
+  {%- call components.styles([styles.play_color.color, styles.overlay.color]) -%}
+    .theme-video {
+      {{ fields.variable(styles.play_color.color, fields.field_color(styles.play_color), "play-color") }}
+      {{ fields.variable(styles.overlay.color, fields.field_color(styles.overlay), "overlay-color") }}
+    }
+  {%- endcall -%}
+
+  {% if image_link %}
+    <figure class="theme-video {{ animation }}">
+      {% if group.video %}
+        <button aria-controls="{{ embed_id }}" class="theme-video__image theme-video-thumbnail" aria-label="Open video in dialog window.">
+          {{ fields.image_field(group.preview_image) }}
+          {{ components.inline_svg('play') }}
+        </button>
+      {% else %}
+        <div class="theme-video__image">
+          {{ fields.image_field(group.preview_image) }}
+        </div>
+      {% endif %}
+
+      {% if group.text %}
+        <figcaption class="theme-video__text">
+          {{ group.text }}
+        </figcaption>
+      {% endif %}
+    </figure>
+  {% endif %}
+
+  {{ video_modal(group, embed_id) }}
+{% endmacro %}
+
+{% macro video_modal(group, embed_id) %}
+  <div class="dialog-wrapper" id="{{ embed_id }}">
+    <div class="dialog" role="dialog" tabindex="0" aria-label="Video Player">
+      <button class="dialog__close" aria-label="Close Video Player" type="button">&times;</button>
+      <div class="dialog__content" role="document">
+        <figure class="theme-video-embed">
+          <div class="hs-responsive-embed theme-video-embed__screen">
+            {% if group.video.source_type == 'oembed' %}
+              {{ group.video.oembed_response.html }}
+            {% elif group.video.source_type == 'html' %}
+              {{ group.video.embed_html }}
+            {% endif %}
+          </div>
+
+          {% if group.description %}
+            <figcaption class="theme-video-embed__description">
+              {{ group.description }}
+            </figcaption>
+          {% endif %}
+        </figure>
+      </div>
+    </div>
+  </div>
+{% endmacro %}
+
+{% macro breadcrumbs(items, alignment = "left") %}
+  <ol class="breadcrumbs breadcrumbs--align-{{ alignment }}">
+    {% for item in items %}
+      <li>
+        {% set attrs = {} %}
+        {% if item.link.url.href == content.absolute_url %}
+          {% do attrs.update({ 'aria-current': 'page' }) %}
+        {% endif %}
+        {{ fields.link_field(item.link, item.breadcrumb_label, "", attrs) }}
+      </li>
+    {% endfor %}
+  </ol>
+{% endmacro %}
+
+{% macro media(media, form_heading, animation = "", id = name) %}
+  {% if media.type == "image" && media.image.src %}
+    {% set image = fields.image_field(media.image, args={animation: module.styles.image.animation || animation}) %}
+    {% if media.image_link.url.href %}
+      {{ fields.link_field(media.image_link, image) }}
+    {% else %}
+      {{ image }}
+    {% endif %}
+  {% elif media.type == "form" %}
+    {{ theme_form(media.form, module.styles.form, alt_heading = form_heading, animation = animation) }}
+  {% elif media.type == "video" %}
+    {{ video_thumbnail(media.video, id~"-video", image_link = true, animation = animation) }}
+  {% endif %}
+{% endmacro %}
+
+{% macro socials(socials, classes, styles) %}
+  {%- call components.styles([
+      styles.color.color,
+      styles.hover_color.color,
+      styles.bg_color.color,
+      styles.bg_hover_color.color,
+      styles.border.style.css,
+      styles.border.hover_color.color,
+      styles.border.radius
+  ]) -%}
+    .icon-wrapper {
+      {{ fields.variable(styles.color.color, styles.color.color, "custom-color") }}
+      {{ fields.variable(styles.hover_color.color, styles.hover_color.color, "custom-hover-color") }}
+      {{ fields.variable(styles.bg_color.color, styles.bg_color.color, "custom-bg-color") }}
+      {{ fields.variable(styles.bg_hover_color.color, styles.bg_hover_color.color, "custom-bg-hover-color") }}
+      {{ fields.borders(styles.border.style, "custom-border", radius = styles.border.radius, radius_variable = "custom-radius") }}
+      {{ fields.variable(styles.border.hover_color.color, styles.border.hover_color.color, "custom-border-hover-color") }}
+    }
+  {%- endcall -%}
+
+  <div class="social-media {{ classes }} icon-wrapper {{ 'icon-wrapper--enclosed' if styles.enclose }}">
+    {% for social in socials %}
+      {% if social.link.href %}
+        <a href="{{ 'mailto:' if social.link.type == 'EMAIL_ADDRESS' }}{{ social.link.href }}"
+            target="_blank"
+            class="social-media__service social-media__service--{{ social.platform }} icon"
+            aria-label="{{ social.aria }}">
+            {% if social.platform == "other" %}
+              {%- if social.icon_type == "custom_image" -%}
+                {{ fields.image_field(social.image_icon) }}
+              {%- else -%}
+                {{ fields.icon_field(social.icon) }}
+              {%- endif -%}
+            {% else %}
+              {{ components.inline_svg('social/' ~ social.platform) }}
+            {% endif %}
+        </a>
+      {% endif %}
+    {% endfor %}
+  </div>
+{% endmacro %}
+
+{% macro showcase_slider(group, slides, link_heading = false) %}
+  {% set classes = utility.set_classes([
+    {
+      "class": "services-slider",
+      "setting": true,
+    },
+    {
+      "class": "services-slider--hide-inactive",
+      "setting": group.styles.slider.hide_inactive_slide_text
+    }
+  ]) %}
+
+  {% call module_wrapper(module, classes) %}
+    {% call components.styles([
+      group.styles.slider.arrow_color.color,
+      group.styles.slider.arrow_color_hover.color,
+      group.styles.slider.active_shadow.color,
+      group.styles.slider.radius,
+      group.styles.slider.overlay.color
+    ]) %}
+      .services-slider {
+        {{ fields.variable(group.styles.slider.arrow_color.color, fields.field_color(group.styles.slider.arrow_color), 'arrows') }}
+        {{ fields.variable(group.styles.slider.arrow_color_hover.color, fields.field_color(group.styles.slider.arrow_color_hover), 'arrows-hover') }}
+        {% if group.styles.slider.active_shadow.color %}
+          --active-shadow: {{ '10px 10px 0 ' ~ fields.field_color(group.styles.slider.active_shadow) if group.styles.slider.active_shadow.color else 'none' }};
+        {% endif %}
+        --slide-border-radius: {{ group.styles.slider.radius or 0 }}px;
+        {% if group.styles.slider.overlay.color %}
+          --overlay-color: {{ group.styles.slider.overlay.color }};
+          --overlay-opacity: {{ group.styles.slider.overlay.opacity }}%;
+        {% endif %}
+        {% if group.styles.slider.hover_overlay.css %}
+          --hover-overlay: {{ group.styles.slider.hover_overlay.css }};
+        {% endif %}
+      }
+    {% endcall %}
+
+    {{ modules.theme_text(group.heading, group.styles.heading, "services-slider__heading heading heading--small") }}
+
+    {% if group.styles.slider.type == "rewind" %}
+      {% set slide_type = "slide" %}
+    {% else %}
+      {% set slide_type = group.styles.slider.type %}
+    {% endif %}
+
+    {% set data = {
+      type: slide_type,
+      rewind: true if group.styles.slider.type == "rewind" else false,
+      pagination: false,
+      arrows: true,
+      perPage: group.num_to_show.desktop,
+      gap: (group.styles.slider.spacing if group.styles.slider.spacing else "20px"),
+      padding: { right: "40px" },
+      perMove: 1,
+      i18n: {
+        prev: group.strings.prev,
+        first: group.strings.first,
+        next: group.strings.next,
+        last: group.strings.last,
+        pageX: group.strings.pagex
+      },
+      breakpoints: {
+        "1240": {
+          perPage: group.num_to_show.laptop
+        },
+        "1024": {
+          perPage: group.num_to_show.tablet
+        },
+        "600": {
+          perPage: group.num_to_show.mobile
+        }
+      }
+    } %}
+
+    {% call splide(data) %}
+      {% for slide in slides %}
+        <div class="splide__slide">
+          <figure class="services-slider__card click-control-item {{ 'module-wrapper--light' if slide.light_mode else 'module-wrapper--base' }}">
+            <div class="services-slider__image image-wrapper">
+              {{ fields.image_field(slide.image, args={class: "image-hover--image"}) }}
+            </div>
+
+            <figcaption class="services-slider__text">
+              {{ theme_text(slide, click_control = true, full_click = link_heading, show_socials = false) }}
+              {{ socials(slide.socials, 'social-media', { enclose: true }) }}
+            </figcaption>
+          </figure>
+        </div>
+      {% endfor %}
+    {% endcall %}
+  {% endcall %}
+{% endmacro %}

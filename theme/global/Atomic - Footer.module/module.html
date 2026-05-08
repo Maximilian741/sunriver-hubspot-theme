@@ -1,0 +1,116 @@
+<footer
+  class="footer atmc-parallax {% if module.enable_background_overlay %}footer-overlay{% endif %} {% if module.site_footer_text_white %}text-white{% endif %}"
+  style="{% if module.styles.background_color.color %}background-color:{{ module.styles.background_color.color }};{% endif %}{% if module.site_footer_background_image.src %}background-image:url('{{ module.site_footer_background_image.src }}');{% endif %}"
+>
+  {% if widget_data.footer.value != 'Landing' %}
+    <div class="atmc-site-footer dnd-section">
+      <div class="row-fluid">
+        <!-- Logo + About block -->
+        <div class="span4 mb:text-center mb:mb-4">
+          {% if module.site_footer_logo.src %}
+            <div class="atmc-site-footer_logo mb-4">
+              <a href="https://www.sunriverconsulting.us/" class="atmc-site-footer_logo-link">
+                <img 
+                  src="https://47738410.fs1.hubspotusercontent-na2.net/hubfs/47738410/icon%20transparent.png" 
+                  alt="SunRiver Consulting logo"
+                  style="max-width: 180px; width: 100%; height: auto;"
+                >
+              </a>
+            </div>
+          {% endif %}
+
+          <div class="atmc-sitefooter_about mb-8">
+            <p>
+              SunRiver Consulting provides innovative cloud, security, and CMS solutions tailored for modern businesses. 
+              We empower teams to build, scale, and automate with confidence.
+            </p>
+            <p>
+              Helena, MT 59601
+            </p>
+            <p>
+              (406) 616-2614
+            </p>
+          </div>
+
+          {% if module.social_link %}
+            <div class="atmc-sitefooter_social">
+              <div class="social-links">
+                {% for item in module.social_link %}
+                  {% set href = item.link.href %}
+                  {% if item.link.type is equalto "EMAIL_ADDRESS" %}
+                    {% set href = "mailto:" + href %}
+                  {% endif %}
+                  <!-- NOTE: keeping loop for future icons; actual icon markup
+                       can be added here if you wire up social icons later -->
+                {% endfor %}
+              </div>
+            </div>
+          {% endif %}
+        </div>
+
+        <!-- Spacer column to keep original layout ratio -->
+        <div class="span3"></div>
+
+        <!-- Hard-coded footer navigation -->
+        <div class="span5">
+          <nav class="atmc-sitefooter_menu" aria-label="Footer navigation">
+            <div class="row-fluid atmc-sitefooter_menu-columns">
+
+              <!-- ABOUT US -->
+              <div class="span4 footer-column">
+                <h4 class="footer-title">ABOUT US</h4>
+                <ul class="footer-links">
+                  <li><a href="/our-vision-and-mission">Our Vision &amp; Mission</a></li>
+                  <li><a href="/our-team">Our Team</a></li>
+                  <li><a href="/solutions-products">Solutions/Products</a></li>
+                </ul>
+              </div>
+
+              <!-- RESOURCES -->
+              <div class="span4 footer-column">
+                <h4 class="footer-title">RESOURCES</h4>
+                <ul class="footer-links">
+                  <li><a href="/blog">Accessibility</a></li>
+                  <li><a href="/blog">News</a></li>
+                  <li><a href="/blog">Search</a></li>
+                </ul>
+              </div>
+
+              <!-- CONTACT US -->
+              <div class="span4 footer-column">
+                <h4 class="footer-title">CONTACT US</h4>
+                <ul class="footer-links">
+                  <li><a href="/get-a-quote">Get a Quote</a></li>
+                  <li><a href="/get-a-quote">Schedule a Consultation</a></li>
+                 
+                </ul>
+              </div>
+
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+
+  <!-- Bottom bar -->
+  <div class="atmc-footer">
+    <div class="dnd-section">
+      <div class="row-fluid">
+        <div class="span7">
+          <div class="footer__copyright">
+            {{ module.copyright_text }}
+          </div>
+        </div>
+        <div class="span5">
+          <div class="mb:mt-4 footer_developed text-right mb:text-center">
+            Developed by
+            <a href="https://www.sunriverconsulting.us/" rel="nofollow" target="_blank">
+              SunRiver Consulting LLC
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,118 @@
+/* ==== Brand palette for this module ==== */
+:root {
+  --sr-green: #21c700;
+  --sr-teal:  #06e0ad;
+  --sr-gold:  #f1c233;
+}
+
+/* Base card */
+.atmc-feature .atmc-feature-01 {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  text-decoration: none; /* for <a> */
+  cursor: pointer;
+
+  background: #ffffff;
+  transition:
+    background 0.30s ease,
+    color 0.30s ease,
+    transform 0.20s ease;
+}
+
+/* Optional: make it feel like a button when clickable */
+.atmc-feature .atmc-feature-01--clickable {
+  cursor: pointer;
+}
+
+/* Hover: animated gradient, gold barely visible */
+.atmc-feature .atmc-feature-01:hover {
+  background: linear-gradient(
+    135deg,
+    var(--sr-green) 0%,
+    var(--sr-teal) 40%,
+    rgba(241, 194, 51, 0.20) 52%,  /* thin, low-alpha gold band */
+    var(--sr-teal) 64%,
+    var(--sr-green) 100%
+  );
+  background-size: 220% 220%;        /* room to pan the gradient */
+  animation: sr-card-swish 3.8s ease-in-out infinite;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* Explicitly set heading + body text to white on hover */
+.atmc-feature .atmc-feature-01:hover .atmc-h4,
+.atmc-feature .atmc-feature-01:hover p {
+  color: #fff;
+}
+
+/* Gradient “swish” animation */
+@keyframes sr-card-swish {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Mouse-follow glow, with very subtle gold */
+.atmc-feature .atmc-feature-01::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  background: radial-gradient(
+    260px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(241, 194, 51, 0.18),      /* faint gold */
+    rgba(6, 224, 173, 0.18) 40%,   /* teal halo */
+    rgba(6, 224, 173, 0) 70%
+  );
+
+  opacity: 0;
+  transition: opacity 160ms ease, transform 400ms ease;
+}
+
+.atmc-feature .atmc-feature-01:hover::before {
+  opacity: 1;
+  transform: scale(1.02);
+}
+
+/* Click ripple burst element (inserted by JS) */
+.atmc-feature .atmc-feature-01 .atmc-ripple {
+  position: absolute;
+  border-radius: 999px;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0.55;
+
+  /* bright gold burst */
+  background: rgba(241, 194, 51, 0.9);
+  animation: atmc-ripple-burst 650ms ease-out forwards;
+}
+
+@keyframes atmc-ripple-burst {
+  0%   { transform: translate(-50%, -50%) scale(0); opacity: 0.55; }
+  70%  { opacity: 0.25; }
+  100% { transform: translate(-50%, -50%) scale(1); opacity: 0; }
+}
+
+/* Icon: green by default, black on hover */
+.atmc-feature .fill-primary svg,
+.atmc-feature .fill-primary span,
+.atmc-feature .fill-primary i {
+  color: var(--sr-green) !important;
+  fill:  var(--sr-green) !important;
+}
+
+.atmc-feature .atmc-feature-01:hover .fill-primary svg,
+.atmc-feature .atmc-feature-01:hover .fill-primary span,
+.atmc-feature .atmc-feature-01:hover .fill-primary i {
+  color: #000 !important;
+  fill:  #000 !important;
+}
+
+/* Keyboard accessibility */
+.atmc-feature .atmc-feature-01:focus-visible {
+  outline: 3px solid var(--sr-teal);
+  outline-offset: 4px;
+}
