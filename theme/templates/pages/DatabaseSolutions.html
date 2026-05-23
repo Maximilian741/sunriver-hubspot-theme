@@ -1,0 +1,85 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: SunRiver - Database Solutions
+-->
+
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+
+  {% dnd_area "main_content", label="Main content" %}
+
+    {% dnd_section %}
+      {% dnd_module
+        path="../../modules/SR - Hero Spotlight",
+        eyebrow="Database Solutions",
+        heading="Your data, organized and accessible",
+        subheading="<p>Administration, analysis, design, and development for relational and NoSQL stacks &mdash; from Postgres and SQL Server to MongoDB and DynamoDB.</p>",
+        primary_cta_text="Get a Quick Estimate",
+        primary_cta_url={"url": {"href": "/quote-sunriver-consulting", "type": "EXTERNAL"}, "open_in_new_tab": false},
+        secondary_cta_text="Schedule a Consultation",
+        secondary_cta_url={"url": {"href": "/schedule-a-consultation-sunriver-consulting", "type": "EXTERNAL"}, "open_in_new_tab": false},
+        background_style="gradient",
+        show_shapes=true
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section %}
+      {% dnd_module
+        path="../../modules/SR - Section Heading",
+        eyebrow="Services",
+        heading="Four ways we can help",
+        intro="<p>From the very first table to long-term ownership.</p>",
+        alignment="center",
+        show_accent=true
+      %}
+      {% end_dnd_module %}
+
+      {% dnd_module
+        path="../../modules/SR - Service Cards",
+        columns="4",
+        cards=[
+          {"icon_text": "🗄", "title": "Administration", "description": "<p>Backups, monitoring, performance tuning, and upgrade planning for production databases.</p>", "link_text": "Get an estimate", "link_url": {"url": {"href": "/quote-sunriver-consulting", "type": "EXTERNAL"}}},
+          {"icon_text": "📊", "title": "Analysis", "description": "<p>Reporting, BI, and ad-hoc analysis &mdash; turning the data you already have into decisions you can act on.</p>", "link_text": "Get an estimate", "link_url": {"url": {"href": "/quote-sunriver-consulting", "type": "EXTERNAL"}}},
+          {"icon_text": "🛠", "title": "Development", "description": "<p>Stored procedures, ETL, migrations, and API layers built and documented.</p>", "link_text": "Get an estimate", "link_url": {"url": {"href": "/quote-sunriver-consulting", "type": "EXTERNAL"}}},
+          {"icon_text": "📐", "title": "Design", "description": "<p>Schema design, normalization, and modeling for new systems &mdash; or refactors of existing ones.</p>", "link_text": "Get an estimate", "link_url": {"url": {"href": "/quote-sunriver-consulting", "type": "EXTERNAL"}}}
+        ]
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section %}
+      {% dnd_module
+        path="../../modules/SR - Split Feature",
+        image_side="right",
+        eyebrow="Stacks we know",
+        heading="Relational, document, key-value, time-series",
+        body="<p>We work across the database landscape rather than pushing one product. Postgres, MySQL, SQL Server, Oracle, MongoDB, DynamoDB, Redis, ClickHouse &mdash; whatever fits the problem.</p>",
+        bullets=[
+          {"text": "PostgreSQL and SQL Server for transactional cores"},
+          {"text": "MongoDB and DynamoDB for document and key-value"},
+          {"text": "ClickHouse and BigQuery for analytics"}
+        ],
+        cta_text="Talk to a DBA",
+        cta_url={"url": {"href": "/schedule-a-consultation-sunriver-consulting", "type": "EXTERNAL"}, "open_in_new_tab": false}
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section %}
+      {% dnd_module
+        path="../../modules/SR - CTA Banner",
+        heading="Database project on your plate?",
+        subheading="We'll scope it, price it, and ship it.",
+        cta_text="Get a Quick Estimate",
+        cta_url={"url": {"href": "/quote-sunriver-consulting", "type": "EXTERNAL"}, "open_in_new_tab": false},
+        style="gradient"
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+  {% end_dnd_area %}
+
+{% endblock body %}

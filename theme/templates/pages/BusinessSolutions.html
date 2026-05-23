@@ -1,0 +1,95 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: SunRiver - Business Solutions
+-->
+
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+
+  {% dnd_area "main_content", label="Main content" %}
+
+    {% dnd_section %}
+      {% dnd_module
+        path="../../modules/SR - Hero Spotlight",
+        eyebrow="Business Solutions",
+        heading="The platforms your business runs on, finally working together",
+        subheading="<p>AWS, HubSpot, Salesforce, Microsoft 365, ServiceNow &mdash; integrated, automated, and tuned to how your team actually works.</p>",
+        primary_cta_text="Get a Quick Estimate",
+        primary_cta_url={"url": {"href": "/quote-sunriver-consulting", "type": "EXTERNAL"}, "open_in_new_tab": false},
+        secondary_cta_text="Schedule a Consultation",
+        secondary_cta_url={"url": {"href": "/schedule-a-consultation-sunriver-consulting", "type": "EXTERNAL"}, "open_in_new_tab": false},
+        background_style="gradient",
+        show_shapes=true
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section %}
+      {% dnd_module
+        path="../../modules/SR - Section Heading",
+        eyebrow="What we handle",
+        heading="Platforms we know inside out",
+        intro="<p>Implementations, integrations, migrations, and ongoing optimization.</p>",
+        alignment="center",
+        show_accent=true
+      %}
+      {% end_dnd_module %}
+
+      {% dnd_module
+        path="../../modules/SR - Service Cards",
+        columns="3",
+        cards=[
+          {"icon_text": "☁", "title": "AWS Integration", "description": "<p>Architecture, migration, and cost-tuning for production workloads on AWS.</p>", "link_text": "Talk to us", "link_url": {"url": {"href": "/contact", "type": "EXTERNAL"}}},
+          {"icon_text": "📚", "title": "Cascade CMS", "description": "<p>Site builds and template work for higher-ed and government Cascade environments.</p>", "link_text": "Talk to us", "link_url": {"url": {"href": "/contact", "type": "EXTERNAL"}}},
+          {"icon_text": "🔁", "title": "CI/CD", "description": "<p>Pipelines that ship safely &mdash; GitHub Actions, GitLab CI, CircleCI, Jenkins.</p>", "link_text": "Talk to us", "link_url": {"url": {"href": "/contact", "type": "EXTERNAL"}}},
+          {"icon_text": "📈", "title": "Google Analytics 4", "description": "<p>GA4 setup, event tracking, and dashboards your stakeholders will actually open.</p>", "link_text": "Talk to us", "link_url": {"url": {"href": "/contact", "type": "EXTERNAL"}}},
+          {"icon_text": "🟧", "title": "HubSpot CMS", "description": "<p>Theme builds, custom modules, and migrations onto HubSpot's CMS Hub.</p>", "link_text": "Talk to us", "link_url": {"url": {"href": "/contact", "type": "EXTERNAL"}}},
+          {"icon_text": "🟧", "title": "HubSpot CRM", "description": "<p>Pipeline setup, workflows, integrations, and reporting that match how you sell.</p>", "link_text": "Talk to us", "link_url": {"url": {"href": "/contact", "type": "EXTERNAL"}}},
+          {"icon_text": "Ⓜ", "title": "Microsoft 365", "description": "<p>Tenant configuration, Teams governance, SharePoint architecture, and Power Platform builds.</p>", "link_text": "Talk to us", "link_url": {"url": {"href": "/contact", "type": "EXTERNAL"}}},
+          {"icon_text": "☁", "title": "Salesforce CRM", "description": "<p>Custom objects, flows, and integrations &mdash; without the agency runaround.</p>", "link_text": "Talk to us", "link_url": {"url": {"href": "/contact", "type": "EXTERNAL"}}},
+          {"icon_text": "🛠", "title": "ServiceNow ITMS", "description": "<p>ITSM, HRSD, and CSM modules configured for organizations that need them to just work.</p>", "link_text": "Talk to us", "link_url": {"url": {"href": "/contact", "type": "EXTERNAL"}}}
+        ]
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section %}
+      {% dnd_module
+        path="../../modules/SR - Split Feature",
+        image_side="left",
+        eyebrow="What changes",
+        heading="Fewer logins, less duplicate data, more time selling",
+        body="<p>The biggest wins come from the seams &mdash; the place where one platform hands work off to the next. Most of what we do is making those seams disappear so your team stops doing the integration work by hand.</p>",
+        bullets=[
+          {"text": "CRM and marketing in lockstep"},
+          {"text": "Tickets that route themselves"},
+          {"text": "Dashboards your execs trust"}
+        ],
+        cta_text="Get started",
+        cta_url={"url": {"href": "/quote-sunriver-consulting", "type": "EXTERNAL"}, "open_in_new_tab": false}
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section %}
+      {% dnd_module path="../../modules/SR - Stats Grid" %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section %}
+      {% dnd_module
+        path="../../modules/SR - CTA Banner",
+        heading="Tired of platforms that don't talk to each other?",
+        subheading="Let's make them. Quick estimate, no commitment.",
+        cta_text="Get a Quick Estimate",
+        cta_url={"url": {"href": "/quote-sunriver-consulting", "type": "EXTERNAL"}, "open_in_new_tab": false},
+        style="gradient"
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+  {% end_dnd_area %}
+
+{% endblock body %}

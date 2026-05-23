@@ -1,0 +1,114 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: SunRiver - Compliance Audits
+-->
+
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+
+  {% dnd_area "main_content", label="Main content" %}
+
+    {% dnd_section %}
+      {% dnd_module
+        path="../../modules/SR - Hero Spotlight",
+        eyebrow="Compliance Audits",
+        heading="Pass the audit. Sleep at night.",
+        subheading="<p>Penetration testing, threat modeling, and accessibility audits done by senior engineers &mdash; with reports your auditors and your developers can both act on.</p>",
+        primary_cta_text="Get a Quick Estimate",
+        primary_cta_url={"url": {"href": "/quote-sunriver-consulting", "type": "EXTERNAL"}, "open_in_new_tab": false},
+        secondary_cta_text="Schedule a Consultation",
+        secondary_cta_url={"url": {"href": "/schedule-a-consultation-sunriver-consulting", "type": "EXTERNAL"}, "open_in_new_tab": false},
+        background_style="dark",
+        show_shapes=true
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section %}
+      {% dnd_module
+        path="../../modules/SR - Section Heading",
+        eyebrow="Services",
+        heading="Four audits, one team",
+        intro="<p>Engagements are scoped tightly and priced up front.</p>",
+        alignment="center",
+        show_accent=true
+      %}
+      {% end_dnd_module %}
+
+      {% dnd_module
+        path="../../modules/SR - Service Cards",
+        columns="4",
+        cards=[
+          {"icon_text": "🛡", "title": "Penetration Testing", "description": "<p>Black-box and grey-box network and application pen tests, with prioritized remediation guidance.</p>", "link_text": "Get an estimate", "link_url": {"url": {"href": "/quote-sunriver-consulting", "type": "EXTERNAL"}}},
+          {"icon_text": "🧠", "title": "Threat Modeling", "description": "<p>STRIDE-based threat models for new and existing systems, paired with engineering workshops.</p>", "link_text": "Get an estimate", "link_url": {"url": {"href": "/quote-sunriver-consulting", "type": "EXTERNAL"}}},
+          {"icon_text": "♿", "title": "WCAG 2.0 &mdash; 2.2", "description": "<p>Full accessibility audits with VPAT-ready reporting and remediation plans your team can execute.</p>", "link_text": "Get an estimate", "link_url": {"url": {"href": "/quote-sunriver-consulting", "type": "EXTERNAL"}}},
+          {"icon_text": "🇺🇸", "title": "508 Compliance", "description": "<p>Section 508 audits for federal, state, and educational sites &mdash; with documentation that satisfies reviewers.</p>", "link_text": "Get an estimate", "link_url": {"url": {"href": "/quote-sunriver-consulting", "type": "EXTERNAL"}}}
+        ]
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section %}
+      {% dnd_module
+        path="../../modules/SR - Split Feature",
+        image_side="left",
+        eyebrow="Why us",
+        heading="Reports that actually get fixed",
+        body="<p>A compliance report is only useful if it lands somewhere that gets acted on. We write reports for the people who'll do the work: prioritized, reproducible, and paired with the engineering context to fix them. No 200-page PDFs that nobody opens.</p>",
+        bullets=[
+          {"text": "Findings prioritized by real risk, not CVSS theatre"},
+          {"text": "Reproduction steps your engineers can follow"},
+          {"text": "Optional remediation pairing if you want hands-on help"}
+        ],
+        cta_text="Get a quote",
+        cta_url={"url": {"href": "/quote-sunriver-consulting", "type": "EXTERNAL"}, "open_in_new_tab": false}
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section %}
+      {% dnd_module
+        path="../../modules/SR - Section Heading",
+        eyebrow="The process",
+        heading="A predictable engagement",
+        alignment="center"
+      %}
+      {% end_dnd_module %}
+
+      {% dnd_module
+        path="../../modules/SR - Process Steps",
+        layout="horizontal"
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section %}
+      {% dnd_module
+        path="../../modules/SR - Section Heading",
+        eyebrow="FAQ",
+        heading="What teams ask before an audit",
+        alignment="center"
+      %}
+      {% end_dnd_module %}
+
+      {% dnd_module path="../../modules/SR - FAQ Accordion" %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section %}
+      {% dnd_module
+        path="../../modules/SR - CTA Banner",
+        heading="Audit coming up?",
+        subheading="Get ahead of it. We'll scope an engagement in a 30-minute call.",
+        cta_text="Schedule a Consultation",
+        cta_url={"url": {"href": "/schedule-a-consultation-sunriver-consulting", "type": "EXTERNAL"}, "open_in_new_tab": false},
+        style="ink"
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+  {% end_dnd_area %}
+
+{% endblock body %}
