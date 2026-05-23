@@ -1,0 +1,109 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: SunRiver - About
+-->
+
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+
+  {% dnd_area "main_content", label="Main content" %}
+
+    {% dnd_section %}
+      {% dnd_module
+        path="../../modules/SR - Hero Spotlight",
+        eyebrow="About SunRiver",
+        heading="A consulting firm built around how teams actually work",
+        subheading="<p>Helena-based, senior-only, and stubbornly focused on shipping. We help organizations adopt the tech they need without losing the team they have.</p>",
+        primary_cta_text="Meet the team",
+        primary_cta_url={"url": {"href": "/our-team-sunriver-consulting", "type": "EXTERNAL"}, "open_in_new_tab": false},
+        secondary_cta_text="See our services",
+        secondary_cta_url={"url": {"href": "/solutions-products-sunriver-consulting", "type": "EXTERNAL"}, "open_in_new_tab": false},
+        background_style="gradient",
+        show_shapes=true
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section %}
+      {% dnd_module
+        path="../../modules/SR - Split Feature",
+        image_side="left",
+        eyebrow="Our mission",
+        heading="Championing tech adoption that actually sticks",
+        body="<p>We exist to make modern tech accessible to the organizations doing the real work &mdash; public institutions, nonprofits, and the small businesses that hold their communities together. That means quality service at competitive rates, and engineering that respects the people who'll use it after we leave.</p>",
+        bullets=[
+          {"text": "Senior team &mdash; no junior hand-offs"},
+          {"text": "Inclusive, accessible-by-default design"},
+          {"text": "Documentation your team can actually read"}
+        ],
+        cta_text="See our work",
+        cta_url={"url": {"href": "/solutions-products-sunriver-consulting", "type": "EXTERNAL"}, "open_in_new_tab": false}
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section %}
+      {% dnd_module
+        path="../../modules/SR - Section Heading",
+        eyebrow="By the numbers",
+        heading="A track record we'll back up",
+        alignment="center"
+      %}
+      {% end_dnd_module %}
+
+      {% dnd_module path="../../modules/SR - Stats Grid" %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section %}
+      {% dnd_module
+        path="../../modules/SR - Section Heading",
+        eyebrow="How we work",
+        heading="Discovery, plan, build, scale",
+        intro="<p>Every engagement follows the same four phases. Clear scope at the start, weekly milestones throughout, and a working system at the end.</p>",
+        alignment="center"
+      %}
+      {% end_dnd_module %}
+
+      {% dnd_module
+        path="../../modules/SR - Process Steps",
+        layout="horizontal"
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section %}
+      {% dnd_module
+        path="../../modules/SR - Split Feature",
+        image_side="right",
+        eyebrow="Where we sit",
+        heading="Rooted in Helena, working everywhere",
+        body="<p>We're headquartered in Helena, Montana, and we work with clients across the country. Most engagements run remote-first with on-site visits at key moments &mdash; kickoff, milestones, launch.</p>",
+        bullets=[
+          {"text": "Mountain Time, accommodating coast to coast"},
+          {"text": "On-site for kickoff, demos, and launch"},
+          {"text": "Async-friendly documentation throughout"}
+        ],
+        cta_text="Start a conversation",
+        cta_url={"url": {"href": "/contact", "type": "EXTERNAL"}, "open_in_new_tab": false}
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section %}
+      {% dnd_module
+        path="../../modules/SR - CTA Banner",
+        heading="Want to work with us?",
+        subheading="The fastest way to find out if we're a fit is a 30-minute call.",
+        cta_text="Schedule a Consultation",
+        cta_url={"url": {"href": "/schedule-a-consultation-sunriver-consulting", "type": "EXTERNAL"}, "open_in_new_tab": false},
+        style="gradient"
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+  {% end_dnd_area %}
+
+{% endblock body %}

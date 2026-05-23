@@ -1,0 +1,66 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: SunRiver - News
+-->
+
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+
+  {% dnd_area "main_content", label="Main content" %}
+
+    {% dnd_section %}
+      {% dnd_module
+        path="../../modules/SR - Hero Spotlight",
+        eyebrow="What's new",
+        heading="News from SunRiver",
+        subheading="<p>Project launches, team updates, and the occasional opinion on where the industry is headed.</p>",
+        primary_cta_text="Schedule a Consultation",
+        primary_cta_url={"url": {"href": "/schedule-a-consultation-sunriver-consulting", "type": "EXTERNAL"}, "open_in_new_tab": false},
+        secondary_cta_text="Contact us",
+        secondary_cta_url={"url": {"href": "/contact", "type": "EXTERNAL"}, "open_in_new_tab": false},
+        background_style="gradient",
+        show_shapes=true
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section %}
+      {% dnd_module
+        path="../../modules/SR - Section Heading",
+        eyebrow="Coming soon",
+        heading="The newsroom is warming up",
+        intro="<p>We're publishing our first stories shortly. In the meantime, here's what we've been heads-down on.</p>",
+        alignment="center",
+        show_accent=true
+      %}
+      {% end_dnd_module %}
+
+      {% dnd_module
+        path="../../modules/SR - Service Cards",
+        columns="3",
+        cards=[
+          {"icon_text": "📰", "title": "Case studies", "description": "<p>Deep-dive write-ups on recent engagements &mdash; what we shipped and why.</p>", "link_text": "Coming soon", "link_url": {"url": {"href": "#", "type": "EXTERNAL"}}},
+          {"icon_text": "💡", "title": "Field notes", "description": "<p>Short, opinionated posts on cloud, security, and CMS work.</p>", "link_text": "Coming soon", "link_url": {"url": {"href": "#", "type": "EXTERNAL"}}},
+          {"icon_text": "📣", "title": "Company updates", "description": "<p>New hires, partnerships, and the occasional milestone.</p>", "link_text": "Coming soon", "link_url": {"url": {"href": "#", "type": "EXTERNAL"}}}
+        ]
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section %}
+      {% dnd_module
+        path="../../modules/SR - CTA Banner",
+        heading="Want to be notified when we publish?",
+        subheading="Drop us a line and we'll loop you in on new posts.",
+        cta_text="Get in touch",
+        cta_url={"url": {"href": "/contact", "type": "EXTERNAL"}, "open_in_new_tab": false},
+        style="ink"
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+  {% end_dnd_area %}
+
+{% endblock body %}
