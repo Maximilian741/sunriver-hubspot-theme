@@ -1,0 +1,126 @@
+<!--
+  templateType: blog_listing
+  label: SR - Blog Listing
+  screenshot_path: ../../images/template-previews/blog-listing.jpg
+  isAvailableForNewContent: true
+-->
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+  {# ===== HERO ===== #}
+  {% dnd_area "header", label="Header" %}
+    {% dnd_section full_width=true,
+        padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
+      {% dnd_module path="../../modules/SR - Hero Spotlight",
+          eyebrow="Notes from the field",
+          heading="The SunRiver blog",
+          subheading="<p>Architecture patterns, post-mortems, and the occasional opinion. Written by the people doing the work.</p>",
+          primary_cta_text="Subscribe",
+          primary_cta_url={ "url": { "href": "#subscribe", "type": "EXTERNAL" } },
+          secondary_cta_text="See all topics",
+          secondary_cta_url={ "url": { "href": "/blog", "type": "EXTERNAL" } },
+          background_style="gradient",
+          show_shapes=true %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+  {% end_dnd_area %}
+
+  {# ===== POST GRID ===== #}
+  <section class="sr-blog-listing">
+    <style>
+      .sr-blog-listing { padding: 64px 24px 80px; max-width: 1200px; margin: 0 auto; }
+      .sr-blog-listing__grid {
+        display: grid; gap: 28px;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      }
+      .sr-blog-card {
+        position: relative; display: flex; flex-direction: column;
+        border-radius: 18px; overflow: hidden; text-decoration: none;
+        background: linear-gradient(160deg, #0e1f17 0%, #06130d 100%);
+        color: #fff; isolation: isolate;
+        box-shadow: 0 14px 28px rgba(0,0,0,.25);
+        transition: transform .25s ease, box-shadow .25s ease;
+        border: 1px solid rgba(6,224,173,.15);
+      }
+      .sr-blog-card:hover { transform: translateY(-4px); box-shadow: 0 22px 40px rgba(6,224,173,.25); border-color: rgba(6,224,173,.45); }
+      .sr-blog-card__media { aspect-ratio: 16/9; background: linear-gradient(135deg, #06e0ad22, #21c70022); position: relative; overflow: hidden; }
+      .sr-blog-card__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+      .sr-blog-card__body { padding: 22px 24px 26px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
+      .sr-blog-card__meta { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: #06e0ad; font-weight: 700; }
+      .sr-blog-card__title { font-size: 1.35rem; line-height: 1.25; font-weight: 800; margin: 0; }
+      .sr-blog-card__summary { font-size: .98rem; line-height: 1.55; opacity: .85; flex: 1; }
+      .sr-blog-card__cta { margin-top: 8px; font-weight: 700; color: #f1c233; display: inline-flex; align-items: center; gap: 6px; }
+      .sr-blog-card__cta::after { content: "→"; transition: transform .2s ease; }
+      .sr-blog-card:hover .sr-blog-card__cta::after { transform: translateX(4px); }
+
+      .sr-blog-pagination { display: flex; justify-content: center; gap: 12px; margin-top: 56px; flex-wrap: wrap; }
+      .sr-blog-pagination a, .sr-blog-pagination span {
+        display: inline-flex; align-items: center; padding: 10px 18px;
+        border-radius: 999px; font-weight: 700; font-size: .95rem;
+        text-decoration: none; transition: transform .2s ease, background .2s ease;
+      }
+      .sr-blog-pagination a {
+        background: linear-gradient(90deg, #21c700, #06e0ad);
+        color: #06130d;
+        box-shadow: 0 8px 18px rgba(6,224,173,.3);
+      }
+      .sr-blog-pagination a:hover { transform: translateY(-2px); }
+      .sr-blog-pagination span { background: rgba(6,224,173,.12); color: #06130d; }
+
+      .sr-blog-listing__empty {
+        text-align: center; padding: 80px 24px; opacity: .75;
+      }
+    </style>
+
+    <div class="sr-blog-listing__grid">
+      {% for content in contents %}
+        <a class="sr-blog-card" href="{{ content.absolute_url }}">
+          <div class="sr-blog-card__media">
+            {% if content.post_list_summary_featured_image %}
+              <img src="{{ content.post_list_summary_featured_image }}" alt="{{ content.featured_image_alt_text|default(content.name) }}" loading="lazy">
+            {% endif %}
+          </div>
+          <div class="sr-blog-card__body">
+            <div class="sr-blog-card__meta">
+              {{ content.publish_date_localized }}
+              {% if content.topic_list %}
+                · {{ content.topic_list[0].name }}
+              {% endif %}
+            </div>
+            <h2 class="sr-blog-card__title">{{ content.name }}</h2>
+            <div class="sr-blog-card__summary">{{ content.post_list_content|striptags|truncate(140) }}</div>
+            <span class="sr-blog-card__cta">Read more</span>
+          </div>
+        </a>
+      {% else %}
+        <div class="sr-blog-listing__empty">No posts yet — check back soon.</div>
+      {% endfor %}
+    </div>
+
+    {% if contents.total_page_count > 1 %}
+      <nav class="sr-blog-pagination" aria-label="Blog pagination">
+        {% if last_page_num %}
+          <a href="{{ blog_page_link(last_page_num) }}">← Newer</a>
+        {% endif %}
+        <span>Page {{ current_page_num }} of {{ contents.total_page_count }}</span>
+        {% if next_page_num %}
+          <a href="{{ blog_page_link(next_page_num) }}">Older →</a>
+        {% endif %}
+      </nav>
+    {% endif %}
+  </section>
+
+  {# ===== CTA ===== #}
+  {% dnd_area "footer-cta", label="Footer CTA" %}
+    {% dnd_section full_width=true,
+        padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
+      {% dnd_module path="../../modules/SR - CTA Banner",
+          heading="Like what you're reading?",
+          subheading="Get our quarterly notes — short, useful, no spam.",
+          cta_text="Subscribe",
+          cta_url={ "url": { "href": "/subscribe", "type": "EXTERNAL" } },
+          style="gradient" %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+  {% end_dnd_area %}
+{% endblock body %}

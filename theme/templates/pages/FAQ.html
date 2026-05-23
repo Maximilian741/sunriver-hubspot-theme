@@ -1,0 +1,81 @@
+<!--
+  templateType: page
+  label: SR - FAQ
+  screenshot_path: ../../images/template-previews/faq.jpg
+  isAvailableForNewContent: true
+-->
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+  {% dnd_area "main", label="Main" %}
+
+    {# ===== HERO ===== #}
+    {% dnd_section full_width=true,
+        padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
+      {% dnd_module path="../../modules/SR - Hero Spotlight",
+          eyebrow="FAQ",
+          heading="Answers, before you ask",
+          subheading="<p>The questions we hear most often — and the straight answers we'd give over coffee.</p>",
+          primary_cta_text="Still curious? Talk to us",
+          primary_cta_url={ "url": { "href": "/get-a-quote", "type": "EXTERNAL" } },
+          secondary_cta_text="See services",
+          secondary_cta_url={ "url": { "href": "/services", "type": "EXTERNAL" } },
+          background_style="dark",
+          show_shapes=true %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== SECTION HEADING ===== #}
+    {% dnd_section padding={ "top": 80, "bottom": 24, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Section Heading",
+          eyebrow="Engagements",
+          heading="How we work, what it costs, what to expect",
+          alignment="center",
+          show_accent=true %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== FAQ — engagements ===== #}
+    {% dnd_section padding={ "top": 16, "bottom": 64, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - FAQ Accordion",
+          open_first=true %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== SECTION HEADING — technical ===== #}
+    {% dnd_section padding={ "top": 32, "bottom": 24, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Section Heading",
+          eyebrow="Technical",
+          heading="Stack, security, and ownership",
+          alignment="center",
+          show_accent=true %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== FAQ — technical ===== #}
+    {% dnd_section padding={ "top": 16, "bottom": 80, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - FAQ Accordion",
+          items=[
+            { "question": "Who owns the code we build together?", "answer": "<p>You do. Always. Repos, docs, infra-as-code, runbooks — everything ships into your accounts under your license.</p>" },
+            { "question": "Do you sign NDAs and security agreements?", "answer": "<p>Yes. We'll sign your NDA, MSA, and DPA on day one. We're SOC 2-aligned in our internal practices.</p>" },
+            { "question": "Can you work alongside our existing team?", "answer": "<p>That's our default mode. We pair with your engineers, share PRs, and document as we go so the knowledge transfers.</p>" },
+            { "question": "What happens if we want to part ways?", "answer": "<p>You keep everything we built. We'll spend the last week documenting and handing off. No lock-in, no awkward exits.</p>" }
+          ],
+          open_first=false %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== CTA ===== #}
+    {% dnd_section full_width=true,
+        padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
+      {% dnd_module path="../../modules/SR - CTA Banner",
+          heading="Question we didn't cover?",
+          subheading="Send it our way — we'll write you back, not a chatbot.",
+          cta_text="Get in touch",
+          cta_url={ "url": { "href": "/contact", "type": "EXTERNAL" } },
+          style="gradient" %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+  {% end_dnd_area %}
+{% endblock body %}

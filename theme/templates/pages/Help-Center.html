@@ -1,0 +1,110 @@
+<!--
+  templateType: page
+  label: SR - Help Center
+  screenshot_path: ../../images/template-previews/help-center.jpg
+  isAvailableForNewContent: true
+-->
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+  {% dnd_area "main", label="Main" %}
+
+    {# ===== HERO ===== #}
+    {% dnd_section full_width=true,
+        padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
+      {% dnd_module path="../../modules/SR - Hero Spotlight",
+          eyebrow="Help center",
+          heading="Answers, recipes, and runbooks",
+          subheading="<p>Search the docs, browse by topic, or open a ticket. We aim to answer every support note within four business hours.</p>",
+          primary_cta_text="Search the docs",
+          primary_cta_url={ "url": { "href": "#search", "type": "EXTERNAL" } },
+          secondary_cta_text="Open a ticket",
+          secondary_cta_url={ "url": { "href": "/contact?topic=support", "type": "EXTERNAL" } },
+          background_style="gradient",
+          show_shapes=true %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== SEARCH ===== #}
+    {% dnd_section padding={ "top": 64, "bottom": 32, "left": 24, "right": 24 } %}
+      {% dnd_module path="@hubspot/search_input",
+          placeholder="Search the help center...",
+          search_input_label="Help search",
+          submit_button_label="Search" %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== TOPIC TILES ===== #}
+    {% dnd_section padding={ "top": 32, "bottom": 24, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Section Heading",
+          eyebrow="Browse by topic",
+          heading="Pick where you are",
+          alignment="center",
+          show_accent=true %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section padding={ "top": 16, "bottom": 64, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Service Cards",
+          columns="3",
+          cards=[
+            { "icon_text": "🚀", "title": "Getting started", "description": "<p>First-week guides for new clients.</p>", "link_text": "Browse", "link_url": { "url": { "href": "/help/getting-started", "type": "EXTERNAL" } } },
+            { "icon_text": "🔧", "title": "Implementation", "description": "<p>Common deployment and migration recipes.</p>", "link_text": "Browse", "link_url": { "url": { "href": "/help/implementation", "type": "EXTERNAL" } } },
+            { "icon_text": "🛠️", "title": "Troubleshooting", "description": "<p>Diagnose, debug, and recover.</p>", "link_text": "Browse", "link_url": { "url": { "href": "/help/troubleshooting", "type": "EXTERNAL" } } },
+            { "icon_text": "🛡️", "title": "Security & access", "description": "<p>SSO, IAM, secrets, and audit logs.</p>", "link_text": "Browse", "link_url": { "url": { "href": "/help/security", "type": "EXTERNAL" } } },
+            { "icon_text": "💳", "title": "Billing & accounts", "description": "<p>Invoices, contracts, and contacts.</p>", "link_text": "Browse", "link_url": { "url": { "href": "/help/billing", "type": "EXTERNAL" } } },
+            { "icon_text": "📡", "title": "Integrations", "description": "<p>Connector setup and patterns.</p>", "link_text": "Browse", "link_url": { "url": { "href": "/help/integrations", "type": "EXTERNAL" } } }
+          ] %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== POPULAR ARTICLES ===== #}
+    {% dnd_section padding={ "top": 32, "bottom": 24, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Section Heading",
+          eyebrow="Most-read articles",
+          heading="What other clients open first",
+          alignment="center",
+          show_accent=true %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section padding={ "top": 16, "bottom": 64, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Service Cards",
+          columns="3",
+          cards=[
+            { "icon_text": "📄", "title": "How to invite a teammate", "description": "<p>Help / Getting started · 2 min read</p>", "link_text": "Read", "link_url": { "url": { "href": "/help/getting-started/invite-teammate", "type": "EXTERNAL" } } },
+            { "icon_text": "📄", "title": "Setting up SSO with Okta", "description": "<p>Help / Security · 8 min read</p>", "link_text": "Read", "link_url": { "url": { "href": "/help/security/sso-okta", "type": "EXTERNAL" } } },
+            { "icon_text": "📄", "title": "Reading your monthly invoice", "description": "<p>Help / Billing · 3 min read</p>", "link_text": "Read", "link_url": { "url": { "href": "/help/billing/monthly-invoice", "type": "EXTERNAL" } } },
+            { "icon_text": "📄", "title": "Connecting GitHub Actions", "description": "<p>Help / Integrations · 6 min read</p>", "link_text": "Read", "link_url": { "url": { "href": "/help/integrations/github-actions", "type": "EXTERNAL" } } },
+            { "icon_text": "📄", "title": "Recovering from a failed deploy", "description": "<p>Help / Troubleshooting · 10 min read</p>", "link_text": "Read", "link_url": { "url": { "href": "/help/troubleshooting/failed-deploy", "type": "EXTERNAL" } } },
+            { "icon_text": "📄", "title": "Audit log retention", "description": "<p>Help / Security · 4 min read</p>", "link_text": "Read", "link_url": { "url": { "href": "/help/security/audit-log-retention", "type": "EXTERNAL" } } }
+          ] %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== STATS — support ===== #}
+    {% dnd_section padding={ "top": 32, "bottom": 64, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Stats Grid",
+          stats=[
+            { "value": "4", "suffix": "hr", "label": "First-response SLA" },
+            { "value": "97", "suffix": "%", "label": "Tickets resolved in 1 day" },
+            { "value": "0", "suffix": "", "label": "Bots between you and a human" },
+            { "value": "5", "suffix": "/5", "label": "Average support CSAT" }
+          ] %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== CTA ===== #}
+    {% dnd_section full_width=true,
+        padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
+      {% dnd_module path="../../modules/SR - CTA Banner",
+          heading="Can't find your answer?",
+          subheading="Open a ticket — a real engineer reads every one.",
+          cta_text="Open a ticket",
+          cta_url={ "url": { "href": "/contact?topic=support", "type": "EXTERNAL" } },
+          style="gradient" %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+  {% end_dnd_area %}
+{% endblock body %}

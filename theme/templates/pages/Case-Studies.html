@@ -1,0 +1,80 @@
+<!--
+  templateType: page
+  label: SR - Case Studies (index)
+  screenshot_path: ../../images/template-previews/case-studies.jpg
+  isAvailableForNewContent: true
+-->
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+  {% dnd_area "main", label="Main" %}
+
+    {# ===== HERO ===== #}
+    {% dnd_section full_width=true,
+        padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
+      {% dnd_module path="../../modules/SR - Hero Spotlight",
+          eyebrow="Case studies",
+          heading="Work that shipped, results we can name",
+          subheading="<p>The teams we've helped, the systems we built with them, and the metrics that moved as a result.</p>",
+          primary_cta_text="Start your project",
+          primary_cta_url={ "url": { "href": "/get-a-quote", "type": "EXTERNAL" } },
+          secondary_cta_text="See services",
+          secondary_cta_url={ "url": { "href": "/services", "type": "EXTERNAL" } },
+          background_style="gradient",
+          show_shapes=true %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== COUNTER MARQUEE — aggregate impact ===== #}
+    {% dnd_section full_width=true,
+        padding={ "top": 32, "bottom": 32, "left": 0, "right": 0 } %}
+      {% dnd_module path="../../modules/SR - Counter Marquee" %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== SECTION HEADING ===== #}
+    {% dnd_section padding={ "top": 64, "bottom": 24, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Section Heading",
+          eyebrow="Selected work",
+          heading="A few engagements we're proud of",
+          intro="<p>Industries from fintech to healthtech to education. The throughline: senior teams, weekly milestones, real outcomes.</p>",
+          alignment="center",
+          show_accent=true %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== CASE STUDY TILES — using Service Cards module ===== #}
+    {% dnd_section padding={ "top": 16, "bottom": 64, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Service Cards",
+          columns="3",
+          cards=[
+            { "icon_text": "🏦", "title": "FinScale — Cloud Rebuild", "description": "<p>80% drop in outages and a halved infra bill after a 12-week AWS rebuild.</p>", "link_text": "Read the case study", "link_url": { "url": { "href": "/case-studies/finscale", "type": "EXTERNAL" } } },
+            { "icon_text": "📈", "title": "Verge — HubSpot Overhaul", "description": "<p>Marketing team ships campaigns 3× faster after a custom HubSpot rebuild.</p>", "link_text": "Read the case study", "link_url": { "url": { "href": "/case-studies/verge", "type": "EXTERNAL" } } },
+            { "icon_text": "🛡️", "title": "NorthLoop — Security Hardening", "description": "<p>SOC 2 readiness in eight weeks, with zero engineering disruption.</p>", "link_text": "Read the case study", "link_url": { "url": { "href": "/case-studies/northloop", "type": "EXTERNAL" } } },
+            { "icon_text": "🩺", "title": "MediSync — HIPAA Migration", "description": "<p>HIPAA-compliant patient platform migrated to AWS in two quarters.</p>", "link_text": "Read the case study", "link_url": { "url": { "href": "/case-studies/medisync", "type": "EXTERNAL" } } },
+            { "icon_text": "🎓", "title": "Lumen Ed — Headless CMS", "description": "<p>Editorial team publishes 5× faster on a headless CMS we built and trained them on.</p>", "link_text": "Read the case study", "link_url": { "url": { "href": "/case-studies/lumen", "type": "EXTERNAL" } } },
+            { "icon_text": "🛒", "title": "Marketly — Commerce Stack", "description": "<p>30% conversion lift from a re-architected checkout and observability rollout.</p>", "link_text": "Read the case study", "link_url": { "url": { "href": "/case-studies/marketly", "type": "EXTERNAL" } } }
+          ] %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== TESTIMONIAL ===== #}
+    {% dnd_section padding={ "top": 32, "bottom": 64, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Testimonial Carousel" %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== CTA ===== #}
+    {% dnd_section full_width=true,
+        padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
+      {% dnd_module path="../../modules/SR - CTA Banner",
+          heading="Want to be the next case study?",
+          subheading="We pick engagements where outcomes are measurable. Tell us yours.",
+          cta_text="Start the conversation",
+          cta_url={ "url": { "href": "/get-a-quote", "type": "EXTERNAL" } },
+          style="gradient" %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+  {% end_dnd_area %}
+{% endblock body %}

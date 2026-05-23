@@ -1,0 +1,117 @@
+<!--
+  templateType: page
+  label: SR - Security & Compliance
+  screenshot_path: ../../images/template-previews/security-compliance.jpg
+  isAvailableForNewContent: true
+-->
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+  {% dnd_area "main", label="Main" %}
+
+    {# ===== HERO — dark for trust signal ===== #}
+    {% dnd_section full_width=true,
+        padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
+      {% dnd_module path="../../modules/SR - Hero Spotlight",
+          eyebrow="Security & Trust",
+          heading="Compliance baked in, not bolted on",
+          subheading="<p>Every engagement maps to controls before we write code. Audit prep becomes a byproduct of how we build.</p>",
+          primary_cta_text="Request our security packet",
+          primary_cta_url={ "url": { "href": "/contact?topic=security", "type": "EXTERNAL" } },
+          secondary_cta_text="Read our subprocessors",
+          secondary_cta_url={ "url": { "href": "#subprocessors", "type": "EXTERNAL" } },
+          background_style="dark",
+          show_shapes=true %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== CERTIFICATIONS — service cards as badges ===== #}
+    {% dnd_section padding={ "top": 64, "bottom": 24, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Section Heading",
+          eyebrow="Certifications",
+          heading="What we hold and what we help you hold",
+          alignment="center",
+          show_accent=true %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section padding={ "top": 16, "bottom": 64, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Service Cards",
+          columns="4",
+          cards=[
+            { "icon_text": "🛡️", "title": "SOC 2 Type II", "description": "<p>Annual audit · Aligned controls across all client engagements.</p>", "link_text": "Request report", "link_url": { "url": { "href": "/contact?topic=soc2", "type": "EXTERNAL" } } },
+            { "icon_text": "🩺", "title": "HIPAA / BAA-ready", "description": "<p>BAAs signed before any PHI touches an environment.</p>", "link_text": "Request BAA", "link_url": { "url": { "href": "/contact?topic=hipaa", "type": "EXTERNAL" } } },
+            { "icon_text": "🌐", "title": "ISO 27001 aligned", "description": "<p>Mapped controls, ready for ISO 27001 readiness sprints.</p>", "link_text": "Learn more", "link_url": { "url": { "href": "/security/iso-27001", "type": "EXTERNAL" } } },
+            { "icon_text": "🔐", "title": "GDPR / DPA", "description": "<p>Data Processing Addenda available for EU clients on request.</p>", "link_text": "Request DPA", "link_url": { "url": { "href": "/contact?topic=dpa", "type": "EXTERNAL" } } }
+          ] %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== SPLIT — practices ===== #}
+    {% dnd_section padding={ "top": 32, "bottom": 64, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Split Feature",
+          image_side="right",
+          eyebrow="Internal practices",
+          heading="The way we work, day to day",
+          body="<p>Security isn't an add-on quarter. It's how we hire, build, and ship — and we'd rather show you than tell you.</p>",
+          bullets=[
+            { "text": "MDM and disk encryption on all team devices" },
+            { "text": "SSO + hardware keys (WebAuthn) for all internal tools" },
+            { "text": "Quarterly access reviews and offboarding drills" },
+            { "text": "Annual third-party pen test — report on request" },
+            { "text": "Internal secrets vault — no creds in repos, ever" }
+          ],
+          cta_text="Read our security policy",
+          cta_url={ "url": { "href": "/legal/security-policy", "type": "EXTERNAL" } } %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== STATS ===== #}
+    {% dnd_section padding={ "top": 32, "bottom": 64, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Stats Grid",
+          stats=[
+            { "value": "0", "suffix": "", "label": "PHI/PII incidents in client environments" },
+            { "value": "100", "suffix": "%", "label": "Engagements with signed NDA + DPA" },
+            { "value": "24", "suffix": "hr", "label": "Internal incident response SLA" },
+            { "value": "365", "suffix": "/yr", "label": "Continuous control monitoring" }
+          ] %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== SUBPROCESSORS — section heading + faq ===== #}
+    {% dnd_section padding={ "top": 32, "bottom": 24, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Section Heading",
+          eyebrow="Trust questions",
+          heading="The answers procurement always asks for",
+          alignment="center",
+          show_accent=true %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section padding={ "top": 16, "bottom": 80, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - FAQ Accordion",
+          items=[
+            { "question": "Who owns the code we build together?", "answer": "<p>You do. Always. Repos, infra-as-code, runbooks — everything ships into your accounts under your license.</p>" },
+            { "question": "What does your subprocessor list look like?", "answer": "<p>We publish a current list on request and notify clients in advance of any changes. The short list: GitHub, Vercel, AWS, Slack, 1Password, Linear.</p>" },
+            { "question": "Do you do background checks?", "answer": "<p>Yes. All employees and long-term contractors complete a third-party background check before access is provisioned.</p>" },
+            { "question": "How do you handle access in shared environments?", "answer": "<p>Just-in-time, scoped, and audit-logged. Access is granted per engagement, reviewed weekly, and auto-revoked at handoff.</p>" },
+            { "question": "Can we run a security review before we sign?", "answer": "<p>Absolutely. We respond to questionnaires within 5 business days and are happy to walk a control mapping with your security team.</p>" }
+          ],
+          open_first=true %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== CTA ===== #}
+    {% dnd_section full_width=true,
+        padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
+      {% dnd_module path="../../modules/SR - CTA Banner",
+          heading="Need our full security packet?",
+          subheading="SOC 2 report, pen test summary, BAA, DPA — all in one zip.",
+          cta_text="Request the packet",
+          cta_url={ "url": { "href": "/contact?topic=security", "type": "EXTERNAL" } },
+          style="ink" %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+  {% end_dnd_area %}
+{% endblock body %}

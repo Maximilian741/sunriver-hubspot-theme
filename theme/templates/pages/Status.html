@@ -1,0 +1,133 @@
+<!--
+  templateType: page
+  label: SR - Status / System Status
+  screenshot_path: ../../images/template-previews/status.jpg
+  isAvailableForNewContent: true
+-->
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+  {% dnd_area "main", label="Main" %}
+
+    {# ===== HERO — dark for ops/trust feel ===== #}
+    {% dnd_section full_width=true,
+        padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
+      {% dnd_module path="../../modules/SR - Hero Spotlight",
+          eyebrow="System status",
+          heading="All systems operational",
+          subheading="<p>Real-time status of every customer-facing system, plus the last 90 days of incident history. Subscribe below to get notified the moment anything changes.</p>",
+          primary_cta_text="Subscribe to updates",
+          primary_cta_url={ "url": { "href": "#subscribe", "type": "EXTERNAL" } },
+          secondary_cta_text="See incident history",
+          secondary_cta_url={ "url": { "href": "#history", "type": "EXTERNAL" } },
+          background_style="dark",
+          show_shapes=true %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== SYSTEM TILES ===== #}
+    {% dnd_section padding={ "top": 64, "bottom": 24, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Section Heading",
+          eyebrow="Right now",
+          heading="Component-level status",
+          alignment="center",
+          show_accent=true %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section padding={ "top": 16, "bottom": 64, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Service Cards",
+          columns="3",
+          cards=[
+            { "icon_text": "🟢", "title": "Web App", "description": "<p>Operational · 99.99% uptime (30d)</p>", "link_text": "View metrics", "link_url": { "url": { "href": "#web-metrics", "type": "EXTERNAL" } } },
+            { "icon_text": "🟢", "title": "Public API", "description": "<p>Operational · 99.97% uptime (30d)</p>", "link_text": "View metrics", "link_url": { "url": { "href": "#api-metrics", "type": "EXTERNAL" } } },
+            { "icon_text": "🟢", "title": "Authentication", "description": "<p>Operational · 100% uptime (30d)</p>", "link_text": "View metrics", "link_url": { "url": { "href": "#auth-metrics", "type": "EXTERNAL" } } },
+            { "icon_text": "🟢", "title": "Webhooks", "description": "<p>Operational · 99.95% uptime (30d)</p>", "link_text": "View metrics", "link_url": { "url": { "href": "#webhooks-metrics", "type": "EXTERNAL" } } },
+            { "icon_text": "🟢", "title": "Background Jobs", "description": "<p>Operational · 99.98% uptime (30d)</p>", "link_text": "View metrics", "link_url": { "url": { "href": "#jobs-metrics", "type": "EXTERNAL" } } },
+            { "icon_text": "🟢", "title": "Customer Portal", "description": "<p>Operational · 99.99% uptime (30d)</p>", "link_text": "View metrics", "link_url": { "url": { "href": "#portal-metrics", "type": "EXTERNAL" } } }
+          ] %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== STATS — 90-day rollup ===== #}
+    {% dnd_section padding={ "top": 32, "bottom": 64, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Stats Grid",
+          stats=[
+            { "value": "99.98", "suffix": "%", "label": "Uptime, last 90 days" },
+            { "value": "1", "suffix": "", "label": "Incidents in the last 90 days" },
+            { "value": "12", "suffix": "min", "label": "Median time to resolve" },
+            { "value": "5", "suffix": "min", "label": "Median time to first update" }
+          ] %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== HISTORY — split ===== #}
+    {% dnd_section padding={ "top": 32, "bottom": 64, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Split Feature",
+          image_side="left",
+          eyebrow="Last 90 days",
+          heading="One incident, fully written up",
+          body="<p>We publish a complete post-mortem for every customer-facing incident — root cause, timeline, and what changed afterwards. No exceptions.</p>",
+          bullets=[
+            { "text": "April 14 · Webhook delivery delays · 22 min impact · resolved" },
+            { "text": "Status page subscribers notified within 4 minutes of detection" },
+            { "text": "Public post-mortem published within 5 business days" },
+            { "text": "Three remediations shipped within the following sprint" }
+          ],
+          cta_text="Read the post-mortem",
+          cta_url={ "url": { "href": "/blog/incidents/2026-04-14-webhook-delays", "type": "EXTERNAL" } } %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== INCIDENT HISTORY LIST ===== #}
+    {% dnd_section padding={ "top": 32, "bottom": 24, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Section Heading",
+          eyebrow="Incident archive",
+          heading="The whole list, all the way back",
+          alignment="center",
+          show_accent=true %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section padding={ "top": 16, "bottom": 64, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Service Cards",
+          columns="3",
+          cards=[
+            { "icon_text": "🟡", "title": "Apr 14 — Webhook delays", "description": "<p>22 min · resolved · post-mortem published</p>", "link_text": "Read post-mortem", "link_url": { "url": { "href": "/blog/incidents/2026-04-14-webhook-delays", "type": "EXTERNAL" } } },
+            { "icon_text": "🟡", "title": "Feb 02 — API rate-limit spike", "description": "<p>14 min · resolved · post-mortem published</p>", "link_text": "Read post-mortem", "link_url": { "url": { "href": "/blog/incidents/2026-02-02-rate-limit", "type": "EXTERNAL" } } },
+            { "icon_text": "🟢", "title": "Older incidents", "description": "<p>Browse the full history (last 24 months)</p>", "link_text": "View all", "link_url": { "url": { "href": "/blog/incidents", "type": "EXTERNAL" } } }
+          ] %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== SUBSCRIBE ===== #}
+    {% dnd_section padding={ "top": 32, "bottom": 24, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Section Heading",
+          eyebrow="Stay informed",
+          heading="Get notified when status changes",
+          intro="<p>Email or SMS — your choice. We send updates the moment anything goes yellow.</p>",
+          alignment="center",
+          show_accent=true %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section padding={ "top": 0, "bottom": 64, "left": 24, "right": 24 } %}
+      {% dnd_module path="@hubspot/form",
+          form={ "form_id": "", "response_response_type": "inline", "response_message": "<p>You're subscribed. We'll only email you about status changes — never marketing.</p>" } %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== CTA ===== #}
+    {% dnd_section full_width=true,
+        padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
+      {% dnd_module path="../../modules/SR - CTA Banner",
+          heading="Seeing something we're not?",
+          subheading="Tell our on-call team — we treat external reports the same as internal pages.",
+          cta_text="Report an issue",
+          cta_url={ "url": { "href": "/contact?topic=incident", "type": "EXTERNAL" } },
+          style="ink" %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+  {% end_dnd_area %}
+{% endblock body %}

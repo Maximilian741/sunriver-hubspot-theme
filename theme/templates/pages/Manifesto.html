@@ -1,0 +1,121 @@
+<!--
+  templateType: page
+  label: SR - Manifesto / Founder Story
+  screenshot_path: ../../images/template-previews/manifesto.jpg
+  isAvailableForNewContent: true
+-->
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+  {% dnd_area "main", label="Main" %}
+
+    {# ===== HERO ===== #}
+    {% dnd_section full_width=true,
+        padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
+      {% dnd_module path="../../modules/SR - Hero Spotlight",
+          eyebrow="Why we built this",
+          heading="A consultancy we'd actually want to hire",
+          subheading="<p>The big-brand consulting world is broken in a few specific ways. SunRiver is our attempt to fix the ones we couldn't stop thinking about.</p>",
+          primary_cta_text="Read the story",
+          primary_cta_url={ "url": { "href": "#story", "type": "EXTERNAL" } },
+          secondary_cta_text="See the team",
+          secondary_cta_url={ "url": { "href": "/team", "type": "EXTERNAL" } },
+          background_style="gradient",
+          show_shapes=true %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== ORIGIN — split ===== #}
+    {% dnd_section padding={ "top": 80, "bottom": 64, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Split Feature",
+          image_side="right",
+          eyebrow="The origin",
+          heading="Three engineers, one shared frustration",
+          body="<p>We met in 2017 working at a Fortune 100 client where the consulting partner had brought polished decks and junior staffing to a problem that needed senior engineering. Six months in, the project was burning $200K a month and shipping nothing. The partner went home each Friday. We stayed.</p><p>Two years later we'd seen the same pattern at four more clients. So we left.</p>",
+          bullets=[
+            { "text": "Senior on the sale, junior on delivery — every time" },
+            { "text": "Slide decks where working software belonged" },
+            { "text": "Vendor lock-in to methodologies that didn't survive contact with reality" }
+          ],
+          cta_text="",
+          cta_url={ "url": { "href": "#", "type": "EXTERNAL" } } %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== STATS — values ===== #}
+    {% dnd_section padding={ "top": 32, "bottom": 64, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Stats Grid",
+          stats=[
+            { "value": "0", "suffix": "", "label": "Junior hand-offs, ever" },
+            { "value": "100", "suffix": "%", "label": "Code ownership goes to client" },
+            { "value": "1", "suffix": "wk", "label": "Discovery before any proposal" },
+            { "value": "5", "suffix": "/5", "label": "Average client CSAT, three years running" }
+          ] %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== WHAT WE BELIEVE — process steps as principles ===== #}
+    {% dnd_section padding={ "top": 32, "bottom": 24, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Section Heading",
+          eyebrow="What we believe",
+          heading="Five principles, no exceptions",
+          intro="<p>If we ever break one of these, we want clients to call us on it.</p>",
+          alignment="center",
+          show_accent=true %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section padding={ "top": 16, "bottom": 64, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Process Steps",
+          layout="vertical",
+          steps=[
+            { "title": "Senior people, no exceptions", "description": "<p>The people on the discovery call are the people building. We don't grow a bench. We don't sell capacity we don't have.</p>" },
+            { "title": "Working software beats slide decks", "description": "<p>Every milestone ends with something running in your environment. We measure progress in deployed code, not consulting hours.</p>" },
+            { "title": "You own everything we build", "description": "<p>Code, infra-as-code, runbooks, docs — all yours, in your accounts, from day one. No lock-in, no awkward exits.</p>" },
+            { "title": "We say no when it's the right answer", "description": "<p>If you don't need us, we'll tell you. If you need someone else, we'll point. Honesty is a long-term strategy.</p>" },
+            { "title": "Boring is a feature", "description": "<p>We pick boring tech, boring patterns, and boring delivery cadences on purpose. The work is interesting enough already.</p>" }
+          ] %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== TESTIMONIAL ===== #}
+    {% dnd_section padding={ "top": 32, "bottom": 64, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Testimonial Carousel",
+          autoplay_seconds=0,
+          items=[
+            { "quote": "<p>The first consultancy I've hired that left us better at what they do, not more dependent on them.</p>", "name": "Quinn B.", "role": "VP Engineering, Slatecore" },
+            { "quote": "<p>They turned down our second engagement because it wasn't the right fit for their team. That's when I knew I'd be calling them again.</p>", "name": "Marisol P.", "role": "CTO, Northwind" }
+          ] %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== SIGNATURE — split ===== #}
+    {% dnd_section padding={ "top": 32, "bottom": 64, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Split Feature",
+          image_side="left",
+          eyebrow="The bet",
+          heading="Build the consultancy we'd want to hire",
+          body="<p>SunRiver is a bet that there are enough engineering leaders out there who'd rather pay for senior people doing senior work than for the polished veneer of a big logo. So far, that bet's holding up.</p><p>If you've ever been on the receiving end of a junior-staffed engagement, we built this for you. And if you'd like to talk about it, our calendar is open.</p>",
+          bullets=[
+            { "text": "— Casey, Jordan, and Riley" },
+            { "text": "Co-founders, SunRiver Consulting" }
+          ],
+          cta_text="Book a call",
+          cta_url={ "url": { "href": "/booking", "type": "EXTERNAL" } } %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== CTA ===== #}
+    {% dnd_section full_width=true,
+        padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
+      {% dnd_module path="../../modules/SR - CTA Banner",
+          heading="Want to work with us?",
+          subheading="Or want to work for us — we hire the same way we sell.",
+          cta_text="See open roles + contact us",
+          cta_url={ "url": { "href": "/team", "type": "EXTERNAL" } },
+          style="gold" %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+  {% end_dnd_area %}
+{% endblock body %}

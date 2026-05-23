@@ -1,0 +1,173 @@
+<!--
+  templateType: page
+  label: SR - Job Application (per role)
+  screenshot_path: ../../images/template-previews/apply.jpg
+  isAvailableForNewContent: true
+-->
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+  {% dnd_area "main", label="Main" %}
+
+    {# ===== HERO ===== #}
+    {% dnd_section full_width=true,
+        padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
+      {% dnd_module path="../../modules/SR - Hero Spotlight",
+          eyebrow="Open role · Remote, North America",
+          heading="Senior Cloud Engineer",
+          subheading="<p>Lead AWS and Azure engagements alongside three other senior engineers. Ship working systems on weekly cadences. No pyramid staffing, no junior hand-offs.</p>",
+          primary_cta_text="Apply now",
+          primary_cta_url={ "url": { "href": "#apply-form", "type": "EXTERNAL" } },
+          secondary_cta_text="See all roles",
+          secondary_cta_url={ "url": { "href": "/team", "type": "EXTERNAL" } },
+          background_style="gradient",
+          show_shapes=true %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== ROLE SUMMARY — split ===== #}
+    {% dnd_section padding={ "top": 80, "bottom": 64, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Split Feature",
+          image_side="right",
+          eyebrow="The role",
+          heading="What you'd actually do, week to week",
+          body="<p>You'd own client engagements end-to-end — discovery, architecture, delivery, handoff. Pair with two senior engineers and one product designer. No managing managers, no slide farming.</p>",
+          bullets=[
+            { "text": "Lead 1–2 concurrent client engagements" },
+            { "text": "Pair-design architecture with another senior engineer" },
+            { "text": "Ship working code in client environments weekly" },
+            { "text": "Mentor mid-career hires when they join (rare; senior-only by default)" },
+            { "text": "Contribute to internal patterns library and open-source kits" }
+          ],
+          cta_text="See sample engagements",
+          cta_url={ "url": { "href": "/case-studies", "type": "EXTERNAL" } } %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== WHAT YOU NEED — split ===== #}
+    {% dnd_section padding={ "top": 32, "bottom": 64, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Split Feature",
+          image_side="left",
+          eyebrow="What you need",
+          heading="Hard requirements, no fluff",
+          body="<p>We're not interested in keyword bingo. The list below is what you actually need to thrive on day one.</p>",
+          bullets=[
+            { "text": "7+ years building production cloud systems" },
+            { "text": "Deep AWS or Azure (or both) — IAM, networking, IaC, observability" },
+            { "text": "Strong written communication (we write a lot)" },
+            { "text": "Comfortable owning client relationships, not just code" },
+            { "text": "Located in North America (remote-first, but timezone-bounded)" }
+          ],
+          cta_text="",
+          cta_url={ "url": { "href": "#", "type": "EXTERNAL" } } %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== COMP & BENEFITS ===== #}
+    {% dnd_section padding={ "top": 32, "bottom": 24, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Section Heading",
+          eyebrow="Comp & benefits",
+          heading="What you'd be paid, and how we work",
+          alignment="center",
+          show_accent=true %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section padding={ "top": 16, "bottom": 64, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Stats Grid",
+          stats=[
+            { "value": "$210K", "suffix": "–250K", "label": "Base salary" },
+            { "value": "20", "suffix": "%", "label": "Profit-share, paid quarterly" },
+            { "value": "4", "suffix": "wk", "label": "PTO, plus company shutdown" },
+            { "value": "100", "suffix": "%", "label": "Healthcare premiums covered" }
+          ] %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== INTERVIEW PROCESS ===== #}
+    {% dnd_section padding={ "top": 32, "bottom": 24, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Section Heading",
+          eyebrow="The process",
+          heading="How we hire — same way we sell",
+          intro="<p>Three rounds, two weeks, written offer. We don't drag this out.</p>",
+          alignment="center",
+          show_accent=true %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section padding={ "top": 16, "bottom": 64, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Process Steps",
+          layout="horizontal",
+          steps=[
+            { "title": "Application + resume review", "description": "<p>We respond to every application within 5 business days. If we're a fit, we send the take-home.</p>" },
+            { "title": "Async take-home (3 hr cap)", "description": "<p>Real engagement scenario. Open notes, real tools, your own pace. We pay $400 for completed submissions whether or not we move forward.</p>" },
+            { "title": "Pairing interview (90 min)", "description": "<p>Live pairing on a real codebase with two senior engineers. No whiteboard algos.</p>" },
+            { "title": "Offer + reference call", "description": "<p>Written offer within 3 business days. We call references after you've signed, not before.</p>" }
+          ] %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== APPLICATION FORM ===== #}
+    {% dnd_section padding={ "top": 32, "bottom": 24, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Section Heading",
+          eyebrow="Apply",
+          heading="Send us your work, not a CV gaps explanation",
+          intro="<p>Resume, GitHub or portfolio link, and three sentences on a system you're proud of. That's it.</p>",
+          alignment="center",
+          show_accent=true %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section padding={ "top": 0, "bottom": 64, "left": 24, "right": 24 } %}
+      {% dnd_module path="@hubspot/form",
+          form={ "form_id": "", "response_response_type": "inline", "response_message": "<p>Thanks — application received. We'll respond within 5 business days, no exceptions.</p>" } %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== TESTIMONIAL — internal ===== #}
+    {% dnd_section padding={ "top": 32, "bottom": 64, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Testimonial Carousel",
+          autoplay_seconds=0,
+          items=[
+            { "quote": "<p>Best hiring process I've been through. They paid for the take-home, gave detailed feedback, and the offer letter was honest about everything I asked about — including the parts that aren't perfect.</p>", "name": "Drew M.", "role": "Senior Engineer (joined 2024)" },
+            { "quote": "<p>Three weeks from application to signed offer. No bait-and-switch on scope, comp, or team. The role I was hired for is the role I'm doing.</p>", "name": "Linh T.", "role": "Senior SRE (joined 2023)" }
+          ] %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== FAQ ===== #}
+    {% dnd_section padding={ "top": 32, "bottom": 24, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Section Heading",
+          eyebrow="Common questions",
+          heading="Things candidates ask before applying",
+          alignment="center",
+          show_accent=true %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section padding={ "top": 16, "bottom": 80, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - FAQ Accordion",
+          items=[
+            { "question": "Do you sponsor visas?", "answer": "<p>Not currently. We're a small team and visa sponsorship needs more legal/HR scaffolding than we have right now. We'd love to revisit this once we're 50+.</p>" },
+            { "question": "Can I work part-time or fractional?", "answer": "<p>For client-facing senior roles, we hire full-time. We do bring on fractional advisors for specific practice areas — reach out separately if that fits.</p>" },
+            { "question": "What's the on-call expectation?", "answer": "<p>Business-hours coverage with rotating escalation for client retainers. We're not a 24/7 NOC and never will be.</p>" },
+            { "question": "How does the profit-share work?", "answer": "<p>20% of profit pooled and distributed quarterly across the team based on tenure and engagement contribution. Last year averaged ~$32K per senior engineer.</p>" }
+          ],
+          open_first=false %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== CTA ===== #}
+    {% dnd_section full_width=true,
+        padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
+      {% dnd_module path="../../modules/SR - CTA Banner",
+          heading="This isn't quite the right role?",
+          subheading="Tell us what you'd want — we hire when the work matches the person, not when there's a req open.",
+          cta_text="Send us your story",
+          cta_url={ "url": { "href": "/contact?topic=careers", "type": "EXTERNAL" } },
+          style="gold" %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+  {% end_dnd_area %}
+{% endblock body %}

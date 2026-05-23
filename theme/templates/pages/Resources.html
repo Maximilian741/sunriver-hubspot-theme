@@ -1,0 +1,91 @@
+<!--
+  templateType: page
+  label: SR - Resources Hub
+  screenshot_path: ../../images/template-previews/resources.jpg
+  isAvailableForNewContent: true
+-->
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+  {% dnd_area "main", label="Main" %}
+
+    {# ===== HERO ===== #}
+    {% dnd_section full_width=true,
+        padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
+      {% dnd_module path="../../modules/SR - Hero Spotlight",
+          eyebrow="Resources",
+          heading="The library we'd hand a friend",
+          subheading="<p>Playbooks, post-mortems, and templates from the engagements we've shipped. Take what's useful — no email gate on most of it.</p>",
+          primary_cta_text="Browse the library",
+          primary_cta_url={ "url": { "href": "#library", "type": "EXTERNAL" } },
+          secondary_cta_text="Read the blog",
+          secondary_cta_url={ "url": { "href": "/blog", "type": "EXTERNAL" } },
+          background_style="gradient",
+          show_shapes=true %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== FEATURED PLAYBOOK — split ===== #}
+    {% dnd_section padding={ "top": 80, "bottom": 32, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Split Feature",
+          image_side="left",
+          eyebrow="Featured",
+          heading="The 2026 Cloud Modernization Playbook",
+          body="<p>40 pages of architecture patterns, cost benchmarks, and migration runbooks. Distilled from 100+ real engagements — not a vendor whitepaper.</p>",
+          bullets=[
+            { "text": "10 reference architectures (AWS, Azure, GCP)" },
+            { "text": "Cost-modeling worksheets you can fork" },
+            { "text": "Cutover runbook templates" }
+          ],
+          cta_text="Get the playbook",
+          cta_url={ "url": { "href": "/resources/cloud-playbook", "type": "EXTERNAL" } } %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== SECTION HEADING ===== #}
+    {% dnd_section padding={ "top": 64, "bottom": 24, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Section Heading",
+          eyebrow="Library",
+          heading="Browse by what you need today",
+          intro="<p>Every download is something we use internally — no fluff, no gated lead magnets disguised as guides.</p>",
+          alignment="center",
+          show_accent=true %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== RESOURCE TILES ===== #}
+    {% dnd_section padding={ "top": 16, "bottom": 64, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Service Cards",
+          columns="3",
+          cards=[
+            { "icon_text": "📘", "title": "Cloud Modernization Playbook", "description": "<p>40-page guide · PDF · ~12 min read</p>", "link_text": "Get the playbook", "link_url": { "url": { "href": "/resources/cloud-playbook", "type": "EXTERNAL" } } },
+            { "icon_text": "📊", "title": "FinOps Cost-Audit Worksheet", "description": "<p>Spreadsheet template · forkable · 1 hr to complete</p>", "link_text": "Download worksheet", "link_url": { "url": { "href": "/resources/finops-worksheet", "type": "EXTERNAL" } } },
+            { "icon_text": "🛡️", "title": "SOC 2 Readiness Checklist", "description": "<p>Notion template · 80 controls mapped · free</p>", "link_text": "Open checklist", "link_url": { "url": { "href": "/resources/soc2-checklist", "type": "EXTERNAL" } } },
+            { "icon_text": "📝", "title": "Incident Post-Mortem Template", "description": "<p>Markdown template · battle-tested · MIT licensed</p>", "link_text": "Get the template", "link_url": { "url": { "href": "/resources/postmortem-template", "type": "EXTERNAL" } } },
+            { "icon_text": "🎙️", "title": "On-Call Runbook Starter Kit", "description": "<p>10 sample runbooks · Markdown · free</p>", "link_text": "Download kit", "link_url": { "url": { "href": "/resources/oncall-kit", "type": "EXTERNAL" } } },
+            { "icon_text": "📈", "title": "HubSpot Migration Workbook", "description": "<p>Worksheet + scope template · used in real engagements</p>", "link_text": "Get the workbook", "link_url": { "url": { "href": "/resources/hubspot-workbook", "type": "EXTERNAL" } } }
+          ] %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== COUNTER MARQUEE ===== #}
+    {% dnd_section full_width=true,
+        padding={ "top": 32, "bottom": 32, "left": 0, "right": 0 } %}
+      {% dnd_module path="../../modules/SR - Counter Marquee" %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== CTA ===== #}
+    {% dnd_section full_width=true,
+        padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
+      {% dnd_module path="../../modules/SR - CTA Banner",
+          heading="Want fresh ones in your inbox?",
+          subheading="One short note per quarter. Real patterns, real numbers, no spam.",
+          cta_text="Subscribe",
+          cta_url={ "url": { "href": "/subscribe", "type": "EXTERNAL" } },
+          style="gold" %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+  {% end_dnd_area %}
+{% endblock body %}

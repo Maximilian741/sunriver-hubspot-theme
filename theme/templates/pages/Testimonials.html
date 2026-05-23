@@ -1,0 +1,90 @@
+<!--
+  templateType: page
+  label: SR - Testimonials
+  screenshot_path: ../../images/template-previews/testimonials.jpg
+  isAvailableForNewContent: true
+-->
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+  {% dnd_area "main", label="Main" %}
+
+    {# ===== HERO ===== #}
+    {% dnd_section full_width=true,
+        padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
+      {% dnd_module path="../../modules/SR - Hero Spotlight",
+          eyebrow="What clients say",
+          heading="Words from the teams we've worked with",
+          subheading="<p>The shortest, truest sales pitch we have. Quotes are unedited, links go to the case studies.</p>",
+          primary_cta_text="See case studies",
+          primary_cta_url={ "url": { "href": "/case-studies", "type": "EXTERNAL" } },
+          secondary_cta_text="Get a quote",
+          secondary_cta_url={ "url": { "href": "/get-a-quote", "type": "EXTERNAL" } },
+          background_style="gradient",
+          show_shapes=true %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== COUNTER MARQUEE ===== #}
+    {% dnd_section full_width=true,
+        padding={ "top": 32, "bottom": 32, "left": 0, "right": 0 } %}
+      {% dnd_module path="../../modules/SR - Counter Marquee" %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== TESTIMONIAL CAROUSEL — featured ===== #}
+    {% dnd_section padding={ "top": 64, "bottom": 24, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Section Heading",
+          eyebrow="Featured",
+          heading="The quotes that hit hardest",
+          alignment="center",
+          show_accent=true %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section padding={ "top": 16, "bottom": 64, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Testimonial Carousel",
+          autoplay_seconds=8 %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== LOGO/CLIENT GRID — Service Cards as logo tiles ===== #}
+    {% dnd_section padding={ "top": 32, "bottom": 24, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Section Heading",
+          eyebrow="Trusted by",
+          heading="Teams across fintech, health, education & commerce",
+          alignment="center",
+          show_accent=true %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section padding={ "top": 16, "bottom": 80, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Service Cards",
+          columns="4",
+          cards=[
+            { "icon_text": "🏦", "title": "FinScale", "description": "<p>Cloud rebuild — 80% fewer outages.</p>", "link_text": "See the story", "link_url": { "url": { "href": "/case-studies/finscale", "type": "EXTERNAL" } } },
+            { "icon_text": "📈", "title": "Verge", "description": "<p>HubSpot rebuild — 3× campaign velocity.</p>", "link_text": "See the story", "link_url": { "url": { "href": "/case-studies/verge", "type": "EXTERNAL" } } },
+            { "icon_text": "🛡️", "title": "NorthLoop", "description": "<p>SOC 2 readiness in 8 weeks.</p>", "link_text": "See the story", "link_url": { "url": { "href": "/case-studies/northloop", "type": "EXTERNAL" } } },
+            { "icon_text": "🩺", "title": "MediSync", "description": "<p>HIPAA migration to AWS.</p>", "link_text": "See the story", "link_url": { "url": { "href": "/case-studies/medisync", "type": "EXTERNAL" } } },
+            { "icon_text": "🎓", "title": "Lumen Ed", "description": "<p>Headless CMS publish workflow.</p>", "link_text": "See the story", "link_url": { "url": { "href": "/case-studies/lumen", "type": "EXTERNAL" } } },
+            { "icon_text": "🛒", "title": "Marketly", "description": "<p>Commerce stack — 30% conversion lift.</p>", "link_text": "See the story", "link_url": { "url": { "href": "/case-studies/marketly", "type": "EXTERNAL" } } },
+            { "icon_text": "🚚", "title": "Cartline", "description": "<p>Logistics platform replatform.</p>", "link_text": "See the story", "link_url": { "url": { "href": "/case-studies/cartline", "type": "EXTERNAL" } } },
+            { "icon_text": "🎮", "title": "BitForge", "description": "<p>Indie studio — analytics & ops.</p>", "link_text": "See the story", "link_url": { "url": { "href": "/case-studies/bitforge", "type": "EXTERNAL" } } }
+          ] %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== CTA ===== #}
+    {% dnd_section full_width=true,
+        padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
+      {% dnd_module path="../../modules/SR - CTA Banner",
+          heading="Want to be the next quote here?",
+          subheading="We pick engagements where the outcomes are measurable. Yours?",
+          cta_text="Schedule discovery",
+          cta_url={ "url": { "href": "/get-a-quote", "type": "EXTERNAL" } },
+          style="gradient" %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+  {% end_dnd_area %}
+{% endblock body %}

@@ -1,0 +1,95 @@
+<!--
+  templateType: page
+  label: SR - Solutions (problem-first)
+  screenshot_path: ../../images/template-previews/solutions.jpg
+  isAvailableForNewContent: true
+-->
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+  {% dnd_area "main", label="Main" %}
+
+    {# ===== HERO ===== #}
+    {% dnd_section full_width=true,
+        padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
+      {% dnd_module path="../../modules/SR - Hero Spotlight",
+          eyebrow="Solutions",
+          heading="Find the fix for what's actually broken",
+          subheading="<p>Pages of services don't help when you have a real problem. Tell us what hurts — we've packaged the answers.</p>",
+          primary_cta_text="Find your fix",
+          primary_cta_url={ "url": { "href": "#solutions", "type": "EXTERNAL" } },
+          secondary_cta_text="Talk to a human",
+          secondary_cta_url={ "url": { "href": "/get-a-quote", "type": "EXTERNAL" } },
+          background_style="gradient",
+          show_shapes=true %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== SECTION HEADING ===== #}
+    {% dnd_section padding={ "top": 80, "bottom": 24, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Section Heading",
+          eyebrow="By problem",
+          heading="What's keeping your team up at night?",
+          intro="<p>Each tile is a packaged engagement — fixed scope, fixed timeline, named outcome.</p>",
+          alignment="center",
+          show_accent=true %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== PROBLEM TILES ===== #}
+    {% dnd_section padding={ "top": 16, "bottom": 80, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Service Cards",
+          columns="3",
+          cards=[
+            { "icon_text": "🔥", "title": "Production keeps catching fire", "description": "<p>SRE-led stabilization sprint. Observability, runbooks, and on-call hygiene in 6 weeks.</p>", "link_text": "Solve incidents", "link_url": { "url": { "href": "/solutions/incident-response", "type": "EXTERNAL" } } },
+            { "icon_text": "💸", "title": "Cloud bill is out of control", "description": "<p>FinOps audit and right-sizing engagement. Typical client cuts spend 30–50%.</p>", "link_text": "Cut cloud spend", "link_url": { "url": { "href": "/solutions/cloud-cost", "type": "EXTERNAL" } } },
+            { "icon_text": "🔒", "title": "Audit's coming and we're not ready", "description": "<p>SOC 2 / HIPAA / ISO 27001 readiness sprint. Controls, evidence, and policies in 8 weeks.</p>", "link_text": "Get audit-ready", "link_url": { "url": { "href": "/solutions/audit-ready", "type": "EXTERNAL" } } },
+            { "icon_text": "🐢", "title": "Marketing can't ship without engineering", "description": "<p>HubSpot rebuild + automation. Give your marketing team a real lever.</p>", "link_text": "Unblock marketing", "link_url": { "url": { "href": "/solutions/hubspot-rebuild", "type": "EXTERNAL" } } },
+            { "icon_text": "🧱", "title": "Monolith is grinding us down", "description": "<p>Strangler-fig refactor. Carve services without freezing features.</p>", "link_text": "Modernize monolith", "link_url": { "url": { "href": "/solutions/monolith", "type": "EXTERNAL" } } },
+            { "icon_text": "📡", "title": "Data is everywhere, insight is nowhere", "description": "<p>Modern data stack rollout. Warehouse, transformations, and dashboards in 10 weeks.</p>", "link_text": "Fix data pipelines", "link_url": { "url": { "href": "/solutions/data-stack", "type": "EXTERNAL" } } }
+          ] %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== PROCESS ===== #}
+    {% dnd_section padding={ "top": 32, "bottom": 24, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Section Heading",
+          eyebrow="How packaged engagements work",
+          heading="Fixed scope, fixed timeline, named outcome",
+          alignment="center",
+          show_accent=true %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section padding={ "top": 16, "bottom": 80, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Process Steps",
+          layout="horizontal",
+          steps=[
+            { "title": "30-min call", "description": "<p>Pick a packaged engagement, talk it through with the senior team.</p>" },
+            { "title": "Fixed proposal", "description": "<p>One-page scope, price, and timeline within 3 business days.</p>" },
+            { "title": "Sprint", "description": "<p>Weekly milestones, working demos, no scope creep.</p>" },
+            { "title": "Outcome", "description": "<p>Named deliverable in your environment — and the docs to keep it running.</p>" }
+          ] %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== TESTIMONIAL ===== #}
+    {% dnd_section padding={ "top": 32, "bottom": 64, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Testimonial Carousel" %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== CTA ===== #}
+    {% dnd_section full_width=true,
+        padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
+      {% dnd_module path="../../modules/SR - CTA Banner",
+          heading="Problem doesn't fit a tile?",
+          subheading="The packaged engagements are starting points, not boundaries. Let's talk.",
+          cta_text="Describe your problem",
+          cta_url={ "url": { "href": "/contact", "type": "EXTERNAL" } },
+          style="ink" %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+  {% end_dnd_area %}
+{% endblock body %}
