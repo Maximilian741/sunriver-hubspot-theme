@@ -1,0 +1,95 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: SunRiver - Schedule a Consultation
+-->
+
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+
+  {% dnd_area "main_content", label="Main content" %}
+
+    {% dnd_section %}
+      {% dnd_module
+        path="../../modules/SR - Hero Spotlight",
+        eyebrow="Schedule a Consultation",
+        heading="A 30-minute call &mdash; the easiest way to start",
+        subheading="<p>Tell us what you're trying to do. We'll tell you whether we can help, how we'd approach it, and what it would cost.</p>",
+        primary_cta_text="Book a time",
+        primary_cta_url={"url": {"href": "#scheduler", "type": "EXTERNAL"}, "open_in_new_tab": false},
+        secondary_cta_text="Get a written quote",
+        secondary_cta_url={"url": {"href": "/quote-sunriver-consulting", "type": "EXTERNAL"}, "open_in_new_tab": false},
+        background_style="gradient",
+        show_shapes=true
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section %}
+      {% dnd_module
+        path="../../modules/SR - Section Heading",
+        eyebrow="What to expect",
+        heading="A working call, not a sales call",
+        intro="<p>Three phases, all in 30 minutes.</p>",
+        alignment="center",
+        show_accent=true
+      %}
+      {% end_dnd_module %}
+
+      {% dnd_module
+        path="../../modules/SR - Process Steps",
+        layout="horizontal",
+        steps=[
+          {"title": "Listen", "description": "<p>You walk us through what you're working on and what's getting in the way.</p>"},
+          {"title": "React", "description": "<p>We share initial reactions, similar engagements we've shipped, and likely approaches.</p>"},
+          {"title": "Next steps", "description": "<p>If it's a fit, we send a written scope and quote within five business days.</p>"}
+        ]
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section %}
+      {% dnd_module
+        path="../../modules/SR - Section Heading",
+        eyebrow="Scheduler",
+        heading="Pick a time",
+        intro="<p>Add your HubSpot Meetings scheduler below using the Meetings module from the page editor.</p>",
+        alignment="center"
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section %}
+      {% dnd_module
+        path="../../modules/SR - Split Feature",
+        image_side="left",
+        eyebrow="Before the call",
+        heading="A little prep goes a long way",
+        body="<p>You don't need a deck. Just be ready to talk through the problem, the constraints, and what success would look like. We'll handle the rest.</p>",
+        bullets=[
+          {"text": "What are you trying to ship, and by when?"},
+          {"text": "Who's on your team today?"},
+          {"text": "What's already in place that we should know about?"}
+        ],
+        cta_text="Or send us an email",
+        cta_url={"url": {"href": "/contact", "type": "EXTERNAL"}, "open_in_new_tab": false}
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section %}
+      {% dnd_module
+        path="../../modules/SR - CTA Banner",
+        heading="Not ready to book?",
+        subheading="Drop us a line and we'll follow up however you prefer.",
+        cta_text="Contact us",
+        cta_url={"url": {"href": "/contact", "type": "EXTERNAL"}, "open_in_new_tab": false},
+        style="gradient"
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+  {% end_dnd_area %}
+
+{% endblock body %}

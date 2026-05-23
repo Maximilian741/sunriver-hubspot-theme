@@ -1,0 +1,89 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: SunRiver - Pricing
+-->
+
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+
+  {% dnd_area "main_content", label="Main content" %}
+
+    {% dnd_section %}
+      {% dnd_module
+        path="../../modules/SR - Hero Spotlight",
+        eyebrow="Pricing",
+        heading="Clear engagement tiers. No surprises.",
+        subheading="<p>Pick the tier that fits today &mdash; scope changes when the work does.</p>",
+        primary_cta_text="Get a Quick Estimate",
+        primary_cta_url={"url": {"href": "/quote-sunriver-consulting", "type": "EXTERNAL"}, "open_in_new_tab": false},
+        secondary_cta_text="Schedule a Consultation",
+        secondary_cta_url={"url": {"href": "/schedule-a-consultation-sunriver-consulting", "type": "EXTERNAL"}, "open_in_new_tab": false},
+        background_style="gradient",
+        show_shapes=true
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section %}
+      {% dnd_module
+        path="../../modules/SR - Section Heading",
+        eyebrow="Engagement tiers",
+        heading="Three ways to work with us",
+        intro="<p>Most clients start at Growth and adjust from there. Anything custom is, well, custom.</p>",
+        alignment="center",
+        show_accent=true
+      %}
+      {% end_dnd_module %}
+
+      {% dnd_module path="../../modules/SR - Pricing Tiers" %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section %}
+      {% dnd_module
+        path="../../modules/SR - Split Feature",
+        image_side="left",
+        eyebrow="How we scope",
+        heading="Fixed-fee per milestone, or monthly retainer",
+        body="<p>For one-off builds we scope and price up front. For ongoing partnerships we run a monthly retainer with a clear capacity model. Either way you'll know exactly what you're paying for before any work starts.</p>",
+        bullets=[
+          {"text": "Free 30-minute discovery call"},
+          {"text": "Scope and price within a week"},
+          {"text": "Milestone billing &mdash; no big bang invoices"}
+        ],
+        cta_text="Get a quote",
+        cta_url={"url": {"href": "/quote-sunriver-consulting", "type": "EXTERNAL"}, "open_in_new_tab": false}
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section %}
+      {% dnd_module
+        path="../../modules/SR - Section Heading",
+        eyebrow="FAQ",
+        heading="Common questions",
+        alignment="center"
+      %}
+      {% end_dnd_module %}
+
+      {% dnd_module path="../../modules/SR - FAQ Accordion" %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section %}
+      {% dnd_module
+        path="../../modules/SR - CTA Banner",
+        heading="Ready when you are",
+        subheading="Get a fixed-fee estimate within a week.",
+        cta_text="Get a Quick Estimate",
+        cta_url={"url": {"href": "/quote-sunriver-consulting", "type": "EXTERNAL"}, "open_in_new_tab": false},
+        style="gold"
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+  {% end_dnd_area %}
+
+{% endblock body %}

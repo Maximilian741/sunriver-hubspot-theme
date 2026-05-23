@@ -1,0 +1,95 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: SunRiver - Contact
+-->
+
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+
+  {% dnd_area "main_content", label="Main content" %}
+
+    {% dnd_section %}
+      {% dnd_module
+        path="../../modules/SR - Hero Spotlight",
+        eyebrow="Contact",
+        heading="Have questions? We'd love to hear from you.",
+        subheading="<p>The fastest way to reach us is by phone or email. For project intake, the quote form is usually quicker.</p>",
+        primary_cta_text="Get a Quick Estimate",
+        primary_cta_url={"url": {"href": "/quote-sunriver-consulting", "type": "EXTERNAL"}, "open_in_new_tab": false},
+        secondary_cta_text="Schedule a Consultation",
+        secondary_cta_url={"url": {"href": "/schedule-a-consultation-sunriver-consulting", "type": "EXTERNAL"}, "open_in_new_tab": false},
+        background_style="gradient",
+        show_shapes=true
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section %}
+      {% dnd_module
+        path="../../modules/SR - Section Heading",
+        eyebrow="Reach out",
+        heading="Three ways to get in touch",
+        intro="<p>Pick whichever fits the question.</p>",
+        alignment="center",
+        show_accent=true
+      %}
+      {% end_dnd_module %}
+
+      {% dnd_module
+        path="../../modules/SR - Service Cards",
+        columns="3",
+        cards=[
+          {"icon_text": "📞", "title": "Call us", "description": "<p>(406) 616-2614<br>Mountain Time, Monday through Friday.</p>", "link_text": "Tap to dial", "link_url": {"url": {"href": "tel:+14066162614", "type": "EXTERNAL"}}},
+          {"icon_text": "✉", "title": "Email us", "description": "<p>For project inquiries or general questions &mdash; we reply within one business day.</p>", "link_text": "Send a message", "link_url": {"url": {"href": "mailto:hello@sunriverconsulting.us", "type": "EXTERNAL"}}},
+          {"icon_text": "📅", "title": "Book a call", "description": "<p>Pick a 30-minute slot that works for you and we'll come prepared.</p>", "link_text": "Schedule a Consultation", "link_url": {"url": {"href": "/schedule-a-consultation-sunriver-consulting", "type": "EXTERNAL"}}}
+        ]
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section %}
+      {% dnd_module
+        path="../../modules/SR - Split Feature",
+        image_side="left",
+        eyebrow="Where to find us",
+        heading="Helena, Montana &mdash; serving teams nationwide",
+        body="<p>We're based in Helena and licensed to work across the United States. Most engagements run remote-first, with on-site visits for kickoff, demos, and launch.</p>",
+        bullets=[
+          {"text": "Mailing address: Helena, MT 59601"},
+          {"text": "Phone: (406) 616-2614"},
+          {"text": "Mountain Time business hours"}
+        ],
+        cta_text="Send a message",
+        cta_url={"url": {"href": "mailto:hello@sunriverconsulting.us", "type": "EXTERNAL"}, "open_in_new_tab": false}
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section %}
+      {% dnd_module
+        path="../../modules/SR - Section Heading",
+        eyebrow="Contact form",
+        heading="Or send us a quick note",
+        intro="<p>Add your HubSpot contact form below using the Form module from the page editor.</p>",
+        alignment="center"
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section %}
+      {% dnd_module
+        path="../../modules/SR - CTA Banner",
+        heading="Ready to scope a project?",
+        subheading="The quote form is the fastest path from idea to estimate.",
+        cta_text="Get a Quick Estimate",
+        cta_url={"url": {"href": "/quote-sunriver-consulting", "type": "EXTERNAL"}, "open_in_new_tab": false},
+        style="gradient"
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+  {% end_dnd_area %}
+
+{% endblock body %}
