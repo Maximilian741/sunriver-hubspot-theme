@@ -2,3 +2,9 @@
 
 # HubSpot config file
 hubspot.config.yml
+
+# Dependencies
+node_modules/
+
+# Logs
+*.log

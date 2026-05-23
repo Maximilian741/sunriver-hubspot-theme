@@ -1,0 +1,13 @@
+# Copy this file to hubspot.config.yml and fill in your real values.
+# hubspot.config.yml is gitignored on purpose — it holds a secret access key.
+#
+# Easiest way to generate it: run `npm run init` (or `hs init`) and follow
+# the browser prompt. That writes hubspot.config.yml for you automatically.
+#
+# Manual format:
+defaultPortal: sunriver
+portals:
+  - name: sunriver
+    portalId: 000000000          # your HubSpot account (hub) ID
+    authType: personalaccesskey
+    personalAccessKey: PASTE_YOUR_PERSONAL_ACCESS_KEY_HERE

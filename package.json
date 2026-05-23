@@ -1,0 +1,18 @@
+{
+  "name": "sunriver-hubspot-theme",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sunriver HubSpot CMS theme and modules",
+  "scripts": {
+    "auth": "hs auth",
+    "init": "hs init",
+    "upload": "hs cms upload theme sunriver-hubspot-theme",
+    "watch": "hs cms watch theme sunriver-hubspot-theme",
+    "deploy": "npm run upload",
+    "fetch": "hs cms fetch sunriver-hubspot-theme theme",
+    "lint": "hs cms lint theme"
+  },
+  "devDependencies": {
+    "@hubspot/cli": "^8.7.0"
+  }
+}
