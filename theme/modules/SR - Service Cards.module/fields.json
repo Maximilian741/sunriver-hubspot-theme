@@ -13,9 +13,9 @@
   "type" : "group",
   "occurrence" : { "min" : 1, "max" : 12, "default" : 3 },
   "default" : [
-    { "icon_text" : "☁", "title" : "Cloud Solutions", "description" : "Architect, deploy, and scale on AWS, Azure, and GCP.", "link_text" : "Learn more", "link_url" : { "url" : { "href" : "/solutions-products", "type" : "EXTERNAL" } } },
-    { "icon_text" : "🔒", "title" : "Security", "description" : "Protect your stack with modern, audit-ready controls.", "link_text" : "Learn more", "link_url" : { "url" : { "href" : "/solutions-products", "type" : "EXTERNAL" } } },
-    { "icon_text" : "⚡", "title" : "CMS & Automation", "description" : "HubSpot, headless CMS, and workflow automation done right.", "link_text" : "Learn more", "link_url" : { "url" : { "href" : "/solutions-products", "type" : "EXTERNAL" } } }
+    { "icon_text" : "☁", "title" : "Cloud Solutions", "description" : "Architect, deploy, and scale on AWS, Azure, and GCP.", "link_text" : "Learn more", "link_url" : { "url" : { "content_id" : null, "href" : "/solutions-products", "type" : "EXTERNAL" }, "open_in_new_tab" : false } },
+    { "icon_text" : "🔒", "title" : "Security", "description" : "Protect your stack with modern, audit-ready controls.", "link_text" : "Learn more", "link_url" : { "url" : { "content_id" : null, "href" : "/solutions-products", "type" : "EXTERNAL" }, "open_in_new_tab" : false } },
+    { "icon_text" : "⚡", "title" : "CMS & Automation", "description" : "HubSpot, headless CMS, and workflow automation done right.", "link_text" : "Learn more", "link_url" : { "url" : { "content_id" : null, "href" : "/solutions-products", "type" : "EXTERNAL" }, "open_in_new_tab" : false } }
   ],
   "children" : [ {
     "id" : "a3000003-0001-0001-0001-000000000010",
@@ -46,6 +46,6 @@
     "name" : "link_url",
     "label" : "Link URL",
     "type" : "url",
-    "default" : { "url" : { "href" : "#", "type" : "EXTERNAL" }, "open_in_new_tab" : false }
+    "default" : { "url" : { "content_id" : null, "href" : "#", "type" : "EXTERNAL" }, "open_in_new_tab" : false }
   } ]
 } ]
