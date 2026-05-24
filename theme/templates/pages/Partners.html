@@ -1,0 +1,109 @@
+<!--
+  templateType: page
+  label: SR - Partners & Integrations
+  screenshot_path: ../../images/template-previews/partners.jpg
+  isAvailableForNewContent: true
+-->
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+  {% dnd_area "main", label="Main" %}
+
+    {# ===== HERO ===== #}
+    {% dnd_section full_width=true,
+        padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
+      {% dnd_module path="../../modules/SR - Hero Spotlight",
+          eyebrow="Partners & Integrations",
+          heading="The platforms we know cold",
+          subheading="<p>Certified partners on the tools you already use — and battle-tested integrations across the rest of your stack.</p>",
+          primary_cta_text="See certified partners",
+          primary_cta_url={ "url": { "href": "#partners", "type": "EXTERNAL" } },
+          secondary_cta_text="Become a partner",
+          secondary_cta_url={ "url": { "href": "/contact?topic=partners", "type": "EXTERNAL" } },
+          background_style="gradient",
+          show_shapes=true %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== CERTIFIED PARTNERS ===== #}
+    {% dnd_section padding={ "top": 80, "bottom": 24, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Section Heading",
+          eyebrow="Certified partners",
+          heading="Where we've earned the badge",
+          intro="<p>Real certifications, real engagements — not a logo dump.</p>",
+          alignment="center",
+          show_accent=true %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section padding={ "top": 16, "bottom": 64, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Service Cards",
+          columns="3",
+          cards=[
+            { "icon_text": "🔶", "title": "AWS · Advanced Tier", "description": "<p>Solutions Architect & Security specialty certified.</p>", "link_text": "AWS engagements", "link_url": { "url": { "href": "/services/aws", "type": "EXTERNAL" } } },
+            { "icon_text": "🟦", "title": "Microsoft Azure · Gold", "description": "<p>Azure Expert MSP-aligned practices.</p>", "link_text": "Azure engagements", "link_url": { "url": { "href": "/services/azure", "type": "EXTERNAL" } } },
+            { "icon_text": "🟧", "title": "HubSpot · Diamond", "description": "<p>CMS Hub, Marketing Hub, and custom integrations.</p>", "link_text": "HubSpot engagements", "link_url": { "url": { "href": "/services/hubspot", "type": "EXTERNAL" } } },
+            { "icon_text": "🟥", "title": "GCP · Service Partner", "description": "<p>Data, ML, and infrastructure specializations.</p>", "link_text": "GCP engagements", "link_url": { "url": { "href": "/services/gcp", "type": "EXTERNAL" } } },
+            { "icon_text": "🟪", "title": "Salesforce · Implementation", "description": "<p>Sales Cloud, Service Cloud, and Marketing Cloud.</p>", "link_text": "Salesforce work", "link_url": { "url": { "href": "/services/salesforce", "type": "EXTERNAL" } } },
+            { "icon_text": "🟩", "title": "Datadog · Reseller", "description": "<p>Observability rollouts and on-call hygiene.</p>", "link_text": "Observability work", "link_url": { "url": { "href": "/services/observability", "type": "EXTERNAL" } } }
+          ] %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== INTEGRATIONS WE BUILD ===== #}
+    {% dnd_section padding={ "top": 32, "bottom": 24, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Section Heading",
+          eyebrow="Integrations",
+          heading="The connectors we ship most often",
+          alignment="center",
+          show_accent=true %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section padding={ "top": 16, "bottom": 64, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Service Cards",
+          columns="4",
+          cards=[
+            { "icon_text": "💬", "title": "Slack ↔ Linear", "description": "<p>Two-way, scoped, and noise-aware.</p>", "link_text": "See pattern", "link_url": { "url": { "href": "/integrations/slack-linear", "type": "EXTERNAL" } } },
+            { "icon_text": "📨", "title": "HubSpot ↔ Salesforce", "description": "<p>Field mapping, dedup, and survival rules done right.</p>", "link_text": "See pattern", "link_url": { "url": { "href": "/integrations/hubspot-salesforce", "type": "EXTERNAL" } } },
+            { "icon_text": "📊", "title": "Stripe ↔ Warehouse", "description": "<p>Subscription, invoice, and revenue events into Snowflake/BQ.</p>", "link_text": "See pattern", "link_url": { "url": { "href": "/integrations/stripe-warehouse", "type": "EXTERNAL" } } },
+            { "icon_text": "🔑", "title": "Okta SSO + SCIM", "description": "<p>Enterprise SSO and JIT provisioning across your stack.</p>", "link_text": "See pattern", "link_url": { "url": { "href": "/integrations/okta", "type": "EXTERNAL" } } },
+            { "icon_text": "🪝", "title": "Webhook fanout", "description": "<p>Reliable, retry-safe webhook fanout with replay.</p>", "link_text": "See pattern", "link_url": { "url": { "href": "/integrations/webhooks", "type": "EXTERNAL" } } },
+            { "icon_text": "📞", "title": "Twilio + voice flows", "description": "<p>Programmable voice, SMS, and IVR with logging.</p>", "link_text": "See pattern", "link_url": { "url": { "href": "/integrations/twilio", "type": "EXTERNAL" } } },
+            { "icon_text": "🤖", "title": "Anthropic / OpenAI", "description": "<p>LLM-powered features with caching, eval, and guardrails.</p>", "link_text": "See pattern", "link_url": { "url": { "href": "/integrations/llm", "type": "EXTERNAL" } } },
+            { "icon_text": "📦", "title": "Custom REST / GraphQL", "description": "<p>Anything else — schema-first, typed, and tested.</p>", "link_text": "Talk to us", "link_url": { "url": { "href": "/get-a-quote", "type": "EXTERNAL" } } }
+          ] %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== SPLIT — partner program ===== #}
+    {% dnd_section padding={ "top": 32, "bottom": 64, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Split Feature",
+          image_side="left",
+          eyebrow="Partner with us",
+          heading="If your platform fits our practice, we'd love to talk",
+          body="<p>We don't take a partner badge unless we'd recommend the tool to a friend. If that's the bar you set too, drop us a line.</p>",
+          bullets=[
+            { "text": "Joint engagements with shared accountability" },
+            { "text": "Co-authored case studies and launch posts" },
+            { "text": "Senior technical owners on every joint deal" }
+          ],
+          cta_text="Become a partner",
+          cta_url={ "url": { "href": "/contact?topic=partners", "type": "EXTERNAL" } } %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== CTA ===== #}
+    {% dnd_section full_width=true,
+        padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
+      {% dnd_module path="../../modules/SR - CTA Banner",
+          heading="Don't see your stack?",
+          subheading="We integrate with whatever you already have. Tell us the tool, we'll tell you the path.",
+          cta_text="Talk integrations",
+          cta_url={ "url": { "href": "/get-a-quote", "type": "EXTERNAL" } },
+          style="gradient" %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+  {% end_dnd_area %}
+{% endblock body %}

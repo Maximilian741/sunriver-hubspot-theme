@@ -1,89 +1,98 @@
 <!--
   templateType: page
+  label: SR - Pricing
+  screenshot_path: ../../images/template-previews/pricing.jpg
   isAvailableForNewContent: true
-  label: SunRiver - Pricing
 -->
-
 {% extends "../layouts/base.html" %}
 
 {% block body %}
+  {% dnd_area "main", label="Main" %}
 
-  {% dnd_area "main_content", label="Main content" %}
-
-    {% dnd_section %}
-      {% dnd_module
-        path="../../modules/SR - Hero Spotlight",
-        eyebrow="Pricing",
-        heading="Clear engagement tiers. No surprises.",
-        subheading="<p>Pick the tier that fits today &mdash; scope changes when the work does.</p>",
-        primary_cta_text="Get a Quick Estimate",
-        primary_cta_url={"url": {"href": "/quote-sunriver-consulting", "type": "EXTERNAL"}, "open_in_new_tab": false},
-        secondary_cta_text="Schedule a Consultation",
-        secondary_cta_url={"url": {"href": "/schedule-a-consultation-sunriver-consulting", "type": "EXTERNAL"}, "open_in_new_tab": false},
-        background_style="gradient",
-        show_shapes=true
-      %}
+    {# ===== HERO ===== #}
+    {% dnd_section full_width=true,
+        padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
+      {% dnd_module path="../../modules/SR - Hero Spotlight",
+          eyebrow="Pricing",
+          heading="Plans that match the work, not the hour",
+          subheading="<p>Fixed-fee per milestone or monthly retainer. You always know what you're paying for — and what you're getting.</p>",
+          primary_cta_text="Talk to us",
+          primary_cta_url={ "url": { "href": "/get-a-quote", "type": "EXTERNAL" } },
+          secondary_cta_text="See FAQs",
+          secondary_cta_url={ "url": { "href": "#faq", "type": "EXTERNAL" } },
+          background_style="gradient",
+          show_shapes=true %}
       {% end_dnd_module %}
     {% end_dnd_section %}
 
-    {% dnd_section %}
-      {% dnd_module
-        path="../../modules/SR - Section Heading",
-        eyebrow="Engagement tiers",
-        heading="Three ways to work with us",
-        intro="<p>Most clients start at Growth and adjust from there. Anything custom is, well, custom.</p>",
-        alignment="center",
-        show_accent=true
-      %}
+    {# ===== SECTION HEADING ===== #}
+    {% dnd_section padding={ "top": 80, "bottom": 24, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Section Heading",
+          eyebrow="Pick your plan",
+          heading="Simple pricing, real outcomes",
+          intro="<p>All plans include senior engineering, weekly milestones, and shared accountability for results.</p>",
+          alignment="center",
+          show_accent=true %}
       {% end_dnd_module %}
+    {% end_dnd_section %}
 
+    {# ===== PRICING TIERS ===== #}
+    {% dnd_section padding={ "top": 16, "bottom": 80, "left": 24, "right": 24 } %}
       {% dnd_module path="../../modules/SR - Pricing Tiers" %}
       {% end_dnd_module %}
     {% end_dnd_section %}
 
-    {% dnd_section %}
-      {% dnd_module
-        path="../../modules/SR - Split Feature",
-        image_side="left",
-        eyebrow="How we scope",
-        heading="Fixed-fee per milestone, or monthly retainer",
-        body="<p>For one-off builds we scope and price up front. For ongoing partnerships we run a monthly retainer with a clear capacity model. Either way you'll know exactly what you're paying for before any work starts.</p>",
-        bullets=[
-          {"text": "Free 30-minute discovery call"},
-          {"text": "Scope and price within a week"},
-          {"text": "Milestone billing &mdash; no big bang invoices"}
-        ],
-        cta_text="Get a quote",
-        cta_url={"url": {"href": "/quote-sunriver-consulting", "type": "EXTERNAL"}, "open_in_new_tab": false}
-      %}
+    {# ===== STATS ===== #}
+    {% dnd_section padding={ "top": 32, "bottom": 64, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Stats Grid",
+          stats=[
+            { "value": "30", "suffix": "min", "label": "Discovery call, free" },
+            { "value": "1", "suffix": "wk", "label": "Scope & proposal turnaround" },
+            { "value": "0", "suffix": "", "label": "Surprise change orders" },
+            { "value": "100", "suffix": "%", "label": "Senior team, no hand-offs" }
+          ] %}
       {% end_dnd_module %}
     {% end_dnd_section %}
 
-    {% dnd_section %}
-      {% dnd_module
-        path="../../modules/SR - Section Heading",
-        eyebrow="FAQ",
-        heading="Common questions",
-        alignment="center"
-      %}
-      {% end_dnd_module %}
-
-      {% dnd_module path="../../modules/SR - FAQ Accordion" %}
+    {# ===== TESTIMONIAL ===== #}
+    {% dnd_section padding={ "top": 64, "bottom": 64, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Testimonial Carousel" %}
       {% end_dnd_module %}
     {% end_dnd_section %}
 
-    {% dnd_section %}
-      {% dnd_module
-        path="../../modules/SR - CTA Banner",
-        heading="Ready when you are",
-        subheading="Get a fixed-fee estimate within a week.",
-        cta_text="Get a Quick Estimate",
-        cta_url={"url": {"href": "/quote-sunriver-consulting", "type": "EXTERNAL"}, "open_in_new_tab": false},
-        style="gold"
-      %}
+    {# ===== FAQ ===== #}
+    {% dnd_section padding={ "top": 64, "bottom": 24, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Section Heading",
+          eyebrow="FAQ",
+          heading="Pricing questions, answered",
+          alignment="center",
+          show_accent=true %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section padding={ "top": 16, "bottom": 80, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - FAQ Accordion",
+          items=[
+            { "question": "Do you charge hourly?", "answer": "<p>Rarely. We default to fixed-fee per milestone or a monthly retainer because both align our incentives with your outcomes.</p>" },
+            { "question": "What's included in a retainer?", "answer": "<p>Senior engineering capacity, scoped scope per sprint, ops/observability coverage, and a shared roadmap reviewed monthly.</p>" },
+            { "question": "Can we start small?", "answer": "<p>Yes — most clients begin with a fixed-fee discovery sprint or a single milestone before expanding.</p>" },
+            { "question": "Do you offer fixed-bid projects?", "answer": "<p>For well-scoped work, yes. We share the scope, assumptions, and timeline up front so you know exactly what you're buying.</p>" }
+          ],
+          open_first=true %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== CTA ===== #}
+    {% dnd_section full_width=true,
+        padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
+      {% dnd_module path="../../modules/SR - CTA Banner",
+          heading="Need a custom scope?",
+          subheading="Most engagements take 30 minutes to scope and a week to propose.",
+          cta_text="Get a tailored proposal",
+          cta_url={ "url": { "href": "/get-a-quote", "type": "EXTERNAL" } },
+          style="gold" %}
       {% end_dnd_module %}
     {% end_dnd_section %}
 
   {% end_dnd_area %}
-
 {% endblock body %}

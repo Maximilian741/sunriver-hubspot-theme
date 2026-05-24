@@ -1,0 +1,79 @@
+<!--
+  templateType: page
+  label: SR - Coming Soon
+  screenshot_path: ../../images/template-previews/coming-soon.jpg
+  isAvailableForNewContent: true
+-->
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+  {% dnd_area "main", label="Main" %}
+
+    {# ===== FULL-BLEED HERO ===== #}
+    {% dnd_section full_width=true,
+        padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
+      {% dnd_module path="../../modules/SR - Hero Spotlight",
+          eyebrow="Launching soon",
+          heading="Something good is on the way",
+          subheading="<p>We're putting the finishing touches on it. Drop your email and we'll let you know the moment it's live — no spam, just the launch note.</p>",
+          primary_cta_text="Notify me",
+          primary_cta_url={ "url": { "href": "#notify", "type": "EXTERNAL" } },
+          secondary_cta_text="Read the blog",
+          secondary_cta_url={ "url": { "href": "/blog", "type": "EXTERNAL" } },
+          background_style="gradient",
+          show_shapes=true %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== TEASER COUNTERS ===== #}
+    {% dnd_section padding={ "top": 64, "bottom": 64, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Stats Grid",
+          stats=[
+            { "value": "10", "suffix": "+", "label": "New patterns documented" },
+            { "value": "5", "suffix": "", "label": "Reference architectures" },
+            { "value": "0", "suffix": "", "label": "Email-gated content" },
+            { "value": "Soon", "suffix": "™", "label": "ETA" }
+          ] %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== NOTIFY FORM ===== #}
+    {% dnd_section padding={ "top": 32, "bottom": 24, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Section Heading",
+          eyebrow="Get notified",
+          heading="One email when it ships, then nothing else",
+          intro="<p>Promise. We don't sell, share, or accidentally bcc you.</p>",
+          alignment="center",
+          show_accent=true %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section padding={ "top": 0, "bottom": 64, "left": 24, "right": 24 } %}
+      {% dnd_module path="@hubspot/form",
+          form={ "form_id": "", "response_response_type": "inline", "response_message": "<p>You're on the list. See you at launch.</p>" } %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== WHILE YOU WAIT ===== #}
+    {% dnd_section padding={ "top": 32, "bottom": 24, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Section Heading",
+          eyebrow="While you wait",
+          heading="Something to read in the meantime",
+          alignment="center",
+          show_accent=true %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section padding={ "top": 16, "bottom": 80, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Service Cards",
+          columns="3",
+          cards=[
+            { "icon_text": "📘", "title": "The Cloud Modernization Playbook", "description": "<p>40 pages of practical patterns. Free.</p>", "link_text": "Get it", "link_url": { "url": { "href": "/resources/cloud-playbook", "type": "EXTERNAL" } } },
+            { "icon_text": "📝", "title": "The blog", "description": "<p>Notes from the field — patterns, post-mortems, opinions.</p>", "link_text": "Read", "link_url": { "url": { "href": "/blog", "type": "EXTERNAL" } } },
+            { "icon_text": "💬", "title": "Want to chat now?", "description": "<p>30 minutes with the senior team — we'll listen first.</p>", "link_text": "Book a call", "link_url": { "url": { "href": "/get-a-quote", "type": "EXTERNAL" } } }
+          ] %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+  {% end_dnd_area %}
+{% endblock body %}

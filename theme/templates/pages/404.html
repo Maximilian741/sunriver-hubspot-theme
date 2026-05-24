@@ -1,0 +1,62 @@
+<!--
+  templateType: error_page
+  label: SR - 404 Error
+  screenshot_path: ../../images/template-previews/404.jpg
+  isAvailableForNewContent: true
+-->
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+  {% dnd_area "main", label="Main" %}
+
+    {# ===== HERO ===== #}
+    {% dnd_section full_width=true,
+        padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
+      {% dnd_module path="../../modules/SR - Hero Spotlight",
+          eyebrow="404",
+          heading="That page wandered off",
+          subheading="<p>The page you tried to reach doesn't exist — or moved. Try one of the routes below.</p>",
+          primary_cta_text="Back to home",
+          primary_cta_url={ "url": { "href": "/", "type": "EXTERNAL" } },
+          secondary_cta_text="See services",
+          secondary_cta_url={ "url": { "href": "/services", "type": "EXTERNAL" } },
+          background_style="dark",
+          show_shapes=true %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== SERVICE CARDS — used as quick-link tiles ===== #}
+    {% dnd_section padding={ "top": 64, "bottom": 32, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Section Heading",
+          eyebrow="Try one of these",
+          heading="Popular destinations",
+          alignment="center",
+          show_accent=true %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section padding={ "top": 16, "bottom": 80, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Service Cards",
+          columns="3",
+          cards=[
+            { "icon_text": "🏠", "title": "Home", "description": "<p>Start fresh from the top.</p>", "link_text": "Go home", "link_url": { "url": { "href": "/", "type": "EXTERNAL" } } },
+            { "icon_text": "⚡", "title": "Services", "description": "<p>What we do and how we do it.</p>", "link_text": "Browse services", "link_url": { "url": { "href": "/services", "type": "EXTERNAL" } } },
+            { "icon_text": "💬", "title": "Contact", "description": "<p>Send us a note — we read every one.</p>", "link_text": "Get in touch", "link_url": { "url": { "href": "/contact", "type": "EXTERNAL" } } }
+          ] %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== CTA ===== #}
+    {% dnd_section full_width=true,
+        padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
+      {% dnd_module path="../../modules/SR - CTA Banner",
+          heading="Looking for something specific?",
+          subheading="Tell us what you were trying to find — we'll help.",
+          cta_text="Contact us",
+          cta_url={ "url": { "href": "/contact", "type": "EXTERNAL" } },
+          style="gradient" %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+  {% end_dnd_area %}
+{% endblock body %}

@@ -1,0 +1,118 @@
+<!--
+  templateType: page
+  label: SR - Industry Detail
+  screenshot_path: ../../images/template-previews/industry-detail.jpg
+  isAvailableForNewContent: true
+-->
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+  {% dnd_area "main", label="Main" %}
+
+    {# ===== HERO — light background for variety ===== #}
+    {% dnd_section full_width=true,
+        padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
+      {% dnd_module path="../../modules/SR - Hero Spotlight",
+          eyebrow="Healthcare",
+          heading="Move fast without breaking compliance",
+          subheading="<p>HIPAA-aligned platforms, audit-ready infra, and patient-facing apps that ship on time. Built with senior teams who've done this before.</p>",
+          primary_cta_text="Schedule a discovery call",
+          primary_cta_url={ "url": { "href": "/get-a-quote", "type": "EXTERNAL" } },
+          secondary_cta_text="See case studies",
+          secondary_cta_url={ "url": { "href": "/case-studies", "type": "EXTERNAL" } },
+          background_style="light",
+          show_shapes=true %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== STATS ===== #}
+    {% dnd_section padding={ "top": 64, "bottom": 64, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Stats Grid",
+          stats=[
+            { "value": "30", "suffix": "+", "label": "Healthcare engagements shipped" },
+            { "value": "100", "suffix": "%", "label": "HIPAA-compliant deliveries" },
+            { "value": "0", "suffix": "", "label": "PHI incidents in client environments" },
+            { "value": "12", "suffix": "wk", "label": "Typical migration timeline" }
+          ] %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== SPLIT — common challenges ===== #}
+    {% dnd_section padding={ "top": 32, "bottom": 64, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Split Feature",
+          image_side="left",
+          eyebrow="What we hear",
+          heading="The patterns that show up every time",
+          body="<p>Healthcare teams know what's broken. They need a partner who can fix it without slowing the clinical work.</p>",
+          bullets=[
+            { "text": "PHI scattered across legacy systems" },
+            { "text": "Audit prep eats engineering quarters" },
+            { "text": "Patient-facing apps built on creaking infra" },
+            { "text": "Vendor risk reviews with no clear answers" }
+          ],
+          cta_text="",
+          cta_url={ "url": { "href": "#", "type": "EXTERNAL" } } %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== SPLIT — what we do ===== #}
+    {% dnd_section padding={ "top": 32, "bottom": 64, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Split Feature",
+          image_side="right",
+          eyebrow="What we ship",
+          heading="Compliance baked in, not bolted on",
+          body="<p>Every engagement maps to HIPAA controls before we write code. Audit prep becomes a byproduct of how we build.</p>",
+          bullets=[
+            { "text": "PHI inventory and data-flow mapping" },
+            { "text": "Encrypted, audit-logged storage and queues" },
+            { "text": "BAA-friendly cloud reference architectures" },
+            { "text": "Runbook + audit-evidence kits for SOC 2 / HITRUST" }
+          ],
+          cta_text="See sample architectures",
+          cta_url={ "url": { "href": "/case-studies", "type": "EXTERNAL" } } %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== TESTIMONIAL ===== #}
+    {% dnd_section padding={ "top": 32, "bottom": 64, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Testimonial Carousel",
+          autoplay_seconds=0 %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== FAQ ===== #}
+    {% dnd_section padding={ "top": 32, "bottom": 24, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Section Heading",
+          eyebrow="Compliance questions",
+          heading="What healthcare leaders ask first",
+          alignment="center",
+          show_accent=true %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section padding={ "top": 16, "bottom": 80, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - FAQ Accordion",
+          items=[
+            { "question": "Will you sign a BAA?", "answer": "<p>Yes. We sign a BAA before any engagement that touches PHI, and we extend the same with our subprocessors.</p>" },
+            { "question": "Do you handle HITRUST or SOC 2 evidence?", "answer": "<p>We pre-package controls and evidence as part of every healthcare delivery, so audits become a paper exercise — not a fire drill.</p>" },
+            { "question": "Can you work alongside our existing security team?", "answer": "<p>That's our default. We co-build with your security team, document everything, and hand off ownership cleanly.</p>" },
+            { "question": "What about legacy on-prem systems?", "answer": "<p>We've migrated plenty. We meet you where you are, build a staged path, and never force a big-bang cutover.</p>" }
+          ],
+          open_first=true %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== CTA ===== #}
+    {% dnd_section full_width=true,
+        padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
+      {% dnd_module path="../../modules/SR - CTA Banner",
+          heading="Ready for an audit-ready stack?",
+          subheading="30 minutes, no slides. We'll listen and write you a free diagnosis.",
+          cta_text="Book a discovery call",
+          cta_url={ "url": { "href": "/get-a-quote", "type": "EXTERNAL" } },
+          style="gradient" %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+  {% end_dnd_area %}
+{% endblock body %}

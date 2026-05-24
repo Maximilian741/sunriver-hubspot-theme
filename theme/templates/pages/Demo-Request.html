@@ -1,0 +1,99 @@
+<!--
+  templateType: page
+  label: SR - Demo Request
+  screenshot_path: ../../images/template-previews/demo-request.jpg
+  isAvailableForNewContent: true
+-->
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+  {% dnd_area "main", label="Main" %}
+
+    {# ===== HERO ===== #}
+    {% dnd_section full_width=true,
+        padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
+      {% dnd_module path="../../modules/SR - Hero Spotlight",
+          eyebrow="See it live",
+          heading="A working demo, not a slide deck",
+          subheading="<p>Pick a 30-minute slot. We'll walk a real engagement, answer your stack-specific questions, and send the artifacts afterward — yours to keep.</p>",
+          primary_cta_text="Book a demo",
+          primary_cta_url={ "url": { "href": "#demo-form", "type": "EXTERNAL" } },
+          secondary_cta_text="Watch a recorded one",
+          secondary_cta_url={ "url": { "href": "/webinars", "type": "EXTERNAL" } },
+          background_style="gradient",
+          show_shapes=true %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== WHAT YOU'LL SEE — split ===== #}
+    {% dnd_section padding={ "top": 80, "bottom": 64, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Split Feature",
+          image_side="left",
+          eyebrow="What you'll see",
+          heading="A real engagement, walked end-to-end",
+          body="<p>We'll log in to a real (sanitized) client environment and walk the architecture, the runbooks, and the dashboards. You'll get a feel for how we actually deliver — not how a marketing video would describe it.</p>",
+          bullets=[
+            { "text": "Live AWS / Azure / GCP environment tour" },
+            { "text": "Sample CI/CD pipeline and deploy in real time" },
+            { "text": "Observability dashboards — Datadog, Grafana, or your tool of choice" },
+            { "text": "Q&A throughout, no script" }
+          ],
+          cta_text="See the team",
+          cta_url={ "url": { "href": "/team", "type": "EXTERNAL" } } %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== STATS ===== #}
+    {% dnd_section padding={ "top": 32, "bottom": 64, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Stats Grid",
+          stats=[
+            { "value": "30", "suffix": "min", "label": "Demo length" },
+            { "value": "0", "suffix": "", "label": "Slide decks" },
+            { "value": "1", "suffix": "biz day", "label": "Scheduling turnaround" },
+            { "value": "100", "suffix": "%", "label": "Senior engineers presenting" }
+          ] %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== DEMO FORM ===== #}
+    {% dnd_section padding={ "top": 32, "bottom": 24, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Section Heading",
+          eyebrow="Pick a time",
+          heading="Tell us a bit, we'll get one on the calendar",
+          intro="<p>Three fields. We'll email options within the day.</p>",
+          alignment="center",
+          show_accent=true %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section padding={ "top": 0, "bottom": 64, "left": 24, "right": 24 } %}
+      {% dnd_module path="@hubspot/form",
+          form={ "form_id": "", "response_response_type": "inline", "response_message": "<p>Thanks — we'll email demo time options within one business day.</p>" } %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== TESTIMONIAL ===== #}
+    {% dnd_section padding={ "top": 32, "bottom": 64, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Testimonial Carousel",
+          autoplay_seconds=0,
+          items=[
+            { "quote": "<p>Most consulting demos are sales pitches in disguise. This was actually useful — I left with notes I used the next week.</p>", "name": "Sasha L.", "role": "Director of Platform, Kestrel" },
+            { "quote": "<p>They live-debugged a real incident dashboard with us. Better than the four shortlisted vendors combined.</p>", "name": "Imani C.", "role": "VP Engineering, Northwind" }
+          ] %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== CTA ===== #}
+    {% dnd_section full_width=true,
+        padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
+      {% dnd_module path="../../modules/SR - CTA Banner",
+          heading="Want to skip the demo?",
+          subheading="Send us your stack and your problem — we'll respond with a written diagnosis instead.",
+          cta_text="Get a quote instead",
+          cta_url={ "url": { "href": "/get-a-quote", "type": "EXTERNAL" } },
+          style="ink" %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+  {% end_dnd_area %}
+{% endblock body %}

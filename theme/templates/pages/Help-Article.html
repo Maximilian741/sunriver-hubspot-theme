@@ -1,0 +1,201 @@
+<!--
+  templateType: page
+  label: SR - Help Article
+  screenshot_path: ../../images/template-previews/help-article.jpg
+  isAvailableForNewContent: true
+-->
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+  {% dnd_area "main", label="Main" %}
+
+    {# ===== SLIM HERO ===== #}
+    {% dnd_section full_width=true,
+        padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
+      {% dnd_module path="../../modules/SR - Hero Spotlight",
+          eyebrow="Help / Implementation · 6 min read",
+          heading="Setting up SSO with Okta",
+          subheading="<p>Step-by-step setup for Okta SAML SSO, plus the gotchas we ran into the first dozen times.</p>",
+          primary_cta_text="",
+          primary_cta_url={ "url": { "href": "#", "type": "EXTERNAL" } },
+          secondary_cta_text="",
+          secondary_cta_url={ "url": { "href": "#", "type": "EXTERNAL" } },
+          background_style="dark",
+          show_shapes=false %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== ARTICLE BODY ===== #}
+    <article class="sr-help-article">
+      <style>
+        .sr-help-article {
+          max-width: 760px; margin: 0 auto; padding: 48px 24px 32px;
+          font-size: 1.04rem; line-height: 1.75; color: #06130d;
+        }
+        .sr-help-article__breadcrumb {
+          font-size: .82rem; letter-spacing: .08em; text-transform: uppercase;
+          font-weight: 700; color: #0f7d3f;
+          margin-bottom: 28px;
+        }
+        .sr-help-article__breadcrumb a { color: #0f7d3f; text-decoration: none; }
+        .sr-help-article__breadcrumb a:hover { color: #06e0ad; }
+        .sr-help-article__breadcrumb span { opacity: .5; margin: 0 6px; }
+
+        .sr-help-article h2 {
+          font-size: 1.55rem; margin-top: 2rem; margin-bottom: .5rem;
+          color: #06130d; letter-spacing: -.01em;
+          padding-bottom: .35rem;
+          border-bottom: 2px solid;
+          border-image: linear-gradient(90deg, #21c700, #06e0ad) 1;
+        }
+        .sr-help-article h3 { font-size: 1.18rem; margin-top: 1.5rem; color: #06130d; }
+        .sr-help-article a { color: #0f7d3f; text-decoration: underline; text-decoration-color: rgba(6,224,173,.55); text-underline-offset: 3px; }
+        .sr-help-article a:hover { color: #06e0ad; text-decoration-color: #06e0ad; }
+        .sr-help-article ul, .sr-help-article ol { padding-left: 1.4rem; }
+        .sr-help-article li { margin-bottom: .35rem; }
+        .sr-help-article pre, .sr-help-article code {
+          background: #06130d; color: #06e0ad; border-radius: 8px; font-size: .92em;
+        }
+        .sr-help-article pre { padding: .9rem 1.1rem; overflow-x: auto; }
+        .sr-help-article code { padding: 2px 6px; }
+        .sr-help-article blockquote {
+          margin: 1.25rem 0; padding: .85rem 1.1rem;
+          border-left: 4px solid #06e0ad;
+          background: linear-gradient(90deg, rgba(6,224,173,.08), transparent);
+          border-radius: 0 12px 12px 0;
+        }
+        .sr-help-article__callout {
+          margin: 1.5rem 0; padding: 14px 18px;
+          border-radius: 12px;
+          background: linear-gradient(160deg, #f6fffb 0%, #eafff6 100%);
+          border: 1px solid rgba(6,224,173,.3);
+          display: flex; gap: 12px; align-items: flex-start;
+        }
+        .sr-help-article__callout--warn {
+          background: linear-gradient(160deg, #fff8e6 0%, #fff1cc 100%);
+          border-color: rgba(241,194,51,.45);
+        }
+        .sr-help-article__callout-icon { font-size: 1.4rem; flex-shrink: 0; }
+
+        .sr-help-feedback {
+          max-width: 760px; margin: 32px auto 0; padding: 0 24px;
+          display: flex; gap: 12px; align-items: center; flex-wrap: wrap;
+          border-top: 1px solid rgba(6,19,13,.12); padding-top: 24px;
+        }
+        .sr-help-feedback__label { font-weight: 700; color: #06130d; }
+        .sr-help-feedback__btn {
+          padding: 8px 16px; border-radius: 999px;
+          background: rgba(6,224,173,.12); color: #06130d; font-weight: 700;
+          text-decoration: none; font-size: .9rem;
+          border: 1px solid rgba(6,224,173,.3);
+          transition: transform .2s ease, background .2s ease;
+        }
+        .sr-help-feedback__btn:hover {
+          background: linear-gradient(90deg, #21c700, #06e0ad); color: #06130d; transform: translateY(-2px);
+        }
+      </style>
+
+      <nav class="sr-help-article__breadcrumb" aria-label="Breadcrumb">
+        <a href="/help">Help</a> <span>/</span>
+        <a href="/help/security">Security</a> <span>/</span>
+        Setting up SSO with Okta
+      </nav>
+
+      {# Edit this rich text in the page editor #}
+      {% dnd_section padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
+        {% dnd_module path="@hubspot/rich_text",
+            html="<p>This guide walks through setting up SAML-based SSO between Okta and your SunRiver-managed environment. Total time: about 25 minutes if you have admin access to both sides.</p>
+
+                  <h2>Before you start</h2>
+                  <ul>
+                    <li>Okta admin access</li>
+                    <li>SunRiver admin access (or someone who has it on standby)</li>
+                    <li>The list of users you want to provision day-one</li>
+                  </ul>
+
+                  <div class='sr-help-article__callout'>
+                    <span class='sr-help-article__callout-icon'>💡</span>
+                    <div><strong>Tip.</strong> Set up in a non-production tenant first if you have one. SAML config is fiddly and easier to iterate on without breaking anyone's login.</div>
+                  </div>
+
+                  <h2>Step 1 — Create the Okta application</h2>
+                  <p>In Okta admin, go to Applications &rarr; Browse App Catalog and search for <code>SunRiver</code>. Pick the SAML 2.0 connector and click <strong>Add</strong>.</p>
+
+                  <h2>Step 2 — Configure SAML settings</h2>
+                  <p>Use these values:</p>
+                  <ul>
+                    <li><strong>Single sign-on URL:</strong> <code>https://app.sunriverconsulting.com/sso/acs</code></li>
+                    <li><strong>Audience URI:</strong> <code>urn:sunriver:saml</code></li>
+                    <li><strong>Name ID format:</strong> EmailAddress</li>
+                    <li><strong>Application username:</strong> Email</li>
+                  </ul>
+
+                  <h2>Step 3 — Map attributes</h2>
+                  <p>We require three attributes minimum: <code>email</code>, <code>firstName</code>, <code>lastName</code>. If you want group-based access, add a <code>groups</code> attribute filtering by your SunRiver-* group prefix.</p>
+
+                  <div class='sr-help-article__callout sr-help-article__callout--warn'>
+                    <span class='sr-help-article__callout-icon'>⚠️</span>
+                    <div><strong>Heads-up.</strong> If your group names contain spaces or special characters, the regex filter in Okta needs escaping. We've seen this trip up about half of all setups.</div>
+                  </div>
+
+                  <h2>Step 4 — Hand the metadata to SunRiver</h2>
+                  <p>Download the IdP metadata XML from Okta and paste the URL into your SunRiver admin SSO page. We'll validate it on save and tell you if anything's off.</p>
+
+                  <h2>Step 5 — Test before flipping</h2>
+                  <p>Assign yourself to the application in Okta, then sign in via the SSO link. If it works, assign the rest of the org. If it doesn't, see the troubleshooting section below.</p>
+
+                  <h2>Common issues</h2>
+                  <ul>
+                    <li><strong>'User not found' errors:</strong> usually a NameID mismatch. Check that the Okta user's email exactly matches the SunRiver user's email.</li>
+                    <li><strong>Loop on login:</strong> SAML response signature validation failing. Re-download the metadata.</li>
+                    <li><strong>Group access not working:</strong> attribute statement filter regex is off — check escaping.</li>
+                  </ul>
+
+                  <p><em>Replace this body in the HubSpot page editor with the actual help article content. The styling will keep the page on-brand.</em></p>" %}
+        {% end_dnd_module %}
+      {% end_dnd_section %}
+    </article>
+
+    {# ===== FEEDBACK ===== #}
+    <div class="sr-help-feedback">
+      <span class="sr-help-feedback__label">Was this helpful?</span>
+      <a class="sr-help-feedback__btn" href="?feedback=yes">👍 Yes</a>
+      <a class="sr-help-feedback__btn" href="?feedback=no">👎 Not really</a>
+      <a class="sr-help-feedback__btn" href="/contact?topic=support">Open a ticket</a>
+    </div>
+
+    {# ===== RELATED ARTICLES ===== #}
+    {% dnd_section padding={ "top": 64, "bottom": 24, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Section Heading",
+          eyebrow="Related articles",
+          heading="More on the same topic",
+          alignment="center",
+          show_accent=true %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section padding={ "top": 16, "bottom": 80, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Service Cards",
+          columns="3",
+          cards=[
+            { "icon_text": "📄", "title": "SCIM provisioning with Okta", "description": "<p>Help / Security · 9 min read</p>", "link_text": "Read", "link_url": { "url": { "href": "/help/security/scim-okta", "type": "EXTERNAL" } } },
+            { "icon_text": "📄", "title": "Audit log retention", "description": "<p>Help / Security · 4 min read</p>", "link_text": "Read", "link_url": { "url": { "href": "/help/security/audit-log-retention", "type": "EXTERNAL" } } },
+            { "icon_text": "📄", "title": "Rotating signing keys", "description": "<p>Help / Security · 5 min read</p>", "link_text": "Read", "link_url": { "url": { "href": "/help/security/key-rotation", "type": "EXTERNAL" } } }
+          ] %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== CTA ===== #}
+    {% dnd_section full_width=true,
+        padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
+      {% dnd_module path="../../modules/SR - CTA Banner",
+          heading="Stuck on this one?",
+          subheading="Open a ticket and we'll walk it with you live.",
+          cta_text="Open a ticket",
+          cta_url={ "url": { "href": "/contact?topic=support", "type": "EXTERNAL" } },
+          style="ink" %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+  {% end_dnd_area %}
+{% endblock body %}

@@ -1,0 +1,100 @@
+<!--
+  templateType: page
+  label: SR - Case Study Detail
+  screenshot_path: ../../images/template-previews/case-study-detail.jpg
+  isAvailableForNewContent: true
+-->
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+  {% dnd_area "main", label="Main" %}
+
+    {# ===== HERO ===== #}
+    {% dnd_section full_width=true,
+        padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
+      {% dnd_module path="../../modules/SR - Hero Spotlight",
+          eyebrow="Case study — Fintech",
+          heading="FinScale: 80% fewer outages in 12 weeks",
+          subheading="<p>How we rebuilt a creaking AWS environment into a modern, observable platform — and halved their infrastructure bill along the way.</p>",
+          primary_cta_text="Start a similar project",
+          primary_cta_url={ "url": { "href": "/get-a-quote", "type": "EXTERNAL" } },
+          secondary_cta_text="See more case studies",
+          secondary_cta_url={ "url": { "href": "/case-studies", "type": "EXTERNAL" } },
+          background_style="gradient",
+          show_shapes=true %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== STATS — outcome ===== #}
+    {% dnd_section padding={ "top": 64, "bottom": 64, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Stats Grid",
+          stats=[
+            { "value": "80", "suffix": "%", "label": "Drop in production outages" },
+            { "value": "50", "suffix": "%", "label": "Lower monthly cloud spend" },
+            { "value": "12", "suffix": "wk", "label": "End-to-end engagement" },
+            { "value": "0", "suffix": "", "label": "Customer-facing downtime during cutover" }
+          ] %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== SPLIT — challenge ===== #}
+    {% dnd_section padding={ "top": 32, "bottom": 64, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Split Feature",
+          image_side="left",
+          eyebrow="The challenge",
+          heading="A growing platform on borrowed time",
+          body="<p>FinScale's monolithic AWS stack was creaking under 10× year-over-year traffic. Outages were becoming weekly. Their team knew what was wrong — they didn't have the bandwidth to fix it without grinding feature work to a halt.</p>",
+          bullets=[
+            { "text": "Single-AZ database under load" },
+            { "text": "No observability beyond CloudWatch defaults" },
+            { "text": "Manual deploys, frequent rollbacks" },
+            { "text": "Compliance audit looming in Q4" }
+          ],
+          cta_text="",
+          cta_url={ "url": { "href": "#", "type": "EXTERNAL" } } %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== SPLIT — what we did ===== #}
+    {% dnd_section padding={ "top": 32, "bottom": 64, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Split Feature",
+          image_side="right",
+          eyebrow="What we did",
+          heading="A staged rebuild, no feature freeze",
+          body="<p>We ran the rebuild in parallel to feature work. Weekly milestones moved one slice at a time — database, then deploy pipeline, then observability — with the team shipping product the entire time.</p>",
+          bullets=[
+            { "text": "Multi-AZ Aurora with read replicas" },
+            { "text": "Terraform for the entire environment" },
+            { "text": "GitHub Actions CI/CD with one-click rollback" },
+            { "text": "Datadog APM and structured logging" },
+            { "text": "SOC 2 control mapping and audit prep" }
+          ],
+          cta_text="",
+          cta_url={ "url": { "href": "#", "type": "EXTERNAL" } } %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== TESTIMONIAL — single quote from this client ===== #}
+    {% dnd_section padding={ "top": 32, "bottom": 64, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Testimonial Carousel",
+          autoplay_seconds=0,
+          items=[
+            { "quote": "<p>SunRiver rewired our cloud stack in six weeks. Outage rates dropped 80% and our team finally trusts deploy day. Best money we spent in 2025.</p>", "name": "Alex P.", "role": "CTO, FinScale" }
+          ] %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== CTA ===== #}
+    {% dnd_section full_width=true,
+        padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
+      {% dnd_module path="../../modules/SR - CTA Banner",
+          heading="Want similar results?",
+          subheading="Tell us what's creaking. We'll show you what's possible.",
+          cta_text="Schedule discovery",
+          cta_url={ "url": { "href": "/get-a-quote", "type": "EXTERNAL" } },
+          style="gradient" %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+  {% end_dnd_area %}
+{% endblock body %}

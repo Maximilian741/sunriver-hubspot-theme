@@ -1,0 +1,123 @@
+<!--
+  templateType: page
+  label: SR - Free Audit / Assessment
+  screenshot_path: ../../images/template-previews/free-audit.jpg
+  isAvailableForNewContent: true
+-->
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+  {% dnd_area "main", label="Main" %}
+
+    {# ===== HERO ===== #}
+    {% dnd_section full_width=true,
+        padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
+      {% dnd_module path="../../modules/SR - Hero Spotlight",
+          eyebrow="Free, no-obligation",
+          heading="A 60-minute audit of your cloud stack",
+          subheading="<p>Our senior engineers will review your architecture, identify the three highest-impact wins, and send a written diagnosis. Yours to keep — even if we never work together.</p>",
+          primary_cta_text="Claim your audit",
+          primary_cta_url={ "url": { "href": "#audit-form", "type": "EXTERNAL" } },
+          secondary_cta_text="See what's covered",
+          secondary_cta_url={ "url": { "href": "#whats-covered", "type": "EXTERNAL" } },
+          background_style="gradient",
+          show_shapes=true %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== STATS ===== #}
+    {% dnd_section padding={ "top": 64, "bottom": 64, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Stats Grid",
+          stats=[
+            { "value": "60", "suffix": "min", "label": "Audit session" },
+            { "value": "3", "suffix": "+", "label": "Specific wins identified" },
+            { "value": "1", "suffix": "wk", "label": "Written diagnosis turnaround" },
+            { "value": "0", "suffix": "", "label": "Cost or commitment" }
+          ] %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== WHAT'S COVERED ===== #}
+    {% dnd_section padding={ "top": 32, "bottom": 24, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Section Heading",
+          eyebrow="What's covered",
+          heading="Five areas, one hour, written report",
+          alignment="center",
+          show_accent=true %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section padding={ "top": 16, "bottom": 64, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Service Cards",
+          columns="3",
+          cards=[
+            { "icon_text": "🏗️", "title": "Architecture review", "description": "<p>Single points of failure, scaling ceilings, and hidden coupling.</p>", "link_text": "", "link_url": { "url": { "href": "#", "type": "EXTERNAL" } } },
+            { "icon_text": "💰", "title": "Cost & efficiency", "description": "<p>Right-sizing, reserved instances, idle resources, dev/prod parity.</p>", "link_text": "", "link_url": { "url": { "href": "#", "type": "EXTERNAL" } } },
+            { "icon_text": "🛡️", "title": "Security posture", "description": "<p>IAM hygiene, secrets management, network exposure, audit-readiness.</p>", "link_text": "", "link_url": { "url": { "href": "#", "type": "EXTERNAL" } } },
+            { "icon_text": "📊", "title": "Observability", "description": "<p>Are you blind to incidents? Where? What would change that this quarter.</p>", "link_text": "", "link_url": { "url": { "href": "#", "type": "EXTERNAL" } } },
+            { "icon_text": "🚀", "title": "Delivery velocity", "description": "<p>Pipeline health, branching strategy, and what's slowing you down.</p>", "link_text": "", "link_url": { "url": { "href": "#", "type": "EXTERNAL" } } },
+            { "icon_text": "📋", "title": "Written diagnosis", "description": "<p>2–3 pages. Three top wins, sized and prioritized. Yours to use.</p>", "link_text": "", "link_url": { "url": { "href": "#", "type": "EXTERNAL" } } }
+          ] %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== WHO IT'S FOR ===== #}
+    {% dnd_section padding={ "top": 32, "bottom": 64, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Split Feature",
+          image_side="right",
+          eyebrow="Who it's for",
+          heading="Best fit for teams already running in production",
+          body="<p>The audit is most useful when there's something to look at. We'll get the most out of an hour with you if you can hand us read-only access or a recent architecture diagram.</p>",
+          bullets=[
+            { "text": "$5M+ ARR or 50+ engineers (sweet spot)" },
+            { "text": "Already in AWS / Azure / GCP" },
+            { "text": "Have at least one production incident worth talking about" },
+            { "text": "A decision-maker on the call who can act on findings" }
+          ],
+          cta_text="Read sample diagnosis",
+          cta_url={ "url": { "href": "/case-studies", "type": "EXTERNAL" } } %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== AUDIT FORM ===== #}
+    {% dnd_section padding={ "top": 32, "bottom": 24, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Section Heading",
+          eyebrow="Claim your audit",
+          heading="Two fields, one hour, written report in your hands",
+          intro="<p>We schedule about six audits per month. We'll confirm your slot within one business day.</p>",
+          alignment="center",
+          show_accent=true %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section padding={ "top": 0, "bottom": 64, "left": 24, "right": 24 } %}
+      {% dnd_module path="@hubspot/form",
+          form={ "form_id": "", "response_response_type": "inline", "response_message": "<p>Thanks — we'll confirm your audit slot within one business day.</p>" } %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== TESTIMONIAL ===== #}
+    {% dnd_section padding={ "top": 32, "bottom": 64, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Testimonial Carousel",
+          autoplay_seconds=0,
+          items=[
+            { "quote": "<p>The audit was worth more than the last two consulting reports we paid five figures for. We implemented two of the three wins ourselves before we even called them back.</p>", "name": "Maya O.", "role": "Director of Engineering, Trailfork" },
+            { "quote": "<p>I expected a sales pitch dressed up as an audit. Got an actual audit. Hired them three weeks later — but on our timeline, not theirs.</p>", "name": "Theo W.", "role": "CTO, Anchorline" }
+          ] %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== CTA ===== #}
+    {% dnd_section full_width=true,
+        padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
+      {% dnd_module path="../../modules/SR - CTA Banner",
+          heading="Not sure if your stack qualifies?",
+          subheading="Send us a quick note. We'll tell you straight whether the audit is the right move.",
+          cta_text="Ask first",
+          cta_url={ "url": { "href": "/contact", "type": "EXTERNAL" } },
+          style="gold" %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+  {% end_dnd_area %}
+{% endblock body %}

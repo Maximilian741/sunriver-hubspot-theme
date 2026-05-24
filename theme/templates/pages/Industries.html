@@ -1,0 +1,80 @@
+<!--
+  templateType: page
+  label: SR - Industries Overview
+  screenshot_path: ../../images/template-previews/industries.jpg
+  isAvailableForNewContent: true
+-->
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+  {% dnd_area "main", label="Main" %}
+
+    {# ===== HERO ===== #}
+    {% dnd_section full_width=true,
+        padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
+      {% dnd_module path="../../modules/SR - Hero Spotlight",
+          eyebrow="Industries we serve",
+          heading="Domain expertise that matches your stack",
+          subheading="<p>We've shipped in regulated, fast-moving, and high-stakes verticals — and we bring that pattern library to every engagement.</p>",
+          primary_cta_text="Find your industry",
+          primary_cta_url={ "url": { "href": "#industries", "type": "EXTERNAL" } },
+          secondary_cta_text="Talk to us",
+          secondary_cta_url={ "url": { "href": "/get-a-quote", "type": "EXTERNAL" } },
+          background_style="gradient",
+          show_shapes=true %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== COUNTER MARQUEE ===== #}
+    {% dnd_section full_width=true,
+        padding={ "top": 32, "bottom": 32, "left": 0, "right": 0 } %}
+      {% dnd_module path="../../modules/SR - Counter Marquee" %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== SECTION HEADING ===== #}
+    {% dnd_section padding={ "top": 64, "bottom": 24, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Section Heading",
+          eyebrow="Verticals",
+          heading="Who we work with",
+          intro="<p>Pick your industry to see the engagements, patterns, and proof we bring to it.</p>",
+          alignment="center",
+          show_accent=true %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== INDUSTRY TILES ===== #}
+    {% dnd_section padding={ "top": 16, "bottom": 80, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Service Cards",
+          columns="3",
+          cards=[
+            { "icon_text": "🏦", "title": "Fintech", "description": "<p>Compliance-first cloud, payment ops, and audit-ready infra.</p>", "link_text": "See fintech work", "link_url": { "url": { "href": "/industries/fintech", "type": "EXTERNAL" } } },
+            { "icon_text": "🩺", "title": "Healthcare", "description": "<p>HIPAA migrations, patient platforms, and PHI-safe pipelines.</p>", "link_text": "See healthcare work", "link_url": { "url": { "href": "/industries/healthcare", "type": "EXTERNAL" } } },
+            { "icon_text": "🎓", "title": "Education", "description": "<p>Headless CMS, LMS integrations, and editorial workflows that scale.</p>", "link_text": "See education work", "link_url": { "url": { "href": "/industries/education", "type": "EXTERNAL" } } },
+            { "icon_text": "🛒", "title": "E-commerce", "description": "<p>Checkout architecture, observability, and conversion-focused builds.</p>", "link_text": "See commerce work", "link_url": { "url": { "href": "/industries/ecommerce", "type": "EXTERNAL" } } },
+            { "icon_text": "🏛️", "title": "Government & Public Sector", "description": "<p>Procurement-friendly engagements, FedRAMP-aligned patterns.</p>", "link_text": "See public-sector work", "link_url": { "url": { "href": "/industries/public-sector", "type": "EXTERNAL" } } },
+            { "icon_text": "🚚", "title": "Logistics & Supply Chain", "description": "<p>Real-time platforms, integration sprawl, and data accuracy.</p>", "link_text": "See logistics work", "link_url": { "url": { "href": "/industries/logistics", "type": "EXTERNAL" } } }
+          ] %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== TESTIMONIAL ===== #}
+    {% dnd_section padding={ "top": 32, "bottom": 64, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Testimonial Carousel" %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== CTA ===== #}
+    {% dnd_section full_width=true,
+        padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
+      {% dnd_module path="../../modules/SR - CTA Banner",
+          heading="Don't see your industry?",
+          subheading="The patterns travel. Tell us what you're solving — we've probably seen it.",
+          cta_text="Start the conversation",
+          cta_url={ "url": { "href": "/get-a-quote", "type": "EXTERNAL" } },
+          style="gradient" %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+  {% end_dnd_area %}
+{% endblock body %}

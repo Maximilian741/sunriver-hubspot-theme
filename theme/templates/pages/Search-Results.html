@@ -1,0 +1,80 @@
+<!--
+  templateType: page
+  label: SR - Search Results
+  screenshot_path: ../../images/template-previews/search.jpg
+  isAvailableForNewContent: true
+-->
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+  {% dnd_area "main", label="Main" %}
+
+    {# ===== SLIM HERO ===== #}
+    {% dnd_section full_width=true,
+        padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
+      {% dnd_module path="../../modules/SR - Hero Spotlight",
+          eyebrow="Search",
+          heading="Find what you're looking for",
+          subheading="<p>Type a term — pages, posts, and resources surface below.</p>",
+          primary_cta_text="",
+          primary_cta_url={ "url": { "href": "#", "type": "EXTERNAL" } },
+          secondary_cta_text="",
+          secondary_cta_url={ "url": { "href": "#", "type": "EXTERNAL" } },
+          background_style="dark",
+          show_shapes=true %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== SEARCH INPUT + RESULTS ===== #}
+    {% dnd_section padding={ "top": 64, "bottom": 64, "left": 24, "right": 24 } %}
+      {% dnd_module path="@hubspot/search_input",
+          placeholder="Search the site...",
+          search_input_label="Search",
+          submit_button_label="Search" %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section padding={ "top": 0, "bottom": 64, "left": 24, "right": 24 } %}
+      {% dnd_module path="@hubspot/search_results",
+          path_filter_results="",
+          show_pagination=true,
+          show_module_filter=true %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== POPULAR LINKS — fallback ===== #}
+    {% dnd_section padding={ "top": 32, "bottom": 24, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Section Heading",
+          eyebrow="Popular destinations",
+          heading="Or jump to one of these",
+          alignment="center",
+          show_accent=true %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section padding={ "top": 16, "bottom": 80, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Service Cards",
+          columns="4",
+          cards=[
+            { "icon_text": "⚡", "title": "Services", "description": "<p>What we do.</p>", "link_text": "Browse", "link_url": { "url": { "href": "/services", "type": "EXTERNAL" } } },
+            { "icon_text": "💼", "title": "Case studies", "description": "<p>Results we can name.</p>", "link_text": "Read", "link_url": { "url": { "href": "/case-studies", "type": "EXTERNAL" } } },
+            { "icon_text": "📚", "title": "Resources", "description": "<p>Free playbooks.</p>", "link_text": "Browse", "link_url": { "url": { "href": "/resources", "type": "EXTERNAL" } } },
+            { "icon_text": "💬", "title": "Contact", "description": "<p>Talk to us.</p>", "link_text": "Get in touch", "link_url": { "url": { "href": "/contact", "type": "EXTERNAL" } } }
+          ] %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== CTA ===== #}
+    {% dnd_section full_width=true,
+        padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
+      {% dnd_module path="../../modules/SR - CTA Banner",
+          heading="Can't find it?",
+          subheading="Tell us what you're looking for. We'll point you at the right place.",
+          cta_text="Get in touch",
+          cta_url={ "url": { "href": "/contact", "type": "EXTERNAL" } },
+          style="gradient" %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+  {% end_dnd_area %}
+{% endblock body %}

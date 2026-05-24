@@ -1,0 +1,96 @@
+<!--
+  templateType: page
+  label: SR - Landing Page (lead-gen)
+  screenshot_path: ../../images/template-previews/landing.jpg
+  isAvailableForNewContent: true
+-->
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+  {% dnd_area "main", label="Main" %}
+
+    {# ===== HERO ===== #}
+    {% dnd_section full_width=true,
+        padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
+      {% dnd_module path="../../modules/SR - Hero Spotlight",
+          eyebrow="Free download",
+          heading="The 2026 Cloud Modernization Playbook",
+          subheading="<p>40 pages of architecture patterns, cost benchmarks, and migration runbooks — battle-tested across 100+ engagements.</p>",
+          primary_cta_text="Get the playbook",
+          primary_cta_url={ "url": { "href": "#lead-form", "type": "EXTERNAL" } },
+          secondary_cta_text="See what's inside",
+          secondary_cta_url={ "url": { "href": "#whats-inside", "type": "EXTERNAL" } },
+          background_style="gradient",
+          show_shapes=true %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== SPLIT — what's inside ===== #}
+    {% dnd_section padding={ "top": 80, "bottom": 64, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Split Feature",
+          image_side="left",
+          eyebrow="What's inside",
+          heading="Everything we wish someone had handed us",
+          body="<p>No fluff. Just the diagrams, decision trees, and runbooks our team uses on every cloud engagement.</p>",
+          bullets=[
+            { "text": "10 reference architectures (AWS, Azure, GCP)" },
+            { "text": "Cost-modeling worksheets" },
+            { "text": "Cutover runbook templates" },
+            { "text": "Security & compliance checklists" },
+            { "text": "Hiring guides for cloud teams" }
+          ],
+          cta_text="Skip ahead — talk to us",
+          cta_url={ "url": { "href": "/get-a-quote", "type": "EXTERNAL" } } %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== STATS ===== #}
+    {% dnd_section padding={ "top": 32, "bottom": 64, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Stats Grid",
+          stats=[
+            { "value": "40", "suffix": "pp", "label": "Pages of practical guidance" },
+            { "value": "10", "suffix": "+", "label": "Reference architectures" },
+            { "value": "100", "suffix": "+", "label": "Engagements behind it" },
+            { "value": "0", "suffix": "", "label": "Sales spam, ever" }
+          ] %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== LEAD FORM AREA — drop a HubSpot Form module here in the editor ===== #}
+    {% dnd_section padding={ "top": 64, "bottom": 64, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Section Heading",
+          eyebrow="Get the playbook",
+          heading="One quick form, instant download",
+          intro="<p>We'll email a copy and add you to our quarterly notes — unsubscribe in one click.</p>",
+          alignment="center",
+          show_accent=true %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section padding={ "top": 0, "bottom": 80, "left": 24, "right": 24 } %}
+      {% dnd_module path="@hubspot/form",
+          form={ "form_id": "", "response_response_type": "inline", "response_message": "<p>Thanks! Check your inbox.</p>" } %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== TESTIMONIAL ===== #}
+    {% dnd_section padding={ "top": 32, "bottom": 64, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Testimonial Carousel",
+          autoplay_seconds=0 %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== CTA ===== #}
+    {% dnd_section full_width=true,
+        padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
+      {% dnd_module path="../../modules/SR - CTA Banner",
+          heading="Skip the read — talk to a human",
+          subheading="30-minute discovery call. We'll bring our notes.",
+          cta_text="Book a call",
+          cta_url={ "url": { "href": "/get-a-quote", "type": "EXTERNAL" } },
+          style="gradient" %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+  {% end_dnd_area %}
+{% endblock body %}

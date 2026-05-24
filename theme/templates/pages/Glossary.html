@@ -1,0 +1,197 @@
+<!--
+  templateType: page
+  label: SR - Glossary
+  screenshot_path: ../../images/template-previews/glossary.jpg
+  isAvailableForNewContent: true
+-->
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+  {% dnd_area "main", label="Main" %}
+
+    {# ===== HERO ===== #}
+    {% dnd_section full_width=true,
+        padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
+      {% dnd_module path="../../modules/SR - Hero Spotlight",
+          eyebrow="Glossary",
+          heading="The terms we use, explained without jargon",
+          subheading="<p>Cloud, security, and CMS terminology in plain English. If we use a term anywhere on this site, you'll find it defined here.</p>",
+          primary_cta_text="Browse A–Z",
+          primary_cta_url={ "url": { "href": "#a", "type": "EXTERNAL" } },
+          secondary_cta_text="Suggest a term",
+          secondary_cta_url={ "url": { "href": "/contact?topic=glossary", "type": "EXTERNAL" } },
+          background_style="dark",
+          show_shapes=true %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== ALPHABET NAV + ENTRIES ===== #}
+    <article class="sr-glossary">
+      <style>
+        .sr-glossary {
+          max-width: 880px; margin: 0 auto; padding: 64px 24px 32px;
+          color: #06130d;
+        }
+        .sr-glossary__nav {
+          display: flex; flex-wrap: wrap; gap: 6px; justify-content: center;
+          margin-bottom: 48px; padding: 16px;
+          border-radius: 18px;
+          background: linear-gradient(160deg, #f6fffb 0%, #eafff6 100%);
+          border: 1px solid rgba(6,224,173,.25);
+        }
+        .sr-glossary__nav a {
+          display: inline-flex; align-items: center; justify-content: center;
+          width: 36px; height: 36px; border-radius: 10px;
+          font-weight: 700; font-size: .95rem;
+          text-decoration: none; color: #06130d;
+          background: rgba(6,224,173,.1);
+          transition: transform .2s ease, background .2s ease;
+        }
+        .sr-glossary__nav a:hover {
+          background: linear-gradient(90deg, #21c700, #06e0ad); color: #06130d; transform: translateY(-2px);
+        }
+        .sr-glossary__nav a.disabled {
+          opacity: .25; pointer-events: none; background: transparent;
+        }
+
+        .sr-glossary__letter {
+          display: inline-block;
+          font-size: 2.4rem; font-weight: 800; line-height: 1; letter-spacing: -.02em;
+          padding: 8px 18px; margin: 32px 0 16px;
+          border-radius: 14px;
+          background: linear-gradient(90deg, #21c700, #06e0ad);
+          color: #06130d;
+          box-shadow: 0 8px 18px rgba(6,224,173,.3);
+        }
+
+        .sr-glossary__entry {
+          padding: 18px 0;
+          border-bottom: 1px solid rgba(6,19,13,.08);
+        }
+        .sr-glossary__term {
+          font-size: 1.2rem; font-weight: 800; color: #06130d;
+          margin: 0 0 6px;
+        }
+        .sr-glossary__term-meta {
+          font-size: .78rem; letter-spacing: .12em; text-transform: uppercase;
+          color: #0f7d3f; font-weight: 700; margin-left: 10px;
+        }
+        .sr-glossary__def { font-size: 1rem; line-height: 1.65; }
+        .sr-glossary__def a { color: #0f7d3f; text-decoration: underline; text-decoration-color: rgba(6,224,173,.55); text-underline-offset: 3px; }
+      </style>
+
+      <nav class="sr-glossary__nav" aria-label="Glossary alphabet">
+        <a href="#a">A</a><a href="#b">B</a><a href="#c">C</a><a href="#d">D</a>
+        <a href="#e">E</a><a href="#f">F</a><a href="#g">G</a><a href="#h">H</a>
+        <a href="#i">I</a><a href="#j" class="disabled">J</a><a href="#k" class="disabled">K</a><a href="#l">L</a>
+        <a href="#m">M</a><a href="#n">N</a><a href="#o">O</a><a href="#p">P</a>
+        <a href="#q" class="disabled">Q</a><a href="#r">R</a><a href="#s">S</a><a href="#t">T</a>
+        <a href="#u" class="disabled">U</a><a href="#v">V</a><a href="#w">W</a><a href="#x" class="disabled">X</a>
+        <a href="#y" class="disabled">Y</a><a href="#z" class="disabled">Z</a>
+      </nav>
+
+      {# Edit this rich text in the page editor — add/remove entries as your site evolves #}
+      {% dnd_section padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
+        {% dnd_module path="@hubspot/rich_text",
+            html="<h2 id='a' class='sr-glossary__letter'>A</h2>
+
+                  <div class='sr-glossary__entry'>
+                    <h3 class='sr-glossary__term'>Audit log <span class='sr-glossary__term-meta'>Security</span></h3>
+                    <p class='sr-glossary__def'>An immutable record of every privileged action in a system — who did what, when, from where. Required for SOC 2 and most compliance frameworks.</p>
+                  </div>
+
+                  <div class='sr-glossary__entry'>
+                    <h3 class='sr-glossary__term'>Auto-scaling <span class='sr-glossary__term-meta'>Cloud</span></h3>
+                    <p class='sr-glossary__def'>Automatic adjustment of compute capacity based on real-time demand. Done well, it saves money. Done badly, it masks performance problems and runs up the bill.</p>
+                  </div>
+
+                  <h2 id='b' class='sr-glossary__letter'>B</h2>
+
+                  <div class='sr-glossary__entry'>
+                    <h3 class='sr-glossary__term'>BAA — Business Associate Agreement <span class='sr-glossary__term-meta'>Healthcare</span></h3>
+                    <p class='sr-glossary__def'>A contract between a HIPAA-covered entity and any vendor that handles Protected Health Information. We sign one before any healthcare engagement begins.</p>
+                  </div>
+
+                  <div class='sr-glossary__entry'>
+                    <h3 class='sr-glossary__term'>Blue/green deploy <span class='sr-glossary__term-meta'>Delivery</span></h3>
+                    <p class='sr-glossary__def'>A deployment pattern that runs two identical production environments and switches traffic between them. Reduces downtime and makes rollback instant.</p>
+                  </div>
+
+                  <h2 id='c' class='sr-glossary__letter'>C</h2>
+
+                  <div class='sr-glossary__entry'>
+                    <h3 class='sr-glossary__term'>CI/CD — Continuous Integration / Delivery <span class='sr-glossary__term-meta'>Delivery</span></h3>
+                    <p class='sr-glossary__def'>Automated testing and deployment of code changes. The shorthand we use for 'every commit gets tested, every green build can ship'.</p>
+                  </div>
+
+                  <div class='sr-glossary__entry'>
+                    <h3 class='sr-glossary__term'>Cutover <span class='sr-glossary__term-meta'>Migration</span></h3>
+                    <p class='sr-glossary__def'>The moment traffic moves from an old system to a new one. The most-rehearsed five minutes of any migration engagement.</p>
+                  </div>
+
+                  <h2 id='f' class='sr-glossary__letter'>F</h2>
+
+                  <div class='sr-glossary__entry'>
+                    <h3 class='sr-glossary__term'>FinOps <span class='sr-glossary__term-meta'>Cloud</span></h3>
+                    <p class='sr-glossary__def'>The practice of bringing financial accountability to cloud spend. Less 'cut the bill', more 'understand the bill so you can decide what's worth it'.</p>
+                  </div>
+
+                  <h2 id='h' class='sr-glossary__letter'>H</h2>
+
+                  <div class='sr-glossary__entry'>
+                    <h3 class='sr-glossary__term'>HIPAA <span class='sr-glossary__term-meta'>Compliance</span></h3>
+                    <p class='sr-glossary__def'>US healthcare data privacy law. If your system touches PHI, it applies. We design environments that meet HIPAA without requiring engineers to think about it daily.</p>
+                  </div>
+
+                  <h2 id='i' class='sr-glossary__letter'>I</h2>
+
+                  <div class='sr-glossary__entry'>
+                    <h3 class='sr-glossary__term'>IaC — Infrastructure as Code <span class='sr-glossary__term-meta'>Delivery</span></h3>
+                    <p class='sr-glossary__def'>Defining infrastructure (servers, networks, databases) in code instead of clicking through a UI. Makes changes reviewable, reproducible, and auditable.</p>
+                  </div>
+
+                  <h2 id='r' class='sr-glossary__letter'>R</h2>
+
+                  <div class='sr-glossary__entry'>
+                    <h3 class='sr-glossary__term'>Runbook <span class='sr-glossary__term-meta'>Operations</span></h3>
+                    <p class='sr-glossary__def'>A written, step-by-step procedure for handling a known scenario — incidents, deploys, on-call escalations. We ship runbooks with every engagement because tribal knowledge doesn't survive turnover.</p>
+                  </div>
+
+                  <h2 id='s' class='sr-glossary__letter'>S</h2>
+
+                  <div class='sr-glossary__entry'>
+                    <h3 class='sr-glossary__term'>SOC 2 <span class='sr-glossary__term-meta'>Compliance</span></h3>
+                    <p class='sr-glossary__def'>An audit framework focused on security, availability, processing integrity, confidentiality, and privacy. Type II is the one most enterprises ask for.</p>
+                  </div>
+
+                  <div class='sr-glossary__entry'>
+                    <h3 class='sr-glossary__term'>SRE — Site Reliability Engineering <span class='sr-glossary__term-meta'>Operations</span></h3>
+                    <p class='sr-glossary__def'>The discipline of treating reliability as a first-class engineering concern. SLOs, error budgets, runbooks, post-mortems — all of it.</p>
+                  </div>
+
+                  <h2 id='t' class='sr-glossary__letter'>T</h2>
+
+                  <div class='sr-glossary__entry'>
+                    <h3 class='sr-glossary__term'>Terraform <span class='sr-glossary__term-meta'>Cloud</span></h3>
+                    <p class='sr-glossary__def'>The most common tool for Infrastructure as Code. We default to Terraform on most engagements unless the client already has a strong reason to use Pulumi or CDK.</p>
+                  </div>
+
+                  <p><em>Replace this body in the HubSpot page editor to add, remove, or update terms. The styling will keep entries visually consistent.</em></p>" %}
+        {% end_dnd_module %}
+      {% end_dnd_section %}
+    </article>
+
+    {# ===== CTA ===== #}
+    {% dnd_section full_width=true,
+        padding={ "top": 64, "bottom": 0, "left": 0, "right": 0 } %}
+      {% dnd_module path="../../modules/SR - CTA Banner",
+          heading="Term we missed?",
+          subheading="Send it our way — we'll add it and credit you in the next quarterly note.",
+          cta_text="Suggest a term",
+          cta_url={ "url": { "href": "/contact?topic=glossary", "type": "EXTERNAL" } },
+          style="gold" %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+  {% end_dnd_area %}
+{% endblock body %}

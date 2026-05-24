@@ -1,0 +1,149 @@
+<!--
+  templateType: page
+  label: SR - Press Release Detail
+  screenshot_path: ../../images/template-previews/press-release.jpg
+  isAvailableForNewContent: true
+-->
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+  {% dnd_area "main", label="Main" %}
+
+    {# ===== HERO ===== #}
+    {% dnd_section full_width=true,
+        padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
+      {% dnd_module path="../../modules/SR - Hero Spotlight",
+          eyebrow="Press release · May 8, 2026",
+          heading="SunRiver expands healthcare practice with HIPAA Cloud Accelerator",
+          subheading="<p>The new packaged engagement compresses HIPAA-aligned cloud migrations into 12 weeks for mid-market health systems.</p>",
+          primary_cta_text="Press contact",
+          primary_cta_url={ "url": { "href": "mailto:press@sunriverconsulting.com", "type": "EXTERNAL" } },
+          secondary_cta_text="Back to newsroom",
+          secondary_cta_url={ "url": { "href": "/press", "type": "EXTERNAL" } },
+          background_style="dark",
+          show_shapes=true %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== RELEASE BODY ===== #}
+    <article class="sr-press-release">
+      <style>
+        .sr-press-release {
+          max-width: 760px; margin: 0 auto; padding: 64px 24px 32px;
+          font-size: 1.05rem; line-height: 1.75; color: #06130d;
+        }
+        .sr-press-release__dateline {
+          font-size: .9rem; font-weight: 700; color: #0f7d3f;
+          letter-spacing: .05em; margin-bottom: 8px;
+        }
+        .sr-press-release__lede {
+          font-size: 1.15rem; line-height: 1.7; color: #06130d;
+          padding-bottom: 18px; border-bottom: 2px solid;
+          border-image: linear-gradient(90deg, #21c700, #06e0ad) 1;
+          margin-bottom: 24px;
+        }
+        .sr-press-release h2 {
+          font-size: 1.4rem; margin-top: 1.75rem; margin-bottom: .5rem;
+          color: #06130d; letter-spacing: -.01em;
+        }
+        .sr-press-release a { color: #0f7d3f; text-decoration: underline; text-decoration-color: rgba(6,224,173,.55); text-underline-offset: 3px; }
+        .sr-press-release blockquote {
+          margin: 1.5rem 0; padding: 1rem 1.25rem;
+          border-left: 4px solid #06e0ad;
+          background: linear-gradient(90deg, rgba(6,224,173,.08), transparent);
+          border-radius: 0 12px 12px 0; font-style: italic; font-size: 1.05rem;
+        }
+        .sr-press-release blockquote cite {
+          display: block; margin-top: 6px; font-size: .9rem; font-style: normal;
+          color: #0f7d3f; font-weight: 700;
+        }
+        .sr-press-release__boilerplate {
+          margin-top: 48px; padding: 22px 24px;
+          background: linear-gradient(160deg, #f6fffb 0%, #eafff6 100%);
+          border-radius: 14px; border: 1px solid rgba(6,224,173,.25);
+          font-size: .95rem;
+        }
+        .sr-press-release__boilerplate h3 {
+          font-size: .82rem; letter-spacing: .14em; text-transform: uppercase;
+          color: #0f7d3f; margin: 0 0 8px;
+        }
+      </style>
+
+      {# Edit this rich text in the page editor #}
+      {% dnd_section padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
+        {% dnd_module path="@hubspot/rich_text",
+            html="<div class='sr-press-release__dateline'>SAN FRANCISCO — MAY 8, 2026</div>
+
+                  <p class='sr-press-release__lede'>SunRiver Consulting today announced the HIPAA Cloud Accelerator, a packaged 12-week engagement that compresses HIPAA-aligned cloud migrations for mid-market health systems. Three pilot clients shipped in Q1, with a fourth set to launch in early Q3.</p>
+
+                  <p>The Accelerator pairs SunRiver's senior cloud engineering practice with a pre-built reference architecture that has been validated against HIPAA controls and Business Associate Agreement requirements across AWS, Azure, and Google Cloud. Pilot clients reported a 40% reduction in audit-prep effort and a median 38% reduction in monthly cloud spend post-migration.</p>
+
+                  <h2>Why now</h2>
+                  <p>Mid-market health systems are increasingly being asked to modernize without the engineering bench of a large hospital network. Off-the-shelf vendor migrations either move too slowly or skip the controls that audits require.</p>
+
+                  <blockquote>
+                    \"Healthcare teams know what's broken — they just don't have the bandwidth to fix it without slowing the clinical work. The Accelerator is what we wish someone had handed our pilot clients three years ago.\"
+                    <cite>— Casey Morgan, Co-founder &amp; CTO, SunRiver Consulting</cite>
+                  </blockquote>
+
+                  <h2>What's in the engagement</h2>
+                  <ul>
+                    <li>HIPAA-aligned reference architecture (AWS / Azure / GCP)</li>
+                    <li>BAA-ready subprocessor mapping and contract templates</li>
+                    <li>12 weekly milestones with working demos in the client environment</li>
+                    <li>Audit-evidence kit packaged with every delivery</li>
+                    <li>Optional ongoing managed-services retainer</li>
+                  </ul>
+
+                  <h2>Pilot results</h2>
+                  <ul>
+                    <li><strong>MediSync</strong> — patient platform migrated to AWS in two quarters with zero customer-facing downtime</li>
+                    <li><strong>Healthbridge</strong> — completed HIPAA audit prep in 8 weeks (down from a projected 6 months)</li>
+                    <li><strong>Vialink</strong> — 42% reduction in monthly cloud bill, with no service degradation</li>
+                  </ul>
+
+                  <h2>Availability</h2>
+                  <p>The Accelerator is available now for U.S. mid-market health systems. Pricing is fixed-fee and quoted after a 30-minute discovery call.</p>
+
+                  <div class='sr-press-release__boilerplate'>
+                    <h3>About SunRiver Consulting</h3>
+                    <p>SunRiver Consulting is a senior-only cloud, security, and CMS practice based in North America. Founded in 2019, the firm has shipped 120+ engagements across fintech, healthcare, education, and commerce. SunRiver is remote-first and operates without junior hand-offs — every engagement is staffed with the senior team that runs the discovery call. Learn more at <a href='https://sunriverconsulting.com'>sunriverconsulting.com</a>.</p>
+                    <p style='margin-top: 14px;'><strong>Press contact:</strong> <a href='mailto:press@sunriverconsulting.com'>press@sunriverconsulting.com</a></p>
+                  </div>
+
+                  <p style='margin-top: 24px;'><em>Replace this body in the HubSpot page editor with the actual press release. The styling will keep it on-brand and consistent across releases.</em></p>" %}
+        {% end_dnd_module %}
+      {% end_dnd_section %}
+    </article>
+
+    {# ===== MEDIA CONTACT — split ===== #}
+    {% dnd_section padding={ "top": 64, "bottom": 64, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Split Feature",
+          image_side="right",
+          eyebrow="Media inquiries",
+          heading="A real human, not a press inbox black hole",
+          body="<p>We respond to journalist inquiries within four business hours. Send us your deadline up front — we'll meet it or tell you straight if we can't.</p>",
+          bullets=[
+            { "text": "Press contact: press@sunriverconsulting.com" },
+            { "text": "Direct phone (media only): on the brand kit page" },
+            { "text": "Brand kit, headshots, and boilerplate available 24/7" }
+          ],
+          cta_text="Download the brand kit",
+          cta_url={ "url": { "href": "/press#brand-kit", "type": "EXTERNAL" } } %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== CTA ===== #}
+    {% dnd_section full_width=true,
+        padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
+      {% dnd_module path="../../modules/SR - CTA Banner",
+          heading="Want every release as we publish?",
+          subheading="Subscribe to the newsroom RSS or sign up for the press list.",
+          cta_text="Join the press list",
+          cta_url={ "url": { "href": "/press#subscribe", "type": "EXTERNAL" } },
+          style="ink" %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+  {% end_dnd_area %}
+{% endblock body %}

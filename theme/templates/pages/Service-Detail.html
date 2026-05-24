@@ -1,0 +1,101 @@
+<!--
+  templateType: page
+  label: SR - Service Detail
+  screenshot_path: ../../images/template-previews/service-detail.jpg
+  isAvailableForNewContent: true
+-->
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+  {% dnd_area "main", label="Main" %}
+
+    {# ===== HERO ===== #}
+    {% dnd_section full_width=true,
+        padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
+      {% dnd_module path="../../modules/SR - Hero Spotlight",
+          eyebrow="Service",
+          heading="Cloud architecture & migration",
+          subheading="<p>Modern, audit-ready infrastructure on AWS, Azure, or GCP — designed for the way your team actually ships.</p>",
+          primary_cta_text="Talk to an architect",
+          primary_cta_url={ "url": { "href": "/get-a-quote", "type": "EXTERNAL" } },
+          secondary_cta_text="See pricing",
+          secondary_cta_url={ "url": { "href": "/pricing", "type": "EXTERNAL" } },
+          background_style="gradient",
+          show_shapes=true %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== SPLIT — overview ===== #}
+    {% dnd_section padding={ "top": 80, "bottom": 24, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Split Feature",
+          image_side="right",
+          eyebrow="Overview",
+          heading="Infrastructure that works the way your team works",
+          body="<p>We design environments that survive growth — not flashy diagrams that crumble under real traffic. Every recommendation maps to a measurable outcome: cost, uptime, or velocity.</p>",
+          cta_text="See a sample architecture",
+          cta_url={ "url": { "href": "/case-studies", "type": "EXTERNAL" } } %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== SPLIT — what's included ===== #}
+    {% dnd_section padding={ "top": 24, "bottom": 80, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Split Feature",
+          image_side="left",
+          eyebrow="What's included",
+          heading="Everything you need to ship with confidence",
+          body="<p>From kickoff to handover, you get senior engineers paired with thoughtful design and rigorous ops.</p>",
+          bullets=[
+            { "text": "Architecture review and roadmap" },
+            { "text": "IaC (Terraform / Pulumi) from day one" },
+            { "text": "CI/CD pipeline + observability baked in" },
+            { "text": "Migration runbooks and cutover plan" },
+            { "text": "Security hardening and audit prep" }
+          ],
+          cta_text="Get a tailored proposal",
+          cta_url={ "url": { "href": "/get-a-quote", "type": "EXTERNAL" } } %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== STATS ===== #}
+    {% dnd_section padding={ "top": 64, "bottom": 64, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Stats Grid" %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== TESTIMONIAL ===== #}
+    {% dnd_section padding={ "top": 64, "bottom": 64, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Testimonial Carousel" %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== FAQ ===== #}
+    {% dnd_section padding={ "top": 64, "bottom": 24, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Section Heading",
+          eyebrow="Common questions",
+          heading="What teams ask before we start",
+          intro="",
+          alignment="center",
+          show_accent=true %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section padding={ "top": 16, "bottom": 80, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - FAQ Accordion",
+          open_first=true %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== CTA ===== #}
+    {% dnd_section full_width=true,
+        padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
+      {% dnd_module path="../../modules/SR - CTA Banner",
+          heading="Let's talk about your environment",
+          subheading="Tell us where you are. We'll show you the path.",
+          cta_text="Schedule a consultation",
+          cta_url={ "url": { "href": "/get-a-quote", "type": "EXTERNAL" } },
+          style="gradient" %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+  {% end_dnd_area %}
+{% endblock body %}

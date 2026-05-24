@@ -1,0 +1,109 @@
+<!--
+  templateType: page
+  label: SR - Subscribe / Newsletter
+  screenshot_path: ../../images/template-previews/subscribe.jpg
+  isAvailableForNewContent: true
+-->
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+  {% dnd_area "main", label="Main" %}
+
+    {# ===== HERO ===== #}
+    {% dnd_section full_width=true,
+        padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
+      {% dnd_module path="../../modules/SR - Hero Spotlight",
+          eyebrow="The Quarterly Note",
+          heading="Patterns, post-mortems, and tools we'd send a friend",
+          subheading="<p>One short email per quarter. Real engagements, real numbers, no fluff. 4,000+ engineers, designers, and operators read it.</p>",
+          primary_cta_text="Subscribe — it's free",
+          primary_cta_url={ "url": { "href": "#subscribe", "type": "EXTERNAL" } },
+          secondary_cta_text="See past issues",
+          secondary_cta_url={ "url": { "href": "#archive", "type": "EXTERNAL" } },
+          background_style="gradient",
+          show_shapes=true %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== VALUE PROP — split ===== #}
+    {% dnd_section padding={ "top": 80, "bottom": 32, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Split Feature",
+          image_side="right",
+          eyebrow="What you'll actually get",
+          heading="Useful, not promotional",
+          body="<p>Each issue is a 5-minute read with one main idea, one pattern from a real engagement, and one thing we shipped that you can fork.</p>",
+          bullets=[
+            { "text": "One main pattern — distilled to a single page" },
+            { "text": "One client story — with names and numbers when allowed" },
+            { "text": "One forkable artifact — runbook, template, or tool" },
+            { "text": "Zero retargeting pixels, zero auto-DM follow-ups" }
+          ],
+          cta_text="Read a sample issue",
+          cta_url={ "url": { "href": "/blog/sample-issue", "type": "EXTERNAL" } } %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== SOCIAL PROOF ===== #}
+    {% dnd_section padding={ "top": 32, "bottom": 64, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Stats Grid",
+          stats=[
+            { "value": "4000", "suffix": "+", "label": "Subscribers" },
+            { "value": "62", "suffix": "%", "label": "Open rate (industry avg ~22%)" },
+            { "value": "4", "suffix": "/yr", "label": "Issues per year, that's it" },
+            { "value": "1", "suffix": "click", "label": "To unsubscribe — always" }
+          ] %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== SUBSCRIBE FORM ===== #}
+    {% dnd_section padding={ "top": 32, "bottom": 24, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Section Heading",
+          eyebrow="Subscribe",
+          heading="One field, one click",
+          intro="<p>Email only. No name, no company, no \"how did you hear about us?\".</p>",
+          alignment="center",
+          show_accent=true %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section padding={ "top": 0, "bottom": 64, "left": 24, "right": 24 } %}
+      {% dnd_module path="@hubspot/form",
+          form={ "form_id": "", "response_response_type": "inline", "response_message": "<p>You're in. Check your inbox to confirm.</p>" } %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== TESTIMONIAL ===== #}
+    {% dnd_section padding={ "top": 32, "bottom": 64, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Testimonial Carousel",
+          autoplay_seconds=8,
+          items=[
+            { "quote": "<p>The only consulting newsletter I haven't unsubscribed from in three years.</p>", "name": "Casey M.", "role": "Director of Engineering, Pinned" },
+            { "quote": "<p>Short, useful, and never tries to sell me anything in the body. Rare.</p>", "name": "Riley T.", "role": "VP Platform, Slated" },
+            { "quote": "<p>I save every runbook they share. The post-mortem template is now our company standard.</p>", "name": "Jordan A.", "role": "SRE Lead, Northpath" }
+          ] %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== ARCHIVE PREVIEW ===== #}
+    {% dnd_section padding={ "top": 32, "bottom": 24, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Section Heading",
+          eyebrow="Past issues",
+          heading="See what you'd be subscribing to",
+          alignment="center",
+          show_accent=true %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section padding={ "top": 16, "bottom": 80, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Service Cards",
+          columns="3",
+          cards=[
+            { "icon_text": "📰", "title": "Q1 — Strangler-Fig in Practice", "description": "<p>How to refactor a monolith without freezing features.</p>", "link_text": "Read issue", "link_url": { "url": { "href": "/newsletter/q1-strangler-fig", "type": "EXTERNAL" } } },
+            { "icon_text": "📰", "title": "Q4 — On-Call Without Burnout", "description": "<p>Patterns from teams that actually like their pager.</p>", "link_text": "Read issue", "link_url": { "url": { "href": "/newsletter/q4-on-call", "type": "EXTERNAL" } } },
+            { "icon_text": "📰", "title": "Q3 — Cutting Cloud Spend 40%", "description": "<p>FinOps walkthrough with real numbers.</p>", "link_text": "Read issue", "link_url": { "url": { "href": "/newsletter/q3-finops", "type": "EXTERNAL" } } }
+          ] %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+  {% end_dnd_area %}
+{% endblock body %}

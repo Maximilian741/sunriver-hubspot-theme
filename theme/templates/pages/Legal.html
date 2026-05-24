@@ -1,0 +1,148 @@
+<!--
+  templateType: page
+  label: SR - Legal (privacy / terms / cookies)
+  screenshot_path: ../../images/template-previews/legal.jpg
+  isAvailableForNewContent: true
+-->
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+  {% dnd_area "main", label="Main" %}
+
+    {# ===== SLIM HERO ===== #}
+    {% dnd_section full_width=true,
+        padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
+      {% dnd_module path="../../modules/SR - Hero Spotlight",
+          eyebrow="Legal",
+          heading="Privacy Policy",
+          subheading="<p>Last updated: May 8, 2026</p>",
+          primary_cta_text="",
+          primary_cta_url={ "url": { "href": "#", "type": "EXTERNAL" } },
+          secondary_cta_text="",
+          secondary_cta_url={ "url": { "href": "#", "type": "EXTERNAL" } },
+          background_style="dark",
+          show_shapes=false %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== LONG-FORM BODY ===== #}
+    <article class="sr-legal">
+      <style>
+        .sr-legal {
+          max-width: 780px; margin: 0 auto; padding: 64px 24px 32px;
+          font-size: 1rem; line-height: 1.75; color: #06130d;
+        }
+        .sr-legal h2 {
+          font-size: 1.6rem; margin-top: 2.25rem; margin-bottom: .5rem;
+          letter-spacing: -.01em; color: #06130d;
+          padding-bottom: .35rem;
+          border-bottom: 2px solid;
+          border-image: linear-gradient(90deg, #21c700, #06e0ad) 1;
+        }
+        .sr-legal h3 { font-size: 1.2rem; margin-top: 1.5rem; color: #06130d; }
+        .sr-legal a { color: #0f7d3f; text-decoration: underline; text-decoration-color: rgba(6,224,173,.55); text-underline-offset: 3px; }
+        .sr-legal a:hover { color: #06e0ad; text-decoration-color: #06e0ad; }
+        .sr-legal ul, .sr-legal ol { padding-left: 1.4rem; }
+        .sr-legal li { margin-bottom: .35rem; }
+        .sr-legal blockquote {
+          margin: 1.5rem 0; padding: .85rem 1.1rem;
+          border-left: 4px solid #06e0ad;
+          background: linear-gradient(90deg, rgba(6,224,173,.08), transparent);
+          border-radius: 0 12px 12px 0; font-style: italic;
+        }
+        .sr-legal table {
+          width: 100%; border-collapse: collapse; margin: 1.5rem 0;
+          font-size: .95rem;
+        }
+        .sr-legal th, .sr-legal td {
+          border: 1px solid rgba(6,19,13,.12);
+          padding: 10px 14px; text-align: left;
+        }
+        .sr-legal th {
+          background: linear-gradient(90deg, rgba(33,199,0,.08), rgba(6,224,173,.12));
+          font-weight: 700;
+        }
+
+        .sr-legal__toc {
+          background: linear-gradient(160deg, #f6fffb 0%, #eafff6 100%);
+          border: 1px solid rgba(6,224,173,.25);
+          border-radius: 14px;
+          padding: 18px 22px;
+          margin-bottom: 32px;
+        }
+        .sr-legal__toc-title {
+          font-size: .8rem; letter-spacing: .14em; text-transform: uppercase;
+          font-weight: 700; color: #0f7d3f; margin-bottom: 8px;
+        }
+        .sr-legal__toc ul { list-style: none; padding: 0; margin: 0; }
+        .sr-legal__toc li { margin: 4px 0; }
+      </style>
+
+      {# Edit this rich text in the page editor — it accepts H2/H3/lists/tables/links #}
+      {% dnd_section padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
+        {% dnd_module path="@hubspot/rich_text",
+            html="<div class='sr-legal__toc'>
+                    <div class='sr-legal__toc-title'>On this page</div>
+                    <ul>
+                      <li><a href='#overview'>Overview</a></li>
+                      <li><a href='#information-we-collect'>Information we collect</a></li>
+                      <li><a href='#how-we-use-it'>How we use it</a></li>
+                      <li><a href='#sharing'>Sharing &amp; subprocessors</a></li>
+                      <li><a href='#your-rights'>Your rights</a></li>
+                      <li><a href='#contact'>Contact us</a></li>
+                    </ul>
+                  </div>
+
+                  <h2 id='overview'>Overview</h2>
+                  <p>This policy describes how SunRiver Consulting (\"we,\" \"us,\" or \"our\") collects, uses, and protects information when you use our website or engage our services. We've tried to write it like a human — replace this section in the page editor with the actual policy approved by your legal team.</p>
+
+                  <h2 id='information-we-collect'>Information we collect</h2>
+                  <h3>Information you give us</h3>
+                  <ul>
+                    <li>Contact details when you fill out a form (name, email, company)</li>
+                    <li>Project information you share during a discovery call</li>
+                    <li>Account details if you sign in to a client portal</li>
+                  </ul>
+                  <h3>Information collected automatically</h3>
+                  <ul>
+                    <li>Usage data (pages viewed, time on site)</li>
+                    <li>Device and browser information</li>
+                    <li>Cookies and similar technologies (see our <a href='/legal/cookies'>cookie policy</a>)</li>
+                  </ul>
+
+                  <h2 id='how-we-use-it'>How we use it</h2>
+                  <p>We use information to:</p>
+                  <ul>
+                    <li>Respond to inquiries and deliver engagements</li>
+                    <li>Send our quarterly newsletter (only if you opt in)</li>
+                    <li>Improve our website and content</li>
+                    <li>Comply with legal obligations</li>
+                  </ul>
+
+                  <h2 id='sharing'>Sharing &amp; subprocessors</h2>
+                  <p>We don't sell or rent personal information. We share data only with subprocessors who help us run our business — listed in our <a href='/security'>security packet</a>.</p>
+
+                  <h2 id='your-rights'>Your rights</h2>
+                  <p>Depending on where you live, you may have rights to access, correct, delete, or port your data. Email <a href='mailto:privacy@sunriverconsulting.com'>privacy@sunriverconsulting.com</a> to exercise any of these — we respond within 30 days.</p>
+
+                  <h2 id='contact'>Contact us</h2>
+                  <p>Questions? Reach us at <a href='mailto:privacy@sunriverconsulting.com'>privacy@sunriverconsulting.com</a>.</p>
+                  <p><em>Replace this entire body in the HubSpot page editor with the legal copy approved by counsel. The styling above will keep the page on-brand.</em></p>" %}
+        {% end_dnd_module %}
+      {% end_dnd_section %}
+    </article>
+
+    {# ===== CTA ===== #}
+    {% dnd_section full_width=true,
+        padding={ "top": 64, "bottom": 0, "left": 0, "right": 0 } %}
+      {% dnd_module path="../../modules/SR - CTA Banner",
+          heading="Questions about how we handle your data?",
+          subheading="Reach our privacy team directly — a real human reads every note.",
+          cta_text="Contact privacy",
+          cta_url={ "url": { "href": "/contact?topic=privacy", "type": "EXTERNAL" } },
+          style="ink" %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+  {% end_dnd_area %}
+{% endblock body %}

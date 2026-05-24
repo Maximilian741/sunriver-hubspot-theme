@@ -1,0 +1,121 @@
+<!--
+  templateType: page
+  label: SR - Public Roadmap
+  screenshot_path: ../../images/template-previews/roadmap.jpg
+  isAvailableForNewContent: true
+-->
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+  {% dnd_area "main", label="Main" %}
+
+    {# ===== HERO ===== #}
+    {% dnd_section full_width=true,
+        padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
+      {% dnd_module path="../../modules/SR - Hero Spotlight",
+          eyebrow="Public roadmap",
+          heading="What we're shipping, in the open",
+          subheading="<p>Now, next, later. We don't post hand-wavy futures — only what we're committed to delivering this quarter and the patterns we're researching for after.</p>",
+          primary_cta_text="See what's shipping now",
+          primary_cta_url={ "url": { "href": "#now", "type": "EXTERNAL" } },
+          secondary_cta_text="Vote on priorities",
+          secondary_cta_url={ "url": { "href": "/contact?topic=roadmap", "type": "EXTERNAL" } },
+          background_style="gradient",
+          show_shapes=true %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== NOW / NEXT / LATER ===== #}
+    {% dnd_section padding={ "top": 80, "bottom": 24, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Section Heading",
+          eyebrow="The plan",
+          heading="Now / Next / Later",
+          intro="<p>Updated monthly. Last refreshed: May 8, 2026.</p>",
+          alignment="center",
+          show_accent=true %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section padding={ "top": 16, "bottom": 64, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Process Steps",
+          layout="horizontal",
+          steps=[
+            { "title": "Now (this quarter)", "description": "<p>Three engagement frameworks shipping this quarter:</p><ul><li>HIPAA Cloud Accelerator (live)</li><li>SOC 2 Readiness Sprint (beta)</li><li>FinOps Audit (rollout)</li></ul>" },
+            { "title": "Next (next quarter)", "description": "<p>Active development:</p><ul><li>LLM Feature Production framework</li><li>Logistics & Supply Chain practice</li><li>Public training cohort program</li></ul>" },
+            { "title": "Later (researching)", "description": "<p>Patterns we're testing:</p><ul><li>EU expansion (DPA-aligned engagements)</li><li>Embedded SRE retainers</li><li>Open-source post-mortem tooling</li></ul>" }
+          ] %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== RECENTLY SHIPPED ===== #}
+    {% dnd_section padding={ "top": 32, "bottom": 24, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Section Heading",
+          eyebrow="Recently shipped",
+          heading="The last 90 days",
+          alignment="center",
+          show_accent=true %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section padding={ "top": 16, "bottom": 64, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Service Cards",
+          columns="3",
+          cards=[
+            { "icon_text": "✅", "title": "HIPAA Cloud Accelerator", "description": "<p>Shipped May · 12-week packaged migration · 3 pilot clients live</p>", "link_text": "Read announcement", "link_url": { "url": { "href": "/press/hipaa-cloud-accelerator", "type": "EXTERNAL" } } },
+            { "icon_text": "✅", "title": "Quarterly Note redesign", "description": "<p>Shipped April · doubled open rate to 62%</p>", "link_text": "See sample issue", "link_url": { "url": { "href": "/blog/sample-issue", "type": "EXTERNAL" } } },
+            { "icon_text": "✅", "title": "Open-source runbook kit", "description": "<p>Shipped March · 10 sample runbooks · MIT licensed</p>", "link_text": "Get the kit", "link_url": { "url": { "href": "/resources/oncall-kit", "type": "EXTERNAL" } } },
+            { "icon_text": "✅", "title": "Webinar series launch", "description": "<p>Shipped February · 6 sessions live · 2k attendees</p>", "link_text": "Watch archive", "link_url": { "url": { "href": "/webinars", "type": "EXTERNAL" } } },
+            { "icon_text": "✅", "title": "Datadog reseller status", "description": "<p>Shipped February · observability rollouts at scale</p>", "link_text": "See partners", "link_url": { "url": { "href": "/partners", "type": "EXTERNAL" } } },
+            { "icon_text": "✅", "title": "FinOps Worksheet v2", "description": "<p>Shipped January · used in 30+ audits · forkable</p>", "link_text": "Download", "link_url": { "url": { "href": "/resources/finops-worksheet", "type": "EXTERNAL" } } }
+          ] %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== HOW WE PRIORITIZE — split ===== #}
+    {% dnd_section padding={ "top": 32, "bottom": 64, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Split Feature",
+          image_side="left",
+          eyebrow="How we pick",
+          heading="What gets onto the roadmap, and what doesn't",
+          body="<p>We're a small team, so we're picky about what we promise. The shortlist that shows up here is filtered through three questions.</p>",
+          bullets=[
+            { "text": "Have at least three clients asked for it in the last quarter?" },
+            { "text": "Can our senior team deliver it without growing the bench?" },
+            { "text": "Does it make us better at what we already do, or pull us sideways?" }
+          ],
+          cta_text="Suggest a priority",
+          cta_url={ "url": { "href": "/contact?topic=roadmap", "type": "EXTERNAL" } } %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== SUBSCRIBE ===== #}
+    {% dnd_section padding={ "top": 32, "bottom": 24, "left": 24, "right": 24 } %}
+      {% dnd_module path="../../modules/SR - Section Heading",
+          eyebrow="Stay current",
+          heading="Get roadmap updates monthly",
+          intro="<p>We email a one-paragraph update on the first of each month. That's it.</p>",
+          alignment="center",
+          show_accent=true %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section padding={ "top": 0, "bottom": 64, "left": 24, "right": 24 } %}
+      {% dnd_module path="@hubspot/form",
+          form={ "form_id": "", "response_response_type": "inline", "response_message": "<p>You're subscribed. First update lands on the 1st.</p>" } %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {# ===== CTA ===== #}
+    {% dnd_section full_width=true,
+        padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
+      {% dnd_module path="../../modules/SR - CTA Banner",
+          heading="Need something we don't ship yet?",
+          subheading="Tell us. The roadmap is shaped by what real clients keep asking for.",
+          cta_text="Send us a request",
+          cta_url={ "url": { "href": "/contact?topic=roadmap", "type": "EXTERNAL" } },
+          style="gradient" %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+  {% end_dnd_area %}
+{% endblock body %}
