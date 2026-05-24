@@ -1,0 +1,101 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: SunRiver - App Development
+-->
+
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+
+  {% dnd_area "main_content", label="Main content" %}
+
+    {% dnd_section %}
+      {% dnd_module
+        path="../../modules/SR - Hero Spotlight",
+        eyebrow="App Development",
+        heading="Apps your users want to use",
+        subheading="<p>Native, cross-platform, desktop, and web. We design and ship apps that feel fast, look right, and hold up under real-world load.</p>",
+        primary_cta_text="Get a Quick Estimate",
+        primary_cta_url={"url": {"href": "/quote-sunriver-consulting", "type": "EXTERNAL"}, "open_in_new_tab": false},
+        secondary_cta_text="Schedule a Consultation",
+        secondary_cta_url={"url": {"href": "/schedule-a-consultation-sunriver-consulting", "type": "EXTERNAL"}, "open_in_new_tab": false},
+        background_style="gradient",
+        show_shapes=true
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section %}
+      {% dnd_module
+        path="../../modules/SR - Section Heading",
+        eyebrow="Platforms",
+        heading="Four platforms, one team",
+        intro="<p>Pick the surface that fits your users &mdash; we'll handle the rest.</p>",
+        alignment="center",
+        show_accent=true
+      %}
+      {% end_dnd_module %}
+
+      {% dnd_module
+        path="../../modules/SR - Service Cards",
+        columns="4",
+        cards=[
+          {"icon_text": "🤖", "title": "Android", "description": "<p>Native Kotlin apps and Jetpack Compose interfaces, tuned for Play Store distribution.</p>", "link_text": "Get an estimate", "link_url": {"url": {"href": "/quote-sunriver-consulting", "type": "EXTERNAL"}}},
+          {"icon_text": "🍎", "title": "Apple / iOS", "description": "<p>Swift and SwiftUI apps for iPhone, iPad, and Apple silicon, ready for the App Store.</p>", "link_text": "Get an estimate", "link_url": {"url": {"href": "/quote-sunriver-consulting", "type": "EXTERNAL"}}},
+          {"icon_text": "🖥", "title": "Desktop App", "description": "<p>Cross-platform desktop apps in Electron, Tauri, or native frameworks &mdash; depending on what you need.</p>", "link_text": "Get an estimate", "link_url": {"url": {"href": "/quote-sunriver-consulting", "type": "EXTERNAL"}}},
+          {"icon_text": "🌐", "title": "Web App", "description": "<p>React, Next.js, and modern web platforms that feel as good as native.</p>", "link_text": "Get an estimate", "link_url": {"url": {"href": "/quote-sunriver-consulting", "type": "EXTERNAL"}}}
+        ]
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section %}
+      {% dnd_module
+        path="../../modules/SR - Split Feature",
+        image_side="right",
+        eyebrow="How we build",
+        heading="One codebase where it makes sense, native where it matters",
+        body="<p>We don't religiously pick a stack &mdash; we pick the one that fits your team, your users, and your roadmap. Sometimes that's React Native everywhere. Sometimes that's a Swift+Kotlin pair with a shared API. We'll show our work either way.</p>",
+        bullets=[
+          {"text": "Senior engineers on every commit"},
+          {"text": "Accessibility and i18n built in, not bolted on"},
+          {"text": "CI/CD pipelines you keep after we leave"}
+        ],
+        cta_text="Start a project",
+        cta_url={"url": {"href": "/quote-sunriver-consulting", "type": "EXTERNAL"}, "open_in_new_tab": false}
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section %}
+      {% dnd_module
+        path="../../modules/SR - Section Heading",
+        eyebrow="The process",
+        heading="From idea to App Store in four phases",
+        alignment="center"
+      %}
+      {% end_dnd_module %}
+
+      {% dnd_module
+        path="../../modules/SR - Process Steps",
+        layout="horizontal"
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section %}
+      {% dnd_module
+        path="../../modules/SR - CTA Banner",
+        heading="Got an app idea?",
+        subheading="Tell us about it. We'll come back with a scope and a number.",
+        cta_text="Get a Quick Estimate",
+        cta_url={"url": {"href": "/quote-sunriver-consulting", "type": "EXTERNAL"}, "open_in_new_tab": false},
+        style="gradient"
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+  {% end_dnd_area %}
+
+{% endblock body %}

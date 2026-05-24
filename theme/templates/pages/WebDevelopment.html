@@ -1,0 +1,98 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: SunRiver - Web Development
+-->
+
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+
+  {% dnd_area "main_content", label="Main content" %}
+
+    {% dnd_section %}
+      {% dnd_module
+        path="../../modules/SR - Hero Spotlight",
+        eyebrow="Web Development",
+        heading="Websites that work as hard as your team",
+        subheading="<p>Custom builds and platform work on HubSpot, WordPress, and Squarespace &mdash; fast, accessible, and built for the team that has to maintain them.</p>",
+        primary_cta_text="Get a Quick Estimate",
+        primary_cta_url={"url": {"href": "/quote-sunriver-consulting", "type": "EXTERNAL"}, "open_in_new_tab": false},
+        secondary_cta_text="Schedule a Consultation",
+        secondary_cta_url={"url": {"href": "/schedule-a-consultation-sunriver-consulting", "type": "EXTERNAL"}, "open_in_new_tab": false},
+        background_style="gradient",
+        show_shapes=true
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section %}
+      {% dnd_module
+        path="../../modules/SR - Section Heading",
+        eyebrow="Platforms",
+        heading="Pick your stack &mdash; or let us recommend one",
+        intro="<p>Four paths, the same level of craft.</p>",
+        alignment="center",
+        show_accent=true
+      %}
+      {% end_dnd_module %}
+
+      {% dnd_module
+        path="../../modules/SR - Service Cards",
+        columns="4",
+        cards=[
+          {"icon_text": "✨", "title": "Custom Website", "description": "<p>Bespoke Next.js, Astro, or Eleventy builds when you've outgrown a templated platform.</p>", "link_text": "Get an estimate", "link_url": {"url": {"href": "/quote-sunriver-consulting", "type": "EXTERNAL"}}},
+          {"icon_text": "🟧", "title": "HubSpot", "description": "<p>Theme builds, custom modules, and CMS Hub migrations &mdash; this whole site runs on one.</p>", "link_text": "Get an estimate", "link_url": {"url": {"href": "/quote-sunriver-consulting", "type": "EXTERNAL"}}},
+          {"icon_text": "⬛", "title": "Squarespace", "description": "<p>Squarespace sites with custom code injections for the bits the visual editor can't reach.</p>", "link_text": "Get an estimate", "link_url": {"url": {"href": "/quote-sunriver-consulting", "type": "EXTERNAL"}}},
+          {"icon_text": "🅦", "title": "WordPress", "description": "<p>Custom themes, plugin builds, performance work, and security hardening for self-hosted WP.</p>", "link_text": "Get an estimate", "link_url": {"url": {"href": "/quote-sunriver-consulting", "type": "EXTERNAL"}}}
+        ]
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section %}
+      {% dnd_module
+        path="../../modules/SR - Split Feature",
+        image_side="left",
+        eyebrow="Built for the team that uses it",
+        heading="No locked-down templates, no surprise lock-in",
+        body="<p>Every site we ship comes with documentation your marketing team can use, a component library your future devs can extend, and a setup that doesn't put us in the middle of every content edit.</p>",
+        bullets=[
+          {"text": "Editor-friendly drag-and-drop modules"},
+          {"text": "Performance budgets you can hold us to"},
+          {"text": "Handoff docs that get read"}
+        ],
+        cta_text="See a build",
+        cta_url={"url": {"href": "/our-team-sunriver-consulting", "type": "EXTERNAL"}, "open_in_new_tab": false}
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section %}
+      {% dnd_module
+        path="../../modules/SR - Section Heading",
+        eyebrow="Reviews",
+        heading="What clients say after launch",
+        alignment="center"
+      %}
+      {% end_dnd_module %}
+
+      {% dnd_module path="../../modules/SR - Testimonial Carousel" %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section %}
+      {% dnd_module
+        path="../../modules/SR - CTA Banner",
+        heading="Website redo, refresh, or rebuild?",
+        subheading="Let's talk through what you're trying to do.",
+        cta_text="Get a Quick Estimate",
+        cta_url={"url": {"href": "/quote-sunriver-consulting", "type": "EXTERNAL"}, "open_in_new_tab": false},
+        style="gradient"
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+  {% end_dnd_area %}
+
+{% endblock body %}

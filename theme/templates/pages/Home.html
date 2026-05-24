@@ -1,0 +1,152 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: SunRiver - Home
+  screenshot_path: ../../images/template-previews/home.jpg
+-->
+
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+
+  {% dnd_area "main_content", label="Main content" %}
+
+    {% dnd_section %}
+      {% dnd_module
+        path="../../modules/SR - Hero Spotlight",
+        eyebrow="SunRiver Consulting",
+        heading="Build, scale, and automate with confidence",
+        subheading="<p>Cloud, security, and CMS solutions tailored for modern teams &mdash; from Helena, Montana.</p>",
+        primary_cta_text="Get a Quick Estimate",
+        primary_cta_url={"url": {"href": "/quote-sunriver-consulting", "type": "EXTERNAL"}, "open_in_new_tab": false},
+        secondary_cta_text="Schedule a Consultation",
+        secondary_cta_url={"url": {"href": "/schedule-a-consultation-sunriver-consulting", "type": "EXTERNAL"}, "open_in_new_tab": false},
+        background_style="gradient",
+        show_shapes=true
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section %}
+      {% dnd_module path="../../modules/SR - Counter Marquee" %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section %}
+      {% dnd_module
+        path="../../modules/SR - Section Heading",
+        eyebrow="What we do",
+        heading="Unlock your business's true potential",
+        intro="<p>Six service areas, one partner. We help teams adopt tech that actually works for them.</p>",
+        alignment="center",
+        show_accent=true
+      %}
+      {% end_dnd_module %}
+
+      {% dnd_module
+        path="../../modules/SR - Service Cards",
+        columns="3",
+        cards=[
+          {"icon_text": "📱", "title": "Applications", "description": "<p>Native, cross-platform, and web apps your customers want to use.</p>", "link_text": "Explore app development", "link_url": {"url": {"href": "/app-development-sunriver-consulting", "type": "EXTERNAL"}}},
+          {"icon_text": "🛠", "title": "Business Solutions", "description": "<p>AWS, HubSpot, Salesforce, Microsoft 365, ServiceNow &mdash; integrated and tuned.</p>", "link_text": "Explore business solutions", "link_url": {"url": {"href": "/business-solutions-sunriver-consulting", "type": "EXTERNAL"}}},
+          {"icon_text": "🔒", "title": "Compliance Audits", "description": "<p>Penetration testing, threat modeling, WCAG and 508 audits &mdash; done right.</p>", "link_text": "Explore compliance", "link_url": {"url": {"href": "/compliance-audits-sunriver-consulting", "type": "EXTERNAL"}}},
+          {"icon_text": "🗄", "title": "Databases", "description": "<p>Administration, analysis, design, and development for SQL and NoSQL stacks.</p>", "link_text": "Explore databases", "link_url": {"url": {"href": "/database-solutions-sunriver-consulting", "type": "EXTERNAL"}}},
+          {"icon_text": "🌐", "title": "Websites", "description": "<p>Custom builds and platform work for HubSpot, WordPress, and Squarespace.</p>", "link_text": "Explore web development", "link_url": {"url": {"href": "/web-development-sunriver-consulting", "type": "EXTERNAL"}}},
+          {"icon_text": "✨", "title": "Everything else", "description": "<p>Not sure where you fit? Tell us what you're trying to do &mdash; we'll point you the right way.</p>", "link_text": "Get in touch", "link_url": {"url": {"href": "/contact", "type": "EXTERNAL"}}}
+        ]
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section %}
+      {% dnd_module
+        path="../../modules/SR - Split Feature",
+        image_side="left",
+        eyebrow="Why SunRiver",
+        heading="Engineering, design, and ops &mdash; under one roof",
+        body="<p>Most consultancies hand you a deck. We hand you a working system. We pair senior engineering with thoughtful design and rigorous ops so your team can move fast without breaking things.</p>",
+        cta_text="Learn more about us",
+        cta_url={"url": {"href": "/about", "type": "EXTERNAL"}, "open_in_new_tab": false}
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section %}
+      {% dnd_module
+        path="../../modules/SR - Section Heading",
+        eyebrow="How we work",
+        heading="A clear path from idea to shipped",
+        intro="<p>Four phases, weekly milestones, no surprises.</p>",
+        alignment="center"
+      %}
+      {% end_dnd_module %}
+
+      {% dnd_module
+        path="../../modules/SR - Process Steps",
+        layout="horizontal"
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section %}
+      {% dnd_module
+        path="../../modules/SR - Section Heading",
+        eyebrow="Clients",
+        heading="Teams that ship with us",
+        intro="<p>From early-stage startups to public institutions.</p>",
+        alignment="center"
+      %}
+      {% end_dnd_module %}
+
+      {% dnd_module path="../../modules/SR - Testimonial Carousel" %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section %}
+      {% dnd_module path="../../modules/SR - Stats Grid" %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section %}
+      {% dnd_module
+        path="../../modules/SR - Section Heading",
+        eyebrow="Pricing",
+        heading="Simple, transparent engagement tiers",
+        intro="<p>Start small, scale when you're ready.</p>",
+        alignment="center"
+      %}
+      {% end_dnd_module %}
+
+      {% dnd_module path="../../modules/SR - Pricing Tiers" %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section %}
+      {% dnd_module
+        path="../../modules/SR - Section Heading",
+        eyebrow="FAQ",
+        heading="Questions, answered",
+        intro="<p>Common questions from new clients. If yours isn't here, just ask.</p>",
+        alignment="center"
+      %}
+      {% end_dnd_module %}
+
+      {% dnd_module path="../../modules/SR - FAQ Accordion" %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section %}
+      {% dnd_module
+        path="../../modules/SR - CTA Banner",
+        heading="Ready to grow with confidence?",
+        subheading="Tell us where you want to go. We'll show you the road.",
+        cta_text="Schedule a Consultation",
+        cta_url={"url": {"href": "/schedule-a-consultation-sunriver-consulting", "type": "EXTERNAL"}, "open_in_new_tab": false},
+        style="gradient"
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+  {% end_dnd_area %}
+
+{% endblock body %}

@@ -1,0 +1,92 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: SunRiver - Solutions / Products
+-->
+
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+
+  {% dnd_area "main_content", label="Main content" %}
+
+    {% dnd_section %}
+      {% dnd_module
+        path="../../modules/SR - Hero Spotlight",
+        eyebrow="Solutions &amp; Products",
+        heading="One firm, six practice areas",
+        subheading="<p>From applications to compliance, databases to web. Whatever you need shipped, there's a senior engineer here who's done it before.</p>",
+        primary_cta_text="Get a Quick Estimate",
+        primary_cta_url={"url": {"href": "/quote-sunriver-consulting", "type": "EXTERNAL"}, "open_in_new_tab": false},
+        secondary_cta_text="Schedule a Consultation",
+        secondary_cta_url={"url": {"href": "/schedule-a-consultation-sunriver-consulting", "type": "EXTERNAL"}, "open_in_new_tab": false},
+        background_style="gradient",
+        show_shapes=true
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section %}
+      {% dnd_module
+        path="../../modules/SR - Section Heading",
+        eyebrow="Browse by practice area",
+        heading="Where would you like to start?",
+        intro="<p>Each area has its own page with sub-services and pricing.</p>",
+        alignment="center",
+        show_accent=true
+      %}
+      {% end_dnd_module %}
+
+      {% dnd_module
+        path="../../modules/SR - Service Cards",
+        columns="3",
+        cards=[
+          {"icon_text": "📱", "title": "App Development", "description": "<p>Native Android &amp; iOS, cross-platform desktop, and modern web apps.</p>", "link_text": "Explore", "link_url": {"url": {"href": "/app-development-sunriver-consulting", "type": "EXTERNAL"}}},
+          {"icon_text": "🛠", "title": "Business Solutions", "description": "<p>AWS, HubSpot, Salesforce, Microsoft 365, ServiceNow integrations and tuning.</p>", "link_text": "Explore", "link_url": {"url": {"href": "/business-solutions-sunriver-consulting", "type": "EXTERNAL"}}},
+          {"icon_text": "🔒", "title": "Compliance Audits", "description": "<p>Penetration testing, threat modeling, WCAG, and 508 accessibility audits.</p>", "link_text": "Explore", "link_url": {"url": {"href": "/compliance-audits-sunriver-consulting", "type": "EXTERNAL"}}},
+          {"icon_text": "🗄", "title": "Database Solutions", "description": "<p>Administration, analysis, design, and development across SQL and NoSQL.</p>", "link_text": "Explore", "link_url": {"url": {"href": "/database-solutions-sunriver-consulting", "type": "EXTERNAL"}}},
+          {"icon_text": "🌐", "title": "Web Development", "description": "<p>Custom builds and platform work on HubSpot, WordPress, and Squarespace.</p>", "link_text": "Explore", "link_url": {"url": {"href": "/web-development-sunriver-consulting", "type": "EXTERNAL"}}},
+          {"icon_text": "💬", "title": "Not sure?", "description": "<p>Tell us what you're trying to do &mdash; we'll point you to the right place.</p>", "link_text": "Get in touch", "link_url": {"url": {"href": "/contact", "type": "EXTERNAL"}}}
+        ]
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section %}
+      {% dnd_module
+        path="../../modules/SR - Split Feature",
+        image_side="left",
+        eyebrow="One partner, end-to-end",
+        heading="The cross-practice work is where we shine",
+        body="<p>Most projects don't fit cleanly in one bucket. A new app needs a backend, a CMS, an audit, and a team that can do all of it without three handoffs. That's what we're built for.</p>",
+        bullets=[
+          {"text": "Senior engineering across every practice"},
+          {"text": "One scope, one contract, one team"},
+          {"text": "Optional managed-services retainer after launch"}
+        ],
+        cta_text="Start a project",
+        cta_url={"url": {"href": "/quote-sunriver-consulting", "type": "EXTERNAL"}, "open_in_new_tab": false}
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section %}
+      {% dnd_module path="../../modules/SR - Stats Grid" %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+    {% dnd_section %}
+      {% dnd_module
+        path="../../modules/SR - CTA Banner",
+        heading="Don't see your problem on the list?",
+        subheading="That's usually a good sign. Tell us about it.",
+        cta_text="Schedule a Consultation",
+        cta_url={"url": {"href": "/schedule-a-consultation-sunriver-consulting", "type": "EXTERNAL"}, "open_in_new_tab": false},
+        style="gradient"
+      %}
+      {% end_dnd_module %}
+    {% end_dnd_section %}
+
+  {% end_dnd_area %}
+
+{% endblock body %}
