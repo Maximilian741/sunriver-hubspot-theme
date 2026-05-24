@@ -22,7 +22,7 @@
   "name" : "cta_url",
   "label" : "CTA URL",
   "type" : "url",
-  "default" : { "url" : { "href" : "/get-a-quote", "type" : "EXTERNAL" }, "open_in_new_tab" : false }
+  "default" : { "url" : { "content_id" : null, "href" : "/get-a-quote", "type" : "EXTERNAL" }, "open_in_new_tab" : false }
 }, {
   "id" : "a8000008-0001-0001-0001-000000000005",
   "name" : "style",
