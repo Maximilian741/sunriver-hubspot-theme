@@ -359,11 +359,6 @@
         "operator" : "EQUAL",
         "access" : null
       },
-      "inherited_value" : {
-        "property_value_paths" : {
-          "color" : "theme.colors_group.base.color"
-        }
-      },
       "type" : "color",
       "display_width" : null,
       "default" : {
@@ -392,11 +387,6 @@
         "property" : null,
         "operator" : "EQUAL",
         "access" : null
-      },
-      "inherited_value" : {
-        "property_value_paths" : {
-          "color" : "theme.colors_group.base.color"
-        }
       },
       "type" : "color",
       "display_width" : null,
