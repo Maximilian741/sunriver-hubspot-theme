@@ -1,0 +1,18 @@
+.sr-ambient {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: #06130d;
+}
+.sr-ambient canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  opacity: var(--sr-amb-opacity, 0.30);
+  pointer-events: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .sr-ambient canvas { display: none; }
+}

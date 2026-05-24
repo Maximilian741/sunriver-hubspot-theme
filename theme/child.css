@@ -240,3 +240,23 @@
   stroke-dasharray: none !important;
   stroke-dashoffset: 0 !important;
 }
+
+/* === SunRiver ASCII cursor overlay ===
+   Fixed canvas above all content, non-interactive. mix-blend-mode: screen
+   makes the trail brighten dark hero gradients and disappear over white body
+   sections — keeps readability while still feeling alive on the brand color. */
+#sr-cursor-fx {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: screen;
+}
+@media (prefers-reduced-motion: reduce) {
+  #sr-cursor-fx { display: none; }
+}
+@media (hover: none), (pointer: coarse) {
+  #sr-cursor-fx { display: none; }
+}

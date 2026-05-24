@@ -14,12 +14,12 @@
       {% dnd_module
         path="../../modules/SR - Hero Spotlight",
         eyebrow="About SunRiver",
-        heading="A consulting firm built around how teams actually work",
-        subheading="<p>Helena-based, senior-only, and stubbornly focused on shipping. We help organizations adopt the tech they need without losing the team they have.</p>",
-        primary_cta_text="Meet the team",
-        primary_cta_url={"url": {"href": "/our-team-sunriver-consulting", "type": "EXTERNAL"}, "open_in_new_tab": false},
-        secondary_cta_text="See our services",
-        secondary_cta_url={"url": {"href": "/solutions-products-sunriver-consulting", "type": "EXTERNAL"}, "open_in_new_tab": false},
+        heading="Unlock your business's true potential",
+        subheading="<p>Helena, Montana-based. We're committed to delivering exceptional service at a fraction of what our competitors charge.</p>",
+        primary_cta_text="Schedule a Consultation",
+        primary_cta_url={"url": {"href": "/schedule-a-consultation-sunriver-consulting", "type": "EXTERNAL"}, "open_in_new_tab": false},
+        secondary_cta_text="Contact us",
+        secondary_cta_url={"url": {"href": "/contact", "type": "EXTERNAL"}, "open_in_new_tab": false},
         background_style="gradient",
         show_shapes=true
       %}
@@ -31,14 +31,14 @@
         path="../../modules/SR - Split Feature",
         image_side="left",
         eyebrow="Our mission",
-        heading="Championing tech adoption that actually sticks",
-        body="<p>We exist to make modern tech accessible to the organizations doing the real work &mdash; public institutions, nonprofits, and the small businesses that hold their communities together. That means quality service at competitive rates, and engineering that respects the people who'll use it after we leave.</p>",
+        heading="Championing tech adoption &mdash; with no one left behind",
+        body="<p>Our goal is to champion successful tech adoption for individual consumers and businesses alike, ensuring no one is left behind in this rapidly expanding environment. We believe in providing a degree of quality and love to our craft, and spreading this to as many people as possible.</p>",
         bullets=[
-          {"text": "Senior team &mdash; no junior hand-offs"},
-          {"text": "Inclusive, accessible-by-default design"},
-          {"text": "Documentation your team can actually read"}
+          {"text": "Exceptional service at competitive rates"},
+          {"text": "Inclusive, accessible-by-default work"},
+          {"text": "Quality and love for the craft"}
         ],
-        cta_text="See our work",
+        cta_text="See our services",
         cta_url={"url": {"href": "/solutions-products-sunriver-consulting", "type": "EXTERNAL"}, "open_in_new_tab": false}
       %}
       {% end_dnd_module %}
@@ -47,29 +47,22 @@
     {% dnd_section %}
       {% dnd_module
         path="../../modules/SR - Section Heading",
-        eyebrow="By the numbers",
-        heading="A track record we'll back up",
-        alignment="center"
-      %}
-      {% end_dnd_module %}
-
-      {% dnd_module path="../../modules/SR - Stats Grid" %}
-      {% end_dnd_module %}
-    {% end_dnd_section %}
-
-    {% dnd_section %}
-      {% dnd_module
-        path="../../modules/SR - Section Heading",
-        eyebrow="How we work",
-        heading="Discovery, plan, build, scale",
-        intro="<p>Every engagement follows the same four phases. Clear scope at the start, weekly milestones throughout, and a working system at the end.</p>",
-        alignment="center"
+        eyebrow="Meet the team",
+        heading="The people behind SunRiver",
+        intro="<p>A small Helena, Montana team handling cloud, security, CMS, and accessibility work for the businesses and institutions we serve.</p>",
+        alignment="center",
+        show_accent=true
       %}
       {% end_dnd_module %}
 
       {% dnd_module
-        path="../../modules/SR - Process Steps",
-        layout="horizontal"
+        path="../../modules/SR - Service Cards",
+        columns="3",
+        cards=[
+          {"icon_text": "👤", "title": "Max Casteel", "description": "<p>CEO. Background in systems management, web development, cloud infrastructure, security, and accessibility.</p>", "link_text": "Meet the team", "link_url": {"url": {"href": "/our-team-sunriver-consulting", "type": "EXTERNAL"}}},
+          {"icon_text": "🐾", "title": "Noki", "description": "<p>Head of Morale &amp; Quality Assurance. Resident morale booster and unofficial QA specialist.</p>", "link_text": "Meet the team", "link_url": {"url": {"href": "/our-team-sunriver-consulting", "type": "EXTERNAL"}}},
+          {"icon_text": "🌙", "title": "Moggy", "description": "<p>Director of Security &amp; Night Operations. Specializes in after-hours monitoring with a keen eye for the unexpected.</p>", "link_text": "Meet the team", "link_url": {"url": {"href": "/our-team-sunriver-consulting", "type": "EXTERNAL"}}}
+        ]
       %}
       {% end_dnd_module %}
     {% end_dnd_section %}
@@ -78,13 +71,13 @@
       {% dnd_module
         path="../../modules/SR - Split Feature",
         image_side="right",
-        eyebrow="Where we sit",
-        heading="Rooted in Helena, working everywhere",
-        body="<p>We're headquartered in Helena, Montana, and we work with clients across the country. Most engagements run remote-first with on-site visits at key moments &mdash; kickoff, milestones, launch.</p>",
+        eyebrow="Where we're based",
+        heading="Rooted in Helena, Montana",
+        body="<p>We're a Montana firm working with organizations across the country. Reach us by phone at (406) 616-2614, or head to the contact page to start a conversation.</p>",
         bullets=[
           {"text": "Mountain Time, accommodating coast to coast"},
-          {"text": "On-site for kickoff, demos, and launch"},
-          {"text": "Async-friendly documentation throughout"}
+          {"text": "Remote-first engagements with on-site visits when it matters"},
+          {"text": "Direct line to senior engineering on every project"}
         ],
         cta_text="Start a conversation",
         cta_url={"url": {"href": "/contact", "type": "EXTERNAL"}, "open_in_new_tab": false}
@@ -96,7 +89,7 @@
       {% dnd_module
         path="../../modules/SR - CTA Banner",
         heading="Want to work with us?",
-        subheading="The fastest way to find out if we're a fit is a 30-minute call.",
+        subheading="The fastest way to find out if we're a fit is a free 30-minute consultation.",
         cta_text="Schedule a Consultation",
         cta_url={"url": {"href": "/schedule-a-consultation-sunriver-consulting", "type": "EXTERNAL"}, "open_in_new_tab": false},
         style="gradient"
