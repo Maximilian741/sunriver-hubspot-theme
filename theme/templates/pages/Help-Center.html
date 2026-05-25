@@ -86,10 +86,10 @@
     {% dnd_section padding={ "top": 32, "bottom": 64, "left": 24, "right": 24 } %}
       {% dnd_module path="../../modules/SR - Stats Grid",
           stats=[
-            { "value": "4", "suffix": "hr", "label": "First-response SLA" },
-            { "value": "97", "suffix": "%", "label": "Tickets resolved in 1 day" },
-            { "value": "0", "suffix": "", "label": "Bots between you and a human" },
-            { "value": "5", "suffix": "/5", "label": "Average support CSAT" }
+            { "stat_value": "4", "suffix": "hr", "stat_label": "First-response SLA" },
+            { "stat_value": "97", "suffix": "%", "stat_label": "Tickets resolved in 1 day" },
+            { "stat_value": "0", "suffix": "", "stat_label": "Bots between you and a human" },
+            { "stat_value": "5", "suffix": "/5", "stat_label": "Average support CSAT" }
           ] %}
       {% end_dnd_module %}
     {% end_dnd_section %}
