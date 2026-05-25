@@ -17,8 +17,7 @@
       {% endif %}
       {% if tier.cta_text %}
         <a class="sr-pricing__cta{% if tier.featured %} sr-pricing__cta--featured{% endif %}"
-           href="{{ tier.cta_url.url.href }}"
-           {% if tier.cta_url.open_in_new_tab %}target="_blank" rel="noopener"{% endif %}>
+           href="{{ tier.cta_url.href|default(tier.cta_url.url.href) }}">
           {{ tier.cta_text }}
         </a>
       {% endif %}
