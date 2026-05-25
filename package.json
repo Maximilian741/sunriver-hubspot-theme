@@ -6,10 +6,10 @@
   "scripts": {
     "auth": "hs auth",
     "init": "hs init",
-    "upload": "hs cms upload theme sunriver-hubspot-theme",
-    "watch": "hs cms watch theme sunriver-hubspot-theme",
+    "upload": "hs cms upload theme \"Atomic_Lite child\"",
+    "watch": "hs cms watch theme \"Atomic_Lite child\"",
     "deploy": "npm run upload",
-    "fetch": "hs cms fetch sunriver-hubspot-theme theme",
+    "fetch": "hs cms fetch \"Atomic_Lite child\" theme",
     "lint": "hs cms lint theme"
   },
   "devDependencies": {
