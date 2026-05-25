@@ -1,7 +1,6 @@
 <div class="sr-services sr-services--cols-{{ module.columns|default('3') }}">
   {% for card in module.cards %}
-    <a class="sr-service-card" href="{{ card.card_link.url.href }}"
-      {% if card.card_link.open_in_new_tab %}target="_blank" rel="noopener"{% endif %}>
+    <a class="sr-service-card" href="{{ card.card_link.href|default(card.card_link.url.href) }}">
       <div class="sr-service-card__inner">
         <div class="sr-service-card__icon" aria-hidden="true">{{ card.icon_text }}</div>
         {% if card.title %}
