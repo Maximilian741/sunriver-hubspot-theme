@@ -21,8 +21,16 @@
   "id" : "a8000008-0001-0001-0001-000000000004",
   "name" : "cta_url",
   "label" : "CTA URL",
+  "required" : false,
+  "locked" : false,
+  "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG" ],
   "type" : "url",
-  "default" : { "url" : { "content_id" : null, "href" : "/quote-sunriver-consulting", "type" : "EXTERNAL" }, "open_in_new_tab" : false }
+  "display_width" : null,
+  "default" : {
+    "type" : "EXTERNAL",
+    "href" : "/quote-sunriver-consulting",
+    "content_id" : null
+  }
 }, {
   "id" : "a8000008-0001-0001-0001-000000000005",
   "name" : "style",

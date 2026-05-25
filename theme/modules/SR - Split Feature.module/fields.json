@@ -58,6 +58,14 @@
   "id" : "aa00000a-0001-0001-0001-000000000008",
   "name" : "cta_url",
   "label" : "CTA URL",
+  "required" : false,
+  "locked" : false,
+  "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG" ],
   "type" : "url",
-  "default" : { "url" : { "content_id" : null, "href" : "/about", "type" : "EXTERNAL" }, "open_in_new_tab" : false }
+  "display_width" : null,
+  "default" : {
+    "type" : "EXTERNAL",
+    "href" : "/about",
+    "content_id" : null
+  }
 } ]

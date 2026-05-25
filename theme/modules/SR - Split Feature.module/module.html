@@ -23,8 +23,7 @@
       </ul>
     {% endif %}
     {% if module.cta_text %}
-      <a class="sr-split__cta" href="{{ module.cta_url.url.href }}"
-        {% if module.cta_url.open_in_new_tab %}target="_blank" rel="noopener"{% endif %}>
+      <a class="sr-split__cta" href="{{ module.cta_url.href|default(module.cta_url.url.href) }}">
         {{ module.cta_text }}
         <span class="sr-split__cta-arrow">&rarr;</span>
       </a>
