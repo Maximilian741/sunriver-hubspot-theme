@@ -24,15 +24,13 @@
 
     <div class="sr-hero__ctas">
       {% if module.primary_cta_text %}
-        <a class="sr-btn sr-btn--primary" href="{{ module.primary_cta_url.url.href }}"
-          {% if module.primary_cta_url.open_in_new_tab %}target="_blank" rel="noopener"{% endif %}>
+        <a class="sr-btn sr-btn--primary" href="{{ module.primary_cta_url.href|default(module.primary_cta_url.url.href) }}">
           {{ module.primary_cta_text }}
           <span class="sr-btn__arrow">&rarr;</span>
         </a>
       {% endif %}
       {% if module.secondary_cta_text %}
-        <a class="sr-btn sr-btn--ghost" href="{{ module.secondary_cta_url.url.href }}"
-          {% if module.secondary_cta_url.open_in_new_tab %}target="_blank" rel="noopener"{% endif %}>
+        <a class="sr-btn sr-btn--ghost" href="{{ module.secondary_cta_url.href|default(module.secondary_cta_url.url.href) }}">
           {{ module.secondary_cta_text }}
         </a>
       {% endif %}
