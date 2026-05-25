@@ -70,10 +70,10 @@
     {% dnd_section padding={ "top": 32, "bottom": 64, "left": 24, "right": 24 } %}
       {% dnd_module path="../../modules/SR - Stats Grid",
           stats=[
-            { "value": "0", "suffix": "", "label": "PHI/PII incidents in client environments" },
-            { "value": "100", "suffix": "%", "label": "Engagements with signed NDA + DPA" },
-            { "value": "24", "suffix": "hr", "label": "Internal incident response SLA" },
-            { "value": "365", "suffix": "/yr", "label": "Continuous control monitoring" }
+            { "stat_value": "0", "suffix": "", "stat_label": "PHI/PII incidents in client environments" },
+            { "stat_value": "100", "suffix": "%", "stat_label": "Engagements with signed NDA + DPA" },
+            { "stat_value": "24", "suffix": "hr", "stat_label": "Internal incident response SLA" },
+            { "stat_value": "365", "suffix": "/yr", "stat_label": "Continuous control monitoring" }
           ] %}
       {% end_dnd_module %}
     {% end_dnd_section %}

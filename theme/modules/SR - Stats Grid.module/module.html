@@ -2,10 +2,10 @@
   {% for stat in module.stats %}
     <div class="sr-stat">
       <div class="sr-stat__value-row">
-        <span class="sr-stat__value" data-target="{{ stat.value }}">0</span>
+        <span class="sr-stat__value" data-target="{{ stat.stat_value }}">0</span>
         {% if stat.suffix %}<span class="sr-stat__suffix">{{ stat.suffix }}</span>{% endif %}
       </div>
-      <div class="sr-stat__label">{{ stat.label }}</div>
+      <div class="sr-stat__label">{{ stat.stat_label }}</div>
     </div>
   {% endfor %}
 </div>

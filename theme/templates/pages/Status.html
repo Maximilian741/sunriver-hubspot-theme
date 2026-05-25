@@ -53,10 +53,10 @@
     {% dnd_section padding={ "top": 32, "bottom": 64, "left": 24, "right": 24 } %}
       {% dnd_module path="../../modules/SR - Stats Grid",
           stats=[
-            { "value": "99.98", "suffix": "%", "label": "Uptime, last 90 days" },
-            { "value": "1", "suffix": "", "label": "Incidents in the last 90 days" },
-            { "value": "12", "suffix": "min", "label": "Median time to resolve" },
-            { "value": "5", "suffix": "min", "label": "Median time to first update" }
+            { "stat_value": "99.98", "suffix": "%", "stat_label": "Uptime, last 90 days" },
+            { "stat_value": "1", "suffix": "", "stat_label": "Incidents in the last 90 days" },
+            { "stat_value": "12", "suffix": "min", "stat_label": "Median time to resolve" },
+            { "stat_value": "5", "suffix": "min", "stat_label": "Median time to first update" }
           ] %}
       {% end_dnd_module %}
     {% end_dnd_section %}
