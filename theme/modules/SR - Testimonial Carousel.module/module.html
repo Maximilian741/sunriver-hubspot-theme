@@ -8,14 +8,14 @@
             <div class="sr-testi__quote">{{ item.quote }}</div>
             <div class="sr-testi__author">
               {% if item.avatar.src %}
-                <img class="sr-testi__avatar" src="{{ item.avatar.src }}" alt="{{ item.avatar.alt|default(item.name) }}">
+                <img class="sr-testi__avatar" src="{{ item.avatar.src }}" alt="{{ item.avatar.alt|default(item.author_name) }}">
               {% else %}
                 <span class="sr-testi__avatar sr-testi__avatar--initials" aria-hidden="true">
-                  {{ item.name|truncate(1, true, '') }}
+                  {{ item.author_name|truncate(1, true, '') }}
                 </span>
               {% endif %}
               <div class="sr-testi__meta">
-                <span class="sr-testi__name">{{ item.name }}</span>
+                <span class="sr-testi__name">{{ item.author_name }}</span>
                 {% if item.role %}<span class="sr-testi__role">{{ item.role }}</span>{% endif %}
               </div>
             </div>

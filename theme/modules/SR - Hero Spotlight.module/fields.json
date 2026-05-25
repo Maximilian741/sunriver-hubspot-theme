@@ -32,7 +32,7 @@
   "label" : "Primary CTA URL",
   "required" : false,
   "type" : "url",
-  "default" : { "url" : { "content_id" : null, "href" : "/get-a-quote", "type" : "EXTERNAL" }, "open_in_new_tab" : false }
+  "default" : { "url" : { "content_id" : null, "href" : "/quote-sunriver-consulting", "type" : "EXTERNAL" }, "open_in_new_tab" : false }
 }, {
   "id" : "a1000001-0001-0001-0001-000000000006",
   "name" : "secondary_cta_text",
@@ -46,7 +46,7 @@
   "label" : "Secondary CTA URL",
   "required" : false,
   "type" : "url",
-  "default" : { "url" : { "content_id" : null, "href" : "/solutions-products", "type" : "EXTERNAL" }, "open_in_new_tab" : false }
+  "default" : { "url" : { "content_id" : null, "href" : "/solutions-products-sunriver-consulting", "type" : "EXTERNAL" }, "open_in_new_tab" : false }
 }, {
   "id" : "a1000001-0001-0001-0001-000000000008",
   "name" : "background_style",
