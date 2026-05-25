@@ -4,7 +4,7 @@
       {% if tier.featured %}
         <div class="sr-pricing__badge">Most Popular</div>
       {% endif %}
-      <h3 class="sr-pricing__name">{{ tier.name }}</h3>
+      <h3 class="sr-pricing__name">{{ tier.tier_name }}</h3>
       <div class="sr-pricing__price-row">
         <span class="sr-pricing__price">{{ tier.price }}</span>
         {% if tier.period %}<span class="sr-pricing__period">{{ tier.period }}</span>{% endif %}

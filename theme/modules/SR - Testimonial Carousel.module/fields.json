@@ -11,9 +11,9 @@
   "type" : "group",
   "occurrence" : { "min" : 1, "max" : 20, "default" : 3 },
   "default" : [
-    { "quote" : "<p>SunRiver rewired our cloud stack in six weeks. Outage rates dropped 80% and our team finally trusts deploy day.</p>", "name" : "Alex P.", "role" : "CTO, FinScale" },
-    { "quote" : "<p>The HubSpot rebuild paid for itself in the first quarter. Our marketing team can finally ship campaigns without a developer.</p>", "name" : "Sam R.", "role" : "VP Marketing, Verge" },
-    { "quote" : "<p>Smart, calm, fast. They surface the real risks early and fix them before they become incidents.</p>", "name" : "Jordan K.", "role" : "Head of Eng, NorthLoop" }
+    { "quote" : "<p>SunRiver rewired our cloud stack in six weeks. Outage rates dropped 80% and our team finally trusts deploy day.</p>", "author_name" : "Alex P.", "role" : "CTO, FinScale" },
+    { "quote" : "<p>The HubSpot rebuild paid for itself in the first quarter. Our marketing team can finally ship campaigns without a developer.</p>", "author_name" : "Sam R.", "role" : "VP Marketing, Verge" },
+    { "quote" : "<p>Smart, calm, fast. They surface the real risks early and fix them before they become incidents.</p>", "author_name" : "Jordan K.", "role" : "Head of Eng, NorthLoop" }
   ],
   "children" : [ {
     "id" : "a7000007-0001-0001-0001-000000000010",
@@ -23,7 +23,7 @@
     "default" : "<p>Quote text.</p>"
   }, {
     "id" : "a7000007-0001-0001-0001-000000000011",
-    "name" : "name",
+    "name" : "author_name",
     "label" : "Name",
     "type" : "text",
     "default" : "Name"
