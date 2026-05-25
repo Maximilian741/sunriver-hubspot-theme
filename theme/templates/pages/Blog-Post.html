@@ -1,5 +1,5 @@
 <!--
-  templateType: blog_post
+  templateType: blog_article
   label: SR - Blog Post
   screenshot_path: ../../images/template-previews/blog-post.jpg
   isAvailableForNewContent: true
@@ -137,17 +137,16 @@
   </section>
 
   {# ===== CTA ===== #}
-  {% dnd_area "footer-cta", label="Footer CTA" %}
-    {% dnd_section full_width=true,
-        padding={ "top": 64, "bottom": 0, "left": 0, "right": 0 } %}
-      {% dnd_module path="../../modules/SR - CTA Banner",
-          heading="Want more like this?",
-          subheading="One short note per quarter — patterns, post-mortems, and tools we actually use.",
-          cta_text="Subscribe",
-          cta_url={ "url": { "href": "/subscribe", "type": "EXTERNAL" } },
-          style="gradient" %}
-      {% end_dnd_module %}
-    {% end_dnd_section %}
-  {% end_dnd_area %}
+  {# Blog Article templates can't contain dnd_area, so we render the CTA as a non-DnD module. #}
+  <section style="padding-top: 64px;">
+    {% module "footer_cta"
+        path="../../modules/SR - CTA Banner",
+        heading="Want to talk to us?",
+        subheading="The fastest way to find out if we're a fit is a free 30-minute consultation.",
+        cta_text="Schedule a Consultation",
+        cta_url={ "url": { "href": "/schedule-a-consultation-sunriver-consulting", "type": "EXTERNAL" } },
+        style="gradient"
+    %}
+  </section>
 
 {% endblock body %}
