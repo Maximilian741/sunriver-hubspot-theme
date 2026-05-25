@@ -45,7 +45,8 @@
     "id" : "a3000003-0001-0001-0001-000000000014",
     "name" : "link_url",
     "label" : "Link URL",
+    "required" : false,
     "type" : "url",
-    "default" : { "url" : { "content_id" : null, "href" : "#", "type" : "EXTERNAL" }, "open_in_new_tab" : false }
+    "default" : { "url" : { "content_id" : null, "href" : "/contact", "type" : "EXTERNAL" }, "open_in_new_tab" : false }
   } ]
 } ]
