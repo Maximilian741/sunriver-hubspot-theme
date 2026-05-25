@@ -5,9 +5,9 @@
   "type" : "group",
   "occurrence" : { "min" : 1, "max" : 5, "default" : 3 },
   "default" : [
-    { "tier_name" : "Starter", "price" : "$1,500", "period" : "/ month", "summary" : "Perfect for small teams getting started.", "features" : "<ul><li>Cloud audit</li><li>HubSpot setup</li><li>Email support</li></ul>", "cta_text" : "Get started", "cta_url" : { "url" : { "content_id" : null, "href" : "/quote-sunriver-consulting", "type" : "EXTERNAL" }, "open_in_new_tab" : false }, "featured" : false },
-    { "tier_name" : "Growth", "price" : "$3,800", "period" : "/ month", "summary" : "For scaling teams who need a partner.", "features" : "<ul><li>Everything in Starter</li><li>Security hardening</li><li>Custom automations</li><li>Priority support</li></ul>", "cta_text" : "Most popular", "cta_url" : { "url" : { "content_id" : null, "href" : "/quote-sunriver-consulting", "type" : "EXTERNAL" }, "open_in_new_tab" : false }, "featured" : true },
-    { "tier_name" : "Enterprise", "price" : "Custom", "period" : "", "summary" : "Bespoke engagements with full ownership.", "features" : "<ul><li>Dedicated team</li><li>SLA & uptime</li><li>Compliance support</li><li>White-glove onboarding</li></ul>", "cta_text" : "Talk to us", "cta_url" : { "url" : { "content_id" : null, "href" : "/quote-sunriver-consulting", "type" : "EXTERNAL" }, "open_in_new_tab" : false }, "featured" : false }
+    { "tier_name" : "Starter", "price" : "$1,500", "period" : "/ month", "summary" : "Perfect for small teams getting started.", "features" : "<ul><li>Cloud audit</li><li>HubSpot setup</li><li>Email support</li></ul>", "cta_text" : "Get started", "cta_url" : { "type" : "EXTERNAL", "href" : "/quote-sunriver-consulting", "content_id" : null }, "featured" : false },
+    { "tier_name" : "Growth", "price" : "$3,800", "period" : "/ month", "summary" : "For scaling teams who need a partner.", "features" : "<ul><li>Everything in Starter</li><li>Security hardening</li><li>Custom automations</li><li>Priority support</li></ul>", "cta_text" : "Most popular", "cta_url" : { "type" : "EXTERNAL", "href" : "/quote-sunriver-consulting", "content_id" : null }, "featured" : true },
+    { "tier_name" : "Enterprise", "price" : "Custom", "period" : "", "summary" : "Bespoke engagements with full ownership.", "features" : "<ul><li>Dedicated team</li><li>SLA & uptime</li><li>Compliance support</li><li>White-glove onboarding</li></ul>", "cta_text" : "Talk to us", "cta_url" : { "type" : "EXTERNAL", "href" : "/quote-sunriver-consulting", "content_id" : null }, "featured" : false }
   ],
   "children" : [ {
     "id" : "a5000005-0001-0001-0001-000000000010",
@@ -49,8 +49,16 @@
     "id" : "a5000005-0001-0001-0001-000000000016",
     "name" : "cta_url",
     "label" : "CTA URL",
+    "required" : false,
+    "locked" : false,
+    "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG" ],
     "type" : "url",
-    "default" : { "url" : { "content_id" : null, "href" : "/quote-sunriver-consulting", "type" : "EXTERNAL" }, "open_in_new_tab" : false }
+    "display_width" : null,
+    "default" : {
+      "type" : "EXTERNAL",
+      "href" : "/quote-sunriver-consulting",
+      "content_id" : null
+    }
   }, {
     "id" : "a5000005-0001-0001-0001-000000000017",
     "name" : "featured",
