@@ -39,12 +39,12 @@
       {% dnd_module path="../../modules/SR - Service Cards",
           columns="3",
           cards=[
-            { "icon_text": "🟢", "title": "Web App", "description": "<p>Operational · 99.99% uptime (30d)</p>", "link_text": "View metrics", "link_url": { "url": { "href": "#web-metrics", "type": "EXTERNAL" } } },
-            { "icon_text": "🟢", "title": "Public API", "description": "<p>Operational · 99.97% uptime (30d)</p>", "link_text": "View metrics", "link_url": { "url": { "href": "#api-metrics", "type": "EXTERNAL" } } },
-            { "icon_text": "🟢", "title": "Authentication", "description": "<p>Operational · 100% uptime (30d)</p>", "link_text": "View metrics", "link_url": { "url": { "href": "#auth-metrics", "type": "EXTERNAL" } } },
-            { "icon_text": "🟢", "title": "Webhooks", "description": "<p>Operational · 99.95% uptime (30d)</p>", "link_text": "View metrics", "link_url": { "url": { "href": "#webhooks-metrics", "type": "EXTERNAL" } } },
-            { "icon_text": "🟢", "title": "Background Jobs", "description": "<p>Operational · 99.98% uptime (30d)</p>", "link_text": "View metrics", "link_url": { "url": { "href": "#jobs-metrics", "type": "EXTERNAL" } } },
-            { "icon_text": "🟢", "title": "Customer Portal", "description": "<p>Operational · 99.99% uptime (30d)</p>", "link_text": "View metrics", "link_url": { "url": { "href": "#portal-metrics", "type": "EXTERNAL" } } }
+            { "icon_text": "🟢", "title": "Web App", "description": "<p>Operational · 99.99% uptime (30d)</p>", "link_text": "View metrics", "card_link": { "url": { "href": "#web-metrics", "type": "EXTERNAL" } } },
+            { "icon_text": "🟢", "title": "Public API", "description": "<p>Operational · 99.97% uptime (30d)</p>", "link_text": "View metrics", "card_link": { "url": { "href": "#api-metrics", "type": "EXTERNAL" } } },
+            { "icon_text": "🟢", "title": "Authentication", "description": "<p>Operational · 100% uptime (30d)</p>", "link_text": "View metrics", "card_link": { "url": { "href": "#auth-metrics", "type": "EXTERNAL" } } },
+            { "icon_text": "🟢", "title": "Webhooks", "description": "<p>Operational · 99.95% uptime (30d)</p>", "link_text": "View metrics", "card_link": { "url": { "href": "#webhooks-metrics", "type": "EXTERNAL" } } },
+            { "icon_text": "🟢", "title": "Background Jobs", "description": "<p>Operational · 99.98% uptime (30d)</p>", "link_text": "View metrics", "card_link": { "url": { "href": "#jobs-metrics", "type": "EXTERNAL" } } },
+            { "icon_text": "🟢", "title": "Customer Portal", "description": "<p>Operational · 99.99% uptime (30d)</p>", "link_text": "View metrics", "card_link": { "url": { "href": "#portal-metrics", "type": "EXTERNAL" } } }
           ] %}
       {% end_dnd_module %}
     {% end_dnd_section %}
@@ -93,9 +93,9 @@
       {% dnd_module path="../../modules/SR - Service Cards",
           columns="3",
           cards=[
-            { "icon_text": "🟡", "title": "Apr 14 — Webhook delays", "description": "<p>22 min · resolved · post-mortem published</p>", "link_text": "Read post-mortem", "link_url": { "url": { "href": "/blog/incidents/2026-04-14-webhook-delays", "type": "EXTERNAL" } } },
-            { "icon_text": "🟡", "title": "Feb 02 — API rate-limit spike", "description": "<p>14 min · resolved · post-mortem published</p>", "link_text": "Read post-mortem", "link_url": { "url": { "href": "/blog/incidents/2026-02-02-rate-limit", "type": "EXTERNAL" } } },
-            { "icon_text": "🟢", "title": "Older incidents", "description": "<p>Browse the full history (last 24 months)</p>", "link_text": "View all", "link_url": { "url": { "href": "/blog/incidents", "type": "EXTERNAL" } } }
+            { "icon_text": "🟡", "title": "Apr 14 — Webhook delays", "description": "<p>22 min · resolved · post-mortem published</p>", "link_text": "Read post-mortem", "card_link": { "url": { "href": "/blog/incidents/2026-04-14-webhook-delays", "type": "EXTERNAL" } } },
+            { "icon_text": "🟡", "title": "Feb 02 — API rate-limit spike", "description": "<p>14 min · resolved · post-mortem published</p>", "link_text": "Read post-mortem", "card_link": { "url": { "href": "/blog/incidents/2026-02-02-rate-limit", "type": "EXTERNAL" } } },
+            { "icon_text": "🟢", "title": "Older incidents", "description": "<p>Browse the full history (last 24 months)</p>", "link_text": "View all", "card_link": { "url": { "href": "/blog/incidents", "type": "EXTERNAL" } } }
           ] %}
       {% end_dnd_module %}
     {% end_dnd_section %}
