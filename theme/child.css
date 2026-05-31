@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
 /* === SunRiver Pine Growth (WORKING / self-contained) === */
 :root{
   --sr-green:#8fc740;
@@ -259,4 +261,47 @@
 }
 @media (hover: none), (pointer: coarse) {
   #sr-cursor-fx { display: none; }
+}
+
+/* ============================================================
+   Brand Kit typography — scoped to SR components only.
+   (Home and other non-SR content are not affected: they carry
+   no sr-* classes, so these selectors never match them.)
+   Manrope body · Poppins headings · JetBrains Mono labels.
+   ============================================================ */
+.sr-hero, .sr-cta, .sr-section-heading, .sr-services, .sr-service-card,
+.sr-split, .sr-stats, .sr-stat, .sr-pricing, .sr-faq, .sr-process,
+.sr-testi, .sr-counter-marquee {
+  font-family: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+.sr-hero__heading, .sr-cta__heading, .sr-section-heading__title, .sr-split__heading,
+.sr-pricing__name, .sr-pricing__price, .sr-process__title, .sr-service-card__title,
+.sr-stat__value, .sr-testi__name, .sr-counter-number, .sr-counter-title {
+  font-family: "Poppins", system-ui, sans-serif !important;
+  letter-spacing: -0.015em;
+}
+.sr-hero__eyebrow, .sr-section-heading__eyebrow, .sr-split__eyebrow,
+.sr-stat__label, .sr-stat__suffix, .sr-service-card__cta, .sr-pricing__period,
+.sr-counter-icon, .sr-testi__role {
+  font-family: "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace !important;
+}
+
+/* ============================================================
+   Form-submit progress bar — thin top "Brook" stream in the
+   signature gradient. Toggled by child.js on any form submit.
+   ============================================================ */
+#sr-progress {
+  position: fixed; top: 0; left: 0; right: 0; height: 3px;
+  z-index: 2147483600; overflow: hidden; background: transparent;
+  opacity: 0; transition: opacity .2s ease; pointer-events: none;
+}
+#sr-progress.sr-progress--on { opacity: 1; }
+#sr-progress i {
+  position: absolute; top: 0; bottom: 0; width: 42%; border-radius: 0 3px 3px 0;
+  background: linear-gradient(90deg, transparent, #FBC34A, #8FC740, #3E9DB8, transparent);
+  animation: srBrook 1.1s ease-in-out infinite;
+}
+@keyframes srBrook { 0% { left: -42%; } 100% { left: 100%; } }
+@media (prefers-reduced-motion: reduce) {
+  #sr-progress i { animation: none; left: 0; width: 100%; opacity: .7; }
 }

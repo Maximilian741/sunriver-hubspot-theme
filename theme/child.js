@@ -186,3 +186,37 @@
   else window.addEventListener('load', ready);
   setTimeout(hide, 2500);   // hard cap — never trap the page
 })();
+
+// SunRiver form-submit progress — a thin top "Brook" stream in the brand gradient,
+// shown whenever any form on the page is submitted. Purely visual: it never blocks
+// or alters submission, and auto-hides on navigation or after a timeout.
+(function () {
+  var bar = null, hideTimer = null;
+  function ensureBar() {
+    if (bar) return bar;
+    bar = document.createElement('div');
+    bar.id = 'sr-progress';
+    bar.setAttribute('aria-hidden', 'true');
+    bar.innerHTML = '<i></i>';
+    (document.body || document.documentElement).appendChild(bar);
+    return bar;
+  }
+  function show() {
+    ensureBar();
+    // force reflow so the opacity transition runs even on first show
+    void bar.offsetWidth;
+    bar.classList.add('sr-progress--on');
+    if (hideTimer) clearTimeout(hideTimer);
+    // For inline/AJAX forms that don't navigate, retract after a few seconds.
+    hideTimer = setTimeout(hide, 5000);
+  }
+  function hide() {
+    if (bar) bar.classList.remove('sr-progress--on');
+  }
+  document.addEventListener('submit', function (e) {
+    var f = e.target;
+    if (f && f.tagName === 'FORM') show();
+  }, true);
+  // Tidy up if the page is being navigated away/restored from bfcache.
+  window.addEventListener('pagehide', hide);
+})();
