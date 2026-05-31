@@ -279,7 +279,34 @@
       'vec3 pCol;if(lh<0.4)pCol=RIV;else if(lh<0.75)pCol=VAL;else pCol=SUN;' +
       'vec3 col=bg;col=mix(col,pCol,part*0.7);col=mix(col,BASE,smoothstep(0.6,1.2,length(p))*0.6);' +
       'col+=(hash(gl_FragCoord.xy+u_time)-0.5)*0.015;gl_FragColor=vec4(col,1.0);}';
-    var FRAG = { ember: EMBER, maple: MAPLE };
+    // Neon flavor — vibrant SR green/teal/gold on near-black (matches the home-page look).
+    var NEON =
+      'vec3 NG=vec3(0.129,0.78,0.0);vec3 NT=vec3(0.024,0.878,0.678);' +
+      'vec3 NGD=vec3(0.945,0.761,0.20);vec3 NINK=vec3(0.016,0.063,0.043);';
+    var EMBER_NEON = COMMON + NEON +
+      'void main(){vec2 p=(gl_FragCoord.xy-0.5*u_res.xy)/u_res.y;float t=u_time*0.12;' +
+      'vec2 q=p*1.3;q.y+=t*0.85;q+=0.4*vec2(fbm(q+t),fbm(q*1.2-t+7.0));' +
+      'float smoke=fbm(q);float dense=smoothstep(0.18,0.85,smoke);' +
+      'float wisp=fbm(q*2.5+vec2(0.0,t*1.6));dense*=0.6+0.6*wisp;' +
+      'vec3 col=NINK;col=mix(col,NG*0.55,smoothstep(0.1,0.5,dense));' +
+      'col=mix(col,NT,smoothstep(0.42,0.84,dense));col=mix(col,NG,smoothstep(0.6,0.93,dense)*0.7);' +
+      'col+=NGD*pow(dense,5.0)*0.85;col+=NT*pow(dense,9.0)*0.6;' +
+      'col*=1.0-0.4*dot(p,p);col+=(hash(gl_FragCoord.xy+u_time)-0.5)*0.02;gl_FragColor=vec4(col,1.0);}';
+    var MAPLE_NEON = COMMON + NEON +
+      'void main(){vec2 p=(gl_FragCoord.xy-0.5*u_res.xy)/u_res.y;float t=u_time*0.09;' +
+      'vec2 q=p*1.2+vec2(t*0.6,t*0.2);float mist=fbm(q+vec2(0.0,fbm(q*2.0-t)));' +
+      'float density=smoothstep(0.2,0.85,mist);vec2 lq=p*6.0+vec2(-t*1.2,t*0.3);' +
+      'vec2 li=floor(lq),lf=fract(lq);float pD=1.0;vec2 pC=vec2(0.0);' +
+      'for(int y=-1;y<=1;y++){for(int x=-1;x<=1;x++){vec2 o=vec2(float(x),float(y));' +
+      'vec2 h=vec2(hash(li+o),hash(li+o+17.0));vec2 seed=o+h;' +
+      'seed+=vec2(sin(u_time*0.5+h.x*6.28)*0.18,cos(u_time*0.4+h.y*6.28)*0.12);' +
+      'float d=length(seed-lf);if(d<pD){pD=d;pC=li+o;}}}' +
+      'float part=smoothstep(0.16,0.04,pD);float lh=hash(pC);' +
+      'vec3 bg=mix(NINK,NG*0.16,smoothstep(-0.5,0.6,p.y));bg=mix(bg,NT*0.18,density*0.5);' +
+      'vec3 pCol;if(lh<0.4)pCol=NT;else if(lh<0.75)pCol=NG;else pCol=NGD;' +
+      'vec3 col=bg;col=mix(col,pCol,part*0.85);col=mix(col,NINK,smoothstep(0.6,1.2,length(p))*0.55);' +
+      'col+=(hash(gl_FragCoord.xy+u_time)-0.5)*0.015;gl_FragColor=vec4(col,1.0);}';
+    var FRAG = { ember: EMBER, maple: MAPLE, 'ember-neon': EMBER_NEON, 'maple-neon': MAPLE_NEON };
 
     function run(canvas, fragSrc) {
       var gl = canvas.getContext('webgl', { antialias: true, premultipliedAlpha: false });
