@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 250 64" width="250" height="64" role="img" aria-label="SunRiver Consulting">
+  <defs>
+    <radialGradient id="lkwSun" cx="36%" cy="32%" r="72%">
+      <stop offset="0%" stop-color="#FBC34A"/>
+      <stop offset="82%" stop-color="#8FC740"/>
+    </radialGradient>
+    <linearGradient id="lkwWater" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#3E9DB8"/>
+      <stop offset="100%" stop-color="#FBC34A"/>
+    </linearGradient>
+    <linearGradient id="lkwWm" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#FBC34A"/>
+      <stop offset="50%" stop-color="#8FC740"/>
+      <stop offset="100%" stop-color="#3E9DB8"/>
+    </linearGradient>
+  </defs>
+  <circle cx="26" cy="21" r="13" fill="url(#lkwSun)"/>
+  <g fill="url(#lkwWater)">
+    <rect x="7"    y="40" width="38" height="4.2" rx="2.1"/>
+    <rect x="12.5" y="47" width="27" height="4.2" rx="2.1" opacity="0.82"/>
+    <rect x="17.5" y="54" width="17" height="4.2" rx="2.1" opacity="0.55"/>
+  </g>
+  <text x="62" y="41" font-family="Poppins, 'Century Gothic', 'Futura', system-ui, sans-serif"
+        font-weight="600" font-size="33" letter-spacing="-0.6">
+    <tspan fill="#ffffff">Sun</tspan><tspan fill="url(#lkwWm)">River</tspan>
+  </text>
+</svg>
