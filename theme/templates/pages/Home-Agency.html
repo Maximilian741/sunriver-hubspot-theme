@@ -1,0 +1,116 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: SunRiver - Home Agency (bold)
+  screenshot_path: ../../images/template-previews/home.jpg
+-->
+{#
+  "Agency" theme exemplar — bold editorial, high-contrast, FLAT. No gradients,
+  no glows, no emoji. Oversized type, asymmetric grids, solid color blocks,
+  big index numerals, sections that invert on hover. Styles in child.css under
+  .sra. SEPARATE from Home.html — does not read or modify it.
+#}
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+<div class="sra">
+
+  {# ===== HERO ===== #}
+  <section class="sra-hero">
+    <div class="sra-wrap">
+      <div class="sra-hero__meta">
+        <span style="display:inline-flex;align-items:center;gap:12px;">
+          <span class="sra-mark" style="--mk:30px"><span class="sun"></span><span class="water"><i></i><i></i><i></i></span></span>
+          <span class="sra-wm" style="font-size:18px;"><span class="s">Sun</span><span class="r">River</span></span>
+        </span>
+        <span>Software Consulting &nbsp;·&nbsp; Helena, Montana</span>
+      </div>
+      <div class="sra-hero__lead">
+        <h1 class="sra-hero__title">Unlock your business&rsquo;s <span class="sra-hl">true potential</span>.</h1>
+        <p class="sra-hero__sub">Cloud, security, and CMS work for teams that want it done right the first time &mdash; senior people, fixed fees, no friction.</p>
+        <div class="sra-ctas">
+          <a class="sra-btn sra-btn--primary" href="/quote-sunriver-consulting">Get a quick estimate <span class="sra-btn__arrow">&rarr;</span></a>
+          <a class="sra-btn sra-btn--ghost" href="/schedule-a-consultation-sunriver-consulting">Schedule a consultation</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {# ===== 01 · CAPABILITIES (big numbered rows) ===== #}
+  <section class="sra-sec">
+    <div class="sra-wrap">
+      <div class="sra-head srx-reveal">
+        <span class="sra-num">01</span>
+        <div><span class="sra-eyebrow">Capabilities</span><h2 class="sra-h2">Six disciplines. One senior team.</h2></div>
+      </div>
+      <div class="sra-rows srx-reveal">
+        <a class="sra-row" href="/app-development-sunriver-consulting"><span class="sra-row__n">01</span><span class="sra-row__t">Applications<small>Android · iOS · Desktop · Web</small></span><span class="sra-row__arrow">&rarr;</span></a>
+        <a class="sra-row" href="/business-solutions-sunriver-consulting"><span class="sra-row__n">02</span><span class="sra-row__t">Business Solutions<small>AWS · HubSpot · Salesforce · M365</small></span><span class="sra-row__arrow">&rarr;</span></a>
+        <a class="sra-row" href="/compliance-audits-sunriver-consulting"><span class="sra-row__n">03</span><span class="sra-row__t">Compliance Audits<small>Pen testing · WCAG · 508</small></span><span class="sra-row__arrow">&rarr;</span></a>
+        <a class="sra-row" href="/database-solutions-sunriver-consulting"><span class="sra-row__n">04</span><span class="sra-row__t">Databases<small>SQL · NoSQL · Analytics</small></span><span class="sra-row__arrow">&rarr;</span></a>
+        <a class="sra-row" href="/web-development-sunriver-consulting"><span class="sra-row__n">05</span><span class="sra-row__t">Websites<small>Custom · HubSpot · WordPress</small></span><span class="sra-row__arrow">&rarr;</span></a>
+        <a class="sra-row" href="/contact"><span class="sra-row__n">06</span><span class="sra-row__t">Not sure where you fit?<small>Start a conversation</small></span><span class="sra-row__arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </section>
+
+  {# ===== 02 · APPROACH (high-contrast ink) ===== #}
+  <section class="sra-sec sra-sec--ink">
+    <div class="sra-wrap">
+      <div class="sra-head srx-reveal">
+        <span class="sra-num">02</span>
+        <div><span class="sra-eyebrow">Our approach</span><h2 class="sra-h2">We hand you a working system, not a deck.</h2></div>
+      </div>
+      <div class="sra-cols srx-reveal" style="margin-bottom:clamp(40px,6vw,72px);">
+        <p>Most firms sell slides and staff the work with whoever&rsquo;s free. We don&rsquo;t. Every engagement is run by senior engineers who pair design with rigorous ops &mdash; so your team moves fast without breaking the things that matter.</p>
+        <p>We&rsquo;re based in Helena, Montana, and we charge a fraction of what the big logos do. You get software you own, documentation your team can read, and a partner who tells you the truth.</p>
+      </div>
+      <div class="sra-quote srx-reveal">
+        <p>No one left behind in a <span class="sra-hl">fast-moving</span> tech world.</p>
+        <cite>— SunRiver Consulting · Helena, MT</cite>
+      </div>
+    </div>
+  </section>
+
+  {# ===== 03 · WHY (flat color blocks) ===== #}
+  <section class="sra-sec sra-sec--alt">
+    <div class="sra-wrap">
+      <div class="sra-head srx-reveal">
+        <span class="sra-num">03</span>
+        <div><span class="sra-eyebrow">Why SunRiver</span><h2 class="sra-h2">Four promises we actually keep.</h2></div>
+      </div>
+      <div class="sra-blocks srx-reveal">
+        <div class="sra-block sra-block--deep"><div class="sra-block__n">01</div><h3 class="sra-block__t">Senior-only</h3><p class="sra-block__d">The person who scopes your project is the person who builds it. No junior bench, no hand-offs.</p></div>
+        <div class="sra-block sra-block--river"><div class="sra-block__n">02</div><h3 class="sra-block__t">Fixed-fee</h3><p class="sra-block__d">A written scope and a number before we start. No hourly meters, no surprise change orders.</p></div>
+        <div class="sra-block sra-block--valley"><div class="sra-block__n">03</div><h3 class="sra-block__t">Built-in rigor</h3><p class="sra-block__d">Accessibility and security from day one &mdash; not a bolt-on quarter at the end.</p></div>
+        <div class="sra-block sra-block--sun"><div class="sra-block__n">04</div><h3 class="sra-block__t">Yours to keep</h3><p class="sra-block__d">Docs your team can read and a codebase your future engineers can extend.</p></div>
+      </div>
+    </div>
+  </section>
+
+  {# ===== STATS (ink strip) ===== #}
+  <section class="sra-sec sra-sec--ink" style="padding-top:0;padding-bottom:0;">
+    <div class="sra-wrap">
+      <div class="sra-stats srx-reveal" style="border-top:2px solid color-mix(in oklab,#fff 22%,transparent);border-bottom:2px solid color-mix(in oklab,#fff 22%,transparent);">
+        <div class="sra-stat"><p class="sra-stat__k">Helena, MT</p><p class="sra-stat__v">Montana-based, nationwide</p></div>
+        <div class="sra-stat"><p class="sra-stat__k">Senior-only</p><p class="sra-stat__v">Scopes it, builds it</p></div>
+        <div class="sra-stat"><p class="sra-stat__k">Fixed-fee</p><p class="sra-stat__v">Know the number first</p></div>
+        <div class="sra-stat"><p class="sra-stat__k">(406) 616-2614</p><p class="sra-stat__v">Talk to a real engineer</p></div>
+      </div>
+    </div>
+  </section>
+
+  {# ===== CTA (sun block) ===== #}
+  <section class="sra-cta">
+    <div class="sra-wrap srx-reveal">
+      <h2 class="sra-cta__h">Ready to grow with confidence?</h2>
+      <p class="sra-cta__p">Tell us where you want to go. We&rsquo;ll show you the road &mdash; and a fixed price to get there.</p>
+      <div class="sra-ctas" style="justify-content:center;">
+        <a class="sra-btn sra-btn--primary" href="/schedule-a-consultation-sunriver-consulting">Schedule a consultation <span class="sra-btn__arrow">&rarr;</span></a>
+        <a class="sra-btn sra-btn--ghost" href="/contact">Contact us</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+{% endblock body %}
