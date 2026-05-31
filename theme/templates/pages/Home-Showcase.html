@@ -1,0 +1,367 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: SunRiver - Home Showcase (shader)
+  screenshot_path: ../../images/template-previews/home.jpg
+-->
+{#
+  A code-driven, creative variant of the Home page. Self-contained: inline CSS +
+  inline WebGL so it needs no new modules (HubSpot child themes allow only one
+  theme extension, so we can't add modules). Live shader backgrounds — "Ember
+  Smoke" and "Maple Mist" recolored to the SunRiver palette — sit behind a
+  Home-style hero and service grid.
+
+  This is a SEPARATE template from Home.html and does not touch it. Preview it in
+  the template picker as "SunRiver - Home Showcase (shader)".
+
+  Palette: ink #06130d · green #21c700 · teal #06e0ad · gold #f1c233
+  Shaders honor prefers-reduced-motion (fall back to a static gradient) and pause
+  when scrolled offscreen.
+#}
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+<div class="srx">
+
+  <style>
+    .srx { --ink:#06130d; --green:#21c700; --teal:#06e0ad; --gold:#f1c233; --paper:#f6fffb; }
+    .srx * { box-sizing: border-box; }
+
+    /* ---------- HERO ---------- */
+    .srx-hero {
+      position: relative; isolation: isolate; overflow: hidden;
+      min-height: clamp(560px, 86vh, 900px);
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; color: #fff;
+      background: linear-gradient(135deg, #06130d 0%, #0f2a1f 55%, #082218 100%);
+    }
+    .srx-hero__canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; z-index: 0; }
+    /* Veil keeps text readable over the moving shader */
+    .srx-hero__veil {
+      position: absolute; inset: 0; z-index: 1; pointer-events: none;
+      background:
+        radial-gradient(60% 60% at 50% 45%, rgba(6,19,13,0) 0%, rgba(6,19,13,0.35) 70%, rgba(6,19,13,0.72) 100%);
+    }
+    .srx-hero__inner { position: relative; z-index: 2; max-width: 920px; padding: clamp(40px,7vw,96px) clamp(20px,5vw,40px); }
+    .srx-chip {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 7px 16px; border-radius: 999px; margin-bottom: 1.4rem;
+      font: 700 12px/1 "JetBrains Mono", ui-monospace, monospace;
+      letter-spacing: .22em; text-transform: uppercase; color: #06130d;
+      background: linear-gradient(90deg, var(--teal), var(--green));
+      box-shadow: 0 6px 20px rgba(6,224,173,.35);
+    }
+    .srx-chip__dot { width: 7px; height: 7px; border-radius: 50%; background: #06130d; opacity:.65; }
+    .srx-hero__title {
+      margin: 0 0 1.1rem; font-weight: 800; letter-spacing: -.02em;
+      font-size: clamp(2.4rem, 6.2vw, 4.6rem); line-height: 1.04;
+      background: linear-gradient(92deg, #ffffff 0%, #d9fff4 45%, var(--teal) 100%);
+      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+      text-shadow: 0 2px 40px rgba(6,224,173,.25);
+    }
+    .srx-hero__sub {
+      margin: 0 auto 2.2rem; max-width: 620px; font-size: clamp(1.05rem,2.2vw,1.3rem);
+      line-height: 1.6; color: rgba(255,255,255,.86);
+    }
+    .srx-ctas { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
+    .srx-btn {
+      display: inline-flex; align-items: center; gap: 10px; cursor: pointer;
+      padding: 15px 28px; border-radius: 999px; text-decoration: none;
+      font-weight: 700; font-size: 1rem; letter-spacing: .01em;
+      transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+    }
+    .srx-btn--primary {
+      color: #06130d; background: linear-gradient(90deg, var(--green), var(--teal));
+      box-shadow: 0 10px 28px rgba(6,224,173,.4);
+    }
+    .srx-btn--primary:hover { transform: translateY(-2px); box-shadow: 0 16px 36px rgba(6,224,173,.55); }
+    .srx-btn--ghost { color: #fff; border: 1.5px solid rgba(255,255,255,.55); background: rgba(255,255,255,.04); }
+    .srx-btn--ghost:hover { transform: translateY(-2px); border-color: var(--teal); color: var(--teal); }
+    .srx-btn__arrow { transition: transform .2s ease; }
+    .srx-btn:hover .srx-btn__arrow { transform: translateX(4px); }
+    .srx-scroll-cue {
+      position: absolute; left: 50%; bottom: 26px; transform: translateX(-50%); z-index: 2;
+      width: 26px; height: 42px; border: 2px solid rgba(255,255,255,.4); border-radius: 14px;
+    }
+    .srx-scroll-cue::after {
+      content: ""; position: absolute; left: 50%; top: 8px; width: 4px; height: 8px; border-radius: 2px;
+      background: var(--teal); transform: translateX(-50%); animation: srxCue 1.6s ease-in-out infinite;
+    }
+    @keyframes srxCue { 0%,100% { opacity: 0; transform: translate(-50%,0); } 50% { opacity: 1; transform: translate(-50%,10px); } }
+
+    /* ---------- SERVICES ---------- */
+    .srx-do { padding: clamp(64px,9vw,120px) clamp(20px,5vw,40px); background: var(--paper); }
+    .srx-head { max-width: 760px; margin: 0 auto 56px; text-align: center; }
+    .srx-eyebrow {
+      font: 700 12px/1 "JetBrains Mono", ui-monospace, monospace; letter-spacing: .22em;
+      text-transform: uppercase; color: var(--green); display: inline-block; margin-bottom: 14px;
+    }
+    .srx-eyebrow::before { content: "— "; color: var(--teal); }
+    .srx-h2 { margin: 0 0 .8rem; font-size: clamp(1.9rem,4vw,2.9rem); font-weight: 800; color: var(--ink); letter-spacing: -.02em; }
+    .srx-lead { margin: 0; font-size: 1.1rem; line-height: 1.6; color: rgba(6,19,13,.7); }
+    .srx-grid { max-width: 1140px; margin: 0 auto; display: grid; gap: 22px; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); }
+    .srx-card {
+      position: relative; display: flex; flex-direction: column; gap: 12px;
+      padding: 30px 26px; border-radius: 18px; text-decoration: none; overflow: hidden;
+      background: #fff; border: 1px solid rgba(6,224,173,.18);
+      box-shadow: 0 10px 26px rgba(6,19,13,.06);
+      transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+    }
+    .srx-card::before {
+      content: ""; position: absolute; inset: 0 0 auto 0; height: 4px;
+      background: linear-gradient(90deg, var(--green), var(--teal), var(--gold));
+      transform: scaleX(0); transform-origin: left; transition: transform .3s ease;
+    }
+    .srx-card:hover { transform: translateY(-6px); box-shadow: 0 22px 44px rgba(6,224,173,.2); border-color: rgba(6,224,173,.5); }
+    .srx-card:hover::before { transform: scaleX(1); }
+    .srx-card__icon {
+      width: 52px; height: 52px; display: grid; place-items: center; font-size: 26px;
+      border-radius: 14px; background: linear-gradient(160deg, rgba(33,199,0,.12), rgba(6,224,173,.16));
+    }
+    .srx-card__title { font-size: 1.25rem; font-weight: 800; color: var(--ink); margin: 0; }
+    .srx-card__desc { margin: 0; font-size: .98rem; line-height: 1.55; color: rgba(6,19,13,.7); flex: 1; }
+    .srx-card__cta { font-weight: 700; color: #0f7d3f; display: inline-flex; align-items: center; gap: 6px; }
+    .srx-card__cta::after { content: "→"; transition: transform .2s ease; }
+    .srx-card:hover .srx-card__cta::after { transform: translateX(4px); }
+
+    /* ---------- AT A GLANCE ---------- */
+    .srx-glance {
+      padding: clamp(56px,7vw,96px) clamp(20px,5vw,40px);
+      background: linear-gradient(135deg, #06130d, #0f2a1f);
+      color: #fff;
+    }
+    .srx-glance__grid { max-width: 1000px; margin: 0 auto; display: grid; gap: 20px; grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); }
+    .srx-glance__tile {
+      padding: 32px 28px; border-radius: 18px; text-align: center;
+      background: rgba(255,255,255,.04); border: 1px solid rgba(6,224,173,.22);
+      backdrop-filter: blur(6px);
+    }
+    .srx-glance__k { font-size: clamp(1.4rem,3vw,2rem); font-weight: 800; color: var(--teal); margin: 0 0 6px; }
+    .srx-glance__v { margin: 0; font-size: .98rem; letter-spacing: .06em; text-transform: uppercase; color: rgba(255,255,255,.6); }
+
+    /* ---------- CTA (maple shader) ---------- */
+    .srx-cta { position: relative; isolation: isolate; overflow: hidden; color: #fff; text-align: center;
+      padding: clamp(72px,10vw,140px) clamp(20px,5vw,40px); background: #06130d; }
+    .srx-cta__canvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; }
+    .srx-cta__veil { position: absolute; inset: 0; z-index: 1; pointer-events: none;
+      background: radial-gradient(70% 80% at 50% 50%, rgba(6,19,13,0) 0%, rgba(6,19,13,.55) 100%); }
+    .srx-cta__inner { position: relative; z-index: 2; max-width: 680px; margin: 0 auto; }
+    .srx-cta__h { margin: 0 0 .8rem; font-size: clamp(1.9rem,4.5vw,3rem); font-weight: 800; letter-spacing: -.02em; }
+    .srx-cta__p { margin: 0 0 2rem; font-size: 1.12rem; line-height: 1.6; color: rgba(255,255,255,.85); }
+
+    /* ---------- reveal-on-scroll ---------- */
+    .srx-reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease; }
+    .srx-reveal.srx-in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      .srx-reveal { opacity: 1; transform: none; transition: none; }
+      .srx-scroll-cue::after { animation: none; }
+    }
+  </style>
+
+  {# ===== HERO ===== #}
+  <section class="srx-hero">
+    <canvas class="srx-hero__canvas" data-srx-shader="ember" aria-hidden="true"></canvas>
+    <div class="srx-hero__veil"></div>
+    <div class="srx-hero__inner">
+      <span class="srx-chip"><span class="srx-chip__dot"></span>SunRiver Consulting</span>
+      <h1 class="srx-hero__title">Unlock your business's true potential</h1>
+      <p class="srx-hero__sub">Cloud, security, and CMS solutions tailored for modern teams &mdash; engineered, designed, and shipped from Helena, Montana.</p>
+      <div class="srx-ctas">
+        <a class="srx-btn srx-btn--primary" href="/quote-sunriver-consulting">Get a Quick Estimate <span class="srx-btn__arrow">&rarr;</span></a>
+        <a class="srx-btn srx-btn--ghost" href="/schedule-a-consultation-sunriver-consulting">Schedule a Consultation</a>
+      </div>
+    </div>
+    <span class="srx-scroll-cue" aria-hidden="true"></span>
+  </section>
+
+  {# ===== SERVICES ===== #}
+  <section class="srx-do">
+    <div class="srx-head srx-reveal">
+      <span class="srx-eyebrow">What we do</span>
+      <h2 class="srx-h2">Six service areas, one partner</h2>
+      <p class="srx-lead">We help teams adopt tech that actually works for them &mdash; without three handoffs and a junior bench.</p>
+    </div>
+    <div class="srx-grid">
+      <a class="srx-card srx-reveal" href="/app-development-sunriver-consulting">
+        <span class="srx-card__icon">📱</span>
+        <h3 class="srx-card__title">Applications</h3>
+        <p class="srx-card__desc">Native, cross-platform, and web apps your customers actually want to use.</p>
+        <span class="srx-card__cta">Explore app development</span>
+      </a>
+      <a class="srx-card srx-reveal" href="/business-solutions-sunriver-consulting">
+        <span class="srx-card__icon">🛠</span>
+        <h3 class="srx-card__title">Business Solutions</h3>
+        <p class="srx-card__desc">AWS, HubSpot, Salesforce, Microsoft 365, ServiceNow &mdash; integrated and tuned.</p>
+        <span class="srx-card__cta">Explore business solutions</span>
+      </a>
+      <a class="srx-card srx-reveal" href="/compliance-audits-sunriver-consulting">
+        <span class="srx-card__icon">🔒</span>
+        <h3 class="srx-card__title">Compliance Audits</h3>
+        <p class="srx-card__desc">Penetration testing, threat modeling, WCAG and 508 audits &mdash; done right.</p>
+        <span class="srx-card__cta">Explore compliance</span>
+      </a>
+      <a class="srx-card srx-reveal" href="/database-solutions-sunriver-consulting">
+        <span class="srx-card__icon">🗄</span>
+        <h3 class="srx-card__title">Databases</h3>
+        <p class="srx-card__desc">Administration, analysis, design, and development for SQL and NoSQL stacks.</p>
+        <span class="srx-card__cta">Explore databases</span>
+      </a>
+      <a class="srx-card srx-reveal" href="/web-development-sunriver-consulting">
+        <span class="srx-card__icon">🌐</span>
+        <h3 class="srx-card__title">Websites</h3>
+        <p class="srx-card__desc">Custom builds and platform work for HubSpot, WordPress, and Squarespace.</p>
+        <span class="srx-card__cta">Explore web development</span>
+      </a>
+      <a class="srx-card srx-reveal" href="/contact">
+        <span class="srx-card__icon">✨</span>
+        <h3 class="srx-card__title">Everything else</h3>
+        <p class="srx-card__desc">Not sure where you fit? Tell us what you're trying to do &mdash; we'll point you the right way.</p>
+        <span class="srx-card__cta">Get in touch</span>
+      </a>
+    </div>
+  </section>
+
+  {# ===== AT A GLANCE ===== #}
+  <section class="srx-glance">
+    <div class="srx-glance__grid">
+      <div class="srx-glance__tile srx-reveal">
+        <p class="srx-glance__k">Helena, MT</p>
+        <p class="srx-glance__v">Montana-based, serving nationwide</p>
+      </div>
+      <div class="srx-glance__tile srx-reveal">
+        <p class="srx-glance__k">Senior-only</p>
+        <p class="srx-glance__v">No junior hand-offs, ever</p>
+      </div>
+      <div class="srx-glance__tile srx-reveal">
+        <p class="srx-glance__k">(406) 616-2614</p>
+        <p class="srx-glance__v">Talk to a real engineer</p>
+      </div>
+    </div>
+  </section>
+
+  {# ===== CTA with maple-mist shader ===== #}
+  <section class="srx-cta">
+    <canvas class="srx-cta__canvas" data-srx-shader="maple" aria-hidden="true"></canvas>
+    <div class="srx-cta__veil"></div>
+    <div class="srx-cta__inner srx-reveal">
+      <h2 class="srx-cta__h">Ready to grow with confidence?</h2>
+      <p class="srx-cta__p">Tell us where you want to go. We'll show you the road &mdash; and a fixed price to get there.</p>
+      <div class="srx-ctas" style="justify-content:center;">
+        <a class="srx-btn srx-btn--primary" href="/schedule-a-consultation-sunriver-consulting">Schedule a Consultation <span class="srx-btn__arrow">&rarr;</span></a>
+        <a class="srx-btn srx-btn--ghost" href="/contact">Contact us</a>
+      </div>
+    </div>
+  </section>
+
+  {% raw %}
+  <script>
+  (function () {
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    /* ---- scroll reveal ---- */
+    var reveals = [].slice.call(document.querySelectorAll('.srx-reveal'));
+    if (reduce || !('IntersectionObserver' in window)) {
+      reveals.forEach(function (el) { el.classList.add('srx-in'); });
+    } else {
+      var ro = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('srx-in'); ro.unobserve(e.target); }
+        });
+      }, { threshold: 0.15 });
+      reveals.forEach(function (el) { ro.observe(el); });
+    }
+
+    /* ---- shared minimal WebGL fragment-shader runner ---- */
+    var VERT = 'attribute vec2 p;void main(){gl_Position=vec4(p,0.0,1.0);}';
+    var COMMON =
+      'precision highp float;uniform float u_time;uniform vec2 u_res;' +
+      'float hash(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}' +
+      'float noise(vec2 p){vec2 i=floor(p),f=fract(p);vec2 u=f*f*(3.0-2.0*f);' +
+      'return mix(mix(hash(i),hash(i+vec2(1,0)),u.x),mix(hash(i+vec2(0,1)),hash(i+vec2(1,1)),u.x),u.y);}' +
+      'float fbm(vec2 p){float v=0.0,a=0.5;mat2 R=mat2(0.8,-0.6,0.6,0.8);' +
+      'for(int i=0;i<5;i++){v+=a*noise(p);p=R*p*2.05+3.1;a*=0.5;}return v;}';
+
+    // Ember: rising smoke, warm gold + green flares over SR ink.
+    var EMBER = COMMON +
+      'void main(){vec2 p=(gl_FragCoord.xy-0.5*u_res.xy)/u_res.y;float t=u_time*0.11;' +
+      'vec2 q=p*1.3;q.y+=t*0.8;q+=0.4*vec2(fbm(q+t),fbm(q*1.2-t+7.0));' +
+      'float smoke=fbm(q);float dense=smoothstep(0.2,0.85,smoke);' +
+      'float wisp=fbm(q*2.5+vec2(0.0,t*1.5));dense*=0.6+0.6*wisp;' +
+      'vec3 ink=vec3(0.024,0.075,0.051);vec3 deep=vec3(0.08,0.20,0.10);' +
+      'vec3 grn=vec3(0.129,0.78,0.0);vec3 tl=vec3(0.024,0.878,0.678);vec3 gold=vec3(0.945,0.761,0.20);' +
+      'vec3 col=ink;col=mix(col,deep,smoothstep(0.1,0.5,dense));' +
+      'col=mix(col,grn,smoothstep(0.45,0.85,dense));' +
+      'col+=gold*pow(dense,6.0)*0.7;col+=tl*pow(dense,8.0)*0.4;' +
+      'col*=1.0-0.42*dot(p,p);col+=(hash(gl_FragCoord.xy+u_time)-0.5)*0.02;' +
+      'gl_FragColor=vec4(col,1.0);}';
+
+    // Maple: drifting mist with floating teal/green/gold motes over SR ink.
+    var MAPLE = COMMON +
+      'void main(){vec2 p=(gl_FragCoord.xy-0.5*u_res.xy)/u_res.y;float t=u_time*0.09;' +
+      'vec2 q=p*1.2+vec2(t*0.6,t*0.2);' +
+      'float mist=fbm(q+vec2(0.0,fbm(q*2.0-t)));float density=smoothstep(0.2,0.85,mist);' +
+      'vec2 lq=p*6.0+vec2(-t*1.2,t*0.3);vec2 li=floor(lq),lf=fract(lq);' +
+      'float pD=1.0;vec2 pC=vec2(0.0);' +
+      'for(int y=-1;y<=1;y++){for(int x=-1;x<=1;x++){' +
+      'vec2 o=vec2(float(x),float(y));vec2 h=vec2(hash(li+o),hash(li+o+17.0));' +
+      'vec2 seed=o+h;seed+=vec2(sin(u_time*0.5+h.x*6.28)*0.18,cos(u_time*0.4+h.y*6.28)*0.12);' +
+      'float d=length(seed-lf);if(d<pD){pD=d;pC=li+o;}}}' +
+      'float part=smoothstep(0.15,0.04,pD);float lh=hash(pC);' +
+      'vec3 ink=vec3(0.024,0.075,0.051);vec3 deep=vec3(0.05,0.18,0.13);' +
+      'vec3 grn=vec3(0.129,0.78,0.0);vec3 tl=vec3(0.024,0.878,0.678);vec3 gold=vec3(0.945,0.761,0.20);' +
+      'vec3 bg=mix(ink,deep,smoothstep(-0.4,0.5,p.y));bg=mix(bg,tl*0.4,density*0.5);' +
+      'vec3 pCol;if(lh<0.45)pCol=tl;else if(lh<0.8)pCol=grn;else pCol=gold;' +
+      'vec3 col=bg;col=mix(col,pCol,part*0.7);' +
+      'col=mix(col,ink,smoothstep(0.6,1.2,length(p))*0.6);' +
+      'col+=(hash(gl_FragCoord.xy+u_time)-0.5)*0.015;' +
+      'gl_FragColor=vec4(col,1.0);}';
+
+    var FRAG = { ember: EMBER, maple: MAPLE };
+
+    function run(canvas, fragSrc) {
+      var gl = canvas.getContext('webgl', { antialias: true, premultipliedAlpha: false });
+      if (!gl) { canvas.style.display = 'none'; return; }
+      function sh(type, src) { var s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s); return s; }
+      var prog = gl.createProgram();
+      gl.attachShader(prog, sh(gl.VERTEX_SHADER, VERT));
+      gl.attachShader(prog, sh(gl.FRAGMENT_SHADER, fragSrc));
+      gl.linkProgram(prog); gl.useProgram(prog);
+      var buf = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+      gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1,1,-1,-1,1,-1,1,1,-1,1,1]), gl.STATIC_DRAW);
+      var loc = gl.getAttribLocation(prog, 'p'); gl.enableVertexAttribArray(loc);
+      gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+      var uT = gl.getUniformLocation(prog, 'u_time'), uR = gl.getUniformLocation(prog, 'u_res');
+      var start = performance.now(), visible = true;
+
+      function size() {
+        var dpr = Math.min(window.devicePixelRatio || 1, 1.75);
+        var w = Math.max(1, Math.floor(canvas.clientWidth * dpr));
+        var h = Math.max(1, Math.floor(canvas.clientHeight * dpr));
+        if (canvas.width !== w || canvas.height !== h) { canvas.width = w; canvas.height = h; gl.viewport(0,0,w,h); }
+      }
+      window.addEventListener('resize', size);
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (es) { es.forEach(function (e) { visible = e.isIntersecting; }); })
+          .observe(canvas);
+      }
+      function loop() {
+        requestAnimationFrame(loop);
+        if (!visible || document.hidden) return;
+        size();
+        gl.uniform1f(uT, (performance.now() - start) / 1000);
+        gl.uniform2f(uR, canvas.width, canvas.height);
+        gl.drawArrays(gl.TRIANGLES, 0, 6);
+      }
+      loop();
+    }
+
+    [].slice.call(document.querySelectorAll('[data-srx-shader]')).forEach(function (c) {
+      if (reduce) { c.style.display = 'none'; return; }  // static CSS gradient shows instead
+      run(c, FRAG[c.getAttribute('data-srx-shader')] || EMBER);
+    });
+  })();
+  </script>
+  {% endraw %}
+
+</div>
+{% endblock body %}

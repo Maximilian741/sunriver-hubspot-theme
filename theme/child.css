@@ -242,9 +242,10 @@
 }
 
 /* === SunRiver ASCII cursor overlay ===
-   Fixed canvas above all content, non-interactive. mix-blend-mode: screen
-   makes the trail brighten dark hero gradients and disappear over white body
-   sections — keeps readability while still feeling alive on the brand color. */
+   Fixed, non-interactive canvas above content. The trail is drawn as discrete
+   glyphs that only appear near the cursor and fade out fast, so the canvas reads
+   as empty everywhere else. No blend mode — a full-viewport screen-blend was
+   lightening the whole page on movement/clicks. */
 #sr-cursor-fx {
   position: fixed;
   inset: 0;
@@ -252,7 +253,6 @@
   height: 100vh;
   pointer-events: none;
   z-index: 9999;
-  mix-blend-mode: screen;
 }
 @media (prefers-reduced-motion: reduce) {
   #sr-cursor-fx { display: none; }
