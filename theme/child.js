@@ -25,10 +25,11 @@
   io.observe(wrap);
 })();
 
-// SunRiver ASCII cursor trail — site-wide subtle overlay.
-// Smoke-field simulation rendered as glyphs in the SR palette (teal → green → gold).
-// Disabled on touch and prefers-reduced-motion. Mix-blend-mode in child.css makes it
-// glow on dark hero sections and fade out on white body sections.
+// SunRiver ASCII cursor trail — a localized glyph cloud that follows the cursor.
+// Glyphs spawn only where the cursor actually moves and fade out in under a second,
+// so the effect hugs the pointer and never accumulates into a screen-wide wash.
+// No mix-blend-mode (that was lightening the whole page). Skipped on touch and
+// prefers-reduced-motion; pauses when the tab is hidden.
 (function () {
   if (!window.matchMedia) return;
   if (window.matchMedia('(hover: none), (pointer: coarse)').matches) return;
@@ -40,108 +41,94 @@
   (document.body || document.documentElement).appendChild(canvas);
   var ctx = canvas.getContext('2d');
 
-  var cell = 8;
-  var drift = 0.22, diffuse = 0.10, decay = 0.94, radius = 3.5;
-  var W = 0, H = 0, cols = 0, rows = 0;
-  var grid, next;
-
+  var dpr = Math.min(window.devicePixelRatio || 1, 2);
+  var W = 0, H = 0;
   function resize() {
-    var w = window.innerWidth, h = window.innerHeight;
-    if (w === W && h === H) return;
-    W = w; H = h;
-    canvas.width = W; canvas.height = H;
-    cols = Math.ceil(W / cell);
-    rows = Math.ceil(H / cell);
-    grid = new Float32Array(cols * rows);
-    next = new Float32Array(cols * rows);
+    W = window.innerWidth; H = window.innerHeight;
+    canvas.width = Math.floor(W * dpr);
+    canvas.height = Math.floor(H * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   }
   resize();
   window.addEventListener('resize', resize);
 
+  // Glyph ramp (sparse → dense) and SR palette stops.
+  var GLYPHS = '·:+*xX#';
+  var LIFE = 650;          // ms a glyph lives before it's fully faded
+  var MAX = 110;           // hard cap on live glyphs (perf + restraint)
+  var SIZE = 13;           // glyph font size in px
+  var particles = [];      // { x, y, born, ch, dx, dy }
+
   var mx = -1, my = -1, pmx = -1, pmy = -1;
+  var nowMs = 0;
+
+  function rand(seed) { return Math.abs(Math.sin(seed * 999.13)) % 1; }
+
+  function spawn(x, y, seed) {
+    if (particles.length >= MAX) particles.shift();
+    var ang = rand(seed) * Math.PI * 2;
+    var spread = 2 + rand(seed + 7) * 8;
+    particles.push({
+      x: x + Math.cos(ang) * spread,
+      y: y + Math.sin(ang) * spread,
+      born: nowMs,
+      ch: GLYPHS[(seed | 0) % GLYPHS.length],
+      dx: (rand(seed + 3) - 0.5) * 0.5,   // gentle drift
+      dy: -0.25 - rand(seed + 11) * 0.5   // rise slightly
+    });
+  }
+
+  var seedCounter = 0;
   window.addEventListener('mousemove', function (e) {
     pmx = mx; pmy = my;
     mx = e.clientX; my = e.clientY;
+    if (pmx < 0) return;
+    var dx = mx - pmx, dy = my - pmy;
+    var dist = Math.hypot(dx, dy);
+    // Spawn a few glyphs along the segment the cursor just traversed,
+    // proportional to speed but capped so fast flicks don't flood.
+    var n = Math.min(4, 1 + Math.floor(dist / 14));
+    for (var i = 0; i < n; i++) {
+      var t = n > 1 ? i / (n - 1) : 0;
+      spawn(pmx + dx * t, pmy + dy * t, ++seedCounter);
+    }
   }, { passive: true });
 
   var paused = false;
   document.addEventListener('visibilitychange', function () { paused = document.hidden; });
 
-  function hashN(x, y, t) { return Math.sin(x * 12.9898 + y * 78.233 + t) * 0.5; }
-  var ramp = ' .·:;+*x#';
+  // Palette lerp: fresh = gold, mid = green, old = teal — fading to transparent.
+  function colorFor(age01, alpha) {
+    var r, g, b;
+    if (age01 < 0.4)      { r = 241; g = 194; b = 51; }   // SR gold (fresh)
+    else if (age01 < 0.7) { r = 33;  g = 199; b = 0;  }   // SR green (mid)
+    else                  { r = 6;   g = 224; b = 173; }  // SR teal (old)
+    return 'rgba(' + r + ',' + g + ',' + b + ',' + alpha.toFixed(3) + ')';
+  }
 
   function frame() {
     requestAnimationFrame(frame);
-    if (paused || !grid) return;
-    var tNow = performance.now() * 0.0006;
+    if (paused) return;
+    nowMs = performance.now();
 
-    // Smoke physics: advect + diffuse + decay.
-    for (var y = 0; y < rows; y++) {
-      for (var x = 0; x < cols; x++) {
-        var jx = hashN(x * 0.25, y * 0.25, tNow) * 1.0 + hashN(x * 0.7, y * 0.3, tNow * 0.6) * 0.5;
-        var srcX = x + jx, srcY = y + drift;
-        var sx0 = Math.max(0, Math.min(cols - 1, Math.floor(srcX)));
-        var sx1 = Math.max(0, Math.min(cols - 1, sx0 + 1));
-        var sy0 = Math.max(0, Math.min(rows - 1, Math.floor(srcY)));
-        var sy1 = Math.max(0, Math.min(rows - 1, sy0 + 1));
-        var fx = srcX - sx0, fy = srcY - sy0;
-        var v00 = grid[sy0 * cols + sx0], v10 = grid[sy0 * cols + sx1];
-        var v01 = grid[sy1 * cols + sx0], v11 = grid[sy1 * cols + sx1];
-        var v = (v00 * (1 - fx) + v10 * fx) * (1 - fy) + (v01 * (1 - fx) + v11 * fx) * fy;
-        var acc = 0, cnt = 0;
-        if (x > 0)        { acc += grid[y * cols + x - 1]; cnt++; }
-        if (x < cols - 1) { acc += grid[y * cols + x + 1]; cnt++; }
-        if (y > 0)        { acc += grid[(y - 1) * cols + x]; cnt++; }
-        if (y < rows - 1) { acc += grid[(y + 1) * cols + x]; cnt++; }
-        var navg = cnt ? acc / cnt : 0;
-        next[y * cols + x] = (v * (1 - diffuse) + navg * diffuse) * decay;
-      }
-    }
-    var tmp = grid; grid = next; next = tmp;
-
-    // Inject density along cursor path.
-    if (mx >= 0 && pmx >= 0) {
-      var dx = mx - pmx, dy = my - pmy;
-      var dist = Math.hypot(dx, dy);
-      var steps = Math.min(40, Math.ceil(dist / (cell * 0.4)));
-      for (var s = 0; s <= steps; s++) {
-        var t = steps ? s / steps : 0;
-        var px = pmx + dx * t, py = pmy + dy * t;
-        var cx = Math.floor(px / cell), cy = Math.floor(py / cell);
-        var rInt = Math.ceil(radius);
-        for (var oy = -rInt; oy <= rInt; oy++) {
-          for (var ox = -rInt; ox <= rInt; ox++) {
-            var gx = cx + ox, gy = cy + oy;
-            if (gx < 0 || gy < 0 || gx >= cols || gy >= rows) continue;
-            var d = Math.hypot(ox, oy);
-            if (d > radius) continue;
-            var vv = Math.max(0, 1 - d / radius);
-            grid[gy * cols + gx] = Math.min(1, grid[gy * cols + gx] + vv * vv * 0.18);
-          }
-        }
-      }
-    }
-    pmx = mx; pmy = my;
-
-    // Render: transparent background, SR palette glyphs.
-    // Teal at low density → green at mid → gold at peak.
     ctx.clearRect(0, 0, W, H);
-    ctx.font = (cell - 1) + 'px "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace';
-    ctx.textBaseline = 'top';
-    for (var yy = 0; yy < rows; yy++) {
-      for (var xx = 0; xx < cols; xx++) {
-        var vvv = grid[yy * cols + xx];
-        if (vvv < 0.05) continue;
-        var idx = Math.min(ramp.length - 1, Math.floor(vvv * ramp.length));
-        var ch = ramp[idx];
-        var alpha = (0.10 + vvv * 0.40) * 0.75;
-        var r, g, b;
-        if (vvv < 0.4)       { r = 6;   g = 224; b = 173; }   // SR teal
-        else if (vvv < 0.75) { r = 33;  g = 199; b = 0;   }   // SR green
-        else                 { r = 241; g = 194; b = 51;  }   // SR gold
-        ctx.fillStyle = 'rgba(' + r + ',' + g + ',' + b + ',' + alpha + ')';
-        ctx.fillText(ch, xx * cell, yy * cell);
-      }
+    if (!particles.length) return;
+
+    ctx.font = '700 ' + SIZE + 'px "JetBrains Mono", ui-monospace, Menlo, Consolas, monospace';
+    ctx.textBaseline = 'middle';
+    ctx.textAlign = 'center';
+
+    for (var i = particles.length - 1; i >= 0; i--) {
+      var p = particles[i];
+      var age = (nowMs - p.born) / LIFE;
+      if (age >= 1) { particles.splice(i, 1); continue; }
+      // Drift over lifetime.
+      p.x += p.dx;
+      p.y += p.dy;
+      // Ease-out fade.
+      var alpha = (1 - age) * (1 - age) * 0.85;
+      ctx.fillStyle = colorFor(age, alpha);
+      ctx.fillText(p.ch, p.x, p.y);
     }
   }
   frame();
