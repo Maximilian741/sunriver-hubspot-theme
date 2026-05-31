@@ -97,12 +97,12 @@
   var paused = false;
   document.addEventListener('visibilitychange', function () { paused = document.hidden; });
 
-  // Palette lerp: fresh = gold, mid = green, old = teal — fading to transparent.
+  // Palette lerp (brand kit): fresh = Sun, mid = Valley, old = River.
   function colorFor(age01, alpha) {
     var r, g, b;
-    if (age01 < 0.4)      { r = 241; g = 194; b = 51; }   // SR gold (fresh)
-    else if (age01 < 0.7) { r = 33;  g = 199; b = 0;  }   // SR green (mid)
-    else                  { r = 6;   g = 224; b = 173; }  // SR teal (old)
+    if (age01 < 0.4)      { r = 251; g = 195; b = 74;  }  // Sun (fresh)
+    else if (age01 < 0.7) { r = 143; g = 199; b = 64;  }  // Valley (mid)
+    else                  { r = 62;  g = 157; b = 184; }  // River (old)
     return 'rgba(' + r + ',' + g + ',' + b + ',' + alpha.toFixed(3) + ')';
   }
 
@@ -132,4 +132,57 @@
     }
   }
   frame();
+})();
+
+// SunRiver page-load loader — the brand "Daybreak" ring (sun → valley → river → deep).
+// Shows once per session on the first non-Home page, then self-removes. NEVER shown on
+// the Home page (path "/") and never on prefers-reduced-motion. A hard timeout guarantees
+// it can never trap the page even if the load event never fires.
+(function () {
+  var path;
+  try { path = location.pathname || '/'; } catch (e) { return; }
+  if (path === '/' || path === '') return;                         // never on Home
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  try { if (sessionStorage.getItem('sr-loader-seen')) return; sessionStorage.setItem('sr-loader-seen', '1'); } catch (e) {}
+
+  var style = document.createElement('style');
+  style.textContent =
+    '@keyframes srLoadSpin{to{transform:rotate(360deg)}}' +
+    '#sr-load{position:fixed;inset:0;z-index:2147483000;display:flex;flex-direction:column;' +
+    'align-items:center;justify-content:center;gap:18px;background:#0c1f29;' +
+    'transition:opacity .5s ease;opacity:1}' +
+    '#sr-load.sr-load--out{opacity:0;pointer-events:none}' +
+    '#sr-load .sr-load__ring{width:54px;height:54px;border-radius:50%;' +
+    'background:conic-gradient(from 90deg,#3e9db8,#fbc34a,#8fc740,#3e9db8);' +
+    '-webkit-mask:radial-gradient(farthest-side,#0000 calc(100% - 6px),#000 calc(100% - 5px));' +
+    'mask:radial-gradient(farthest-side,#0000 calc(100% - 6px),#000 calc(100% - 5px));' +
+    'animation:srLoadSpin 1.1s linear infinite}' +
+    '#sr-load .sr-load__wm{font-family:"Poppins",system-ui,sans-serif;font-weight:600;' +
+    'letter-spacing:-.02em;font-size:20px}' +
+    '#sr-load .sr-load__wm .s{color:#f3f8fa}' +
+    '#sr-load .sr-load__wm .r{background:linear-gradient(90deg,#fbc34a,#8fc740,#3e9db8);' +
+    '-webkit-background-clip:text;background-clip:text;color:transparent}';
+  (document.head || document.documentElement).appendChild(style);
+
+  var el = document.createElement('div');
+  el.id = 'sr-load';
+  el.setAttribute('aria-hidden', 'true');
+  el.innerHTML = '<div class="sr-load__ring"></div>' +
+    '<div class="sr-load__wm"><span class="s">Sun</span><span class="r">River</span></div>';
+  (document.body || document.documentElement).appendChild(el);
+
+  var start = Date.now(), done = false;
+  function hide() {
+    if (done) return; done = true;
+    el.classList.add('sr-load--out');
+    setTimeout(function () { if (el && el.parentNode) el.parentNode.removeChild(el); }, 550);
+  }
+  function ready() {
+    // keep visible at least 450ms so it reads as intentional, never longer than needed
+    var wait = Math.max(0, 450 - (Date.now() - start));
+    setTimeout(hide, wait);
+  }
+  if (document.readyState === 'complete') ready();
+  else window.addEventListener('load', ready);
+  setTimeout(hide, 2500);   // hard cap — never trap the page
 })();

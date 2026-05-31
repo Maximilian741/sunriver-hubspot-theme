@@ -1,8 +1,8 @@
 :root {
-  --sr-green: #21c700;
-  --sr-teal:  #06e0ad;
-  --sr-gold:  #f1c233;
-  --sr-ink:   #06130d;
+  --sr-green: #8fc740;
+  --sr-teal:  #3e9db8;
+  --sr-gold:  #fbc34a;
+  --sr-ink:   #0c1f29;
 }
 
 .sr-split {
@@ -29,7 +29,7 @@
   position: relative;
   border-radius: 22px;
   padding: 2rem;
-  background: linear-gradient(135deg, rgba(33,199,0,0.08), rgba(6,224,173,0.08), rgba(241,194,51,0.06));
+  background: linear-gradient(135deg, rgba(143, 199, 64,0.08), rgba(62, 157, 184,0.08), rgba(251, 195, 74,0.06));
   display: flex;
   align-items: center;
   justify-content: center;
@@ -58,7 +58,7 @@
   width: 60%;
   height: 60%;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(6,224,173,0.5), transparent 70%);
+  background: radial-gradient(circle, rgba(62, 157, 184,0.5), transparent 70%);
   z-index: -1;
   filter: blur(40px);
   animation: sr-split-glow 8s ease-in-out infinite;
@@ -149,13 +149,13 @@
   font-size: 0.95rem;
   background: linear-gradient(90deg, var(--sr-green), var(--sr-teal));
   color: var(--sr-ink);
-  box-shadow: 0 10px 24px rgba(6,224,173,0.35);
+  box-shadow: 0 10px 24px rgba(62, 157, 184,0.35);
   transition: transform 0.2s ease, box-shadow 0.25s ease, background 0.25s ease;
 }
 
 .sr-split__cta:hover {
   transform: translateY(-2px);
-  box-shadow: 0 16px 32px rgba(6,224,173,0.5);
+  box-shadow: 0 16px 32px rgba(62, 157, 184,0.5);
   background: linear-gradient(90deg, var(--sr-teal), var(--sr-gold));
 }
 

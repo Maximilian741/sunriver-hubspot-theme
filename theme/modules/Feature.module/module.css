@@ -1,8 +1,8 @@
 /* ==== Brand palette for this module ==== */
 :root {
-  --sr-green: #21c700;
-  --sr-teal:  #06e0ad;
-  --sr-gold:  #f1c233;
+  --sr-green: #8fc740;
+  --sr-teal:  #3e9db8;
+  --sr-gold:  #fbc34a;
 }
 
 /* Base card */
@@ -31,7 +31,7 @@
     135deg,
     var(--sr-green) 0%,
     var(--sr-teal) 40%,
-    rgba(241, 194, 51, 0.20) 52%,  /* thin, low-alpha gold band */
+    rgba(251, 195, 74, 0.20) 52%,  /* thin, low-alpha gold band */
     var(--sr-teal) 64%,
     var(--sr-green) 100%
   );
@@ -63,9 +63,9 @@
 
   background: radial-gradient(
     260px circle at var(--mx, 50%) var(--my, 50%),
-    rgba(241, 194, 51, 0.18),      /* faint gold */
-    rgba(6, 224, 173, 0.18) 40%,   /* teal halo */
-    rgba(6, 224, 173, 0) 70%
+    rgba(251, 195, 74, 0.18),      /* faint gold */
+    rgba(62, 157, 184, 0.18) 40%,   /* teal halo */
+    rgba(62, 157, 184, 0) 70%
   );
 
   opacity: 0;
@@ -86,7 +86,7 @@
   opacity: 0.55;
 
   /* bright gold burst */
-  background: rgba(241, 194, 51, 0.9);
+  background: rgba(251, 195, 74, 0.9);
   animation: atmc-ripple-burst 650ms ease-out forwards;
 }
 

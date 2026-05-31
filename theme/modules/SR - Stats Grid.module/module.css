@@ -1,8 +1,8 @@
 :root {
-  --sr-green: #21c700;
-  --sr-teal:  #06e0ad;
-  --sr-gold:  #f1c233;
-  --sr-ink:   #06130d;
+  --sr-green: #8fc740;
+  --sr-teal:  #3e9db8;
+  --sr-gold:  #fbc34a;
+  --sr-ink:   #0c1f29;
 }
 
 .sr-stats {
@@ -26,7 +26,7 @@
   padding: 1.75rem 1rem;
   border-radius: 18px;
   background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(6,224,173,0.15);
+  border: 1px solid rgba(62, 157, 184,0.15);
   transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
   overflow: hidden;
 }
@@ -45,8 +45,8 @@
 
 .sr-stat:hover {
   transform: translateY(-4px);
-  border-color: rgba(6,224,173,0.4);
-  background: rgba(6,224,173,0.06);
+  border-color: rgba(62, 157, 184,0.4);
+  background: rgba(62, 157, 184,0.06);
 }
 
 .sr-stat__value-row {

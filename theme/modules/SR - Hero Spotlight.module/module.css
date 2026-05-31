@@ -1,8 +1,8 @@
 :root {
-  --sr-green: #21c700;
-  --sr-teal:  #06e0ad;
-  --sr-gold:  #f1c233;
-  --sr-ink:   #06130d;
+  --sr-green: #8fc740;
+  --sr-teal:  #3e9db8;
+  --sr-gold:  #fbc34a;
+  --sr-ink:   #0c1f29;
 }
 
 .sr-hero {
@@ -14,20 +14,20 @@
 
 .sr-hero--gradient {
   background:
-    radial-gradient(1200px 600px at 10% 0%, rgba(6,224,173,0.35), transparent 60%),
-    radial-gradient(900px 500px at 90% 100%, rgba(33,199,0,0.30), transparent 60%),
-    radial-gradient(700px 400px at 70% 20%, rgba(241,194,51,0.18), transparent 65%),
-    linear-gradient(135deg, #06130d 0%, #0f2a1f 60%, #082218 100%);
+    radial-gradient(1200px 600px at 10% 0%, rgba(62, 157, 184,0.35), transparent 60%),
+    radial-gradient(900px 500px at 90% 100%, rgba(143, 199, 64,0.30), transparent 60%),
+    radial-gradient(700px 400px at 70% 20%, rgba(251, 195, 74,0.18), transparent 65%),
+    linear-gradient(135deg, #0c1f29 0%, #13303f 60%, #0a1f2b 100%);
   color: #fff;
 }
 
 .sr-hero--dark {
-  background: linear-gradient(180deg, #06130d 0%, #0a1d14 100%);
+  background: linear-gradient(180deg, #0c1f29 0%, #0e2330 100%);
   color: #fff;
 }
 
 .sr-hero--light {
-  background: linear-gradient(180deg, #f6fffb 0%, #eafff6 100%);
+  background: linear-gradient(180deg, #f4f9fb 0%, #e9f3f7 100%);
   color: var(--sr-ink);
 }
 
@@ -58,14 +58,14 @@
   line-height: 1.05;
   letter-spacing: -0.02em;
   margin: 0 0 1.25rem;
-  background: linear-gradient(90deg, #ffffff 0%, #d9fff4 50%, var(--sr-teal) 100%);
+  background: linear-gradient(90deg, #ffffff 0%, #dff1f4 50%, var(--sr-teal) 100%);
   -webkit-background-clip: text;
           background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .sr-hero--light .sr-hero__heading {
-  background: linear-gradient(90deg, var(--sr-ink) 0%, #0f7d3f 60%, var(--sr-green) 100%);
+  background: linear-gradient(90deg, var(--sr-ink) 0%, #2b6e8f 60%, var(--sr-green) 100%);
   -webkit-background-clip: text;
           background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -104,12 +104,12 @@
 .sr-btn--primary {
   background: linear-gradient(90deg, var(--sr-green), var(--sr-teal));
   color: var(--sr-ink);
-  box-shadow: 0 10px 24px rgba(6,224,173,0.35);
+  box-shadow: 0 10px 24px rgba(62, 157, 184,0.35);
 }
 
 .sr-btn--primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 16px 32px rgba(6,224,173,0.45);
+  box-shadow: 0 16px 32px rgba(62, 157, 184,0.45);
   background: linear-gradient(90deg, var(--sr-teal), var(--sr-gold));
 }
 

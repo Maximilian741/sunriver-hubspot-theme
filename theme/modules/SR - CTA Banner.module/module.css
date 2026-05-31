@@ -1,8 +1,8 @@
 :root {
-  --sr-green: #21c700;
-  --sr-teal:  #06e0ad;
-  --sr-gold:  #f1c233;
-  --sr-ink:   #06130d;
+  --sr-green: #8fc740;
+  --sr-teal:  #3e9db8;
+  --sr-gold:  #fbc34a;
+  --sr-ink:   #0c1f29;
 }
 
 .sr-cta {
@@ -16,20 +16,20 @@
 
 .sr-cta--gradient {
   background:
-    radial-gradient(900px 400px at 0% 0%, rgba(6,224,173,0.45), transparent 60%),
-    radial-gradient(700px 350px at 100% 100%, rgba(33,199,0,0.40), transparent 60%),
-    linear-gradient(135deg, #06130d 0%, #0a2218 100%);
+    radial-gradient(900px 400px at 0% 0%, rgba(62, 157, 184,0.45), transparent 60%),
+    radial-gradient(700px 350px at 100% 100%, rgba(143, 199, 64,0.40), transparent 60%),
+    linear-gradient(135deg, #0c1f29 0%, #0e2531 100%);
   color: #fff;
 }
 
 .sr-cta--ink {
-  background: linear-gradient(135deg, var(--sr-ink), #0a2218);
+  background: linear-gradient(135deg, var(--sr-ink), #0e2531);
   color: #fff;
-  border: 1px solid rgba(6,224,173,0.25);
+  border: 1px solid rgba(62, 157, 184,0.25);
 }
 
 .sr-cta--gold {
-  background: linear-gradient(135deg, var(--sr-gold) 0%, #ffd770 60%, #ffb84d 100%);
+  background: linear-gradient(135deg, var(--sr-gold) 0%, #ffdd8a 60%, #f3a838 100%);
   color: var(--sr-ink);
 }
 
@@ -116,7 +116,7 @@
   text-decoration: none;
   background: linear-gradient(90deg, var(--sr-green), var(--sr-teal));
   color: var(--sr-ink);
-  box-shadow: 0 14px 30px rgba(6,224,173,0.4);
+  box-shadow: 0 14px 30px rgba(62, 157, 184,0.4);
   transition: transform 0.2s ease, box-shadow 0.25s ease, background 0.25s ease;
   flex: 0 0 auto;
 }
@@ -129,7 +129,7 @@
 
 .sr-cta__btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 22px 40px rgba(6,224,173,0.5);
+  box-shadow: 0 22px 40px rgba(62, 157, 184,0.5);
   background: linear-gradient(90deg, var(--sr-teal), var(--sr-gold));
 }
 

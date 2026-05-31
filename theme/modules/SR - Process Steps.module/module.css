@@ -1,8 +1,8 @@
 :root {
-  --sr-green: #21c700;
-  --sr-teal:  #06e0ad;
-  --sr-gold:  #f1c233;
-  --sr-ink:   #06130d;
+  --sr-green: #8fc740;
+  --sr-teal:  #3e9db8;
+  --sr-gold:  #fbc34a;
+  --sr-ink:   #0c1f29;
 }
 
 .sr-process {
@@ -92,7 +92,7 @@
   color: #fff;
   font-weight: 800;
   font-size: 1.1rem;
-  box-shadow: 0 10px 22px rgba(6,224,173,0.35);
+  box-shadow: 0 10px 22px rgba(62, 157, 184,0.35);
   flex: 0 0 auto;
 }
 
@@ -105,7 +105,7 @@
   position: absolute;
   inset: -4px;
   border-radius: 50%;
-  border: 2px solid rgba(6,224,173,0.6);
+  border: 2px solid rgba(62, 157, 184,0.6);
   animation: sr-process-pulse 2.4s ease-out infinite;
   animation-delay: calc(var(--sr-step-index) * 0.3s);
   pointer-events: none;

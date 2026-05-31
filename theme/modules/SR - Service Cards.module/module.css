@@ -1,8 +1,8 @@
 :root {
-  --sr-green: #21c700;
-  --sr-teal:  #06e0ad;
-  --sr-gold:  #f1c233;
-  --sr-ink:   #06130d;
+  --sr-green: #8fc740;
+  --sr-teal:  #3e9db8;
+  --sr-gold:  #fbc34a;
+  --sr-ink:   #0c1f29;
 }
 
 .sr-services {
@@ -31,7 +31,7 @@
   color: inherit;
   border-radius: 18px;
   padding: 2px;
-  background: linear-gradient(135deg, rgba(33,199,0,0.0), rgba(6,224,173,0.0));
+  background: linear-gradient(135deg, rgba(143, 199, 64,0.0), rgba(62, 157, 184,0.0));
   transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
   overflow: hidden;
 }
@@ -55,7 +55,7 @@
 
 .sr-service-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 24px 50px rgba(6,224,173,0.18), 0 8px 18px rgba(6,19,13,0.12);
+  box-shadow: 0 24px 50px rgba(62, 157, 184,0.18), 0 8px 18px rgba(6,19,13,0.12);
 }
 
 .sr-service-card:hover::before {
@@ -81,7 +81,7 @@
   border-radius: 16px;
   font-size: 28px;
   margin-bottom: 1.1rem;
-  background: linear-gradient(135deg, rgba(33,199,0,0.15), rgba(6,224,173,0.15));
+  background: linear-gradient(135deg, rgba(143, 199, 64,0.15), rgba(62, 157, 184,0.15));
   color: var(--sr-ink);
   transition: transform 0.3s ease, background 0.3s ease;
 }
