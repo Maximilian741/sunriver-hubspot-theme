@@ -1,0 +1,131 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: SunRiver - App Development (showcase)
+-->
+{% extends "../layouts/base.html" %}
+{% block body %}
+<div class="srx">
+
+  {# ===== HERO ===== #}
+  <section class="srx-hero srx-hero--short">
+    <canvas class="srx-hero__canvas" data-srx-shader="ember" aria-hidden="true"></canvas>
+    <div class="srx-hero__veil"></div>
+    <div class="srx-hero__inner">
+      <span class="srx-eyebrow">App Development · Helena, MT</span>
+      <h1 class="srx-hero__title">Apps built by the people who&rsquo;ll still answer the phone</h1>
+      <p class="srx-hero__sub">Native Android and iOS, desktop, and modern web apps &mdash; architected by senior engineers, shipped to your users, and supported after launch.</p>
+      <div class="srx-ctas">
+        <a class="srx-btn srx-btn--primary" href="/quote-sunriver-consulting">Get a Quick Estimate <span class="srx-btn__arrow">&rarr;</span></a>
+        <a class="srx-btn srx-btn--ghost" href="/schedule-a-consultation-sunriver-consulting">Schedule a Consultation</a>
+      </div>
+    </div>
+    <span class="srx-cue" aria-hidden="true"></span>
+  </section>
+  <div class="srx-grad-line"></div>
+
+  {# ===== PLATFORMS ===== #}
+  <section class="srx-sec">
+    <div class="srx-head srx-head--center srx-reveal">
+      <span class="srx-idx">01 / PLATFORMS</span>
+      <h2 class="srx-h2">One team, every platform your users live on</h2>
+      <p class="srx-lead">We pick the platform that fits your audience and your budget &mdash; not the one that&rsquo;s easiest for us to bill. Here&rsquo;s where we work.</p>
+    </div>
+    <div class="srx-grid">
+      <div class="srx-card srx-reveal"><span class="srx-card__icon">🤖</span><h3 class="srx-card__title">Android</h3><p class="srx-card__desc">Modern Kotlin with Jetpack Compose &mdash; Material You, edge-to-edge layouts, and tablets and foldables handled, not bolted on.</p><span class="srx-card__cta">Kotlin · Compose</span></div>
+      <div class="srx-card srx-reveal"><span class="srx-card__icon">🍎</span><h3 class="srx-card__title">Apple &amp; iOS</h3><p class="srx-card__desc">Swift and SwiftUI that feel native on iPhone, iPad, and Mac &mdash; Dynamic Type, dark mode, and VoiceOver from the first build.</p><span class="srx-card__cta">Swift · SwiftUI</span></div>
+      <div class="srx-card srx-reveal"><span class="srx-card__icon">🖥️</span><h3 class="srx-card__title">Desktop</h3><p class="srx-card__desc">Cross-platform desktop with Electron or Tauri when you need reach, native when you need the metal. One codebase, real installers, auto-update.</p><span class="srx-card__cta">Electron · Tauri</span></div>
+      <div class="srx-card srx-reveal"><span class="srx-card__icon">🌐</span><h3 class="srx-card__title">Web Apps</h3><p class="srx-card__desc">React and Next.js applications that load fast, work offline-friendly, and pass Core Web Vitals &mdash; the same stack that runs this site.</p><span class="srx-card__cta">React · Next.js</span></div>
+    </div>
+  </section>
+
+  {# ===== HOW WE BUILD (SPLIT) ===== #}
+  <section class="srx-sec srx-sec--alt">
+    <div class="srx-split">
+      <div class="srx-reveal">
+        <span class="srx-idx">02 / OUR APPROACH</span>
+        <h2 class="srx-h2">The right stack for your team &mdash; not ours</h2>
+        <p class="srx-lead">A stack you can&rsquo;t hire for is a liability, not an asset. We choose technology your people can own, read, and extend long after we&rsquo;ve handed it over.</p>
+        <ul class="srx-bullets">
+          <li>Native when the experience demands it; cross-platform when reach and budget matter more</li>
+          <li>Boring, well-documented dependencies over the framework of the month</li>
+          <li>Architecture decisions written down &mdash; you get the reasoning, not just the code</li>
+          <li>Accessibility, analytics, and crash reporting wired in from day one</li>
+        </ul>
+        <div class="srx-ctas" style="justify-content:flex-start;margin-top:1.8rem;">
+          <a class="srx-btn srx-btn--ghost" href="/about">How we work</a>
+        </div>
+      </div>
+      <div class="srx-split__panel srx-reveal" aria-hidden="true">
+        <span class="srx-mark" style="--mk:120px"><span class="sun"></span><span class="water"><i></i><i></i><i></i></span></span>
+      </div>
+    </div>
+  </section>
+
+  {# ===== PROCESS STEPS ===== #}
+  <section class="srx-sec">
+    <div class="srx-head srx-head--center srx-reveal">
+      <span class="srx-idx">03 / HOW IT GOES</span>
+      <h2 class="srx-h2">From first call to a shipped app</h2>
+      <p class="srx-lead">No surprises, no scope creep you didn&rsquo;t agree to. Four phases, a fixed fee, and a senior engineer on the line the whole way.</p>
+    </div>
+    <div class="srx-steps">
+      <div class="srx-step srx-reveal"><div class="srx-step__n">1</div><h3 class="srx-step__t">Talk</h3><p class="srx-step__d">We listen first &mdash; who uses the app, what it has to do, and what success looks like for your business.</p></div>
+      <div class="srx-step srx-reveal"><div class="srx-step__n">2</div><h3 class="srx-step__t">Scope</h3><p class="srx-step__d">We turn the conversation into a written plan with a fixed fee, so you approve the number before any code is written.</p></div>
+      <div class="srx-step srx-reveal"><div class="srx-step__n">3</div><h3 class="srx-step__t">Build</h3><p class="srx-step__d">Senior engineers build in short, visible increments &mdash; you see working software, not status decks.</p></div>
+      <div class="srx-step srx-reveal"><div class="srx-step__n">4</div><h3 class="srx-step__t">Support</h3><p class="srx-step__d">We handle store submission, monitor for crashes, and stay on for updates as the OS and your needs evolve.</p></div>
+    </div>
+  </section>
+
+  {# ===== TECH CLOUD ===== #}
+  <section class="srx-sec srx-sec--alt">
+    <div class="srx-head srx-head--center srx-reveal">
+      <span class="srx-idx">04 / THE STACK</span>
+      <h2 class="srx-h2">Tools we reach for</h2>
+      <p class="srx-lead">Proven, supported, and hireable &mdash; the technologies behind the apps we ship.</p>
+    </div>
+    <div class="srx-cloud">
+      <span class="srx-tag srx-reveal"><b>Kotlin</b></span>
+      <span class="srx-tag srx-reveal"><b>Swift</b></span>
+      <span class="srx-tag srx-reveal">SwiftUI</span>
+      <span class="srx-tag srx-reveal">Jetpack Compose</span>
+      <span class="srx-tag srx-reveal"><b>React</b></span>
+      <span class="srx-tag srx-reveal">Next.js</span>
+      <span class="srx-tag srx-reveal">React Native</span>
+      <span class="srx-tag srx-reveal">TypeScript</span>
+      <span class="srx-tag srx-reveal">Electron</span>
+      <span class="srx-tag srx-reveal">Tauri</span>
+    </div>
+  </section>
+
+  {# ===== FAQ ===== #}
+  <section class="srx-sec">
+    <div class="srx-head srx-head--center srx-reveal">
+      <span class="srx-idx">05 / QUESTIONS</span>
+      <h2 class="srx-h2">Before you ask</h2>
+      <p class="srx-lead">The questions we hear most from teams scoping their first &mdash; or next &mdash; app.</p>
+    </div>
+    <div class="srx-faq">
+      <details class="srx-reveal"><summary>How long does it take to build an app?</summary><div class="a">It depends on scope, but most focused apps move from kickoff to a usable first release in a matter of weeks, not quarters. We build in increments so you&rsquo;re seeing &mdash; and steering &mdash; real software early rather than waiting for one big reveal at the end.</div></details>
+      <details class="srx-reveal"><summary>Native or cross-platform &mdash; which should I choose?</summary><div class="a">If your app leans hard on the camera, sensors, or platform-specific polish, native (Kotlin, Swift) usually wins. If you need to reach iOS and Android on a tighter budget and the experience is mostly screens and data, React Native or a shared web core can get you there for less. We&rsquo;ll recommend honestly based on your users and budget &mdash; not on what keeps us busy.</div></details>
+      <details class="srx-reveal"><summary>Can you handle App Store and Play Store submission?</summary><div class="a">Yes. We prepare builds, listings, privacy disclosures, and review materials, and we shepherd the app through Apple&rsquo;s and Google&rsquo;s review processes. If a reviewer pushes back, we handle the response so you&rsquo;re not deciphering rejection notices on your own.</div></details>
+      <details class="srx-reveal"><summary>What happens after launch?</summary><div class="a">Apps aren&rsquo;t &ldquo;done&rdquo; at launch &mdash; operating systems update, devices change, and your needs grow. We offer ongoing support to monitor crashes, ship updates, and keep the app current with each OS release. You&rsquo;ll always be talking to the senior engineers who built it.</div></details>
+    </div>
+  </section>
+
+  {# ===== CTA ===== #}
+  <section class="srx-cta">
+    <canvas class="srx-cta__canvas" data-srx-shader="maple" aria-hidden="true"></canvas>
+    <div class="srx-cta__veil"></div>
+    <div class="srx-cta__inner srx-reveal">
+      <h2 class="srx-cta__h">Have an app in mind?</h2>
+      <p class="srx-cta__p">Tell us what it needs to do and who it&rsquo;s for. We&rsquo;ll come back with a plan and a fixed price &mdash; no obligation.</p>
+      <div class="srx-ctas" style="justify-content:center;">
+        <a class="srx-btn srx-btn--primary" href="/quote-sunriver-consulting">Get a Quick Estimate <span class="srx-btn__arrow">&rarr;</span></a>
+        <a class="srx-btn srx-btn--ghost" href="/contact">Contact us</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+{% endblock body %}

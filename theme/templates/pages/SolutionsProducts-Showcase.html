@@ -1,0 +1,96 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: SunRiver - Solutions / Products (showcase)
+-->
+{% extends "../layouts/base.html" %}
+{% block body %}
+<div class="srx">
+
+  {# ===== HERO ===== #}
+  <section class="srx-hero srx-hero--short">
+    <canvas class="srx-hero__canvas" data-srx-shader="ember" aria-hidden="true"></canvas>
+    <div class="srx-hero__veil"></div>
+    <div class="srx-hero__inner">
+      <span class="srx-eyebrow">Solutions &amp; Products · Helena, MT</span>
+      <h1 class="srx-hero__title">Everything we build, under one roof</h1>
+      <p class="srx-hero__sub">Apps, business platforms, compliance, databases, and websites &mdash; delivered by one senior team, scoped to a fixed fee.</p>
+      <div class="srx-ctas">
+        <a class="srx-btn srx-btn--primary" href="/quote-sunriver-consulting">Get a Quick Estimate <span class="srx-btn__arrow">&rarr;</span></a>
+        <a class="srx-btn srx-btn--ghost" href="/schedule-a-consultation-sunriver-consulting">Schedule a Consultation</a>
+      </div>
+    </div>
+    <span class="srx-cue" aria-hidden="true"></span>
+  </section>
+  <div class="srx-grad-line"></div>
+
+  {# ===== SERVICE AREAS ===== #}
+  <section class="srx-sec">
+    <div class="srx-head srx-head--center srx-reveal">
+      <span class="srx-idx">01 / SERVICE AREAS</span>
+      <h2 class="srx-h2">Six ways we help you adopt technology</h2>
+      <p class="srx-lead">Pick the practice that fits the problem in front of you &mdash; or tell us what you&rsquo;re trying to do and we&rsquo;ll point you the right way.</p>
+    </div>
+    <div class="srx-grid">
+      <a class="srx-card srx-reveal" href="/app-development-sunriver-consulting"><span class="srx-card__icon">📱</span><h3 class="srx-card__title">App Development</h3><p class="srx-card__desc">Native Android and iOS, desktop, and modern web apps your users actually want to open.</p><span class="srx-card__cta">app development</span></a>
+      <a class="srx-card srx-reveal" href="/business-solutions-sunriver-consulting"><span class="srx-card__icon">🛠</span><h3 class="srx-card__title">Business Solutions</h3><p class="srx-card__desc">AWS, HubSpot, Salesforce, Microsoft 365, and ServiceNow &mdash; integrated, configured, and tuned to how you work.</p><span class="srx-card__cta">business solutions</span></a>
+      <a class="srx-card srx-reveal" href="/compliance-audits-sunriver-consulting"><span class="srx-card__icon">🔒</span><h3 class="srx-card__title">Compliance Audits</h3><p class="srx-card__desc">Penetration testing, threat modeling, and WCAG and Section 508 audits &mdash; findings you can act on.</p><span class="srx-card__cta">compliance audits</span></a>
+      <a class="srx-card srx-reveal" href="/database-solutions-sunriver-consulting"><span class="srx-card__icon">🗄</span><h3 class="srx-card__title">Database Solutions</h3><p class="srx-card__desc">Administration, analysis, design, and development across SQL and NoSQL stacks &mdash; built to scale.</p><span class="srx-card__cta">database solutions</span></a>
+      <a class="srx-card srx-reveal" href="/web-development-sunriver-consulting"><span class="srx-card__icon">🌐</span><h3 class="srx-card__title">Web Development</h3><p class="srx-card__desc">Custom builds and platform work for HubSpot, WordPress, and Squarespace &mdash; fast, accessible, and yours to own.</p><span class="srx-card__cta">web development</span></a>
+      <a class="srx-card srx-reveal" href="/contact"><span class="srx-card__icon">✨</span><h3 class="srx-card__title">Not sure where you fit?</h3><p class="srx-card__desc">Tell us what you&rsquo;re trying to do and we&rsquo;ll help you find the right starting point &mdash; no sales pitch.</p><span class="srx-card__cta">get in touch</span></a>
+    </div>
+  </section>
+
+  {# ===== CROSS-PRACTICE (SPLIT) ===== #}
+  <section class="srx-sec srx-sec--alt">
+    <div class="srx-split">
+      <div class="srx-reveal">
+        <span class="srx-idx">02 / HOW WE WORK</span>
+        <h2 class="srx-h2">Cross-practice work is where we shine</h2>
+        <p class="srx-lead">Most projects don&rsquo;t fit neatly in one box. A new app needs a database, a secure pipeline, and a website to launch from &mdash; and we handle all of it as one scope, one team.</p>
+        <ul class="srx-bullets">
+          <li>One scope and one fixed fee instead of three vendors pointing fingers</li>
+          <li>Senior engineers, designers, and ops who already share context</li>
+          <li>Security and accessibility carried across every practice, not bolted on at the end</li>
+          <li>A single point of contact who stays with you from kickoff to launch</li>
+        </ul>
+        <div class="srx-ctas" style="justify-content:flex-start;margin-top:1.8rem;">
+          <a class="srx-btn srx-btn--ghost" href="/about">How we work</a>
+        </div>
+      </div>
+      <div class="srx-split__panel srx-reveal" aria-hidden="true">
+        <span class="srx-mark" style="--mk:120px"><span class="sun"></span><span class="water"><i></i><i></i><i></i></span></span>
+      </div>
+    </div>
+  </section>
+
+  {# ===== AT A GLANCE ===== #}
+  <section class="srx-sec">
+    <div class="srx-head srx-head--center srx-reveal">
+      <span class="srx-idx">03 / WHAT TO EXPECT</span>
+      <h2 class="srx-h2">The same promise across every practice</h2>
+      <p class="srx-lead">However you start with us, the way we work doesn&rsquo;t change.</p>
+    </div>
+    <div class="srx-glance">
+      <div class="srx-tile srx-reveal"><p class="srx-tile__k">Senior-only</p><p class="srx-tile__v">No junior hand-offs, ever</p></div>
+      <div class="srx-tile srx-reveal"><p class="srx-tile__k">Fixed-fee</p><p class="srx-tile__v">Know the number before we start</p></div>
+      <div class="srx-tile srx-reveal"><p class="srx-tile__k">Helena, MT</p><p class="srx-tile__v">Montana-based, serving nationwide</p></div>
+    </div>
+  </section>
+
+  {# ===== CTA ===== #}
+  <section class="srx-cta">
+    <canvas class="srx-cta__canvas" data-srx-shader="maple" aria-hidden="true"></canvas>
+    <div class="srx-cta__veil"></div>
+    <div class="srx-cta__inner srx-reveal">
+      <h2 class="srx-cta__h">Not sure which one you need?</h2>
+      <p class="srx-cta__p">Tell us where you want to go and we&rsquo;ll map the path &mdash; with a fixed price to get there. No obligation.</p>
+      <div class="srx-ctas" style="justify-content:center;">
+        <a class="srx-btn srx-btn--primary" href="/schedule-a-consultation-sunriver-consulting">Schedule a Consultation <span class="srx-btn__arrow">&rarr;</span></a>
+        <a class="srx-btn srx-btn--ghost" href="/contact">Contact us</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+{% endblock body %}

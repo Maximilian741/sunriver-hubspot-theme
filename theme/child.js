@@ -220,3 +220,104 @@
   // Tidy up if the page is being navigated away/restored from bfcache.
   window.addEventListener('pagehide', hide);
 })();
+
+// SunRiver .srx showcase runtime — scroll-reveal + brand-palette WebGL shader
+// backgrounds. Auto-runs on any page that contains .srx components (the
+// *-Showcase templates). Honors prefers-reduced-motion; canvases are guarded
+// with data-srx-init so this can never double-initialize one.
+(function () {
+  function init() {
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    var reveals = [].slice.call(document.querySelectorAll('.srx-reveal:not(.srx-in)'));
+    if (reveals.length) {
+      if (reduce || !('IntersectionObserver' in window)) {
+        reveals.forEach(function (el) { el.classList.add('srx-in'); });
+      } else {
+        var ro = new IntersectionObserver(function (es) {
+          es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('srx-in'); ro.unobserve(e.target); } });
+        }, { threshold: 0.15 });
+        reveals.forEach(function (el) { ro.observe(el); });
+      }
+    }
+
+    var canvases = [].slice.call(document.querySelectorAll('canvas[data-srx-shader]:not([data-srx-init])'));
+    if (!canvases.length) return;
+    if (reduce) { canvases.forEach(function (c) { c.setAttribute('data-srx-init', '1'); c.style.display = 'none'; }); return; }
+
+    var VERT = 'attribute vec2 p;void main(){gl_Position=vec4(p,0.0,1.0);}';
+    var COMMON =
+      'precision highp float;uniform float u_time;uniform vec2 u_res;' +
+      'float hash(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}' +
+      'float noise(vec2 p){vec2 i=floor(p),f=fract(p);vec2 u=f*f*(3.0-2.0*f);' +
+      'return mix(mix(hash(i),hash(i+vec2(1,0)),u.x),mix(hash(i+vec2(0,1)),hash(i+vec2(1,1)),u.x),u.y);}' +
+      'float fbm(vec2 p){float v=0.0,a=0.5;mat2 R=mat2(0.8,-0.6,0.6,0.8);' +
+      'for(int i=0;i<5;i++){v+=a*noise(p);p=R*p*2.05+3.1;a*=0.5;}return v;}' +
+      'vec3 SUN=vec3(0.984,0.765,0.290);vec3 VAL=vec3(0.561,0.780,0.251);' +
+      'vec3 RIV=vec3(0.243,0.616,0.722);vec3 DEEP=vec3(0.110,0.357,0.467);' +
+      'vec3 BASE=vec3(0.035,0.102,0.145);';
+    var EMBER = COMMON +
+      'void main(){vec2 p=(gl_FragCoord.xy-0.5*u_res.xy)/u_res.y;float t=u_time*0.11;' +
+      'vec2 q=p*1.3;q.y+=t*0.8;q+=0.4*vec2(fbm(q+t),fbm(q*1.2-t+7.0));' +
+      'float smoke=fbm(q);float dense=smoothstep(0.2,0.85,smoke);' +
+      'float wisp=fbm(q*2.5+vec2(0.0,t*1.5));dense*=0.6+0.6*wisp;' +
+      'vec3 col=BASE;col=mix(col,DEEP,smoothstep(0.1,0.5,dense));' +
+      'col=mix(col,RIV,smoothstep(0.42,0.82,dense));col=mix(col,VAL,smoothstep(0.62,0.95,dense)*0.55);' +
+      'col+=SUN*pow(dense,6.0)*0.65;col*=1.0-0.42*dot(p,p);' +
+      'col+=(hash(gl_FragCoord.xy+u_time)-0.5)*0.02;gl_FragColor=vec4(col,1.0);}';
+    var MAPLE = COMMON +
+      'void main(){vec2 p=(gl_FragCoord.xy-0.5*u_res.xy)/u_res.y;float t=u_time*0.09;' +
+      'vec2 q=p*1.2+vec2(t*0.6,t*0.2);float mist=fbm(q+vec2(0.0,fbm(q*2.0-t)));' +
+      'float density=smoothstep(0.2,0.85,mist);vec2 lq=p*6.0+vec2(-t*1.2,t*0.3);' +
+      'vec2 li=floor(lq),lf=fract(lq);float pD=1.0;vec2 pC=vec2(0.0);' +
+      'for(int y=-1;y<=1;y++){for(int x=-1;x<=1;x++){vec2 o=vec2(float(x),float(y));' +
+      'vec2 h=vec2(hash(li+o),hash(li+o+17.0));vec2 seed=o+h;' +
+      'seed+=vec2(sin(u_time*0.5+h.x*6.28)*0.18,cos(u_time*0.4+h.y*6.28)*0.12);' +
+      'float d=length(seed-lf);if(d<pD){pD=d;pC=li+o;}}}' +
+      'float part=smoothstep(0.15,0.04,pD);float lh=hash(pC);' +
+      'vec3 bg=mix(BASE,DEEP,smoothstep(-0.4,0.5,p.y));bg=mix(bg,RIV*0.5,density*0.45);' +
+      'vec3 pCol;if(lh<0.4)pCol=RIV;else if(lh<0.75)pCol=VAL;else pCol=SUN;' +
+      'vec3 col=bg;col=mix(col,pCol,part*0.7);col=mix(col,BASE,smoothstep(0.6,1.2,length(p))*0.6);' +
+      'col+=(hash(gl_FragCoord.xy+u_time)-0.5)*0.015;gl_FragColor=vec4(col,1.0);}';
+    var FRAG = { ember: EMBER, maple: MAPLE };
+
+    function run(canvas, fragSrc) {
+      var gl = canvas.getContext('webgl', { antialias: true, premultipliedAlpha: false });
+      if (!gl) { canvas.style.display = 'none'; return; }
+      function sh(type, src) { var s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s); return s; }
+      var prog = gl.createProgram();
+      gl.attachShader(prog, sh(gl.VERTEX_SHADER, VERT));
+      gl.attachShader(prog, sh(gl.FRAGMENT_SHADER, fragSrc));
+      gl.linkProgram(prog); gl.useProgram(prog);
+      var buf = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+      gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1,1,-1,-1,1,-1,1,1,-1,1,1]), gl.STATIC_DRAW);
+      var loc = gl.getAttribLocation(prog, 'p'); gl.enableVertexAttribArray(loc);
+      gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+      var uT = gl.getUniformLocation(prog, 'u_time'), uR = gl.getUniformLocation(prog, 'u_res');
+      var start = performance.now(), visible = true;
+      function sizeCanvas() {
+        var dpr = Math.min(window.devicePixelRatio || 1, 1.75);
+        var w = Math.max(1, Math.floor(canvas.clientWidth * dpr)), h = Math.max(1, Math.floor(canvas.clientHeight * dpr));
+        if (canvas.width !== w || canvas.height !== h) { canvas.width = w; canvas.height = h; gl.viewport(0, 0, w, h); }
+      }
+      window.addEventListener('resize', sizeCanvas);
+      if ('IntersectionObserver' in window) new IntersectionObserver(function (es) { es.forEach(function (e) { visible = e.isIntersecting; }); }).observe(canvas);
+      function loop() {
+        requestAnimationFrame(loop);
+        if (!visible || document.hidden) return;
+        sizeCanvas();
+        gl.uniform1f(uT, (performance.now() - start) / 1000);
+        gl.uniform2f(uR, canvas.width, canvas.height);
+        gl.drawArrays(gl.TRIANGLES, 0, 6);
+      }
+      loop();
+    }
+
+    canvases.forEach(function (c) {
+      c.setAttribute('data-srx-init', '1');
+      run(c, FRAG[c.getAttribute('data-srx-shader')] || EMBER);
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();

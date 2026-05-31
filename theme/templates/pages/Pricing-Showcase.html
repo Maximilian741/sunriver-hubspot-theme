@@ -1,0 +1,107 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: SunRiver - Pricing (showcase)
+-->
+{% extends "../layouts/base.html" %}
+{% block body %}
+<div class="srx">
+
+  {# ===== HERO ===== #}
+  <section class="srx-hero srx-hero--short">
+    <canvas class="srx-hero__canvas" data-srx-shader="ember" aria-hidden="true"></canvas>
+    <div class="srx-hero__veil"></div>
+    <div class="srx-hero__inner">
+      <span class="srx-eyebrow">Pricing · Helena, MT</span>
+      <h1 class="srx-hero__title">Priced to your project, not a rate card</h1>
+      <p class="srx-hero__sub">Every engagement is senior-led and scoped to a fixed fee &mdash; so you know the number before we start, not after the surprises.</p>
+      <div class="srx-ctas">
+        <a class="srx-btn srx-btn--primary" href="/quote-sunriver-consulting">Get a Quick Estimate <span class="srx-btn__arrow">&rarr;</span></a>
+        <a class="srx-btn srx-btn--ghost" href="/schedule-a-consultation-sunriver-consulting">Schedule a Consultation</a>
+      </div>
+    </div>
+  </section>
+  <div class="srx-grad-line"></div>
+
+  {# ===== THREE WAYS TO WORK ===== #}
+  <section class="srx-sec">
+    <div class="srx-head srx-head--center srx-reveal">
+      <span class="srx-idx">01 / ENGAGEMENT MODELS</span>
+      <h2 class="srx-h2">Three ways to work with us</h2>
+      <p class="srx-lead">Pick the shape that fits where you are. Each one is staffed by senior engineers &mdash; no junior hand-offs &mdash; and quoted as a fixed fee once we understand the work.</p>
+    </div>
+    <div class="srx-grid">
+      <div class="srx-card srx-reveal">
+        <span class="srx-card__icon">🧭</span>
+        <h3 class="srx-card__title">Discovery</h3>
+        <p class="srx-card__desc"><strong>Custom</strong> &mdash; a short, scoped sprint to turn a fuzzy idea into a real plan. You walk away with an architecture, a roadmap, and a fixed price for the build. Best when you&rsquo;re not yet sure what you&rsquo;re building. Includes stakeholder interviews, technical assessment, and a written scope.</p>
+        <a class="srx-card__cta" href="/schedule-a-consultation-sunriver-consulting">Start with Discovery</a>
+      </div>
+      <div class="srx-card srx-reveal">
+        <span class="srx-card__icon">📦</span>
+        <h3 class="srx-card__title">Project</h3>
+        <p class="srx-card__desc"><strong>Custom</strong> &mdash; a fixed-fee engagement against a defined scope. We agree on what &ldquo;done&rdquo; means, then build it for a price that doesn&rsquo;t move. Best when the outcome is clear. Includes a written statement of work, milestone check-ins, and accessibility and security baked in.</p>
+        <a class="srx-card__cta" href="/quote-sunriver-consulting">Scope a project</a>
+      </div>
+      <div class="srx-card srx-reveal">
+        <span class="srx-card__icon">🔁</span>
+        <h3 class="srx-card__title">Retainer</h3>
+        <p class="srx-card__desc"><strong>Custom</strong> &mdash; reserved monthly capacity for teams that need senior hands on call. You get a standing block of engineering time, priority response, and a partner who already knows your stack. Best for ongoing work and evolving roadmaps.</p>
+        <a class="srx-card__cta" href="/contact">Talk about a retainer</a>
+      </div>
+    </div>
+  </section>
+
+  {# ===== WHY FIXED-FEE (SPLIT) ===== #}
+  <section class="srx-sec srx-sec--alt">
+    <div class="srx-split">
+      <div class="srx-reveal">
+        <span class="srx-idx">02 / OUR PHILOSOPHY</span>
+        <h2 class="srx-h2">Why we quote custom, and why it&rsquo;s fixed</h2>
+        <p class="srx-lead">A rate card tells you what an hour costs. It doesn&rsquo;t tell you what your project costs &mdash; and that&rsquo;s the only number that matters. So we scope the work first, then commit to a fixed fee.</p>
+        <ul class="srx-bullets">
+          <li>Fixed-fee scoping means the price is set before we begin &mdash; no meter running, no end-of-month surprises</li>
+          <li>We invest in understanding your work up front, so the estimate reflects your project and not a generic average</li>
+          <li>You can budget with confidence and compare apples to apples, because the number won&rsquo;t drift mid-engagement</li>
+          <li>Senior-only staffing means the people scoping the work are the people doing it</li>
+        </ul>
+        <div class="srx-ctas" style="justify-content:flex-start;margin-top:1.8rem;">
+          <a class="srx-btn srx-btn--ghost" href="/about">How we work</a>
+        </div>
+      </div>
+      <div class="srx-split__panel srx-reveal" aria-hidden="true">
+        <span class="srx-mark" style="--mk:128px"><span class="sun"></span><span class="water"><i></i><i></i><i></i></span></span>
+      </div>
+    </div>
+  </section>
+
+  {# ===== FAQ ===== #}
+  <section class="srx-sec">
+    <div class="srx-head srx-head--center srx-reveal">
+      <span class="srx-idx">03 / COMMON QUESTIONS</span>
+      <h2 class="srx-h2">Before you ask for a number</h2>
+    </div>
+    <div class="srx-faq">
+      <details class="srx-reveal"><summary>Why is pricing custom instead of a published rate?</summary><div class="a">Because no two projects are the same, and a single rate would either overcharge the simple work or undersell the hard work. We scope what you actually need, then quote a fixed fee for it &mdash; so the price reflects your project, not an average of everyone else&rsquo;s.</div></details>
+      <details class="srx-reveal"><summary>Do you bill hourly?</summary><div class="a">No. We work to a fixed fee against an agreed scope. That keeps the incentive on shipping the outcome rather than running up hours, and it means you can plan your budget without watching a meter.</div></details>
+      <details class="srx-reveal"><summary>Can we start small?</summary><div class="a">Absolutely &mdash; that&rsquo;s what Discovery is for. A short, scoped sprint gives you a real plan and a fixed price for the larger build before you commit to it. Plenty of clients start there and decide their next step with eyes open.</div></details>
+      <details class="srx-reveal"><summary>What&rsquo;s included in a retainer?</summary><div class="a">A retainer reserves a standing block of senior engineering capacity each month, with priority response and a team that already knows your systems. It&rsquo;s built for ongoing work and evolving roadmaps, where having senior hands on call matters more than a one-off project scope. We&rsquo;ll tailor the size to your needs.</div></details>
+    </div>
+  </section>
+
+  {# ===== CTA ===== #}
+  <section class="srx-cta">
+    <canvas class="srx-cta__canvas" data-srx-shader="maple" aria-hidden="true"></canvas>
+    <div class="srx-cta__veil"></div>
+    <div class="srx-cta__inner srx-reveal">
+      <h2 class="srx-cta__h">Let&rsquo;s put a real number on it</h2>
+      <p class="srx-cta__p">Tell us what you&rsquo;re trying to build. We&rsquo;ll scope it and come back with a fixed price &mdash; usually within about five business days.</p>
+      <div class="srx-ctas" style="justify-content:center;">
+        <a class="srx-btn srx-btn--primary" href="/quote-sunriver-consulting">Get a Quick Estimate <span class="srx-btn__arrow">&rarr;</span></a>
+        <a class="srx-btn srx-btn--ghost" href="/schedule-a-consultation-sunriver-consulting">Schedule a Consultation</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+{% endblock body %}

@@ -1,0 +1,63 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: SunRiver - News (showcase)
+-->
+{% extends "../layouts/base.html" %}
+{% block body %}
+<div class="srx">
+
+  {# ===== HERO ===== #}
+  <section class="srx-hero srx-hero--short">
+    <canvas class="srx-hero__canvas" data-srx-shader="maple" aria-hidden="true"></canvas>
+    <div class="srx-hero__veil"></div>
+    <div class="srx-hero__inner">
+      <span class="srx-eyebrow">News · Helena, MT</span>
+      <h1 class="srx-hero__title">News from SunRiver</h1>
+      <p class="srx-hero__sub">Case studies, field notes, and company updates &mdash; on the way. Here&rsquo;s a look at what&rsquo;s coming.</p>
+      <div class="srx-ctas">
+        <a class="srx-btn srx-btn--primary" href="/contact">Get notified <span class="srx-btn__arrow">&rarr;</span></a>
+        <a class="srx-btn srx-btn--ghost" href="/schedule-a-consultation-sunriver-consulting">Schedule a Consultation</a>
+      </div>
+    </div>
+    <span class="srx-cue" aria-hidden="true"></span>
+  </section>
+  <div class="srx-grad-line"></div>
+
+  {# ===== NEWSROOM WARMING UP ===== #}
+  <section class="srx-sec">
+    <div class="srx-head srx-head--center srx-reveal">
+      <span class="srx-idx">01 / COMING SOON</span>
+      <h2 class="srx-h2">The newsroom is warming up</h2>
+      <p class="srx-lead">We&rsquo;d rather ship great work than rush a blog &mdash; so the newsroom is still getting set up. Here&rsquo;s what you can expect to find here soon.</p>
+    </div>
+    <div class="srx-grid">
+      <a class="srx-card srx-reveal" href="/contact"><span class="srx-card__icon">📈</span><h3 class="srx-card__title">Case studies</h3><p class="srx-card__desc">Real projects, the decisions behind them, and the outcomes &mdash; the kind of detail you can learn from.</p><span class="srx-card__cta">coming soon</span></a>
+      <a class="srx-card srx-reveal" href="/contact"><span class="srx-card__icon">📝</span><h3 class="srx-card__title">Field notes</h3><p class="srx-card__desc">Short, practical writing on engineering, accessibility, and adopting technology without the friction.</p><span class="srx-card__cta">coming soon</span></a>
+      <a class="srx-card srx-reveal" href="/contact"><span class="srx-card__icon">📣</span><h3 class="srx-card__title">Company updates</h3><p class="srx-card__desc">What&rsquo;s new at SunRiver &mdash; new practices, new faces, and what we&rsquo;re learning along the way.</p><span class="srx-card__cta">coming soon</span></a>
+    </div>
+  </section>
+
+  {# ===== STAY IN THE LOOP (PROSE) ===== #}
+  <section class="srx-sec srx-sec--alt">
+    <div class="srx-prose srx-reveal">
+      <p>Want to know the moment we publish? <strong>Reach out and we&rsquo;ll add you to the list.</strong> We&rsquo;ll only send the good stuff &mdash; new case studies, field notes worth your time, and the occasional update from Helena. No noise, no spam.</p>
+    </div>
+  </section>
+
+  {# ===== CTA ===== #}
+  <section class="srx-cta">
+    <canvas class="srx-cta__canvas" data-srx-shader="maple" aria-hidden="true"></canvas>
+    <div class="srx-cta__veil"></div>
+    <div class="srx-cta__inner srx-reveal">
+      <h2 class="srx-cta__h">Be the first to read it</h2>
+      <p class="srx-cta__p">Drop us a line and we&rsquo;ll let you know the moment the newsroom goes live.</p>
+      <div class="srx-ctas" style="justify-content:center;">
+        <a class="srx-btn srx-btn--primary" href="/contact">Contact us <span class="srx-btn__arrow">&rarr;</span></a>
+        <a class="srx-btn srx-btn--ghost" href="/schedule-a-consultation-sunriver-consulting">Schedule a Consultation</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+{% endblock body %}
