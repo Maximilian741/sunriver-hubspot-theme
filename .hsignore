@@ -1,0 +1,11 @@
+# HubSpot upload ignore — files here are NEVER pushed by `hs cms upload`.
+#
+# The live Home page on Atomic_Lite child is maintained directly in the HubSpot
+# page editor. Keep it OUT of the CLI upload path so a full `npm run upload` can
+# never overwrite it. A reference copy of the live page lives in
+# home-page-backup/Home.html (outside theme/, so it is never uploaded either).
+#
+# Pattern is intentionally the basename so it matches regardless of how the CLI
+# resolves relative paths. It will NOT match Home-Showcase.html.
+Home.html
+theme/templates/pages/Home.html
