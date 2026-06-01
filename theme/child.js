@@ -241,6 +241,22 @@
       }
     }
 
+    // tactile click ripple on the .srx boxes — highlight on hover, react on click
+    if (!reduce) {
+      document.addEventListener('pointerdown', function (e) {
+        var box = e.target && e.target.closest ? e.target.closest('.srx-card') : null;
+        if (!box) return;
+        var r = box.getBoundingClientRect(), size = Math.max(r.width, r.height);
+        var sp = document.createElement('span');
+        sp.className = 'srx-card__ripple';
+        sp.style.width = sp.style.height = size + 'px';
+        sp.style.left = (e.clientX - r.left - size / 2) + 'px';
+        sp.style.top = (e.clientY - r.top - size / 2) + 'px';
+        box.appendChild(sp);
+        setTimeout(function () { if (sp.parentNode) sp.parentNode.removeChild(sp); }, 640);
+      }, { passive: true });
+    }
+
     var canvases = [].slice.call(document.querySelectorAll('canvas[data-srx-shader]:not([data-srx-init])'));
     if (!canvases.length) return;
     if (reduce) { canvases.forEach(function (c) { c.setAttribute('data-srx-init', '1'); c.style.display = 'none'; }); return; }
