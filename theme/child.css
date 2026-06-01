@@ -374,15 +374,27 @@
 /* card grid */
 .srx-grid { max-width:1140px; margin:0 auto; display:grid; gap:20px; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); }
 .srx-grid--2 { grid-template-columns:repeat(auto-fit,minmax(340px,1fr)); }
-.srx-card { position:relative; display:flex; flex-direction:column; gap:13px; padding:30px 26px; border-radius:16px; text-decoration:none; overflow:hidden; background:var(--panel); border:1px solid var(--line); transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
-.srx-card::before { content:""; position:absolute; inset:0 0 auto 0; height:3px; background:var(--grad); transform:scaleX(0); transform-origin:left; transition:transform .3s ease; }
-.srx-card:hover { transform:translateY(-5px); border-color:color-mix(in oklab,var(--sun) 45%,var(--line)); box-shadow:0 20px 44px -22px color-mix(in oklab,var(--river) 70%,#000); }
-.srx-card:hover::before { transform:scaleX(1); }
-.srx-card__icon { width:50px; height:50px; display:grid; place-items:center; font-size:24px; border-radius:13px; background:linear-gradient(155deg, color-mix(in oklab,var(--sun) 22%,var(--panel)), color-mix(in oklab,var(--river) 22%,var(--panel))); border:1px solid var(--line); }
+.srx-card { position:relative; display:flex; flex-direction:column; gap:14px; padding:30px 26px; border-radius:14px; text-decoration:none; background:var(--panel); border:1px solid var(--line); transition:transform .22s ease, border-color .22s ease, background .22s ease; }
+.srx-card::after { content:""; position:absolute; left:0; right:0; bottom:0; height:2px; border-radius:0 0 14px 14px; background:var(--grad); opacity:0; transition:opacity .25s ease; }
+.srx-card:hover { transform:translateY(-4px); border-color:color-mix(in oklab,var(--river) 55%,var(--line)); background:color-mix(in oklab,var(--river) 7%,var(--panel)); }
+.srx-card:hover::after { opacity:.85; }
+.srx-card__icon { width:46px; height:46px; display:grid; place-items:center; border-radius:12px; background:color-mix(in oklab,var(--river) 9%,transparent); border:1px solid color-mix(in oklab,var(--river) 30%,var(--line)); color:var(--river); transition:color .22s ease, border-color .22s ease; }
+.srx-card__icon svg { width:24px; height:24px; display:block; fill:none; stroke:currentColor; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; }
+.srx-card:hover .srx-card__icon { color:var(--sun); border-color:color-mix(in oklab,var(--sun) 45%,var(--line)); }
 .srx-card__title { font-family:var(--head); font-weight:600; font-size:1.22rem; color:var(--ink); margin:0; }
 .srx-card__desc { margin:0; font-size:.98rem; line-height:1.55; color:var(--muted); flex:1; }
 .srx-card__cta { font-family:var(--mono); font-size:.82rem; letter-spacing:.04em; color:var(--sun); display:inline-flex; align-items:center; gap:6px; }
 .srx-card__cta::after { content:"→"; transition:transform .2s ease; } .srx-card:hover .srx-card__cta::after { transform:translateX(4px); }
+
+/* brand logo wall — real marks of the stack we work in */
+.srx-logos { list-style:none; margin:34px auto 0; padding:0; max-width:1140px; display:grid; grid-template-columns:repeat(6,1fr); gap:12px; }
+.srx-logo { display:grid; place-items:center; padding:22px 10px; border-radius:12px; border:1px solid var(--line); background:color-mix(in oklab,var(--panel) 55%,transparent); transition:transform .2s ease, border-color .2s ease, background .2s ease; }
+.srx-logo svg { width:30px; height:30px; fill:color-mix(in oklab,var(--ink) 52%,transparent); transition:fill .2s ease; }
+.srx-logo:hover { transform:translateY(-3px); border-color:color-mix(in oklab,var(--river) 45%,var(--line)); background:color-mix(in oklab,var(--river) 9%,var(--panel)); }
+.srx-logo:hover svg { fill:var(--sun); }
+.srx-logos__cap { display:block; text-align:center; margin:46px 0 0; font-family:var(--mono); font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--faint); }
+@media (max-width:860px){ .srx-logos { grid-template-columns:repeat(4,1fr); } }
+@media (max-width:520px){ .srx-logos { grid-template-columns:repeat(3,1fr); } }
 
 /* split feature */
 .srx-split { max-width:1080px; margin:0 auto; display:grid; gap:40px; align-items:center; grid-template-columns:1.1fr .9fr; }

@@ -247,18 +247,19 @@
 
     var VERT = 'attribute vec2 p;void main(){gl_Position=vec4(p,0.0,1.0);}';
     var COMMON =
-      'precision highp float;uniform float u_time;uniform vec2 u_res;' +
+      'precision highp float;uniform float u_time;uniform vec2 u_res;uniform vec2 u_mouse;' +
       'float hash(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}' +
       'float noise(vec2 p){vec2 i=floor(p),f=fract(p);vec2 u=f*f*(3.0-2.0*f);' +
       'return mix(mix(hash(i),hash(i+vec2(1,0)),u.x),mix(hash(i+vec2(0,1)),hash(i+vec2(1,1)),u.x),u.y);}' +
       'float fbm(vec2 p){float v=0.0,a=0.5;mat2 R=mat2(0.8,-0.6,0.6,0.8);' +
       'for(int i=0;i<5;i++){v+=a*noise(p);p=R*p*2.05+3.1;a*=0.5;}return v;}' +
+      'vec2 warp(vec2 q,vec2 pp){return q+(u_mouse-pp)*exp(-length(pp-u_mouse)*1.7)*0.5;}' +
       'vec3 SUN=vec3(0.984,0.765,0.290);vec3 VAL=vec3(0.561,0.780,0.251);' +
       'vec3 RIV=vec3(0.243,0.616,0.722);vec3 DEEP=vec3(0.110,0.357,0.467);' +
       'vec3 BASE=vec3(0.035,0.102,0.145);';
     var EMBER = COMMON +
       'void main(){vec2 p=(gl_FragCoord.xy-0.5*u_res.xy)/u_res.y;float t=u_time*0.11;' +
-      'vec2 q=p*1.3;q.y+=t*0.8;q+=0.4*vec2(fbm(q+t),fbm(q*1.2-t+7.0));' +
+      'vec2 q=p*1.3;q.y+=t*0.8;q+=0.4*vec2(fbm(q+t),fbm(q*1.2-t+7.0));q=warp(q,p);' +
       'float smoke=fbm(q);float dense=smoothstep(0.2,0.85,smoke);' +
       'float wisp=fbm(q*2.5+vec2(0.0,t*1.5));dense*=0.6+0.6*wisp;' +
       'vec3 col=BASE;col=mix(col,DEEP,smoothstep(0.1,0.5,dense));' +
@@ -267,7 +268,7 @@
       'col+=(hash(gl_FragCoord.xy+u_time)-0.5)*0.02;gl_FragColor=vec4(col,1.0);}';
     var MAPLE = COMMON +
       'void main(){vec2 p=(gl_FragCoord.xy-0.5*u_res.xy)/u_res.y;float t=u_time*0.09;' +
-      'vec2 q=p*1.2+vec2(t*0.6,t*0.2);float mist=fbm(q+vec2(0.0,fbm(q*2.0-t)));' +
+      'vec2 q=p*1.2+vec2(t*0.6,t*0.2);q=warp(q,p);float mist=fbm(q+vec2(0.0,fbm(q*2.0-t)));' +
       'float density=smoothstep(0.2,0.85,mist);vec2 lq=p*6.0+vec2(-t*1.2,t*0.3);' +
       'vec2 li=floor(lq),lf=fract(lq);float pD=1.0;vec2 pC=vec2(0.0);' +
       'for(int y=-1;y<=1;y++){for(int x=-1;x<=1;x++){vec2 o=vec2(float(x),float(y));' +
@@ -285,7 +286,7 @@
       'vec3 NGD=vec3(0.945,0.761,0.20);vec3 NINK=vec3(0.016,0.063,0.043);';
     var EMBER_NEON = COMMON + NEON +
       'void main(){vec2 p=(gl_FragCoord.xy-0.5*u_res.xy)/u_res.y;float t=u_time*0.12;' +
-      'vec2 q=p*1.3;q.y+=t*0.85;q+=0.4*vec2(fbm(q+t),fbm(q*1.2-t+7.0));' +
+      'vec2 q=p*1.3;q.y+=t*0.85;q+=0.4*vec2(fbm(q+t),fbm(q*1.2-t+7.0));q=warp(q,p);' +
       'float smoke=fbm(q);float dense=smoothstep(0.18,0.85,smoke);' +
       'float wisp=fbm(q*2.5+vec2(0.0,t*1.6));dense*=0.6+0.6*wisp;' +
       'vec3 col=NINK;col=mix(col,NG*0.55,smoothstep(0.1,0.5,dense));' +
@@ -294,7 +295,7 @@
       'col*=1.0-0.4*dot(p,p);col+=(hash(gl_FragCoord.xy+u_time)-0.5)*0.02;gl_FragColor=vec4(col,1.0);}';
     var MAPLE_NEON = COMMON + NEON +
       'void main(){vec2 p=(gl_FragCoord.xy-0.5*u_res.xy)/u_res.y;float t=u_time*0.09;' +
-      'vec2 q=p*1.2+vec2(t*0.6,t*0.2);float mist=fbm(q+vec2(0.0,fbm(q*2.0-t)));' +
+      'vec2 q=p*1.2+vec2(t*0.6,t*0.2);q=warp(q,p);float mist=fbm(q+vec2(0.0,fbm(q*2.0-t)));' +
       'float density=smoothstep(0.2,0.85,mist);vec2 lq=p*6.0+vec2(-t*1.2,t*0.3);' +
       'vec2 li=floor(lq),lf=fract(lq);float pD=1.0;vec2 pC=vec2(0.0);' +
       'for(int y=-1;y<=1;y++){for(int x=-1;x<=1;x++){vec2 o=vec2(float(x),float(y));' +
@@ -306,7 +307,18 @@
       'vec3 pCol;if(lh<0.4)pCol=NT;else if(lh<0.75)pCol=NG;else pCol=NGD;' +
       'vec3 col=bg;col=mix(col,pCol,part*0.85);col=mix(col,NINK,smoothstep(0.6,1.2,length(p))*0.55);' +
       'col+=(hash(gl_FragCoord.xy+u_time)-0.5)*0.015;gl_FragColor=vec4(col,1.0);}';
-    var FRAG = { ember: EMBER, maple: MAPLE, 'ember-neon': EMBER_NEON, 'maple-neon': MAPLE_NEON };
+    // Warm ember — charcoal → umber → ember orange → gold (the original "ember smoke").
+    var EMBER_WARM = COMMON +
+      'void main(){vec2 p=(gl_FragCoord.xy-0.5*u_res.xy)/u_res.y;float t=u_time*0.12;' +
+      'vec2 q=p*1.3;q.y+=t*0.85;q+=0.4*vec2(fbm(q+t),fbm(q*1.2-t+7.0));q=warp(q,p);' +
+      'float smoke=fbm(q);float dense=smoothstep(0.18,0.85,smoke);' +
+      'float wisp=fbm(q*2.5+vec2(0.0,t*1.6));dense*=0.6+0.6*wisp;' +
+      'vec3 night=vec3(0.05,0.035,0.05);vec3 chr=vec3(0.20,0.10,0.08);' +
+      'vec3 umber=vec3(0.55,0.22,0.10);vec3 ember=vec3(1.0,0.45,0.12);vec3 gold=vec3(1.0,0.78,0.35);' +
+      'vec3 col=night;col=mix(col,chr,smoothstep(0.1,0.5,dense));col=mix(col,umber,smoothstep(0.45,0.85,dense));' +
+      'col+=ember*pow(dense,5.0)*0.85;col+=gold*pow(dense,9.0)*0.55;' +
+      'col*=1.0-0.45*dot(p,p);col+=(hash(gl_FragCoord.xy+u_time)-0.5)*0.025;gl_FragColor=vec4(col,1.0);}';
+    var FRAG = { ember: EMBER, maple: MAPLE, 'ember-neon': EMBER_NEON, 'maple-neon': MAPLE_NEON, 'ember-warm': EMBER_WARM };
 
     function run(canvas, fragSrc) {
       var gl = canvas.getContext('webgl', { antialias: true, premultipliedAlpha: false });
@@ -320,8 +332,13 @@
       gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1,1,-1,-1,1,-1,1,1,-1,1,1]), gl.STATIC_DRAW);
       var loc = gl.getAttribLocation(prog, 'p'); gl.enableVertexAttribArray(loc);
       gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
-      var uT = gl.getUniformLocation(prog, 'u_time'), uR = gl.getUniformLocation(prog, 'u_res');
-      var start = performance.now(), visible = true;
+      var uT = gl.getUniformLocation(prog, 'u_time'), uR = gl.getUniformLocation(prog, 'u_res'), uM = gl.getUniformLocation(prog, 'u_mouse');
+      var start = performance.now(), visible = true, mAim = [0, 0], mSm = [0, 0];
+      window.addEventListener('mousemove', function (e) {
+        var r = canvas.getBoundingClientRect(); if (!r.width || !r.height) return;
+        mAim[0] = (e.clientX - r.left - r.width / 2) / r.height;
+        mAim[1] = 0.5 - (e.clientY - r.top) / r.height;
+      }, { passive: true });
       function sizeCanvas() {
         var dpr = Math.min(window.devicePixelRatio || 1, 1.75);
         var w = Math.max(1, Math.floor(canvas.clientWidth * dpr)), h = Math.max(1, Math.floor(canvas.clientHeight * dpr));
@@ -333,8 +350,10 @@
         requestAnimationFrame(loop);
         if (!visible || document.hidden) return;
         sizeCanvas();
+        mSm[0] += (mAim[0] - mSm[0]) * 0.07; mSm[1] += (mAim[1] - mSm[1]) * 0.07;
         gl.uniform1f(uT, (performance.now() - start) / 1000);
         gl.uniform2f(uR, canvas.width, canvas.height);
+        if (uM) gl.uniform2f(uM, mSm[0], mSm[1]);
         gl.drawArrays(gl.TRIANGLES, 0, 6);
       }
       loop();
