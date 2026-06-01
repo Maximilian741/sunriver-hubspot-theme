@@ -257,6 +257,57 @@
       }, { passive: true });
     }
 
+    // interactive pricing estimator
+    (function () {
+      var est = document.querySelector('[data-estimator]'); if (!est) return;
+      var scale = 1, mode = 'project';
+      function money(n) { n = Math.max(0, Math.round(n / 500) * 500); return '$' + n.toLocaleString('en-US'); }
+      function recompute() {
+        var base = 0, items = [];
+        [].forEach.call(est.querySelectorAll('.srh-chip2 input:checked'), function (i) {
+          base += parseFloat(i.getAttribute('data-base')) || 0;
+          items.push(i.parentNode.getAttribute('data-name') || i.parentNode.textContent.trim());
+        });
+        var total = base * scale; if (mode === 'retainer') total *= 0.18;
+        var lo = est.querySelector('[data-lo]'), hi = est.querySelector('[data-hi]');
+        if (base === 0) { if (lo) lo.textContent = '—'; if (hi) hi.textContent = '—'; }
+        else { if (lo) lo.textContent = money(total * 0.8); if (hi) hi.textContent = money(total * 1.3); }
+        var ml = est.querySelector('[data-modelabel]'); if (ml) ml.textContent = mode === 'retainer' ? 'per month, ongoing' : 'one-time project';
+        var sum = est.querySelector('[data-sum]');
+        if (sum) sum.innerHTML = items.length
+          ? items.map(function (t) { return '<li><span>' + t + '</span><span>scoped</span></li>'; }).join('')
+          : '<li><span>Pick what you need &rarr;</span><span></span></li>';
+      }
+      est.addEventListener('change', function (e) {
+        if (e.target.matches && e.target.matches('.srh-chip2 input')) { e.target.parentNode.classList.toggle('is-on', e.target.checked); recompute(); }
+      });
+      est.addEventListener('click', function (e) {
+        var b = e.target.closest && e.target.closest('.srh-seg button'); if (!b) return;
+        var seg = b.closest('.srh-seg');
+        [].forEach.call(seg.querySelectorAll('button'), function (x) { x.classList.remove('is-on'); });
+        b.classList.add('is-on');
+        if (seg.getAttribute('data-seg') === 'scale') scale = parseFloat(b.getAttribute('data-mult'));
+        else mode = b.getAttribute('data-mode');
+        recompute();
+      });
+      recompute();
+    })();
+    // FAQ accordion
+    [].forEach.call(document.querySelectorAll('.srh-faq__q'), function (q) {
+      q.addEventListener('click', function () {
+        var item = q.closest('.srh-faq__item'), a = item.querySelector('.srh-faq__a');
+        var open = item.classList.toggle('is-open');
+        a.style.maxHeight = open ? a.scrollHeight + 'px' : '0';
+      });
+    });
+    // contact form (demo confirmation if no backend is wired)
+    [].forEach.call(document.querySelectorAll('form[data-demo]'), function (f) {
+      f.addEventListener('submit', function (e) {
+        e.preventDefault();
+        f.innerHTML = '<div class="srh-form__ok">Thanks — we got it. A real engineer will be in touch shortly.</div>';
+      });
+    });
+
     var canvases = [].slice.call(document.querySelectorAll('canvas[data-srx-shader]:not([data-srx-init])'));
     if (!canvases.length) return;
     if (reduce) { canvases.forEach(function (c) { c.setAttribute('data-srx-init', '1'); c.style.display = 'none'; }); return; }
