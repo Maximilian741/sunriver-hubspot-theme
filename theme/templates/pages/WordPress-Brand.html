@@ -1,0 +1,54 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: SunRiver - WordPress Development
+  screenshot_path: ../../images/template-previews/home.jpg
+-->
+{#
+  .srh brand page (expert content) -- green-gold gradient + interactive smoke
+  veil + white brand-logo cards that hover into the featured gradient.
+  Content-only; styles in child.css (.srh), runtime in child.js. Does not
+  touch the live Home page.
+#}
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+<div class="srh">
+
+  <section class="srh-band">
+    <canvas class="srh-band__canvas" data-srx-shader="smoke-veil" aria-hidden="true"></canvas>
+    <div class="srh-band__inner srx-reveal" style="text-align:center;max-width:920px;">
+      <span class="srh-eyebrow">Web Development / WordPress</span>
+      <h1 class="srh-h1" style="max-width:20ch;margin-inline:auto;">WordPress built clean and kept secure</h1>
+      <p class="srh-lead" style="margin-inline:auto;">Custom Gutenberg themes and blocks, plugins written to be maintained instead of abandoned, and a real security and update discipline. WooCommerce when you sell, performance throughout, no plugin sprawl.</p>
+      <div class="srh-hero__ctas" style="justify-content:center;"><a class="srh-btn srh-btn--primary" href="/quote-sunriver-consulting">Get a Quick Estimate</a><a class="srh-btn srh-btn--ghost" href="/schedule-a-consultation-sunriver-consulting">Schedule a Consultation</a></div>
+    </div>
+  </section>
+
+  <section class="srh-sec">
+    <div class="srh-sec__inner">
+      <div class="srx-reveal" style="text-align:center;max-width:720px;margin:0 auto;">
+        <span class="srh-eyebrow" style="color:var(--river);">In scope</span>
+        <h2 class="srh-h2">The work, specifically.</h2>
+      </div>
+      <div class="srh-cards" style="margin-top:2.4rem;">
+        <a class="srh-card srh-card--feature" href="/quote-sunriver-consulting"><span class="srh-card__logo"><svg viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M21.469 6.825c.84 1.537 1.318 3.3 1.318 5.175 0 3.979-2.156 7.456-5.363 9.325l3.295-9.527c.615-1.54.82-2.771.82-3.864 0-.405-.026-.78-.07-1.11m-7.981.105c.647-.03 1.232-.105 1.232-.105.582-.075.514-.93-.067-.899 0 0-1.755.135-2.88.135-1.064 0-2.85-.15-2.85-.15-.585-.03-.661.855-.075.885 0 0 .54.061 1.125.09l1.68 4.605-2.37 7.08L5.354 6.9c.649-.03 1.234-.1 1.234-.1.585-.075.516-.93-.065-.896 0 0-1.746.138-2.874.138-.2 0-.438-.008-.69-.015C4.911 3.15 8.235 1.215 12 1.215c2.809 0 5.365 1.072 7.286 2.833-.046-.003-.091-.009-.141-.009-1.06 0-1.812.923-1.812 1.914 0 .89.513 1.643 1.06 2.531.411.72.89 1.643.89 2.977 0 .915-.354 1.994-.821 3.479l-1.075 3.585-3.9-11.61.001.014zM12 22.784c-1.059 0-2.081-.153-3.048-.437l3.237-9.406 3.315 9.087c.024.053.05.101.078.149-1.12.393-2.325.609-3.582.609M1.211 12c0-1.564.336-3.05.935-4.39L7.29 21.709C3.694 19.96 1.212 16.271 1.211 12M12 0C5.385 0 0 5.385 0 12s5.385 12 12 12 12-5.385 12-12S18.615 0 12 0"/></svg></span><h3 class="srh-card__title">Custom themes & blocks (Gutenberg)</h3><p class="srh-card__desc">Block themes and custom Gutenberg blocks, so editors build layouts in the native editor without page-builder bloat.</p></a>
+        <a class="srh-card" href="/quote-sunriver-consulting"><span class="srh-card__logo"><svg viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M7.01 10.207h-.944l-.515 2.648h.838c.556 0 .97-.105 1.242-.314.272-.21.455-.559.55-1.049.092-.47.05-.802-.124-.995-.175-.193-.523-.29-1.047-.29zM12 5.688C5.373 5.688 0 8.514 0 12s5.373 6.313 12 6.313S24 15.486 24 12c0-3.486-5.373-6.312-12-6.312zm-3.26 7.451c-.261.25-.575.438-.917.551-.336.108-.765.164-1.285.164H5.357l-.327 1.681H3.652l1.23-6.326h2.65c.797 0 1.378.209 1.744.628.366.418.476 1.002.33 1.752a2.836 2.836 0 0 1-.305.847c-.143.255-.33.49-.561.703zm4.024.715l.543-2.799c.063-.318.039-.536-.068-.651-.107-.116-.336-.174-.687-.174H11.46l-.704 3.625H9.388l1.23-6.327h1.367l-.327 1.682h1.218c.767 0 1.295.134 1.586.401s.378.7.263 1.299l-.572 2.944h-1.389zm7.597-2.265a2.782 2.782 0 0 1-.305.847c-.143.255-.33.49-.561.703a2.44 2.44 0 0 1-.917.551c-.336.108-.765.164-1.286.164h-1.18l-.327 1.682h-1.378l1.23-6.326h2.649c.797 0 1.378.209 1.744.628.366.417.477 1.001.331 1.751zM17.766 10.207h-.943l-.516 2.648h.838c.557 0 .971-.105 1.242-.314.272-.21.455-.559.551-1.049.092-.47.049-.802-.125-.995s-.524-.29-1.047-.29z"/></svg></span><h3 class="srh-card__title">Maintainable plugins</h3><p class="srh-card__desc">Custom plugins written to WordPress standards with clean PHP, so your features survive core updates instead of breaking on them.</p></a>
+        <a class="srh-card" href="/quote-sunriver-consulting"><span class="srh-card__logo"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 4.4-3 7.6-7 9-4-1.4-7-4.6-7-9V6l7-3z"/><path d="M9 12l2 2 4-4.5"/></svg></span><h3 class="srh-card__title">Security & hardening</h3><p class="srh-card__desc">Least-privilege roles, locked-down config, and a tested update routine, so the site stays patched and off the easy-target list.</p></a>
+        <a class="srh-card" href="/quote-sunriver-consulting"><span class="srh-card__logo"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7"/><path d="M2 20h20"/></svg></span><h3 class="srh-card__title">WooCommerce</h3><p class="srh-card__desc">WooCommerce stores with products, payments, and shipping configured and tuned to stay fast as the catalog grows.</p></a>
+        <a class="srh-card" href="/quote-sunriver-consulting"><span class="srh-card__logo"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 18a8 8 0 1 1 14 0"/><path d="M12 12l3.6-2.4"/><circle cx="12" cy="12" r="1.3"/></svg></span><h3 class="srh-card__title">Performance</h3><p class="srh-card__desc">Caching, image handling, and query cleanup so pages load quickly under real traffic, not just on an empty staging box.</p></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="srh-band srh-band--rev srh-cta">
+    <canvas class="srh-band__canvas" data-srx-shader="smoke-veil" aria-hidden="true"></canvas>
+    <div class="srh-band__inner srx-reveal" style="text-align:center;">
+      <h2 class="srh-h2">Need WordPress built or hardened?</h2>
+      <p class="srh-lead" style="margin-inline:auto;">We&rsquo;ll build the custom theme, write plugins that last, lock the site down, and tune it for speed &mdash; fixed fee.</p>
+      <div class="srh-hero__ctas" style="justify-content:center;"><a class="srh-btn srh-btn--primary" href="/quote-sunriver-consulting">Get a Quick Estimate</a><a class="srh-btn srh-btn--light" href="/contact">Contact us</a></div>
+    </div>
+  </section>
+
+</div>
+{% endblock body %}

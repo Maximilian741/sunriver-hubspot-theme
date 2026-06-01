@@ -13,5 +13,7 @@ node_modules/
 _live-home.html
 _icons.json
 _gen.ps1
+_gen2.ps1
+_content/
 preview-*.html
 brand-preview.html

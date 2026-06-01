@@ -1,0 +1,54 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: SunRiver - Custom Websites
+  screenshot_path: ../../images/template-previews/home.jpg
+-->
+{#
+  .srh brand page (expert content) -- green-gold gradient + interactive smoke
+  veil + white brand-logo cards that hover into the featured gradient.
+  Content-only; styles in child.css (.srh), runtime in child.js. Does not
+  touch the live Home page.
+#}
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+<div class="srh">
+
+  <section class="srh-band">
+    <canvas class="srh-band__canvas" data-srx-shader="smoke-veil" aria-hidden="true"></canvas>
+    <div class="srh-band__inner srx-reveal" style="text-align:center;max-width:920px;">
+      <span class="srh-eyebrow">Web Development / Custom</span>
+      <h1 class="srh-h1" style="max-width:20ch;margin-inline:auto;">Custom sites with no template ceiling</h1>
+      <p class="srh-lead" style="margin-inline:auto;">React and Next.js in TypeScript, fed by a headless CMS, built on a design system instead of one-off pages. Core Web Vitals and WCAG 2.2 AA are budgets we hit before launch, not cleanup after.</p>
+      <div class="srh-hero__ctas" style="justify-content:center;"><a class="srh-btn srh-btn--primary" href="/quote-sunriver-consulting">Get a Quick Estimate</a><a class="srh-btn srh-btn--ghost" href="/schedule-a-consultation-sunriver-consulting">Schedule a Consultation</a></div>
+    </div>
+  </section>
+
+  <section class="srh-sec">
+    <div class="srh-sec__inner">
+      <div class="srx-reveal" style="text-align:center;max-width:720px;margin:0 auto;">
+        <span class="srh-eyebrow" style="color:var(--river);">In scope</span>
+        <h2 class="srh-h2">The work, specifically.</h2>
+      </div>
+      <div class="srh-cards" style="margin-top:2.4rem;">
+        <a class="srh-card srh-card--feature" href="/quote-sunriver-consulting"><span class="srh-card__logo"><svg viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M18.665 21.978C16.758 23.255 14.465 24 12 24 5.377 24 0 18.623 0 12S5.377 0 12 0s12 5.377 12 12c0 3.583-1.574 6.801-4.067 9.001L9.219 7.2H7.2v9.596h1.615V9.251l9.85 12.727Zm-3.332-8.533 1.6 2.061V7.2h-1.6v6.245Z"/></svg></span><h3 class="srh-card__title">React & Next.js</h3><p class="srh-card__desc">Server components, static rendering, and route-level code splitting in Next.js, so pages paint fast and the bundle stays lean.</p></a>
+        <a class="srh-card" href="/quote-sunriver-consulting"><span class="srh-card__logo"><svg viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M15.852 8.981h-4.588V0h4.588c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.491-4.49 4.491zM12.735 7.51h3.117c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-3.117V7.51zm0 1.471H8.148c-2.476 0-4.49-2.014-4.49-4.49S5.672 0 8.148 0h4.588v8.981zm-4.587-7.51c-1.665 0-3.019 1.355-3.019 3.019s1.354 3.02 3.019 3.02h3.117V1.471H8.148zm4.587 15.019H8.148c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h4.588v8.98zM8.148 8.981c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h3.117V8.981H8.148zM8.172 24c-2.489 0-4.515-2.014-4.515-4.49s2.014-4.49 4.49-4.49h4.588v4.441c0 2.503-2.047 4.539-4.563 4.539zm-.024-7.51a3.023 3.023 0 0 0-3.019 3.019c0 1.665 1.365 3.019 3.044 3.019 1.705 0 3.093-1.376 3.093-3.068v-2.97H8.148zm7.704 0h-.098c-2.476 0-4.49-2.014-4.49-4.49s2.014-4.49 4.49-4.49h.098c2.476 0 4.49 2.014 4.49 4.49s-2.014 4.49-4.49 4.49zm-.097-7.509c-1.665 0-3.019 1.355-3.019 3.019s1.355 3.019 3.019 3.019h.098c1.665 0 3.019-1.355 3.019-3.019s-1.355-3.019-3.019-3.019h-.098z"/></svg></span><h3 class="srh-card__title">Design system, not one-offs</h3><p class="srh-card__desc">Typed, reusable components mapped to Figma tokens, so every page stays on-brand and new sections take hours, not weeks.</p></a>
+        <a class="srh-card" href="/quote-sunriver-consulting"><span class="srh-card__logo"><svg viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M21.875 16.361c-.043-.048-1.067-1.18-2.365-1.19-.68 0-1.288.283-1.815.858-.773.842-2.35 1.85-4.25 1.921-1.598.059-3.085-.548-4.423-1.805-1.644-1.544-2.155-4.016-1.302-6.297.834-2.23 2.752-3.616 5.131-3.707l.044-.004c.024-.003 2.302-.258 4.325 1.548.17.185 1.154 1.197 2.475 1.228.823.018 1.586-.336 2.27-1.055.602-.632.87-1.342.797-2.112-.154-1.61-1.806-2.876-2.03-3.04-.212-.184-1.878-1.578-4.476-2.294-2.52-.695-6.42-.853-10.685 2.349a7.31 7.31 0 0 0-.557.49c-.28.208-.523.462-.716.753a12.469 12.469 0 0 0-3.064 8.677c.207 6.283 5.265 9.293 5.646 9.51.262.17 2.906 1.81 6.495 1.809 2.106 0 4.538-.565 7.005-2.322.248-.138 1.714-1.012 2.103-2.52.23-.894.042-1.815-.562-2.737l-.046-.06zm-16.932 1.97c0-1.09.887-1.977 1.977-1.977s1.977.886 1.977 1.977c0 1.09-.887 1.977-1.977 1.977s-1.977-.887-1.977-1.977zm.139-13.657c.236-.275.451-.498.628-.67a1.965 1.965 0 0 1 1.088-.329c1.09 0 1.977.887 1.977 1.977S7.888 7.63 6.798 7.63s-1.977-.887-1.977-1.977c0-.356.096-.69.261-.978zM13.249.999c3.954 0 6.657 2.336 6.826 2.486l.043.034c.42.3 1.532 1.301 1.63 2.324.044.469-.126.898-.52 1.313-.477.5-.983.752-1.504.738-.964-.019-1.743-.887-1.76-.905l-.042-.044c-2.292-2.063-4.83-1.855-5.13-1.822a6.82 6.82 0 0 0-3.012.818 3 3 0 0 0-2.34-3.214C9.543 1.45 11.516.999 13.248.999zM3.884 6.34a3 3 0 0 0 2.914 2.31c.122 0 .24-.01.358-.024a7.336 7.336 0 0 0-.39.866c-.75 2.003-.59 4.14.359 5.854-.068-.005-.136-.01-.205-.01a2.999 2.999 0 0 0-2.967 2.6 10.075 10.075 0 0 1-1.7-5.288 11.43 11.43 0 0 1 1.63-6.309zM21.497 18.9c-.3 1.174-1.615 1.89-1.627 1.896l-.058.036c-6.287 4.499-12.137.667-12.382.502l-.036-.022a2.848 2.848 0 0 1-.034-.02 2.998 2.998 0 0 0 2.543-3.228c1.124.64 2.336.951 3.58.906 2.214-.083 4.057-1.264 4.962-2.25.327-.356.67-.53 1.048-.53h.005c.762.004 1.46.688 1.593.826.421.658.558 1.291.406 1.884z"/></svg></span><h3 class="srh-card__title">Headless CMS</h3><p class="srh-card__desc">Contentful or Sanity behind a typed API, so editors update content freely while the front end never breaks.</p></a>
+        <a class="srh-card" href="/quote-sunriver-consulting"><span class="srh-card__logo"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 18a8 8 0 1 1 14 0"/><path d="M12 12l3.6-2.4"/><circle cx="12" cy="12" r="1.3"/></svg></span><h3 class="srh-card__title">Core Web Vitals & performance</h3><p class="srh-card__desc">LCP, CLS, and INP held to real budgets, with image, font, and caching strategy verified in the field before we ship.</p></a>
+        <a class="srh-card" href="/quote-sunriver-consulting"><span class="srh-card__logo"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="9" r="3"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0"/><path d="M16 7.5a3 3 0 0 1 0 5.8"/><path d="M20.5 19a5.5 5.5 0 0 0-3-4.9"/></svg></span><h3 class="srh-card__title">Accessibility (WCAG 2.2 AA)</h3><p class="srh-card__desc">Keyboard paths, focus order, ARIA, and contrast checked against WCAG 2.2 AA, then confirmed with a screen reader.</p></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="srh-band srh-band--rev srh-cta">
+    <canvas class="srh-band__canvas" data-srx-shader="smoke-veil" aria-hidden="true"></canvas>
+    <div class="srh-band__inner srx-reveal" style="text-align:center;">
+      <h2 class="srh-h2">Outgrown what a template can do?</h2>
+      <p class="srh-lead" style="margin-inline:auto;">We&rsquo;ll build it in React and TypeScript on a design system, prove the Web Vitals and WCAG, and hand you the repo.</p>
+      <div class="srh-hero__ctas" style="justify-content:center;"><a class="srh-btn srh-btn--primary" href="/quote-sunriver-consulting">Get a Quick Estimate</a><a class="srh-btn srh-btn--light" href="/contact">Contact us</a></div>
+    </div>
+  </section>
+
+</div>
+{% endblock body %}

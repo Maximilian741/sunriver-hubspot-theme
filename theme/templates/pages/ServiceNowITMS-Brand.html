@@ -1,0 +1,54 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: SunRiver - ServiceNow ITSM
+  screenshot_path: ../../images/template-previews/home.jpg
+-->
+{#
+  .srh brand page (expert content) -- green-gold gradient + interactive smoke
+  veil + white brand-logo cards that hover into the featured gradient.
+  Content-only; styles in child.css (.srh), runtime in child.js. Does not
+  touch the live Home page.
+#}
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+<div class="srh">
+
+  <section class="srh-band">
+    <canvas class="srh-band__canvas" data-srx-shader="smoke-veil" aria-hidden="true"></canvas>
+    <div class="srh-band__inner srx-reveal" style="text-align:center;max-width:920px;">
+      <span class="srh-eyebrow">Business Solutions / ServiceNow ITSM</span>
+      <h1 class="srh-h1" style="max-width:20ch;margin-inline:auto;">ServiceNow ITSM your team will use</h1>
+      <p class="srh-lead" style="margin-inline:auto;">Incident and change management, an accurate CMDB, and a service catalog that earns its keep. ServiceNow configured around your processes so adoption follows naturally.</p>
+      <div class="srh-hero__ctas" style="justify-content:center;"><a class="srh-btn srh-btn--primary" href="/quote-sunriver-consulting">Get a Quick Estimate</a><a class="srh-btn srh-btn--ghost" href="/schedule-a-consultation-sunriver-consulting">Schedule a Consultation</a></div>
+    </div>
+  </section>
+
+  <section class="srh-sec">
+    <div class="srh-sec__inner">
+      <div class="srx-reveal" style="text-align:center;max-width:720px;margin:0 auto;">
+        <span class="srh-eyebrow" style="color:var(--river);">In scope</span>
+        <h2 class="srh-h2">The work, specifically.</h2>
+      </div>
+      <div class="srh-cards" style="margin-top:2.4rem;">
+        <a class="srh-card srh-card--feature" href="/quote-sunriver-consulting"><span class="srh-card__logo"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 7a4 4 0 0 1-5.2 4.8L5 16.6 7.4 19l4.8-4.8A4 4 0 0 0 17 9l-2.2 2.2-2-2L15 7z"/></svg></span><h3 class="srh-card__title">Incident &amp; change</h3><p class="srh-card__desc">Incident, problem, and change workflows aligned to ITIL practice and the way your team really responds.</p></a>
+        <a class="srh-card" href="/quote-sunriver-consulting"><span class="srh-card__logo"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="5.5" rx="7.5" ry="3"/><path d="M4.5 5.5v13c0 1.66 3.36 3 7.5 3s7.5-1.34 7.5-3v-13"/><path d="M4.5 12c0 1.66 3.36 3 7.5 3s7.5-1.34 7.5-3"/></svg></span><h3 class="srh-card__title">CMDB</h3><p class="srh-card__desc">A configuration management database kept accurate through discovery, so relationships are trustworthy.</p></a>
+        <a class="srh-card" href="/quote-sunriver-consulting"><span class="srh-card__logo"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 18a8 8 0 1 1 14 0"/><path d="M12 12l3.6-2.4"/><circle cx="12" cy="12" r="1.3"/></svg></span><h3 class="srh-card__title">Workflows</h3><p class="srh-card__desc">Flow Designer automations for approvals, assignment, and SLAs that move work without manual nudging.</p></a>
+        <a class="srh-card" href="/quote-sunriver-consulting"><span class="srh-card__logo"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.5 3.8 5.7 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.7-3.8-9S9.5 5.5 12 3z"/></svg></span><h3 class="srh-card__title">Integrations</h3><p class="srh-card__desc">Integration Hub and REST connections to monitoring, HR, and directory systems, so records stay in sync.</p></a>
+        <a class="srh-card" href="/quote-sunriver-consulting"><span class="srh-card__logo"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M9.5 13h6M9.5 16.5h6"/></svg></span><h3 class="srh-card__title">Service catalog</h3><p class="srh-card__desc">Catalog items and request workflows that give people a clear, self-service front door to IT.</p></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="srh-band srh-band--rev srh-cta">
+    <canvas class="srh-band__canvas" data-srx-shader="smoke-veil" aria-hidden="true"></canvas>
+    <div class="srh-band__inner srx-reveal" style="text-align:center;">
+      <h2 class="srh-h2">Is ServiceNow underused or overgrown?</h2>
+      <p class="srh-lead" style="margin-inline:auto;">Get in touch and we&rsquo;ll review your ITSM processes and CMDB, then scope a fixed-fee engagement.</p>
+      <div class="srh-hero__ctas" style="justify-content:center;"><a class="srh-btn srh-btn--primary" href="/quote-sunriver-consulting">Get a Quick Estimate</a><a class="srh-btn srh-btn--light" href="/contact">Contact us</a></div>
+    </div>
+  </section>
+
+</div>
+{% endblock body %}

@@ -1,0 +1,54 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: SunRiver - iOS & iPadOS Apps
+  screenshot_path: ../../images/template-previews/home.jpg
+-->
+{#
+  .srh brand page (expert content) -- green-gold gradient + interactive smoke
+  veil + white brand-logo cards that hover into the featured gradient.
+  Content-only; styles in child.css (.srh), runtime in child.js. Does not
+  touch the live Home page.
+#}
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+<div class="srh">
+
+  <section class="srh-band">
+    <canvas class="srh-band__canvas" data-srx-shader="smoke-veil" aria-hidden="true"></canvas>
+    <div class="srh-band__inner srx-reveal" style="text-align:center;max-width:920px;">
+      <span class="srh-eyebrow">App Development / iOS</span>
+      <h1 class="srh-h1" style="max-width:20ch;margin-inline:auto;">iOS apps that pass review the first time</h1>
+      <p class="srh-lead" style="margin-inline:auto;">Swift and SwiftUI built to the Human Interface Guidelines, shipped through TestFlight, and tuned for App Store review before we submit. Privacy and ATT handled correctly, not bolted on.</p>
+      <div class="srh-hero__ctas" style="justify-content:center;"><a class="srh-btn srh-btn--primary" href="/quote-sunriver-consulting">Get a Quick Estimate</a><a class="srh-btn srh-btn--ghost" href="/schedule-a-consultation-sunriver-consulting">Schedule a Consultation</a></div>
+    </div>
+  </section>
+
+  <section class="srh-sec">
+    <div class="srh-sec__inner">
+      <div class="srx-reveal" style="text-align:center;max-width:720px;margin:0 auto;">
+        <span class="srh-eyebrow" style="color:var(--river);">In scope</span>
+        <h2 class="srh-h2">The work, specifically.</h2>
+      </div>
+      <div class="srh-cards" style="margin-top:2.4rem;">
+        <a class="srh-card srh-card--feature" href="/quote-sunriver-consulting"><span class="srh-card__logo"><svg viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M7.508 0c-.287 0-.573 0-.86.002-.241.002-.483.003-.724.01-.132.003-.263.009-.395.015A9.154 9.154 0 0 0 4.348.15 5.492 5.492 0 0 0 2.85.645 5.04 5.04 0 0 0 .645 2.848c-.245.48-.4.972-.495 1.5-.093.52-.122 1.05-.136 1.576a35.2 35.2 0 0 0-.012.724C0 6.935 0 7.221 0 7.508v8.984c0 .287 0 .575.002.862.002.24.005.481.012.722.014.526.043 1.057.136 1.576.095.528.25 1.02.495 1.5a5.03 5.03 0 0 0 2.205 2.203c.48.244.97.4 1.498.495.52.093 1.05.124 1.576.138.241.007.483.009.724.01.287.002.573.002.86.002h8.984c.287 0 .573 0 .86-.002.241-.001.483-.003.724-.01a10.523 10.523 0 0 0 1.578-.138 5.322 5.322 0 0 0 1.498-.495 5.035 5.035 0 0 0 2.203-2.203c.245-.48.4-.972.495-1.5.093-.52.124-1.05.138-1.576.007-.241.009-.481.01-.722.002-.287.002-.575.002-.862V7.508c0-.287 0-.573-.002-.86a33.662 33.662 0 0 0-.01-.724 10.5 10.5 0 0 0-.138-1.576 5.328 5.328 0 0 0-.495-1.5A5.039 5.039 0 0 0 21.152.645 5.32 5.32 0 0 0 19.654.15a10.493 10.493 0 0 0-1.578-.138 34.98 34.98 0 0 0-.722-.01C17.067 0 16.779 0 16.492 0H7.508zm6.035 3.41c4.114 2.47 6.545 7.162 5.549 11.131-.024.093-.05.181-.076.272l.002.001c2.062 2.538 1.5 5.258 1.236 4.745-1.072-2.086-3.066-1.568-4.088-1.043a6.803 6.803 0 0 1-.281.158l-.02.012-.002.002c-2.115 1.123-4.957 1.205-7.812-.022a12.568 12.568 0 0 1-5.64-4.838c.649.48 1.35.902 2.097 1.252 3.019 1.414 6.051 1.311 8.197-.002C9.651 12.73 7.101 9.67 5.146 7.191a10.628 10.628 0 0 1-1.005-1.384c2.34 2.142 6.038 4.83 7.365 5.576C8.69 8.408 6.208 4.743 6.324 4.86c4.436 4.47 8.528 6.996 8.528 6.996.154.085.27.154.36.213.085-.215.16-.437.224-.668.708-2.588-.09-5.548-1.893-7.992z"/></svg></span><h3 class="srh-card__title">Swift & SwiftUI</h3><p class="srh-card__desc">SwiftUI with async/await and Combine where it fits, adaptive layouts that scale from iPhone SE to iPad in one codebase.</p></a>
+        <a class="srh-card" href="/quote-sunriver-consulting"><span class="srh-card__logo"><svg viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg></span><h3 class="srh-card__title">App Store review & TestFlight</h3><p class="srh-card__desc">TestFlight builds for your stakeholders and a submission that clears the App Review Guidelines without the rejection ping-pong.</p></a>
+        <a class="srh-card" href="/quote-sunriver-consulting"><span class="srh-card__logo"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><line x1="10.5" y1="18.5" x2="13.5" y2="18.5"/></svg></span><h3 class="srh-card__title">Human Interface Guidelines</h3><p class="srh-card__desc">Native navigation, Dynamic Type, and Dark Mode that match what iOS users expect &mdash; so the app feels Apple-made.</p></a>
+        <a class="srh-card" href="/quote-sunriver-consulting"><span class="srh-card__logo"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l1.8 6.2L20 11l-6.2 1.8L12 19l-1.8-6.2L4 11l6.2-1.8z"/></svg></span><h3 class="srh-card__title">Push & notifications</h3><p class="srh-card__desc">APNs push with rich and silent notifications, permission prompts timed so users actually say yes.</p></a>
+        <a class="srh-card" href="/quote-sunriver-consulting"><span class="srh-card__logo"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span><h3 class="srh-card__title">Privacy & App Tracking Transparency</h3><p class="srh-card__desc">Honest privacy nutrition labels, an ATT prompt only when warranted, and data handling that survives review scrutiny.</p></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="srh-band srh-band--rev srh-cta">
+    <canvas class="srh-band__canvas" data-srx-shader="smoke-veil" aria-hidden="true"></canvas>
+    <div class="srh-band__inner srx-reveal" style="text-align:center;">
+      <h2 class="srh-h2">Need it on the App Store?</h2>
+      <p class="srh-lead" style="margin-inline:auto;">We&rsquo;ll build it in Swift, get it through TestFlight, and submit it ready to be approved &mdash; not bounced.</p>
+      <div class="srh-hero__ctas" style="justify-content:center;"><a class="srh-btn srh-btn--primary" href="/quote-sunriver-consulting">Get a Quick Estimate</a><a class="srh-btn srh-btn--light" href="/contact">Contact us</a></div>
+    </div>
+  </section>
+
+</div>
+{% endblock body %}

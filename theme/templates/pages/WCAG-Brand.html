@@ -1,0 +1,54 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: SunRiver - WCAG 2.2 Audits
+  screenshot_path: ../../images/template-previews/home.jpg
+-->
+{#
+  .srh brand page (expert content) -- green-gold gradient + interactive smoke
+  veil + white brand-logo cards that hover into the featured gradient.
+  Content-only; styles in child.css (.srh), runtime in child.js. Does not
+  touch the live Home page.
+#}
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+<div class="srh">
+
+  <section class="srh-band">
+    <canvas class="srh-band__canvas" data-srx-shader="smoke-veil" aria-hidden="true"></canvas>
+    <div class="srh-band__inner srx-reveal" style="text-align:center;max-width:920px;">
+      <span class="srh-eyebrow">Compliance Audits / WCAG 2.2</span>
+      <h1 class="srh-h1" style="max-width:20ch;margin-inline:auto;">Accessible to everyone, proven not assumed.</h1>
+      <p class="srh-lead" style="margin-inline:auto;">WCAG 2.0 through 2.2 conformance audits driven by real assistive-technology testing &mdash; not just an automated scan. You get a defensible VPAT and a remediation list your developers can work straight through.</p>
+      <div class="srh-hero__ctas" style="justify-content:center;"><a class="srh-btn srh-btn--primary" href="/quote-sunriver-consulting">Get a Quick Estimate</a><a class="srh-btn srh-btn--ghost" href="/schedule-a-consultation-sunriver-consulting">Schedule a Consultation</a></div>
+    </div>
+  </section>
+
+  <section class="srh-sec">
+    <div class="srh-sec__inner">
+      <div class="srx-reveal" style="text-align:center;max-width:720px;margin:0 auto;">
+        <span class="srh-eyebrow" style="color:var(--river);">In scope</span>
+        <h2 class="srh-h2">The work, specifically.</h2>
+      </div>
+      <div class="srh-cards" style="margin-top:2.4rem;">
+        <a class="srh-card srh-card--feature" href="/quote-sunriver-consulting"><span class="srh-card__logo"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.5 3.8 5.7 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.7-3.8-9S9.5 5.5 12 3z"/></svg></span><h3 class="srh-card__title">WCAG 2.2 AA Conformance</h3><p class="srh-card__desc">Every applicable success criterion checked against 2.2 Level AA, including the new focus, target-size, and dragging requirements.</p></a>
+        <a class="srh-card" href="/quote-sunriver-consulting"><span class="srh-card__logo"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span><h3 class="srh-card__title">Screen-Reader Testing</h3><p class="srh-card__desc">Hands-on testing with NVDA and VoiceOver to confirm content, structure, and announcements actually make sense aloud.</p></a>
+        <a class="srh-card" href="/quote-sunriver-consulting"><span class="srh-card__logo"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 7a4 4 0 0 1-5.2 4.8L5 16.6 7.4 19l4.8-4.8A4 4 0 0 0 17 9l-2.2 2.2-2-2L15 7z"/></svg></span><h3 class="srh-card__title">Keyboard Navigation</h3><p class="srh-card__desc">Full keyboard-only walkthroughs &mdash; logical focus order, visible focus, no traps, and operable custom widgets.</p></a>
+        <a class="srh-card" href="/quote-sunriver-consulting"><span class="srh-card__logo"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l1.8 6.2L20 11l-6.2 1.8L12 19l-1.8-6.2L4 11l6.2-1.8z"/></svg></span><h3 class="srh-card__title">Color Contrast</h3><p class="srh-card__desc">Text, UI components, and graphics measured against contrast minimums, with accessible palette fixes you can apply.</p></a>
+        <a class="srh-card" href="/quote-sunriver-consulting"><span class="srh-card__logo"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M9.5 13h6M9.5 16.5h6"/></svg></span><h3 class="srh-card__title">VPAT &amp; Statement</h3><p class="srh-card__desc">A completed VPAT and a public accessibility statement that stand up to procurement and legal review.</p></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="srh-band srh-band--rev srh-cta">
+    <canvas class="srh-band__canvas" data-srx-shader="smoke-veil" aria-hidden="true"></canvas>
+    <div class="srh-band__inner srx-reveal" style="text-align:center;">
+      <h2 class="srh-h2">Need to prove WCAG conformance?</h2>
+      <p class="srh-lead" style="margin-inline:auto;">We will audit it against 2.2 AA and hand you the VPAT and the fix list.</p>
+      <div class="srh-hero__ctas" style="justify-content:center;"><a class="srh-btn srh-btn--primary" href="/quote-sunriver-consulting">Get a Quick Estimate</a><a class="srh-btn srh-btn--light" href="/contact">Contact us</a></div>
+    </div>
+  </section>
+
+</div>
+{% endblock body %}
