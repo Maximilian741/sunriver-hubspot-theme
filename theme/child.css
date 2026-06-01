@@ -382,9 +382,9 @@
 .srx-card__icon svg { width:24px; height:24px; display:block; fill:none; stroke:currentColor; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; }
 .srx-card:hover .srx-card__icon { color:var(--sun); border-color:color-mix(in oklab,var(--sun) 45%,var(--line)); }
 .srx-card:active { transform:translateY(-1px) scale(.985); transition-duration:.08s; }
-.srx-card__ripple { position:absolute; border-radius:50%; transform:scale(0); pointer-events:none; background:radial-gradient(circle, color-mix(in oklab,var(--river) 55%,transparent), transparent 70%); animation:srx-ripple .6s ease-out forwards; }
+.sr-ripple { position:absolute; border-radius:50%; transform:scale(0); pointer-events:none; animation:srx-ripple .6s ease-out forwards; background:radial-gradient(circle, color-mix(in oklab,var(--river) 55%,transparent), transparent 70%); }
 @keyframes srx-ripple { to { transform:scale(2.4); opacity:0; } }
-@media (prefers-reduced-motion: reduce){ .srx-card__ripple { display:none; } }
+@media (prefers-reduced-motion: reduce){ .sr-ripple { display:none; } }
 .srx-card__title { font-family:var(--head); font-weight:600; font-size:1.22rem; color:var(--ink); margin:0; }
 .srx-card__desc { margin:0; font-size:.98rem; line-height:1.55; color:var(--muted); flex:1; }
 .srx-card__cta { font-family:var(--mono); font-size:.82rem; letter-spacing:.04em; color:var(--sun); display:inline-flex; align-items:center; gap:6px; }
@@ -710,3 +710,38 @@
 .srx--neon .srx-card:hover { box-shadow:0 18px 44px -20px rgba(6,224,173,.55); border-color:color-mix(in oklab,#06e0ad 55%,var(--line)); }
 .srx--neon .srx-chip { box-shadow:inset 0 0 0 1px rgba(6,224,173,.18); }
 .srx--neon .srx-tag:hover { border-color:color-mix(in oklab,#21c700 55%,var(--line)); box-shadow:0 0 18px -6px rgba(33,199,0,.6); }
+
+/* ============================================================
+   .srh — SunRiver brand home: the green->gold gradient + white
+   brand-logo cards (your existing look), with the smoke riding
+   ON TOP as a transparent veil. NOT a dark theme.
+   ============================================================ */
+.srh { --ink:#0c2114; --paper:#ffffff; --muted:#5b6f78; --green:#2bb300; --valley:#8FC740; --sun:#FBC34A; --gold:#f1c233; --river:#3E9DB8; --deep:#1C5B77; color:var(--ink); }
+.srh-hero { position:relative; overflow:hidden; isolation:isolate; background:linear-gradient(135deg,#23a800 0%,#52c018 26%,#8FC740 52%,#cdbf3c 78%,#f1c233 100%); }
+.srh-hero__canvas { position:absolute; inset:0; width:100%; height:100%; z-index:0; pointer-events:none; }
+.srh-hero__inner { position:relative; z-index:1; max-width:1200px; margin:0 auto; padding:clamp(56px,9vw,116px) clamp(20px,5vw,48px); display:grid; grid-template-columns:minmax(260px,0.9fr) 1.55fr; gap:clamp(28px,5vw,60px); align-items:center; }
+.srh-hero__title { margin:0; font-family:var(--head,"Poppins",system-ui,sans-serif); font-weight:700; letter-spacing:-.02em; font-size:clamp(2.3rem,5vw,4rem); line-height:1.03; color:var(--ink); }
+.srh-hero__sub { margin:1.1rem 0 0; max-width:36ch; font-size:1.08rem; line-height:1.55; color:#123a1f; }
+.srh-hero__ctas { display:flex; flex-wrap:wrap; gap:12px; margin-top:1.8rem; }
+.srh-btn { display:inline-flex; align-items:center; gap:8px; padding:13px 22px; border-radius:11px; font-family:var(--head,"Poppins",sans-serif); font-weight:600; font-size:.98rem; text-decoration:none; transition:transform .15s ease, box-shadow .2s ease; }
+.srh-btn--primary { background:#0c2114; color:#eafff0; box-shadow:0 16px 32px -16px rgba(8,30,16,.75); }
+.srh-btn--primary:hover { transform:translateY(-2px); box-shadow:0 22px 40px -16px rgba(8,30,16,.85); }
+.srh-btn--ghost { background:rgba(255,255,255,.82); color:#0c2114; border:1px solid rgba(12,33,20,.16); }
+.srh-btn--ghost:hover { background:#fff; transform:translateY(-2px); }
+/* cards — white, real brand marks; one featured gradient card */
+.srh-cards { display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(14px,1.6vw,20px); }
+.srh-card { position:relative; overflow:hidden; display:flex; flex-direction:column; gap:9px; padding:24px 22px; border-radius:16px; background:var(--paper); text-decoration:none; border:1px solid rgba(12,33,20,.06); box-shadow:0 18px 40px -26px rgba(8,30,16,.55); transition:transform .2s ease, box-shadow .2s ease; }
+.srh-card:hover { transform:translateY(-5px); box-shadow:0 28px 56px -26px rgba(8,30,16,.62); }
+.srh-card:active { transform:translateY(-2px) scale(.99); transition-duration:.08s; }
+.srh-card__logo { width:40px; height:40px; display:grid; place-items:center; }
+.srh-card__logo svg { width:31px; height:31px; fill:var(--deep); }
+.srh-card__title { margin:5px 0 0; font-family:var(--head,"Poppins",sans-serif); font-weight:600; font-size:1.16rem; color:var(--ink); }
+.srh-card__desc { margin:0; font-size:.95rem; line-height:1.5; color:var(--muted); }
+.srh-card--feature { background:linear-gradient(150deg,#3E9DB8 0%,#5bbf8a 55%,#8FC740 100%); border:0; box-shadow:0 24px 48px -22px rgba(28,91,119,.72); }
+.srh-card--feature .srh-card__title { color:#fff; }
+.srh-card--feature .srh-card__desc { color:rgba(255,255,255,.92); }
+.srh-card--feature .srh-card__logo svg { fill:#fff; }
+.srh-card .sr-ripple { background:radial-gradient(circle, rgba(62,157,184,.40), transparent 70%); }
+.srh-card--feature .sr-ripple { background:radial-gradient(circle, rgba(255,255,255,.5), transparent 70%); }
+@media (max-width:980px){ .srh-hero__inner { grid-template-columns:1fr; } .srh-cards { grid-template-columns:repeat(2,1fr); } }
+@media (max-width:560px){ .srh-cards { grid-template-columns:1fr; } }

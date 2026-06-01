@@ -244,11 +244,11 @@
     // tactile click ripple on the .srx boxes — highlight on hover, react on click
     if (!reduce) {
       document.addEventListener('pointerdown', function (e) {
-        var box = e.target && e.target.closest ? e.target.closest('.srx-card') : null;
+        var box = e.target && e.target.closest ? e.target.closest('.srx-card, .srh-card') : null;
         if (!box) return;
         var r = box.getBoundingClientRect(), size = Math.max(r.width, r.height);
         var sp = document.createElement('span');
-        sp.className = 'srx-card__ripple';
+        sp.className = 'sr-ripple';
         sp.style.width = sp.style.height = size + 'px';
         sp.style.left = (e.clientX - r.left - size / 2) + 'px';
         sp.style.top = (e.clientY - r.top - size / 2) + 'px';
@@ -334,7 +334,19 @@
       'vec3 col=night;col=mix(col,chr,smoothstep(0.1,0.5,dense));col=mix(col,umber,smoothstep(0.45,0.85,dense));' +
       'col+=ember*pow(dense,5.0)*0.85;col+=gold*pow(dense,9.0)*0.55;' +
       'col*=1.0-0.45*dot(p,p);col+=(hash(gl_FragCoord.xy+u_time)-0.5)*0.025;gl_FragColor=vec4(col,1.0);}';
-    var FRAG = { ember: EMBER, maple: MAPLE, 'ember-neon': EMBER_NEON, 'maple-neon': MAPLE_NEON, 'ember-warm': EMBER_WARM };
+    // Transparent smoke VEIL — dark teal-ink wisps that drift OVER a bright
+    // background (e.g. the green->gold home gradient). Outputs straight alpha
+    // (context is premultipliedAlpha:false) so the page shows through.
+    var SMOKE_VEIL = COMMON +
+      'void main(){vec2 p=(gl_FragCoord.xy-0.5*u_res.xy)/u_res.y;float t=u_time*0.09;' +
+      'vec2 q=p*1.25;q.y+=t*0.6;q+=0.5*vec2(fbm(q+t),fbm(q*1.2-t+5.0));q=warp(q,p);' +
+      'float smoke=fbm(q*1.25);float dense=smoothstep(0.42,0.98,smoke);' +
+      'float wisp=fbm(q*2.6+vec2(0.0,t*1.3));dense*=0.5+0.7*wisp;' +
+      'vec3 ink=vec3(0.02,0.08,0.06);vec3 tealdk=vec3(0.03,0.18,0.24);' +
+      'vec3 col=mix(ink,tealdk,smoothstep(0.3,1.0,dense));' +
+      'float a=clamp(dense,0.0,1.0)*0.5;' +
+      'gl_FragColor=vec4(col,a);}';
+    var FRAG = { ember: EMBER, maple: MAPLE, 'ember-neon': EMBER_NEON, 'maple-neon': MAPLE_NEON, 'ember-warm': EMBER_WARM, 'smoke-veil': SMOKE_VEIL };
 
     function run(canvas, fragSrc) {
       var gl = canvas.getContext('webgl', { antialias: true, premultipliedAlpha: false });
