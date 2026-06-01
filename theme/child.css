@@ -771,6 +771,8 @@
 .srh-card--feature { border-color:transparent; box-shadow:0 24px 48px -22px rgba(28,91,119,.7); }
 .srh-card--feature::before { opacity:1; }
 .srh-card .sr-ripple { background:radial-gradient(circle, rgba(255,255,255,.55), transparent 70%); }
+.srh-card__logo svg.mono { fill:none !important; stroke:var(--deep); stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; }
+.srh-card:hover .srh-card__logo svg.mono, .srh-card--feature .srh-card__logo svg.mono { stroke:#fff; }
 
 /* stat counters */
 .srh-stats { display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(16px,3vw,40px); }

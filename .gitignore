@@ -8,3 +8,10 @@ node_modules/
 
 # Logs
 *.log
+
+# local build / preview artifacts (not part of the theme)
+_live-home.html
+_icons.json
+_gen.ps1
+preview-*.html
+brand-preview.html
