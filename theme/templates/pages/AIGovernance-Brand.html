@@ -1,0 +1,55 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: SunRiver - AI Audits &amp; Governance
+  screenshot_path: ../../images/template-previews/home.jpg
+-->
+{#
+  Tier-2 deep-dive page (.srd) -- white sheet on the green + smoke (warms to
+  ember on scroll). Dropdowns + multi-column detail. Linked from the
+  AI Solutions page modal. Does not touch live Home.
+#}
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+<div class="srd">
+  <div class="srd__sky" aria-hidden="true"></div>
+  <canvas class="srd__canvas" data-srx-shader="smoke-veil" aria-hidden="true"></canvas>
+  <div class="srd__wrap">
+    <div class="srd-top">
+      <a class="srd-brand" href="/"><svg viewBox="0 0 64 66" width="26" height="27" aria-hidden="true"><defs><radialGradient id="srSun" cx="36%" cy="32%" r="72%"><stop offset="0%" stop-color="#FBC34A"/><stop offset="82%" stop-color="#8FC740"/></radialGradient><linearGradient id="srWater" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#3E9DB8"/><stop offset="100%" stop-color="#FBC34A"/></linearGradient></defs><circle cx="32" cy="21" r="15" fill="url(#srSun)"/><g fill="url(#srWater)"><rect x="9" y="43" width="46" height="4.8" rx="2.4"/><rect x="16" y="51.5" width="32" height="4.8" rx="2.4" opacity="0.82"/><rect x="22" y="60" width="20" height="4.8" rx="2.4" opacity="0.55"/></g></svg><span>Sun<b>River</b></span></a>
+      <a class="srd-back" href="/ai-solutions-sunriver-consulting">&larr; AI Solutions</a>
+    </div>
+    <div class="srd-sheet srx-reveal">
+      <div class="srd-head">
+        <span class="srd-head__ic"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 4.4-3 7.6-7 9-4-1.4-7-4.6-7-9V6l7-3z"/><path d="M9 12l2 2 4-4.5"/></svg></span>
+        <div><span class="srd-eyebrow">AI Solutions / Audits &amp; Governance</span><h1 class="srd-h1">Keep AI accountable after it launches</h1></div>
+      </div>
+      <p class="srd-lead">Shipping an AI feature is the start, not the finish. We measure how accurate it really is, check for hallucination, bias, and unsafe output, and leave you a usage policy and monitoring &mdash; so you can answer for what your AI does long after launch day.</p>
+      <div class="srd-cta">
+        <a class="srh-btn srh-btn--primary" href="/quote-sunriver-consulting">Get a quick estimate &rarr;</a>
+        <a class="srh-btn srh-btn--ghost" href="System.Collections.Hashtable">Book a consultation</a>
+      </div>
+      <div class="srd-stack"><span class="srd-stack__lab">Scope</span><span class="srd-chip"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 18a8 8 0 1 1 14 0"/><path d="M12 12l3.6-2.4"/><circle cx="12" cy="12" r="1.3"/></svg>Accuracy &amp; hallucination testing</span><span class="srd-chip"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 4.4-3 7.6-7 9-4-1.4-7-4.6-7-9V6l7-3z"/><path d="M9 12l2 2 4-4.5"/></svg>Bias &amp; safety checks</span><span class="srd-chip"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M9.5 13h6M9.5 16.5h6"/></svg>Usage policy</span><span class="srd-chip"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7"/><path d="M2 20h20"/></svg>Monitoring &amp; drift</span><span class="srd-chip"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="5.5" rx="7.5" ry="3"/><path d="M4.5 5.5v13c0 1.66 3.36 3 7.5 3s7.5-1.34 7.5-3v-13"/><path d="M4.5 12c0 1.66 3.36 3 7.5 3s7.5-1.34 7.5-3"/></svg>Responsible-use documentation</span></div>
+      <h2 class="srd-sectit">What we focus on</h2>
+      <div class="srh-faq">
+          <div class="srh-faq__item"><button class="srh-faq__q" type="button">Accuracy &amp; hallucination testing</button><div class="srh-faq__a"><div>We turn &ldquo;it seems accurate&rdquo; into a measurement. We build an evaluation set drawn from your real use cases with known-correct answers, then score outputs systematically for correctness and for hallucination &mdash; confident claims with no basis in the source data. For retrieval-based systems we check faithfulness to the provided context specifically. The result is a baseline accuracy number you can track release over release, so you know whether a prompt tweak or model upgrade actually helped or quietly made things worse.</div></div></div>
+          <div class="srh-faq__item"><button class="srh-faq__q" type="button">Bias &amp; safety checks</button><div class="srh-faq__a"><div>We probe the system the way a motivated user or a bad day would. Structured red-teaming feeds adversarial and edge-case prompts to surface unsafe, off-policy, or manipulable behavior, and fairness testing checks for biased or inconsistent treatment across the groups and scenarios that matter in your context. The point is to find the harmful or embarrassing response in a controlled review &mdash; with a fix or a guardrail to follow &mdash; rather than discovering it when it&rsquo;s already in front of a customer or in a screenshot.</div></div></div>
+          <div class="srh-faq__item"><button class="srh-faq__q" type="button">Usage policy</button><div class="srh-faq__a"><div>A usage policy keeps people from improvising the rules one prompt at a time. We draft a plain-language policy covering approved uses, which data must never be entered, when human review is mandatory, and how to handle AI output in customer-facing or high-stakes work. It&rsquo;s written to be read and followed, not filed and forgotten, and we tailor it to your tools and risk tolerance so it&rsquo;s practical &mdash; clear enough that a new hire knows the boundaries on day one and specific enough to actually govern behavior.</div></div></div>
+          <div class="srh-faq__item"><button class="srh-faq__q" type="button">Monitoring &amp; drift</button><div class="srh-faq__a"><div>Models and usage drift, so governance has to continue after launch. We instrument the system to log inputs, outputs, cost, and failures, and build dashboards on the signals that reveal quality slipping: rising error or refusal rates, latency and spend creeping up, and shifts in how people are actually using it. Alerts fire when behavior changes after a provider updates a model or a new use pattern emerges, so a regression is caught and investigated early instead of compounding silently into a trust problem.</div></div></div>
+          <div class="srh-faq__item"><button class="srh-faq__q" type="button">Responsible-use documentation</button><div class="srh-faq__a"><div>When a regulator, board, or customer asks how your AI works and why it can be trusted, you should have a documented answer ready. We produce model cards describing capabilities, limitations, and intended use, decision logs capturing why the system was built the way it was, and an audit trail of behavior and changes over time. This responsible-use documentation demonstrates due diligence, makes the system legible to people who weren&rsquo;t in the room when it was built, and turns governance from a vague intention into evidence you can show.</div></div></div>
+      </div>
+      <h2 class="srd-sectit">Why it matters</h2>
+      <div class="srd-cols"><p>We build evaluation sets and score real outputs for correctness and made-up content, turning &ldquo;it seems fine&rdquo; into a number you can track over time.</p><p>Structured red-teaming and fairness testing across the cases that matter to you, so harmful, biased, or off-policy responses surface in review and not in front of a customer.</p><p>A plain-language policy on approved uses, off-limits data, and required human review, so your team knows the rules instead of improvising them one prompt at a time.</p><p>Logging and dashboards on quality, cost, and failures in production, with alerts when behavior drifts after a model update or a change in how people use it.</p><p>Model cards, decision logs, and an audit trail of what the system does and why, so a regulator, board, or customer gets a straight, documented answer.</p></div>
+      <div class="srd-end">
+        <h3>Can you stand behind what your AI does?</h3>
+        <p>Send us the AI feature or tool in question and we&rsquo;ll quote a fixed-fee audit &mdash; accuracy, safety, and the governance to keep it trustworthy.</p>
+        <div class="srd-cta">
+          <a class="srh-btn srh-btn--primary" href="/quote-sunriver-consulting">Get a Quick Estimate &rarr;</a>
+          <a class="srh-btn srh-btn--ghost" href="/contact">Contact us</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock body %}

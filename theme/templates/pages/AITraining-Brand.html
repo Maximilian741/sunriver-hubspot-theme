@@ -1,0 +1,55 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: SunRiver - AI Training &amp; Coaching
+  screenshot_path: ../../images/template-previews/home.jpg
+-->
+{#
+  Tier-2 deep-dive page (.srd) -- white sheet on the green + smoke (warms to
+  ember on scroll). Dropdowns + multi-column detail. Linked from the
+  AI Solutions page modal. Does not touch live Home.
+#}
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+<div class="srd">
+  <div class="srd__sky" aria-hidden="true"></div>
+  <canvas class="srd__canvas" data-srx-shader="smoke-veil" aria-hidden="true"></canvas>
+  <div class="srd__wrap">
+    <div class="srd-top">
+      <a class="srd-brand" href="/"><svg viewBox="0 0 64 66" width="26" height="27" aria-hidden="true"><defs><radialGradient id="srSun" cx="36%" cy="32%" r="72%"><stop offset="0%" stop-color="#FBC34A"/><stop offset="82%" stop-color="#8FC740"/></radialGradient><linearGradient id="srWater" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#3E9DB8"/><stop offset="100%" stop-color="#FBC34A"/></linearGradient></defs><circle cx="32" cy="21" r="15" fill="url(#srSun)"/><g fill="url(#srWater)"><rect x="9" y="43" width="46" height="4.8" rx="2.4"/><rect x="16" y="51.5" width="32" height="4.8" rx="2.4" opacity="0.82"/><rect x="22" y="60" width="20" height="4.8" rx="2.4" opacity="0.55"/></g></svg><span>Sun<b>River</b></span></a>
+      <a class="srd-back" href="/ai-solutions-sunriver-consulting">&larr; AI Solutions</a>
+    </div>
+    <div class="srd-sheet srx-reveal">
+      <div class="srd-head">
+        <span class="srd-head__ic"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="9" r="3"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0"/><path d="M16 7.5a3 3 0 0 1 0 5.8"/><path d="M20.5 19a5.5 5.5 0 0 0-3-4.9"/></svg></span>
+        <div><span class="srd-eyebrow">AI Solutions / Team &amp; 1:1 Training</span><h1 class="srd-h1">Teach your people to use AI well</h1></div>
+      </div>
+      <p class="srd-lead">The gap isn&rsquo;t access to AI &mdash; nearly everyone has it now &mdash; it&rsquo;s knowing how to use it well and when not to trust it. We coach individuals and teams in plain language, with hands-on practice on your real work, no technical background assumed.</p>
+      <div class="srd-cta">
+        <a class="srh-btn srh-btn--primary" href="/quote-sunriver-consulting">Get a quick estimate &rarr;</a>
+        <a class="srh-btn srh-btn--ghost" href="System.Collections.Hashtable">Book a consultation</a>
+      </div>
+      <div class="srd-stack"><span class="srd-stack__lab">Scope</span><span class="srd-chip"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-4 4v-4H4z"/></svg>Prompting that works</span><span class="srd-chip"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l1.4 4.6L18 9l-4.6 1.4L12 15l-1.4-4.6L6 9l4.6-1.4z"/><path d="M18.5 13l.8 2.4 2.4.8-2.4.8-.8 2.4-.8-2.4-2.4-.8 2.4-.8z"/></svg>Everyday workflows</span><span class="srd-chip"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5 5-2z"/></svg>Judgment: when to trust it</span><span class="srd-chip"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="9" r="3"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0"/><path d="M16 7.5a3 3 0 0 1 0 5.8"/><path d="M20.5 19a5.5 5.5 0 0 0-3-4.9"/></svg>Approachable for everyone</span><span class="srd-chip"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M9.5 13h6M9.5 16.5h6"/></svg>Reference materials that last</span></div>
+      <h2 class="srd-sectit">What we focus on</h2>
+      <div class="srh-faq">
+          <div class="srh-faq__item"><button class="srh-faq__q" type="button">Prompting that works</button><div class="srh-faq__a"><div>We teach prompting as a practical skill, not a list of magic words. People learn to give clear context and constraints, show the model an example of what good looks like, ask for structured output, and iterate when the first answer misses &mdash; using the model&rsquo;s response to refine the next prompt. We practice on the attendees&rsquo; own tasks, whether that&rsquo;s drafting a report, cleaning a spreadsheet, or summarizing a document, so the skill transfers directly to Monday morning instead of staying abstract.</div></div></div>
+          <div class="srh-faq__item"><button class="srh-faq__q" type="button">Everyday workflows</button><div class="srh-faq__a"><div>We help each role identify the handful of AI uses that genuinely save them time, because a tool tried once and forgotten changes nothing. That might be a support rep drafting first-pass replies, an analyst explaining a formula, or a manager turning rough notes into a clean summary. We then help build those uses into repeatable habits &mdash; saved prompts, a known sequence of steps &mdash; so AI becomes part of the actual workflow rather than a novelty people drift away from.</div></div></div>
+          <div class="srh-faq__item"><button class="srh-faq__q" type="button">Judgment: when to trust it</button><div class="srh-faq__a"><div>The single most valuable thing we teach is judgment: AI states wrong answers with the same confidence as right ones, so people need to know when to verify and when not to rely on it at all. We cover how to spot likely fabrication, which kinds of work demand a human check (anything legal, financial, medical, or fact-critical), and how to use AI as a capable draft-maker and thinking partner while keeping a human firmly responsible for the result. That skepticism is what separates productive use from costly mistakes.</div></div></div>
+          <div class="srh-faq__item"><button class="srh-faq__q" type="button">Approachable for everyone</button><div class="srh-faq__a"><div>We pitch sessions for non-technical people deliberately &mdash; no jargon, no assumptions, and plenty of hands-on practice &mdash; because the people who stand to gain most are often the least likely to experiment on their own. We work at a comfortable pace, answer the questions people are sometimes embarrassed to ask, and focus on building confidence so the whole team levels up together rather than leaving AI to a few self-taught enthusiasts while everyone else falls behind.</div></div></div>
+          <div class="srh-faq__item"><button class="srh-faq__q" type="button">Reference materials that last</button><div class="srh-faq__a"><div>Skills fade without reinforcement, so attendees leave with materials built for them: cheat sheets of effective prompt patterns, a library of templates for their common tasks, and a short internal guide tailored to the specific tools your organization uses. We can also help set light internal norms &mdash; what&rsquo;s fine to use AI for, what needs review, what data to keep out &mdash; so the training compounds into a shared practice instead of evaporating a week after the session.</div></div></div>
+      </div>
+      <h2 class="srd-sectit">Why it matters</h2>
+      <div class="srd-cols"><p>Practical techniques &mdash; clear context, examples, and iteration &mdash; taught on your real tasks, so people get reliable results instead of fighting the blank box.</p><p>We help each role find the handful of AI uses that genuinely save them time, and build those into daily habits instead of a tool tried once and abandoned.</p><p>The most important lesson &mdash; how to spot a confident wrong answer, when to verify, and which work AI should never touch unchecked.</p><p>Sessions pitched for non-technical people, with no jargon and plenty of practice, so the whole team levels up &mdash; not just the early adopters.</p><p>Cheat sheets, prompt templates, and a simple internal guide tailored to your tools, so the skills stick after the session ends.</p></div>
+      <div class="srd-end">
+        <h3>Want your team confident with AI?</h3>
+        <p>Tell us who needs training and what they do, and we&rsquo;ll design a fixed-fee session &mdash; team workshop or 1:1 &mdash; built around your actual work.</p>
+        <div class="srd-cta">
+          <a class="srh-btn srh-btn--primary" href="/quote-sunriver-consulting">Get a Quick Estimate &rarr;</a>
+          <a class="srh-btn srh-btn--ghost" href="/contact">Contact us</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock body %}
