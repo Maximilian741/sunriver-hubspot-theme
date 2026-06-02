@@ -853,3 +853,59 @@
 .srh-method__ic svg { width:22px; height:22px; fill:none; stroke:#fff; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
 .srh-method__k { font-family:var(--head,Poppins,sans-serif); font-weight:600; }
 .srh-method__v { font-size:.9rem; color:var(--muted); }
+
+/* ===== facet cards as buttons + learn-more modal ===== */
+button.srh-card { font:inherit; color:inherit; text-align:left; width:100%; cursor:pointer; -webkit-appearance:none; appearance:none; }
+.srh-card__more { display:none; }
+.srh-modal { position:fixed; inset:0; z-index:99999; display:none; align-items:center; justify-content:center; padding:20px; }
+.srh-modal.is-open { display:flex; }
+.srh-modal__backdrop { position:absolute; inset:0; background:rgba(8,20,12,.55); animation:srh-fade .2s ease; }
+.srh-modal__dialog { position:relative; z-index:1; width:min(560px,100%); max-height:86vh; overflow:auto; background:#fff; border-radius:20px; padding:34px; box-shadow:0 40px 90px -30px rgba(8,30,16,.7); animation:srh-pop .26s cubic-bezier(.2,.8,.25,1); }
+@keyframes srh-fade { from{opacity:0} to{opacity:1} }
+@keyframes srh-pop { from{opacity:0;transform:translateY(16px) scale(.96)} to{opacity:1;transform:none} }
+.srh-modal__close { position:absolute; top:16px; right:16px; width:36px; height:36px; border:0; border-radius:10px; background:#f4f7f3; color:#0c2114; font-size:1.4rem; line-height:1; cursor:pointer; transition:background .15s ease; }
+.srh-modal__close:hover { background:#e7ede7; }
+.srh-modal__ic { width:54px; height:54px; display:grid; place-items:center; border-radius:14px; background:linear-gradient(135deg,#21c700,#3E9DB8); margin-bottom:16px; }
+.srh-modal__ic svg { width:28px; height:28px; }
+.srh-modal__ic svg:not(.mono) { fill:#fff; }
+.srh-modal__ic svg.mono { fill:none; stroke:#fff; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+.srh-modal__title { font-family:var(--head,Poppins,sans-serif); font-weight:700; font-size:1.55rem; margin:0 0 6px; color:#0c2114; line-height:1.12; }
+.srh-modal__lead { font-size:1.02rem; color:#1C5B77; margin:0 0 14px; font-weight:600; }
+.srh-modal__body { font-size:1rem; line-height:1.62; color:#46584c; margin:0 0 24px; }
+.srh-modal__cta { display:flex; gap:10px; flex-wrap:wrap; }
+body.srh-modal-open { overflow:hidden; }
+
+/* ============================================================
+   .srd — Tier-2 deep-dive pages. SAME green + smoke language as the
+   rest of the site, but restructured as a white "sheet" floating on
+   the green (smoke warms green -> ember on scroll, via child.js).
+   Rich: dropdowns (reuses .srh-faq), multi-column, stack chips.
+   ============================================================ */
+.srd { position:relative; min-height:100vh; isolation:isolate; background:linear-gradient(to bottom right,#21c700 0%,#6cc62b 42%,#cdbf3c 76%,#f1c233 100%); color:#0c2114; font-family:var(--body,"Manrope",system-ui,sans-serif); }
+.srd__canvas { position:fixed; inset:0; width:100%; height:100%; z-index:0; pointer-events:none; }
+.srd__wrap { position:relative; z-index:1; max-width:960px; margin:0 auto; padding:clamp(26px,5vw,60px) clamp(14px,4vw,32px) clamp(50px,7vw,96px); }
+.srd-back { display:inline-flex; align-items:center; gap:6px; color:#0c2114; background:rgba(255,255,255,.72); padding:8px 15px; border-radius:999px; text-decoration:none; font-family:var(--mono,"JetBrains Mono",monospace); font-size:12px; letter-spacing:.1em; text-transform:uppercase; font-weight:600; margin-bottom:18px; transition:background .15s ease; }
+.srd-back:hover { background:#fff; }
+.srd-sheet { background:#fff; border-radius:24px; box-shadow:0 50px 100px -42px rgba(8,30,16,.65); padding:clamp(26px,5vw,56px); }
+.srd-head { display:grid; grid-template-columns:auto 1fr; gap:20px; align-items:center; }
+.srd-head__ic { width:64px; height:64px; flex:none; display:grid; place-items:center; border-radius:18px; background:linear-gradient(135deg,#21c700,#3E9DB8); }
+.srd-head__ic svg { width:34px; height:34px; fill:#fff; }
+.srd-head__ic svg.mono { fill:none; stroke:#fff; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+.srd-eyebrow { font-family:var(--mono,"JetBrains Mono",monospace); font-size:12px; letter-spacing:.2em; text-transform:uppercase; color:#3E9DB8; display:block; margin-bottom:6px; }
+.srd-h1 { margin:0; font-family:var(--head,"Poppins",sans-serif); font-weight:700; letter-spacing:-.02em; font-size:clamp(1.9rem,4.2vw,3rem); line-height:1.05; color:#0c2114; }
+.srd-lead { margin:18px 0 0; font-size:1.12rem; line-height:1.62; color:#3a4b40; }
+.srd-cta { display:flex; flex-wrap:wrap; gap:12px; margin:22px 0 0; }
+.srd-sheet .srh-btn--ghost { background:#f4f7f3; color:#0c2114; border:1px solid #dfe6df; }
+.srd-stack { display:flex; flex-wrap:wrap; gap:8px; align-items:center; margin:28px 0 0; padding-top:24px; border-top:1px solid #eef2ee; }
+.srd-stack__lab { font-family:var(--mono,"JetBrains Mono",monospace); font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:#8a9a90; margin-right:4px; }
+.srd-chip { display:inline-flex; align-items:center; gap:7px; padding:7px 12px; border-radius:999px; border:1px solid #e3e9e3; background:#fbfdfb; font-size:.84rem; font-weight:600; color:#3a4b40; }
+.srd-chip svg { width:16px; height:16px; fill:#1C5B77; }
+.srd-chip svg.mono { fill:none; stroke:#1C5B77; stroke-width:1.9; stroke-linecap:round; stroke-linejoin:round; }
+.srd-sectit { font-family:var(--head,"Poppins",sans-serif); font-weight:700; font-size:1.35rem; color:#0c2114; margin:36px 0 14px; }
+.srd-cols { columns:2; column-gap:36px; margin:6px 0 0; }
+.srd-cols p { margin:0 0 14px; line-height:1.62; color:#46584c; break-inside:avoid; }
+.srd-end { margin-top:36px; padding:28px clamp(20px,4vw,34px); border-radius:18px; background:linear-gradient(135deg,rgba(33,199,0,.12),rgba(62,157,184,.14)); text-align:center; }
+.srd-end h3 { font-family:var(--head,"Poppins",sans-serif); font-weight:700; font-size:1.4rem; margin:0 0 .4rem; color:#0c2114; }
+.srd-end p { margin:0 auto 1.2rem; max-width:48ch; color:#3a4b40; line-height:1.55; }
+.srd-end .srd-cta { justify-content:center; }
+@media (max-width:680px){ .srd-cols { columns:1; } .srd-head { grid-template-columns:1fr; } }

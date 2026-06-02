@@ -5,50 +5,47 @@
   screenshot_path: ../../images/template-previews/home.jpg
 -->
 {#
-  .srh brand page (expert content) -- green-gold gradient + interactive smoke
-  veil + white brand-logo cards that hover into the featured gradient.
-  Content-only; styles in child.css (.srh), runtime in child.js. Does not
-  touch the live Home page.
+  Tier-2 deep-dive page (.srd) -- white sheet on the green + smoke (warms to
+  ember on scroll). Dropdowns + multi-column detail. Linked from the
+  Compliance Audits page modal. Does not touch live Home.
 #}
 {% extends "../layouts/base.html" %}
 
 {% block body %}
-<div class="srh">
-
-  <section class="srh-band">
-    <canvas class="srh-band__canvas" data-srx-shader="smoke-veil" aria-hidden="true"></canvas>
-    <div class="srh-band__inner srx-reveal" style="text-align:center;max-width:920px;">
-      <span class="srh-eyebrow">Compliance Audits / 508 Compliance</span>
-      <h1 class="srh-h1" style="max-width:20ch;margin-inline:auto;">Section 508 conformance, documented for procurement.</h1>
-      <p class="srh-lead" style="margin-inline:auto;">Federal Section 508 and ICT accessibility audits &mdash; web, software, and documents &mdash; with an Accessibility Conformance Report your contracting officer can rely on, plus the remediation to back it up.</p>
-      <div class="srh-hero__ctas" style="justify-content:center;"><a class="srh-btn srh-btn--primary" href="/quote-sunriver-consulting">Get a Quick Estimate</a><a class="srh-btn srh-btn--ghost" href="/schedule-a-consultation-sunriver-consulting">Schedule a Consultation</a></div>
-    </div>
-  </section>
-
-  <section class="srh-sec">
-    <div class="srh-sec__inner">
-      <div class="srx-reveal" style="text-align:center;max-width:720px;margin:0 auto;">
-        <span class="srh-eyebrow" style="color:var(--river);">In scope</span>
-        <h2 class="srh-h2">The work, specifically.</h2>
+<div class="srd">
+  <canvas class="srd__canvas" data-srx-shader="smoke-veil" aria-hidden="true"></canvas>
+  <div class="srd__wrap">
+    <a class="srd-back" href="/compliance-audits-sunriver-consulting">&larr; Compliance Audits</a>
+    <div class="srd-sheet srx-reveal">
+      <div class="srd-head">
+        <span class="srd-head__ic"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 18a8 8 0 1 1 14 0"/><path d="M12 12l3.6-2.4"/><circle cx="12" cy="12" r="1.3"/></svg></span>
+        <div><span class="srd-eyebrow">Compliance Audits / 508 Compliance</span><h1 class="srd-h1">Section 508 conformance, documented for procurement.</h1></div>
       </div>
-      <div class="srh-cards" style="margin-top:2.4rem;">
-        <a class="srh-card srh-card--feature" href="/quote-sunriver-consulting"><span class="srh-card__logo"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 18a8 8 0 1 1 14 0"/><path d="M12 12l3.6-2.4"/><circle cx="12" cy="12" r="1.3"/></svg></span><h3 class="srh-card__title">Federal 508 / ICT</h3><p class="srh-card__desc">Audits against the Revised 508 Standards and their WCAG 2.0 AA baseline across web, software, and hardware interfaces.</p></a>
-        <a class="srh-card" href="/quote-sunriver-consulting"><span class="srh-card__logo"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M9.5 13h6M9.5 16.5h6"/></svg></span><h3 class="srh-card__title">Document &amp; PDF Accessibility</h3><p class="srh-card__desc">Tagged-PDF, Word, and form remediation &mdash; reading order, alt text, headings, and tables that pass a real checker.</p></a>
-        <a class="srh-card" href="/quote-sunriver-consulting"><span class="srh-card__logo"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7"/><path d="M2 20h20"/></svg></span><h3 class="srh-card__title">ACR / VPAT</h3><p class="srh-card__desc">An Accessibility Conformance Report on the current VPAT template, with honest Supports / Partially / Does Not ratings.</p></a>
-        <a class="srh-card" href="/quote-sunriver-consulting"><span class="srh-card__logo"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="9" r="3"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0"/><path d="M16 7.5a3 3 0 0 1 0 5.8"/><path d="M20.5 19a5.5 5.5 0 0 0-3-4.9"/></svg></span><h3 class="srh-card__title">Procurement Support</h3><p class="srh-card__desc">We help vendors and agencies read, write, and defend 508 language in solicitations and deliverables.</p></a>
-        <a class="srh-card" href="/quote-sunriver-consulting"><span class="srh-card__logo"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 7a4 4 0 0 1-5.2 4.8L5 16.6 7.4 19l4.8-4.8A4 4 0 0 0 17 9l-2.2 2.2-2-2L15 7z"/></svg></span><h3 class="srh-card__title">Remediation</h3><p class="srh-card__desc">Prioritized fixes with code-level guidance, then a retest so the conformance claim holds up under audit.</p></a>
+      <p class="srd-lead">Federal Section 508 and ICT accessibility audits &mdash; web, software, and documents &mdash; with an Accessibility Conformance Report your contracting officer can rely on, plus the remediation to back it up.</p>
+      <div class="srd-cta">
+        <a class="srh-btn srh-btn--primary" href="/quote-sunriver-consulting">Get a quick estimate &rarr;</a>
+        <a class="srh-btn srh-btn--ghost" href="System.Collections.Hashtable">Book a consultation</a>
+      </div>
+      <div class="srd-stack"><span class="srd-stack__lab">Scope</span><span class="srd-chip"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 18a8 8 0 1 1 14 0"/><path d="M12 12l3.6-2.4"/><circle cx="12" cy="12" r="1.3"/></svg>Federal 508 / ICT</span><span class="srd-chip"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M9.5 13h6M9.5 16.5h6"/></svg>Document &amp; PDF Accessibility</span><span class="srd-chip"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7"/><path d="M2 20h20"/></svg>ACR / VPAT</span><span class="srd-chip"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="9" r="3"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0"/><path d="M16 7.5a3 3 0 0 1 0 5.8"/><path d="M20.5 19a5.5 5.5 0 0 0-3-4.9"/></svg>Procurement Support</span><span class="srd-chip"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 7a4 4 0 0 1-5.2 4.8L5 16.6 7.4 19l4.8-4.8A4 4 0 0 0 17 9l-2.2 2.2-2-2L15 7z"/></svg>Remediation</span></div>
+      <h2 class="srd-sectit">What we focus on</h2>
+      <div class="srh-faq">
+          <div class="srh-faq__item"><button class="srh-faq__q" type="button">Federal 508 / ICT</button><div class="srh-faq__a"><div>We audit against the Revised Section 508 Standards (36 CFR Part 1194), which incorporate WCAG 2.0 Level AA by reference as the baseline for web and electronic content, plus the functional performance criteria and hardware provisions of the ICT standards. Coverage spans web interfaces, software and authoring tools, and any hardware or self-contained device controls in scope. Results are organized by the standard&rsquo;s chapters so an agency reviewer can trace conformance clause by clause.</div></div></div>
+          <div class="srh-faq__item"><button class="srh-faq__q" type="button">Document &amp; PDF Accessibility</button><div class="srh-faq__a"><div>Documents are remediated to PDF/UA and the Section 508 document requirements &mdash; correct tag structure and reading order, alternative text, heading hierarchy, table header associations, list semantics, language metadata, and accessible form fields. We validate with the PAC (PDF Accessibility Checker), Adobe Acrobat Pro&rsquo;s checker, and manual screen-reader review, since automated checks alone do not confirm logical reading order. You receive remediated source and output files plus a checklist evidencing each requirement met.</div></div></div>
+          <div class="srh-faq__item"><button class="srh-faq__q" type="button">ACR / VPAT</button><div class="srh-faq__a"><div>We deliver an Accessibility Conformance Report built on the current ITI VPAT 2.5 template, Section 508 edition, with per-criterion ratings of Supports, Partially Supports, Does Not Support, or Not Applicable and substantive remarks justifying each call. The ACR covers the WCAG 2.0 AA tables, the functional performance criteria, hardware, software, and support-documentation chapters as applicable. It is written to give a contracting officer defensible, evidence-backed conformance language for the procurement file.</div></div></div>
+          <div class="srh-faq__item"><button class="srh-faq__q" type="button">Procurement Support</button><div class="srh-faq__a"><div>We help vendors and agencies interpret, draft, and defend 508 language across the acquisition lifecycle &mdash; market research, Section 508 solicitation clauses (FAR 39.2), evaluation of submitted ACRs, and acceptance criteria for deliverables. For agencies we assess whether supplier conformance claims are credible; for vendors we prepare responses that map products honestly to the standards. The aim is to reduce procurement risk and avoid accessibility findings surfacing after award.</div></div></div>
+          <div class="srh-faq__item"><button class="srh-faq__q" type="button">Remediation</button><div class="srh-faq__a"><div>Remediation is delivered as a prioritized plan with code-level guidance &mdash; specific HTML, ARIA, and document-tagging changes tied to each failed provision &mdash; sequenced so the highest-impact barriers are resolved first. We support developers through implementation and then re-test the fixes so the conformance claim in the ACR is backed by verified evidence rather than intent. A final attestation records what was retested and confirmed, keeping the claim defensible under audit.</div></div></div>
+      </div>
+      <h2 class="srd-sectit">Why it matters</h2>
+      <div class="srd-cols"><p>Audits against the Revised 508 Standards and their WCAG 2.0 AA baseline across web, software, and hardware interfaces.</p><p>Tagged-PDF, Word, and form remediation &mdash; reading order, alt text, headings, and tables that pass a real checker.</p><p>An Accessibility Conformance Report on the current VPAT template, with honest Supports / Partially / Does Not ratings.</p><p>We help vendors and agencies read, write, and defend 508 language in solicitations and deliverables.</p><p>Prioritized fixes with code-level guidance, then a retest so the conformance claim holds up under audit.</p></div>
+      <div class="srd-end">
+        <h3>Facing a 508 requirement?</h3>
+        <p>Tell us the deliverable and we will scope the audit, the ACR, and the remediation as one fixed fee.</p>
+        <div class="srd-cta">
+          <a class="srh-btn srh-btn--primary" href="/quote-sunriver-consulting">Get a Quick Estimate &rarr;</a>
+          <a class="srh-btn srh-btn--ghost" href="/contact">Contact us</a>
+        </div>
       </div>
     </div>
-  </section>
-
-  <section class="srh-band srh-band--rev srh-cta">
-    <canvas class="srh-band__canvas" data-srx-shader="smoke-veil" aria-hidden="true"></canvas>
-    <div class="srh-band__inner srx-reveal" style="text-align:center;">
-      <h2 class="srh-h2">Facing a 508 requirement?</h2>
-      <p class="srh-lead" style="margin-inline:auto;">Tell us the deliverable and we will scope the audit, the ACR, and the remediation as one fixed fee.</p>
-      <div class="srh-hero__ctas" style="justify-content:center;"><a class="srh-btn srh-btn--primary" href="/quote-sunriver-consulting">Get a Quick Estimate</a><a class="srh-btn srh-btn--light" href="/contact">Contact us</a></div>
-    </div>
-  </section>
-
+  </div>
 </div>
 {% endblock body %}

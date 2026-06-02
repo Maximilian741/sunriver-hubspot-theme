@@ -5,50 +5,47 @@
   screenshot_path: ../../images/template-previews/home.jpg
 -->
 {#
-  .srh brand page (expert content) -- green-gold gradient + interactive smoke
-  veil + white brand-logo cards that hover into the featured gradient.
-  Content-only; styles in child.css (.srh), runtime in child.js. Does not
-  touch the live Home page.
+  Tier-2 deep-dive page (.srd) -- white sheet on the green + smoke (warms to
+  ember on scroll). Dropdowns + multi-column detail. Linked from the
+  Business Solutions page modal. Does not touch live Home.
 #}
 {% extends "../layouts/base.html" %}
 
 {% block body %}
-<div class="srh">
-
-  <section class="srh-band">
-    <canvas class="srh-band__canvas" data-srx-shader="smoke-veil" aria-hidden="true"></canvas>
-    <div class="srh-band__inner srx-reveal" style="text-align:center;max-width:920px;">
-      <span class="srh-eyebrow">Business Solutions / HubSpot CRM</span>
-      <h1 class="srh-h1" style="max-width:20ch;margin-inline:auto;">HubSpot CRM your reports can trust</h1>
-      <p class="srh-lead" style="margin-inline:auto;">Pipelines, automation, and data hygiene set up so HubSpot reflects how your team actually sells and serves. Reporting and integrations that give leaders a straight answer.</p>
-      <div class="srh-hero__ctas" style="justify-content:center;"><a class="srh-btn srh-btn--primary" href="/quote-sunriver-consulting">Get a Quick Estimate</a><a class="srh-btn srh-btn--ghost" href="/schedule-a-consultation-sunriver-consulting">Schedule a Consultation</a></div>
-    </div>
-  </section>
-
-  <section class="srh-sec">
-    <div class="srh-sec__inner">
-      <div class="srx-reveal" style="text-align:center;max-width:720px;margin:0 auto;">
-        <span class="srh-eyebrow" style="color:var(--river);">In scope</span>
-        <h2 class="srh-h2">The work, specifically.</h2>
+<div class="srd">
+  <canvas class="srd__canvas" data-srx-shader="smoke-veil" aria-hidden="true"></canvas>
+  <div class="srd__wrap">
+    <a class="srd-back" href="/business-solutions-sunriver-consulting">&larr; Business Solutions</a>
+    <div class="srd-sheet srx-reveal">
+      <div class="srd-head">
+        <span class="srd-head__ic"><svg viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M18.164 7.93V5.084a2.198 2.198 0 001.267-1.978v-.067A2.2 2.2 0 0017.238.845h-.067a2.2 2.2 0 00-2.193 2.193v.067a2.196 2.196 0 001.252 1.973l.013.006v2.852a6.22 6.22 0 00-2.969 1.31l.012-.01-7.828-6.095A2.497 2.497 0 104.3 4.656l-.012.006 7.697 5.991a6.176 6.176 0 00-1.038 3.446c0 1.343.425 2.588 1.147 3.607l-.013-.02-2.342 2.343a1.968 1.968 0 00-.58-.095h-.002a2.033 2.033 0 102.033 2.033 1.978 1.978 0 00-.1-.595l.005.014 2.317-2.317a6.247 6.247 0 104.782-11.134l-.036-.005zm-.964 9.378a3.206 3.206 0 113.215-3.207v.002a3.206 3.206 0 01-3.207 3.207z"/></svg></span>
+        <div><span class="srd-eyebrow">Business Solutions / HubSpot CRM</span><h1 class="srd-h1">HubSpot CRM your reports can trust</h1></div>
       </div>
-      <div class="srh-cards" style="margin-top:2.4rem;">
-        <a class="srh-card srh-card--feature" href="/quote-sunriver-consulting"><span class="srh-card__logo"><svg viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M18.164 7.93V5.084a2.198 2.198 0 001.267-1.978v-.067A2.2 2.2 0 0017.238.845h-.067a2.2 2.2 0 00-2.193 2.193v.067a2.196 2.196 0 001.252 1.973l.013.006v2.852a6.22 6.22 0 00-2.969 1.31l.012-.01-7.828-6.095A2.497 2.497 0 104.3 4.656l-.012.006 7.697 5.991a6.176 6.176 0 00-1.038 3.446c0 1.343.425 2.588 1.147 3.607l-.013-.02-2.342 2.343a1.968 1.968 0 00-.58-.095h-.002a2.033 2.033 0 102.033 2.033 1.978 1.978 0 00-.1-.595l.005.014 2.317-2.317a6.247 6.247 0 104.782-11.134l-.036-.005zm-.964 9.378a3.206 3.206 0 113.215-3.207v.002a3.206 3.206 0 01-3.207 3.207z"/></svg></span><h3 class="srh-card__title">Pipelines</h3><p class="srh-card__desc">Deal and ticket pipelines with stages that mirror your real process, not a generic out-of-the-box funnel.</p></a>
-        <a class="srh-card" href="/quote-sunriver-consulting"><span class="srh-card__logo"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 18a8 8 0 1 1 14 0"/><path d="M12 12l3.6-2.4"/><circle cx="12" cy="12" r="1.3"/></svg></span><h3 class="srh-card__title">Workflow automation</h3><p class="srh-card__desc">Workflows that route, assign, and follow up automatically, so nothing stalls in someone&rsquo;s inbox.</p></a>
-        <a class="srh-card" href="/quote-sunriver-consulting"><span class="srh-card__logo"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="5.5" rx="7.5" ry="3"/><path d="M4.5 5.5v13c0 1.66 3.36 3 7.5 3s7.5-1.34 7.5-3v-13"/><path d="M4.5 12c0 1.66 3.36 3 7.5 3s7.5-1.34 7.5-3"/></svg></span><h3 class="srh-card__title">Data hygiene</h3><p class="srh-card__desc">Deduplication, property cleanup, and validation rules that stop bad data before it spreads.</p></a>
-        <a class="srh-card" href="/quote-sunriver-consulting"><span class="srh-card__logo"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7"/><path d="M2 20h20"/></svg></span><h3 class="srh-card__title">Reporting</h3><p class="srh-card__desc">Dashboards and custom reports built on properties you can rely on, surfacing the metrics that matter.</p></a>
-        <a class="srh-card" href="/quote-sunriver-consulting"><span class="srh-card__logo"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 7a4 4 0 0 1-5.2 4.8L5 16.6 7.4 19l4.8-4.8A4 4 0 0 0 17 9l-2.2 2.2-2-2L15 7z"/></svg></span><h3 class="srh-card__title">Integrations</h3><p class="srh-card__desc">Connections to your finance, support, and marketing tools so the CRM is a hub, not another silo.</p></a>
+      <p class="srd-lead">Pipelines, automation, and data hygiene set up so HubSpot reflects how your team actually sells and serves. Reporting and integrations that give leaders a straight answer.</p>
+      <div class="srd-cta">
+        <a class="srh-btn srh-btn--primary" href="/quote-sunriver-consulting">Get a quick estimate &rarr;</a>
+        <a class="srh-btn srh-btn--ghost" href="System.Collections.Hashtable">Book a consultation</a>
+      </div>
+      <div class="srd-stack"><span class="srd-stack__lab">Scope</span><span class="srd-chip"><svg viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M18.164 7.93V5.084a2.198 2.198 0 001.267-1.978v-.067A2.2 2.2 0 0017.238.845h-.067a2.2 2.2 0 00-2.193 2.193v.067a2.196 2.196 0 001.252 1.973l.013.006v2.852a6.22 6.22 0 00-2.969 1.31l.012-.01-7.828-6.095A2.497 2.497 0 104.3 4.656l-.012.006 7.697 5.991a6.176 6.176 0 00-1.038 3.446c0 1.343.425 2.588 1.147 3.607l-.013-.02-2.342 2.343a1.968 1.968 0 00-.58-.095h-.002a2.033 2.033 0 102.033 2.033 1.978 1.978 0 00-.1-.595l.005.014 2.317-2.317a6.247 6.247 0 104.782-11.134l-.036-.005zm-.964 9.378a3.206 3.206 0 113.215-3.207v.002a3.206 3.206 0 01-3.207 3.207z"/></svg>Pipelines</span><span class="srd-chip"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 18a8 8 0 1 1 14 0"/><path d="M12 12l3.6-2.4"/><circle cx="12" cy="12" r="1.3"/></svg>Workflow automation</span><span class="srd-chip"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="5.5" rx="7.5" ry="3"/><path d="M4.5 5.5v13c0 1.66 3.36 3 7.5 3s7.5-1.34 7.5-3v-13"/><path d="M4.5 12c0 1.66 3.36 3 7.5 3s7.5-1.34 7.5-3"/></svg>Data hygiene</span><span class="srd-chip"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7"/><path d="M2 20h20"/></svg>Reporting</span><span class="srd-chip"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 7a4 4 0 0 1-5.2 4.8L5 16.6 7.4 19l4.8-4.8A4 4 0 0 0 17 9l-2.2 2.2-2-2L15 7z"/></svg>Integrations</span></div>
+      <h2 class="srd-sectit">What we focus on</h2>
+      <div class="srh-faq">
+          <div class="srh-faq__item"><button class="srh-faq__q" type="button">Pipelines</button><div class="srh-faq__a"><div>We build deal and ticket pipelines whose stages mirror how your team actually moves work, with entry and exit criteria defined for each stage so the funnel reflects reality rather than a generic default. Required properties at each stage keep records complete, and stage automation handles the busywork of moving and updating deals. The payoff is forecasting and reporting that leadership can actually believe.</div></div></div>
+          <div class="srh-faq__item"><button class="srh-faq__q" type="button">Workflow automation</button><div class="srh-faq__a"><div>We design workflows that route leads, assign owners by territory or round-robin, trigger follow-up tasks, and escalate when an SLA is at risk, so work moves forward without sitting in someone&rsquo;s inbox. Enrollment criteria and re-enrollment are set deliberately to avoid the loops and double-sends that plague hasty automation. We document each workflow so the team understands what fires, when, and why.</div></div></div>
+          <div class="srh-faq__item"><button class="srh-faq__q" type="button">Data hygiene</button><div class="srh-faq__a"><div>We deduplicate contacts and companies, standardize properties, and put validation and required-field rules in place so bad data is stopped at entry rather than cleaned up endlessly afterward. We reconcile formatting, fix association gaps, and establish a clear data governance approach for ongoing hygiene. Clean inputs are what make every downstream report and automation trustworthy.</div></div></div>
+          <div class="srh-faq__item"><button class="srh-faq__q" type="button">Reporting</button><div class="srh-faq__a"><div>We build dashboards and custom report types on properties that are reliable and consistently populated, so the metrics surfaced &mdash; pipeline velocity, conversion by stage, source attribution &mdash; reflect the business rather than artifacts of messy data. Reports are tailored to each audience, from rep-level activity to executive summary. Because the underlying data is clean, the numbers hold up to scrutiny.</div></div></div>
+          <div class="srh-faq__item"><button class="srh-faq__q" type="button">Integrations</button><div class="srh-faq__a"><div>We connect HubSpot to your finance, support, and marketing systems through native integrations, the HubSpot API, or middleware such as a sync platform, with field mappings and conflict rules defined so records stay consistent across tools. This makes the CRM the hub of record rather than one more disconnected silo. We monitor the sync and document the integration so it stays healthy as your stack changes.</div></div></div>
+      </div>
+      <h2 class="srd-sectit">Why it matters</h2>
+      <div class="srd-cols"><p>Deal and ticket pipelines with stages that mirror your real process, not a generic out-of-the-box funnel.</p><p>Workflows that route, assign, and follow up automatically, so nothing stalls in someone&rsquo;s inbox.</p><p>Deduplication, property cleanup, and validation rules that stop bad data before it spreads.</p><p>Dashboards and custom reports built on properties you can rely on, surfacing the metrics that matter.</p><p>Connections to your finance, support, and marketing tools so the CRM is a hub, not another silo.</p></div>
+      <div class="srd-end">
+        <h3>Does your CRM data slow you down?</h3>
+        <p>Schedule a consultation and we&rsquo;ll review your pipelines, automation, and data quality, then scope the fix.</p>
+        <div class="srd-cta">
+          <a class="srh-btn srh-btn--primary" href="/quote-sunriver-consulting">Get a Quick Estimate &rarr;</a>
+          <a class="srh-btn srh-btn--ghost" href="/contact">Contact us</a>
+        </div>
       </div>
     </div>
-  </section>
-
-  <section class="srh-band srh-band--rev srh-cta">
-    <canvas class="srh-band__canvas" data-srx-shader="smoke-veil" aria-hidden="true"></canvas>
-    <div class="srh-band__inner srx-reveal" style="text-align:center;">
-      <h2 class="srh-h2">Does your CRM data slow you down?</h2>
-      <p class="srh-lead" style="margin-inline:auto;">Schedule a consultation and we&rsquo;ll review your pipelines, automation, and data quality, then scope the fix.</p>
-      <div class="srh-hero__ctas" style="justify-content:center;"><a class="srh-btn srh-btn--primary" href="/quote-sunriver-consulting">Get a Quick Estimate</a><a class="srh-btn srh-btn--light" href="/contact">Contact us</a></div>
-    </div>
-  </section>
-
+  </div>
 </div>
 {% endblock body %}

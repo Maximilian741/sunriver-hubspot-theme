@@ -5,50 +5,47 @@
   screenshot_path: ../../images/template-previews/home.jpg
 -->
 {#
-  .srh brand page (expert content) -- green-gold gradient + interactive smoke
-  veil + white brand-logo cards that hover into the featured gradient.
-  Content-only; styles in child.css (.srh), runtime in child.js. Does not
-  touch the live Home page.
+  Tier-2 deep-dive page (.srd) -- white sheet on the green + smoke (warms to
+  ember on scroll). Dropdowns + multi-column detail. Linked from the
+  Database Solutions page modal. Does not touch live Home.
 #}
 {% extends "../layouts/base.html" %}
 
 {% block body %}
-<div class="srh">
-
-  <section class="srh-band">
-    <canvas class="srh-band__canvas" data-srx-shader="smoke-veil" aria-hidden="true"></canvas>
-    <div class="srh-band__inner srx-reveal" style="text-align:center;max-width:920px;">
-      <span class="srh-eyebrow">Database Solutions / Development</span>
-      <h1 class="srh-h1" style="max-width:20ch;margin-inline:auto;">The data layer your application can build on</h1>
-      <p class="srh-lead" style="margin-inline:auto;">Versioned migrations, server-side logic where it belongs, and APIs that expose your data safely. We write the database code your app team can ship against &mdash; SQL and NoSQL, tested and reviewable.</p>
-      <div class="srh-hero__ctas" style="justify-content:center;"><a class="srh-btn srh-btn--primary" href="/quote-sunriver-consulting">Get a Quick Estimate</a><a class="srh-btn srh-btn--ghost" href="/schedule-a-consultation-sunriver-consulting">Schedule a Consultation</a></div>
-    </div>
-  </section>
-
-  <section class="srh-sec">
-    <div class="srh-sec__inner">
-      <div class="srx-reveal" style="text-align:center;max-width:720px;margin:0 auto;">
-        <span class="srh-eyebrow" style="color:var(--river);">In scope</span>
-        <h2 class="srh-h2">The work, specifically.</h2>
+<div class="srd">
+  <canvas class="srd__canvas" data-srx-shader="smoke-veil" aria-hidden="true"></canvas>
+  <div class="srd__wrap">
+    <a class="srd-back" href="/database-solutions-sunriver-consulting">&larr; Database Solutions</a>
+    <div class="srd-sheet srx-reveal">
+      <div class="srd-head">
+        <span class="srd-head__ic"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 7a4 4 0 0 1-5.2 4.8L5 16.6 7.4 19l4.8-4.8A4 4 0 0 0 17 9l-2.2 2.2-2-2L15 7z"/></svg></span>
+        <div><span class="srd-eyebrow">Database Solutions / Development</span><h1 class="srd-h1">The data layer your application can build on</h1></div>
       </div>
-      <div class="srh-cards" style="margin-top:2.4rem;">
-        <a class="srh-card srh-card--feature" href="/quote-sunriver-consulting"><span class="srh-card__logo"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 7a4 4 0 0 1-5.2 4.8L5 16.6 7.4 19l4.8-4.8A4 4 0 0 0 17 9l-2.2 2.2-2-2L15 7z"/></svg></span><h3 class="srh-card__title">Schema migrations</h3><p class="srh-card__desc">Versioned, reversible migrations that run in CI and deploy without downtime &mdash; no hand-edited production schemas, no surprises on release night.</p></a>
-        <a class="srh-card" href="/quote-sunriver-consulting"><span class="srh-card__logo"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M9.5 13h6M9.5 16.5h6"/></svg></span><h3 class="srh-card__title">Stored procedures &amp; functions</h3><p class="srh-card__desc">Set-based procedures, functions, and triggers that keep heavy logic next to the data, with clear contracts and tests around each one.</p></a>
-        <a class="srh-card" href="/quote-sunriver-consulting"><span class="srh-card__logo"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.5 3.8 5.7 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.7-3.8-9S9.5 5.5 12 3z"/></svg></span><h3 class="srh-card__title">APIs over your data</h3><p class="srh-card__desc">Parameterized, well-indexed query layers and data APIs that are fast and injection-safe &mdash; the right access patterns baked in from the start.</p></a>
-        <a class="srh-card" href="/quote-sunriver-consulting"><span class="srh-card__logo"><svg viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M17.193 9.555c-1.264-5.58-4.252-7.414-4.573-8.115-.28-.394-.53-.954-.735-1.44-.036.495-.055.685-.523 1.184-.723.566-4.438 3.682-4.74 10.02-.282 5.912 4.27 9.435 4.888 9.884l.07.05A73.49 73.49 0 0111.91 24h.481c.114-1.032.284-2.056.51-3.07.417-.296.604-.463.85-.693a11.342 11.342 0 003.639-8.464c.01-.814-.103-1.662-.197-2.218zm-5.336 8.195s0-8.291.275-8.29c.213 0 .49 10.695.49 10.695-.381-.045-.765-1.76-.765-2.405z"/></svg></span><h3 class="srh-card__title">SQL and NoSQL</h3><p class="srh-card__desc">We build comfortably in PostgreSQL and MongoDB, choosing relational or document per use case rather than forcing one engine to do everything.</p></a>
-        <a class="srh-card" href="/quote-sunriver-consulting"><span class="srh-card__logo"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 4.4-3 7.6-7 9-4-1.4-7-4.6-7-9V6l7-3z"/><path d="M9 12l2 2 4-4.5"/></svg></span><h3 class="srh-card__title">Testing</h3><p class="srh-card__desc">Automated tests for migrations, procedures, and queries against realistic data, so a schema change can&rsquo;t silently break a downstream report.</p></a>
+      <p class="srd-lead">Versioned migrations, server-side logic where it belongs, and APIs that expose your data safely. We write the database code your app team can ship against &mdash; SQL and NoSQL, tested and reviewable.</p>
+      <div class="srd-cta">
+        <a class="srh-btn srh-btn--primary" href="/quote-sunriver-consulting">Get a quick estimate &rarr;</a>
+        <a class="srh-btn srh-btn--ghost" href="System.Collections.Hashtable">Book a consultation</a>
+      </div>
+      <div class="srd-stack"><span class="srd-stack__lab">Scope</span><span class="srd-chip"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 7a4 4 0 0 1-5.2 4.8L5 16.6 7.4 19l4.8-4.8A4 4 0 0 0 17 9l-2.2 2.2-2-2L15 7z"/></svg>Schema migrations</span><span class="srd-chip"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M9.5 13h6M9.5 16.5h6"/></svg>Stored procedures &amp; functions</span><span class="srd-chip"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.5 3.8 5.7 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.7-3.8-9S9.5 5.5 12 3z"/></svg>APIs over your data</span><span class="srd-chip"><svg viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M17.193 9.555c-1.264-5.58-4.252-7.414-4.573-8.115-.28-.394-.53-.954-.735-1.44-.036.495-.055.685-.523 1.184-.723.566-4.438 3.682-4.74 10.02-.282 5.912 4.27 9.435 4.888 9.884l.07.05A73.49 73.49 0 0111.91 24h.481c.114-1.032.284-2.056.51-3.07.417-.296.604-.463.85-.693a11.342 11.342 0 003.639-8.464c.01-.814-.103-1.662-.197-2.218zm-5.336 8.195s0-8.291.275-8.29c.213 0 .49 10.695.49 10.695-.381-.045-.765-1.76-.765-2.405z"/></svg>SQL and NoSQL</span><span class="srd-chip"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 4.4-3 7.6-7 9-4-1.4-7-4.6-7-9V6l7-3z"/><path d="M9 12l2 2 4-4.5"/></svg>Testing</span></div>
+      <h2 class="srd-sectit">What we focus on</h2>
+      <div class="srh-faq">
+          <div class="srh-faq__item"><button class="srh-faq__q" type="button">Schema migrations</button><div class="srh-faq__a"><div>We manage schema as versioned, reviewable code with tools like Flyway, Liquibase, or Alembic &mdash; every change is a numbered, reversible migration that runs in CI against a disposable database before it ever reaches production. We design changes to be online and backward-compatible (expand-then-contract: add columns and backfill, deploy code, then drop), and on Postgres we use CREATE INDEX CONCURRENTLY and lock-timeout guards so releases land without downtime or surprise table locks.</div></div></div>
+          <div class="srh-faq__item"><button class="srh-faq__q" type="button">Stored procedures &amp; functions</button><div class="srh-faq__a"><div>We push set-based logic into the database where it belongs &mdash; PL/pgSQL functions, MySQL stored procedures, and triggers &mdash; so bulk operations run next to the data instead of looping in the application. Each routine has a clear input/output contract, defined transaction and error-handling semantics, and unit tests (for example pgTAP) around its behavior, so the logic is fast, predictable, and safe to change without guessing what depends on it.</div></div></div>
+          <div class="srh-faq__item"><button class="srh-faq__q" type="button">APIs over your data</button><div class="srh-faq__a"><div>We build the query and data-API layer with parameterized statements and prepared queries exclusively, so SQL injection isn&rsquo;t possible by construction, and we index for the exact access patterns the API uses rather than indexing blindly. We add the right guardrails &mdash; pagination with keyset cursors instead of large OFFSETs, connection pooling via PgBouncer, and statement timeouts &mdash; so a single expensive call can&rsquo;t exhaust connections or stall the database.</div></div></div>
+          <div class="srh-faq__item"><button class="srh-faq__q" type="button">SQL and NoSQL</button><div class="srh-faq__a"><div>We build comfortably in both PostgreSQL and MongoDB and pick per use case instead of forcing one engine to do everything. Relational gets the workloads that need joins, multi-row transactions, and strict constraints; MongoDB&rsquo;s document model fits flexible or deeply nested shapes and high-write ingestion, where we still enforce structure with JSON schema validation and design indexes (including compound and multikey) deliberately so &ldquo;schemaless&rdquo; never means unindexed.</div></div></div>
+          <div class="srh-faq__item"><button class="srh-faq__q" type="button">Testing</button><div class="srh-faq__a"><div>We write automated tests that run migrations forward and back against realistic, seeded data so a schema change can&rsquo;t silently break a downstream report or API. Procedures and critical queries get assertion-level coverage (pgTAP, or test harnesses in the app&rsquo;s language) wired into CI, and we test against a production-like dataset so performance regressions and edge cases surface in the pipeline rather than in production.</div></div></div>
+      </div>
+      <h2 class="srd-sectit">Why it matters</h2>
+      <div class="srd-cols"><p>Versioned, reversible migrations that run in CI and deploy without downtime &mdash; no hand-edited production schemas, no surprises on release night.</p><p>Set-based procedures, functions, and triggers that keep heavy logic next to the data, with clear contracts and tests around each one.</p><p>Parameterized, well-indexed query layers and data APIs that are fast and injection-safe &mdash; the right access patterns baked in from the start.</p><p>We build comfortably in PostgreSQL and MongoDB, choosing relational or document per use case rather than forcing one engine to do everything.</p><p>Automated tests for migrations, procedures, and queries against realistic data, so a schema change can&rsquo;t silently break a downstream report.</p></div>
+      <div class="srd-end">
+        <h3>Need a data layer your team can build on?</h3>
+        <p>Request a quote with your stack and what you&rsquo;re building, and we&rsquo;ll return a fixed-fee plan for migrations, logic, and the APIs around them.</p>
+        <div class="srd-cta">
+          <a class="srh-btn srh-btn--primary" href="/quote-sunriver-consulting">Get a Quick Estimate &rarr;</a>
+          <a class="srh-btn srh-btn--ghost" href="/contact">Contact us</a>
+        </div>
       </div>
     </div>
-  </section>
-
-  <section class="srh-band srh-band--rev srh-cta">
-    <canvas class="srh-band__canvas" data-srx-shader="smoke-veil" aria-hidden="true"></canvas>
-    <div class="srh-band__inner srx-reveal" style="text-align:center;">
-      <h2 class="srh-h2">Need a data layer your team can build on?</h2>
-      <p class="srh-lead" style="margin-inline:auto;">Request a quote with your stack and what you&rsquo;re building, and we&rsquo;ll return a fixed-fee plan for migrations, logic, and the APIs around them.</p>
-      <div class="srh-hero__ctas" style="justify-content:center;"><a class="srh-btn srh-btn--primary" href="/quote-sunriver-consulting">Get a Quick Estimate</a><a class="srh-btn srh-btn--light" href="/contact">Contact us</a></div>
-    </div>
-  </section>
-
+  </div>
 </div>
 {% endblock body %}

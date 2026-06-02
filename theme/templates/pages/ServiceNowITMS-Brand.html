@@ -5,50 +5,47 @@
   screenshot_path: ../../images/template-previews/home.jpg
 -->
 {#
-  .srh brand page (expert content) -- green-gold gradient + interactive smoke
-  veil + white brand-logo cards that hover into the featured gradient.
-  Content-only; styles in child.css (.srh), runtime in child.js. Does not
-  touch the live Home page.
+  Tier-2 deep-dive page (.srd) -- white sheet on the green + smoke (warms to
+  ember on scroll). Dropdowns + multi-column detail. Linked from the
+  Business Solutions page modal. Does not touch live Home.
 #}
 {% extends "../layouts/base.html" %}
 
 {% block body %}
-<div class="srh">
-
-  <section class="srh-band">
-    <canvas class="srh-band__canvas" data-srx-shader="smoke-veil" aria-hidden="true"></canvas>
-    <div class="srh-band__inner srx-reveal" style="text-align:center;max-width:920px;">
-      <span class="srh-eyebrow">Business Solutions / ServiceNow ITSM</span>
-      <h1 class="srh-h1" style="max-width:20ch;margin-inline:auto;">ServiceNow ITSM your team will use</h1>
-      <p class="srh-lead" style="margin-inline:auto;">Incident and change management, an accurate CMDB, and a service catalog that earns its keep. ServiceNow configured around your processes so adoption follows naturally.</p>
-      <div class="srh-hero__ctas" style="justify-content:center;"><a class="srh-btn srh-btn--primary" href="/quote-sunriver-consulting">Get a Quick Estimate</a><a class="srh-btn srh-btn--ghost" href="/schedule-a-consultation-sunriver-consulting">Schedule a Consultation</a></div>
-    </div>
-  </section>
-
-  <section class="srh-sec">
-    <div class="srh-sec__inner">
-      <div class="srx-reveal" style="text-align:center;max-width:720px;margin:0 auto;">
-        <span class="srh-eyebrow" style="color:var(--river);">In scope</span>
-        <h2 class="srh-h2">The work, specifically.</h2>
+<div class="srd">
+  <canvas class="srd__canvas" data-srx-shader="smoke-veil" aria-hidden="true"></canvas>
+  <div class="srd__wrap">
+    <a class="srd-back" href="/business-solutions-sunriver-consulting">&larr; Business Solutions</a>
+    <div class="srd-sheet srx-reveal">
+      <div class="srd-head">
+        <span class="srd-head__ic"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 7a4 4 0 0 1-5.2 4.8L5 16.6 7.4 19l4.8-4.8A4 4 0 0 0 17 9l-2.2 2.2-2-2L15 7z"/></svg></span>
+        <div><span class="srd-eyebrow">Business Solutions / ServiceNow ITSM</span><h1 class="srd-h1">ServiceNow ITSM your team will use</h1></div>
       </div>
-      <div class="srh-cards" style="margin-top:2.4rem;">
-        <a class="srh-card srh-card--feature" href="/quote-sunriver-consulting"><span class="srh-card__logo"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 7a4 4 0 0 1-5.2 4.8L5 16.6 7.4 19l4.8-4.8A4 4 0 0 0 17 9l-2.2 2.2-2-2L15 7z"/></svg></span><h3 class="srh-card__title">Incident &amp; change</h3><p class="srh-card__desc">Incident, problem, and change workflows aligned to ITIL practice and the way your team really responds.</p></a>
-        <a class="srh-card" href="/quote-sunriver-consulting"><span class="srh-card__logo"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="5.5" rx="7.5" ry="3"/><path d="M4.5 5.5v13c0 1.66 3.36 3 7.5 3s7.5-1.34 7.5-3v-13"/><path d="M4.5 12c0 1.66 3.36 3 7.5 3s7.5-1.34 7.5-3"/></svg></span><h3 class="srh-card__title">CMDB</h3><p class="srh-card__desc">A configuration management database kept accurate through discovery, so relationships are trustworthy.</p></a>
-        <a class="srh-card" href="/quote-sunriver-consulting"><span class="srh-card__logo"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 18a8 8 0 1 1 14 0"/><path d="M12 12l3.6-2.4"/><circle cx="12" cy="12" r="1.3"/></svg></span><h3 class="srh-card__title">Workflows</h3><p class="srh-card__desc">Flow Designer automations for approvals, assignment, and SLAs that move work without manual nudging.</p></a>
-        <a class="srh-card" href="/quote-sunriver-consulting"><span class="srh-card__logo"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.5 3.8 5.7 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.7-3.8-9S9.5 5.5 12 3z"/></svg></span><h3 class="srh-card__title">Integrations</h3><p class="srh-card__desc">Integration Hub and REST connections to monitoring, HR, and directory systems, so records stay in sync.</p></a>
-        <a class="srh-card" href="/quote-sunriver-consulting"><span class="srh-card__logo"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M9.5 13h6M9.5 16.5h6"/></svg></span><h3 class="srh-card__title">Service catalog</h3><p class="srh-card__desc">Catalog items and request workflows that give people a clear, self-service front door to IT.</p></a>
+      <p class="srd-lead">Incident and change management, an accurate CMDB, and a service catalog that earns its keep. ServiceNow configured around your processes so adoption follows naturally.</p>
+      <div class="srd-cta">
+        <a class="srh-btn srh-btn--primary" href="/quote-sunriver-consulting">Get a quick estimate &rarr;</a>
+        <a class="srh-btn srh-btn--ghost" href="System.Collections.Hashtable">Book a consultation</a>
+      </div>
+      <div class="srd-stack"><span class="srd-stack__lab">Scope</span><span class="srd-chip"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 7a4 4 0 0 1-5.2 4.8L5 16.6 7.4 19l4.8-4.8A4 4 0 0 0 17 9l-2.2 2.2-2-2L15 7z"/></svg>Incident &amp; change</span><span class="srd-chip"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="5.5" rx="7.5" ry="3"/><path d="M4.5 5.5v13c0 1.66 3.36 3 7.5 3s7.5-1.34 7.5-3v-13"/><path d="M4.5 12c0 1.66 3.36 3 7.5 3s7.5-1.34 7.5-3"/></svg>CMDB</span><span class="srd-chip"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 18a8 8 0 1 1 14 0"/><path d="M12 12l3.6-2.4"/><circle cx="12" cy="12" r="1.3"/></svg>Workflows</span><span class="srd-chip"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.5 3.8 5.7 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.7-3.8-9S9.5 5.5 12 3z"/></svg>Integrations</span><span class="srd-chip"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M9.5 13h6M9.5 16.5h6"/></svg>Service catalog</span></div>
+      <h2 class="srd-sectit">What we focus on</h2>
+      <div class="srh-faq">
+          <div class="srh-faq__item"><button class="srh-faq__q" type="button">Incident &amp; change</button><div class="srh-faq__a"><div>We configure Incident, Problem, and Change management aligned to ITIL practice and the way your team actually responds, with assignment groups, categorization, and clear states from logging through resolution. Change is set up with risk assessment, approval policies, and change types &mdash; standard, normal, emergency &mdash; so the right rigor applies to the right change. The process fits how the team works, which is what drives adoption rather than resistance.</div></div></div>
+          <div class="srh-faq__item"><button class="srh-faq__q" type="button">CMDB</button><div class="srh-faq__a"><div>We populate and maintain the CMDB through Discovery and Service Mapping so configuration items and their relationships reflect reality, not a stale spreadsheet, and we apply the CSDM framework so the data is structured correctly. Identification and reconciliation rules prevent duplicate CIs from polluting the database. An accurate CMDB is what makes impact analysis, change risk, and service mapping actually trustworthy.</div></div></div>
+          <div class="srh-faq__item"><button class="srh-faq__q" type="button">Workflows</button><div class="srh-faq__a"><div>We build automation in Flow Designer for approvals, assignment, and SLA tracking so work routes and escalates without manual nudging, and configure SLA definitions with the right conditions and pause rules so the clock reflects reality. Notifications and tasks are generated automatically at the right points. The aim is a system that moves work forward on its own rather than waiting on someone to remember.</div></div></div>
+          <div class="srh-faq__item"><button class="srh-faq__q" type="button">Integrations</button><div class="srh-faq__a"><div>We connect ServiceNow to monitoring, HR, and directory systems through Integration Hub spokes and REST so records stay in sync &mdash; events create incidents, HR data drives onboarding, and directory data keeps users and groups current. Integrations are built with error handling and logging so failures are visible rather than silent. This keeps the platform a single source of truth instead of one more island of data.</div></div></div>
+          <div class="srh-faq__item"><button class="srh-faq__q" type="button">Service catalog</button><div class="srh-faq__a"><div>We design Service Catalog items with record producers, variable sets, and request workflows that give people a clear, self-service front door to IT, with multi-stage fulfillment routing each request to the right team. Catalog items are scoped and governed so the catalog stays curated rather than sprawling. A well-built catalog deflects routine tickets and gives requesters a predictable, trackable experience.</div></div></div>
+      </div>
+      <h2 class="srd-sectit">Why it matters</h2>
+      <div class="srd-cols"><p>Incident, problem, and change workflows aligned to ITIL practice and the way your team really responds.</p><p>A configuration management database kept accurate through discovery, so relationships are trustworthy.</p><p>Flow Designer automations for approvals, assignment, and SLAs that move work without manual nudging.</p><p>Integration Hub and REST connections to monitoring, HR, and directory systems, so records stay in sync.</p><p>Catalog items and request workflows that give people a clear, self-service front door to IT.</p></div>
+      <div class="srd-end">
+        <h3>Is ServiceNow underused or overgrown?</h3>
+        <p>Get in touch and we&rsquo;ll review your ITSM processes and CMDB, then scope a fixed-fee engagement.</p>
+        <div class="srd-cta">
+          <a class="srh-btn srh-btn--primary" href="/quote-sunriver-consulting">Get a Quick Estimate &rarr;</a>
+          <a class="srh-btn srh-btn--ghost" href="/contact">Contact us</a>
+        </div>
       </div>
     </div>
-  </section>
-
-  <section class="srh-band srh-band--rev srh-cta">
-    <canvas class="srh-band__canvas" data-srx-shader="smoke-veil" aria-hidden="true"></canvas>
-    <div class="srh-band__inner srx-reveal" style="text-align:center;">
-      <h2 class="srh-h2">Is ServiceNow underused or overgrown?</h2>
-      <p class="srh-lead" style="margin-inline:auto;">Get in touch and we&rsquo;ll review your ITSM processes and CMDB, then scope a fixed-fee engagement.</p>
-      <div class="srh-hero__ctas" style="justify-content:center;"><a class="srh-btn srh-btn--primary" href="/quote-sunriver-consulting">Get a Quick Estimate</a><a class="srh-btn srh-btn--light" href="/contact">Contact us</a></div>
-    </div>
-  </section>
-
+  </div>
 </div>
 {% endblock body %}

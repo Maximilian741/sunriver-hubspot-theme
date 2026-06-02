@@ -308,13 +308,47 @@
       });
     });
 
+    // learn-more modal for facet cards (sub-pages)
+    (function () {
+      var cards = document.querySelectorAll('.srh-card[data-modal]');
+      if (!cards.length) return;
+      var modal = document.createElement('div');
+      modal.className = 'srh-modal srh';
+      modal.innerHTML = '<div class="srh-modal__backdrop" data-close></div>'
+        + '<div class="srh-modal__dialog" role="dialog" aria-modal="true">'
+        + '<button class="srh-modal__close" data-close aria-label="Close">&times;</button>'
+        + '<div class="srh-modal__ic" data-ic></div>'
+        + '<h3 class="srh-modal__title" data-title></h3>'
+        + '<p class="srh-modal__lead" data-lead></p>'
+        + '<div class="srh-modal__body" data-body></div>'
+        + '<div class="srh-modal__cta"><a class="srh-btn srh-btn--primary" data-more-link href="/quote-sunriver-consulting">Get a quick estimate &rarr;</a><a class="srh-btn srh-btn--ghost" href="/contact">Ask a question</a></div>'
+        + '</div>';
+      document.body.appendChild(modal);
+      var icEl = modal.querySelector('[data-ic]'), tEl = modal.querySelector('[data-title]'), lEl = modal.querySelector('[data-lead]'), bEl = modal.querySelector('[data-body]');
+      function openCard(card) {
+        var svg = card.querySelector('.srh-card__logo svg');
+        icEl.innerHTML = svg ? svg.outerHTML : '';
+        var t = card.querySelector('.srh-card__title'), d = card.querySelector('.srh-card__desc'), m = card.querySelector('.srh-card__more');
+        tEl.textContent = t ? t.textContent : '';
+        lEl.textContent = d ? d.textContent : '';
+        bEl.innerHTML = m ? m.innerHTML : (d ? d.textContent : '');
+        var ml = modal.querySelector('[data-more-link]'), href = card.getAttribute('data-href');
+        if (ml) { if (href) { ml.setAttribute('href', href); ml.innerHTML = 'Learn more &rarr;'; } else { ml.setAttribute('href', '/quote-sunriver-consulting'); ml.innerHTML = 'Get a quick estimate &rarr;'; } }
+        modal.classList.add('is-open'); document.body.classList.add('srh-modal-open');
+      }
+      function closeModal() { modal.classList.remove('is-open'); document.body.classList.remove('srh-modal-open'); }
+      [].forEach.call(cards, function (c) { c.addEventListener('click', function (e) { e.preventDefault(); openCard(c); }); });
+      modal.addEventListener('click', function (e) { if (e.target.hasAttribute && e.target.hasAttribute('data-close')) closeModal(); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeModal(); });
+    })();
+
     var canvases = [].slice.call(document.querySelectorAll('canvas[data-srx-shader]:not([data-srx-init])'));
     if (!canvases.length) return;
     if (reduce) { canvases.forEach(function (c) { c.setAttribute('data-srx-init', '1'); c.style.display = 'none'; }); return; }
 
     var VERT = 'attribute vec2 p;void main(){gl_Position=vec4(p,0.0,1.0);}';
     var COMMON =
-      'precision highp float;uniform float u_time;uniform vec2 u_res;uniform vec2 u_mouse;' +
+      'precision highp float;uniform float u_time;uniform vec2 u_res;uniform vec2 u_mouse;uniform float u_warm;' +
       'float hash(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}' +
       'float noise(vec2 p){vec2 i=floor(p),f=fract(p);vec2 u=f*f*(3.0-2.0*f);' +
       'return mix(mix(hash(i),hash(i+vec2(1,0)),u.x),mix(hash(i+vec2(0,1)),hash(i+vec2(1,1)),u.x),u.y);}' +
@@ -394,8 +428,10 @@
       'float smoke=fbm(q*1.25);float dense=smoothstep(0.42,0.98,smoke);' +
       'float wisp=fbm(q*2.6+vec2(0.0,t*1.3));dense*=0.5+0.7*wisp;' +
       'vec3 ink=vec3(0.02,0.08,0.06);vec3 tealdk=vec3(0.03,0.18,0.24);' +
-      'vec3 col=mix(ink,tealdk,smoothstep(0.3,1.0,dense));' +
-      'float a=clamp(dense,0.0,1.0)*0.5;' +
+      'vec3 cool=mix(ink,tealdk,smoothstep(0.3,1.0,dense));' +
+      'vec3 emb=mix(vec3(0.16,0.05,0.02),vec3(1.0,0.42,0.10),smoothstep(0.3,1.0,dense));' +
+      'vec3 col=mix(cool,emb,u_warm);' +
+      'float a=clamp(dense,0.0,1.0)*(0.5+0.12*u_warm);' +
       'gl_FragColor=vec4(col,a);}';
     var FRAG = { ember: EMBER, maple: MAPLE, 'ember-neon': EMBER_NEON, 'maple-neon': MAPLE_NEON, 'ember-warm': EMBER_WARM, 'smoke-veil': SMOKE_VEIL };
 
@@ -411,8 +447,8 @@
       gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1,1,-1,-1,1,-1,1,1,-1,1,1]), gl.STATIC_DRAW);
       var loc = gl.getAttribLocation(prog, 'p'); gl.enableVertexAttribArray(loc);
       gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
-      var uT = gl.getUniformLocation(prog, 'u_time'), uR = gl.getUniformLocation(prog, 'u_res'), uM = gl.getUniformLocation(prog, 'u_mouse');
-      var start = performance.now(), visible = true, mAim = [0, 0], mSm = [0, 0];
+      var uT = gl.getUniformLocation(prog, 'u_time'), uR = gl.getUniformLocation(prog, 'u_res'), uM = gl.getUniformLocation(prog, 'u_mouse'), uW = gl.getUniformLocation(prog, 'u_warm');
+      var start = performance.now(), visible = true, mAim = [0, 0], mSm = [0, 0], warmS = 0;
       window.addEventListener('mousemove', function (e) {
         var r = canvas.getBoundingClientRect(); if (!r.width || !r.height) return;
         mAim[0] = (e.clientX - r.left - r.width / 2) / r.height;
@@ -430,9 +466,13 @@
         if (!visible || document.hidden) return;
         sizeCanvas();
         mSm[0] += (mAim[0] - mSm[0]) * 0.07; mSm[1] += (mAim[1] - mSm[1]) * 0.07;
+        var wd = document.documentElement.scrollHeight - window.innerHeight;
+        var wt = wd > 0 ? Math.min(1, Math.max(0, window.scrollY / wd)) : 0;
+        warmS += (wt - warmS) * 0.06;
         gl.uniform1f(uT, (performance.now() - start) / 1000);
         gl.uniform2f(uR, canvas.width, canvas.height);
         if (uM) gl.uniform2f(uM, mSm[0], mSm[1]);
+        if (uW) gl.uniform1f(uW, warmS);
         gl.drawArrays(gl.TRIANGLES, 0, 6);
       }
       loop();

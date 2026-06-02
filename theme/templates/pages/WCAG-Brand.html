@@ -5,50 +5,47 @@
   screenshot_path: ../../images/template-previews/home.jpg
 -->
 {#
-  .srh brand page (expert content) -- green-gold gradient + interactive smoke
-  veil + white brand-logo cards that hover into the featured gradient.
-  Content-only; styles in child.css (.srh), runtime in child.js. Does not
-  touch the live Home page.
+  Tier-2 deep-dive page (.srd) -- white sheet on the green + smoke (warms to
+  ember on scroll). Dropdowns + multi-column detail. Linked from the
+  Compliance Audits page modal. Does not touch live Home.
 #}
 {% extends "../layouts/base.html" %}
 
 {% block body %}
-<div class="srh">
-
-  <section class="srh-band">
-    <canvas class="srh-band__canvas" data-srx-shader="smoke-veil" aria-hidden="true"></canvas>
-    <div class="srh-band__inner srx-reveal" style="text-align:center;max-width:920px;">
-      <span class="srh-eyebrow">Compliance Audits / WCAG 2.2</span>
-      <h1 class="srh-h1" style="max-width:20ch;margin-inline:auto;">Accessible to everyone, proven not assumed.</h1>
-      <p class="srh-lead" style="margin-inline:auto;">WCAG 2.0 through 2.2 conformance audits driven by real assistive-technology testing &mdash; not just an automated scan. You get a defensible VPAT and a remediation list your developers can work straight through.</p>
-      <div class="srh-hero__ctas" style="justify-content:center;"><a class="srh-btn srh-btn--primary" href="/quote-sunriver-consulting">Get a Quick Estimate</a><a class="srh-btn srh-btn--ghost" href="/schedule-a-consultation-sunriver-consulting">Schedule a Consultation</a></div>
-    </div>
-  </section>
-
-  <section class="srh-sec">
-    <div class="srh-sec__inner">
-      <div class="srx-reveal" style="text-align:center;max-width:720px;margin:0 auto;">
-        <span class="srh-eyebrow" style="color:var(--river);">In scope</span>
-        <h2 class="srh-h2">The work, specifically.</h2>
+<div class="srd">
+  <canvas class="srd__canvas" data-srx-shader="smoke-veil" aria-hidden="true"></canvas>
+  <div class="srd__wrap">
+    <a class="srd-back" href="/compliance-audits-sunriver-consulting">&larr; Compliance Audits</a>
+    <div class="srd-sheet srx-reveal">
+      <div class="srd-head">
+        <span class="srd-head__ic"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.5 3.8 5.7 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.7-3.8-9S9.5 5.5 12 3z"/></svg></span>
+        <div><span class="srd-eyebrow">Compliance Audits / WCAG 2.2</span><h1 class="srd-h1">Accessible to everyone, proven not assumed.</h1></div>
       </div>
-      <div class="srh-cards" style="margin-top:2.4rem;">
-        <a class="srh-card srh-card--feature" href="/quote-sunriver-consulting"><span class="srh-card__logo"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.5 3.8 5.7 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.7-3.8-9S9.5 5.5 12 3z"/></svg></span><h3 class="srh-card__title">WCAG 2.2 AA Conformance</h3><p class="srh-card__desc">Every applicable success criterion checked against 2.2 Level AA, including the new focus, target-size, and dragging requirements.</p></a>
-        <a class="srh-card" href="/quote-sunriver-consulting"><span class="srh-card__logo"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span><h3 class="srh-card__title">Screen-Reader Testing</h3><p class="srh-card__desc">Hands-on testing with NVDA and VoiceOver to confirm content, structure, and announcements actually make sense aloud.</p></a>
-        <a class="srh-card" href="/quote-sunriver-consulting"><span class="srh-card__logo"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 7a4 4 0 0 1-5.2 4.8L5 16.6 7.4 19l4.8-4.8A4 4 0 0 0 17 9l-2.2 2.2-2-2L15 7z"/></svg></span><h3 class="srh-card__title">Keyboard Navigation</h3><p class="srh-card__desc">Full keyboard-only walkthroughs &mdash; logical focus order, visible focus, no traps, and operable custom widgets.</p></a>
-        <a class="srh-card" href="/quote-sunriver-consulting"><span class="srh-card__logo"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l1.8 6.2L20 11l-6.2 1.8L12 19l-1.8-6.2L4 11l6.2-1.8z"/></svg></span><h3 class="srh-card__title">Color Contrast</h3><p class="srh-card__desc">Text, UI components, and graphics measured against contrast minimums, with accessible palette fixes you can apply.</p></a>
-        <a class="srh-card" href="/quote-sunriver-consulting"><span class="srh-card__logo"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M9.5 13h6M9.5 16.5h6"/></svg></span><h3 class="srh-card__title">VPAT &amp; Statement</h3><p class="srh-card__desc">A completed VPAT and a public accessibility statement that stand up to procurement and legal review.</p></a>
+      <p class="srd-lead">WCAG 2.0 through 2.2 conformance audits driven by real assistive-technology testing &mdash; not just an automated scan. You get a defensible VPAT and a remediation list your developers can work straight through.</p>
+      <div class="srd-cta">
+        <a class="srh-btn srh-btn--primary" href="/quote-sunriver-consulting">Get a quick estimate &rarr;</a>
+        <a class="srh-btn srh-btn--ghost" href="System.Collections.Hashtable">Book a consultation</a>
+      </div>
+      <div class="srd-stack"><span class="srd-stack__lab">Scope</span><span class="srd-chip"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.5 3.8 5.7 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.7-3.8-9S9.5 5.5 12 3z"/></svg>WCAG 2.2 AA Conformance</span><span class="srd-chip"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg>Screen-Reader Testing</span><span class="srd-chip"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 7a4 4 0 0 1-5.2 4.8L5 16.6 7.4 19l4.8-4.8A4 4 0 0 0 17 9l-2.2 2.2-2-2L15 7z"/></svg>Keyboard Navigation</span><span class="srd-chip"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l1.8 6.2L20 11l-6.2 1.8L12 19l-1.8-6.2L4 11l6.2-1.8z"/></svg>Color Contrast</span><span class="srd-chip"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M9.5 13h6M9.5 16.5h6"/></svg>VPAT &amp; Statement</span></div>
+      <h2 class="srd-sectit">What we focus on</h2>
+      <div class="srh-faq">
+          <div class="srh-faq__item"><button class="srh-faq__q" type="button">WCAG 2.2 AA Conformance</button><div class="srh-faq__a"><div>We evaluate every applicable success criterion against WCAG 2.2 Level AA, including the nine new 2.2 criteria such as Focus Not Obscured, Target Size (Minimum), Dragging Movements, and Accessible Authentication. Testing combines automated tooling (axe-core, WAVE, Lighthouse) for coverage with extensive manual inspection, since roughly half of WCAG criteria cannot be verified by automation alone. Each non-conformance is logged with the failing criterion, conformance level, severity, and a recommended fix referencing the relevant W3C technique.</div></div></div>
+          <div class="srh-faq__item"><button class="srh-faq__q" type="button">Screen-Reader Testing</button><div class="srh-faq__a"><div>Content is exercised hands-on with multiple screen readers &mdash; NVDA and JAWS on Windows, VoiceOver on macOS and iOS &mdash; to confirm that name, role, and value are announced correctly and that reading order, headings, landmarks, and live-region updates are coherent aloud. We verify that dynamic components and ARIA usage follow the WAI-ARIA Authoring Practices rather than just passing a parser. Findings note the specific assistive technology and browser pairing so developers can reproduce each issue.</div></div></div>
+          <div class="srh-faq__item"><button class="srh-faq__q" type="button">Keyboard Navigation</button><div class="srh-faq__a"><div>We perform complete keyboard-only walkthroughs to confirm that all functionality is operable without a mouse, that focus order is logical and matches visual order, that focus is always visible, and that no keyboard traps exist. Custom widgets &mdash; menus, modals, carousels, comboboxes &mdash; are checked against expected ARIA keyboard interaction patterns for arrow, Escape, and Enter handling. Each defect maps to criteria such as 2.1.1 Keyboard, 2.4.3 Focus Order, and 2.4.7 Focus Visible with a concrete remediation.</div></div></div>
+          <div class="srh-faq__item"><button class="srh-faq__q" type="button">Color Contrast</button><div class="srh-faq__a"><div>Text, meaningful graphics, and UI components are measured against WCAG contrast minimums &mdash; 4.5:1 for normal text, 3:1 for large text and for non-text contrast under 1.4.11 &mdash; using tools like the TPGi Colour Contrast Analyser and computed-value sampling. We test against actual rendered states including hover, focus, disabled, and overlay-on-image cases that static palettes overlook. Deliverables include a contrast findings table and adjusted color values that preserve your brand while meeting the threshold.</div></div></div>
+          <div class="srh-faq__item"><button class="srh-faq__q" type="button">VPAT &amp; Statement</button><div class="srh-faq__a"><div>We produce a completed VPAT 2.5 (Voluntary Product Accessibility Template) using the WCAG edition, with honest Supports / Partially Supports / Does Not Support conformance statements and explanatory remarks for each criterion. Alongside it we draft a public-facing accessibility statement modeled on the W3C template, documenting conformance scope, known limitations, and a feedback channel. Both artifacts are written to withstand procurement diligence and legal scrutiny, including ADA Title III and Section 508 contexts.</div></div></div>
+      </div>
+      <h2 class="srd-sectit">Why it matters</h2>
+      <div class="srd-cols"><p>Every applicable success criterion checked against 2.2 Level AA, including the new focus, target-size, and dragging requirements.</p><p>Hands-on testing with NVDA and VoiceOver to confirm content, structure, and announcements actually make sense aloud.</p><p>Full keyboard-only walkthroughs &mdash; logical focus order, visible focus, no traps, and operable custom widgets.</p><p>Text, UI components, and graphics measured against contrast minimums, with accessible palette fixes you can apply.</p><p>A completed VPAT and a public accessibility statement that stand up to procurement and legal review.</p></div>
+      <div class="srd-end">
+        <h3>Need to prove WCAG conformance?</h3>
+        <p>We will audit it against 2.2 AA and hand you the VPAT and the fix list.</p>
+        <div class="srd-cta">
+          <a class="srh-btn srh-btn--primary" href="/quote-sunriver-consulting">Get a Quick Estimate &rarr;</a>
+          <a class="srh-btn srh-btn--ghost" href="/contact">Contact us</a>
+        </div>
       </div>
     </div>
-  </section>
-
-  <section class="srh-band srh-band--rev srh-cta">
-    <canvas class="srh-band__canvas" data-srx-shader="smoke-veil" aria-hidden="true"></canvas>
-    <div class="srh-band__inner srx-reveal" style="text-align:center;">
-      <h2 class="srh-h2">Need to prove WCAG conformance?</h2>
-      <p class="srh-lead" style="margin-inline:auto;">We will audit it against 2.2 AA and hand you the VPAT and the fix list.</p>
-      <div class="srh-hero__ctas" style="justify-content:center;"><a class="srh-btn srh-btn--primary" href="/quote-sunriver-consulting">Get a Quick Estimate</a><a class="srh-btn srh-btn--light" href="/contact">Contact us</a></div>
-    </div>
-  </section>
-
+  </div>
 </div>
 {% endblock body %}
