@@ -425,13 +425,14 @@
     var SMOKE_VEIL = COMMON +
       'void main(){vec2 p=(gl_FragCoord.xy-0.5*u_res.xy)/u_res.y;float t=u_time*0.09;' +
       'vec2 q=p*1.25;q.y+=t*0.6;q+=0.5*vec2(fbm(q+t),fbm(q*1.2-t+5.0));q=warp(q,p);' +
-      'float smoke=fbm(q*1.25);float dense=smoothstep(0.42,0.98,smoke);' +
-      'float wisp=fbm(q*2.6+vec2(0.0,t*1.3));dense*=0.5+0.7*wisp;' +
-      'vec3 ink=vec3(0.02,0.08,0.06);vec3 tealdk=vec3(0.03,0.18,0.24);' +
+      'float smoke=fbm(q*1.25);float dense=smoothstep(0.28,0.9,smoke);' +
+      'float wisp=fbm(q*2.6+vec2(0.0,t*1.3));dense*=0.6+0.7*wisp;' +
+      'vec3 ink=vec3(0.02,0.09,0.06);vec3 tealdk=vec3(0.03,0.21,0.27);' +
       'vec3 cool=mix(ink,tealdk,smoothstep(0.3,1.0,dense));' +
-      'vec3 emb=mix(vec3(0.16,0.05,0.02),vec3(1.0,0.42,0.10),smoothstep(0.3,1.0,dense));' +
-      'vec3 col=mix(cool,emb,u_warm);' +
-      'float a=clamp(dense,0.0,1.0)*(0.5+0.12*u_warm);' +
+      'vec3 emb=mix(vec3(0.30,0.07,0.02),vec3(1.0,0.46,0.10),smoothstep(0.2,1.0,dense));' +
+      'float w=clamp(u_warm*1.15,0.0,1.0);' +
+      'vec3 col=mix(cool,emb,w);' +
+      'float a=clamp(dense,0.0,1.0)*(0.62+0.3*w);' +
       'gl_FragColor=vec4(col,a);}';
     var FRAG = { ember: EMBER, maple: MAPLE, 'ember-neon': EMBER_NEON, 'maple-neon': MAPLE_NEON, 'ember-warm': EMBER_WARM, 'smoke-veil': SMOKE_VEIL };
 
@@ -466,8 +467,7 @@
         if (!visible || document.hidden) return;
         sizeCanvas();
         mSm[0] += (mAim[0] - mSm[0]) * 0.07; mSm[1] += (mAim[1] - mSm[1]) * 0.07;
-        var wd = document.documentElement.scrollHeight - window.innerHeight;
-        var wt = wd > 0 ? Math.min(1, Math.max(0, window.scrollY / wd)) : 0;
+        var wt = Math.min(1, (window.scrollY || window.pageYOffset || 0) / 500);
         warmS += (wt - warmS) * 0.06;
         gl.uniform1f(uT, (performance.now() - start) / 1000);
         gl.uniform2f(uR, canvas.width, canvas.height);
