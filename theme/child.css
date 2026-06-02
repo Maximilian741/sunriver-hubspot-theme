@@ -882,7 +882,7 @@ body.srh-modal-open { overflow:hidden; }
    Rich: dropdowns (reuses .srh-faq), multi-column, stack chips.
    ============================================================ */
 .srd { position:relative; min-height:100vh; isolation:isolate; background:linear-gradient(to bottom right,#21c700 0%,#6cc62b 42%,#cdbf3c 76%,#f1c233 100%); background-attachment:fixed; color:#0c2114; font-family:var(--body,"Manrope",system-ui,sans-serif); }
-.srd__sky { position:fixed; inset:0; z-index:0; pointer-events:none; opacity:var(--sr-warm,0); background:linear-gradient(165deg,#ffc24a 0%,#ff7e4d 36%,#ff5d73 66%,#7b4fae 100%); transition:opacity .15s linear; }
+.srd__sky { position:fixed; inset:0; z-index:0; pointer-events:none; opacity:var(--sr-warm,0); background:linear-gradient(168deg,#ffba3c 0%,#ff7e3a 24%,#d6481a 46%,#6e2410 66%,#1c0c07 85%,#070302 100%); transition:opacity .15s linear; }
 .srd__canvas { position:fixed; inset:0; width:100%; height:100%; z-index:1; pointer-events:none; }
 .srd__wrap { position:relative; z-index:2; max-width:960px; margin:0 auto; padding:clamp(26px,5vw,60px) clamp(14px,4vw,32px) clamp(50px,7vw,96px); }
 .srd-back { display:inline-flex; align-items:center; gap:6px; color:#0c2114; background:rgba(255,255,255,.72); padding:8px 15px; border-radius:999px; text-decoration:none; font-family:var(--mono,"JetBrains Mono",monospace); font-size:12px; letter-spacing:.1em; text-transform:uppercase; font-weight:600; transition:background .15s ease; }
