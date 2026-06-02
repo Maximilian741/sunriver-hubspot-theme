@@ -308,6 +308,11 @@
       });
     });
 
+    // green -> sunset background warmth, driven by scroll (used by .srd__sky)
+    (function () {
+      var setWarm = function () { var w = Math.min(1, (window.scrollY || window.pageYOffset || 0) / 520); document.documentElement.style.setProperty('--sr-warm', w.toFixed(3)); };
+      window.addEventListener('scroll', setWarm, { passive: true }); setWarm();
+    })();
     // learn-more modal for facet cards (sub-pages)
     (function () {
       var cards = document.querySelectorAll('.srh-card[data-modal]');
