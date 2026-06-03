@@ -756,7 +756,7 @@
 /* cards — white; on HOVER each turns into the featured teal->green gradient */
 .srh-cards { display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(14px,1.6vw,20px); }
 .srh-card { position:relative; overflow:hidden; display:flex; flex-direction:column; gap:9px; padding:24px 22px; border-radius:16px; background:var(--paper); text-decoration:none; border:1px solid rgba(12,33,20,.06); box-shadow:0 18px 40px -26px rgba(8,30,16,.5); transition:transform .22s ease, box-shadow .22s ease; }
-.srh-card > * { position:relative; z-index:1; }
+.srh-card > :not(.sr-ripple) { position:relative; z-index:1; }
 .srh-card::before { content:""; position:absolute; inset:0; z-index:0; border-radius:inherit; background:linear-gradient(150deg,#3E9DB8 0%,#5bbf8a 55%,#8FC740 100%); opacity:0; transition:opacity .25s ease; }
 .srh-card:hover { transform:translateY(-6px); box-shadow:0 30px 60px -24px rgba(28,91,119,.6); }
 .srh-card:hover::before { opacity:1; }
@@ -928,6 +928,17 @@ body.srh-modal-open { overflow:hidden; }
 .srh-form .hs-button { width:100%; background:#0c2114; color:#eafff0; border:0; padding:14px 22px; border-radius:11px; font-weight:600; font-family:var(--head,"Poppins",sans-serif); cursor:pointer; transition:transform .15s ease; }
 .srh-form .hs-button:hover { transform:translateY(-2px); }
 .srh-form .hs-error-msg, .srh-form .hs-error-msgs label { color:#c0392b; font-size:.84rem; }
+
+/* home AI banner — keeps the services grid even while leaning into AI */
+.srh-aibanner { margin-top:clamp(20px,3vw,30px); display:flex; flex-wrap:wrap; align-items:center; gap:16px; justify-content:space-between; padding:18px 22px; border-radius:16px; text-decoration:none; background:linear-gradient(120deg,#0c2114,#1C5B77); color:#fff; box-shadow:0 22px 46px -24px rgba(8,30,16,.6); transition:transform .2s ease, box-shadow .2s ease; }
+.srh-aibanner:hover { transform:translateY(-3px); box-shadow:0 30px 60px -24px rgba(28,91,119,.65); }
+.srh-aibanner__l { display:flex; align-items:center; gap:14px; }
+.srh-aibanner__ic { width:44px; height:44px; flex:none; display:grid; place-items:center; border-radius:12px; background:linear-gradient(135deg,#21c700,#3E9DB8); }
+.srh-aibanner__ic svg { width:23px; height:23px; fill:none; stroke:#fff; stroke-width:1.7; stroke-linejoin:round; }
+.srh-aibanner__t b { font-family:var(--head,"Poppins",sans-serif); font-size:1.05rem; }
+.srh-aibanner__t small { display:block; opacity:.82; font-size:.88rem; margin-top:2px; }
+.srh-aibanner__go { flex:none; background:#fff; color:#0c2114; font-family:var(--head,"Poppins",sans-serif); font-weight:600; padding:10px 18px; border-radius:10px; font-size:.95rem; }
+@media (max-width:600px){ .srh-aibanner { flex-direction:column; align-items:flex-start; } }
 .srd-sheet { background:#fff; border-radius:24px; box-shadow:0 50px 100px -42px rgba(8,30,16,.65); padding:clamp(26px,5vw,56px); }
 .srd-head { display:grid; grid-template-columns:auto 1fr; gap:20px; align-items:center; }
 .srd-head__ic { width:64px; height:64px; flex:none; display:grid; place-items:center; border-radius:18px; background:linear-gradient(135deg,#21c700,#3E9DB8); }
