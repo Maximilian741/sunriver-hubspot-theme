@@ -59,26 +59,9 @@
 
         <div class="srx-reveal">
           <div class="srh-form">
-            <form data-demo>
-              <div class="row2">
-                <div><label for="cf-name">Name</label><input id="cf-name" type="text" name="name" placeholder="Jane Rivers" required></div>
-                <div><label for="cf-email">Email</label><input id="cf-email" type="email" name="email" placeholder="jane@company.com" required></div>
-              </div>
-              <label for="cf-company">Company</label>
-              <input id="cf-company" type="text" name="company" placeholder="Acme Co.">
-              <label for="cf-topic">What can we help with?</label>
-              <select id="cf-topic" name="topic">
-                <option>App development</option>
-                <option>Web development</option>
-                <option>Business / cloud solutions</option>
-                <option>Database solutions</option>
-                <option>Compliance &amp; security audit</option>
-                <option>Something else</option>
-              </select>
-              <label for="cf-msg">Tell us about the project</label>
-              <textarea id="cf-msg" name="message" placeholder="A few sentences on what you&rsquo;re trying to build or fix."></textarea>
-              <button class="srh-btn srh-btn--primary" type="submit">Send it &rarr;</button>
-            </form>
+            {# Real lead capture: this renders a HubSpot form. In the page editor, click this
+               module and choose your form (it posts straight to your CRM). Styled by .srh-form. #}
+            {% module "contact_form" path="@hubspot/form" %}
           </div>
         </div>
 
