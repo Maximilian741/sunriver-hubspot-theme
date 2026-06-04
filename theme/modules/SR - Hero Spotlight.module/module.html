@@ -1,39 +1,13 @@
-<section class="sr-hero sr-hero--{{ module.background_style|default('gradient') }}">
-  {% if module.show_shapes %}
-    <div class="sr-hero__shapes" aria-hidden="true">
-      <span class="sr-hero__shape sr-hero__shape--1"></span>
-      <span class="sr-hero__shape sr-hero__shape--2"></span>
-      <span class="sr-hero__shape sr-hero__shape--3"></span>
-      <span class="sr-hero__shape sr-hero__shape--4"></span>
-      <span class="sr-hero__shape sr-hero__shape--5"></span>
-    </div>
-  {% endif %}
-
-  <div class="sr-hero__inner">
-    {% if module.eyebrow %}
-      <div class="sr-hero__eyebrow">{{ module.eyebrow }}</div>
-    {% endif %}
-
-    {% if module.heading %}
-      <h1 class="sr-hero__heading">{{ module.heading }}</h1>
-    {% endif %}
-
-    {% if module.subheading %}
-      <div class="sr-hero__subheading">{{ module.subheading }}</div>
-    {% endif %}
-
-    <div class="sr-hero__ctas">
-      {% if module.primary_cta_text %}
-        <a class="sr-btn sr-btn--primary" href="{{ module.primary_cta_url.href|default(module.primary_cta_url.url.href) }}">
-          {{ module.primary_cta_text }}
-          <span class="sr-btn__arrow">&rarr;</span>
-        </a>
-      {% endif %}
-      {% if module.secondary_cta_text %}
-        <a class="sr-btn sr-btn--ghost" href="{{ module.secondary_cta_url.href|default(module.secondary_cta_url.url.href) }}">
-          {{ module.secondary_cta_text }}
-        </a>
-      {% endif %}
+{# SR Hero — green gradient band + interactive smoke veil (.srh). Styled by child.css. #}
+<section class="srh-band">
+  <canvas class="srh-band__canvas" data-srx-shader="smoke-veil" aria-hidden="true"></canvas>
+  <div class="srh-band__inner" style="text-align:center;max-width:920px;">
+    {% if module.eyebrow %}<span class="srh-eyebrow">{{ module.eyebrow }}</span>{% endif %}
+    {% if module.heading %}<h1 class="srh-h1" style="max-width:20ch;margin-inline:auto;">{{ module.heading }}</h1>{% endif %}
+    {% if module.subheading %}<div class="srh-lead" style="margin-inline:auto;">{{ module.subheading }}</div>{% endif %}
+    <div class="srh-hero__ctas" style="justify-content:center;">
+      {% if module.primary_cta_text %}<a class="srh-btn srh-btn--primary" href="{{ module.primary_cta_url.href }}">{{ module.primary_cta_text }}</a>{% endif %}
+      {% if module.secondary_cta_text %}<a class="srh-btn srh-btn--ghost" href="{{ module.secondary_cta_url.href }}">{{ module.secondary_cta_text }}</a>{% endif %}
     </div>
   </div>
 </section>

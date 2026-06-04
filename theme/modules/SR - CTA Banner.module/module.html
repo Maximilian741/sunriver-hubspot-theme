@@ -1,21 +1,11 @@
-<section class="sr-cta sr-cta--{{ module.style|default('gradient') }}">
-  <div class="sr-cta__bg" aria-hidden="true">
-    <span class="sr-cta__orb sr-cta__orb--1"></span>
-    <span class="sr-cta__orb sr-cta__orb--2"></span>
-    <span class="sr-cta__orb sr-cta__orb--3"></span>
-  </div>
-  <div class="sr-cta__inner">
-    <div class="sr-cta__copy">
-      <h2 class="sr-cta__heading">{{ module.heading }}</h2>
-      {% if module.subheading %}
-        <p class="sr-cta__subheading">{{ module.subheading }}</p>
-      {% endif %}
+{# SR CTA Banner — reversed green gradient band + smoke (.srh). #}
+<section class="srh-band srh-band--rev srh-cta">
+  <canvas class="srh-band__canvas" data-srx-shader="smoke-veil" aria-hidden="true"></canvas>
+  <div class="srh-band__inner" style="text-align:center;">
+    {% if module.heading %}<h2 class="srh-h2">{{ module.heading }}</h2>{% endif %}
+    {% if module.subheading %}<p class="srh-lead" style="margin-inline:auto;">{{ module.subheading }}</p>{% endif %}
+    <div class="srh-hero__ctas" style="justify-content:center;">
+      {% if module.cta_text %}<a class="srh-btn srh-btn--primary" href="{{ module.cta_url.href }}">{{ module.cta_text }}</a>{% endif %}
     </div>
-    {% if module.cta_text %}
-      <a class="sr-cta__btn" href="{{ module.cta_url.href|default(module.cta_url.url.href) }}">
-        {{ module.cta_text }}
-        <span class="sr-cta__btn-arrow">&rarr;</span>
-      </a>
-    {% endif %}
   </div>
 </section>

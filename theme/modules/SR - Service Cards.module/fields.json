@@ -1,4 +1,18 @@
 [ {
+  "id" : "a3000003-0001-0001-0001-000000000020",
+  "name" : "section_eyebrow",
+  "label" : "Section eyebrow",
+  "type" : "text",
+  "required" : false,
+  "default" : "Platforms"
+}, {
+  "id" : "a3000003-0001-0001-0001-000000000021",
+  "name" : "section_heading",
+  "label" : "Section heading",
+  "type" : "text",
+  "required" : false,
+  "default" : "What we deliver."
+}, {
   "id" : "a3000003-0001-0001-0001-000000000001",
   "name" : "columns",
   "label" : "Columns",

@@ -1,0 +1,61 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: SunRiver - Business Solutions (editable)
+  screenshot_path: ../../images/template-previews/home.jpg
+-->
+{#
+  Drag-and-drop version of the Business Solutions page, built from editable
+  SR-* modules (widgets). Because it has a dnd_area it is a drag-and-drop
+  template -> selectable on an existing page AND fully editable in the CMS.
+  Same .srh look (child.css). Does not touch the live Home page.
+#}
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+{% dnd_area "main_content" label="Page content" %}
+
+  {% dnd_section %}
+    {% dnd_module
+      path="../../modules/SR - Hero Spotlight",
+      eyebrow="Business Solutions",
+      heading="The platforms you run on, working together",
+      subheading="<p>Implemented, integrated, and tuned to how your team actually works.</p>",
+      primary_cta_text="Get a Quick Estimate",
+      primary_cta_url={ "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null },
+      secondary_cta_text="Schedule a Consultation",
+      secondary_cta_url={ "type": "EXTERNAL", "href": "/schedule-a-consultation-sunriver-consulting", "content_id": null }
+    %}{% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module
+      path="../../modules/SR - Service Cards",
+      section_eyebrow="Platforms",
+      section_heading="What we integrate." %}
+      {% module_attribute "columns" %}3{% end_module_attribute %}
+      {% module_attribute "cards" is_json=True %}
+      [
+        { "icon_text": "AWS", "title": "AWS Integration", "description": "<p>Provisioning, security, and cost-tuned cloud on AWS.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/aws-integration-sunriver-consulting", "content_id": null } },
+        { "icon_text": "Az", "title": "Microsoft Azure", "description": "<p>Azure infrastructure, identity, and governance.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/business-solutions-sunriver-consulting", "content_id": null } },
+        { "icon_text": "SF", "title": "Salesforce", "description": "<p>CRM implementation tuned to your sales motion.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/salesforce-crm-sunriver-consulting", "content_id": null } },
+        { "icon_text": "HS", "title": "HubSpot", "description": "<p>CMS and CRM setup, automation, and reporting.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/hubspot-crm-sunriver-consulting", "content_id": null } },
+        { "icon_text": "365", "title": "Microsoft 365", "description": "<p>Email, identity, and collaboration done right.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/microsoft-365-sunriver-consulting", "content_id": null } },
+        { "icon_text": "CI", "title": "CI/CD", "description": "<p>Automated pipelines from commit to deploy.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/ci-cd-sunriver-consulting", "content_id": null } }
+      ]
+      {% end_module_attribute %}
+    {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module
+      path="../../modules/SR - CTA Banner",
+      heading="Tangled stack?",
+      subheading="We will untangle it and tune it.",
+      cta_text="Schedule a Consultation",
+      cta_url={ "type": "EXTERNAL", "href": "/schedule-a-consultation-sunriver-consulting", "content_id": null }
+    %}{% end_dnd_module %}
+  {% end_dnd_section %}
+
+{% end_dnd_area %}
+{% endblock body %}

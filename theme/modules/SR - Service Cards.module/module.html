@@ -1,21 +1,20 @@
-<div class="sr-services sr-services--cols-{{ module.columns|default('3') }}">
-  {% for card in module.cards %}
-    <a class="sr-service-card" href="{{ card.card_link.href|default(card.card_link.url.href) }}">
-      <div class="sr-service-card__inner">
-        <div class="sr-service-card__icon" aria-hidden="true">{{ card.icon_text }}</div>
-        {% if card.title %}
-          <h3 class="sr-service-card__title">{{ card.title }}</h3>
-        {% endif %}
-        {% if card.description %}
-          <div class="sr-service-card__desc">{{ card.description }}</div>
-        {% endif %}
-        {% if card.link_text %}
-          <span class="sr-service-card__cta">
-            {{ card.link_text }}
-            <span class="sr-service-card__arrow">&rarr;</span>
-          </span>
-        {% endif %}
-      </div>
-    </a>
-  {% endfor %}
-</div>
+{# SR Service Cards — white .srh cards on a paper section (hover -> teal gradient). #}
+<section class="srh-sec">
+  <div class="srh-sec__inner">
+    {% if module.section_heading %}
+    <div style="text-align:center;max-width:720px;margin:0 auto;">
+      {% if module.section_eyebrow %}<span class="srh-eyebrow" style="color:var(--river);">{{ module.section_eyebrow }}</span>{% endif %}
+      <h2 class="srh-h2">{{ module.section_heading }}</h2>
+    </div>
+    {% endif %}
+    <div class="srh-cards" style="margin-top:2.2rem;">
+      {% for card in module.cards %}
+      <a class="srh-card" href="{{ card.card_link.href }}">
+        <span class="srh-card__logo" style="font-size:20px;">{{ card.icon_text }}</span>
+        <h3 class="srh-card__title">{{ card.title }}</h3>
+        <div class="srh-card__desc">{{ card.description }}</div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
