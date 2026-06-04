@@ -1,0 +1,55 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: SunRiver - Android Apps (editable)
+  screenshot_path: ../../images/template-previews/home.jpg
+-->
+{#
+  Editable (drag-and-drop) version, built from SR-* widget modules. Selectable
+  on an existing page and fully editable in the CMS. Same .srh look (child.css).
+#}
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+{% dnd_area "main_content" label="Page content" %}
+
+  {% dnd_section %}
+    {% dnd_module
+      path="../../modules/SR - Hero Spotlight",
+      eyebrow="App Development / Android",
+      heading="Android apps that hold up on real phones",
+      subheading="<p>Kotlin and Jetpack Compose, Material 3, and a Play Store release pipeline we own end to end. We test on the cheap, slow devices your users actually carry &mdash; not just the flagship in the office.</p>",
+      primary_cta_text="Get a Quick Estimate",
+      primary_cta_url={ "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null },
+      secondary_cta_text="Schedule a Consultation",
+      secondary_cta_url={ "type": "EXTERNAL", "href": "/schedule-a-consultation-sunriver-consulting", "content_id": null }
+    %}{% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module path="../../modules/SR - Service Cards", section_eyebrow="In scope", section_heading="What we focus on." %}
+      {% module_attribute "columns" %}3{% end_module_attribute %}
+      {% module_attribute "cards" is_json=True %}
+      [
+        { "icon_text": "kotlin", "title": "Kotlin & Jetpack Compose", "description": "<p>Declarative UI in Compose with coroutines and Flow for state, so screens stay responsive and the codebase stays small.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null } },
+        { "icon_text": "android", "title": "Material 3 by the book", "description": "<p>Dynamic color, typography scales, and motion that follow Material 3 &mdash; plus dark theme and TalkBack support from day one.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null } },
+        { "icon_text": "googleplay", "title": "Play Store release & signing", "description": "<p>Play App Signing, staged rollouts, and a signed App Bundle (.aab) through a release track you control, not a black box.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null } },
+        { "icon_text": "mono:database", "title": "Background work & offline sync", "description": "<p>WorkManager for deferrable jobs and a Room-backed local store that syncs cleanly when the network comes back.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null } },
+        { "icon_text": "mono:gauge", "title": "Performance on low-end devices", "description": "<p>Baseline Profiles, cold-start budgets, and Macrobenchmark runs so the app feels fast on 3-year-old hardware, not just new.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null } }
+      ]
+      {% end_module_attribute %}
+    {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module
+      path="../../modules/SR - CTA Banner",
+      heading="Shipping to the Play Store?",
+      subheading="Send us the build &mdash; or the idea. We&rsquo;ll get it signed, fast, and ready for staged rollout.",
+      cta_text="Get a Quick Estimate",
+      cta_url={ "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null }
+    %}{% end_dnd_module %}
+  {% end_dnd_section %}
+
+{% end_dnd_area %}
+{% endblock body %}

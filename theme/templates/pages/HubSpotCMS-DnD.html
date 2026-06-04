@@ -1,0 +1,54 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: SunRiver - HubSpot CMS (editable)
+  screenshot_path: ../../images/template-previews/home.jpg
+-->
+{#
+  Editable (drag-and-drop) version, built from SR-* widget modules. Selectable
+  on an existing page and fully editable in the CMS. Same .srh look (child.css).
+#}
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+{% dnd_area "main_content" label="Page content" %}
+
+  {% dnd_section %}
+    {% dnd_module
+      path="../../modules/SR - Hero Spotlight",
+      eyebrow="Business Solutions / HubSpot CMS",
+      heading="HubSpot CMS editors can actually use",
+      subheading="<p>Custom HubSpot CMS themes and modules built in HubL, with serverless functions where you need real logic. Editor-friendly, fast, and structured so the design holds up after launch.</p>",
+      primary_cta_text="Get a Quick Estimate",
+      primary_cta_url={ "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null },
+      secondary_cta_text="Schedule a Consultation",
+      secondary_cta_url={ "type": "EXTERNAL", "href": "/schedule-a-consultation-sunriver-consulting", "content_id": null }
+    %}{% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module path="../../modules/SR - Service Cards", section_eyebrow="In scope", section_heading="What we focus on." %}
+      {% module_attribute "columns" %}3{% end_module_attribute %}
+      {% module_attribute "cards" is_json=True %}
+      [
+        { "icon_text": "hubspot", "title": "HubL themes &amp; modules", "description": "<p>Custom themes and drag-and-drop modules in HubL, with sensible fields so editors stay inside the design system.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null } },
+        { "icon_text": "nodedotjs", "title": "Serverless functions", "description": "<p>HubSpot serverless functions for form logic, lookups, and integrations that templates alone can&rsquo;t handle.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null } },
+        { "icon_text": "mono:lock", "title": "Memberships", "description": "<p>Gated content and membership access tied to CRM lists, for portals and members-only pages.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null } },
+        { "icon_text": "mono:chart", "title": "Technical SEO", "description": "<p>Clean markup, structured data, and Core Web Vitals work so pages rank and load like they should.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null } }
+      ]
+      {% end_module_attribute %}
+    {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module
+      path="../../modules/SR - CTA Banner",
+      heading="Outgrown the default HubSpot themes?",
+      subheading="Request a quote for a custom CMS build scoped to your brand, your editors, and your performance targets.",
+      cta_text="Get a Quick Estimate",
+      cta_url={ "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null }
+    %}{% end_dnd_module %}
+  {% end_dnd_section %}
+
+{% end_dnd_area %}
+{% endblock body %}

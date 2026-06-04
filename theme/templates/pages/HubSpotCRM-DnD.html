@@ -1,0 +1,55 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: SunRiver - HubSpot CRM (editable)
+  screenshot_path: ../../images/template-previews/home.jpg
+-->
+{#
+  Editable (drag-and-drop) version, built from SR-* widget modules. Selectable
+  on an existing page and fully editable in the CMS. Same .srh look (child.css).
+#}
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+{% dnd_area "main_content" label="Page content" %}
+
+  {% dnd_section %}
+    {% dnd_module
+      path="../../modules/SR - Hero Spotlight",
+      eyebrow="Business Solutions / HubSpot CRM",
+      heading="HubSpot CRM your reports can trust",
+      subheading="<p>Pipelines, automation, and data hygiene set up so HubSpot reflects how your team actually sells and serves. Reporting and integrations that give leaders a straight answer.</p>",
+      primary_cta_text="Get a Quick Estimate",
+      primary_cta_url={ "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null },
+      secondary_cta_text="Schedule a Consultation",
+      secondary_cta_url={ "type": "EXTERNAL", "href": "/schedule-a-consultation-sunriver-consulting", "content_id": null }
+    %}{% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module path="../../modules/SR - Service Cards", section_eyebrow="In scope", section_heading="What we focus on." %}
+      {% module_attribute "columns" %}3{% end_module_attribute %}
+      {% module_attribute "cards" is_json=True %}
+      [
+        { "icon_text": "hubspot", "title": "Pipelines", "description": "<p>Deal and ticket pipelines with stages that mirror your real process, not a generic out-of-the-box funnel.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null } },
+        { "icon_text": "mono:gauge", "title": "Workflow automation", "description": "<p>Workflows that route, assign, and follow up automatically, so nothing stalls in someone&rsquo;s inbox.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null } },
+        { "icon_text": "mono:database", "title": "Data hygiene", "description": "<p>Deduplication, property cleanup, and validation rules that stop bad data before it spreads.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null } },
+        { "icon_text": "mono:chart", "title": "Reporting", "description": "<p>Dashboards and custom reports built on properties you can rely on, surfacing the metrics that matter.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null } },
+        { "icon_text": "mono:wrench", "title": "Integrations", "description": "<p>Connections to your finance, support, and marketing tools so the CRM is a hub, not another silo.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null } }
+      ]
+      {% end_module_attribute %}
+    {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module
+      path="../../modules/SR - CTA Banner",
+      heading="Does your CRM data slow you down?",
+      subheading="Schedule a consultation and we&rsquo;ll review your pipelines, automation, and data quality, then scope the fix.",
+      cta_text="Get a Quick Estimate",
+      cta_url={ "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null }
+    %}{% end_dnd_module %}
+  {% end_dnd_section %}
+
+{% end_dnd_area %}
+{% endblock body %}

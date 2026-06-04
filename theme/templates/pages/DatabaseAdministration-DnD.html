@@ -1,0 +1,55 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: SunRiver - Database Administration (editable)
+  screenshot_path: ../../images/template-previews/home.jpg
+-->
+{#
+  Editable (drag-and-drop) version, built from SR-* widget modules. Selectable
+  on an existing page and fully editable in the CMS. Same .srh look (child.css).
+#}
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+{% dnd_area "main_content" label="Page content" %}
+
+  {% dnd_section %}
+    {% dnd_module
+      path="../../modules/SR - Hero Spotlight",
+      eyebrow="Database Solutions / Administration",
+      heading="Production database administration, done by a senior DBA",
+      subheading="<p>Backups you have actually restored, failover that works on a bad day, and a database that stays fast under real load. We run Postgres, MySQL, SQL Server, and Mongo in production &mdash; and hand you runbooks, not mystery.</p>",
+      primary_cta_text="Get a Quick Estimate",
+      primary_cta_url={ "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null },
+      secondary_cta_text="Schedule a Consultation",
+      secondary_cta_url={ "type": "EXTERNAL", "href": "/schedule-a-consultation-sunriver-consulting", "content_id": null }
+    %}{% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module path="../../modules/SR - Service Cards", section_eyebrow="In scope", section_heading="What we focus on." %}
+      {% module_attribute "columns" %}3{% end_module_attribute %}
+      {% module_attribute "cards" is_json=True %}
+      [
+        { "icon_text": "mono:shield", "title": "Backups, PITR &amp; disaster recovery", "description": "<p>Automated backups with point-in-time recovery, restore drills on a schedule, and a written RTO/RPO target &mdash; because an untested backup is a guess, not a safety net.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null } },
+        { "icon_text": "mono:globe", "title": "Replication &amp; high availability", "description": "<p>Streaming replicas, read scaling, and automatic failover with a documented promotion path, so a single node loss is a non-event instead of an outage.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null } },
+        { "icon_text": "mono:gauge", "title": "Performance tuning &amp; indexing", "description": "<p>We read the plans, fix the missing and redundant indexes, tune the queries and the engine config, and prove the win with before/after numbers.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null } },
+        { "icon_text": "postgresql", "title": "Upgrades &amp; patching", "description": "<p>Major-version upgrades and security patches rehearsed on a clone, applied in a maintenance window, with a tested rollback before we touch production.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null } },
+        { "icon_text": "grafana", "title": "Monitoring with Grafana", "description": "<p>Dashboards and alerts on the metrics that predict trouble &mdash; replication lag, slow queries, connections, bloat, and disk &mdash; wired to notify before users do.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null } }
+      ]
+      {% end_module_attribute %}
+    {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module
+      path="../../modules/SR - CTA Banner",
+      heading="Want production you can stop worrying about?",
+      subheading="Book a consultation and we&rsquo;ll review your backup, failover, and monitoring posture, then quote a fixed fee to close the gaps.",
+      cta_text="Get a Quick Estimate",
+      cta_url={ "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null }
+    %}{% end_dnd_module %}
+  {% end_dnd_section %}
+
+{% end_dnd_area %}
+{% endblock body %}

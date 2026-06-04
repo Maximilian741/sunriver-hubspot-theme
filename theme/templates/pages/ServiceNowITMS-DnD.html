@@ -1,0 +1,55 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: SunRiver - ServiceNow ITSM (editable)
+  screenshot_path: ../../images/template-previews/home.jpg
+-->
+{#
+  Editable (drag-and-drop) version, built from SR-* widget modules. Selectable
+  on an existing page and fully editable in the CMS. Same .srh look (child.css).
+#}
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+{% dnd_area "main_content" label="Page content" %}
+
+  {% dnd_section %}
+    {% dnd_module
+      path="../../modules/SR - Hero Spotlight",
+      eyebrow="Business Solutions / ServiceNow ITSM",
+      heading="ServiceNow ITSM your team will use",
+      subheading="<p>Incident and change management, an accurate CMDB, and a service catalog that earns its keep. ServiceNow configured around your processes so adoption follows naturally.</p>",
+      primary_cta_text="Get a Quick Estimate",
+      primary_cta_url={ "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null },
+      secondary_cta_text="Schedule a Consultation",
+      secondary_cta_url={ "type": "EXTERNAL", "href": "/schedule-a-consultation-sunriver-consulting", "content_id": null }
+    %}{% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module path="../../modules/SR - Service Cards", section_eyebrow="In scope", section_heading="What we focus on." %}
+      {% module_attribute "columns" %}3{% end_module_attribute %}
+      {% module_attribute "cards" is_json=True %}
+      [
+        { "icon_text": "mono:wrench", "title": "Incident &amp; change", "description": "<p>Incident, problem, and change workflows aligned to ITIL practice and the way your team really responds.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null } },
+        { "icon_text": "mono:database", "title": "CMDB", "description": "<p>A configuration management database kept accurate through discovery, so relationships are trustworthy.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null } },
+        { "icon_text": "mono:gauge", "title": "Workflows", "description": "<p>Flow Designer automations for approvals, assignment, and SLAs that move work without manual nudging.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null } },
+        { "icon_text": "mono:globe", "title": "Integrations", "description": "<p>Integration Hub and REST connections to monitoring, HR, and directory systems, so records stay in sync.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null } },
+        { "icon_text": "mono:doc", "title": "Service catalog", "description": "<p>Catalog items and request workflows that give people a clear, self-service front door to IT.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null } }
+      ]
+      {% end_module_attribute %}
+    {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module
+      path="../../modules/SR - CTA Banner",
+      heading="Is ServiceNow underused or overgrown?",
+      subheading="Get in touch and we&rsquo;ll review your ITSM processes and CMDB, then scope a fixed-fee engagement.",
+      cta_text="Get a Quick Estimate",
+      cta_url={ "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null }
+    %}{% end_dnd_module %}
+  {% end_dnd_section %}
+
+{% end_dnd_area %}
+{% endblock body %}

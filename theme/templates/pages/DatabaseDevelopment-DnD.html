@@ -1,0 +1,55 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: SunRiver - Database Development (editable)
+  screenshot_path: ../../images/template-previews/home.jpg
+-->
+{#
+  Editable (drag-and-drop) version, built from SR-* widget modules. Selectable
+  on an existing page and fully editable in the CMS. Same .srh look (child.css).
+#}
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+{% dnd_area "main_content" label="Page content" %}
+
+  {% dnd_section %}
+    {% dnd_module
+      path="../../modules/SR - Hero Spotlight",
+      eyebrow="Database Solutions / Development",
+      heading="The data layer your application can build on",
+      subheading="<p>Versioned migrations, server-side logic where it belongs, and APIs that expose your data safely. We write the database code your app team can ship against &mdash; SQL and NoSQL, tested and reviewable.</p>",
+      primary_cta_text="Get a Quick Estimate",
+      primary_cta_url={ "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null },
+      secondary_cta_text="Schedule a Consultation",
+      secondary_cta_url={ "type": "EXTERNAL", "href": "/schedule-a-consultation-sunriver-consulting", "content_id": null }
+    %}{% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module path="../../modules/SR - Service Cards", section_eyebrow="In scope", section_heading="What we focus on." %}
+      {% module_attribute "columns" %}3{% end_module_attribute %}
+      {% module_attribute "cards" is_json=True %}
+      [
+        { "icon_text": "mono:wrench", "title": "Schema migrations", "description": "<p>Versioned, reversible migrations that run in CI and deploy without downtime &mdash; no hand-edited production schemas, no surprises on release night.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null } },
+        { "icon_text": "mono:doc", "title": "Stored procedures &amp; functions", "description": "<p>Set-based procedures, functions, and triggers that keep heavy logic next to the data, with clear contracts and tests around each one.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null } },
+        { "icon_text": "mono:globe", "title": "APIs over your data", "description": "<p>Parameterized, well-indexed query layers and data APIs that are fast and injection-safe &mdash; the right access patterns baked in from the start.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null } },
+        { "icon_text": "mongodb", "title": "SQL and NoSQL", "description": "<p>We build comfortably in PostgreSQL and MongoDB, choosing relational or document per use case rather than forcing one engine to do everything.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null } },
+        { "icon_text": "mono:shield", "title": "Testing", "description": "<p>Automated tests for migrations, procedures, and queries against realistic data, so a schema change can&rsquo;t silently break a downstream report.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null } }
+      ]
+      {% end_module_attribute %}
+    {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module
+      path="../../modules/SR - CTA Banner",
+      heading="Need a data layer your team can build on?",
+      subheading="Request a quote with your stack and what you&rsquo;re building, and we&rsquo;ll return a fixed-fee plan for migrations, logic, and the APIs around them.",
+      cta_text="Get a Quick Estimate",
+      cta_url={ "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null }
+    %}{% end_dnd_module %}
+  {% end_dnd_section %}
+
+{% end_dnd_area %}
+{% endblock body %}

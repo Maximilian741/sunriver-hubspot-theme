@@ -1,0 +1,55 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: SunRiver - Custom Websites (editable)
+  screenshot_path: ../../images/template-previews/home.jpg
+-->
+{#
+  Editable (drag-and-drop) version, built from SR-* widget modules. Selectable
+  on an existing page and fully editable in the CMS. Same .srh look (child.css).
+#}
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+{% dnd_area "main_content" label="Page content" %}
+
+  {% dnd_section %}
+    {% dnd_module
+      path="../../modules/SR - Hero Spotlight",
+      eyebrow="Web Development / Custom",
+      heading="Custom sites with no template ceiling",
+      subheading="<p>React and Next.js in TypeScript, fed by a headless CMS, built on a design system instead of one-off pages. Core Web Vitals and WCAG 2.2 AA are budgets we hit before launch, not cleanup after.</p>",
+      primary_cta_text="Get a Quick Estimate",
+      primary_cta_url={ "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null },
+      secondary_cta_text="Schedule a Consultation",
+      secondary_cta_url={ "type": "EXTERNAL", "href": "/schedule-a-consultation-sunriver-consulting", "content_id": null }
+    %}{% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module path="../../modules/SR - Service Cards", section_eyebrow="In scope", section_heading="What we focus on." %}
+      {% module_attribute "columns" %}3{% end_module_attribute %}
+      {% module_attribute "cards" is_json=True %}
+      [
+        { "icon_text": "nextdotjs", "title": "React & Next.js", "description": "<p>Server components, static rendering, and route-level code splitting in Next.js, so pages paint fast and the bundle stays lean.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null } },
+        { "icon_text": "figma", "title": "Design system, not one-offs", "description": "<p>Typed, reusable components mapped to Figma tokens, so every page stays on-brand and new sections take hours, not weeks.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null } },
+        { "icon_text": "contentful", "title": "Headless CMS", "description": "<p>Contentful or Sanity behind a typed API, so editors update content freely while the front end never breaks.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null } },
+        { "icon_text": "mono:gauge", "title": "Core Web Vitals & performance", "description": "<p>LCP, CLS, and INP held to real budgets, with image, font, and caching strategy verified in the field before we ship.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null } },
+        { "icon_text": "mono:users", "title": "Accessibility (WCAG 2.2 AA)", "description": "<p>Keyboard paths, focus order, ARIA, and contrast checked against WCAG 2.2 AA, then confirmed with a screen reader.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null } }
+      ]
+      {% end_module_attribute %}
+    {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module
+      path="../../modules/SR - CTA Banner",
+      heading="Outgrown what a template can do?",
+      subheading="We&rsquo;ll build it in React and TypeScript on a design system, prove the Web Vitals and WCAG, and hand you the repo.",
+      cta_text="Get a Quick Estimate",
+      cta_url={ "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null }
+    %}{% end_dnd_module %}
+  {% end_dnd_section %}
+
+{% end_dnd_area %}
+{% endblock body %}

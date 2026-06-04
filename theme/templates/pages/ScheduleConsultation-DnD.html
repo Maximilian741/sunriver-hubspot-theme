@@ -1,0 +1,53 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: SunRiver - Remote Consultation (editable)
+  screenshot_path: ../../images/template-previews/home.jpg
+-->
+{#
+  Editable (drag-and-drop) version, built from SR-* widget modules. Selectable
+  on an existing page and fully editable in the CMS. Same .srh look (child.css).
+#}
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+{% dnd_area "main_content" label="Page content" %}
+
+  {% dnd_section %}
+    {% dnd_module
+      path="../../modules/SR - Hero Spotlight",
+      eyebrow="Remote Consultation",
+      heading="Talk to a real engineer.",
+      subheading="<p>Book a remote consultation &mdash; no sales script, just a senior engineer and your questions.</p>",
+      primary_cta_text="Schedule now",
+      primary_cta_url={ "type": "EXTERNAL", "href": "/schedule-a-consultation-sunriver-consulting", "content_id": null },
+      secondary_cta_text="Contact us",
+      secondary_cta_url={ "type": "EXTERNAL", "href": "/contact", "content_id": null }
+    %}{% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module path="../../modules/SR - Service Cards", section_eyebrow="What to expect", section_heading="Thirty focused minutes." %}
+      {% module_attribute "columns" %}3{% end_module_attribute %}
+      {% module_attribute "cards" is_json=True %}
+      [
+        { "icon_text": "mono:calendar", "title": "Pick a time", "description": "<p>Grab a slot that works for you.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/schedule-a-consultation-sunriver-consulting", "content_id": null } },
+        { "icon_text": "mono:users", "title": "Meet the team", "description": "<p>Talk to the people who would do the work.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/our-team-sunriver-consulting", "content_id": null } },
+        { "icon_text": "mono:compass", "title": "Leave with a plan", "description": "<p>Walk away with clear next steps, free.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/schedule-a-consultation-sunriver-consulting", "content_id": null } }
+      ]
+      {% end_module_attribute %}
+    {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module
+      path="../../modules/SR - CTA Banner",
+      heading="Got 30 minutes?",
+      subheading="Let us point you in the right direction.",
+      cta_text="Schedule a Consultation",
+      cta_url={ "type": "EXTERNAL", "href": "/schedule-a-consultation-sunriver-consulting", "content_id": null }
+    %}{% end_dnd_module %}
+  {% end_dnd_section %}
+
+{% end_dnd_area %}
+{% endblock body %}

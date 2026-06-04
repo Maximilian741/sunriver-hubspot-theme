@@ -1,0 +1,55 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: SunRiver - AI Workflow Automation (editable)
+  screenshot_path: ../../images/template-previews/home.jpg
+-->
+{#
+  Editable (drag-and-drop) version, built from SR-* widget modules. Selectable
+  on an existing page and fully editable in the CMS. Same .srh look (child.css).
+#}
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+{% dnd_area "main_content" label="Page content" %}
+
+  {% dnd_section %}
+    {% dnd_module
+      path="../../modules/SR - Hero Spotlight",
+      eyebrow="AI Solutions / Workflow Automation",
+      heading="Automate the busywork, keep a human in charge",
+      subheading="<p>The biggest AI wins are usually boring: the repetitive triage, sorting, and drafting that eats your team&rsquo;s day. We automate that work with tool-using agents and dependable integrations, keep a person on the decisions that matter, and build for the days a step fails.</p>",
+      primary_cta_text="Get a Quick Estimate",
+      primary_cta_url={ "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null },
+      secondary_cta_text="Schedule a Consultation",
+      secondary_cta_url={ "type": "EXTERNAL", "href": "/schedule-a-consultation-sunriver-consulting", "content_id": null }
+    %}{% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module path="../../modules/SR - Service Cards", section_eyebrow="In scope", section_heading="What we focus on." %}
+      {% module_attribute "columns" %}3{% end_module_attribute %}
+      {% module_attribute "cards" is_json=True %}
+      [
+        { "icon_text": "mono:sparkles", "title": "Automate repetitive work", "description": "<p>We target the high-volume, low-judgment tasks &mdash; categorizing, extracting, drafting, routing &mdash; and hand your team back the hours those quietly consume every week.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null } },
+        { "icon_text": "langchain", "title": "Tool-using agents", "description": "<p>Agents that call real tools &mdash; search your data, hit an API, update a record &mdash; scoped to a clear job, so they take action instead of just chatting about it.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null } },
+        { "icon_text": "mono:users", "title": "Human in the loop", "description": "<p>Approval gates and confidence thresholds on anything irreversible, so the automation drafts and proposes while a person stays accountable for the final call.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null } },
+        { "icon_text": "n8n", "title": "Integrations: n8n, Zapier &amp; custom", "description": "<p>We wire AI into the tools you already run using n8n or Zapier for speed, or custom code when reliability and control demand it &mdash; whichever fits the job.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null } },
+        { "icon_text": "mono:gauge", "title": "Reliability &amp; observability", "description": "<p>Retries, fallbacks, logging, and alerts on every step, because an automation you can&rsquo;t see failing is worse than no automation at all.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null } }
+      ]
+      {% end_module_attribute %}
+    {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module
+      path="../../modules/SR - CTA Banner",
+      heading="Know the task that&rsquo;s eating your week?",
+      subheading="Describe the repetitive workflow and the tools it touches, and we&rsquo;ll come back with a fixed-fee automation plan and the human checks built in.",
+      cta_text="Get a Quick Estimate",
+      cta_url={ "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null }
+    %}{% end_dnd_module %}
+  {% end_dnd_section %}
+
+{% end_dnd_area %}
+{% endblock body %}

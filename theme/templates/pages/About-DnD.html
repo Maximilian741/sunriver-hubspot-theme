@@ -1,0 +1,56 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: SunRiver - About (editable)
+  screenshot_path: ../../images/template-previews/home.jpg
+-->
+{#
+  Editable (drag-and-drop) version, built from SR-* widget modules. Selectable
+  on an existing page and fully editable in the CMS. Same .srh look (child.css).
+#}
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+{% dnd_area "main_content" label="Page content" %}
+
+  {% dnd_section %}
+    {% dnd_module
+      path="../../modules/SR - Hero Spotlight",
+      eyebrow="About",
+      heading="Senior people, doing senior work.",
+      subheading="<p>Based in Helena, Montana &mdash; championing successful tech adoption so no one gets left behind.</p>",
+      primary_cta_text="Meet the team",
+      primary_cta_url={ "type": "EXTERNAL", "href": "/our-team-sunriver-consulting", "content_id": null },
+      secondary_cta_text="Contact us",
+      secondary_cta_url={ "type": "EXTERNAL", "href": "/contact", "content_id": null }
+    %}{% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module path="../../modules/SR - Service Cards", section_eyebrow="How we work", section_heading="Four promises we keep." %}
+      {% module_attribute "columns" %}3{% end_module_attribute %}
+      {% module_attribute "cards" is_json=True %}
+      [
+        { "icon_text": "mono:wrench", "title": "Senior-only", "description": "<p>The person who scopes your project is the person who builds it.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/contact", "content_id": null } },
+        { "icon_text": "mono:gauge", "title": "Fixed-fee", "description": "<p>A written scope and a number before we start.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null } },
+        { "icon_text": "mono:shield", "title": "Accessible &amp; secure", "description": "<p>WCAG, 508, and security built in from day one.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/compliance-audits-sunriver-consulting", "content_id": null } },
+        { "icon_text": "mono:compass", "title": "Yours to keep", "description": "<p>Documentation and code your team can actually extend.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/contact", "content_id": null } },
+        { "icon_text": "mono:globe", "title": "Montana-based", "description": "<p>Local roots in Helena, serving teams nationwide.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/contact", "content_id": null } },
+        { "icon_text": "mono:sparkles", "title": "Fair pricing", "description": "<p>A fraction of what the big logos charge.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/pricing", "content_id": null } }
+      ]
+      {% end_module_attribute %}
+    {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module
+      path="../../modules/SR - CTA Banner",
+      heading="Want the full story?",
+      subheading="We would love to tell you how we work.",
+      cta_text="Schedule a Consultation",
+      cta_url={ "type": "EXTERNAL", "href": "/schedule-a-consultation-sunriver-consulting", "content_id": null }
+    %}{% end_dnd_module %}
+  {% end_dnd_section %}
+
+{% end_dnd_area %}
+{% endblock body %}

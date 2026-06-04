@@ -1,0 +1,54 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: SunRiver - Database Solutions (editable)
+  screenshot_path: ../../images/template-previews/home.jpg
+-->
+{#
+  Editable (drag-and-drop) version, built from SR-* widget modules. Selectable
+  on an existing page and fully editable in the CMS. Same .srh look (child.css).
+#}
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+{% dnd_area "main_content" label="Page content" %}
+
+  {% dnd_section %}
+    {% dnd_module
+      path="../../modules/SR - Hero Spotlight",
+      eyebrow="Database Solutions",
+      heading="Databases that stay fast, correct, and recoverable",
+      subheading="<p>Senior, hands-on database work across Postgres, MySQL, SQL Server, and Mongo &mdash; from the data model up through production operations. Fixed fee, nationwide, and built to be maintainable after we leave.</p>",
+      primary_cta_text="Get a Quick Estimate",
+      primary_cta_url={ "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null },
+      secondary_cta_text="Schedule a Consultation",
+      secondary_cta_url={ "type": "EXTERNAL", "href": "/schedule-a-consultation-sunriver-consulting", "content_id": null }
+    %}{% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module path="../../modules/SR - Service Cards", section_eyebrow="Explore", section_heading="What we do." %}
+      {% module_attribute "columns" %}3{% end_module_attribute %}
+      {% module_attribute "cards" is_json=True %}
+      [
+        { "icon_text": "mono:database", "title": "Administration", "description": "<p>We keep production databases healthy: tested backups and PITR, replication and failover, tuning, patching, and monitoring you can actually read.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/database-administration-sunriver-consulting", "content_id": null } },
+        { "icon_text": "mono:chart", "title": "Analysis", "description": "<p>We turn raw tables into answers &mdash; optimized queries, governed warehouses, ETL pipelines, and BI dashboards leadership trusts.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/database-analysis-sunriver-consulting", "content_id": null } },
+        { "icon_text": "mono:wrench", "title": "Development", "description": "<p>We build the data layer: versioned migrations, stored procedures, APIs over your data, and tests that catch regressions before deploy.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/database-development-sunriver-consulting", "content_id": null } },
+        { "icon_text": "mono:compass", "title": "Design", "description": "<p>We model data right the first time &mdash; normalized schemas, the correct SQL-or-NoSQL call, a partitioning plan, and constraints that protect your data.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/database-design-sunriver-consulting", "content_id": null } }
+      ]
+      {% end_module_attribute %}
+    {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module
+      path="../../modules/SR - CTA Banner",
+      heading="Tell us what your data has to do",
+      subheading="Send the workload &mdash; engine, size, traffic, and what hurts &mdash; and we&rsquo;ll come back with a fixed-fee plan and a senior engineer on the work.",
+      cta_text="Get a Quick Estimate",
+      cta_url={ "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null }
+    %}{% end_dnd_module %}
+  {% end_dnd_section %}
+
+{% end_dnd_area %}
+{% endblock body %}

@@ -1,0 +1,56 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: SunRiver - Solutions & Products (editable)
+  screenshot_path: ../../images/template-previews/home.jpg
+-->
+{#
+  Editable (drag-and-drop) version, built from SR-* widget modules. Selectable
+  on an existing page and fully editable in the CMS. Same .srh look (child.css).
+#}
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+{% dnd_area "main_content" label="Page content" %}
+
+  {% dnd_section %}
+    {% dnd_module
+      path="../../modules/SR - Hero Spotlight",
+      eyebrow="Solutions &amp; Products",
+      heading="Everything you need, under one roof.",
+      subheading="<p>Six service areas, one senior team &mdash; pick where you want to grow.</p>",
+      primary_cta_text="Get a Quick Estimate",
+      primary_cta_url={ "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null },
+      secondary_cta_text="Schedule a Consultation",
+      secondary_cta_url={ "type": "EXTERNAL", "href": "/schedule-a-consultation-sunriver-consulting", "content_id": null }
+    %}{% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module path="../../modules/SR - Service Cards", section_eyebrow="Explore", section_heading="Our services." %}
+      {% module_attribute "columns" %}3{% end_module_attribute %}
+      {% module_attribute "cards" is_json=True %}
+      [
+        { "icon_text": "apple", "title": "App Development", "description": "<p>Native, cross-platform, and web apps.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/app-development-sunriver-consulting", "content_id": null } },
+        { "icon_text": "amazonaws", "title": "Business Solutions", "description": "<p>AWS, Microsoft 365, Salesforce, HubSpot, ServiceNow.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/business-solutions-sunriver-consulting", "content_id": null } },
+        { "icon_text": "mono:lock", "title": "Compliance Audits", "description": "<p>Pen testing, threat modeling, WCAG and 508.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/compliance-audits-sunriver-consulting", "content_id": null } },
+        { "icon_text": "postgresql", "title": "Database Solutions", "description": "<p>SQL and NoSQL administration, design, development.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/database-solutions-sunriver-consulting", "content_id": null } },
+        { "icon_text": "wordpress", "title": "Web Development", "description": "<p>Custom, HubSpot, WordPress, Squarespace.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/web-development-sunriver-consulting", "content_id": null } },
+        { "icon_text": "mono:sparkles", "title": "AI Solutions", "description": "<p>Practical AI adoption, assistants, and training &mdash; no hype.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/ai-solutions-sunriver-consulting", "content_id": null } }
+      ]
+      {% end_module_attribute %}
+    {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module
+      path="../../modules/SR - CTA Banner",
+      heading="Ready to scope it?",
+      subheading="Get a fixed-fee estimate, fast.",
+      cta_text="Get a Quick Estimate",
+      cta_url={ "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null }
+    %}{% end_dnd_module %}
+  {% end_dnd_section %}
+
+{% end_dnd_area %}
+{% endblock body %}

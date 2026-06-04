@@ -5,10 +5,8 @@
   screenshot_path: ../../images/template-previews/home.jpg
 -->
 {#
-  Drag-and-drop version of the Business Solutions page, built from editable
-  SR-* modules (widgets). Because it has a dnd_area it is a drag-and-drop
-  template -> selectable on an existing page AND fully editable in the CMS.
-  Same .srh look (child.css). Does not touch the live Home page.
+  Editable (drag-and-drop) version, built from SR-* widget modules. Selectable
+  on an existing page and fully editable in the CMS. Same .srh look (child.css).
 #}
 {% extends "../layouts/base.html" %}
 
@@ -19,8 +17,8 @@
     {% dnd_module
       path="../../modules/SR - Hero Spotlight",
       eyebrow="Business Solutions",
-      heading="The platforms you run on, working together",
-      subheading="<p>Implemented, integrated, and tuned to how your team actually works.</p>",
+      heading="Platforms that fit how your team works",
+      subheading="<p>Senior-led implementation and integration across the cloud, CMS, and CRM systems your organization already runs. Fixed-fee scopes, accessibility built in, delivered nationwide from Helena, Montana.</p>",
       primary_cta_text="Get a Quick Estimate",
       primary_cta_url={ "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null },
       secondary_cta_text="Schedule a Consultation",
@@ -29,19 +27,19 @@
   {% end_dnd_section %}
 
   {% dnd_section %}
-    {% dnd_module
-      path="../../modules/SR - Service Cards",
-      section_eyebrow="Platforms",
-      section_heading="What we integrate." %}
+    {% dnd_module path="../../modules/SR - Service Cards", section_eyebrow="Explore", section_heading="What we do." %}
       {% module_attribute "columns" %}3{% end_module_attribute %}
       {% module_attribute "cards" is_json=True %}
       [
-        { "icon_text": "AWS", "title": "AWS Integration", "description": "<p>Provisioning, security, and cost-tuned cloud on AWS.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/aws-integration-sunriver-consulting", "content_id": null } },
-        { "icon_text": "Az", "title": "Microsoft Azure", "description": "<p>Azure infrastructure, identity, and governance.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/business-solutions-sunriver-consulting", "content_id": null } },
-        { "icon_text": "SF", "title": "Salesforce", "description": "<p>CRM implementation tuned to your sales motion.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/salesforce-crm-sunriver-consulting", "content_id": null } },
-        { "icon_text": "HS", "title": "HubSpot", "description": "<p>CMS and CRM setup, automation, and reporting.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/hubspot-crm-sunriver-consulting", "content_id": null } },
-        { "icon_text": "365", "title": "Microsoft 365", "description": "<p>Email, identity, and collaboration done right.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/microsoft-365-sunriver-consulting", "content_id": null } },
-        { "icon_text": "CI", "title": "CI/CD", "description": "<p>Automated pipelines from commit to deploy.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/ci-cd-sunriver-consulting", "content_id": null } }
+        { "icon_text": "amazonaws", "title": "AWS Integration", "description": "<p>VPC networking, least-privilege IAM, and Terraform-managed infrastructure for workloads you can audit and afford.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/aws-integration-sunriver-consulting", "content_id": null } },
+        { "icon_text": "mono:doc", "title": "Cascade CMS", "description": "<p>XSLT templating and structured content types tuned for higher-ed and government accessibility requirements.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/cascade-cms-sunriver-consulting", "content_id": null } },
+        { "icon_text": "githubactions", "title": "CI/CD Pipelines", "description": "<p>GitHub Actions and GitLab CI pipelines that run your tests and ship with blue-green deploys, not crossed fingers.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/ci-cd-sunriver-consulting", "content_id": null } },
+        { "icon_text": "googleanalytics", "title": "Google Analytics 4", "description": "<p>Event-based tracking, Consent Mode, and BigQuery export configured so the numbers actually mean something.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/google-analytics-4-sunriver-consulting", "content_id": null } },
+        { "icon_text": "hubspot", "title": "HubSpot CMS", "description": "<p>Custom HubL themes, modules, and serverless functions that editors can use without breaking the design.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/hubspot-cms-sunriver-consulting", "content_id": null } },
+        { "icon_text": "hubspot", "title": "HubSpot CRM", "description": "<p>Pipelines, workflow automation, and clean data so your reports reflect the business instead of the mess.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/hubspot-crm-sunriver-consulting", "content_id": null } },
+        { "icon_text": "microsoftoffice", "title": "Microsoft 365", "description": "<p>Entra ID identity, Exchange and Teams, SharePoint, and Intune brought under one set of security baselines.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/microsoft-365-sunriver-consulting", "content_id": null } },
+        { "icon_text": "salesforce", "title": "Salesforce CRM", "description": "<p>A coherent data model with Flows and Apex/LWC where they earn their keep, plus dashboards leaders trust.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/salesforce-crm-sunriver-consulting", "content_id": null } },
+        { "icon_text": "mono:wrench", "title": "ServiceNow ITSM", "description": "<p>Incident and change workflows, an accurate CMDB, and a service catalog people will actually use.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/servicenow-itms-sunriver-consulting", "content_id": null } }
       ]
       {% end_module_attribute %}
     {% end_dnd_module %}
@@ -50,10 +48,10 @@
   {% dnd_section %}
     {% dnd_module
       path="../../modules/SR - CTA Banner",
-      heading="Tangled stack?",
-      subheading="We will untangle it and tune it.",
-      cta_text="Schedule a Consultation",
-      cta_url={ "type": "EXTERNAL", "href": "/schedule-a-consultation-sunriver-consulting", "content_id": null }
+      heading="Not sure which platform is the bottleneck?",
+      subheading="Tell us what is slowing the team down and we&rsquo;ll scope a fixed-fee engagement against the systems you already run.",
+      cta_text="Get a Quick Estimate",
+      cta_url={ "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null }
     %}{% end_dnd_module %}
   {% end_dnd_section %}
 

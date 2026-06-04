@@ -1,0 +1,55 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: SunRiver - AI Training &amp; Coaching (editable)
+  screenshot_path: ../../images/template-previews/home.jpg
+-->
+{#
+  Editable (drag-and-drop) version, built from SR-* widget modules. Selectable
+  on an existing page and fully editable in the CMS. Same .srh look (child.css).
+#}
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+{% dnd_area "main_content" label="Page content" %}
+
+  {% dnd_section %}
+    {% dnd_module
+      path="../../modules/SR - Hero Spotlight",
+      eyebrow="AI Solutions / Team &amp; 1:1 Training",
+      heading="Teach your people to use AI well",
+      subheading="<p>The gap isn&rsquo;t access to AI &mdash; nearly everyone has it now &mdash; it&rsquo;s knowing how to use it well and when not to trust it. We coach individuals and teams in plain language, with hands-on practice on your real work, no technical background assumed.</p>",
+      primary_cta_text="Get a Quick Estimate",
+      primary_cta_url={ "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null },
+      secondary_cta_text="Schedule a Consultation",
+      secondary_cta_url={ "type": "EXTERNAL", "href": "/schedule-a-consultation-sunriver-consulting", "content_id": null }
+    %}{% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module path="../../modules/SR - Service Cards", section_eyebrow="In scope", section_heading="What we focus on." %}
+      {% module_attribute "columns" %}3{% end_module_attribute %}
+      {% module_attribute "cards" is_json=True %}
+      [
+        { "icon_text": "mono:chat", "title": "Prompting that works", "description": "<p>Practical techniques &mdash; clear context, examples, and iteration &mdash; taught on your real tasks, so people get reliable results instead of fighting the blank box.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null } },
+        { "icon_text": "mono:sparkles", "title": "Everyday workflows", "description": "<p>We help each role find the handful of AI uses that genuinely save them time, and build those into daily habits instead of a tool tried once and abandoned.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null } },
+        { "icon_text": "mono:compass", "title": "Judgment: when to trust it", "description": "<p>The most important lesson &mdash; how to spot a confident wrong answer, when to verify, and which work AI should never touch unchecked.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null } },
+        { "icon_text": "mono:users", "title": "Approachable for everyone", "description": "<p>Sessions pitched for non-technical people, with no jargon and plenty of practice, so the whole team levels up &mdash; not just the early adopters.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null } },
+        { "icon_text": "mono:doc", "title": "Reference materials that last", "description": "<p>Cheat sheets, prompt templates, and a simple internal guide tailored to your tools, so the skills stick after the session ends.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null } }
+      ]
+      {% end_module_attribute %}
+    {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module
+      path="../../modules/SR - CTA Banner",
+      heading="Want your team confident with AI?",
+      subheading="Tell us who needs training and what they do, and we&rsquo;ll design a fixed-fee session &mdash; team workshop or 1:1 &mdash; built around your actual work.",
+      cta_text="Get a Quick Estimate",
+      cta_url={ "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null }
+    %}{% end_dnd_module %}
+  {% end_dnd_section %}
+
+{% end_dnd_area %}
+{% endblock body %}

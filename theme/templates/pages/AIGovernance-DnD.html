@@ -1,0 +1,55 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: SunRiver - AI Audits &amp; Governance (editable)
+  screenshot_path: ../../images/template-previews/home.jpg
+-->
+{#
+  Editable (drag-and-drop) version, built from SR-* widget modules. Selectable
+  on an existing page and fully editable in the CMS. Same .srh look (child.css).
+#}
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+{% dnd_area "main_content" label="Page content" %}
+
+  {% dnd_section %}
+    {% dnd_module
+      path="../../modules/SR - Hero Spotlight",
+      eyebrow="AI Solutions / Audits &amp; Governance",
+      heading="Keep AI accountable after it launches",
+      subheading="<p>Shipping an AI feature is the start, not the finish. We measure how accurate it really is, check for hallucination, bias, and unsafe output, and leave you a usage policy and monitoring &mdash; so you can answer for what your AI does long after launch day.</p>",
+      primary_cta_text="Get a Quick Estimate",
+      primary_cta_url={ "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null },
+      secondary_cta_text="Schedule a Consultation",
+      secondary_cta_url={ "type": "EXTERNAL", "href": "/schedule-a-consultation-sunriver-consulting", "content_id": null }
+    %}{% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module path="../../modules/SR - Service Cards", section_eyebrow="In scope", section_heading="What we focus on." %}
+      {% module_attribute "columns" %}3{% end_module_attribute %}
+      {% module_attribute "cards" is_json=True %}
+      [
+        { "icon_text": "mono:gauge", "title": "Accuracy &amp; hallucination testing", "description": "<p>We build evaluation sets and score real outputs for correctness and made-up content, turning &ldquo;it seems fine&rdquo; into a number you can track over time.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null } },
+        { "icon_text": "mono:shield", "title": "Bias &amp; safety checks", "description": "<p>Structured red-teaming and fairness testing across the cases that matter to you, so harmful, biased, or off-policy responses surface in review and not in front of a customer.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null } },
+        { "icon_text": "mono:doc", "title": "Usage policy", "description": "<p>A plain-language policy on approved uses, off-limits data, and required human review, so your team knows the rules instead of improvising them one prompt at a time.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null } },
+        { "icon_text": "mono:chart", "title": "Monitoring &amp; drift", "description": "<p>Logging and dashboards on quality, cost, and failures in production, with alerts when behavior drifts after a model update or a change in how people use it.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null } },
+        { "icon_text": "mono:database", "title": "Responsible-use documentation", "description": "<p>Model cards, decision logs, and an audit trail of what the system does and why, so a regulator, board, or customer gets a straight, documented answer.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null } }
+      ]
+      {% end_module_attribute %}
+    {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module
+      path="../../modules/SR - CTA Banner",
+      heading="Can you stand behind what your AI does?",
+      subheading="Send us the AI feature or tool in question and we&rsquo;ll quote a fixed-fee audit &mdash; accuracy, safety, and the governance to keep it trustworthy.",
+      cta_text="Get a Quick Estimate",
+      cta_url={ "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null }
+    %}{% end_dnd_module %}
+  {% end_dnd_section %}
+
+{% end_dnd_area %}
+{% endblock body %}

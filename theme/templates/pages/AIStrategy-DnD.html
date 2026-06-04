@@ -1,0 +1,55 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: SunRiver - AI Strategy &amp; Adoption (editable)
+  screenshot_path: ../../images/template-previews/home.jpg
+-->
+{#
+  Editable (drag-and-drop) version, built from SR-* widget modules. Selectable
+  on an existing page and fully editable in the CMS. Same .srh look (child.css).
+#}
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+{% dnd_area "main_content" label="Page content" %}
+
+  {% dnd_section %}
+    {% dnd_module
+      path="../../modules/SR - Hero Spotlight",
+      eyebrow="AI Solutions / Strategy &amp; Adoption",
+      heading="Find where AI helps &mdash; and where it doesn&rsquo;t",
+      subheading="<p>Most AI budgets get spent chasing demos that never reach production. We start from your actual work, pick the few use cases worth doing, and give you a roadmap with honest ROI and a plan for the people who have to use it.</p>",
+      primary_cta_text="Get a Quick Estimate",
+      primary_cta_url={ "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null },
+      secondary_cta_text="Schedule a Consultation",
+      secondary_cta_url={ "type": "EXTERNAL", "href": "/schedule-a-consultation-sunriver-consulting", "content_id": null }
+    %}{% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module path="../../modules/SR - Service Cards", section_eyebrow="In scope", section_heading="What we focus on." %}
+      {% module_attribute "columns" %}3{% end_module_attribute %}
+      {% module_attribute "cards" is_json=True %}
+      [
+        { "icon_text": "mono:compass", "title": "Opportunity assessment", "description": "<p>We map your workflows and score candidate use cases on value, feasibility, and risk &mdash; so effort goes to the handful that pay off, not the ones that just sound impressive.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null } },
+        { "icon_text": "mono:chart", "title": "Honest ROI &amp; the &ldquo;don&rsquo;t&rdquo; call", "description": "<p>We model real costs &mdash; tokens, build, and the human review AI still needs &mdash; against the time it saves, and we tell you plainly when the smart move is to skip it.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null } },
+        { "icon_text": "mono:doc", "title": "A staged roadmap", "description": "<p>A sequenced plan that starts with a low-risk pilot, defines what success looks like, and only scales what the pilot proved &mdash; not a big-bang rollout on a hope.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null } },
+        { "icon_text": "mono:wrench", "title": "Build vs. buy vs. wait", "description": "<p>A clear recommendation on whether to use an off-the-shelf tool, build on an API, or hold off &mdash; with the tradeoffs in cost, control, and lock-in written down.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null } },
+        { "icon_text": "mono:users", "title": "Change management &amp; adoption", "description": "<p>Rollout, training, and feedback loops built in, because a tool nobody trusts or uses returns nothing &mdash; adoption is where most AI projects quietly fail.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null } }
+      ]
+      {% end_module_attribute %}
+    {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module
+      path="../../modules/SR - CTA Banner",
+      heading="Want a roadmap, not a sales pitch?",
+      subheading="Book a consultation and we&rsquo;ll walk your workflows, flag where AI earns its keep, and quote a fixed fee for a strategy you can act on.",
+      cta_text="Get a Quick Estimate",
+      cta_url={ "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null }
+    %}{% end_dnd_module %}
+  {% end_dnd_section %}
+
+{% end_dnd_area %}
+{% endblock body %}

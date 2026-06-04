@@ -1,0 +1,56 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: SunRiver - AI Solutions (editable)
+  screenshot_path: ../../images/template-previews/home.jpg
+-->
+{#
+  Editable (drag-and-drop) version, built from SR-* widget modules. Selectable
+  on an existing page and fully editable in the CMS. Same .srh look (child.css).
+#}
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+{% dnd_area "main_content" label="Page content" %}
+
+  {% dnd_section %}
+    {% dnd_module
+      path="../../modules/SR - Hero Spotlight",
+      eyebrow="AI Solutions",
+      heading="AI that earns its place, not adds hype",
+      subheading="<p>Senior, hands-on AI work for people and organizations that want real results &mdash; assistants grounded in your data, automation that holds up, and honest advice about where AI helps and where it doesn&rsquo;t. Fixed fee, accessibility-first, no buzzword soup.</p>",
+      primary_cta_text="Get a Quick Estimate",
+      primary_cta_url={ "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null },
+      secondary_cta_text="Schedule a Consultation",
+      secondary_cta_url={ "type": "EXTERNAL", "href": "/schedule-a-consultation-sunriver-consulting", "content_id": null }
+    %}{% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module path="../../modules/SR - Service Cards", section_eyebrow="Explore", section_heading="What we do." %}
+      {% module_attribute "columns" %}3{% end_module_attribute %}
+      {% module_attribute "cards" is_json=True %}
+      [
+        { "icon_text": "mono:compass", "title": "AI Strategy &amp; Adoption", "description": "<p>We find the few places AI actually pays off, kill the hype-driven ideas that won&rsquo;t, and hand you a realistic roadmap with ROI you can defend.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/ai-strategy-sunriver-consulting", "content_id": null } },
+        { "icon_text": "anthropic", "title": "Custom AI Assistants", "description": "<p>Assistants grounded in your own documents through retrieval, with citations, guardrails, and evaluations &mdash; built on the Claude or OpenAI API, not a demo that breaks in week two.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/ai-assistants-sunriver-consulting", "content_id": null } },
+        { "icon_text": "langchain", "title": "Workflow Automation &amp; Agents", "description": "<p>We automate the repetitive work and build tool-using agents with a human in the loop, wired into n8n, Zapier, or custom code, and tested for the days they go sideways.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/ai-automation-sunriver-consulting", "content_id": null } },
+        { "icon_text": "mono:users", "title": "Team &amp; 1:1 Training", "description": "<p>Plain-language coaching that teaches your people to prompt well, build everyday workflows, and judge when to trust the output &mdash; no computer-science degree required.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/ai-training-sunriver-consulting", "content_id": null } },
+        { "icon_text": "ollama", "title": "Private &amp; Secure AI", "description": "<p>Local models with Ollama or API setups that never train on your data, with PII handled deliberately &mdash; so sensitive work never leaves a boundary you control.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/ai-private-sunriver-consulting", "content_id": null } },
+        { "icon_text": "mono:shield", "title": "AI Audits &amp; Governance", "description": "<p>We measure accuracy and hallucination, check for bias and unsafe output, and leave you a usage policy and monitoring so AI stays accountable after launch.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/ai-governance-sunriver-consulting", "content_id": null } }
+      ]
+      {% end_module_attribute %}
+    {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module
+      path="../../modules/SR - CTA Banner",
+      heading="Curious where AI actually fits?",
+      subheading="Tell us the work you&rsquo;re hoping to improve and we&rsquo;ll give you a straight answer &mdash; including when the honest call is &ldquo;don&rsquo;t&rdquo; &mdash; plus a fixed-fee plan with a senior consultant on it.",
+      cta_text="Get a Quick Estimate",
+      cta_url={ "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null }
+    %}{% end_dnd_module %}
+  {% end_dnd_section %}
+
+{% end_dnd_area %}
+{% endblock body %}

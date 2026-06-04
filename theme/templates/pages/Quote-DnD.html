@@ -1,0 +1,53 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: SunRiver - Get a Quote (editable)
+  screenshot_path: ../../images/template-previews/home.jpg
+-->
+{#
+  Editable (drag-and-drop) version, built from SR-* widget modules. Selectable
+  on an existing page and fully editable in the CMS. Same .srh look (child.css).
+#}
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+{% dnd_area "main_content" label="Page content" %}
+
+  {% dnd_section %}
+    {% dnd_module
+      path="../../modules/SR - Hero Spotlight",
+      eyebrow="Get a Quote",
+      heading="A fixed price, fast.",
+      subheading="<p>Tell us what you are trying to do. We will scope it and send a number &mdash; usually within a few days.</p>",
+      primary_cta_text="Start your estimate",
+      primary_cta_url={ "type": "EXTERNAL", "href": "/contact", "content_id": null },
+      secondary_cta_text="Schedule a Consultation",
+      secondary_cta_url={ "type": "EXTERNAL", "href": "/schedule-a-consultation-sunriver-consulting", "content_id": null }
+    %}{% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module path="../../modules/SR - Service Cards", section_eyebrow="Process", section_heading="How it works." %}
+      {% module_attribute "columns" %}3{% end_module_attribute %}
+      {% module_attribute "cards" is_json=True %}
+      [
+        { "icon_text": "mono:doc", "title": "1 / Tell us", "description": "<p>Share your goal, constraints, and timeline.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/contact", "content_id": null } },
+        { "icon_text": "mono:gauge", "title": "2 / We scope", "description": "<p>We map the work and the risks &mdash; no fluff.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/contact", "content_id": null } },
+        { "icon_text": "mono:sparkles", "title": "3 / Fixed price", "description": "<p>You get a clear scope and a number to approve.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/contact", "content_id": null } }
+      ]
+      {% end_module_attribute %}
+    {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module
+      path="../../modules/SR - CTA Banner",
+      heading="Ready?",
+      subheading="Send us the details and we will get to work.",
+      cta_text="Contact us",
+      cta_url={ "type": "EXTERNAL", "href": "/contact", "content_id": null }
+    %}{% end_dnd_module %}
+  {% end_dnd_section %}
+
+{% end_dnd_area %}
+{% endblock body %}

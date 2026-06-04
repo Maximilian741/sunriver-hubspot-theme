@@ -1,0 +1,55 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: SunRiver - Data Analysis (editable)
+  screenshot_path: ../../images/template-previews/home.jpg
+-->
+{#
+  Editable (drag-and-drop) version, built from SR-* widget modules. Selectable
+  on an existing page and fully editable in the CMS. Same .srh look (child.css).
+#}
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+{% dnd_area "main_content" label="Page content" %}
+
+  {% dnd_section %}
+    {% dnd_module
+      path="../../modules/SR - Hero Spotlight",
+      eyebrow="Database Solutions / Analysis",
+      heading="From raw tables to answers you can trust",
+      subheading="<p>Slow reports, numbers that disagree across teams, and dashboards no one believes &mdash; we fix the layer underneath. Optimized queries, a governed warehouse, and BI people actually use.</p>",
+      primary_cta_text="Get a Quick Estimate",
+      primary_cta_url={ "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null },
+      secondary_cta_text="Schedule a Consultation",
+      secondary_cta_url={ "type": "EXTERNAL", "href": "/schedule-a-consultation-sunriver-consulting", "content_id": null }
+    %}{% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module path="../../modules/SR - Service Cards", section_eyebrow="In scope", section_heading="What we focus on." %}
+      {% module_attribute "columns" %}3{% end_module_attribute %}
+      {% module_attribute "cards" is_json=True %}
+      [
+        { "icon_text": "mono:gauge", "title": "Query optimization", "description": "<p>We profile the heavy analytical queries, rewrite them, and add the right indexes and materialized views so reports return in seconds instead of minutes.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null } },
+        { "icon_text": "tableau", "title": "Reporting &amp; BI in Tableau", "description": "<p>Clean data sources, sensible models, and Tableau dashboards built so the numbers reconcile and non-technical stakeholders can self-serve.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null } },
+        { "icon_text": "mono:database", "title": "Data warehousing", "description": "<p>A warehouse with conformed dimensions and a single definition of each metric, so finance and product finally agree on what &ldquo;active user&rdquo; means.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null } },
+        { "icon_text": "python", "title": "ETL pipelines", "description": "<p>Scheduled, idempotent pipelines in Python that land data on time, validate it on arrival, and alert loudly when a source breaks.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null } },
+        { "icon_text": "mono:chart", "title": "Dashboards leadership trusts", "description": "<p>Decision-grade views with documented sources and definitions, refreshed on a known cadence &mdash; so a number on screen is a number you can defend.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null } }
+      ]
+      {% end_module_attribute %}
+    {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module
+      path="../../modules/SR - CTA Banner",
+      heading="Tired of arguing about the numbers?",
+      subheading="Send your reporting pain &mdash; slow queries, conflicting metrics, or no warehouse at all &mdash; and we&rsquo;ll scope a fixed-fee fix.",
+      cta_text="Get a Quick Estimate",
+      cta_url={ "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null }
+    %}{% end_dnd_module %}
+  {% end_dnd_section %}
+
+{% end_dnd_area %}
+{% endblock body %}

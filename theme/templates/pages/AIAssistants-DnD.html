@@ -1,0 +1,55 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: SunRiver - Custom AI Assistants (editable)
+  screenshot_path: ../../images/template-previews/home.jpg
+-->
+{#
+  Editable (drag-and-drop) version, built from SR-* widget modules. Selectable
+  on an existing page and fully editable in the CMS. Same .srh look (child.css).
+#}
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+{% dnd_area "main_content" label="Page content" %}
+
+  {% dnd_section %}
+    {% dnd_module
+      path="../../modules/SR - Hero Spotlight",
+      eyebrow="AI Solutions / Custom Assistants",
+      heading="An assistant that actually knows your business",
+      subheading="<p>Generic chatbots make things up because they&rsquo;ve never seen your documents. We build assistants grounded in your own content through retrieval, with citations you can check, guardrails that keep them on task, and evaluations that prove they work before you ship.</p>",
+      primary_cta_text="Get a Quick Estimate",
+      primary_cta_url={ "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null },
+      secondary_cta_text="Schedule a Consultation",
+      secondary_cta_url={ "type": "EXTERNAL", "href": "/schedule-a-consultation-sunriver-consulting", "content_id": null }
+    %}{% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module path="../../modules/SR - Service Cards", section_eyebrow="In scope", section_heading="What we focus on." %}
+      {% module_attribute "columns" %}3{% end_module_attribute %}
+      {% module_attribute "cards" is_json=True %}
+      [
+        { "icon_text": "mono:database", "title": "Grounded in your data (RAG)", "description": "<p>We index your documents into a vector store and retrieve the right passages at answer time, so responses come from your content instead of the model&rsquo;s imagination.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null } },
+        { "icon_text": "mono:doc", "title": "Citations you can verify", "description": "<p>Every answer links back to the source passage it came from, so users can check the original and trust the assistant instead of guessing whether it&rsquo;s right.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null } },
+        { "icon_text": "mono:shield", "title": "Guardrails &amp; scope", "description": "<p>System prompts, input and output checks, and refusal behavior that keep the assistant on-topic and honest &mdash; including saying &ldquo;I don&rsquo;t know&rdquo; when the answer isn&rsquo;t in your data.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null } },
+        { "icon_text": "anthropic", "title": "Claude &amp; OpenAI APIs", "description": "<p>We build on the Claude or OpenAI API and pick the model per job, balancing quality, latency, and cost rather than defaulting to the most expensive option for everything.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null } },
+        { "icon_text": "mono:gauge", "title": "Evaluation before launch", "description": "<p>A test set of real questions and expected answers, scored for accuracy and grounding, so you ship on measured quality &mdash; not a vibe from three lucky demos.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null } }
+      ]
+      {% end_module_attribute %}
+    {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module
+      path="../../modules/SR - CTA Banner",
+      heading="Want an assistant grounded in your own content?",
+      subheading="Send us the documents and the questions it needs to answer, and we&rsquo;ll scope a fixed-fee assistant with citations, guardrails, and a real evaluation.",
+      cta_text="Get a Quick Estimate",
+      cta_url={ "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null }
+    %}{% end_dnd_module %}
+  {% end_dnd_section %}
+
+{% end_dnd_area %}
+{% endblock body %}

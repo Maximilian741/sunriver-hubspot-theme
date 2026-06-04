@@ -1,0 +1,56 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: SunRiver - News (editable)
+  screenshot_path: ../../images/template-previews/home.jpg
+-->
+{#
+  Editable (drag-and-drop) version, built from SR-* widget modules. Selectable
+  on an existing page and fully editable in the CMS. Same .srh look (child.css).
+#}
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+{% dnd_area "main_content" label="Page content" %}
+
+  {% dnd_section %}
+    {% dnd_module
+      path="../../modules/SR - Hero Spotlight",
+      eyebrow="Newsroom",
+      heading="What is new at SunRiver.",
+      subheading="<p>Product notes, security advisories, and the occasional Montana sunrise.</p>",
+      primary_cta_text="Contact us",
+      primary_cta_url={ "type": "EXTERNAL", "href": "/contact", "content_id": null },
+      secondary_cta_text="Schedule a Consultation",
+      secondary_cta_url={ "type": "EXTERNAL", "href": "/schedule-a-consultation-sunriver-consulting", "content_id": null }
+    %}{% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module path="../../modules/SR - Service Cards", section_eyebrow="From the team", section_heading="What we write about." %}
+      {% module_attribute "columns" %}3{% end_module_attribute %}
+      {% module_attribute "cards" is_json=True %}
+      [
+        { "icon_text": "mono:sparkles", "title": "Product", "description": "<p>Feature releases and platform improvements.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/contact", "content_id": null } },
+        { "icon_text": "mono:shield", "title": "Security", "description": "<p>Advisories, hardening notes, and compliance updates.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/compliance-audits-sunriver-consulting", "content_id": null } },
+        { "icon_text": "mono:doc", "title": "Guides", "description": "<p>Practical how-tos for the tools we implement.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/contact", "content_id": null } },
+        { "icon_text": "mono:users", "title": "Company", "description": "<p>Team news from our Helena, Montana home base.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/our-team-sunriver-consulting", "content_id": null } },
+        { "icon_text": "mono:chart", "title": "Case notes", "description": "<p>What we learned shipping real client work.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/contact", "content_id": null } },
+        { "icon_text": "mono:calendar", "title": "Events", "description": "<p>Where to find us and what we are speaking about.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/contact", "content_id": null } }
+      ]
+      {% end_module_attribute %}
+    {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module
+      path="../../modules/SR - CTA Banner",
+      heading="Want updates?",
+      subheading="Reach out and we will keep you posted.",
+      cta_text="Contact us",
+      cta_url={ "type": "EXTERNAL", "href": "/contact", "content_id": null }
+    %}{% end_dnd_module %}
+  {% end_dnd_section %}
+
+{% end_dnd_area %}
+{% endblock body %}

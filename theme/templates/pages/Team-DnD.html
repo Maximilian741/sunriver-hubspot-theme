@@ -1,0 +1,56 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: SunRiver - Our Team (editable)
+  screenshot_path: ../../images/template-previews/home.jpg
+-->
+{#
+  Editable (drag-and-drop) version, built from SR-* widget modules. Selectable
+  on an existing page and fully editable in the CMS. Same .srh look (child.css).
+#}
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+{% dnd_area "main_content" label="Page content" %}
+
+  {% dnd_section %}
+    {% dnd_module
+      path="../../modules/SR - Hero Spotlight",
+      eyebrow="Our Team",
+      heading="One senior team, many disciplines.",
+      subheading="<p>No hand-offs between strangers. The people who scope your work are the people who build it.</p>",
+      primary_cta_text="Work with us",
+      primary_cta_url={ "type": "EXTERNAL", "href": "/contact", "content_id": null },
+      secondary_cta_text="Schedule a Consultation",
+      secondary_cta_url={ "type": "EXTERNAL", "href": "/schedule-a-consultation-sunriver-consulting", "content_id": null }
+    %}{% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module path="../../modules/SR - Service Cards", section_eyebrow="Under one roof", section_heading="Disciplines we cover." %}
+      {% module_attribute "columns" %}3{% end_module_attribute %}
+      {% module_attribute "cards" is_json=True %}
+      [
+        { "icon_text": "mono:wrench", "title": "Engineering", "description": "<p>Senior software engineers across web, mobile, and cloud.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/app-development-sunriver-consulting", "content_id": null } },
+        { "icon_text": "mono:sparkles", "title": "Design", "description": "<p>Product and brand design, accessible by default.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/web-development-sunriver-consulting", "content_id": null } },
+        { "icon_text": "mono:shield", "title": "Security", "description": "<p>Penetration testing, threat modeling, and compliance.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/compliance-audits-sunriver-consulting", "content_id": null } },
+        { "icon_text": "mono:database", "title": "Data", "description": "<p>Database design, administration, and analytics.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/database-solutions-sunriver-consulting", "content_id": null } },
+        { "icon_text": "amazonaws", "title": "Cloud &amp; Ops", "description": "<p>AWS and Azure provisioning, CI/CD, and monitoring.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/business-solutions-sunriver-consulting", "content_id": null } },
+        { "icon_text": "mono:users", "title": "Delivery", "description": "<p>One accountable team from kickoff to hand-off.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/contact", "content_id": null } }
+      ]
+      {% end_module_attribute %}
+    {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module
+      path="../../modules/SR - CTA Banner",
+      heading="Like how we work?",
+      subheading="Tell us what you are building.",
+      cta_text="Schedule a Consultation",
+      cta_url={ "type": "EXTERNAL", "href": "/schedule-a-consultation-sunriver-consulting", "content_id": null }
+    %}{% end_dnd_module %}
+  {% end_dnd_section %}
+
+{% end_dnd_area %}
+{% endblock body %}

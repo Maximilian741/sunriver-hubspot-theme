@@ -1,0 +1,55 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: SunRiver - iOS & iPadOS Apps (editable)
+  screenshot_path: ../../images/template-previews/home.jpg
+-->
+{#
+  Editable (drag-and-drop) version, built from SR-* widget modules. Selectable
+  on an existing page and fully editable in the CMS. Same .srh look (child.css).
+#}
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+{% dnd_area "main_content" label="Page content" %}
+
+  {% dnd_section %}
+    {% dnd_module
+      path="../../modules/SR - Hero Spotlight",
+      eyebrow="App Development / iOS",
+      heading="iOS apps that pass review the first time",
+      subheading="<p>Swift and SwiftUI built to the Human Interface Guidelines, shipped through TestFlight, and tuned for App Store review before we submit. Privacy and ATT handled correctly, not bolted on.</p>",
+      primary_cta_text="Get a Quick Estimate",
+      primary_cta_url={ "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null },
+      secondary_cta_text="Schedule a Consultation",
+      secondary_cta_url={ "type": "EXTERNAL", "href": "/schedule-a-consultation-sunriver-consulting", "content_id": null }
+    %}{% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module path="../../modules/SR - Service Cards", section_eyebrow="In scope", section_heading="What we focus on." %}
+      {% module_attribute "columns" %}3{% end_module_attribute %}
+      {% module_attribute "cards" is_json=True %}
+      [
+        { "icon_text": "swift", "title": "Swift & SwiftUI", "description": "<p>SwiftUI with async/await and Combine where it fits, adaptive layouts that scale from iPhone SE to iPad in one codebase.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null } },
+        { "icon_text": "apple", "title": "App Store review & TestFlight", "description": "<p>TestFlight builds for your stakeholders and a submission that clears the App Review Guidelines without the rejection ping-pong.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null } },
+        { "icon_text": "mono:phone", "title": "Human Interface Guidelines", "description": "<p>Native navigation, Dynamic Type, and Dark Mode that match what iOS users expect &mdash; so the app feels Apple-made.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null } },
+        { "icon_text": "mono:spark", "title": "Push & notifications", "description": "<p>APNs push with rich and silent notifications, permission prompts timed so users actually say yes.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null } },
+        { "icon_text": "mono:lock", "title": "Privacy & App Tracking Transparency", "description": "<p>Honest privacy nutrition labels, an ATT prompt only when warranted, and data handling that survives review scrutiny.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null } }
+      ]
+      {% end_module_attribute %}
+    {% end_dnd_module %}
+  {% end_dnd_section %}
+
+  {% dnd_section %}
+    {% dnd_module
+      path="../../modules/SR - CTA Banner",
+      heading="Need it on the App Store?",
+      subheading="We&rsquo;ll build it in Swift, get it through TestFlight, and submit it ready to be approved &mdash; not bounced.",
+      cta_text="Get a Quick Estimate",
+      cta_url={ "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null }
+    %}{% end_dnd_module %}
+  {% end_dnd_section %}
+
+{% end_dnd_area %}
+{% endblock body %}
