@@ -243,25 +243,7 @@
   stroke-dashoffset: 0 !important;
 }
 
-/* === SunRiver ASCII cursor overlay ===
-   Fixed, non-interactive canvas above content. The trail is drawn as discrete
-   glyphs that only appear near the cursor and fade out fast, so the canvas reads
-   as empty everywhere else. No blend mode — a full-viewport screen-blend was
-   lightening the whole page on movement/clicks. */
-#sr-cursor-fx {
-  position: fixed;
-  inset: 0;
-  width: 100vw;
-  height: 100vh;
-  pointer-events: none;
-  z-index: 9999;
-}
-@media (prefers-reduced-motion: reduce) {
-  #sr-cursor-fx { display: none; }
-}
-@media (hover: none), (pointer: coarse) {
-  #sr-cursor-fx { display: none; }
-}
+/* (ASCII cursor overlay removed — clean pointer, Codex-style) */
 
 /* ============================================================
    Brand Kit typography — scoped to SR components only.
@@ -716,7 +698,11 @@
    brand-logo cards (your existing look), with the smoke riding
    ON TOP as a transparent veil. NOT a dark theme.
    ============================================================ */
-.srh { --ink:#0c2114; --paper:#ffffff; --muted:#546b5b; --green:#21c700; --valley:#8FC740; --sun:#FBC34A; --gold:#f1c233; --river:#3E9DB8; --deep:#1C5B77; color:var(--ink); font-family:var(--body,"Manrope",system-ui,sans-serif); }
+.srh { --ink:#0c2114; --paper:#ffffff; --muted:#546b5b; --green:#21c700; --valley:#8FC740; --sun:#FBC34A; --gold:#f1c233; --river:#3E9DB8; --deep:#1C5B77; color:var(--ink); font-family:var(--body,"Manrope",system-ui,sans-serif); background:linear-gradient(165deg,#16b202 0%,#0ea25c 26%,#0f7d86 52%,#1C5B77 76%,#0d3850 100%); background-attachment:fixed; }
+/* on full coded pages the gradient is page-wide and continuous — bands/sections go clear */
+.srh .srh-band { background:linear-gradient(180deg,rgba(3,16,12,.26),rgba(3,16,12,0)); }
+.srh .srh-band--rev { background:linear-gradient(0deg,rgba(3,16,12,.26),rgba(3,16,12,0)); }
+.srh .srh-sec, .srh .srh-sec--paper { background:transparent; }
 .srh-wrap { max-width:1200px; margin:0 auto; padding-left:clamp(20px,5vw,48px); padding-right:clamp(20px,5vw,48px); }
 .srh-hero__ctas { display:flex; flex-wrap:wrap; gap:12px; margin-top:1.8rem; }
 
@@ -732,8 +718,8 @@
 .srh-photo .srh-hero__ctas { justify-content:center; }
 
 /* green->gold gradient band — your exact #21c700 -> #f1c233 */
-.srh-band { position:relative; overflow:hidden; isolation:isolate; background:linear-gradient(135deg,#0d3850 0%,#1C5B77 40%,#2e7d9e 72%,#3E9DB8 100%); }
-.srh-band--rev { background:linear-gradient(315deg,#0d3850 0%,#1C5B77 40%,#2e7d9e 72%,#3E9DB8 100%); }
+.srh-band { position:relative; overflow:hidden; isolation:isolate; background:linear-gradient(140deg,#16b202 0%,#0f8a6e 38%,#1C5B77 78%,#0d3850 100%); }
+.srh-band--rev { background:linear-gradient(320deg,#16b202 0%,#0f8a6e 38%,#1C5B77 78%,#0d3850 100%); }
 /* on blue bands the type goes light */
 .srh-band .srh-eyebrow { color:#a9dcee; }
 .srh-band .srh-h1, .srh-band .srh-h2 { color:#fff; }
@@ -784,10 +770,19 @@
 .srh-stat__n { font-family:var(--head,"Poppins",sans-serif); font-weight:700; font-size:clamp(2.4rem,5vw,3.6rem); line-height:1; color:#0c2114; }
 .srh-stat__k { margin-top:8px; font-family:var(--mono,"JetBrains Mono",monospace); font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:#0c3a1c; }
 
-/* paper sections (contrast between green bands) */
-.srh-sec { background:#f4f7f3; }
-.srh-sec--paper { background:#fff; }
+/* sections ride the gradient — white lives on the cards, not the page */
+.srh-sec { background:linear-gradient(165deg,#0f8a6e 0%,#16707e 55%,#1C5B77 100%); }
+.srh-sec--paper { background:linear-gradient(165deg,#16707e 0%,#1C5B77 60%,#0d3850 100%); }
 .srh-sec__inner { max-width:1200px; margin:0 auto; padding:clamp(54px,8vw,100px) clamp(20px,5vw,48px); }
+/* type on the gradient goes light (inline river eyebrows included) */
+.srh-sec .srh-h2 { color:#fff; }
+.srh-sec .srh-eyebrow { color:#a9f0c6 !important; }
+.srh-sec .srh-lead { color:#dcf2e6 !important; }
+.srh-sec .srh-stat__n { color:#fff; }
+.srh-sec .srh-stat__k { color:#cdeadb; }
+/* …but back to ink inside white panels */
+.srh-founder .srh-eyebrow { color:var(--river) !important; }
+.srh-founder .srh-h2 { color:#0c2114; }
 
 /* sub-service chips */
 .srh-list { list-style:none; margin:24px 0 0; padding:0; display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:12px; }
@@ -885,7 +880,7 @@ body.srh-modal-open { overflow:hidden; }
    the green (smoke warms green -> ember on scroll, via child.js).
    Rich: dropdowns (reuses .srh-faq), multi-column, stack chips.
    ============================================================ */
-.srd { position:relative; min-height:100vh; isolation:isolate; background:linear-gradient(160deg,#0d3850 0%,#1C5B77 45%,#2e7d9e 100%); background-attachment:fixed; color:#0c2114; font-family:var(--body,"Manrope",system-ui,sans-serif); }
+.srd { position:relative; min-height:100vh; isolation:isolate; background:linear-gradient(165deg,#16b202 0%,#0ea25c 26%,#0f7d86 52%,#1C5B77 76%,#0d3850 100%); background-attachment:fixed; color:#0c2114; font-family:var(--body,"Manrope",system-ui,sans-serif); }
 .srd__sky { position:fixed; inset:0; z-index:0; pointer-events:none; opacity:var(--sr-warm,0); background:linear-gradient(168deg,#ffba3c 0%,#ff7e3a 24%,#d6481a 46%,#6e2410 66%,#1c0c07 85%,#070302 100%); transition:opacity .15s linear; }
 .srd__canvas { position:fixed; inset:0; width:100%; height:100%; z-index:1; pointer-events:none; }
 .srd__wrap { position:relative; z-index:2; max-width:960px; margin:0 auto; padding:clamp(26px,5vw,60px) clamp(14px,4vw,32px) clamp(50px,7vw,96px); }
@@ -898,7 +893,7 @@ body.srh-modal-open { overflow:hidden; }
 .srd-brand:hover { background:#fff; }
 
 /* ===== founder block + photo slots (Pricing/Contact personability) ===== */
-.srh-founder { display:grid; grid-template-columns:0.92fr 1.08fr; gap:clamp(24px,4vw,48px); align-items:center; }
+.srh-founder { display:grid; grid-template-columns:0.92fr 1.08fr; gap:clamp(24px,4vw,48px); align-items:center; background:#fff; border-radius:24px; padding:clamp(24px,4vw,44px); box-shadow:0 40px 80px -40px rgba(4,20,14,.6); }
 .srh-founder__media { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
 .sr-photoslot { position:relative; aspect-ratio:3/4; border-radius:18px; overflow:hidden; background:linear-gradient(150deg,#e7f0e7,#dceee4); border:2px dashed rgba(28,91,119,.32); display:grid; place-items:center; text-align:center; }
 .sr-photoslot img { width:100%; height:100%; object-fit:cover; display:block; }
@@ -912,7 +907,7 @@ body.srh-modal-open { overflow:hidden; }
 .srh-compare { display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:2.2rem; text-align:left; }
 .srh-compare__col { border-radius:18px; padding:28px; }
 .srh-compare__col--them { background:#f4f7f3; border:1px solid rgba(12,33,20,.08); }
-.srh-compare__col--us { background:linear-gradient(150deg,#0d3850,#3E9DB8); color:#fff; box-shadow:0 24px 48px -24px rgba(28,91,119,.6); }
+.srh-compare__col--us { background:linear-gradient(150deg,#10a653,#1C5B77); color:#fff; box-shadow:0 24px 48px -24px rgba(28,91,119,.6); }
 .srh-compare__cap { font-family:var(--mono,"JetBrains Mono",monospace); font-size:11px; letter-spacing:.16em; text-transform:uppercase; opacity:.7; }
 .srh-compare__col--us .srh-compare__cap { opacity:.85; }
 .srh-compare__h { font-family:var(--head,"Poppins",sans-serif); font-weight:700; font-size:1.2rem; margin:4px 0 16px; }
