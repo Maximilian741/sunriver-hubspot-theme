@@ -121,6 +121,26 @@
   function init() {
     var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+    // page-wide smoke on .srh pages: ONE fixed canvas behind everything, so the
+    // smoke runs continuously behind the cards instead of being cut off per band
+    var srhRoot = document.querySelector('.srh');
+    if (srhRoot && !document.querySelector('.srh__smoke')) {
+      var pc = document.createElement('canvas');
+      pc.className = 'srh__smoke';
+      pc.setAttribute('data-srx-shader', 'smoke-veil');
+      pc.setAttribute('aria-hidden', 'true');
+      srhRoot.insertBefore(pc, srhRoot.firstChild);
+    }
+
+    // stagger: cards / FAQ items / contact tiles pop in one at a time
+    [].forEach.call(document.querySelectorAll('.srh-cards, .srh-faq, .srh-methods'), function (grid) {
+      grid.classList.remove('srx-reveal');
+      [].forEach.call(grid.children, function (el, i) {
+        el.classList.add('srx-reveal');
+        el.style.transitionDelay = Math.min(i * 90, 540) + 'ms';
+      });
+    });
+
     var reveals = [].slice.call(document.querySelectorAll('.srx-reveal:not(.srx-in)'));
     if (reveals.length) {
       if (reduce || !('IntersectionObserver' in window)) {
@@ -245,7 +265,7 @@
 
     var VERT = 'attribute vec2 p;void main(){gl_Position=vec4(p,0.0,1.0);}';
     var COMMON =
-      'precision highp float;uniform float u_time;uniform vec2 u_res;uniform vec2 u_mouse;uniform float u_warm;' +
+      'precision highp float;uniform float u_time;uniform vec2 u_res;uniform vec2 u_mouse;uniform float u_warm;uniform float u_edge;' +
       'float hash(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}' +
       'float noise(vec2 p){vec2 i=floor(p),f=fract(p);vec2 u=f*f*(3.0-2.0*f);' +
       'return mix(mix(hash(i),hash(i+vec2(1,0)),u.x),mix(hash(i+vec2(0,1)),hash(i+vec2(1,1)),u.x),u.y);}' +
@@ -330,8 +350,8 @@
       'float w=clamp(u_warm*1.15,0.0,1.0);' +
       'vec3 col=mix(cool,emb,w);' +
       'float a=clamp(dense,0.0,1.0)*(0.62+0.3*w);' +
-      // dissolve the smoke near the canvas top/bottom so bands melt into the page
-      'float vy=gl_FragCoord.y/u_res.y;a*=smoothstep(0.0,0.16,vy)*smoothstep(1.0,0.84,vy);' +
+      // edge dissolve only for in-band canvases (u_edge=1); page-wide smoke runs uncut
+      'float vy=gl_FragCoord.y/u_res.y;a*=mix(1.0,smoothstep(0.0,0.16,vy)*smoothstep(1.0,0.84,vy),u_edge);' +
       'gl_FragColor=vec4(col,a);}';
     // Birch Veil — the user's pale airy wallpaper (paper/taupe/sage mist, drifting
     // motes, mouse parts the fog). Light palette so dark text reads on top.
@@ -371,6 +391,9 @@
       var start = performance.now(), visible = true, mAim = [0, 0], mSm = [0, 0], warmS = 0;
       // ember-on-scroll is a deep-page (.srd) effect only; everywhere else the smoke stays cool
       var warmOn = !!(canvas.closest && canvas.closest('.srd'));
+      // full-page canvases run uncut; in-band canvases dissolve at their edges
+      var edgeOn = (canvas.classList.contains('srh__smoke') || (canvas.closest && canvas.closest('.srd'))) ? 0 : 1;
+      var uE = gl.getUniformLocation(prog, 'u_edge');
       window.addEventListener('mousemove', function (e) {
         var r = canvas.getBoundingClientRect(); if (!r.width || !r.height) return;
         mAim[0] = (e.clientX - r.left - r.width / 2) / r.height;
@@ -394,6 +417,7 @@
         gl.uniform2f(uR, canvas.width, canvas.height);
         if (uM) gl.uniform2f(uM, mSm[0], mSm[1]);
         if (uW) gl.uniform1f(uW, warmS);
+        if (uE) gl.uniform1f(uE, edgeOn);
         gl.drawArrays(gl.TRIANGLES, 0, 6);
       }
       loop();
