@@ -347,6 +347,8 @@
       gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
       var uT = gl.getUniformLocation(prog, 'u_time'), uR = gl.getUniformLocation(prog, 'u_res'), uM = gl.getUniformLocation(prog, 'u_mouse'), uW = gl.getUniformLocation(prog, 'u_warm');
       var start = performance.now(), visible = true, mAim = [0, 0], mSm = [0, 0], warmS = 0;
+      // ember-on-scroll is a deep-page (.srd) effect only; everywhere else the smoke stays cool
+      var warmOn = !!(canvas.closest && canvas.closest('.srd'));
       window.addEventListener('mousemove', function (e) {
         var r = canvas.getBoundingClientRect(); if (!r.width || !r.height) return;
         mAim[0] = (e.clientX - r.left - r.width / 2) / r.height;
@@ -364,7 +366,7 @@
         if (!visible || document.hidden) return;
         sizeCanvas();
         mSm[0] += (mAim[0] - mSm[0]) * 0.07; mSm[1] += (mAim[1] - mSm[1]) * 0.07;
-        var wt = Math.min(1, (window.scrollY || window.pageYOffset || 0) / 500);
+        var wt = warmOn ? Math.min(1, (window.scrollY || window.pageYOffset || 0) / 500) : 0;
         warmS += (wt - warmS) * 0.06;
         gl.uniform1f(uT, (performance.now() - start) / 1000);
         gl.uniform2f(uR, canvas.width, canvas.height);
