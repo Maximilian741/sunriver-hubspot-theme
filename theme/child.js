@@ -333,29 +333,27 @@
       // dissolve the smoke near the canvas top/bottom so bands melt into the page
       'float vy=gl_FragCoord.y/u_res.y;a*=smoothstep(0.0,0.16,vy)*smoothstep(1.0,0.84,vy);' +
       'gl_FragColor=vec4(col,a);}';
-    // Maple Mist — the user's autumn wallpaper (mist + drifting leaf specks,
-    // mouse parts the fog). Opaque; used as the background of "money" cards.
-    var MAPLE_MIST = COMMON +
-      'void main(){vec2 p=(gl_FragCoord.xy-0.5*u_res.xy)/u_res.y;vec2 m=u_mouse;float t=u_time*0.12;' +
-      'vec2 q=p*1.2+vec2(t*0.8,t*0.3);q+=(m-p)*exp(-length(p-m)*1.2)*0.25;' +
-      'float mist=fbm(q+vec2(0.0,fbm(q*2.0-t)));float density=smoothstep(0.2,0.85,mist);' +
-      'vec2 lq=p*5.5+vec2(-t*1.5,t*0.4);vec2 li=floor(lq),lf=fract(lq);' +
-      'float ld=1.0;vec2 lc=vec2(0.0);' +
-      'for(int y=-1;y<=1;y++){for(int x=-1;x<=1;x++){' +
-      'vec2 o=vec2(float(x),float(y));vec2 h2=vec2(hash(li+o),hash(li+o+17.0));' +
-      'vec2 s2=o+h2+vec2(sin(u_time*0.6+h2.x*6.28)*0.2,cos(u_time*0.5+h2.y*6.28)*0.15);' +
-      'float d=length(s2-lf);if(d<ld){ld=d;lc=li+o;}}}' +
-      'float leaf=smoothstep(0.18,0.05,ld);float lh=hash(lc);' +
-      'vec3 msky=vec3(0.95,0.86,0.72);vec3 mcream=vec3(0.85,0.72,0.55);vec3 mochre=vec3(0.82,0.55,0.22);' +
-      'vec3 mrust=vec3(0.75,0.30,0.12);vec3 mmaroon=vec3(0.45,0.12,0.10);vec3 mmoss=vec3(0.45,0.42,0.18);' +
-      'vec3 bg=mix(mcream*0.7,msky,smoothstep(-0.4,0.5,p.y));bg=mix(bg,mochre*0.6,density*0.55);' +
-      'bg+=vec3(1.0,0.85,0.55)*exp(-length(p-m)*3.5)*0.18;' +
-      'vec3 lcl;if(lh<0.35)lcl=mrust;else if(lh<0.65)lcl=mochre;else if(lh<0.88)lcl=mmaroon;else lcl=mmoss;' +
-      'float core=smoothstep(0.06,0.0,ld);' +
-      'vec3 col=mix(bg,lcl,leaf*0.85);col=mix(col,lcl*0.6,core*0.5);' +
-      'col=mix(col,mcream*0.6,smoothstep(0.5,1.1,length(p))*0.5);' +
-      'col+=(hash(gl_FragCoord.xy+u_time)-0.5)*0.02;gl_FragColor=vec4(col,1.0);}';
-    var FRAG = { ember: EMBER, maple: MAPLE, 'ember-neon': EMBER_NEON, 'maple-neon': MAPLE_NEON, 'ember-warm': EMBER_WARM, 'smoke-veil': SMOKE_VEIL, 'maple-mist': MAPLE_MIST };
+    // Birch Veil — the user's pale airy wallpaper (paper/taupe/sage mist, drifting
+    // motes, mouse parts the fog). Light palette so dark text reads on top.
+    // Opaque; used as the background of "money" cards (estimates/quotes).
+    var BIRCH_VEIL = COMMON +
+      'void main(){vec2 p=(gl_FragCoord.xy-0.5*u_res.xy)/u_res.y;vec2 m=u_mouse;float t=u_time*0.05;' +
+      'vec2 q=p*1.0+vec2(t*0.7,-t*0.2);q+=0.3*vec2(fbm(q+t),fbm(q-t+6.0));' +
+      'float mist=fbm(q*1.5);' +
+      'vec3 paper=vec3(0.90,0.88,0.82);vec3 taupe=vec3(0.74,0.69,0.60);' +
+      'vec3 sage=vec3(0.66,0.68,0.55);vec3 fgold=vec3(0.84,0.72,0.48);' +
+      'vec3 col=mix(paper,taupe,smoothstep(0.2,0.8,mist));' +
+      'col=mix(col,sage,smoothstep(0.5,0.9,fbm(q*2.2-t))*0.4);' +
+      'col=mix(col,fgold,smoothstep(0.6,1.0,mist)*0.35);' +
+      'float md=length(p-m);col=mix(col,paper*1.04,exp(-md*2.5)*0.18);' +
+      'vec2 dq=p*7.0+vec2(t*2.0,sin(t*3.0));vec2 di=floor(dq);vec2 df=fract(dq)-0.5;' +
+      'float h2=hash(di);' +
+      'float mote=step(0.92,h2)*smoothstep(0.18,0.0,length(df))*(0.4+0.6*sin(u_time*2.0+h2*30.0));' +
+      'col+=vec3(1.0,0.97,0.9)*mote*0.5;' +
+      'col=mix(col,paper,smoothstep(0.5,1.2,length(p))*0.4);' +
+      'col+=(hash(gl_FragCoord.xy+u_time)-0.5)*0.010;' +
+      'gl_FragColor=vec4(col,1.0);}';
+    var FRAG = { ember: EMBER, maple: MAPLE, 'ember-neon': EMBER_NEON, 'maple-neon': MAPLE_NEON, 'ember-warm': EMBER_WARM, 'smoke-veil': SMOKE_VEIL, 'birch-veil': BIRCH_VEIL };
 
     function run(canvas, fragSrc) {
       var gl = canvas.getContext('webgl', { antialias: true, premultipliedAlpha: false });
