@@ -13,7 +13,7 @@
 {% block body %}
 {% dnd_area "main_content" label="Page content" %}
 
-  {% dnd_section %}
+  {% dnd_section padding={ 'top': 0, 'bottom': 0, 'left': 0, 'right': 0 } %}
     {% dnd_module
       path="../../modules/SR - Hero Spotlight",
       eyebrow="Web Development",
@@ -26,7 +26,7 @@
     %}{% end_dnd_module %}
   {% end_dnd_section %}
 
-  {% dnd_section %}
+  {% dnd_section padding={ 'top': 0, 'bottom': 0, 'left': 0, 'right': 0 } %}
     {% dnd_module path="../../modules/SR - Service Cards", section_eyebrow="Explore", section_heading="What we do." %}
       {% module_attribute "columns" %}3{% end_module_attribute %}
       {% module_attribute "cards" is_json=True %}
@@ -40,7 +40,7 @@
     {% end_dnd_module %}
   {% end_dnd_section %}
 
-  {% dnd_section %}
+  {% dnd_section padding={ 'top': 0, 'bottom': 0, 'left': 0, 'right': 0 } %}
     {% dnd_module
       path="../../modules/SR - CTA Banner",
       heading="Need a site built or rescued?",

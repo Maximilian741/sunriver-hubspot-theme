@@ -432,7 +432,7 @@
       'vec2 q=p*1.25;q.y+=t*0.6;q+=0.5*vec2(fbm(q+t),fbm(q*1.2-t+5.0));q=warp(q,p);' +
       'float smoke=fbm(q*1.25);float dense=smoothstep(0.28,0.9,smoke);' +
       'float wisp=fbm(q*2.6+vec2(0.0,t*1.3));dense*=0.6+0.7*wisp;' +
-      'vec3 ink=vec3(0.02,0.09,0.06);vec3 tealdk=vec3(0.03,0.21,0.27);' +
+      'vec3 ink=vec3(0.01,0.10,0.15);vec3 tealdk=vec3(0.10,0.36,0.46);' +
       'vec3 cool=mix(ink,tealdk,smoothstep(0.3,1.0,dense));' +
       'vec3 emb=mix(vec3(0.30,0.07,0.02),vec3(1.0,0.46,0.10),smoothstep(0.2,1.0,dense));' +
       'float w=clamp(u_warm*1.15,0.0,1.0);' +

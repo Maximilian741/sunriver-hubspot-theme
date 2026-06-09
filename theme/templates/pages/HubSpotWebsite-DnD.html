@@ -13,7 +13,7 @@
 {% block body %}
 {% dnd_area "main_content" label="Page content" %}
 
-  {% dnd_section %}
+  {% dnd_section padding={ 'top': 0, 'bottom': 0, 'left': 0, 'right': 0 } %}
     {% dnd_module
       path="../../modules/SR - Hero Spotlight",
       eyebrow="Web Development / HubSpot",
@@ -26,7 +26,7 @@
     %}{% end_dnd_module %}
   {% end_dnd_section %}
 
-  {% dnd_section %}
+  {% dnd_section padding={ 'top': 0, 'bottom': 0, 'left': 0, 'right': 0 } %}
     {% dnd_module path="../../modules/SR - Service Cards", section_eyebrow="In scope", section_heading="What we focus on." %}
       {% module_attribute "columns" %}3{% end_module_attribute %}
       {% module_attribute "cards" is_json=True %}
@@ -41,7 +41,7 @@
     {% end_dnd_module %}
   {% end_dnd_section %}
 
-  {% dnd_section %}
+  {% dnd_section padding={ 'top': 0, 'bottom': 0, 'left': 0, 'right': 0 } %}
     {% dnd_module
       path="../../modules/SR - CTA Banner",
       heading="On HubSpot, or moving to it?",
