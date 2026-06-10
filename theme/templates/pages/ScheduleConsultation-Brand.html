@@ -4,50 +4,72 @@
   label: SunRiver - Remote Consultation
   screenshot_path: ../../images/template-previews/home.jpg
 -->
-{#
-  .srh brand page -- your green-gold gradient + interactive smoke veil +
-  white brand-logo cards (hover turns each into the featured gradient).
-  Content-only; styles in child.css (.srh), runtime in child.js. Does not
-  touch the live Home page.
-#}
+{# Remote Consultation — a real booking page: HubSpot Meetings embed (click the
+   module in the editor and pick your meeting link) + what to expect. #}
 {% extends "../layouts/base.html" %}
 
 {% block body %}
 <div class="srh">
 
-  {# ===== HERO (green gradient + smoke) ===== #}
   <section class="srh-band">
     <canvas class="srh-band__canvas" data-srx-shader="smoke-veil" aria-hidden="true"></canvas>
     <div class="srh-band__inner srx-reveal" style="text-align:center;max-width:920px;">
       <span class="srh-eyebrow">Remote Consultation</span>
       <h1 class="srh-h1" style="max-width:20ch;margin-inline:auto;">Talk to a real engineer.</h1>
-      <p class="srh-lead" style="margin-inline:auto;">Book a remote consultation &mdash; no sales script, just a senior engineer and your questions.</p>
-      <div class="srh-hero__ctas" style="justify-content:center;"><a class="srh-btn srh-btn--primary" href="/schedule-a-consultation-sunriver-consulting">Schedule now</a><a class="srh-btn srh-btn--ghost" href="/contact">Contact us</a></div>
+      <p class="srh-lead" style="margin-inline:auto;">Thirty free minutes with the person who&rsquo;d actually do the work. No sales script &mdash; bring your questions.</p>
     </div>
   </section>
 
-  {# ===== CARDS (paper) ===== #}
-  <section class="srh-sec">
+  <section class="srh-sec srh-sec--paper">
     <div class="srh-sec__inner">
-      <div class="srx-reveal" style="text-align:center;max-width:760px;margin:0 auto;">
-        <span class="srh-eyebrow" style="color:var(--river);">What to expect</span>
-        <h2 class="srh-h2">Thirty focused minutes.</h2>
-      </div>
-      <div class="srh-cards" style="margin-top:2.4rem;">
-        <a class="srh-card" href="/schedule-a-consultation-sunriver-consulting"><span class="srh-card__logo"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="16" rx="2"/><path d="M3.5 9.5h17M8 3.5v3M16 3.5v3"/></svg></span><h3 class="srh-card__title">Pick a time</h3><p class="srh-card__desc">Grab a slot that works for you.</p></a>
-        <a class="srh-card" href="/our-team-sunriver-consulting"><span class="srh-card__logo"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="9" r="3"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0"/><path d="M16 7.5a3 3 0 0 1 0 5.8"/><path d="M20.5 19a5.5 5.5 0 0 0-3-4.9"/></svg></span><h3 class="srh-card__title">Meet the team</h3><p class="srh-card__desc">Talk to the people who would do the work.</p></a>
-        <a class="srh-card" href="/schedule-a-consultation-sunriver-consulting"><span class="srh-card__logo"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5 5-2z"/></svg></span><h3 class="srh-card__title">Leave with a plan</h3><p class="srh-card__desc">Walk away with clear next steps, free.</p></a>
+      <div class="srh-split" style="align-items:start;gap:clamp(28px,5vw,56px);">
+
+        <div class="srx-reveal">
+          <span class="srh-eyebrow" style="color:var(--river);">What to expect</span>
+          <h2 class="srh-h2" style="margin-bottom:1.2rem;">Thirty focused minutes.</h2>
+          <div class="srh-methods">
+            <div class="srh-method" style="cursor:default;">
+              <span class="srh-method__ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="16" rx="2"/><path d="M3.5 9.5h17M8 3.5v3M16 3.5v3"/></svg></span>
+              <span><span class="srh-method__k">Pick any open slot</span><span class="srh-method__v">Grab a time that works &mdash; the calendar is live, no back-and-forth.</span></span>
+            </div>
+            <div class="srh-method" style="cursor:default;">
+              <span class="srh-method__ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="9" r="3"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0"/><path d="M16 7.5a3 3 0 0 1 0 5.8"/><path d="M20.5 19a5.5 5.5 0 0 0-3-4.9"/></svg></span>
+              <span><span class="srh-method__k">Meet the builder, not a closer</span><span class="srh-method__v">You talk directly with the senior engineer who&rsquo;d run your project.</span></span>
+            </div>
+            <div class="srh-method" style="cursor:default;">
+              <span class="srh-method__ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5 5-2z"/></svg></span>
+              <span><span class="srh-method__k">Leave with a plan</span><span class="srh-method__v">Clear next steps and honest advice &mdash; even if the answer is &ldquo;you don&rsquo;t need us.&rdquo;</span></span>
+            </div>
+            <a class="srh-method" href="tel:+14066162614">
+              <span class="srh-method__ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h3l1.6 4-2 1.2a12 12 0 0 0 5.2 5.2l1.2-2 4 1.6v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></span>
+              <span><span class="srh-method__k">Prefer the phone?</span><span class="srh-method__v">(406) 616-2614 &mdash; talk to an engineer, not a queue.</span></span>
+            </a>
+          </div>
+        </div>
+
+        <div class="srx-reveal">
+          <span class="srh-eyebrow" style="color:var(--river);">Book it</span>
+          <h2 class="srh-h2" style="margin-bottom:1.2rem;">Pick your time.</h2>
+          <div class="srh-form" style="padding:14px;">
+            {# Click this module in the page editor and select your HubSpot
+               meeting link — the live calendar renders right here. #}
+            {% module "consult_meeting" path="@hubspot/meetings" %}
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
-  {# ===== CTA (green gradient rev + smoke) ===== #}
   <section class="srh-band srh-band--rev srh-cta">
     <canvas class="srh-band__canvas" data-srx-shader="smoke-veil" aria-hidden="true"></canvas>
     <div class="srh-band__inner srx-reveal" style="text-align:center;">
-      <h2 class="srh-h2">Got 30 minutes?</h2>
-      <p class="srh-lead" style="margin-inline:auto;">Let us point you in the right direction.</p>
-      <div class="srh-hero__ctas" style="justify-content:center;"><a class="srh-btn srh-btn--primary" href="/schedule-a-consultation-sunriver-consulting">Schedule a Consultation</a><a class="srh-btn srh-btn--light" href="/contact">Contact us</a></div>
+      <h2 class="srh-h2">Already know what you need?</h2>
+      <p class="srh-lead" style="margin-inline:auto;">Skip the call &mdash; send the details and get a fixed-fee quote.</p>
+      <div class="srh-hero__ctas" style="justify-content:center;">
+        <a class="srh-btn srh-btn--primary" href="/quote-sunriver-consulting">Get a Quick Estimate &rarr;</a>
+        <a class="srh-btn srh-btn--light" href="/contact">Contact us</a>
+      </div>
     </div>
   </section>
 

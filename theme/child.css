@@ -702,7 +702,10 @@
 /* page-wide smoke (injected by child.js) — runs continuously behind the cards */
 .srh__smoke { position:fixed; inset:0; width:100%; height:100%; z-index:0; pointer-events:none; }
 .srh > :not(.srh__smoke) { position:relative; z-index:1; }
-.srh .srh-band__canvas, .srh .srh-photo__canvas { display:none; }
+.srh .srh-band__canvas { display:none; }
+/* the photo hero keeps its own smoke layer (the page canvas can't show through the image) */
+/* warm sun glow bleeding in at the top-right, under the photo hero */
+.srh-photo + .srh-band::after { content:""; position:absolute; top:-140px; right:-160px; width:620px; height:620px; border-radius:50%; z-index:0; pointer-events:none; background:radial-gradient(circle, rgba(251,178,60,.5) 0%, rgba(251,150,40,.22) 38%, rgba(251,150,40,0) 68%); }
 /* on full coded pages the gradient is page-wide and continuous — bands/sections go clear */
 .srh .srh-band { background:linear-gradient(180deg,rgba(3,16,12,.08) 0%,rgba(3,16,12,0) 60%); }
 .srh .srh-band--rev { background:linear-gradient(0deg,rgba(2,8,12,.5) 0%,rgba(2,8,12,0) 75%); }
@@ -961,6 +964,24 @@ body.srh-modal-open { overflow:hidden; }
 .srh-chip2:focus-within { outline:2px solid #FBC34A; outline-offset:2px; }
 /* brand text selection */
 .srh ::selection, .srd ::selection { background:#FBC34A; color:#0c2114; }
+/* pin interactive text colors against the theme's link/visited styles (the orange-brown leak) */
+a.srh-btn--primary, a.srh-btn--primary:link, a.srh-btn--primary:visited, a.srh-btn--primary:hover, a.srh-btn--primary:active { color:#231408 !important; }
+a.srh-btn--ghost, a.srh-btn--ghost:link, a.srh-btn--ghost:visited, a.srh-btn--ghost:hover,
+a.srh-btn--light, a.srh-btn--light:link, a.srh-btn--light:visited, a.srh-btn--light:hover { color:#0c2114 !important; }
+a.srh-card, a.srh-card:link, a.srh-card:visited, a.srh-card:hover { color:inherit !important; }
+a.srd-back, a.srd-back:visited, a.srd-brand, a.srd-brand:visited, a.srh-method, a.srh-method:visited { color:#0c2114 !important; }
+a.srd-btn, a.srd-btn:visited { color:inherit !important; }
+/* anchored deep-dive sheets land with breathing room */
+.srd-sheet { scroll-margin-top:120px; }
+
+/* team cards (Our Team) — pixel-art portraits on white cards */
+.srh-people { display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(14px,2vw,22px); }
+.srh-person { background:#fff; border-radius:18px; padding:28px 24px; text-align:center; border:1px solid rgba(12,33,20,.12); box-shadow:0 20px 44px -24px rgba(4,16,10,.6); }
+.srh-person__img { width:132px; height:132px; border-radius:50%; margin:0 auto 16px; background-size:cover; background-position:center; border:3px solid #FBC34A; image-rendering:pixelated; }
+.srh-person__name { font-family:var(--head,"Poppins",sans-serif); font-weight:700; font-size:1.3rem; color:#0c2114; margin:0; }
+.srh-person__role { font-family:var(--mono,"JetBrains Mono",monospace); font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--river); margin:6px 0 12px; }
+.srh-person__bio { font-size:.95rem; line-height:1.62; color:#546b5b; margin:0; text-align:left; }
+@media (max-width:860px){ .srh-people { grid-template-columns:1fr; } }
 
 /* home AI banner — keeps the services grid even while leaning into AI */
 .srh-aibanner { margin-top:clamp(20px,3vw,30px); display:flex; flex-wrap:wrap; align-items:center; gap:16px; justify-content:space-between; padding:18px 22px; border-radius:16px; text-decoration:none; background:linear-gradient(120deg,#0c2114,#1C5B77); color:#fff; box-shadow:0 22px 46px -24px rgba(8,30,16,.6); transition:transform .2s ease, box-shadow .2s ease; }
