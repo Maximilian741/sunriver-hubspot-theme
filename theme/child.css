@@ -703,7 +703,8 @@
 .srh__smoke { position:fixed; inset:0; width:100%; height:100%; z-index:0; pointer-events:none; }
 .srh > :not(.srh__smoke) { position:relative; z-index:1; }
 .srh .srh-band__canvas { display:none; }
-/* the photo hero keeps its own smoke layer (the page canvas can't show through the image) */
+/* no smoke over the mountain photo — the dense doc-palette smoke fouls the image */
+.srh-photo__canvas { display:none; }
 /* warm sun glow bleeding in at the top-right, under the photo hero */
 .srh-photo + .srh-band::after { content:""; position:absolute; top:-140px; right:-160px; width:620px; height:620px; border-radius:50%; z-index:0; pointer-events:none; background:radial-gradient(circle, rgba(251,178,60,.5) 0%, rgba(251,150,40,.22) 38%, rgba(251,150,40,0) 68%); }
 /* on full coded pages the gradient is page-wide and continuous — bands/sections go clear */
