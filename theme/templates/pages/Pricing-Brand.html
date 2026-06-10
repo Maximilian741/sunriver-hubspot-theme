@@ -61,14 +61,18 @@
             </div>
           </fieldset>
         </div>
-        <div class="srh-est__out srh-est__out--birch">
-          <canvas class="srh-est__bg" data-srx-shader="birch-veil" aria-hidden="true"></canvas>
+        <div class="srh-est__out">
           <span class="srh-est__cap">Ballpark estimate</span>
           <div class="srh-est__num"><span data-lo>&mdash;</span> &ndash; <span data-hi>&mdash;</span></div>
           <p class="srh-est__note"><span data-modelabel>one-time project</span> &middot; your fixed quote comes after we scope.</p>
           <ul class="srh-est__sum" data-sum></ul>
           <a class="srh-btn srh-btn--primary" href="/quote-sunriver-consulting">Get a fixed quote &rarr;</a>
+          <p style="margin:14px 0 0;font-size:.82rem;line-height:1.55;color:rgba(255,255,255,.85);">The fixed fee covers design and build for the scoped engagement. Recurring third-party costs &mdash; your domain, hosting, and software subscriptions &mdash; are set up in <em>your</em> accounts and billed to you directly, so you own everything from day one.</p>
         </div>
+      </div>
+      <div class="srh-perk srx-reveal">
+        <span class="srh-perk__ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.164 7.93V5.084a2.198 2.198 0 001.267-1.978v-.067A2.2 2.2 0 0017.238.845h-.067a2.2 2.2 0 00-2.193 2.193v.067a2.196 2.196 0 001.252 1.973l.013.006v2.852a6.22 6.22 0 00-2.969 1.31l.012-.01-7.828-6.095A2.497 2.497 0 104.3 4.656l-.012.006 7.697 5.991a6.176 6.176 0 00-1.038 3.446c0 1.343.425 2.588 1.147 3.607l-.013-.02-2.342 2.343a1.968 1.968 0 00-.58-.095h-.002a2.033 2.033 0 102.033 2.033 1.978 1.978 0 00-.1-.595l.005.014 2.317-2.317a6.247 6.247 0 104.782-11.134l-.036-.005zm-.964 9.378a3.206 3.206 0 113.215-3.207v.002a3.206 3.206 0 01-3.207 3.207z"/></svg></span>
+        <span class="srh-perk__t"><b>HubSpot Solutions Partner perk:</b> working with us secures an additional <b>15% off HubSpot subscriptions</b> for our clients &mdash; on top of the fixed-fee build.</span>
       </div>
     </div>
   </section>
@@ -125,11 +129,6 @@
   <section class="srh-sec srh-sec--paper">
     <div class="srh-sec__inner" style="max-width:980px;">
       <div class="srh-founder srx-reveal">
-        <div class="srh-founder__media">
-          {# Swap each .sr-photoslot for a HubSpot image module, e.g. {% module "founder_pic" path="@hubspot/image" %} #}
-          <div class="sr-photoslot"><span class="sr-photoslot__hint">Your photo<br>(portrait)</span></div>
-          <div class="sr-photoslot sr-photoslot--wide"><span class="sr-photoslot__hint">You + the dog<br>(keep it human)</span></div>
-        </div>
         <div class="srh-founder__note">
           <span class="srh-eyebrow" style="color:var(--river);">From the founder</span>
           <h2 class="srh-h2" style="margin-bottom:1rem;">I&rsquo;m not here to rip you off.</h2>
@@ -152,7 +151,8 @@
         <h2 class="srh-h2">Pricing questions.</h2>
       </div>
       <div class="srh-faq srx-reveal">
-        <div class="srh-faq__item"><button class="srh-faq__q" type="button">How does fixed-fee actually work?</button><div class="srh-faq__a"><div>We scope the work in writing, then quote one number. If the scope doesn&rsquo;t change, neither does the price &mdash; no hourly meter running in the background.</div></div></div>
+        <div class="srh-faq__item"><button class="srh-faq__q" type="button">How does fixed-fee actually work?</button><div class="srh-faq__a"><div>We scope the work in writing, then quote one number for a defined engagement period. If the scope doesn&rsquo;t change, neither does the price &mdash; no hourly meter running in the background. When the engagement ends, the work is yours; ongoing help is a separate care plan, never an assumption.</div></div></div>
+        <div class="srh-faq__item"><button class="srh-faq__q" type="button">What about domains, hosting, and software subscriptions?</button><div class="srh-faq__a"><div>Those are yours, on purpose. We set up your domain, hosting, and any licenses (HubSpot, cloud, etc.) in accounts you own, billed directly to you &mdash; typically a few hundred dollars a year depending on the stack. You&rsquo;re never locked behind our accounts, and our fixed fee never hides recurring costs. Bonus: as a HubSpot Solutions Partner we can secure an additional 15% off HubSpot subscriptions.</div></div></div>
         <div class="srh-faq__item"><button class="srh-faq__q" type="button">What if I don&rsquo;t know my full requirements yet?</button><div class="srh-faq__a"><div>Start with a paid discovery sprint. We turn a fuzzy idea into a scoped plan and a fixed quote &mdash; and that fee rolls into the build if you proceed.</div></div></div>
         <div class="srh-faq__item"><button class="srh-faq__q" type="button">Do you require a long contract?</button><div class="srh-faq__a"><div>No. Projects are scoped one at a time; retainers are month-to-month. We keep your business by doing good work, not by locking you in.</div></div></div>
         <div class="srh-faq__item"><button class="srh-faq__q" type="button">Why are you cheaper than the big firms?</button><div class="srh-faq__a"><div>No junior bench, no glass tower, no account managers between you and the engineer. You pay for senior work, not overhead.</div></div></div>

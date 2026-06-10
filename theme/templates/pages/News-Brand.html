@@ -25,15 +25,18 @@
     <div class="srh-sec__inner" style="max-width:980px;">
 
       {# ===== FEATURED ===== #}
-      <div class="srd-sheet srx-reveal" id="section-508-in-practice">
-        <div class="srd-head">
+      <div class="srd-sheet srd-collapse is-open srx-reveal" id="section-508-in-practice">
+        <button class="srd-head srd-collapse__head" type="button" aria-expanded="true">
           <span class="srd-head__ic"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 4.4-3 7.6-7 9-4-1.4-7-4.6-7-9V6l7-3z"/><path d="M9 12l2 2 4-4.5"/></svg></span>
           <div><span class="sr-news-meta">June 2026 &middot; Compliance &middot; Featured</span><h2 class="srd-h1">Section 508, in practice: what an audit actually looks like</h2></div>
-        </div>
+          <span class="srd-collapse__chev" aria-hidden="true">+</span>
+        </button>
+        <div class="srd-sheet__body">
         <div class="sr-post" style="margin-top:18px;">
           <p>Most teams meet Section 508 the hard way &mdash; a procurement checklist, a deadline, and a PDF nobody can read with a screen reader. We&rsquo;ve spent this spring deep in 508 and WCAG&nbsp;2.2 audit work, and the pattern is always the same: the failures aren&rsquo;t exotic. They&rsquo;re missing form labels, focus traps in modals, color contrast that almost passes, and documents that were exported without a single tag.</p>
           <p>Our audit cycle runs in three passes. First, automated scanning to map the easy wins &mdash; tools catch maybe a third of real issues. Second, a manual pass: full keyboard navigation, NVDA and VoiceOver runs, zoom and reflow checks, and the document remediation work (tagged PDFs, reading order, alt text that actually describes). Third, the part that matters most: a prioritized remediation report written for the developers who have to fix it, not just the auditors who have to file it &mdash; plus the ACR/VPAT documentation procurement teams ask for.</p>
           <p>The milestone we&rsquo;re proud of: our latest audit cycle wrapped with every critical finding closed and re-tested &mdash; not just documented. If your organization answers to 508 (or wants WCAG&nbsp;2.2&nbsp;AA because it&rsquo;s the right thing to do), <a href="/compliance-audits-sunriver-consulting">this is exactly the work we do</a>.</p>
+        </div>
         </div>
       </div>
 

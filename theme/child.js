@@ -173,12 +173,13 @@
     (function () {
       var est = document.querySelector('[data-estimator]'); if (!est) return;
       var scale = 1, mode = 'project';
-      function money(n) { n = Math.max(0, Math.round(n / 500) * 500); return '$' + n.toLocaleString('en-US'); }
+      function money(n, step) { step = step || 500; n = Math.max(0, Math.round(n / step) * step); return '$' + n.toLocaleString('en-US'); }
       function recompute() {
         var base = 0, items = [];
         [].forEach.call(est.querySelectorAll('.srh-chip2 input:checked'), function (i) {
-          base += parseFloat(i.getAttribute('data-base')) || 0;
-          items.push(i.parentNode.getAttribute('data-name') || i.parentNode.textContent.trim());
+          var b = parseFloat(i.getAttribute('data-base')) || 0;
+          base += b;
+          items.push({ n: i.parentNode.getAttribute('data-name') || i.parentNode.textContent.trim(), b: b });
         });
         var total = base * scale; if (mode === 'retainer') total *= 0.18;
         var lo = est.querySelector('[data-lo]'), hi = est.querySelector('[data-hi]');
@@ -186,8 +187,13 @@
         else { if (lo) lo.textContent = money(total * 0.8); if (hi) hi.textContent = money(total * 1.3); }
         var ml = est.querySelector('[data-modelabel]'); if (ml) ml.textContent = mode === 'retainer' ? 'per month, ongoing' : 'one-time project';
         var sum = est.querySelector('[data-sum]');
+        // per-line ballparks so people can see what each piece costs
         if (sum) sum.innerHTML = items.length
-          ? items.map(function (t) { return '<li><span>' + t + '</span><span>scoped</span></li>'; }).join('')
+          ? items.map(function (it) {
+              var v = it.b * scale; if (mode === 'retainer') v *= 0.18;
+              var tag = mode === 'retainer' ? (money(v, 50) + '/mo') : (money(v * 0.8) + '–' + money(v * 1.3));
+              return '<li><span>' + it.n + '</span><span>' + tag + '</span></li>';
+            }).join('')
           : '<li><span>Pick what you need &rarr;</span><span></span></li>';
       }
       est.addEventListener('change', function (e) {
@@ -375,11 +381,11 @@
       'float m1=fbm(q*1.25);float m2=fbm(q*2.4+vec2(7.3,t*1.2));' +
       'float dens=smoothstep(0.16,0.92,m1*0.62+m2*0.55);' +
       'float docY=clamp((u_doc0+(u_res.y-gl_FragCoord.y))/max(u_page,1.0),0.0,1.0);' +
-      'vec3 gN=vec3(0.13,0.80,0.02);vec3 gD=vec3(0.05,0.42,0.04);' +
+      'vec3 gN=vec3(0.16,0.93,0.03);vec3 gD=vec3(0.07,0.56,0.03);' +
       'vec3 tN=vec3(0.02,0.72,0.54);vec3 tD=vec3(0.02,0.32,0.28);' +
       'vec3 bN=vec3(0.12,0.52,0.68);vec3 bD=vec3(0.05,0.22,0.32);' +
       'vec3 kN=vec3(0.06,0.20,0.30);vec3 kD=vec3(0.01,0.05,0.09);' +
-      'float s1=smoothstep(0.16,0.44,docY);float s2=smoothstep(0.44,0.74,docY);float s3=smoothstep(0.74,1.0,docY);' +
+      'float s1=smoothstep(0.24,0.52,docY);float s2=smoothstep(0.52,0.78,docY);float s3=smoothstep(0.78,1.0,docY);' +
       'vec3 wisp=mix(mix(mix(gN,tN,s1),bN,s2),kN,s3);' +
       'vec3 base=mix(mix(mix(gD,tD,s1),bD,s2),kD,s3);' +
       'vec3 cool=mix(base,wisp,dens);' +
