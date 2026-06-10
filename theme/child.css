@@ -784,7 +784,7 @@
     rgba(110,220,235,0)   100%);
   opacity: 0;
   transform: translateX(-50%) rotate(18deg);
-  animation: sr-shimmer 6s ease-in-out infinite alternate;
+  animation: sr-shimmer 4s ease-in-out infinite alternate;
   animation-play-state: paused;
   transition: opacity .85s ease;
   will-change: transform, opacity;
