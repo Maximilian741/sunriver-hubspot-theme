@@ -90,14 +90,14 @@
         <a href="#y" class="disabled">Y</a><a href="#z" class="disabled">Z</a>
       </nav>
 
-      {# Edit this rich text in the page editor — add/remove entries as your site evolves #}
+      {# Edit this rich text in the page editor, add/remove entries as your site evolves #}
       {% dnd_section padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
         {% dnd_module path="@hubspot/rich_text",
             html="<h2 id='a' class='sr-glossary__letter'>A</h2>
 
                   <div class='sr-glossary__entry'>
                     <h3 class='sr-glossary__term'>Audit log <span class='sr-glossary__term-meta'>Security</span></h3>
-                    <p class='sr-glossary__def'>An immutable record of every privileged action in a system — who did what, when, from where. Required for SOC 2 and most compliance frameworks.</p>
+                    <p class='sr-glossary__def'>An immutable record of every privileged action in a system, who did what, when, from where. Required for SOC 2 and most compliance frameworks.</p>
                   </div>
 
                   <div class='sr-glossary__entry'>
@@ -108,7 +108,7 @@
                   <h2 id='b' class='sr-glossary__letter'>B</h2>
 
                   <div class='sr-glossary__entry'>
-                    <h3 class='sr-glossary__term'>BAA — Business Associate Agreement <span class='sr-glossary__term-meta'>Healthcare</span></h3>
+                    <h3 class='sr-glossary__term'>BAA, Business Associate Agreement <span class='sr-glossary__term-meta'>Healthcare</span></h3>
                     <p class='sr-glossary__def'>A contract between a HIPAA-covered entity and any vendor that handles Protected Health Information. We sign one before any healthcare engagement begins.</p>
                   </div>
 
@@ -120,7 +120,7 @@
                   <h2 id='c' class='sr-glossary__letter'>C</h2>
 
                   <div class='sr-glossary__entry'>
-                    <h3 class='sr-glossary__term'>CI/CD — Continuous Integration / Delivery <span class='sr-glossary__term-meta'>Delivery</span></h3>
+                    <h3 class='sr-glossary__term'>CI/CD, Continuous Integration / Delivery <span class='sr-glossary__term-meta'>Delivery</span></h3>
                     <p class='sr-glossary__def'>Automated testing and deployment of code changes. The shorthand we use for 'every commit gets tested, every green build can ship'.</p>
                   </div>
 
@@ -146,7 +146,7 @@
                   <h2 id='i' class='sr-glossary__letter'>I</h2>
 
                   <div class='sr-glossary__entry'>
-                    <h3 class='sr-glossary__term'>IaC — Infrastructure as Code <span class='sr-glossary__term-meta'>Delivery</span></h3>
+                    <h3 class='sr-glossary__term'>IaC, Infrastructure as Code <span class='sr-glossary__term-meta'>Delivery</span></h3>
                     <p class='sr-glossary__def'>Defining infrastructure (servers, networks, databases) in code instead of clicking through a UI. Makes changes reviewable, reproducible, and auditable.</p>
                   </div>
 
@@ -154,7 +154,7 @@
 
                   <div class='sr-glossary__entry'>
                     <h3 class='sr-glossary__term'>Runbook <span class='sr-glossary__term-meta'>Operations</span></h3>
-                    <p class='sr-glossary__def'>A written, step-by-step procedure for handling a known scenario — incidents, deploys, on-call escalations. We ship runbooks with every engagement because tribal knowledge doesn't survive turnover.</p>
+                    <p class='sr-glossary__def'>A written, step-by-step procedure for handling a known scenario, incidents, deploys, on-call escalations. We ship runbooks with every engagement because tribal knowledge doesn't survive turnover.</p>
                   </div>
 
                   <h2 id='s' class='sr-glossary__letter'>S</h2>
@@ -165,8 +165,8 @@
                   </div>
 
                   <div class='sr-glossary__entry'>
-                    <h3 class='sr-glossary__term'>SRE — Site Reliability Engineering <span class='sr-glossary__term-meta'>Operations</span></h3>
-                    <p class='sr-glossary__def'>The discipline of treating reliability as a first-class engineering concern. SLOs, error budgets, runbooks, post-mortems — all of it.</p>
+                    <h3 class='sr-glossary__term'>SRE, Site Reliability Engineering <span class='sr-glossary__term-meta'>Operations</span></h3>
+                    <p class='sr-glossary__def'>The discipline of treating reliability as a first-class engineering concern. SLOs, error budgets, runbooks, post-mortems, all of it.</p>
                   </div>
 
                   <h2 id='t' class='sr-glossary__letter'>T</h2>
@@ -186,7 +186,7 @@
         padding={ "top": 64, "bottom": 0, "left": 0, "right": 0 } %}
       {% dnd_module path="../../modules/SR - CTA Banner",
           heading="Term we missed?",
-          subheading="Send it our way — we'll add it and credit you in the next quarterly note.",
+          subheading="Send it our way, we'll add it and credit you in the next quarterly note.",
           cta_text="Suggest a term",
           cta_url={ "url": { "href": "/contact?topic=glossary", "type": "EXTERNAL" } },
           style="gold" %}

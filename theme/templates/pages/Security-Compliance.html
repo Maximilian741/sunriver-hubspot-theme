@@ -9,7 +9,7 @@
 {% block body %}
   {% dnd_area "main", label="Main" %}
 
-    {# ===== HERO — dark for trust signal ===== #}
+    {# ===== HERO, dark for trust signal ===== #}
     {% dnd_section full_width=true,
         padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
       {% dnd_module path="../../modules/SR - Hero Spotlight",
@@ -25,7 +25,7 @@
       {% end_dnd_module %}
     {% end_dnd_section %}
 
-    {# ===== CERTIFICATIONS — service cards as badges ===== #}
+    {# ===== CERTIFICATIONS, service cards as badges ===== #}
     {% dnd_section padding={ "top": 64, "bottom": 24, "left": 24, "right": 24 } %}
       {% dnd_module path="../../modules/SR - Section Heading",
           eyebrow="Certifications",
@@ -47,19 +47,19 @@
       {% end_dnd_module %}
     {% end_dnd_section %}
 
-    {# ===== SPLIT — practices ===== #}
+    {# ===== SPLIT, practices ===== #}
     {% dnd_section padding={ "top": 32, "bottom": 64, "left": 24, "right": 24 } %}
       {% dnd_module path="../../modules/SR - Split Feature",
           image_side="right",
           eyebrow="Internal practices",
           heading="The way we work, day to day",
-          body_text="<p>Security isn't an add-on quarter. It's how we hire, build, and ship — and we'd rather show you than tell you.</p>",
+          body_text="<p>Security isn't an add-on quarter. It's how we hire, build, and ship, and we'd rather show you than tell you.</p>",
           bullets=[
             { "text": "MDM and disk encryption on all team devices" },
             { "text": "SSO + hardware keys (WebAuthn) for all internal tools" },
             { "text": "Quarterly access reviews and offboarding drills" },
-            { "text": "Annual third-party pen test — report on request" },
-            { "text": "Internal secrets vault — no creds in repos, ever" }
+            { "text": "Annual third-party pen test, report on request" },
+            { "text": "Internal secrets vault, no creds in repos, ever" }
           ],
           cta_text="Read our security policy",
           cta_url={ "url": { "href": "/legal/security-policy", "type": "EXTERNAL" } } %}
@@ -78,7 +78,7 @@
       {% end_dnd_module %}
     {% end_dnd_section %}
 
-    {# ===== SUBPROCESSORS — section heading + faq ===== #}
+    {# ===== SUBPROCESSORS, section heading + faq ===== #}
     {% dnd_section padding={ "top": 32, "bottom": 24, "left": 24, "right": 24 } %}
       {% dnd_module path="../../modules/SR - Section Heading",
           eyebrow="Trust questions",
@@ -91,7 +91,7 @@
     {% dnd_section padding={ "top": 16, "bottom": 80, "left": 24, "right": 24 } %}
       {% dnd_module path="../../modules/SR - FAQ Accordion",
           items=[
-            { "question": "Who owns the code we build together?", "answer": "<p>You do. Always. Repos, infra-as-code, runbooks — everything ships into your accounts under your license.</p>" },
+            { "question": "Who owns the code we build together?", "answer": "<p>You do. Always. Repos, infra-as-code, runbooks, everything ships into your accounts under your license.</p>" },
             { "question": "What does your subprocessor list look like?", "answer": "<p>We publish a current list on request and notify clients in advance of any changes. The short list: GitHub, Vercel, AWS, Slack, 1Password, Linear.</p>" },
             { "question": "Do you do background checks?", "answer": "<p>Yes. All employees and long-term contractors complete a third-party background check before access is provisioned.</p>" },
             { "question": "How do you handle access in shared environments?", "answer": "<p>Just-in-time, scoped, and audit-logged. Access is granted per engagement, reviewed weekly, and auto-revoked at handoff.</p>" },
@@ -106,7 +106,7 @@
         padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
       {% dnd_module path="../../modules/SR - CTA Banner",
           heading="Need our full security packet?",
-          subheading="SOC 2 report, pen test summary, BAA, DPA — all in one zip.",
+          subheading="SOC 2 report, pen test summary, BAA, DPA, all in one zip.",
           cta_text="Request the packet",
           cta_url={ "url": { "href": "/contact?topic=security", "type": "EXTERNAL" } },
           style="ink" %}

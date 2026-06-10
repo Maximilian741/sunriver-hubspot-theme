@@ -18,7 +18,7 @@
   "label" : "Intro",
   "required" : false,
   "type" : "richtext",
-  "default" : "<p>Cloud, security, and CMS expertise — under one roof.</p>"
+  "default" : "<p>Cloud, security, and CMS expertise, under one roof.</p>"
 }, {
   "id" : "a2000002-0001-0001-0001-000000000004",
   "name" : "alignment",

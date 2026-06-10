@@ -118,10 +118,10 @@
                     <div><strong>Tip.</strong> Set up in a non-production tenant first if you have one. SAML config is fiddly and easier to iterate on without breaking anyone's login.</div>
                   </div>
 
-                  <h2>Step 1 — Create the Okta application</h2>
+                  <h2>Step 1, Create the Okta application</h2>
                   <p>In Okta admin, go to Applications &rarr; Browse App Catalog and search for <code>SunRiver</code>. Pick the SAML 2.0 connector and click <strong>Add</strong>.</p>
 
-                  <h2>Step 2 — Configure SAML settings</h2>
+                  <h2>Step 2, Configure SAML settings</h2>
                   <p>Use these values:</p>
                   <ul>
                     <li><strong>Single sign-on URL:</strong> <code>https://app.sunriverconsulting.com/sso/acs</code></li>
@@ -130,7 +130,7 @@
                     <li><strong>Application username:</strong> Email</li>
                   </ul>
 
-                  <h2>Step 3 — Map attributes</h2>
+                  <h2>Step 3, Map attributes</h2>
                   <p>We require three attributes minimum: <code>email</code>, <code>firstName</code>, <code>lastName</code>. If you want group-based access, add a <code>groups</code> attribute filtering by your SunRiver-* group prefix.</p>
 
                   <div class='sr-help-article__callout sr-help-article__callout--warn'>
@@ -138,17 +138,17 @@
                     <div><strong>Heads-up.</strong> If your group names contain spaces or special characters, the regex filter in Okta needs escaping. We've seen this trip up about half of all setups.</div>
                   </div>
 
-                  <h2>Step 4 — Hand the metadata to SunRiver</h2>
+                  <h2>Step 4, Hand the metadata to SunRiver</h2>
                   <p>Download the IdP metadata XML from Okta and paste the URL into your SunRiver admin SSO page. We'll validate it on save and tell you if anything's off.</p>
 
-                  <h2>Step 5 — Test before flipping</h2>
+                  <h2>Step 5, Test before flipping</h2>
                   <p>Assign yourself to the application in Okta, then sign in via the SSO link. If it works, assign the rest of the org. If it doesn't, see the troubleshooting section below.</p>
 
                   <h2>Common issues</h2>
                   <ul>
                     <li><strong>'User not found' errors:</strong> usually a NameID mismatch. Check that the Okta user's email exactly matches the SunRiver user's email.</li>
                     <li><strong>Loop on login:</strong> SAML response signature validation failing. Re-download the metadata.</li>
-                    <li><strong>Group access not working:</strong> attribute statement filter regex is off — check escaping.</li>
+                    <li><strong>Group access not working:</strong> attribute statement filter regex is off, check escaping.</li>
                   </ul>
 
                   <p><em>Replace this body in the HubSpot page editor with the actual help article content. The styling will keep the page on-brand.</em></p>" %}

@@ -23,7 +23,7 @@
   "name" : "heading",
   "label" : "Heading",
   "type" : "text",
-  "default" : "Engineering, design, and ops — under one roof"
+  "default" : "Engineering, design, and ops, under one roof"
 }, {
   "id" : "aa00000a-0001-0001-0001-000000000005",
   "name" : "body_text",
@@ -37,7 +37,7 @@
   "type" : "group",
   "occurrence" : { "min" : 0, "max" : 6, "default" : 3 },
   "default" : [
-    { "text" : "Senior team — no junior hand-offs" },
+    { "text" : "Senior team, no junior hand-offs" },
     { "text" : "Weekly milestones and shipping cadence" },
     { "text" : "Built-in security and observability" }
   ],
