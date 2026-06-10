@@ -220,10 +220,37 @@
       });
     });
 
-    // green -> sunset background warmth, driven by scroll (used by .srd__sky)
+    // green -> sunset background warmth, driven by scroll (used by .srd__sky).
+    // Slow ramp: full ember only after ~1800px so the red arrives late.
     (function () {
-      var setWarm = function () { var w = Math.min(1, (window.scrollY || window.pageYOffset || 0) / 520); document.documentElement.style.setProperty('--sr-warm', w.toFixed(3)); };
+      var setWarm = function () { var w = Math.min(1, (window.scrollY || window.pageYOffset || 0) / 1800); document.documentElement.style.setProperty('--sr-warm', w.toFixed(3)); };
       window.addEventListener('scroll', setWarm, { passive: true }); setWarm();
+    })();
+    // collapsible deep-dive sheets: collapsed by default; header click toggles;
+    // arriving via #anchor (nav / modal Learn more) auto-expands the target
+    (function () {
+      var sheets = document.querySelectorAll('.srd-collapse');
+      if (!sheets.length) return;
+      [].forEach.call(sheets, function (sh) {
+        var head = sh.querySelector('.srd-collapse__head');
+        if (!head) return;
+        head.addEventListener('click', function () {
+          var open = sh.classList.toggle('is-open');
+          head.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+      });
+      function openFromHash() {
+        var id = (location.hash || '').slice(1);
+        if (!id) return;
+        var el = document.getElementById(id);
+        if (el && el.classList.contains('srd-collapse')) {
+          el.classList.add('is-open');
+          var h = el.querySelector('.srd-collapse__head'); if (h) h.setAttribute('aria-expanded', 'true');
+          setTimeout(function () { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 60);
+        }
+      }
+      window.addEventListener('hashchange', openFromHash);
+      openFromHash();
     })();
     // learn-more modal for facet cards (sub-pages)
     (function () {
@@ -231,7 +258,7 @@
       if (!cards.length) return;
       var modal = document.createElement('div');
       modal.className = 'srh-modal srh';
-      modal.innerHTML = '<div class="srh-modal__backdrop" data-close></div>'
+      modal.innerHTML = '<div class="srh-modal__backdrop" data-close><canvas class="srh-modal__smoke" data-srx-shader="smoke-veil" aria-hidden="true"></canvas></div>'
         + '<div class="srh-modal__dialog" role="dialog" aria-modal="true">'
         + '<button class="srh-modal__close" data-close aria-label="Close">&times;</button>'
         + '<div class="srh-modal__ic" data-ic></div>'
@@ -411,7 +438,7 @@
         if (!visible || document.hidden) return;
         sizeCanvas();
         mSm[0] += (mAim[0] - mSm[0]) * 0.07; mSm[1] += (mAim[1] - mSm[1]) * 0.07;
-        var wt = warmOn ? Math.min(1, (window.scrollY || window.pageYOffset || 0) / 500) : 0;
+        var wt = warmOn ? Math.min(1, (window.scrollY || window.pageYOffset || 0) / 1800) : 0;
         warmS += (wt - warmS) * 0.06;
         gl.uniform1f(uT, (performance.now() - start) / 1000);
         gl.uniform2f(uR, canvas.width, canvas.height);
