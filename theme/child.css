@@ -762,18 +762,50 @@
 .srh-card::before { content:""; position:absolute; inset:0; z-index:0; border-radius:inherit; background:linear-gradient(150deg,#3E9DB8 0%,#5bbf8a 55%,#8FC740 100%); opacity:0; transition:opacity .25s ease; }
 .srh-card:hover { transform:translateY(-6px); box-shadow:0 30px 60px -24px rgba(4,16,10,.65); }
 .srh-card:hover::before { opacity:1; }
-/* diagonal shimmer sweep on hover (echoes the brand gradient behind the card) */
-.srh-card::after, .sr-blogcard::after { content:""; position:absolute; top:-60%; left:0; width:55%; height:220%; z-index:1; pointer-events:none; opacity:0;
-  background:linear-gradient(100deg, rgba(255,255,255,0) 0%, rgba(255,255,255,.34) 38%, rgba(169,240,198,.4) 50%, rgba(110,220,235,.3) 62%, rgba(255,255,255,0) 100%);
-  transform:translateX(-220%) rotate(18deg); }
+/* sr-shimmer — soft diagonal glare that drifts back and forth over the card while hovered
+   (paused + invisible at rest so GPUs idle; opacity transitions handle the enter/exit) */
 .sr-blogcard { position:relative; overflow:hidden; }
-.srh-card:hover::after, .sr-blogcard:hover::after { animation:sr-shimmer .9s ease forwards; }
-@keyframes sr-shimmer {
-  0% { transform:translateX(-220%) rotate(18deg); opacity:0; }
-  15% { opacity:1; }
-  100% { transform:translateX(420%) rotate(18deg); opacity:0; }
+.srh-card::after, .sr-blogcard::after {
+  content: "";
+  position: absolute;
+  top: -65%;
+  left: 0;
+  width: 50%;
+  height: 230%;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(90deg,
+    rgba(169,240,198,0)   0%,
+    rgba(169,240,198,.12) 28%,
+    rgba(255,255,255,.18) 43%,
+    rgba(255,255,255,.28) 50%,
+    rgba(255,255,255,.18) 57%,
+    rgba(110,220,235,.12) 72%,
+    rgba(110,220,235,0)   100%);
+  opacity: 0;
+  transform: translateX(-50%) rotate(18deg);
+  animation: sr-shimmer 6s ease-in-out infinite alternate;
+  animation-play-state: paused;
+  transition: opacity .85s ease;
+  will-change: transform, opacity;
 }
-@media (prefers-reduced-motion: reduce){ .srh-card:hover::after, .sr-blogcard:hover::after { animation:none; opacity:0; } }
+.srh-card:hover::after, .sr-blogcard:hover::after {
+  opacity: 1;
+  animation-play-state: running;
+  transition: opacity .6s ease;
+}
+@keyframes sr-shimmer {
+  from { transform: translateX(-50%) rotate(18deg); }
+  to   { transform: translateX(150%) rotate(18deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .srh-card::after, .sr-blogcard::after,
+  .srh-card:hover::after, .sr-blogcard:hover::after {
+    animation: none;
+    opacity: 0;
+    transition: none;
+  }
+}
 .srh-card:active { transform:translateY(-3px) scale(.99); transition-duration:.08s; }
 .srh-card__logo { width:40px; height:40px; display:grid; place-items:center; }
 .srh-card__logo svg { width:31px; height:31px; fill:var(--deep); transition:fill .25s ease; }
