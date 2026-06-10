@@ -975,6 +975,12 @@ a.srh-btn--primary, a.srh-btn--primary:link, a.srh-btn--primary:visited, a.srh-b
 a.srh-btn--ghost, a.srh-btn--ghost:link, a.srh-btn--ghost:visited, a.srh-btn--ghost:hover,
 a.srh-btn--light, a.srh-btn--light:link, a.srh-btn--light:visited, a.srh-btn--light:hover { color:#0c2114 !important; }
 a.srh-card, a.srh-card:link, a.srh-card:visited, a.srh-card:hover { color:inherit !important; }
+/* …and pin the card children too — the theme's :visited was repainting them orange */
+.srh-card .srh-card__title { color:#0c2114 !important; }
+.srh-card .srh-card__desc { color:#546b5b !important; }
+.srh-card .srh-card__price { color:#0c2114 !important; }
+.srh-card:hover .srh-card__title, .srh-card:hover .srh-card__price { color:#fff !important; }
+.srh-card:hover .srh-card__desc { color:rgba(255,255,255,.93) !important; }
 a.srd-back, a.srd-back:visited, a.srd-brand, a.srd-brand:visited, a.srh-method, a.srh-method:visited { color:#0c2114 !important; }
 a.srd-btn, a.srd-btn:visited { color:inherit !important; }
 /* anchored deep-dive sheets land with breathing room + clear separation */

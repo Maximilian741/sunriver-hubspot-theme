@@ -257,7 +257,7 @@
       var cards = document.querySelectorAll('.srh-card[data-modal]');
       if (!cards.length) return;
       var modal = document.createElement('div');
-      modal.className = 'srh-modal srh';
+      modal.className = 'srh-modal';
       modal.innerHTML = '<div class="srh-modal__backdrop" data-close><canvas class="srh-modal__smoke" data-srx-shader="smoke-veil" aria-hidden="true"></canvas></div>'
         + '<div class="srh-modal__dialog" role="dialog" aria-modal="true">'
         + '<button class="srh-modal__close" data-close aria-label="Close">&times;</button>'
@@ -292,7 +292,7 @@
 
     var VERT = 'attribute vec2 p;void main(){gl_Position=vec4(p,0.0,1.0);}';
     var COMMON =
-      'precision highp float;uniform float u_time;uniform vec2 u_res;uniform vec2 u_mouse;uniform float u_warm;uniform float u_edge;' +
+      'precision highp float;uniform float u_time;uniform vec2 u_res;uniform vec2 u_mouse;uniform float u_warm;uniform float u_edge;uniform float u_doc0;uniform float u_page;' +
       'float hash(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}' +
       'float noise(vec2 p){vec2 i=floor(p),f=fract(p);vec2 u=f*f*(3.0-2.0*f);' +
       'return mix(mix(hash(i),hash(i+vec2(1,0)),u.x),mix(hash(i+vec2(0,1)),hash(i+vec2(1,1)),u.x),u.y);}' +
@@ -366,17 +366,28 @@
     // Transparent smoke VEIL — dark teal-ink wisps that drift OVER a bright
     // background (e.g. the green->gold home gradient). Outputs straight alpha
     // (context is premultipliedAlpha:false) so the page shows through.
+    // The smoke IS the background: wisps carry the color journey down the page
+    // (neon green -> teal -> river blue -> ink) based on document position, so
+    // the transition ebbs and flows organically instead of being a flat gradient.
     var SMOKE_VEIL = COMMON +
       'void main(){vec2 p=(gl_FragCoord.xy-0.5*u_res.xy)/u_res.y;float t=u_time*0.09;' +
       'vec2 q=p*1.25;q.y+=t*0.6;q+=0.5*vec2(fbm(q+t),fbm(q*1.2-t+5.0));q=warp(q,p);' +
-      'float smoke=fbm(q*1.25);float dense=smoothstep(0.28,0.9,smoke);' +
-      'float wisp=fbm(q*2.6+vec2(0.0,t*1.3));dense*=0.6+0.7*wisp;' +
-      'vec3 ink=vec3(0.01,0.10,0.15);vec3 tealdk=vec3(0.10,0.36,0.46);' +
-      'vec3 cool=mix(ink,tealdk,smoothstep(0.3,1.0,dense));' +
-      'vec3 emb=mix(vec3(0.30,0.07,0.02),vec3(1.0,0.46,0.10),smoothstep(0.2,1.0,dense));' +
+      'float m1=fbm(q*1.25);float m2=fbm(q*2.4+vec2(7.3,t*1.2));' +
+      'float dens=smoothstep(0.16,0.92,m1*0.62+m2*0.55);' +
+      'float docY=clamp((u_doc0+(u_res.y-gl_FragCoord.y))/max(u_page,1.0),0.0,1.0);' +
+      'vec3 gN=vec3(0.13,0.80,0.02);vec3 gD=vec3(0.05,0.42,0.04);' +
+      'vec3 tN=vec3(0.02,0.72,0.54);vec3 tD=vec3(0.02,0.32,0.28);' +
+      'vec3 bN=vec3(0.12,0.52,0.68);vec3 bD=vec3(0.05,0.22,0.32);' +
+      'vec3 kN=vec3(0.06,0.20,0.30);vec3 kD=vec3(0.01,0.05,0.09);' +
+      'float s1=smoothstep(0.16,0.44,docY);float s2=smoothstep(0.44,0.74,docY);float s3=smoothstep(0.74,1.0,docY);' +
+      'vec3 wisp=mix(mix(mix(gN,tN,s1),bN,s2),kN,s3);' +
+      'vec3 base=mix(mix(mix(gD,tD,s1),bD,s2),kD,s3);' +
+      'vec3 cool=mix(base,wisp,dens);' +
+      'vec3 emb=mix(vec3(0.16,0.05,0.02),vec3(1.0,0.45,0.10),dens);' +
       'float w=clamp(u_warm*1.15,0.0,1.0);' +
       'vec3 col=mix(cool,emb,w);' +
-      'float a=clamp(dense,0.0,1.0)*(0.62+0.3*w);' +
+      'col+=(hash(gl_FragCoord.xy+u_time)-0.5)*0.02;' +
+      'float a=mix(0.55,0.97,dens);' +
       // edge dissolve only for in-band canvases (u_edge=1); page-wide smoke runs uncut
       'float vy=gl_FragCoord.y/u_res.y;a*=mix(1.0,smoothstep(0.0,0.16,vy)*smoothstep(1.0,0.84,vy),u_edge);' +
       'gl_FragColor=vec4(col,a);}';
@@ -421,6 +432,7 @@
       // full-page canvases run uncut; in-band canvases dissolve at their edges
       var edgeOn = (canvas.classList.contains('srh__smoke') || (canvas.closest && canvas.closest('.srd'))) ? 0 : 1;
       var uE = gl.getUniformLocation(prog, 'u_edge');
+      var uD0 = gl.getUniformLocation(prog, 'u_doc0'), uPg = gl.getUniformLocation(prog, 'u_page');
       window.addEventListener('mousemove', function (e) {
         var r = canvas.getBoundingClientRect(); if (!r.width || !r.height) return;
         mAim[0] = (e.clientX - r.left - r.width / 2) / r.height;
@@ -445,6 +457,12 @@
         if (uM) gl.uniform2f(uM, mSm[0], mSm[1]);
         if (uW) gl.uniform1f(uW, warmS);
         if (uE) gl.uniform1f(uE, edgeOn);
+        if (uD0 && uPg) {
+          var k = canvas.height / Math.max(1, canvas.clientHeight);
+          var sy = window.scrollY || window.pageYOffset || 0;
+          gl.uniform1f(uD0, (canvas.getBoundingClientRect().top + sy) * k);
+          gl.uniform1f(uPg, Math.max(document.documentElement.scrollHeight, 1) * k);
+        }
         gl.drawArrays(gl.TRIANGLES, 0, 6);
       }
       loop();
