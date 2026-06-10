@@ -996,6 +996,32 @@ button.srd-collapse__head:hover .srd-collapse__chev { background:#e6ede7; }
 .srd-sheet__body { padding-top:4px; }
 @media (max-width:600px){ button.srd-collapse__head { grid-template-columns:auto 1fr; } .srd-collapse__chev { display:none; } }
 
+/* article typography — News sheets + HubSpot blog post bodies */
+.sr-post { font-size:1.04rem; line-height:1.72; color:#3c4e42; }
+.sr-post p { margin:0 0 16px; }
+.sr-post h3 { font-family:var(--head,"Poppins",sans-serif); font-weight:700; font-size:1.25rem; color:#0c2114; margin:26px 0 10px; }
+.sr-post ul, .sr-post ol { margin:0 0 16px; padding-left:1.3rem; }
+.sr-post li { margin-bottom:6px; }
+.sr-post a { color:#1C5B77; font-weight:600; text-decoration:underline; text-decoration-color:rgba(62,157,184,.5); text-underline-offset:3px; }
+.sr-post a:hover { text-decoration-color:#3E9DB8; }
+.sr-post blockquote { margin:20px 0; padding:14px 18px; border-left:4px solid #FBC34A; background:rgba(251,195,74,.1); border-radius:0 12px 12px 0; font-style:italic; color:#4a4030; }
+.sr-post img { max-width:100%; border-radius:14px; box-shadow:0 16px 36px -20px rgba(4,16,10,.5); }
+.sr-post pre { background:#0c2114; color:#a9f0c6; border-radius:12px; padding:16px 18px; overflow-x:auto; font-size:.92em; }
+.sr-post code { background:rgba(12,33,20,.08); border-radius:6px; padding:2px 6px; font-size:.92em; }
+.sr-post pre code { background:none; padding:0; }
+/* news article meta chip */
+.sr-news-meta { font-family:var(--mono,"JetBrains Mono",monospace); font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:#3E9DB8; display:block; margin-bottom:6px; }
+
+/* blog listing cards */
+.sr-bloggrid { display:grid; gap:clamp(14px,2vw,22px); grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); }
+.sr-blogcard { display:flex; flex-direction:column; gap:10px; padding:26px 24px; border-radius:16px; background:#fff; text-decoration:none; border:1px solid rgba(12,33,20,.12); box-shadow:0 20px 44px -24px rgba(4,16,10,.6); transition:transform .22s cubic-bezier(.2,.8,.3,1), box-shadow .22s ease; }
+.sr-blogcard:hover { transform:translateY(-5px); box-shadow:0 30px 60px -24px rgba(4,16,10,.65); }
+.sr-blogcard__title { font-family:var(--head,"Poppins",sans-serif); font-weight:700; font-size:1.25rem; color:#0c2114 !important; margin:0; }
+.sr-blogcard__sum { font-size:.97rem; line-height:1.6; color:#546b5b !important; flex:1; margin:0; }
+.sr-blogcard__cta { font-weight:700; color:#1C5B77 !important; }
+.sr-blogpag { display:flex; justify-content:center; align-items:center; gap:14px; margin-top:44px; flex-wrap:wrap; }
+.sr-blogpag span { color:#dff2e8; font-size:.95rem; }
+
 /* team cards (Our Team) — pixel-art portraits on white cards */
 .srh-people { display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(14px,2vw,22px); }
 .srh-person { background:#fff; border-radius:18px; padding:28px 24px; text-align:center; border:1px solid rgba(12,33,20,.12); box-shadow:0 20px 44px -24px rgba(4,16,10,.6); }

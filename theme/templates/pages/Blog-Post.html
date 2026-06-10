@@ -1,152 +1,61 @@
 <!--
   templateType: blog_article
-  label: SR - Blog Post
+  label: SunRiver - Blog Post
   screenshot_path: ../../images/template-previews/blog-post.jpg
   isAvailableForNewContent: true
 -->
+{# Blog post in the deep-dive style: white sheet on the smoke/gradient, ember
+   warms as you read. Body content comes from HubSpot's blog editor. #}
 {% extends "../layouts/base.html" %}
 
 {% block body %}
-
-  {# ===== POST HERO ===== #}
-  <section class="sr-post-hero">
-    <style>
-      .sr-post-hero {
-        position: relative; overflow: hidden; isolation: isolate;
-        padding: clamp(72px, 9vw, 120px) clamp(20px, 4vw, 56px);
-        color: #fff;
-        background:
-          radial-gradient(1200px 600px at 10% 0%, rgba(6,224,173,0.32), transparent 60%),
-          radial-gradient(900px 500px at 90% 100%, rgba(33,199,0,0.28), transparent 60%),
-          radial-gradient(700px 400px at 70% 20%, rgba(241,194,51,0.16), transparent 65%),
-          linear-gradient(135deg, #06130d 0%, #0f2a1f 60%, #082218 100%);
-      }
-      .sr-post-hero__inner { position: relative; z-index: 2; max-width: 860px; margin: 0 auto; text-align: center; }
-      .sr-post-hero__eyebrow {
-        display: inline-block; padding: 6px 14px; font-size: 12px;
-        letter-spacing: .18em; text-transform: uppercase; font-weight: 700;
-        border-radius: 999px;
-        background: linear-gradient(90deg, #21c700, #06e0ad);
-        color: #06130d; margin-bottom: 1.25rem;
-      }
-      .sr-post-hero__title {
-        font-size: clamp(2rem, 4.5vw, 3.6rem); font-weight: 800; line-height: 1.1;
-        letter-spacing: -.02em; margin: 0 0 1rem;
-        background: linear-gradient(90deg, #fff 0%, #d9fff4 50%, #06e0ad 100%);
-        -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
-      }
-      .sr-post-hero__meta {
-        font-size: .95rem; opacity: .85; display: inline-flex; gap: 10px; flex-wrap: wrap; justify-content: center;
-      }
-      .sr-post-hero__meta strong { color: #06e0ad; font-weight: 700; }
-
-      .sr-post-body {
-        max-width: 760px; margin: 0 auto; padding: 64px 24px 32px;
-        font-size: 1.08rem; line-height: 1.75; color: #06130d;
-      }
-      .sr-post-body h2 { font-size: 1.8rem; margin-top: 2.25rem; color: #06130d; letter-spacing: -.01em; }
-      .sr-post-body h3 { font-size: 1.35rem; margin-top: 1.75rem; color: #06130d; }
-      .sr-post-body a { color: #0f7d3f; text-decoration: underline; text-decoration-color: rgba(6,224,173,.55); text-underline-offset: 3px; }
-      .sr-post-body a:hover { color: #06e0ad; text-decoration-color: #06e0ad; }
-      .sr-post-body blockquote {
-        margin: 1.75rem 0; padding: 1rem 1.25rem; border-left: 4px solid #06e0ad;
-        background: linear-gradient(90deg, rgba(6,224,173,.08), transparent);
-        border-radius: 0 12px 12px 0; font-style: italic;
-      }
-      .sr-post-body img { max-width: 100%; border-radius: 14px; box-shadow: 0 12px 28px rgba(0,0,0,.12); }
-      .sr-post-body pre, .sr-post-body code {
-        background: #06130d; color: #06e0ad; border-radius: 10px;
-      }
-      .sr-post-body pre { padding: 1rem 1.25rem; overflow-x: auto; }
-      .sr-post-body code { padding: 2px 6px; font-size: .92em; }
-      .sr-post-body ul, .sr-post-body ol { padding-left: 1.4rem; }
-      .sr-post-body li { margin-bottom: .4rem; }
-
-      .sr-post-author {
-        max-width: 760px; margin: 24px auto 0; padding: 24px;
-        display: flex; gap: 18px; align-items: center;
-        border-radius: 16px; border: 1px solid rgba(6,224,173,.25);
-        background: linear-gradient(160deg, #f6fffb 0%, #eafff6 100%);
-      }
-      .sr-post-author__avatar {
-        width: 64px; height: 64px; border-radius: 50%; object-fit: cover;
-        border: 3px solid #06e0ad; flex-shrink: 0;
-      }
-      .sr-post-author__name { font-weight: 800; color: #06130d; }
-      .sr-post-author__bio { color: #06130d; opacity: .8; font-size: .95rem; line-height: 1.55; }
-
-      .sr-post-tags {
-        max-width: 760px; margin: 28px auto 0; padding: 0 24px;
-        display: flex; gap: 8px; flex-wrap: wrap;
-      }
-      .sr-post-tag {
-        padding: 6px 14px; border-radius: 999px;
-        background: linear-gradient(90deg, rgba(33,199,0,.12), rgba(6,224,173,.18));
-        color: #0f7d3f; font-size: .82rem; font-weight: 700;
-        text-decoration: none; letter-spacing: .04em;
-        border: 1px solid rgba(6,224,173,.25);
-      }
-      .sr-post-tag:hover { background: linear-gradient(90deg, #21c700, #06e0ad); color: #06130d; }
-    </style>
-
-    <div class="sr-post-hero__inner">
-      <div class="sr-post-hero__eyebrow">
-        {% if content.topic_list %}{{ content.topic_list[0].name }}{% else %}Article{% endif %}
-      </div>
-      <h1 class="sr-post-hero__title">{{ content.name }}</h1>
-      <div class="sr-post-hero__meta">
-        <span><strong>{{ content.blog_post_author.display_name }}</strong></span>
-        <span>·</span>
-        <span>{{ content.publish_date_localized }}</span>
-      </div>
+<div class="srd">
+  <div class="srd__sky" aria-hidden="true"></div>
+  <canvas class="srd__canvas" data-srx-shader="smoke-veil" aria-hidden="true"></canvas>
+  <div class="srd__wrap">
+    <div class="srd-top">
+      <a class="srd-brand" href="/"><svg viewBox="0 0 64 66" width="26" height="27" aria-hidden="true"><defs><radialGradient id="srSunB" cx="36%" cy="32%" r="72%"><stop offset="0%" stop-color="#FBC34A"/><stop offset="82%" stop-color="#8FC740"/></radialGradient><linearGradient id="srWaterB" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#3E9DB8"/><stop offset="100%" stop-color="#FBC34A"/></linearGradient></defs><circle cx="32" cy="21" r="15" fill="url(#srSunB)"/><g fill="url(#srWaterB)"><rect x="9" y="43" width="46" height="4.8" rx="2.4"/><rect x="16" y="51.5" width="32" height="4.8" rx="2.4" opacity="0.82"/><rect x="22" y="60" width="20" height="4.8" rx="2.4" opacity="0.55"/></g></svg><span>Sun<b>River</b></span></a>
+      <a class="srd-back" href="{{ group.absolute_url }}">&larr; All posts</a>
     </div>
-  </section>
 
-  {# ===== POST BODY ===== #}
-  <article class="sr-post-body">
-    {{ content.post_body }}
-  </article>
+    <article class="srd-sheet srx-reveal">
+      <span class="sr-news-meta">{{ content.publish_date_localized }}{% if content.topic_list %} &middot; {{ content.topic_list[0].name }}{% endif %}{% if content.blog_post_author %} &middot; {{ content.blog_post_author.display_name }}{% endif %}</span>
+      <h1 class="srd-h1" style="margin-top:4px;">{{ content.name }}</h1>
 
-  {# ===== TAGS ===== #}
-  {% if content.topic_list %}
-    <div class="sr-post-tags">
-      {% for topic in content.topic_list %}
-        <a class="sr-post-tag" href="{{ blog_tag_url(group.id, topic.slug) }}">{{ topic.name }}</a>
-      {% endfor %}
-    </div>
-  {% endif %}
+      <div class="sr-post" style="margin-top:22px;">
+        {{ content.post_body }}
+      </div>
 
-  {# ===== AUTHOR BLOCK ===== #}
-  {% if content.blog_post_author %}
-    <div class="sr-post-author">
-      {% if content.blog_post_author.avatar %}
-        <img class="sr-post-author__avatar" src="{{ content.blog_post_author.avatar }}" alt="{{ content.blog_post_author.display_name }}">
+      {% if content.topic_list %}
+        <div class="srd-stack" style="margin-top:26px;">
+          <span class="srd-stack__lab">Topics</span>
+          {% for topic in content.topic_list %}
+            <a class="srd-chip" style="text-decoration:none;" href="{{ blog_tag_url(group.id, topic.slug) }}">{{ topic.name }}</a>
+          {% endfor %}
+        </div>
       {% endif %}
-      <div>
-        <div class="sr-post-author__name">{{ content.blog_post_author.display_name }}</div>
-        {% if content.blog_post_author.bio %}
-          <div class="sr-post-author__bio">{{ content.blog_post_author.bio }}</div>
-        {% endif %}
+
+      {% if content.blog_post_author %}
+        <div style="display:flex;gap:16px;align-items:center;margin-top:28px;padding-top:22px;border-top:1px solid #eef2ee;">
+          {% if content.blog_post_author.avatar %}
+            <img src="{{ content.blog_post_author.avatar }}" alt="{{ content.blog_post_author.display_name }}" style="width:56px;height:56px;border-radius:50%;object-fit:cover;border:3px solid #FBC34A;">
+          {% endif %}
+          <div>
+            <div style="font-family:var(--head,'Poppins',sans-serif);font-weight:700;color:#0c2114;">{{ content.blog_post_author.display_name }}</div>
+            {% if content.blog_post_author.bio %}<div style="font-size:.92rem;color:#546b5b;line-height:1.5;">{{ content.blog_post_author.bio }}</div>{% endif %}
+          </div>
+        </div>
+      {% endif %}
+
+      <div class="srd-end" style="margin-top:30px;">
+        <h3>Want to talk it through?</h3>
+        <p>The fastest way to find out if we&rsquo;re a fit is a free thirty-minute consultation with the engineer who&rsquo;d do the work.</p>
+        <div class="srd-cta" style="justify-content:center;">
+          <a class="srh-btn srh-btn--primary" href="/schedule-a-consultation-sunriver-consulting">Schedule a Consultation &rarr;</a>
+          <a class="srh-btn srh-btn--ghost" href="/quote-sunriver-consulting">Get a Quick Estimate</a>
+        </div>
       </div>
-    </div>
-  {% endif %}
-
-  {# ===== RELATED POSTS — uses HubSpot related_blog_posts ===== #}
-  <section style="max-width: 1200px; margin: 64px auto 0; padding: 0 24px;">
-    {% related_blog_posts blog_ids="default", limit=3, layout="card" %}
-  </section>
-
-  {# ===== CTA ===== #}
-  {# Blog Article templates can't contain dnd_area, so we render the CTA as a non-DnD module. #}
-  <section style="padding-top: 64px;">
-    {% module "footer_cta"
-        path="../../modules/SR - CTA Banner",
-        heading="Want to talk to us?",
-        subheading="The fastest way to find out if we're a fit is a free 30-minute consultation.",
-        cta_text="Schedule a Consultation",
-        cta_url={ "url": { "href": "/schedule-a-consultation-sunriver-consulting", "type": "EXTERNAL" } },
-        style="gradient"
-    %}
-  </section>
-
+    </article>
+  </div>
+</div>
 {% endblock body %}
