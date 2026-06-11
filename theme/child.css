@@ -783,7 +783,7 @@
     rgba(110,220,235,0)   100%);
   opacity: 0;
   transform: translateX(-50%) rotate(18deg);
-  animation: sr-shimmer 4.2s infinite alternate;
+  animation: sr-shimmer 7s cubic-bezier(.37,0,.63,1) infinite;
   animation-play-state: paused;
   transition: opacity .85s ease;
 }
@@ -792,12 +792,11 @@
   animation-play-state: running;
   transition: opacity .6s ease;
 }
-/* per-segment beziers: creep off the edge -> hard S-curve whoosh -> settle (exact mirror of the creep) */
+/* true pendulum: one sinusoidal out-and-back cycle (sine ease per half) — velocity passes
+   through zero at the turn but position never parks; turnarounds sit inside the card */
 @keyframes sr-shimmer {
-  0%   { transform: translateX(-50%) rotate(18deg); animation-timing-function: cubic-bezier(.55,.05,.7,.4); }
-  8%   { transform: translateX(-36%) rotate(18deg); animation-timing-function: cubic-bezier(.75,0,.25,1); }
-  92%  { transform: translateX(136%) rotate(18deg); animation-timing-function: cubic-bezier(.3,.6,.45,.95); }
-  100% { transform: translateX(150%) rotate(18deg); }
+  0%, 100% { transform: translateX(-34%) rotate(18deg); }
+  50%      { transform: translateX(134%) rotate(18deg); }
 }
 @media (prefers-reduced-motion: reduce) {
   .srh-card::after, .sr-blogcard::after,
