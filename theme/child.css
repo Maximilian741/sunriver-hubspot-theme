@@ -848,7 +848,7 @@
 .sr-marquee { overflow:hidden;
   -webkit-mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);
   mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent); }
-.sr-marquee__track { display:flex; align-items:center; width:max-content; animation:sr-marquee 42s linear infinite; }
+.sr-marquee__track { display:flex; align-items:center; width:max-content; animation:sr-marquee 56s linear infinite; }
 .sr-marquee:hover .sr-marquee__track { animation-play-state:paused; }
 .sr-marquee__dup { display:contents; }
 .sr-tech { display:flex; align-items:center; gap:11px; flex:none; margin-right:clamp(40px,5vw,70px); }
