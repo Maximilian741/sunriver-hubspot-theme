@@ -1,10 +1,10 @@
 <!--
   templateType: page
   label: SR - Manifesto / Founder Story
-  screenshot_path: ././images/template-previews/manifesto.jpg
+  screenshot_path: ../../images/template-previews/manifesto.jpg
   isAvailableForNewContent: true
 -->
-{% extends "./layouts/base.html" %}
+{% extends "../layouts/base.html" %}
 
 {% block body %}
   {% dnd_area "main", label="Main" %}
@@ -12,7 +12,7 @@
     {# ===== HERO ===== #}
     {% dnd_section full_width=true,
         padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
-      {% dnd_module path="././modules/SR - Hero Spotlight",
+      {% dnd_module path="../../modules/SR - Hero Spotlight",
           eyebrow="Why we built this",
           heading="A consultancy we'd actually want to hire",
           subheading="<p>The big-brand consulting world is broken in a few specific ways. SunRiver is our attempt to fix the ones we couldn't stop thinking about.</p>",
@@ -27,7 +27,7 @@
 
     {# ===== ORIGIN, split ===== #}
     {% dnd_section padding={ "top": 80, "bottom": 64, "left": 24, "right": 24 } %}
-      {% dnd_module path="././modules/SR - Split Feature",
+      {% dnd_module path="../../modules/SR - Split Feature",
           image_side="right",
           eyebrow="The origin",
           heading="Three engineers, one shared frustration",
@@ -44,7 +44,7 @@
 
     {# ===== STATS, values ===== #}
     {% dnd_section padding={ "top": 32, "bottom": 64, "left": 24, "right": 24 } %}
-      {% dnd_module path="././modules/SR - Stats Grid",
+      {% dnd_module path="../../modules/SR - Stats Grid",
           stats=[
             { "stat_value": "0", "suffix": "", "stat_label": "Junior hand-offs, ever" },
             { "stat_value": "100", "suffix": "%", "stat_label": "Code ownership goes to client" },
@@ -56,7 +56,7 @@
 
     {# ===== WHAT WE BELIEVE, process steps as principles ===== #}
     {% dnd_section padding={ "top": 32, "bottom": 24, "left": 24, "right": 24 } %}
-      {% dnd_module path="././modules/SR - Section Heading",
+      {% dnd_module path="../../modules/SR - Section Heading",
           eyebrow="What we believe",
           heading="Five principles, no exceptions",
           intro="<p>If we ever break one of these, we want clients to call us on it.</p>",
@@ -66,7 +66,7 @@
     {% end_dnd_section %}
 
     {% dnd_section padding={ "top": 16, "bottom": 64, "left": 24, "right": 24 } %}
-      {% dnd_module path="././modules/SR - Process Steps",
+      {% dnd_module path="../../modules/SR - Process Steps",
           layout="vertical",
           steps=[
             { "title": "Senior people, no exceptions", "description": "<p>The people on the discovery call are the people building. We don't grow a bench. We don't sell capacity we don't have.</p>" },
@@ -80,7 +80,7 @@
 
     {# ===== TESTIMONIAL ===== #}
     {% dnd_section padding={ "top": 32, "bottom": 64, "left": 24, "right": 24 } %}
-      {% dnd_module path="././modules/SR - Testimonial Carousel",
+      {% dnd_module path="../../modules/SR - Testimonial Carousel",
           autoplay_seconds=0,
           items=[
             { "quote": "<p>The first consultancy I've hired that left us better at what they do, not more dependent on them.</p>", "name": "Quinn B.", "role": "VP Engineering, Slatecore" },
@@ -91,7 +91,7 @@
 
     {# ===== SIGNATURE, split ===== #}
     {% dnd_section padding={ "top": 32, "bottom": 64, "left": 24, "right": 24 } %}
-      {% dnd_module path="././modules/SR - Split Feature",
+      {% dnd_module path="../../modules/SR - Split Feature",
           image_side="left",
           eyebrow="The bet",
           heading="Build the consultancy we'd want to hire",
@@ -108,7 +108,7 @@
     {# ===== CTA ===== #}
     {% dnd_section full_width=true,
         padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
-      {% dnd_module path="././modules/SR - CTA Banner",
+      {% dnd_module path="../../modules/SR - CTA Banner",
           heading="Want to work with us?",
           subheading="Or want to work for us, we hire the same way we sell.",
           cta_text="See open roles + contact us",

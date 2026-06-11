@@ -1,10 +1,10 @@
 <!--
   templateType: page
   label: SR - Solutions (problem-first)
-  screenshot_path: ././images/template-previews/solutions.jpg
+  screenshot_path: ../../images/template-previews/solutions.jpg
   isAvailableForNewContent: true
 -->
-{% extends "./layouts/base.html" %}
+{% extends "../layouts/base.html" %}
 
 {% block body %}
   {% dnd_area "main", label="Main" %}
@@ -12,7 +12,7 @@
     {# ===== HERO ===== #}
     {% dnd_section full_width=true,
         padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
-      {% dnd_module path="././modules/SR - Hero Spotlight",
+      {% dnd_module path="../../modules/SR - Hero Spotlight",
           eyebrow="Solutions",
           heading="Find the fix for what's actually broken",
           subheading="<p>Pages of services don't help when you have a real problem. Tell us what hurts, we've packaged the answers.</p>",
@@ -27,7 +27,7 @@
 
     {# ===== SECTION HEADING ===== #}
     {% dnd_section padding={ "top": 80, "bottom": 24, "left": 24, "right": 24 } %}
-      {% dnd_module path="././modules/SR - Section Heading",
+      {% dnd_module path="../../modules/SR - Section Heading",
           eyebrow="By problem",
           heading="What's keeping your team up at night?",
           intro="<p>Each tile is a packaged engagement, fixed scope, fixed timeline, named outcome.</p>",
@@ -38,7 +38,7 @@
 
     {# ===== PROBLEM TILES ===== #}
     {% dnd_section padding={ "top": 16, "bottom": 80, "left": 24, "right": 24 } %}
-      {% dnd_module path="././modules/SR - Service Cards",
+      {% dnd_module path="../../modules/SR - Service Cards",
           columns="3",
           cards=[
             { "icon_text": "🔥", "title": "Production keeps catching fire", "description": "<p>SRE-led stabilization sprint. Observability, runbooks, and on-call hygiene in 6 weeks.</p>", "link_text": "Solve incidents", "card_link": { "url": { "href": "/solutions/incident-response", "type": "EXTERNAL" } } },
@@ -53,7 +53,7 @@
 
     {# ===== PROCESS ===== #}
     {% dnd_section padding={ "top": 32, "bottom": 24, "left": 24, "right": 24 } %}
-      {% dnd_module path="././modules/SR - Section Heading",
+      {% dnd_module path="../../modules/SR - Section Heading",
           eyebrow="How packaged engagements work",
           heading="Fixed scope, fixed timeline, named outcome",
           alignment="center",
@@ -62,7 +62,7 @@
     {% end_dnd_section %}
 
     {% dnd_section padding={ "top": 16, "bottom": 80, "left": 24, "right": 24 } %}
-      {% dnd_module path="././modules/SR - Process Steps",
+      {% dnd_module path="../../modules/SR - Process Steps",
           layout="horizontal",
           steps=[
             { "title": "30-min call", "description": "<p>Pick a packaged engagement, talk it through with the senior team.</p>" },
@@ -75,14 +75,14 @@
 
     {# ===== TESTIMONIAL ===== #}
     {% dnd_section padding={ "top": 32, "bottom": 64, "left": 24, "right": 24 } %}
-      {% dnd_module path="././modules/SR - Testimonial Carousel" %}
+      {% dnd_module path="../../modules/SR - Testimonial Carousel" %}
       {% end_dnd_module %}
     {% end_dnd_section %}
 
     {# ===== CTA ===== #}
     {% dnd_section full_width=true,
         padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
-      {% dnd_module path="././modules/SR - CTA Banner",
+      {% dnd_module path="../../modules/SR - CTA Banner",
           heading="Problem doesn't fit a tile?",
           subheading="The packaged engagements are starting points, not boundaries. Let's talk.",
           cta_text="Describe your problem",

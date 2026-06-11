@@ -1,10 +1,10 @@
 <!--
   templateType: page
   label: SR - Resources Hub
-  screenshot_path: ././images/template-previews/resources.jpg
+  screenshot_path: ../../images/template-previews/resources.jpg
   isAvailableForNewContent: true
 -->
-{% extends "./layouts/base.html" %}
+{% extends "../layouts/base.html" %}
 
 {% block body %}
   {% dnd_area "main", label="Main" %}
@@ -12,7 +12,7 @@
     {# ===== HERO ===== #}
     {% dnd_section full_width=true,
         padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
-      {% dnd_module path="././modules/SR - Hero Spotlight",
+      {% dnd_module path="../../modules/SR - Hero Spotlight",
           eyebrow="Resources",
           heading="The library we'd hand a friend",
           subheading="<p>Playbooks, post-mortems, and templates from the engagements we've shipped. Take what's useful.</p>",
@@ -27,7 +27,7 @@
 
     {# ===== FEATURED PLAYBOOK, split ===== #}
     {% dnd_section padding={ "top": 80, "bottom": 32, "left": 24, "right": 24 } %}
-      {% dnd_module path="././modules/SR - Split Feature",
+      {% dnd_module path="../../modules/SR - Split Feature",
           image_side="left",
           eyebrow="Featured",
           heading="The 2026 Cloud Modernization Playbook",
@@ -44,7 +44,7 @@
 
     {# ===== SECTION HEADING ===== #}
     {% dnd_section padding={ "top": 64, "bottom": 24, "left": 24, "right": 24 } %}
-      {% dnd_module path="././modules/SR - Section Heading",
+      {% dnd_module path="../../modules/SR - Section Heading",
           eyebrow="Library",
           heading="Browse by what you need today",
           intro="<p>Every download is something we use internally, no gated lead magnets disguised as guides.</p>",
@@ -55,7 +55,7 @@
 
     {# ===== RESOURCE TILES ===== #}
     {% dnd_section padding={ "top": 16, "bottom": 64, "left": 24, "right": 24 } %}
-      {% dnd_module path="././modules/SR - Service Cards",
+      {% dnd_module path="../../modules/SR - Service Cards",
           columns="3",
           cards=[
             { "icon_text": "📘", "title": "Cloud Modernization Playbook", "description": "<p>40-page guide · PDF · ~12 min read</p>", "link_text": "Get the playbook", "card_link": { "url": { "href": "/resources/cloud-playbook", "type": "EXTERNAL" } } },
@@ -71,14 +71,14 @@
     {# ===== COUNTER MARQUEE ===== #}
     {% dnd_section full_width=true,
         padding={ "top": 32, "bottom": 32, "left": 0, "right": 0 } %}
-      {% dnd_module path="././modules/SR - Counter Marquee" %}
+      {% dnd_module path="../../modules/SR - Counter Marquee" %}
       {% end_dnd_module %}
     {% end_dnd_section %}
 
     {# ===== CTA ===== #}
     {% dnd_section full_width=true,
         padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
-      {% dnd_module path="././modules/SR - CTA Banner",
+      {% dnd_module path="../../modules/SR - CTA Banner",
           heading="Want fresh ones in your inbox?",
           subheading="One short note per quarter. Real patterns, real numbers.",
           cta_text="Subscribe",

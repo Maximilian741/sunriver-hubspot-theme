@@ -1,10 +1,10 @@
 <!--
   templateType: page
   label: SR - Coming Soon
-  screenshot_path: ././images/template-previews/coming-soon.jpg
+  screenshot_path: ../../images/template-previews/coming-soon.jpg
   isAvailableForNewContent: true
 -->
-{% extends "./layouts/base.html" %}
+{% extends "../layouts/base.html" %}
 
 {% block body %}
   {% dnd_area "main", label="Main" %}
@@ -12,7 +12,7 @@
     {# ===== FULL-BLEED HERO ===== #}
     {% dnd_section full_width=true,
         padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
-      {% dnd_module path="././modules/SR - Hero Spotlight",
+      {% dnd_module path="../../modules/SR - Hero Spotlight",
           eyebrow="Launching soon",
           heading="Something good is on the way",
           subheading="<p>We're putting the finishing touches on it. Drop your email and we'll let you know the moment it's live, just the launch note.</p>",
@@ -27,7 +27,7 @@
 
     {# ===== TEASER COUNTERS ===== #}
     {% dnd_section padding={ "top": 64, "bottom": 64, "left": 24, "right": 24 } %}
-      {% dnd_module path="././modules/SR - Stats Grid",
+      {% dnd_module path="../../modules/SR - Stats Grid",
           stats=[
             { "stat_value": "10", "suffix": "+", "stat_label": "New patterns documented" },
             { "stat_value": "5", "suffix": "", "stat_label": "Reference architectures" },
@@ -39,7 +39,7 @@
 
     {# ===== NOTIFY FORM ===== #}
     {% dnd_section padding={ "top": 32, "bottom": 24, "left": 24, "right": 24 } %}
-      {% dnd_module path="././modules/SR - Section Heading",
+      {% dnd_module path="../../modules/SR - Section Heading",
           eyebrow="Get notified",
           heading="One email when it ships, then nothing else",
           intro="<p>Promise. We don't sell, share, or accidentally bcc you.</p>",
@@ -56,7 +56,7 @@
 
     {# ===== WHILE YOU WAIT ===== #}
     {% dnd_section padding={ "top": 32, "bottom": 24, "left": 24, "right": 24 } %}
-      {% dnd_module path="././modules/SR - Section Heading",
+      {% dnd_module path="../../modules/SR - Section Heading",
           eyebrow="While you wait",
           heading="Something to read in the meantime",
           alignment="center",
@@ -65,7 +65,7 @@
     {% end_dnd_section %}
 
     {% dnd_section padding={ "top": 16, "bottom": 80, "left": 24, "right": 24 } %}
-      {% dnd_module path="././modules/SR - Service Cards",
+      {% dnd_module path="../../modules/SR - Service Cards",
           columns="3",
           cards=[
             { "icon_text": "📘", "title": "The Cloud Modernization Playbook", "description": "<p>40 pages of practical patterns. Free.</p>", "link_text": "Get it", "card_link": { "url": { "href": "/resources/cloud-playbook", "type": "EXTERNAL" } } },

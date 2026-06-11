@@ -2,20 +2,20 @@
   templateType: page
   isAvailableForNewContent: true
   label: SunRiver - Compliance Audits (editable)
-  screenshot_path: ././images/template-previews/home.jpg
+  screenshot_path: ../../images/template-previews/home.jpg
 -->
 {#
   Editable (drag-and-drop) version, built from SR-* widget modules. Selectable
   on an existing page and fully editable in the CMS. Same .srh look (child.css).
 #}
-{% extends "./layouts/base.html" %}
+{% extends "../layouts/base.html" %}
 
 {% block body %}
 {% dnd_area "main_content" label="Page content" %}
 
   {% dnd_section padding={ 'top': 0, 'bottom': 0, 'left': 0, 'right': 0 } %}
     {% dnd_module
-      path="././modules/SR - Hero Spotlight",
+      path="../../modules/SR - Hero Spotlight",
       eyebrow="Compliance Audits",
       heading="Find the gaps before someone else does.",
       subheading="<p>Senior-led security and accessibility audits, real attacks, real screen-reader testing, and a report your team can act on. Fixed fee, nationwide.</p>",
@@ -27,7 +27,7 @@
   {% end_dnd_section %}
 
   {% dnd_section padding={ 'top': 0, 'bottom': 0, 'left': 0, 'right': 0 } %}
-    {% dnd_module path="././modules/SR - Service Cards", section_eyebrow="Explore", section_heading="What we do." %}
+    {% dnd_module path="../../modules/SR - Service Cards", section_eyebrow="Explore", section_heading="What we do." %}
       {% module_attribute "columns" %}3{% end_module_attribute %}
       {% module_attribute "cards" is_json=True %}
       [
@@ -42,7 +42,7 @@
 
   {% dnd_section padding={ 'top': 0, 'bottom': 0, 'left': 0, 'right': 0 } %}
     {% dnd_module
-      path="././modules/SR - CTA Banner",
+      path="../../modules/SR - CTA Banner",
       heading="Need to prove you are secure and accessible?",
       subheading="Tell us what is in scope and we will send a fixed-fee plan.",
       cta_text="Get a Quick Estimate",

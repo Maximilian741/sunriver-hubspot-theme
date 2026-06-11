@@ -4,7 +4,7 @@
   label: SunRiver - Compliance Audits
 -->
 
-{% extends "./layouts/base.html" %}
+{% extends "../layouts/base.html" %}
 
 {% block body %}
 
@@ -12,7 +12,7 @@
 
     {% dnd_section %}
       {% dnd_module
-        path="././modules/SR - Hero Spotlight",
+        path="../../modules/SR - Hero Spotlight",
         eyebrow="Compliance Audits",
         heading="Pass the audit. Sleep at night.",
         subheading="<p>Penetration testing, threat modeling, and accessibility audits done by senior engineers, with reports your auditors and your developers can both act on.</p>",
@@ -28,7 +28,7 @@
 
     {% dnd_section %}
       {% dnd_module
-        path="././modules/SR - Section Heading",
+        path="../../modules/SR - Section Heading",
         eyebrow="Services",
         heading="Four audits, one team",
         intro="<p>Engagements are scoped tightly and priced up front.</p>",
@@ -40,7 +40,7 @@
 
     {% dnd_section %}
       {% dnd_module
-        path="././modules/SR - Service Cards",
+        path="../../modules/SR - Service Cards",
         columns="4",
         cards=[
           {"icon_text": "🛡", "title": "Penetration Testing", "description": "<p>Black-box and grey-box network and application pen tests, with prioritized remediation guidance.</p>", "link_text": "Get a Quick Estimate", "card_link": {"url": {"href": "/quote-sunriver-consulting", "type": "EXTERNAL"}}},
@@ -54,7 +54,7 @@
 
     {% dnd_section %}
       {% dnd_module
-        path="././modules/SR - Split Feature",
+        path="../../modules/SR - Split Feature",
         image_side="left",
         eyebrow="Why us",
         heading="Reports that actually get fixed",
@@ -72,7 +72,7 @@
 
     {% dnd_section %}
       {% dnd_module
-        path="././modules/SR - Section Heading",
+        path="../../modules/SR - Section Heading",
         eyebrow="The process",
         heading="A predictable engagement",
         alignment="center"
@@ -82,7 +82,7 @@
 
     {% dnd_section %}
       {% dnd_module
-        path="././modules/SR - Process Steps",
+        path="../../modules/SR - Process Steps",
         layout="horizontal",
         steps=[
           {"title": "Scope", "description": "<p>Free consultation to understand the systems, target standards, and timeline.</p>"},
@@ -96,7 +96,7 @@
 
     {% dnd_section %}
       {% dnd_module
-        path="././modules/SR - Section Heading",
+        path="../../modules/SR - Section Heading",
         eyebrow="FAQ",
         heading="What teams ask before an audit",
         alignment="center"
@@ -106,7 +106,7 @@
 
     {% dnd_section %}
       {% dnd_module
-        path="././modules/SR - FAQ Accordion",
+        path="../../modules/SR - FAQ Accordion",
         items=[
           {"question": "How long does an audit take?", "answer": "<p>Most application or accessibility audits run two to four weeks end-to-end. Larger or multi-system engagements are scoped individually.</p>"},
           {"question": "What standards do you cover?", "answer": "<p>OWASP for application security, STRIDE for threat modeling, WCAG 2.0&ndash;2.2 for accessibility, and Section 508 for federal compliance.</p>"},
@@ -120,7 +120,7 @@
 
     {% dnd_section %}
       {% dnd_module
-        path="././modules/SR - CTA Banner",
+        path="../../modules/SR - CTA Banner",
         heading="Audit coming up?",
         subheading="Get ahead of it. We'll scope an engagement in a 30-minute call.",
         cta_text="Schedule a Consultation",

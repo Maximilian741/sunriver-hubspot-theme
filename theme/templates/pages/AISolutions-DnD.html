@@ -2,20 +2,20 @@
   templateType: page
   isAvailableForNewContent: true
   label: SunRiver - AI Solutions (editable)
-  screenshot_path: ././images/template-previews/home.jpg
+  screenshot_path: ../../images/template-previews/home.jpg
 -->
 {#
   Editable (drag-and-drop) version, built from SR-* widget modules. Selectable
   on an existing page and fully editable in the CMS. Same .srh look (child.css).
 #}
-{% extends "./layouts/base.html" %}
+{% extends "../layouts/base.html" %}
 
 {% block body %}
 {% dnd_area "main_content" label="Page content" %}
 
   {% dnd_section padding={ 'top': 0, 'bottom': 0, 'left': 0, 'right': 0 } %}
     {% dnd_module
-      path="././modules/SR - Hero Spotlight",
+      path="../../modules/SR - Hero Spotlight",
       eyebrow="AI Solutions",
       heading="AI that earns its place, not adds hype",
       subheading="<p>Senior, hands-on AI work for people and organizations that want real results, assistants grounded in your data, automation that holds up, and honest advice about where AI helps and where it doesn&rsquo;t. Fixed fee, accessibility-first.</p>",
@@ -27,7 +27,7 @@
   {% end_dnd_section %}
 
   {% dnd_section padding={ 'top': 0, 'bottom': 0, 'left': 0, 'right': 0 } %}
-    {% dnd_module path="././modules/SR - Service Cards", section_eyebrow="Explore", section_heading="What we do." %}
+    {% dnd_module path="../../modules/SR - Service Cards", section_eyebrow="Explore", section_heading="What we do." %}
       {% module_attribute "columns" %}3{% end_module_attribute %}
       {% module_attribute "cards" is_json=True %}
       [
@@ -44,7 +44,7 @@
 
   {% dnd_section padding={ 'top': 0, 'bottom': 0, 'left': 0, 'right': 0 } %}
     {% dnd_module
-      path="././modules/SR - CTA Banner",
+      path="../../modules/SR - CTA Banner",
       heading="Curious where AI actually fits?",
       subheading="Tell us the work you&rsquo;re hoping to improve and we&rsquo;ll give you a straight answer, including when the honest call is &ldquo;don&rsquo;t&rdquo;, plus a fixed-fee plan with a senior consultant on it.",
       cta_text="Get a Quick Estimate",

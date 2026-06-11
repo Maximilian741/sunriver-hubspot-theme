@@ -1,10 +1,10 @@
 <!--
   templateType: page
   label: SR - Get a Quote
-  screenshot_path: ././images/template-previews/get-a-quote.jpg
+  screenshot_path: ../../images/template-previews/get-a-quote.jpg
   isAvailableForNewContent: true
 -->
-{% extends "./layouts/base.html" %}
+{% extends "../layouts/base.html" %}
 
 {% block body %}
   {% dnd_area "main", label="Main" %}
@@ -12,7 +12,7 @@
     {# ===== HERO ===== #}
     {% dnd_section full_width=true,
         padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
-      {% dnd_module path="././modules/SR - Hero Spotlight",
+      {% dnd_module path="../../modules/SR - Hero Spotlight",
           eyebrow="Get a quote",
           heading="Tell us what you're solving",
           subheading="<p>Send the form below or book a 30-minute call. Either way, you'll get a written response, usually within one business day, never longer than two.</p>",
@@ -27,7 +27,7 @@
 
     {# ===== WHAT TO EXPECT ===== #}
     {% dnd_section padding={ "top": 80, "bottom": 32, "left": 24, "right": 24 } %}
-      {% dnd_module path="././modules/SR - Section Heading",
+      {% dnd_module path="../../modules/SR - Section Heading",
           eyebrow="How this works",
           heading="A clear path from form to fixed proposal",
           intro="<p>No mystery, no waiting. Three steps from here.</p>",
@@ -37,7 +37,7 @@
     {% end_dnd_section %}
 
     {% dnd_section padding={ "top": 16, "bottom": 64, "left": 24, "right": 24 } %}
-      {% dnd_module path="././modules/SR - Process Steps",
+      {% dnd_module path="../../modules/SR - Process Steps",
           layout="horizontal",
           steps=[
             { "title": "You send the form", "description": "<p>Five fields. Tell us what's broken or what you'd like to build.</p>" },
@@ -49,7 +49,7 @@
 
     {# ===== FORM ===== #}
     {% dnd_section padding={ "top": 32, "bottom": 24, "left": 24, "right": 24 } %}
-      {% dnd_module path="././modules/SR - Section Heading",
+      {% dnd_module path="../../modules/SR - Section Heading",
           eyebrow="Tell us about it",
           heading="Five fields, no sales drip",
           intro="<p>We don't drop you into a 14-email nurture sequence. One reply, one conversation.</p>",
@@ -66,7 +66,7 @@
 
     {# ===== STATS, trust ===== #}
     {% dnd_section padding={ "top": 32, "bottom": 64, "left": 24, "right": 24 } %}
-      {% dnd_module path="././modules/SR - Stats Grid",
+      {% dnd_module path="../../modules/SR - Stats Grid",
           stats=[
             { "stat_value": "1", "suffix": "biz day", "stat_label": "Average response time" },
             { "stat_value": "30", "suffix": "min", "stat_label": "Discovery call, free" },
@@ -78,7 +78,7 @@
 
     {# ===== TESTIMONIAL ===== #}
     {% dnd_section padding={ "top": 32, "bottom": 64, "left": 24, "right": 24 } %}
-      {% dnd_module path="././modules/SR - Testimonial Carousel",
+      {% dnd_module path="../../modules/SR - Testimonial Carousel",
           autoplay_seconds=0,
           items=[
             { "quote": "<p>Sent the form on a Tuesday, had a fixed-price proposal in our inbox by Friday. Refreshing.</p>", "name": "Devin S.", "role": "Engineering Lead, Slatecore" },
@@ -89,7 +89,7 @@
 
     {# ===== FAQ ===== #}
     {% dnd_section padding={ "top": 32, "bottom": 24, "left": 24, "right": 24 } %}
-      {% dnd_module path="././modules/SR - Section Heading",
+      {% dnd_module path="../../modules/SR - Section Heading",
           eyebrow="Quick answers",
           heading="Things we get asked before sending",
           alignment="center",
@@ -98,7 +98,7 @@
     {% end_dnd_section %}
 
     {% dnd_section padding={ "top": 16, "bottom": 80, "left": 24, "right": 24 } %}
-      {% dnd_module path="././modules/SR - FAQ Accordion",
+      {% dnd_module path="../../modules/SR - FAQ Accordion",
           items=[
             { "question": "What if my budget is small?", "answer": "<p>Tell us anyway. We have packaged engagements starting around $5K and we'd rather know up-front than waste your time later.</p>" },
             { "question": "Do you sign NDAs before the call?", "answer": "<p>Yes. Send yours along with the form and we'll have it signed before the call.</p>" },
@@ -112,7 +112,7 @@
     {# ===== CTA ===== #}
     {% dnd_section full_width=true,
         padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
-      {% dnd_module path="././modules/SR - CTA Banner",
+      {% dnd_module path="../../modules/SR - CTA Banner",
           heading="Prefer to talk it through?",
           subheading="Calendar's open. 30 minutes.",
           cta_text="Book a discovery call",

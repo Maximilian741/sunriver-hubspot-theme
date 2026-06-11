@@ -2,20 +2,20 @@
   templateType: page
   isAvailableForNewContent: true
   label: SunRiver - WCAG 2.2 Audits (editable)
-  screenshot_path: ././images/template-previews/home.jpg
+  screenshot_path: ../../images/template-previews/home.jpg
 -->
 {#
   Editable (drag-and-drop) version, built from SR-* widget modules. Selectable
   on an existing page and fully editable in the CMS. Same .srh look (child.css).
 #}
-{% extends "./layouts/base.html" %}
+{% extends "../layouts/base.html" %}
 
 {% block body %}
 {% dnd_area "main_content" label="Page content" %}
 
   {% dnd_section padding={ 'top': 0, 'bottom': 0, 'left': 0, 'right': 0 } %}
     {% dnd_module
-      path="././modules/SR - Hero Spotlight",
+      path="../../modules/SR - Hero Spotlight",
       eyebrow="Compliance Audits / WCAG 2.2",
       heading="Accessible to everyone, proven not assumed.",
       subheading="<p>WCAG 2.0 through 2.2 conformance audits driven by real assistive-technology testing, not just an automated scan. You get a defensible VPAT and a remediation list your developers can work straight through.</p>",
@@ -27,7 +27,7 @@
   {% end_dnd_section %}
 
   {% dnd_section padding={ 'top': 0, 'bottom': 0, 'left': 0, 'right': 0 } %}
-    {% dnd_module path="././modules/SR - Service Cards", section_eyebrow="In scope", section_heading="What we focus on." %}
+    {% dnd_module path="../../modules/SR - Service Cards", section_eyebrow="In scope", section_heading="What we focus on." %}
       {% module_attribute "columns" %}3{% end_module_attribute %}
       {% module_attribute "cards" is_json=True %}
       [
@@ -43,7 +43,7 @@
 
   {% dnd_section padding={ 'top': 0, 'bottom': 0, 'left': 0, 'right': 0 } %}
     {% dnd_module
-      path="././modules/SR - CTA Banner",
+      path="../../modules/SR - CTA Banner",
       heading="Need to prove WCAG conformance?",
       subheading="We will audit it against 2.2 AA and hand you the VPAT and the fix list.",
       cta_text="Get a Quick Estimate",

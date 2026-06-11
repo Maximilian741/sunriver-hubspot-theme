@@ -1,10 +1,10 @@
 <!--
   templateType: page
   label: SR - Resource Detail
-  screenshot_path: ././images/template-previews/resource-detail.jpg
+  screenshot_path: ../../images/template-previews/resource-detail.jpg
   isAvailableForNewContent: true
 -->
-{% extends "./layouts/base.html" %}
+{% extends "../layouts/base.html" %}
 
 {% block body %}
   {% dnd_area "main", label="Main" %}
@@ -12,7 +12,7 @@
     {# ===== HERO ===== #}
     {% dnd_section full_width=true,
         padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
-      {% dnd_module path="././modules/SR - Hero Spotlight",
+      {% dnd_module path="../../modules/SR - Hero Spotlight",
           eyebrow="Playbook · 40 pages · PDF",
           heading="The 2026 Cloud Modernization Playbook",
           subheading="<p>Architecture patterns, cost benchmarks, and migration runbooks, battle-tested across 100+ engagements.</p>",
@@ -27,7 +27,7 @@
 
     {# ===== STATS, at-a-glance ===== #}
     {% dnd_section padding={ "top": 64, "bottom": 64, "left": 24, "right": 24 } %}
-      {% dnd_module path="././modules/SR - Stats Grid",
+      {% dnd_module path="../../modules/SR - Stats Grid",
           stats=[
             { "stat_value": "40", "suffix": "pp", "stat_label": "Pages of practical guidance" },
             { "stat_value": "10", "suffix": "+", "stat_label": "Reference architectures" },
@@ -39,7 +39,7 @@
 
     {# ===== SPLIT, what's inside ===== #}
     {% dnd_section padding={ "top": 32, "bottom": 64, "left": 24, "right": 24 } %}
-      {% dnd_module path="././modules/SR - Split Feature",
+      {% dnd_module path="../../modules/SR - Split Feature",
           image_side="left",
           eyebrow="What's inside",
           heading="Tools you'll actually open twice",
@@ -58,7 +58,7 @@
 
     {# ===== DOWNLOAD FORM ===== #}
     {% dnd_section padding={ "top": 32, "bottom": 24, "left": 24, "right": 24 } %}
-      {% dnd_module path="././modules/SR - Section Heading",
+      {% dnd_module path="../../modules/SR - Section Heading",
           eyebrow="Get it",
           heading="One quick form, instant download",
           intro="<p>We'll email a link plus add you to our quarterly notes. Unsubscribe in one click.</p>",
@@ -75,14 +75,14 @@
 
     {# ===== TESTIMONIAL ===== #}
     {% dnd_section padding={ "top": 32, "bottom": 64, "left": 24, "right": 24 } %}
-      {% dnd_module path="././modules/SR - Testimonial Carousel",
+      {% dnd_module path="../../modules/SR - Testimonial Carousel",
           autoplay_seconds=0 %}
       {% end_dnd_module %}
     {% end_dnd_section %}
 
     {# ===== RELATED RESOURCES ===== #}
     {% dnd_section padding={ "top": 32, "bottom": 24, "left": 24, "right": 24 } %}
-      {% dnd_module path="././modules/SR - Section Heading",
+      {% dnd_module path="../../modules/SR - Section Heading",
           eyebrow="More like this",
           heading="Other tools from the library",
           alignment="center",
@@ -91,7 +91,7 @@
     {% end_dnd_section %}
 
     {% dnd_section padding={ "top": 16, "bottom": 80, "left": 24, "right": 24 } %}
-      {% dnd_module path="././modules/SR - Service Cards",
+      {% dnd_module path="../../modules/SR - Service Cards",
           columns="3",
           cards=[
             { "icon_text": "📊", "title": "FinOps Cost-Audit Worksheet", "description": "<p>Spreadsheet · forkable · 1 hr</p>", "link_text": "Download", "card_link": { "url": { "href": "/resources/finops-worksheet", "type": "EXTERNAL" } } },
@@ -104,7 +104,7 @@
     {# ===== CTA ===== #}
     {% dnd_section full_width=true,
         padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
-      {% dnd_module path="././modules/SR - CTA Banner",
+      {% dnd_module path="../../modules/SR - CTA Banner",
           heading="Skip the read, talk to a human",
           subheading="30-minute discovery call. We'll bring our notes.",
           cta_text="Book a call",

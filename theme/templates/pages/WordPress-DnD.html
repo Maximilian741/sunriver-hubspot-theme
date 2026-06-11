@@ -2,20 +2,20 @@
   templateType: page
   isAvailableForNewContent: true
   label: SunRiver - WordPress Development (editable)
-  screenshot_path: ././images/template-previews/home.jpg
+  screenshot_path: ../../images/template-previews/home.jpg
 -->
 {#
   Editable (drag-and-drop) version, built from SR-* widget modules. Selectable
   on an existing page and fully editable in the CMS. Same .srh look (child.css).
 #}
-{% extends "./layouts/base.html" %}
+{% extends "../layouts/base.html" %}
 
 {% block body %}
 {% dnd_area "main_content" label="Page content" %}
 
   {% dnd_section padding={ 'top': 0, 'bottom': 0, 'left': 0, 'right': 0 } %}
     {% dnd_module
-      path="././modules/SR - Hero Spotlight",
+      path="../../modules/SR - Hero Spotlight",
       eyebrow="Web Development / WordPress",
       heading="WordPress built clean and kept secure",
       subheading="<p>Custom Gutenberg themes and blocks, plugins written to be maintained instead of abandoned, and a real security and update discipline. WooCommerce when you sell, performance throughout.</p>",
@@ -27,7 +27,7 @@
   {% end_dnd_section %}
 
   {% dnd_section padding={ 'top': 0, 'bottom': 0, 'left': 0, 'right': 0 } %}
-    {% dnd_module path="././modules/SR - Service Cards", section_eyebrow="In scope", section_heading="What we focus on." %}
+    {% dnd_module path="../../modules/SR - Service Cards", section_eyebrow="In scope", section_heading="What we focus on." %}
       {% module_attribute "columns" %}3{% end_module_attribute %}
       {% module_attribute "cards" is_json=True %}
       [
@@ -43,7 +43,7 @@
 
   {% dnd_section padding={ 'top': 0, 'bottom': 0, 'left': 0, 'right': 0 } %}
     {% dnd_module
-      path="././modules/SR - CTA Banner",
+      path="../../modules/SR - CTA Banner",
       heading="Need WordPress built or hardened?",
       subheading="We&rsquo;ll build the custom theme, write plugins that last, lock the site down, and tune it for speed, fixed fee.",
       cta_text="Get a Quick Estimate",

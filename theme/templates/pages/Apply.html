@@ -1,10 +1,10 @@
 <!--
   templateType: page
   label: SR - Job Application (per role)
-  screenshot_path: ././images/template-previews/apply.jpg
+  screenshot_path: ../../images/template-previews/apply.jpg
   isAvailableForNewContent: true
 -->
-{% extends "./layouts/base.html" %}
+{% extends "../layouts/base.html" %}
 
 {% block body %}
   {% dnd_area "main", label="Main" %}
@@ -12,7 +12,7 @@
     {# ===== HERO ===== #}
     {% dnd_section full_width=true,
         padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
-      {% dnd_module path="././modules/SR - Hero Spotlight",
+      {% dnd_module path="../../modules/SR - Hero Spotlight",
           eyebrow="Open role · Remote, North America",
           heading="Senior Cloud Engineer",
           subheading="<p>Lead AWS and Azure engagements alongside three other senior engineers. Ship working systems on weekly cadences.</p>",
@@ -27,7 +27,7 @@
 
     {# ===== ROLE SUMMARY, split ===== #}
     {% dnd_section padding={ "top": 80, "bottom": 64, "left": 24, "right": 24 } %}
-      {% dnd_module path="././modules/SR - Split Feature",
+      {% dnd_module path="../../modules/SR - Split Feature",
           image_side="right",
           eyebrow="The role",
           heading="What you'd actually do, week to week",
@@ -46,7 +46,7 @@
 
     {# ===== WHAT YOU NEED, split ===== #}
     {% dnd_section padding={ "top": 32, "bottom": 64, "left": 24, "right": 24 } %}
-      {% dnd_module path="././modules/SR - Split Feature",
+      {% dnd_module path="../../modules/SR - Split Feature",
           image_side="left",
           eyebrow="What you need",
           heading="Hard requirements, no fluff",
@@ -65,7 +65,7 @@
 
     {# ===== COMP & BENEFITS ===== #}
     {% dnd_section padding={ "top": 32, "bottom": 24, "left": 24, "right": 24 } %}
-      {% dnd_module path="././modules/SR - Section Heading",
+      {% dnd_module path="../../modules/SR - Section Heading",
           eyebrow="Comp & benefits",
           heading="What you'd be paid, and how we work",
           alignment="center",
@@ -74,7 +74,7 @@
     {% end_dnd_section %}
 
     {% dnd_section padding={ "top": 16, "bottom": 64, "left": 24, "right": 24 } %}
-      {% dnd_module path="././modules/SR - Stats Grid",
+      {% dnd_module path="../../modules/SR - Stats Grid",
           stats=[
             { "stat_value": "$210K", "suffix": "–250K", "stat_label": "Base salary" },
             { "stat_value": "20", "suffix": "%", "stat_label": "Profit-share, paid quarterly" },
@@ -86,7 +86,7 @@
 
     {# ===== INTERVIEW PROCESS ===== #}
     {% dnd_section padding={ "top": 32, "bottom": 24, "left": 24, "right": 24 } %}
-      {% dnd_module path="././modules/SR - Section Heading",
+      {% dnd_module path="../../modules/SR - Section Heading",
           eyebrow="The process",
           heading="How we hire, same way we sell",
           intro="<p>Three rounds, two weeks, written offer. We don't drag this out.</p>",
@@ -96,7 +96,7 @@
     {% end_dnd_section %}
 
     {% dnd_section padding={ "top": 16, "bottom": 64, "left": 24, "right": 24 } %}
-      {% dnd_module path="././modules/SR - Process Steps",
+      {% dnd_module path="../../modules/SR - Process Steps",
           layout="horizontal",
           steps=[
             { "title": "Application + resume review", "description": "<p>We respond to every application within 5 business days. If we're a fit, we send the take-home.</p>" },
@@ -109,7 +109,7 @@
 
     {# ===== APPLICATION FORM ===== #}
     {% dnd_section padding={ "top": 32, "bottom": 24, "left": 24, "right": 24 } %}
-      {% dnd_module path="././modules/SR - Section Heading",
+      {% dnd_module path="../../modules/SR - Section Heading",
           eyebrow="Apply",
           heading="Send us your work, not a CV gaps explanation",
           intro="<p>Resume, GitHub or portfolio link, and three sentences on a system you're proud of. That's it.</p>",
@@ -126,7 +126,7 @@
 
     {# ===== TESTIMONIAL, internal ===== #}
     {% dnd_section padding={ "top": 32, "bottom": 64, "left": 24, "right": 24 } %}
-      {% dnd_module path="././modules/SR - Testimonial Carousel",
+      {% dnd_module path="../../modules/SR - Testimonial Carousel",
           autoplay_seconds=0,
           items=[
             { "quote": "<p>Best hiring process I've been through. They paid for the take-home, gave detailed feedback, and the offer letter was honest about everything I asked about, including the parts that aren't perfect.</p>", "name": "Drew M.", "role": "Senior Engineer (joined 2024)" },
@@ -137,7 +137,7 @@
 
     {# ===== FAQ ===== #}
     {% dnd_section padding={ "top": 32, "bottom": 24, "left": 24, "right": 24 } %}
-      {% dnd_module path="././modules/SR - Section Heading",
+      {% dnd_module path="../../modules/SR - Section Heading",
           eyebrow="Common questions",
           heading="Things candidates ask before applying",
           alignment="center",
@@ -146,7 +146,7 @@
     {% end_dnd_section %}
 
     {% dnd_section padding={ "top": 16, "bottom": 80, "left": 24, "right": 24 } %}
-      {% dnd_module path="././modules/SR - FAQ Accordion",
+      {% dnd_module path="../../modules/SR - FAQ Accordion",
           items=[
             { "question": "Do you sponsor visas?", "answer": "<p>Not currently. We're a small team and visa sponsorship needs more legal/HR scaffolding than we have right now. We'd love to revisit this once we're 50+.</p>" },
             { "question": "Can I work part-time or fractional?", "answer": "<p>For client-facing senior roles, we hire full-time. We do bring on fractional advisors for specific practice areas, reach out separately if that fits.</p>" },
@@ -160,7 +160,7 @@
     {# ===== CTA ===== #}
     {% dnd_section full_width=true,
         padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
-      {% dnd_module path="././modules/SR - CTA Banner",
+      {% dnd_module path="../../modules/SR - CTA Banner",
           heading="This isn't quite the right role?",
           subheading="Tell us what you'd want, we hire when the work matches the person, not when there's a req open.",
           cta_text="Send us your story",
