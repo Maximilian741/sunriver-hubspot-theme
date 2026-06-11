@@ -1,0 +1,74 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: SunRiver - About MODEL B (Letter from the founder)
+  screenshot_path: ../../images/template-previews/home.jpg
+-->
+{# About, Model B: one long-form letter from Max in a white sheet, with a pull
+   quote, the heritage woven through prose, and a compact list of commitments. #}
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+<div class="srh">
+
+  {# ===== HERO ===== #}
+  <section class="srh-band">
+    <canvas class="srh-band__canvas" data-srx-shader="smoke-veil" aria-hidden="true"></canvas>
+    <div class="srh-band__inner srx-reveal" style="text-align:center;max-width:920px;">
+      <span class="srh-eyebrow">About SunRiver</span>
+      <h1 class="srh-h1" style="max-width:22ch;margin-inline:auto;">From a gold town, for the long haul.</h1>
+      <p class="srh-lead" style="margin-inline:auto;">A letter from the founder, instead of the usual about-page filler.</p>
+    </div>
+  </section>
+
+  {# ===== THE LETTER ===== #}
+  <section class="srh-sec">
+    <div class="srh-sec__inner" style="max-width:900px;">
+      <div class="srd-sheet srx-reveal">
+        <div class="sr-post">
+          <p>I&rsquo;m Max Casteel. I build and secure software from Helena, Montana, and before you read another word you should know why that matters.</p>
+          <p>Helena exists because four prospectors made a last-chance gold strike in 1864 where Main Street runs now. My family has been working this valley for five generations since, panning placer gravel, pulling shifts underground, raising kids on what the ground gave back. This place is not where I happened to set up a business. It is literally my roots.</p>
+          <p>Mining hands down a particular way of thinking. You assay before you dig, because guessing wastes a season. You keep your word underground, because the people beside you are trusting their lives to it. And when you move on, you leave the workings safer than you found them. Swap the headframe for a code editor and that is exactly how SunRiver runs: I scope before I quote, the number I give you is the number you pay, and every project ends with documentation and accounts in your name so you are never stuck with me.</p>
+          <p>The work itself is modern: cloud infrastructure on AWS, HubSpot and Salesforce builds, accessibility audits against WCAG and Section 508, custom apps and websites, and practical AI where it genuinely earns its keep. I have spent my career doing this for public institutions, nonprofits, and growing businesses, the kind of organizations that get quoted big-firm prices for work one careful senior engineer can do better.</p>
+          <p>That is the whole company, by the way. Me, doing the engineering personally, plus two cats with impressive job titles handling morale and night security. Small is the point: you talk to the person who does the work, and the quality has one name on it.</p>
+          <p class="srh-founder__sign" style="margin-top:1.6rem;">&mdash; Max Casteel, Founder &middot; SunRiver Consulting &middot; Helena, MT</p>
+        </div>
+      </div>
+
+      <p class="sr-pull srx-reveal">You assay before you dig. <b>We scope before we quote.</b></p>
+
+      <div class="srd-sheet srx-reveal">
+        <h2 style="margin:0 0 14px;font-family:var(--head,Poppins,sans-serif);font-size:clamp(1.3rem,2.6vw,1.7rem);color:#0c2114;">What that means for you, in writing</h2>
+        <ul class="srh-list" style="--paper:#f7f8f7;">
+          <li><a href="/our-team-sunriver-consulting" style="color:inherit;font-weight:600;">Senior-only</a> &middot; the person who scopes your project builds it</li>
+          <li><a href="/pricing" style="color:inherit;font-weight:600;">Fixed-fee</a> &middot; a written scope and one number before we start</li>
+          <li><a href="/compliance-audits-sunriver-consulting" style="color:inherit;font-weight:600;">Accessible &amp; secure</a> &middot; WCAG, 508, and security from day one</li>
+          <li><a href="/quote-sunriver-consulting" style="color:inherit;font-weight:600;">Yours to keep</a> &middot; accounts, code, and docs under your name</li>
+          <li><a href="/contact" style="color:inherit;font-weight:600;">Montana-based</a> &middot; Helena roots, serving teams nationwide</li>
+          <li><a href="/pricing" style="color:inherit;font-weight:600;">Fair pricing</a> &middot; a fraction of big-firm rates for the same senior work</li>
+        </ul>
+      </div>
+
+      <div class="srh-stats srx-reveal" style="margin-top:clamp(26px,4vw,40px);justify-content:center;">
+        <div class="srh-stat"><div class="srh-stat__n">1864</div><div class="srh-stat__k">The gulch that started it</div></div>
+        <div class="srh-stat"><div class="srh-stat__n">5</div><div class="srh-stat__k">Generations in the valley</div></div>
+        <div class="srh-stat"><div class="srh-stat__n">3</div><div class="srh-stat__k">Of us (two are cats)</div></div>
+      </div>
+    </div>
+  </section>
+
+  {# ===== CTA ===== #}
+  <section class="srh-band srh-band--rev srh-cta">
+    <canvas class="srh-band__canvas" data-srx-shader="smoke-veil" aria-hidden="true"></canvas>
+    <div class="srh-band__inner srx-reveal" style="text-align:center;">
+      <h2 class="srh-h2">Write back.</h2>
+      <p class="srh-lead" style="margin-inline:auto;">Tell me what you are building and I will read it personally, usually the same day.</p>
+      <div class="srh-hero__ctas" style="justify-content:center;">
+        <a class="srh-btn srh-btn--primary" href="/contact">Contact us &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+  {% dnd_area "flex" label="Optional extra content" %}{% end_dnd_area %}
+{% endblock body %}

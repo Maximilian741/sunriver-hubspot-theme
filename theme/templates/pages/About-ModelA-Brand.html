@@ -1,0 +1,100 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: SunRiver - About MODEL A (Five Generations timeline)
+  screenshot_path: ../../images/template-previews/home.jpg
+-->
+{# About, Model A: heritage timeline. The family's five generations of Helena
+   gold mining told as a gold-vein timeline that lands on SunRiver today. #}
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+<div class="srh">
+
+  {# ===== HERO ===== #}
+  <section class="srh-band">
+    <canvas class="srh-band__canvas" data-srx-shader="smoke-veil" aria-hidden="true"></canvas>
+    <div class="srh-band__inner srx-reveal" style="text-align:center;max-width:940px;">
+      <span class="srh-eyebrow">Our story</span>
+      <h1 class="srh-h1" style="max-width:22ch;margin-inline:auto;">Five generations in this ground.</h1>
+      <p class="srh-lead" style="margin-inline:auto;">SunRiver Consulting is a Helena, Montana company in the most literal sense. My family has worked this valley since the gold days, and the way we build software comes straight out of that.</p>
+    </div>
+  </section>
+
+  {# ===== TIMELINE ===== #}
+  <section class="srh-sec">
+    <div class="srh-sec__inner">
+      <p class="sr-pull srx-reveal" style="margin-bottom:clamp(30px,5vw,50px);">The claim changed. <b>The craft is the same.</b></p>
+      <div class="sr-vein">
+        <div class="sr-vein__item srx-reveal">
+          <span class="sr-vein__dot" aria-hidden="true"></span>
+          <span class="sr-vein__era">1864 &middot; Last Chance Gulch</span>
+          <h3>Helena begins as a gold camp</h3>
+          <p>Four prospectors made their last-chance strike where Main Street runs today. The town that grew up around that gulch is the one we still call home.</p>
+        </div>
+        <div class="sr-vein__item srx-reveal">
+          <span class="sr-vein__dot" aria-hidden="true"></span>
+          <span class="sr-vein__era">Five generations &middot; The claim</span>
+          <h3>My family digs in</h3>
+          <p>Casteels have worked this ground for five generations, panning placer gravel and pulling shifts underground. Mining teaches you fast: read the ground honestly, respect the people beside you, and never sell ore you have not assayed.</p>
+        </div>
+        <div class="sr-vein__item srx-reveal">
+          <span class="sr-vein__dot" aria-hidden="true"></span>
+          <span class="sr-vein__era">The lesson &middot; Honest assays</span>
+          <h3>What the mines taught us</h3>
+          <p>An assay tells you exactly what the rock is worth before anyone spends a season chasing it. That is how we quote software: scope first, one honest number, then the work.</p>
+        </div>
+        <div class="sr-vein__item srx-reveal">
+          <span class="sr-vein__dot" aria-hidden="true"></span>
+          <span class="sr-vein__era">Today &middot; SunRiver</span>
+          <h3>Same valley, new vein</h3>
+          <p>The gold in this valley now is the small businesses, schools, and agencies that keep it running. SunRiver builds and secures the systems they rely on, with the senior care of someone whose name is on the claim.</p>
+        </div>
+        <div class="sr-vein__item srx-reveal">
+          <span class="sr-vein__dot" aria-hidden="true"></span>
+          <span class="sr-vein__era">Every project &middot; The handoff</span>
+          <h3>Leave the claim better</h3>
+          <p>Old mining rule: leave the workings safer than you found them. Every engagement ends with documentation, training, and systems your own team can run.</p>
+        </div>
+      </div>
+      <div class="srh-stats srx-reveal" style="margin-top:clamp(40px,6vw,64px);justify-content:center;">
+        <div class="srh-stat"><div class="srh-stat__n">5</div><div class="srh-stat__k">Generations in Helena</div></div>
+        <div class="srh-stat"><div class="srh-stat__n">1</div><div class="srh-stat__k">Senior engineer on every job</div></div>
+        <div class="srh-stat"><div class="srh-stat__n">Fixed</div><div class="srh-stat__k">Fee, assayed up front</div></div>
+      </div>
+    </div>
+  </section>
+
+  {# ===== PROMISES ===== #}
+  <section class="srh-sec">
+    <div class="srh-sec__inner">
+      <div class="srx-reveal" style="text-align:center;max-width:760px;margin:0 auto;">
+        <span class="srh-eyebrow" style="color:var(--river);">How we work</span>
+        <h2 class="srh-h2">Six promises, in writing.</h2>
+      </div>
+      <div class="srh-cards" style="margin-top:2.4rem;">
+        <a class="srh-card" href="/our-team-sunriver-consulting"><span class="srh-card__logo"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 7a4 4 0 0 1-5.2 4.8L5 16.6 7.4 19l4.8-4.8A4 4 0 0 0 17 9l-2.2 2.2-2-2L15 7z"/></svg></span><h3 class="srh-card__title">Senior-only</h3><p class="srh-card__desc">The person who scopes your project is the person who builds it.</p></a>
+        <a class="srh-card" href="/pricing"><span class="srh-card__logo"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 18a8 8 0 1 1 14 0"/><path d="M12 12l3.6-2.4"/><circle cx="12" cy="12" r="1.3"/></svg></span><h3 class="srh-card__title">Fixed-fee</h3><p class="srh-card__desc">A written scope and one number before we start.</p></a>
+        <a class="srh-card" href="/compliance-audits-sunriver-consulting"><span class="srh-card__logo"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 4.4-3 7.6-7 9-4-1.4-7-4.6-7-9V6l7-3z"/><path d="M9 12l2 2 4-4.5"/></svg></span><h3 class="srh-card__title">Accessible &amp; secure</h3><p class="srh-card__desc">WCAG, 508, and security built in from day one.</p></a>
+        <a class="srh-card" href="/quote-sunriver-consulting"><span class="srh-card__logo"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5 5-2z"/></svg></span><h3 class="srh-card__title">Yours to keep</h3><p class="srh-card__desc">Accounts, code, and docs all live under your name from day one.</p></a>
+        <a class="srh-card" href="/contact"><span class="srh-card__logo"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.5 7-11a7 7 0 1 0-14 0c0 4.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span><h3 class="srh-card__title">Montana-based</h3><p class="srh-card__desc">Helena roots, five generations deep, serving teams nationwide.</p></a>
+        <a class="srh-card" href="/pricing"><span class="srh-card__logo"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l1.8 6.2L20 11l-6.2 1.8L12 19l-1.8-6.2L4 11l6.2-1.8z"/></svg></span><h3 class="srh-card__title">Fair pricing</h3><p class="srh-card__desc">A fraction of what the big logos charge for the same senior work.</p></a>
+      </div>
+    </div>
+  </section>
+
+  {# ===== CTA ===== #}
+  <section class="srh-band srh-band--rev srh-cta">
+    <canvas class="srh-band__canvas" data-srx-shader="smoke-veil" aria-hidden="true"></canvas>
+    <div class="srh-band__inner srx-reveal" style="text-align:center;">
+      <h2 class="srh-h2">Want the assay on your project?</h2>
+      <p class="srh-lead" style="margin-inline:auto;">Tell us the goal and we will come back with a written scope and one honest number.</p>
+      <div class="srh-hero__ctas" style="justify-content:center;">
+        <a class="srh-btn srh-btn--primary" href="/quote-sunriver-consulting">Get a Quick Estimate &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+  {% dnd_area "flex" label="Optional extra content" %}{% end_dnd_area %}
+{% endblock body %}

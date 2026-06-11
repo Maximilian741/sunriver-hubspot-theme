@@ -1,0 +1,78 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: SunRiver - About MODEL C (Chapters: Roots / Name / Work / Standard)
+  screenshot_path: ../../images/template-previews/home.jpg
+-->
+{# About, Model C: four short chapters as alternating white sheets on the smoke.
+   Roots (mining family), the Name (why SunRiver), the Work, the Standard. #}
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+<div class="srh">
+
+  {# ===== HERO ===== #}
+  <section class="srh-band">
+    <canvas class="srh-band__canvas" data-srx-shader="smoke-veil" aria-hidden="true"></canvas>
+    <div class="srh-band__inner srx-reveal" style="text-align:center;max-width:940px;">
+      <span class="srh-eyebrow">About SunRiver</span>
+      <h1 class="srh-h1" style="max-width:20ch;margin-inline:auto;">Rooted in Helena. Built for now.</h1>
+      <p class="srh-lead" style="margin-inline:auto;">Four short chapters on who you are actually hiring: a fifth-generation Helena family, a name pulled out of the river, and one senior engineer who treats your project like a claim with his name on it.</p>
+    </div>
+  </section>
+
+  {# ===== CHAPTERS ===== #}
+  <section class="srh-sec">
+    <div class="srh-sec__inner" style="max-width:1040px;">
+
+      <div class="srd-sheet srx-reveal" style="max-width:760px;margin-right:auto;">
+        <span class="sr-vein__era" style="color:#b9802a;text-shadow:none;">Chapter 1 &middot; The roots</span>
+        <h2 style="margin:6px 0 12px;font-family:var(--head,Poppins,sans-serif);font-size:clamp(1.4rem,3vw,1.9rem);color:#0c2114;">Five generations of gold.</h2>
+        <div class="sr-post">
+          <p>Helena started as a last-chance gold camp in 1864, and my family has been working this valley for five generations since: placer pans in the creeks, shifts underground, kids raised on what the ground gave back. When I say SunRiver is a Helena company, I mean the roots go down a hundred-some years.</p>
+        </div>
+      </div>
+
+      <div class="srd-sheet srx-reveal" style="max-width:760px;margin-left:auto;">
+        <span class="sr-vein__era" style="color:#b9802a;text-shadow:none;">Chapter 2 &middot; The name</span>
+        <h2 style="margin:6px 0 12px;font-family:var(--head,Poppins,sans-serif);font-size:clamp(1.4rem,3vw,1.9rem);color:#0c2114;">Why &ldquo;SunRiver.&rdquo;</h2>
+        <div class="sr-post">
+          <p>Gold settles where the river slows, and you find it when the sun hits the water right. That picture named the company and picked the colors you are looking at: the green of the river, the gold of the strike. Finding the valuable thing in all the gravel is the actual job, in mining and in software.</p>
+        </div>
+      </div>
+
+      <div class="srd-sheet srx-reveal" style="max-width:760px;margin-right:auto;">
+        <span class="sr-vein__era" style="color:#b9802a;text-shadow:none;">Chapter 3 &middot; The work</span>
+        <h2 style="margin:6px 0 12px;font-family:var(--head,Poppins,sans-serif);font-size:clamp(1.4rem,3vw,1.9rem);color:#0c2114;">What we do all day.</h2>
+        <div class="sr-post">
+          <p>Cloud and platform work on <a href="/business-solutions-sunriver-consulting">AWS, HubSpot, Salesforce, and Microsoft 365</a>. <a href="/compliance-audits-sunriver-consulting">Accessibility and security audits</a> against WCAG and Section 508. <a href="/app-development-sunriver-consulting">Apps</a> and <a href="/web-development-sunriver-consulting">websites</a> people actually enjoy using, <a href="/database-solutions-sunriver-consulting">databases</a> that tell the truth, and <a href="/ai-solutions-sunriver-consulting">practical AI</a> where it earns its keep. Mostly for small businesses, schools, nonprofits, and public agencies that deserve senior work at a sane price.</p>
+        </div>
+      </div>
+
+      <div class="srd-sheet srx-reveal" style="max-width:760px;margin-left:auto;">
+        <span class="sr-vein__era" style="color:#b9802a;text-shadow:none;">Chapter 4 &middot; The standard</span>
+        <h2 style="margin:6px 0 12px;font-family:var(--head,Poppins,sans-serif);font-size:clamp(1.4rem,3vw,1.9rem);color:#0c2114;">Mining rules, kept.</h2>
+        <div class="sr-post">
+          <p>Assay before you dig: every project starts with a written scope and <a href="/pricing">one fixed number</a>. Keep your word underground: the senior engineer who quotes the work is the one <a href="/our-team-sunriver-consulting">who does it</a>. Leave the claim better than you found it: you end up with documentation, training, and every account in your own name. And the tariff is honest, a fraction of what the big logos charge.</p>
+        </div>
+      </div>
+
+      <p class="sr-pull srx-reveal" style="margin-top:clamp(20px,3vw,34px);">Gold settles where the river slows. <b>So does good work.</b></p>
+    </div>
+  </section>
+
+  {# ===== CTA ===== #}
+  <section class="srh-band srh-band--rev srh-cta">
+    <canvas class="srh-band__canvas" data-srx-shader="smoke-veil" aria-hidden="true"></canvas>
+    <div class="srh-band__inner srx-reveal" style="text-align:center;">
+      <h2 class="srh-h2">Chapter five is your project.</h2>
+      <p class="srh-lead" style="margin-inline:auto;">Tell us the goal and a fifth-generation Helena engineer will scope it personally.</p>
+      <div class="srh-hero__ctas" style="justify-content:center;">
+        <a class="srh-btn srh-btn--primary" href="/quote-sunriver-consulting">Get a Quick Estimate &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+  {% dnd_area "flex" label="Optional extra content" %}{% end_dnd_area %}
+{% endblock body %}
