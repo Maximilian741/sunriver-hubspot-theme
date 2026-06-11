@@ -2,23 +2,23 @@
   templateType: page
   isAvailableForNewContent: true
   label: SunRiver - App Development (editable)
-  screenshot_path: ../../images/template-previews/home.jpg
+  screenshot_path: ././images/template-previews/home.jpg
 -->
 {#
   Editable (drag-and-drop) version, built from SR-* widget modules. Selectable
   on an existing page and fully editable in the CMS. Same .srh look (child.css).
 #}
-{% extends "../layouts/base.html" %}
+{% extends "./layouts/base.html" %}
 
 {% block body %}
 {% dnd_area "main_content" label="Page content" %}
 
   {% dnd_section padding={ 'top': 0, 'bottom': 0, 'left': 0, 'right': 0 } %}
     {% dnd_module
-      path="../../modules/SR - Hero Spotlight",
+      path="././modules/SR - Hero Spotlight",
       eyebrow="App Development",
       heading="Apps built to ship, not to demo",
-      subheading="<p>We build native and cross-platform apps for Android, iOS, desktop, and the web, signed, store-ready, and accessible from the first commit. Senior engineers only, fixed fee, no offshore handoff.</p>",
+      subheading="<p>We build native and cross-platform apps for Android, iOS, desktop, and the web, signed, store-ready, and accessible from the first commit. Senior engineers only, fixed fee.</p>",
       primary_cta_text="Get a Quick Estimate",
       primary_cta_url={ "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null },
       secondary_cta_text="Schedule a Consultation",
@@ -27,7 +27,7 @@
   {% end_dnd_section %}
 
   {% dnd_section padding={ 'top': 0, 'bottom': 0, 'left': 0, 'right': 0 } %}
-    {% dnd_module path="../../modules/SR - Service Cards", section_eyebrow="Explore", section_heading="What we do." %}
+    {% dnd_module path="././modules/SR - Service Cards", section_eyebrow="Explore", section_heading="What we do." %}
       {% module_attribute "columns" %}3{% end_module_attribute %}
       {% module_attribute "cards" is_json=True %}
       [
@@ -42,7 +42,7 @@
 
   {% dnd_section padding={ 'top': 0, 'bottom': 0, 'left': 0, 'right': 0 } %}
     {% dnd_module
-      path="../../modules/SR - CTA Banner",
+      path="././modules/SR - CTA Banner",
       heading="Have an app to build or rescue?",
       subheading="Tell us the platforms, the deadline, and what hurts today. We&rsquo;ll scope a fixed fee and tell you honestly what we&rsquo;d build first.",
       cta_text="Get a Quick Estimate",

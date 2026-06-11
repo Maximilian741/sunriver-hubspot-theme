@@ -4,7 +4,7 @@
   label: SunRiver - Get a Quote
 -->
 
-{% extends "../layouts/base.html" %}
+{% extends "./layouts/base.html" %}
 
 {% block body %}
 
@@ -12,10 +12,10 @@
 
     {% dnd_section %}
       {% dnd_module
-        path="../../modules/SR - Hero Spotlight",
+        path="././modules/SR - Hero Spotlight",
         eyebrow="Get a Quote",
         heading="Tell us what you're trying to do",
-        subheading="<p>Quick estimates within a week. No commitment, no sales push, just a clear scope and a fair number.</p>",
+        subheading="<p>Quick estimates within a week. No commitment, just a clear scope and a fair number.</p>",
         primary_cta_text="Schedule a Consultation",
         primary_cta_url={"url": {"href": "/schedule-a-consultation-sunriver-consulting", "type": "EXTERNAL"}, "open_in_new_tab": false},
         secondary_cta_text="Contact us",
@@ -28,7 +28,7 @@
 
     {% dnd_section %}
       {% dnd_module
-        path="../../modules/SR - Section Heading",
+        path="././modules/SR - Section Heading",
         eyebrow="How it works",
         heading="From request to estimate in three steps",
         intro="<p>Most quotes ship within five business days.</p>",
@@ -40,7 +40,7 @@
 
     {% dnd_section %}
       {% dnd_module
-        path="../../modules/SR - Process Steps",
+        path="././modules/SR - Process Steps",
         layout="horizontal",
         steps=[
           {"title": "Submit", "description": "<p>Tell us about your project below, or call us directly at (406) 616-2614.</p>"},
@@ -53,7 +53,7 @@
 
     {% dnd_section %}
       {% dnd_module
-        path="../../modules/SR - Section Heading",
+        path="././modules/SR - Section Heading",
         eyebrow="Quote form",
         heading="Tell us about your project",
         intro="<p>Add your HubSpot project intake form below from the page editor.</p>",
@@ -64,7 +64,7 @@
 
     {% dnd_section %}
       {% dnd_module
-        path="../../modules/SR - Split Feature",
+        path="././modules/SR - Split Feature",
         image_side="right",
         eyebrow="What's included",
         heading="Every quote comes with a real scope",
@@ -82,7 +82,7 @@
 
     {% dnd_section %}
       {% dnd_module
-        path="../../modules/SR - CTA Banner",
+        path="././modules/SR - CTA Banner",
         heading="Prefer to talk first?",
         subheading="Book a free 30-minute consultation and we'll scope it together.",
         cta_text="Schedule a Consultation",

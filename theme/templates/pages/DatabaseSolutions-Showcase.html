@@ -3,7 +3,7 @@
   isAvailableForNewContent: true
   label: SunRiver - Database Solutions (showcase)
 -->
-{% extends "../layouts/base.html" %}
+{% extends "./layouts/base.html" %}
 {% block body %}
 <div class="srx">
 
@@ -109,7 +109,7 @@
       <details class="srx-reveal"><summary>Which database should I use?</summary><div class="a">It depends on the shape of your data and your access patterns. Most business applications are best served by a solid relational engine like PostgreSQL. High-volume key-value or flexible-document needs may point to MongoDB, DynamoDB, or Redis, and heavy analytics often belong in a columnar store like BigQuery, Redshift, or ClickHouse. We&rsquo;ll recommend based on your workload, not a trend, and we&rsquo;re comfortable mixing engines when that&rsquo;s genuinely the right answer.</div></details>
       <details class="srx-reveal"><summary>Can you migrate with zero, or near-zero, downtime?</summary><div class="a">In most cases, yes. We use techniques like replication, dual-writes, and staged cutovers so the new system catches up to the old one live, then we flip traffic during a brief, planned window. We always have a tested rollback ready. For some legacy systems a short maintenance window is the safer call, we&rsquo;ll tell you which applies to you rather than promise magic.</div></details>
       <details class="srx-reveal"><summary>My database is slow. Can you fix it?</summary><div class="a">Usually, yes, and often faster than people expect. We profile the actual queries hitting your database, find the missing indexes and the expensive patterns, and address the root cause rather than throwing hardware at the symptom. Where the schema itself is fighting you, we&rsquo;ll lay out the options and the trade-offs before changing anything.</div></details>
-      <details class="srx-reveal"><summary>Do you offer ongoing DBA support?</summary><div class="a">Yes. Plenty of teams don&rsquo;t need a full-time DBA but can&rsquo;t afford to ignore the database either. We provide ongoing administration, backups, patching, monitoring, and tuning, so you have senior coverage without a senior headcount. And it&rsquo;s the same engineers throughout, not a rotating queue.</div></details>
+      <details class="srx-reveal"><summary>Do you offer ongoing DBA support?</summary><div class="a">Yes. Plenty of teams don&rsquo;t need a full-time DBA but can&rsquo;t afford to ignore the database either. We provide ongoing administration, backups, patching, monitoring, and tuning, so you have senior coverage without a senior headcount. And it&rsquo;s the same engineers throughout.</div></details>
     </div>
   </section>
 

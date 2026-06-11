@@ -1,10 +1,10 @@
 <!--
   templateType: page
   label: SR - Webinars & Events
-  screenshot_path: ../../images/template-previews/webinars.jpg
+  screenshot_path: ././images/template-previews/webinars.jpg
   isAvailableForNewContent: true
 -->
-{% extends "../layouts/base.html" %}
+{% extends "./layouts/base.html" %}
 
 {% block body %}
   {% dnd_area "main", label="Main" %}
@@ -12,7 +12,7 @@
     {# ===== HERO ===== #}
     {% dnd_section full_width=true,
         padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
-      {% dnd_module path="../../modules/SR - Hero Spotlight",
+      {% dnd_module path="././modules/SR - Hero Spotlight",
           eyebrow="Live & on demand",
           heading="Workshops, webinars, and the occasional fireside",
           subheading="<p>Free, tactical sessions with the senior team. Bring questions, we don't read scripts.</p>",
@@ -27,7 +27,7 @@
 
     {# ===== UPCOMING, featured split ===== #}
     {% dnd_section padding={ "top": 80, "bottom": 32, "left": 24, "right": 24 } %}
-      {% dnd_module path="../../modules/SR - Section Heading",
+      {% dnd_module path="././modules/SR - Section Heading",
           eyebrow="Up next",
           heading="The next session",
           alignment="center",
@@ -36,7 +36,7 @@
     {% end_dnd_section %}
 
     {% dnd_section padding={ "top": 16, "bottom": 64, "left": 24, "right": 24 } %}
-      {% dnd_module path="../../modules/SR - Split Feature",
+      {% dnd_module path="././modules/SR - Split Feature",
           image_side="right",
           eyebrow="Live workshop · 60 min · free",
           heading="The Cloud Migration War Room",
@@ -54,7 +54,7 @@
 
     {# ===== UPCOMING LIST ===== #}
     {% dnd_section padding={ "top": 32, "bottom": 24, "left": 24, "right": 24 } %}
-      {% dnd_module path="../../modules/SR - Section Heading",
+      {% dnd_module path="././modules/SR - Section Heading",
           eyebrow="Upcoming sessions",
           heading="The full calendar",
           alignment="center",
@@ -63,7 +63,7 @@
     {% end_dnd_section %}
 
     {% dnd_section padding={ "top": 16, "bottom": 64, "left": 24, "right": 24 } %}
-      {% dnd_module path="../../modules/SR - Service Cards",
+      {% dnd_module path="././modules/SR - Service Cards",
           columns="3",
           cards=[
             { "icon_text": "🎙️", "title": "Cloud Migration War Room", "description": "<p>Jun 19 · Workshop · 60 min</p>", "link_text": "Register", "card_link": { "url": { "href": "/webinars/cloud-war-room", "type": "EXTERNAL" } } },
@@ -75,17 +75,17 @@
 
     {# ===== ARCHIVE ===== #}
     {% dnd_section padding={ "top": 32, "bottom": 24, "left": 24, "right": 24 } %}
-      {% dnd_module path="../../modules/SR - Section Heading",
+      {% dnd_module path="././modules/SR - Section Heading",
           eyebrow="On demand",
           heading="The archive",
-          intro="<p>Couldn't make it live? The recordings are here, full sessions, no email gate.</p>",
+          intro="<p>Couldn't make it live? The recordings are here, full sessions.</p>",
           alignment="center",
           show_accent=true %}
       {% end_dnd_module %}
     {% end_dnd_section %}
 
     {% dnd_section padding={ "top": 16, "bottom": 64, "left": 24, "right": 24 } %}
-      {% dnd_module path="../../modules/SR - Service Cards",
+      {% dnd_module path="././modules/SR - Service Cards",
           columns="3",
           cards=[
             { "icon_text": "▶️", "title": "Cutting Cloud Spend 40%", "description": "<p>FinOps walkthrough · 50 min</p>", "link_text": "Watch", "card_link": { "url": { "href": "/webinars/archive/finops", "type": "EXTERNAL" } } },
@@ -101,7 +101,7 @@
     {# ===== CTA ===== #}
     {% dnd_section full_width=true,
         padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
-      {% dnd_module path="../../modules/SR - CTA Banner",
+      {% dnd_module path="././modules/SR - CTA Banner",
           heading="Want a private session for your team?",
           subheading="We do custom workshops, half-day or full-day, for orgs serious about getting unstuck.",
           cta_text="Book a private session",

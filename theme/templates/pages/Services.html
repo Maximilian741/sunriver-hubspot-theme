@@ -1,10 +1,10 @@
 <!--
   templateType: page
   label: SR - Services Overview
-  screenshot_path: ../../images/template-previews/services.jpg
+  screenshot_path: ././images/template-previews/services.jpg
   isAvailableForNewContent: true
 -->
-{% extends "../layouts/base.html" %}
+{% extends "./layouts/base.html" %}
 
 {% block body %}
   {% dnd_area "main", label="Main" %}
@@ -12,7 +12,7 @@
     {# ===== HERO ===== #}
     {% dnd_section full_width=true,
         padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
-      {% dnd_module path="../../modules/SR - Hero Spotlight",
+      {% dnd_module path="././modules/SR - Hero Spotlight",
           eyebrow="What we do",
           heading="Solutions that move your business forward",
           subheading="<p>Cloud, security, and CMS expertise, engineered for teams who want to ship faster without breaking what works.</p>",
@@ -27,7 +27,7 @@
 
     {# ===== SECTION HEADING ===== #}
     {% dnd_section padding={ "top": 80, "bottom": 24, "left": 24, "right": 24 } %}
-      {% dnd_module path="../../modules/SR - Section Heading",
+      {% dnd_module path="././modules/SR - Section Heading",
           eyebrow="Capabilities",
           heading="Built around the work you actually need",
           intro="<p>Pick the practice that fits the moment. We integrate cleanly with your existing stack and team.</p>",
@@ -38,14 +38,14 @@
 
     {# ===== SERVICE CARDS ===== #}
     {% dnd_section padding={ "top": 16, "bottom": 80, "left": 24, "right": 24 } %}
-      {% dnd_module path="../../modules/SR - Service Cards",
+      {% dnd_module path="././modules/SR - Service Cards",
           columns="3" %}
       {% end_dnd_module %}
     {% end_dnd_section %}
 
     {# ===== PROCESS ===== #}
     {% dnd_section padding={ "top": 80, "bottom": 24, "left": 24, "right": 24 } %}
-      {% dnd_module path="../../modules/SR - Section Heading",
+      {% dnd_module path="././modules/SR - Section Heading",
           eyebrow="How we work",
           heading="A predictable path from discovery to scale",
           intro="<p>Weekly milestones, no surprises, and a working system at every step.</p>",
@@ -55,29 +55,29 @@
     {% end_dnd_section %}
 
     {% dnd_section padding={ "top": 16, "bottom": 80, "left": 24, "right": 24 } %}
-      {% dnd_module path="../../modules/SR - Process Steps",
+      {% dnd_module path="././modules/SR - Process Steps",
           layout="horizontal" %}
       {% end_dnd_module %}
     {% end_dnd_section %}
 
     {# ===== STATS ===== #}
     {% dnd_section padding={ "top": 64, "bottom": 64, "left": 24, "right": 24 } %}
-      {% dnd_module path="../../modules/SR - Stats Grid" %}
+      {% dnd_module path="././modules/SR - Stats Grid" %}
       {% end_dnd_module %}
     {% end_dnd_section %}
 
     {# ===== TESTIMONIAL ===== #}
     {% dnd_section padding={ "top": 64, "bottom": 80, "left": 24, "right": 24 } %}
-      {% dnd_module path="../../modules/SR - Testimonial Carousel" %}
+      {% dnd_module path="././modules/SR - Testimonial Carousel" %}
       {% end_dnd_module %}
     {% end_dnd_section %}
 
     {# ===== CTA ===== #}
     {% dnd_section full_width=true,
         padding={ "top": 0, "bottom": 0, "left": 0, "right": 0 } %}
-      {% dnd_module path="../../modules/SR - CTA Banner",
+      {% dnd_module path="././modules/SR - CTA Banner",
           heading="Ready to scope your next engagement?",
-          subheading="A 30-minute discovery call, no slides, no pressure.",
+          subheading="A 30-minute discovery call, no pressure.",
           cta_text="Book a discovery call",
           cta_url={ "url": { "href": "/get-a-quote", "type": "EXTERNAL" } },
           style="gradient" %}

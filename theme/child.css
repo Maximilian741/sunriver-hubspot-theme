@@ -786,7 +786,6 @@
   animation: sr-shimmer 4.2s infinite alternate;
   animation-play-state: paused;
   transition: opacity .85s ease;
-  will-change: transform, opacity;
 }
 .srh-card:hover::after, .sr-blogcard:hover::after {
   opacity: 1;
@@ -795,9 +794,9 @@
 }
 /* per-segment beziers: creep off the edge -> hard S-curve whoosh -> settle (exact mirror of the creep) */
 @keyframes sr-shimmer {
-  0%   { transform: translateX(-50%) rotate(18deg); animation-timing-function: cubic-bezier(.6,0,.85,.45); }
-  12%  { transform: translateX(-38%) rotate(18deg); animation-timing-function: cubic-bezier(.8,0,.2,1); }
-  88%  { transform: translateX(138%) rotate(18deg); animation-timing-function: cubic-bezier(.15,.55,.4,1); }
+  0%   { transform: translateX(-50%) rotate(18deg); animation-timing-function: cubic-bezier(.55,.05,.7,.4); }
+  8%   { transform: translateX(-36%) rotate(18deg); animation-timing-function: cubic-bezier(.75,0,.25,1); }
+  92%  { transform: translateX(136%) rotate(18deg); animation-timing-function: cubic-bezier(.3,.6,.45,.95); }
   100% { transform: translateX(150%) rotate(18deg); }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -839,6 +838,8 @@
 .srh .srh-sec .srh-stat__n { color:#fff; }
 .srh .srh-sec .srh-stat__k { color:#cdeadb; }
 .srh .srh-sec .srd-sectit { color:#fff; }
+.srd-end__alt { margin:12px 0 0; font-size:.92rem; }
+.srd-end__alt a { color:#FBC34A; font-weight:700; }
 /* light helper text + link that reads on the gradient */
 .srh-onsmoke { color:#dff2e8 !important; }
 .srh-onsmoke a { color:#FBC34A !important; font-weight:700; }

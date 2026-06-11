@@ -143,11 +143,14 @@
 
     var reveals = [].slice.call(document.querySelectorAll('.srx-reveal:not(.srx-in)'));
     if (reveals.length) {
+      // once revealed, drop the stagger delay so hover/scroll transitions
+      // respond instantly instead of waiting out the leftover delay (mobile jank)
+      var unstagger = function (el) { setTimeout(function () { el.style.transitionDelay = ''; }, 950); };
       if (reduce || !('IntersectionObserver' in window)) {
-        reveals.forEach(function (el) { el.classList.add('srx-in'); });
+        reveals.forEach(function (el) { el.classList.add('srx-in'); el.style.transitionDelay = ''; });
       } else {
         var ro = new IntersectionObserver(function (es) {
-          es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('srx-in'); ro.unobserve(e.target); } });
+          es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('srx-in'); ro.unobserve(e.target); unstagger(e.target); } });
         }, { threshold: 0.15 });
         reveals.forEach(function (el) { ro.observe(el); });
       }

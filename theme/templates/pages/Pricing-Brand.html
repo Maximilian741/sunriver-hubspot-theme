@@ -2,14 +2,14 @@
   templateType: page
   isAvailableForNewContent: true
   label: SunRiver - Pricing
-  screenshot_path: ../../images/template-previews/home.jpg
+  screenshot_path: ././images/template-previews/home.jpg
 -->
 {#
   .srh brand page with an interactive estimate calculator (data-estimator,
   wired in child.js). Green->gold gradient + smoke veil. Content-only; does not
   touch the live Home page.
 #}
-{% extends "../layouts/base.html" %}
+{% extends "./layouts/base.html" %}
 
 {% block body %}
 <div class="srh">
@@ -151,7 +151,7 @@
         <h2 class="srh-h2">Pricing questions.</h2>
       </div>
       <div class="srh-faq srx-reveal">
-        <div class="srh-faq__item"><button class="srh-faq__q" type="button">How does fixed-fee actually work?</button><div class="srh-faq__a"><div>We scope the work in writing, then quote one number for a defined engagement period. If the scope doesn&rsquo;t change, neither does the price, no hourly meter running in the background. When the engagement ends, the work is yours; ongoing help is a separate care plan, never an assumption.</div></div></div>
+        <div class="srh-faq__item"><button class="srh-faq__q" type="button">How does fixed-fee actually work?</button><div class="srh-faq__a"><div>We scope the work in writing, then quote one number for a defined engagement period. If the scope doesn&rsquo;t change, neither does the price. When the engagement ends, the work is yours; ongoing help is a separate care plan you choose.</div></div></div>
         <div class="srh-faq__item"><button class="srh-faq__q" type="button">What about domains, hosting, and software subscriptions?</button><div class="srh-faq__a"><div>Those are yours, on purpose. We set up your domain, hosting, and any licenses (HubSpot, cloud, etc.) in accounts you own, billed directly to you, typically a few hundred dollars a year depending on the stack. You&rsquo;re never locked behind our accounts, and our fixed fee never hides recurring costs. Bonus: as a HubSpot Solutions Partner we can secure an additional 15% off HubSpot subscriptions.</div></div></div>
         <div class="srh-faq__item"><button class="srh-faq__q" type="button">What if I don&rsquo;t know my full requirements yet?</button><div class="srh-faq__a"><div>Start with a paid discovery sprint. We turn a fuzzy idea into a scoped plan and a fixed quote, and that fee rolls into the build if you proceed.</div></div></div>
         <div class="srh-faq__item"><button class="srh-faq__q" type="button">Do you require a long contract?</button><div class="srh-faq__a"><div>No. Projects are scoped one at a time; retainers are month-to-month. We keep your business by doing good work, not by locking you in.</div></div></div>
@@ -168,7 +168,6 @@
       <p class="srh-lead" style="margin-inline:auto;">Tell us the goal and we&rsquo;ll send a fixed-fee quote, usually within a few days.</p>
       <div class="srh-hero__ctas" style="justify-content:center;">
         <a class="srh-btn srh-btn--primary" href="/quote-sunriver-consulting">Get a Quick Estimate &rarr;</a>
-        <a class="srh-btn srh-btn--light" href="/contact">Contact us</a>
       </div>
     </div>
   </section>
