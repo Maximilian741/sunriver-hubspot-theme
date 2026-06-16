@@ -1,0 +1,223 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: SunRiver - Home VARIANT D (Editorial rows)
+  screenshot_path: ../../images/template-previews/home.jpg
+-->
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+<div class="srh">
+
+  {# ===== HERO: compact gradient band, LEFT-ALIGNED, two buttons ===== #}
+  <section class="srh-band">
+    <canvas class="srh-band__canvas" data-srx-shader="smoke-veil" aria-hidden="true"></canvas>
+    <div class="srh-band__inner srx-reveal" style="text-align:left;max-width:1080px;">
+      <span class="srh-eyebrow">SunRiver Consulting &middot; Helena, Montana</span>
+      <h1 class="srh-h1">Senior engineering, done personally.</h1>
+      <p class="srh-lead" style="margin-left:0;margin-right:0;max-width:680px;">Cloud, security, and CMS work handled start to finish by one senior engineer in the heart of Montana. You talk to the person building it, you get a fixed price up front, and the work stays in your hands.</p>
+      <div class="srh-hero__ctas" style="justify-content:flex-start;">
+        <a class="srh-btn srh-btn--primary" href="/quote-sunriver-consulting">Get a Quick Estimate &rarr;</a>
+        <a class="srh-btn srh-btn--ghost" href="/schedule-a-consultation-sunriver-consulting">Schedule a Consultation</a>
+      </div>
+    </div>
+  </section>
+
+  {# ===== ROW 1: Senior-only engineering (icon left, text right) ===== #}
+  <section class="srh-sec">
+    <div class="srh-sec__inner">
+      <div class="srh-split srx-reveal" style="align-items:center;gap:clamp(32px,6vw,72px);">
+        <div class="sr-row-media" aria-hidden="true">
+          <svg class="mono sr-row-ic" viewBox="0 0 24 24"><path d="M8 6.5 3.5 12 8 17.5M16 6.5 20.5 12 16 17.5M13.5 4.5 10.5 19.5"/></svg>
+        </div>
+        <div>
+          <span class="srh-eyebrow" style="color:var(--river);">Senior-only engineering</span>
+          <h2 class="srh-h2">The person who scopes it is the person who builds it.</h2>
+          <p class="srh-lead" style="margin-left:0;">At most shops your project gets sold by a senior and shipped by a junior. Here there is one engineer on the work, eighteen years deep across cloud, security, and the web. The estimate, the architecture, the code, and the support call are all the same hands.</p>
+          <ul class="srh-list">
+            <li>A direct line to the engineer doing the work.</li>
+            <li>Decisions explained in plain language as we go.</li>
+            <li>Code you, or your next hire, can actually maintain.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {# ===== ROW 2: Accessibility & security built in (PHOTO right, text left) ===== #}
+  <section class="srh-sec">
+    <div class="srh-sec__inner">
+      <div class="srh-split srx-reveal" style="align-items:center;gap:clamp(32px,6vw,72px);">
+        <div>
+          <span class="srh-eyebrow" style="color:var(--river);">Accessibility and security, built in</span>
+          <h2 class="srh-h2">Compliance is a starting condition, baked into the build.</h2>
+          <p class="srh-lead" style="margin-left:0;">WCAG and Section 508 conformance, threat modeling, and penetration testing belong in the design from the first commit. We bake accessible markup and least-privilege security into the templates and infrastructure as we build, so the right thing is the default thing and launch day stays calm.</p>
+          <ul class="srh-list">
+            <li>WCAG 2.1 AA and Section 508 built into the components.</li>
+            <li>Threat modeling and penetration testing on real systems.</li>
+            <li>Secrets, identity, and access scoped the way auditors expect.</li>
+          </ul>
+        </div>
+        <div class="sr-row-photo" style="background-image:url('https://www.sunriverconsulting.us/hubfs/pexels-gsn-travel-28539582.jpg');" role="img" aria-label="Mountains above Helena, Montana"></div>
+      </div>
+    </div>
+  </section>
+
+  {# ===== ROW 3: You own everything (stat left, text right) ===== #}
+  <section class="srh-sec">
+    <div class="srh-sec__inner">
+      <div class="srh-split srx-reveal" style="align-items:center;gap:clamp(32px,6vw,72px);">
+        <div class="sr-row-media">
+          <div class="sr-row-bignum">100%</div>
+          <div class="sr-row-bigkey">Yours to keep</div>
+        </div>
+        <div>
+          <span class="srh-eyebrow" style="color:var(--river);">You own everything you pay for</span>
+          <h2 class="srh-h2">Your code, your accounts, your keys. Always.</h2>
+          <p class="srh-lead" style="margin-left:0;">Recurring costs like hosting, domains, and licenses live in your accounts, billed to you directly at cost. Everything stays on infrastructure you control. If you ever decide to part ways, you walk out with the repository, the credentials, and the documentation, and the lights stay on.</p>
+          <ul class="srh-list">
+            <li>Hosting, domains, and licenses in your name.</li>
+            <li>Source code and documentation handed over in full.</li>
+            <li>One fixed fee for the build, with the meter switched off.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {# ===== ROW 4: Five generations in Helena (heritage, pull quote + vein) ===== #}
+  <section class="srh-sec">
+    <div class="srh-sec__inner">
+      <div class="srx-reveal" style="text-align:center;max-width:760px;margin:0 auto 8px;">
+        <span class="srh-eyebrow" style="color:var(--river);">Five generations in Helena</span>
+        <h2 class="srh-h2">Helena started with a gold strike. So did we.</h2>
+      </div>
+      <p class="sr-pull srx-reveal" style="text-align:center;margin:clamp(20px,4vw,36px) auto;max-width:720px;">The claim changed. <b>The craft is the same.</b></p>
+      <div class="sr-vein" style="max-width:760px;margin:0 auto;">
+        <div class="sr-vein__item srx-reveal">
+          <span class="sr-vein__dot" aria-hidden="true"></span>
+          <span class="sr-vein__era">1864 &middot; Last Chance Gulch</span>
+          <h3>A strike in the gulch</h3>
+          <p>Four prospectors took their last chance on a Montana creek and hit gold. The camp they founded became Helena. The valley has been ours to work ever since.</p>
+        </div>
+        <div class="sr-vein__item srx-reveal">
+          <span class="sr-vein__dot" aria-hidden="true"></span>
+          <span class="sr-vein__era">Five generations &middot; The claim</span>
+          <h3>A family that mined this valley</h3>
+          <p>For five generations my family pulled a living out of these mountains. You learn that careful work compounds, and that an honest assay is worth more than an optimistic one.</p>
+        </div>
+        <div class="sr-vein__item srx-reveal">
+          <span class="sr-vein__dot" aria-hidden="true"></span>
+          <span class="sr-vein__era">Today &middot; The new vein</span>
+          <h3>Software is the new gold</h3>
+          <p>The pick became a keyboard, the assay became a code review. The discipline carried over: measure honestly, build to last, and hand the client something that holds its value.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {# ===== SERVICES: alternating row list of the six offerings ===== #}
+  <section class="srh-sec">
+    <div class="srh-sec__inner">
+      <div class="srx-reveal" style="text-align:center;max-width:760px;margin:0 auto clamp(28px,5vw,48px);">
+        <span class="srh-eyebrow" style="color:var(--river);">What we do</span>
+        <h2 class="srh-h2">Six ways we help you grow.</h2>
+        <p class="srh-lead" style="margin-left:auto;margin-right:auto;text-align:center;">One engineer, a wide bench. Pick the lane you need, or start a conversation and we will find it together.</p>
+      </div>
+      <div class="sr-svc">
+        <a class="sr-svc__row srx-reveal" href="/app-development-sunriver-consulting">
+          <span class="sr-svc__ic"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M10 18.5h4"/></svg></span>
+          <span class="sr-svc__txt"><span class="sr-svc__name">App Development</span><span class="sr-svc__desc">Android, iOS, desktop, and web apps your customers actually want to use.</span></span>
+          <span class="sr-svc__go" aria-hidden="true">&rarr;</span>
+        </a>
+        <a class="sr-svc__row srx-reveal" href="/business-solutions-sunriver-consulting">
+          <span class="sr-svc__ic"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7.5 12 3l9 4.5-9 4.5z"/><path d="M3 12l9 4.5L21 12M3 16.5 12 21l9-4.5"/></svg></span>
+          <span class="sr-svc__txt"><span class="sr-svc__name">Business Solutions</span><span class="sr-svc__desc">AWS, HubSpot, Salesforce, Microsoft 365, ServiceNow, integrated and tuned.</span></span>
+          <span class="sr-svc__go" aria-hidden="true">&rarr;</span>
+        </a>
+        <a class="sr-svc__row srx-reveal" href="/compliance-audits-sunriver-consulting">
+          <span class="sr-svc__ic"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 4.4-3 7.6-7 9-4-1.4-7-4.6-7-9V6l7-3z"/><path d="M9 12l2 2 4-4.5"/></svg></span>
+          <span class="sr-svc__txt"><span class="sr-svc__name">Compliance Audits</span><span class="sr-svc__desc">Penetration testing, threat modeling, WCAG and 508 audits, done right.</span></span>
+          <span class="sr-svc__go" aria-hidden="true">&rarr;</span>
+        </a>
+        <a class="sr-svc__row srx-reveal" href="/database-solutions-sunriver-consulting">
+          <span class="sr-svc__ic"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="5.5" rx="7.5" ry="3"/><path d="M4.5 5.5v13c0 1.66 3.36 3 7.5 3s7.5-1.34 7.5-3v-13"/><path d="M4.5 12c0 1.66 3.36 3 7.5 3s7.5-1.34 7.5-3"/></svg></span>
+          <span class="sr-svc__txt"><span class="sr-svc__name">Database Solutions</span><span class="sr-svc__desc">Administration, analysis, design, and development across SQL and NoSQL.</span></span>
+          <span class="sr-svc__go" aria-hidden="true">&rarr;</span>
+        </a>
+        <a class="sr-svc__row srx-reveal" href="/web-development-sunriver-consulting">
+          <span class="sr-svc__ic"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="15" rx="2"/><path d="M3 9h18M7 6.6h.01M9.5 6.6h.01"/></svg></span>
+          <span class="sr-svc__txt"><span class="sr-svc__name">Web Development</span><span class="sr-svc__desc">Custom builds and platform work for HubSpot, WordPress, and Squarespace.</span></span>
+          <span class="sr-svc__go" aria-hidden="true">&rarr;</span>
+        </a>
+        <a class="sr-svc__row srx-reveal" href="/ai-solutions-sunriver-consulting">
+          <span class="sr-svc__ic"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="7" width="12" height="11" rx="2.5"/><path d="M12 7V3.5M9.5 3.5h5M9 12h.01M15 12h.01M9.5 15.5h5M3.5 11v3M20.5 11v3"/></svg></span>
+          <span class="sr-svc__txt"><span class="sr-svc__name">AI Solutions</span><span class="sr-svc__desc">Practical AI adoption: assistants, automation, and training that pays for itself.</span></span>
+          <span class="sr-svc__go" aria-hidden="true">&rarr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  {# ===== MISSION + STATS band (gradient) ===== #}
+  <section class="srh-band">
+    <canvas class="srh-band__canvas" data-srx-shader="smoke-veil" aria-hidden="true"></canvas>
+    <div class="srh-band__inner srx-reveal" style="text-align:center;max-width:860px;">
+      <span class="srh-eyebrow">Our Mission</span>
+      <h2 class="srh-h2">Quality work, shared with everyone.</h2>
+      <p class="srh-lead" style="margin-left:auto;margin-right:auto;text-align:center;">Exceptional engineering at a fraction of what the big shops charge, run out of Helena, so the small business down the street can adopt good technology too. The goal is simple: everyone gets to grow because the work felt within reach. It helps that I love the craft.</p>
+      <div class="srh-stats" style="margin-top:2.4rem;">
+        <div class="srh-stat"><div class="srh-stat__n">100%</div><div class="srh-stat__k">Senior-built</div></div>
+        <div class="srh-stat"><div class="srh-stat__n">1:1</div><div class="srh-stat__k">With your engineer</div></div>
+        <div class="srh-stat"><div class="srh-stat__n">Fixed</div><div class="srh-stat__k">Fee, not hourly</div></div>
+      </div>
+      <p class="srh-lead" style="margin:2rem auto 0;text-align:center;font-size:1rem;opacity:.9;">Max Casteel, founder and senior engineer. Plus Noki and Moggy, Directors of Morale.</p>
+    </div>
+  </section>
+
+  {# ===== CTA ===== #}
+  <section class="srh-band srh-band--rev srh-cta">
+    <canvas class="srh-band__canvas" data-srx-shader="smoke-veil" aria-hidden="true"></canvas>
+    <div class="srh-band__inner srx-reveal">
+      <h2 class="srh-h2">Ready to grow with confidence?</h2>
+      <p class="srh-lead" style="margin-left:auto;margin-right:auto;text-align:center;">Tell us where you want to go. We&rsquo;ll show you the road, and a fixed price to get there.</p>
+      <div class="srh-hero__ctas">
+        <a class="srh-btn srh-btn--primary" href="/schedule-a-consultation-sunriver-consulting">Schedule a Consultation &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    /* Home-Rows: row-media columns, photo panel, big-stat block, service row-list.
+       Scoped under .srh. Sections are transparent over the live gradient, so all
+       custom text is light-on-gradient with a soft shadow for legibility (matching
+       .sr-vein / .sr-pull). The misleading srh-sec--paper was removed: inside .srh
+       paper sections are forced transparent and type is forced light. */
+    .srh .sr-row-media{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.6rem;text-align:center;min-height:280px;}
+    .srh .sr-row-ic{width:clamp(108px,18vw,168px);height:clamp(108px,18vw,168px);stroke:#bfeeff;stroke-width:1.2;fill:none;opacity:.92;filter:drop-shadow(0 2px 8px rgba(3,18,10,.4));}
+    .srh .sr-row-bignum{font-size:clamp(4.4rem,11vw,7.2rem);line-height:.92;font-weight:800;letter-spacing:-.02em;background:linear-gradient(120deg,#d9ff8c,#FBC34A);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 2px 10px rgba(3,18,10,.35));}
+    .srh .sr-row-bigkey{font-size:.95rem;letter-spacing:.16em;text-transform:uppercase;color:#eafff0;font-weight:700;text-shadow:0 1px 5px rgba(3,18,10,.4);}
+    .srh .sr-row-photo{min-height:340px;border-radius:18px;background-size:cover;background-position:center;box-shadow:0 24px 60px -28px rgba(3,18,10,.7);border:1px solid rgba(255,255,255,.18);}
+
+    /* Service row-list: full-width rows that shimmer on hover, light type on the gradient */
+    .srh .sr-svc{display:flex;flex-direction:column;border-top:1px solid rgba(255,255,255,.22);max-width:920px;margin:0 auto;}
+    .srh .sr-svc__row{display:flex;align-items:center;gap:clamp(16px,3vw,28px);padding:clamp(18px,3vw,26px) clamp(8px,2vw,18px);border-bottom:1px solid rgba(255,255,255,.22);text-decoration:none;color:inherit;position:relative;transition:background .25s ease,padding-left .25s ease;}
+    .srh .sr-svc__row:hover{background:linear-gradient(90deg,rgba(255,255,255,.12),rgba(255,255,255,.04));padding-left:clamp(14px,2.4vw,24px);}
+    .srh .sr-svc__ic{flex:0 0 auto;width:48px;height:48px;display:grid;place-items:center;border-radius:12px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.18);}
+    .srh .sr-svc__ic svg{width:26px;height:26px;stroke:#fff;stroke-width:1.5;fill:none;}
+    .srh .sr-svc__txt{display:flex;flex-direction:column;gap:.2rem;flex:1 1 auto;}
+    .srh .sr-svc__name{font-size:clamp(1.15rem,2.4vw,1.45rem);font-weight:700;color:#fff;letter-spacing:-.01em;text-shadow:0 1px 6px rgba(3,18,10,.4);}
+    .srh .sr-svc__desc{color:#e6f4ea;font-size:.98rem;line-height:1.5;text-shadow:0 1px 5px rgba(3,18,10,.35);}
+    .srh .sr-svc__go{flex:0 0 auto;font-size:1.4rem;color:#FBC34A;opacity:.65;transition:transform .25s ease,opacity .25s ease;}
+    .srh .sr-svc__row:hover .sr-svc__go{opacity:1;transform:translateX(5px);}
+
+    @media (max-width:720px){
+      .srh .sr-row-media{min-height:0;margin-bottom:1.4rem;}
+      .srh .sr-row-photo{min-height:240px;margin-top:1.4rem;}
+      .srh .sr-svc__go{display:none;}
+    }
+  </style>
+
+</div>
+  {% dnd_area "flex" label="Optional extra content" %}{% end_dnd_area %}
+{% endblock body %}
