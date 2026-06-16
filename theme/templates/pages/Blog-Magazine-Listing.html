@@ -1,0 +1,113 @@
+<!--
+  templateType: blog_listing
+  isAvailableForNewContent: true
+  label: SunRiver - Blog Listing MODEL B (Magazine)
+  screenshot_path: ../../images/template-previews/blog-listing.jpg
+-->
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+<div class="srh">
+
+  <section class="srh-band">
+    <canvas class="srh-band__canvas" data-srx-shader="smoke-veil" aria-hidden="true"></canvas>
+    <div class="srh-band__inner srx-reveal" style="text-align:center;max-width:960px;">
+      <span class="srh-eyebrow">Field notes &middot; Helena, Montana</span>
+      <h1 class="srh-h1" style="max-width:18ch;margin-inline:auto;">The SunRiver dispatch.</h1>
+      <p class="srh-lead" style="margin-inline:auto;">Architecture decisions, project post-mortems, and the occasional firm opinion. Written at the bench by the person who shipped the thing, in between two cats and a fresh pot of coffee.</p>
+      <div class="srh-hero__ctas" style="justify-content:center;flex-wrap:wrap;gap:8px;margin-top:22px;">
+        <a class="srd-chip" href="/compliance-audits-sunriver-consulting" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.28);color:#eafff2;">Accessibility</a>
+        <a class="srd-chip" href="/database-solutions-sunriver-consulting" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.28);color:#eafff2;">Data &amp; reporting</a>
+        <a class="srd-chip" href="/app-development-sunriver-consulting" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.28);color:#eafff2;">Product builds</a>
+        <a class="srd-chip" href="/ai-solutions-sunriver-consulting" style="background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.28);color:#eafff2;">AI, the honest kind</a>
+      </div>
+    </div>
+  </section>
+
+  {% if current_page_num == 1 and contents %}
+  {# ===== FEATURED: the most recent post, given the cover treatment ===== #}
+  <section class="srh-sec">
+    <div class="srh-sec__inner" style="max-width:1040px;">
+      <div class="srd-sheet srx-reveal" style="display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:clamp(26px,4vw,52px);align-items:center;">
+
+        <div>
+          <span class="sr-news-meta">{{ contents[0].publish_date_localized }}{% if contents[0].topic_list %} &middot; {{ contents[0].topic_list[0].name }}{% endif %} &middot; Latest dispatch</span>
+          <h2 style="font-family:var(--head,'Poppins',sans-serif);font-weight:700;font-size:clamp(1.7rem,4vw,2.6rem);line-height:1.12;color:#0c2114;margin:12px 0 16px;">{{ contents[0].name }}</h2>
+          <p style="font-size:1.05rem;line-height:1.7;color:#546b5b;margin:0 0 22px;max-width:54ch;">{{ contents[0].post_list_content|striptags|truncate(280) }}</p>
+          <a class="srh-btn srh-btn--primary" href="{{ contents[0].absolute_url }}">Read the full piece &rarr;</a>
+        </div>
+
+        <aside style="border-left:1px solid rgba(12,33,20,.12);padding-left:clamp(20px,3vw,38px);">
+          <span style="display:block;font-family:var(--mono,'JetBrains Mono',monospace);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#1C5B77;margin-bottom:14px;">On the bench</span>
+          <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px;">
+            <li style="display:flex;gap:11px;align-items:flex-start;">
+              <span style="flex:none;margin-top:2px;color:#1C5B77;"><svg class="mono" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" style="fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;"><path d="M12 3l7 3v5c0 4.4-3 7.6-7 9-4-1.4-7-4.6-7-9V6l7-3z"/><path d="M9 12l2 2 4-4.5"/></svg></span>
+              <span style="font-size:.94rem;line-height:1.5;color:#3a4b40;"><b style="color:#0c2114;">Audits that close.</b> Every critical 508 / WCAG&nbsp;2.2 finding gets re-tested before the cycle ends.</span>
+            </li>
+            <li style="display:flex;gap:11px;align-items:flex-start;">
+              <span style="flex:none;margin-top:2px;color:#1C5B77;"><svg class="mono" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" style="fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6"/><path d="M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/></svg></span>
+              <span style="font-size:.94rem;line-height:1.5;color:#3a4b40;"><b style="color:#0c2114;">Migrations to the penny.</b> Legacy reports onto SQL Server, parity tested before launch.</span>
+            </li>
+            <li style="display:flex;gap:11px;align-items:flex-start;">
+              <span style="flex:none;margin-top:2px;color:#1C5B77;"><svg class="mono" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" style="fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;"><rect x="6" y="3" width="12" height="18" rx="2.5"/><path d="M11 18h2"/></svg></span>
+              <span style="font-size:.94rem;line-height:1.5;color:#3a4b40;"><b style="color:#0c2114;">Products we use.</b> Vital Tails, built and dogfooded by Noki and Moggy.</span>
+            </li>
+          </ul>
+        </aside>
+
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
+  <section class="srh-sec">
+    <div class="srh-sec__inner">
+
+      {% if current_page_num == 1 and contents|length > 1 %}
+      <div class="srx-reveal" style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:clamp(18px,3vw,30px);border-bottom:1px solid rgba(255,255,255,.16);padding-bottom:14px;">
+        <h2 class="srh-h2" style="margin:0;font-size:clamp(1.3rem,3vw,1.8rem);">More from the bench</h2>
+        <span style="font-family:var(--mono,'JetBrains Mono',monospace);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#a9dcee;">Newest first</span>
+      </div>
+      {% endif %}
+
+      <div class="sr-bloggrid">
+        {% for content in contents %}
+          {% if not (current_page_num == 1 and loop.first) %}
+          <a class="sr-blogcard srx-reveal" href="{{ content.absolute_url }}">
+            <span class="sr-news-meta">{{ content.publish_date_localized }}{% if content.topic_list %} &middot; {{ content.topic_list[0].name }}{% endif %}</span>
+            <h2 class="sr-blogcard__title">{{ content.name }}</h2>
+            <p class="sr-blogcard__sum">{{ content.post_list_content|striptags|truncate(150) }}</p>
+            <span class="sr-blogcard__cta">Read more &rarr;</span>
+          </a>
+          {% endif %}
+        {% else %}
+          <div style="grid-column:1/-1;text-align:center;padding:60px 20px;color:#dff2e8;">
+            <h2 class="srh-h2" style="color:#fff;">First posts landing soon.</h2>
+            <p style="color:#dff2e8;">In the meantime, the <a href="/news-sunriver-consulting" style="color:#FBC34A;font-weight:700;">newsroom</a> has our current working notes.</p>
+          </div>
+        {% endfor %}
+      </div>
+
+      {% if contents.total_page_count > 1 %}
+        <nav class="sr-blogpag" aria-label="Blog pagination">
+          {% if last_page_num %}<a class="srh-btn srh-btn--light" href="{{ blog_page_link(last_page_num) }}">&larr; Newer</a>{% endif %}
+          <span>Page {{ current_page_num }} of {{ contents.total_page_count }}</span>
+          {% if next_page_num %}<a class="srh-btn srh-btn--light" href="{{ blog_page_link(next_page_num) }}">Older &rarr;</a>{% endif %}
+        </nav>
+      {% endif %}
+    </div>
+  </section>
+
+  <section class="srh-band srh-band--rev srh-cta">
+    <canvas class="srh-band__canvas" data-srx-shader="smoke-veil" aria-hidden="true"></canvas>
+    <div class="srh-band__inner srx-reveal" style="text-align:center;">
+      <h2 class="srh-h2">Read something you want built?</h2>
+      <p class="srh-lead" style="margin-inline:auto;">Most of these posts started as a client problem on a whiteboard. The fastest way to find out if yours fits is thirty minutes with the engineer.</p>
+      <div class="srh-hero__ctas" style="justify-content:center;">
+        <a class="srh-btn srh-btn--primary" href="/schedule-a-consultation-sunriver-consulting">Schedule a Consultation &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+{% endblock body %}

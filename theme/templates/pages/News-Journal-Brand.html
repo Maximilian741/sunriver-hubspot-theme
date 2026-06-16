@@ -1,0 +1,135 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: SunRiver - News MODEL B (Field Journal timeline)
+  screenshot_path: ../../images/template-previews/home.jpg
+-->
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+<div class="srh">
+
+  {# ===== HERO ===== #}
+  <section class="srh-band">
+    <canvas class="srh-band__canvas" data-srx-shader="smoke-veil" aria-hidden="true"></canvas>
+    <div class="srh-band__inner srx-reveal" style="text-align:center;max-width:940px;">
+      <span class="srh-eyebrow">Field Journal</span>
+      <h1 class="srh-h1" style="max-width:22ch;margin-inline:auto;">Working notes from the claim.</h1>
+      <p class="srh-lead" style="margin-inline:auto;">A dated logbook of what is being dug, assayed, and shipped at SunRiver. Written at the bench, by the person doing the work, newest entry on top.</p>
+    </div>
+  </section>
+
+  {# ===== INTRO SHEET (claim metaphor) ===== #}
+  <section class="srh-sec">
+    <div class="srh-sec__inner" style="max-width:820px;">
+      <div class="srd-sheet srx-reveal">
+        <div class="sr-post">
+          <span class="sr-news-meta">The method &middot; Why a logbook</span>
+          <p>My family has worked this valley for five generations, and a working mine runs on one document above all others: the logbook. You assay the rock before you spend a season chasing it. You write down what the ground actually gave up, and you keep that record honest. And when you move on, you leave the workings safer than you found them.</p>
+          <p>Software is the same craft on different ground. So this page is run like a claim ledger. Every entry below is a real seam of work, dated, with an honest read on where it stands today. These are simply the notes I keep at the bench, made public, and they skip the press-release gloss entirely.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {# ===== THE VEIN: dated entries, newest first (the star) ===== #}
+  <section class="srh-band">
+    <canvas class="srh-band__canvas" data-srx-shader="smoke-veil" aria-hidden="true"></canvas>
+    <div class="srh-band__inner srx-reveal" style="max-width:920px;">
+      <div style="text-align:center;margin-bottom:clamp(30px,5vw,52px);">
+        <span class="srh-eyebrow">The ledger</span>
+        <h2 class="srh-h2" style="max-width:18ch;margin-inline:auto;">What the season turned up.</h2>
+      </div>
+
+      <div class="sr-vein">
+
+        <div class="sr-vein__item srx-reveal">
+          <span class="sr-vein__dot" aria-hidden="true"></span>
+          <span class="sr-vein__era">June 2026 &middot; New practice</span>
+          <h3>Staked a new claim: AI Solutions, run without the hype</h3>
+          <p>Made it official this month: SunRiver now runs an AI practice, with the same honesty as everything else, which means telling you where AI will quietly cost you more than it saves. The lineup is adoption strategy with realistic ROI, custom assistants grounded in your own data, automation with a human kept in the loop, hands-on training, private and self-hosted setups for sensitive work, and governance audits for the AI you have already deployed. The point is to find the vein worth working, then leave the rest of the rock alone. Start at <a href="/ai-solutions-sunriver-consulting">AI Solutions</a>.</p>
+        </div>
+
+        <div class="sr-vein__item srx-reveal">
+          <span class="sr-vein__dot" aria-hidden="true"></span>
+          <span class="sr-vein__era">June 2026 &middot; Compliance</span>
+          <h3>508 audit cycle closed, every critical finding re-tested</h3>
+          <p>Wrapped the spring accessibility cycle. The method runs in three passes: an automated scan to map the easy wins (tooling catches maybe a third of what is really there), then a manual pass with NVDA, VoiceOver, full keyboard runs, zoom and reflow checks, and PDF tagging so documents read in the right order; then a remediation report written for the developers who have to fix it, with the ACR and VPAT procurement teams ask for. The milestone worth logging: every critical finding was closed and re-tested, right down to a clean re-scan. If you answer to Section 508 or want WCAG 2.2 AA because it is simply right, <a href="/compliance-audits-sunriver-consulting">this is the exact work I do</a>.</p>
+        </div>
+
+        <div class="sr-vein__item srx-reveal">
+          <span class="sr-vein__dot" aria-hidden="true"></span>
+          <span class="sr-vein__era">May 2026 &middot; Data &amp; reporting</span>
+          <h3>OFR to SSRS: first tranche through parity, to the penny</h3>
+          <p>Mid-flight on moving a portfolio of legacy Oracle financial reports onto SQL Server Reporting Services. These migrations live or die on one word, parity. Finance cares about one thing above the cleaner stack: that the new number matches the old number exactly. The work so far: a full inventory ranked by who actually opens each report (a fair number had sat untouched for years and quietly earned retirement instead of migration), every data source mapped, queries rebuilt, and layouts recreated as RDLs. Status logged: inventory complete, first tranche through side-by-side parity testing with the legacy output. Subscriptions and schedules move last, once the numbers have earned trust. If you are staring down a legacy reporting stack, <a href="/database-solutions-sunriver-consulting">this is a lane I know well</a>.</p>
+        </div>
+
+        <div class="sr-vein__item srx-reveal">
+          <span class="sr-vein__dot" aria-hidden="true"></span>
+          <span class="sr-vein__era">May 2026 &middot; Product</span>
+          <h3>Vital Tails: core records and reminders working, vet-sharing on the bench</h3>
+          <p>Vital Tails is our own product, a pet-care companion for the things every owner loses track of: health records, vaccine and medication reminders, weight over time, all in one place you can hand to your vet instead of digging through a shoebox of paperwork. It is built the way I build for clients, mobile-first, accessible from day one, and offline-friendly, because the moment you need a rabies certificate is rarely the moment you have good signal. Logged this month: core records and reminders are working today, and vet-sharing is next up. Quality assurance, <a href="/our-team-sunriver-consulting">Noki and Moggy</a>, are the first two registered patients, and remain unimpressed by deadlines. Beta news will land <a href="/app-development-sunriver-consulting">on this seam</a> first.</p>
+        </div>
+
+        <div class="sr-vein__item srx-reveal">
+          <span class="sr-vein__dot" aria-hidden="true"></span>
+          <span class="sr-vein__era">April 2026 &middot; Field service</span>
+          <h3>Hood-cleaning crew app: working prototype, tested on real 2 a.m. routes</h3>
+          <p>Kitchen exhaust cleaning is regulated, photographic, and scheduled in the dead of night, and most crews still run it on paper and group texts. This app is shaped around how the job actually goes: scheduling that understands recurring service intervals, before and after photo capture tied to each system, service reports generated on the spot in the spirit of NFPA 96 documentation, and a clean handoff to invoicing so the paperwork is finished when the truck door closes rather than three days later. Status logged: a working prototype, being shaped against real routes and real 2 a.m. jobs. If you run a field crew and your &ldquo;system&rdquo; is a chat thread, <a href="/app-development-sunriver-consulting">this is the kind of app I build</a>.</p>
+        </div>
+
+        <div class="sr-vein__item srx-reveal">
+          <span class="sr-vein__dot" aria-hidden="true"></span>
+          <span class="sr-vein__era">Next &middot; What is being staked</span>
+          <h3>What gets worked next season</h3>
+          <p>With the current slate moving into a steady rhythm, there is room on the schedule for a handful of new engagements. The seams I most want to work next: more 508 and WCAG 2.2 audits for agencies, universities, and the vendors who sell to them; more reporting and database migrations off legacy ground; and the first public beta of Vital Tails. Everything here gets logged as it lands. If one of those is your year, <a href="/quote-sunriver-consulting">get a quick estimate</a> and I will assay it honestly.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  {# ===== PULL QUOTE ===== #}
+  <section class="srh-band">
+    <canvas class="srh-band__canvas" data-srx-shader="smoke-veil" aria-hidden="true"></canvas>
+    <div class="srh-band__inner srx-reveal" style="text-align:center;max-width:860px;">
+      <p class="sr-pull">Assay before you dig. Note what the ground really gave. <b>Leave the claim better than you found it.</b></p>
+    </div>
+  </section>
+
+  {# ===== STILL OPEN THIS SEASON ===== #}
+  <section class="srh-sec">
+    <div class="srh-sec__inner" style="max-width:820px;">
+      <div class="srd-sheet srx-reveal">
+        <div class="sr-post">
+          <span class="sr-news-meta">The schedule &middot; Still open this season</span>
+          <h3 style="margin-top:6px;">Claims I have time to work</h3>
+          <p>A short list of the work I am best at and most want more of. Fixed fees, senior hands on every job, and an honest read before either of us commits a season to it.</p>
+          <ul class="srh-list">
+            <li><strong>508 and WCAG 2.2 audits</strong> for agencies, universities, and anyone who sells to them. <a href="/compliance-audits-sunriver-consulting">See the method</a>.</li>
+            <li><strong>Reporting and database migrations</strong>, legacy Oracle and SSRS stacks moved onto maintainable ground, parity tested to the penny.</li>
+            <li><strong>HubSpot CMS and CRM builds</strong>, sites editors can actually run and pipelines that reflect how the business really works.</li>
+            <li><strong>Field-service and product apps</strong> shaped around the crew, the truck, and the route, built for the people in the field.</li>
+            <li><strong>Practical AI adoption</strong>, assistants, automation, and training that earn their keep. <a href="/ai-solutions-sunriver-consulting">Start here</a>.</li>
+          </ul>
+          <p>If one of those sounds like your project, the fastest way in is a thirty-minute call. Bring the goal; I will bring the assay.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {# ===== CTA ===== #}
+  <section class="srh-band srh-band--rev srh-cta">
+    <canvas class="srh-band__canvas" data-srx-shader="smoke-veil" aria-hidden="true"></canvas>
+    <div class="srh-band__inner srx-reveal" style="text-align:center;">
+      <h2 class="srh-h2">Bring me your ground.</h2>
+      <p class="srh-lead" style="margin-inline:auto;">Tell me the goal and I will come back with a written scope and one honest number, the way you assay a claim before anyone spends a season on it.</p>
+      <div class="srh-hero__ctas" style="justify-content:center;">
+        <a class="srh-btn srh-btn--primary" href="/schedule-a-consultation-sunriver-consulting">Schedule a Consultation &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+  {% dnd_area "flex" label="Optional extra content" %}{% end_dnd_area %}
+{% endblock body %}
