@@ -1,0 +1,143 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: SunRiver - Pricing VARIANT C (Calculator-first)
+  screenshot_path: ../../images/template-previews/home.jpg
+-->
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+<div class="srh">
+
+  {# ===== ESTIMATOR HERO ===== #}
+  <section class="srh-band">
+    <canvas class="srh-band__canvas" data-srx-shader="smoke-veil" aria-hidden="true"></canvas>
+    <div class="srh-band__inner srx-reveal" style="text-align:center;max-width:980px;">
+      <span class="srh-eyebrow">Pricing, the short way</span>
+      <h1 class="srh-h1" style="max-width:18ch;margin-inline:auto;">Move the dials. See the number.</h1>
+      <p class="srh-lead" style="margin-inline:auto;max-width:60ch;">A real ballpark, right here, before any form or sales call. Pick what you need below and the estimate updates as you go. Your fixed quote comes after we scope, and it holds.</p>
+      <div style="max-width:980px;margin:2.4rem auto 0;">
+        <div class="srh-estimator srx-reveal" data-estimator>
+        <div class="srh-est__panel">
+          <fieldset>
+            <div class="srh-est__leg">1 / What do you need?</div>
+            <div class="srh-chips">
+              <label class="srh-chip2" data-name="Mobile app"><input type="checkbox" data-base="18800">Mobile app</label>
+              <label class="srh-chip2" data-name="Web app / site"><input type="checkbox" data-base="9400">Web app / site</label>
+              <label class="srh-chip2" data-name="Cloud &amp; DevOps"><input type="checkbox" data-base="6300">Cloud &amp; DevOps</label>
+              <label class="srh-chip2" data-name="Database"><input type="checkbox" data-base="6300">Database</label>
+              <label class="srh-chip2" data-name="Security audit"><input type="checkbox" data-base="5600">Security audit</label>
+              <label class="srh-chip2" data-name="CRM / CMS setup"><input type="checkbox" data-base="6300">CRM / CMS setup</label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <div class="srh-est__leg">2 / How big is it?</div>
+            <div class="srh-seg" data-seg="scale">
+              <button type="button" data-mult="0.6">Small</button>
+              <button type="button" data-mult="1" class="is-on">Standard</button>
+              <button type="button" data-mult="1.9">Large</button>
+            </div>
+          </fieldset>
+          <fieldset>
+            <div class="srh-est__leg">3 / How do you want to work?</div>
+            <div class="srh-seg" data-seg="mode">
+              <button type="button" data-mode="project" class="is-on">One-time project</button>
+              <button type="button" data-mode="retainer">Monthly retainer</button>
+            </div>
+          </fieldset>
+        </div>
+        <div class="srh-est__out">
+          <span class="srh-est__cap">Ballpark estimate</span>
+          <div class="srh-est__num"><span data-lo>&mdash;</span> &ndash; <span data-hi>&mdash;</span></div>
+          <p class="srh-est__note"><span data-modelabel>one-time project</span> &middot; your fixed quote comes after we scope.</p>
+          <ul class="srh-est__sum" data-sum></ul>
+          <a class="srh-btn srh-btn--primary" href="/quote-sunriver-consulting">Get a fixed quote &rarr;</a>
+          <p style="margin:14px 0 0;font-size:.82rem;line-height:1.55;color:rgba(255,255,255,.85);">The fixed fee covers design and build for the scoped engagement. Recurring third-party costs, your domain, hosting, and software subscriptions, are set up in <em>your</em> accounts and billed to you directly, so you own everything from day one.</p>
+        </div>
+      </div>
+      </div>
+      <p class="srh-lead" style="margin-inline:auto;max-width:54ch;font-size:.92rem;opacity:.9;margin-top:1.4rem;">Treat the result as a range. The fixed fee covers design and build for the scoped work. Your domain, hosting, and software licenses live in <em>your</em> accounts, billed to you directly, a few hundred a year depending on the stack.</p>
+    </div>
+  </section>
+
+  {# ===== HONEST STARTING POINTS ===== #}
+  <section class="srh-sec srh-sec--paper">
+    <div class="srh-sec__inner" style="max-width:860px;">
+      <div class="srx-reveal" style="text-align:center;max-width:640px;margin:0 auto;">
+        <span class="srh-eyebrow" style="color:var(--river);">Honest starting points</span>
+        <h2 class="srh-h2">Where each number begins.</h2>
+        <p class="srh-lead" style="margin-inline:auto;">These are floors that scope builds on. You see one fixed price before anything starts.</p>
+      </div>
+      <ul class="srh-list srx-reveal" style="margin-top:2rem;">
+        <li><b>Website</b> from <b>$7,500</b>. Design, build, and launch on a CMS you own.</li>
+        <li><b>Mobile or larger app</b> from <b>$15,000</b>. Native or web, scoped to a real first release.</li>
+        <li><b>Cloud &amp; DevOps</b> from <b>$5,000</b>. Infrastructure, pipelines, and the quiet reliability that pays off later.</li>
+        <li><b>Database</b> from <b>$5,000</b>. Modeling, migrations, and reporting that returns answers to the penny.</li>
+        <li><b>Security or accessibility audit</b> from <b>$4,500</b>. A prioritized, plain-English plan, with every critical finding re-tested.</li>
+        <li><b>Monthly care &amp; retainer</b> from <b>$1,000/mo</b>. A block of senior time, month to month, cancel whenever you like.</li>
+      </ul>
+      <p class="sr-pull srx-reveal">As a HubSpot Solutions Partner, working with us secures an extra <b>15% off HubSpot subscriptions</b> for our clients, on top of the fixed-fee build.</p>
+    </div>
+  </section>
+
+  {# ===== AGENCY COMPARISON ===== #}
+  <section class="srh-sec">
+    <div class="srh-sec__inner" style="max-width:920px;">
+      <div class="srx-reveal" style="text-align:center;max-width:680px;margin:0 auto;">
+        <span class="srh-eyebrow" style="color:var(--river);">The honest part</span>
+        <h2 class="srh-h2">$30k+ buys you a junior. This buys you the senior.</h2>
+        <p class="srh-lead" style="margin-inline:auto;">Same caliber of work, a fraction of the price. The gap is overhead, and you keep the quality.</p>
+      </div>
+      <div class="srh-split srx-reveal" style="margin-top:2.4rem;">
+        <div style="border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:1.6rem 1.7rem;">
+          <span class="srh-eyebrow" style="color:#c7b27a;">A typical agency</span>
+          <p class="srh-card__price" style="margin:.6rem 0 1rem;">$30k+ <small>for the same scope</small></p>
+          <ul class="srh-list">
+            <li>Offices, account managers, and a sales team padding the bill.</li>
+            <li>Your build handed to whoever is free, often a junior.</li>
+            <li>Hourly meters that quietly reward taking longer.</li>
+            <li>Change orders and the surprise invoice at the end.</li>
+          </ul>
+        </div>
+        <div style="border:1px solid rgba(122,184,148,.4);border-radius:16px;padding:1.6rem 1.7rem;background:rgba(122,184,148,.08);">
+          <span class="srh-eyebrow" style="color:var(--river);">SunRiver &middot; Helena, MT</span>
+          <p class="srh-card__price" style="margin:.6rem 0 1rem;">Fixed fee <small>quoted up front</small></p>
+          <ul class="srh-list">
+            <li>One senior engineer, the same one who scopes and builds it.</li>
+            <li>Lean overhead, so you pay for the work itself.</li>
+            <li>Fixed price, so finishing fast still costs you the same.</li>
+            <li>One number up front, honored to the end.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {# ===== FOUNDER NOTE ===== #}
+  <section class="srh-sec srh-sec--paper">
+    <div class="srh-sec__inner" style="max-width:760px;">
+      <div class="srx-reveal">
+        <span class="srh-eyebrow" style="color:var(--river);">From the founder</span>
+        <h2 class="srh-h2" style="margin-bottom:1rem;">I&rsquo;d rather you trust the number than chase it.</h2>
+        <p style="color:#546b5b;">I built the calculator because I was tired of watching good people get a runaround before anyone would name a price. So here it is, before you give me your email. I&rsquo;m a senior engineer running this out of Helena, where my family has worked this valley for five generations, since the Last Chance Gulch strike in 1864. When you hire me, you get me, plus two cats on quality control.</p>
+        <p style="color:#546b5b;">I&rsquo;ll give you the honest read on what your project actually needs, hand you a fixed price, and build it right. If I&rsquo;m the wrong fit, I&rsquo;ll say so and point you somewhere better. That&rsquo;s the whole pitch.</p>
+        <p style="color:#0c2114;font-weight:600;">Max, Founder &middot; SunRiver Consulting &middot; Helena, MT</p>
+      </div>
+    </div>
+  </section>
+
+  {# ===== CTA ===== #}
+  <section class="srh-band srh-band--rev srh-cta">
+    <canvas class="srh-band__canvas" data-srx-shader="smoke-veil" aria-hidden="true"></canvas>
+    <div class="srh-band__inner srx-reveal" style="text-align:center;">
+      <h2 class="srh-h2">Ready for the real number?</h2>
+      <p class="srh-lead" style="margin-inline:auto;">Tell me the goal and I&rsquo;ll send a fixed-fee quote, usually within a few days.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-top:1.6rem;">
+        <a class="srh-btn srh-btn--primary" href="/quote-sunriver-consulting">Get a fixed quote &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+  {% dnd_area "flex" label="Optional extra content" %}{% end_dnd_area %}
+{% endblock body %}

@@ -1,0 +1,102 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: SunRiver - News VARIANT C (Card grid)
+  screenshot_path: ../../images/template-previews/home.jpg
+-->
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+<div class="srh">
+
+  {# ===== HERO ===== #}
+  <section class="srh-band">
+    <canvas class="srh-band__canvas" data-srx-shader="smoke-veil" aria-hidden="true"></canvas>
+    <div class="srh-band__inner srx-reveal" style="text-align:center;max-width:920px;">
+      <span class="srh-eyebrow">Newsroom</span>
+      <h1 class="srh-h1" style="max-width:18ch;margin-inline:auto;">Everything on the bench, on one page.</h1>
+      <p class="srh-lead" style="margin-inline:auto;">Audits we are closing, products we are dogfooding, and legacy systems we are dragging into daylight. One lead story up top, the rest laid out to scan. Filed by the engineer doing the work, the week it happened.</p>
+    </div>
+  </section>
+
+  {# ===== FEATURED BANNER ===== #}
+  <section class="srh-sec">
+    <div class="srh-sec__inner" style="max-width:1080px;">
+      <div class="srd-sheet srx-reveal" style="position:relative;border-top:3px solid #c9952b;">
+        <span class="sr-news-meta">June 2026 &middot; Compliance &middot; The Lead Story</span>
+        <h2 class="srd-h1" style="margin-top:6px;max-width:26ch;">Section 508, in practice: what an audit actually looks like from the inside</h2>
+        <div class="sr-post" style="margin-top:16px;">
+          <p>Most organizations meet Section 508 the hard way: a procurement checklist, a deadline three weeks out, and a 90-page PDF that defeats every screen reader on earth. The failures we find are almost boring. They are missing form labels, a focus trap in the &ldquo;helpful&rdquo; newsletter modal, contrast that lands at 4.3 when it needed 4.5, and documents exported with the accessibility tags stripped out.</p>
+          <p>Our cycle runs in three passes: an automated scan to clear the rubble, a manual pass with the mouse unplugged plus NVDA and VoiceOver, and a remediation report ranked for the developer who has to fix it on a Tuesday. The latest cycle closed with every critical finding fixed and re-tested, each one re-run until the result came back clean.</p>
+        </div>
+        <p style="margin-top:18px;"><a class="srh-btn srh-btn--primary" href="/compliance-audits-sunriver-consulting" style="display:inline-flex;">Read how the audit works &rarr;</a></p>
+      </div>
+    </div>
+  </section>
+
+  {# ===== STORY GRID ===== #}
+  <section class="srh-sec srh-sec--paper">
+    <div class="srh-sec__inner" style="max-width:1080px;">
+      <div style="text-align:center;max-width:680px;margin:0 auto clamp(28px,4vw,44px);" class="srx-reveal">
+        <span class="srh-eyebrow" style="color:#0c3a1c;">More dispatches</span>
+        <h2 class="srh-h2" style="color:#0c2114;">The rest of the desk</h2>
+        <p style="color:#546b5b;font-size:1.05rem;line-height:1.6;margin-top:10px;">Five more stories in flight this season. Some are client work, one is ours, and one runs at 2&nbsp;a.m. in a commercial kitchen. Tap any card for the matching service.</p>
+      </div>
+
+      <div class="srh-cards srx-reveal">
+
+        <a class="srh-card" href="/database-solutions-sunriver-consulting">
+          <span class="srh-card__logo"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6"/><path d="M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/></svg></span>
+          <span class="sr-news-meta">May 2026 &middot; Data &amp; Reporting</span>
+          <h3 class="srh-card__title">OFR &rarr; SSRS, to the penny</h3>
+          <p class="srh-card__desc">Migrating a portfolio of legacy Oracle financial reports onto SQL Server Reporting Services. Inventory done, first tranche through parity. Finance cares about one thing above a cleaner stack: the total still matches.</p>
+        </a>
+
+        <a class="srh-card" href="/app-development-sunriver-consulting">
+          <span class="srh-card__logo"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M10 5.5h4"/><path d="M12 18.2h.01"/><path d="M9.2 11.4c.6-1.4 2-2.2 2.8-2.2s2.2.8 2.8 2.2c-1 .9-1.8 1.9-2.8 1.9s-1.8-1-2.8-1.9z"/></svg></span>
+          <span class="sr-news-meta">May 2026 &middot; Product</span>
+          <h3 class="srh-card__title">Vital Tails, in beta soon</h3>
+          <p class="srh-card__desc">Our own pet-care app: health records, vaccine and med reminders, weight over time, and vet-sharing that replaces the shoebox. Offline-first, because the moment you need a rabies certificate is rarely the moment you have signal. Noki and Moggy are patients one and two.</p>
+        </a>
+
+        <a class="srh-card" href="/app-development-sunriver-consulting">
+          <span class="srh-card__logo"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17V8l4-3 4 3v9"/><path d="M11 17V11h6a2 2 0 0 1 2 2v4"/><path d="M2 17h20"/><path d="M14 14h.01"/><path d="M6 9.5h.01"/></svg></span>
+          <span class="sr-news-meta">April 2026 &middot; Field Service</span>
+          <h3 class="srh-card__title">A job app built around the truck</h3>
+          <p class="srh-card__desc">Hood-cleaning crews run regulated, photographed, middle-of-the-night work on paper and group texts. We are building recurring scheduling, on-site before/after photos, NFPA-96-spirit reports on the spot, and a clean handoff to invoicing. Prototype is live on real routes.</p>
+        </a>
+
+        <a class="srh-card" href="/ai-solutions-sunriver-consulting">
+          <span class="srh-card__logo"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="7" width="14" height="11" rx="2.5"/><path d="M12 7V4"/><circle cx="12" cy="3" r="1.2"/><path d="M9.5 12h.01"/><path d="M14.5 12h.01"/><path d="M2.5 11v3"/><path d="M21.5 11v3"/></svg></span>
+          <span class="sr-news-meta">June 2026 &middot; Company</span>
+          <h3 class="srh-card__title">AI Solutions, hype removed</h3>
+          <p class="srh-card__desc">Now official: adoption strategy with realistic ROI, assistants grounded in your own data, automation with a human in the loop, training, and private setups for sensitive work. Honest about where it helps and where it stays out of the way.</p>
+        </a>
+
+        <a class="srh-card" href="/quote-sunriver-consulting">
+          <span class="srh-card__logo"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M3 7v6l9 4 9-4V7"/><path d="M12 11v6"/></svg></span>
+          <span class="sr-news-meta">June 2026 &middot; Company</span>
+          <h3 class="srh-card__title">What we are taking on next</h3>
+          <p class="srh-card__desc">The current slate is moving into steady rhythm, which means open capacity for a handful of new engagements: audits, reporting migrations, HubSpot builds, practical AI. Fixed fees, senior hands. If one sounds like your year, get a quick estimate.</p>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  {# ===== CLOSING CTA ===== #}
+  <section class="srh-band srh-band--rev srh-cta">
+    <canvas class="srh-band__canvas" data-srx-shader="smoke-veil" aria-hidden="true"></canvas>
+    <div class="srh-band__inner srx-reveal" style="text-align:center;">
+      <span class="srh-eyebrow">Keep reading</span>
+      <h2 class="srh-h2">Want the longer reads?</h2>
+      <p class="srh-lead" style="margin-inline:auto;">These cards are the headlines. The blog is where they get the full post-mortem: the patterns, the wrong turns, and the honest opinions from the bench.</p>
+      <div class="srh-hero__ctas" style="justify-content:center;">
+        <a class="srh-btn srh-btn--primary" href="/blog">Read the blog &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+  {% dnd_area "flex" label="Optional extra content" %}{% end_dnd_area %}
+{% endblock body %}

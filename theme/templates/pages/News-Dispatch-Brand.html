@@ -1,0 +1,100 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: SunRiver - News VARIANT D (Single dispatch)
+  screenshot_path: ../../images/template-previews/home.jpg
+-->
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+<div class="srh">
+
+  {# ===== HERO ===== #}
+  <section class="srh-band">
+    <canvas class="srh-band__canvas" data-srx-shader="smoke-veil" aria-hidden="true"></canvas>
+    <div class="srh-band__inner srx-reveal" style="text-align:center;max-width:900px;">
+      <span class="srh-eyebrow">The Dispatch &middot; Issue from the bench</span>
+      <h1 class="srh-h1" style="max-width:20ch;margin-inline:auto;">One issue, read top to bottom.</h1>
+      <p class="srh-lead" style="margin-inline:auto;">A field dispatch from Helena, written by the person doing the work. Plain reporting straight from the bench, with one senior engineer between you and the truth. Pour something warm and read it like a letter.</p>
+    </div>
+  </section>
+
+  {# ===== THE DISPATCH: single flowing column, all stories in-flow ===== #}
+  <section class="srh-sec">
+    <div class="srh-sec__inner" style="max-width:820px;">
+      <div class="srd-sheet srx-reveal">
+        <div class="sr-post">
+
+          {# --- masthead line --- #}
+          <p style="margin:0 0 4px;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:#7c8e80;font-weight:700;">SunRiver Dispatch</p>
+          <p style="margin:0 0 26px;font-size:.92rem;color:#546b5b;border-bottom:2px solid #0c2114;padding-bottom:16px;">Helena, Montana &middot; Last Chance Gulch, est. 1864 &middot; Five generations on this ground &middot; June 2026</p>
+
+          {# --- LEAD: 508 --- #}
+          <span class="sr-news-meta">June 2026 &middot; Compliance &middot; The lead</span>
+          <h2 style="margin:6px 0 14px;font-size:clamp(1.7rem,4vw,2.3rem);line-height:1.15;">Section 508, in practice: what an audit actually looks like up close</h2>
+          <p>Most teams meet Section 508 the hard way: a procurement checklist, a hard deadline, and a PDF that a screen reader stumbles through. I have spent this spring deep in 508 and WCAG 2.2 work, and the pattern is the same on every contract. The failures are rarely exotic. They are missing form labels, focus traps in modals, color contrast that almost passes, and documents exported without a single tag. My cycle runs in three passes: an automated scan to map the easy wins, since tooling catches maybe a third of what is really there; then a manual pass with NVDA and VoiceOver, full keyboard runs, zoom and reflow checks, and PDF tagging so documents read in the right order.</p>
+          <p>The third pass is the one that matters: a prioritized remediation report written for the developers who have to fix it, with the ACR and VPAT documentation procurement teams ask for. The milestone worth logging this cycle is plain. Every critical finding was closed and re-tested, down to a clean re-scan, then signed off rather than merely filed. If your organization answers to 508, or simply wants WCAG 2.2 AA because it is the right thing to do, <a href="/compliance-audits-sunriver-consulting">this is exactly the work I do</a>.</p>
+
+          <hr style="border:0;border-top:1px solid #d8e0d8;margin:34px 0;">
+
+          {# --- OFR -> SSRS --- #}
+          <span class="sr-news-meta">May 2026 &middot; Data &amp; Reporting</span>
+          <h3 style="margin:6px 0 12px;font-size:clamp(1.4rem,3vw,1.85rem);line-height:1.2;">OFR to SSRS: migrating legacy financial reports while keeping every number</h3>
+          <p>I am mid-flight on a reporting migration, moving a portfolio of legacy Oracle financial reports onto SQL Server Reporting Services. These projects live or die on one word: parity. To finance, the only thing that counts is that the new report matches the old one to the penny, every line, every rounding rule, every subtotal. So the work starts slow and honest. I inventory every report and rank it by who actually opens it, and a fair number had sat untouched for years and quietly earned retirement instead of migration.</p>
+          <p>From there it is steady seam work: map each data source, rebuild the queries, recreate layouts as RDLs, then run side-by-side parity testing against the legacy output before anything goes live. Subscriptions and schedules move last, once the numbers have earned trust. Status this issue: the inventory is complete and the first tranche of reports is through parity, matched to the penny. If you are staring down a legacy reporting stack, Oracle or otherwise, <a href="/database-solutions-sunriver-consulting">this is a lane I know well</a>.</p>
+
+          <hr style="border:0;border-top:1px solid #d8e0d8;margin:34px 0;">
+
+          {# --- VITAL TAILS --- #}
+          <span class="sr-news-meta">May 2026 &middot; Product</span>
+          <h3 style="margin:6px 0 12px;font-size:clamp(1.4rem,3vw,1.85rem);line-height:1.2;">Vital Tails: a pet-care companion I am building, and using on my own two cats</h3>
+          <p>Vital Tails is my own product build, a pet-care companion for the things every owner loses track of: health records, vaccine and medication reminders, weight over time, all in one place you can hand to your vet instead of digging through a shoebox of paperwork. It is built the way I build for clients, mobile-first, accessible from day one, and offline-friendly, because the moment you need a rabies certificate is usually the moment signal drops in a parking lot.</p>
+          <p>Logged this issue: core records and reminders work today, and vet-sharing is next on the bench. The quality assurance department, <a href="/our-team-sunriver-consulting">Noki and Moggy</a>, are the first two registered patients and remain deeply unimpressed by deadlines. Beta news will land <a href="/app-development-sunriver-consulting">on this kind of work</a> first, so this is the page to watch.</p>
+
+          {# --- PULL QUOTE MIDWAY --- #}
+          <p class="sr-pull" style="margin:38px 0;">Assay the rock before you chase it. Write down what the ground really gave. <b>And leave the claim better than you found it.</b></p>
+
+          {# --- HOOD CLEANING --- #}
+          <span class="sr-news-meta">April 2026 &middot; Field Service</span>
+          <h3 style="margin:6px 0 12px;font-size:clamp(1.4rem,3vw,1.85rem);line-height:1.2;">A job app for hood-cleaning crews: built around the truck, not the office</h3>
+          <p>Kitchen exhaust cleaning is regulated, photographic, and scheduled in the dead of night, and most crews still run it on paper and group texts. I am building a field-service app shaped around how the job actually goes. It has scheduling that understands recurring service intervals, on-site before and after photo capture tied to each system, and service reports generated on the spot in the spirit of NFPA 96 documentation, the kind inspectors and insurers actually ask for.</p>
+          <p>The last piece is a clean handoff to invoicing, so the paperwork is finished when the truck door closes rather than three days later from somebody's kitchen table. Status this issue: a working prototype, being shaped against real routes and real 2 a.m. jobs. If you run a field crew of any kind and your current system is a group chat, <a href="/app-development-sunriver-consulting">this is the kind of app I build</a>.</p>
+
+          <hr style="border:0;border-top:1px solid #d8e0d8;margin:34px 0;">
+
+          {# --- AI PRACTICE --- #}
+          <span class="sr-news-meta">June 2026 &middot; Company</span>
+          <h3 style="margin:6px 0 12px;font-size:clamp(1.4rem,3vw,1.85rem);line-height:1.2;">New practice: AI Solutions, run without the hype</h3>
+          <p>I have used these tools daily since they got genuinely useful, and I have watched too many businesses get sold AI transformation that turns out to be a chatbot and an invoice. So I am making it official: SunRiver now runs an AI practice, with the same honesty as everything else, which includes telling you plainly where AI will quietly cost you more than it saves. That sentence is the whole pitch.</p>
+          <p>The lineup is adoption strategy with realistic ROI, custom assistants grounded in your own data, workflow automation with a human kept in the loop, hands-on training for teams and individuals, private and self-hosted setups for sensitive work, and governance audits for the AI you have already deployed. The point is to find the vein worth working and leave the rest of the rock alone. Start at <a href="/ai-solutions-sunriver-consulting">AI Solutions</a>.</p>
+
+          <hr style="border:0;border-top:1px solid #d8e0d8;margin:34px 0;">
+
+          {# --- WHAT'S NEXT --- #}
+          <span class="sr-news-meta">June 2026 &middot; Company &middot; The sign-off</span>
+          <h3 style="margin:6px 0 12px;font-size:clamp(1.4rem,3vw,1.85rem);line-height:1.2;">What I am taking on next</h3>
+          <p>With the current slate moving into a steady rhythm, there is room on the schedule for a handful of new engagements this season. The seams I most want to work next are more 508 and WCAG 2.2 audits for agencies, universities, and the vendors who sell to them; more reporting and database migrations off legacy ground; HubSpot CMS and CRM builds that editors can actually run; and the first public beta of Vital Tails.</p>
+          <p>Fixed fees, senior hands on every job, and an honest read before either of us commits a season to it. Everything here gets logged in the next issue as it lands. If one of those is your year, <a href="/quote-sunriver-consulting">get a quick estimate</a> and I will assay it honestly. That is the end of this dispatch. Thanks for reading to the bottom.</p>
+
+          <p style="margin:30px 0 0;font-size:.92rem;color:#546b5b;font-style:italic;">Filed from the bench in Helena by Max Casteel. Next issue when the ground gives up something worth writing down.</p>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {# ===== CTA ===== #}
+  <section class="srh-band srh-band--rev srh-cta">
+    <canvas class="srh-band__canvas" data-srx-shader="smoke-veil" aria-hidden="true"></canvas>
+    <div class="srh-band__inner srx-reveal" style="text-align:center;">
+      <h2 class="srh-h2">Want the longer reads?</h2>
+      <p class="srh-lead" style="margin-inline:auto;">The blog goes deeper than the dispatch: patterns, post-mortems, and honest opinions written at the bench.</p>
+      <div class="srh-hero__ctas" style="justify-content:center;">
+        <a class="srh-btn srh-btn--primary" href="/blog">Read the blog &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+  {% dnd_area "flex" label="Optional extra content" %}{% end_dnd_area %}
+{% endblock body %}
