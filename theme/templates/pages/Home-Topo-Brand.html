@@ -1,0 +1,162 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: SunRiver - Home VARIANT I (Topographic / survey)
+  screenshot_path: ../../images/template-previews/home.jpg
+-->
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+<div class="srh">
+
+  {# ===== HERO: topographic survey map backdrop, copy ties to reading the ground ===== #}
+  <section class="srh-band srh-hero--topo" style="position:relative;overflow:hidden;min-height:80vh;display:grid;place-items:center;">
+    <canvas class="srh-band__canvas" data-srx-shader="smoke-veil" aria-hidden="true"></canvas>
+    <div aria-hidden="true" style="position:absolute;inset:0;z-index:0;opacity:.5;pointer-events:none;overflow:hidden;">
+<svg viewBox="0 0 1200 600" role="img" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" style="display:block;width:100%;height:100%;">
+<title>Topographic contour motif</title><desc>Gold survey contour lines, like an elevation map of the claim.</desc>
+<g fill="none" stroke="#FBC34A" stroke-width="1.6">
+<path d="M0,90 C200,50 400,140 600,100 S1000,40 1200,110" stroke-opacity=".26"/>
+<path d="M0,150 C220,110 420,200 640,160 S1010,100 1200,170" stroke-opacity=".22"/>
+<path d="M0,220 C240,180 440,260 660,225 S1020,165 1200,235" stroke-opacity=".18"/>
+<path d="M0,300 C220,260 440,340 660,305 S1030,250 1200,315" stroke-opacity=".16"/>
+<path d="M0,385 C240,350 440,420 680,390 S1040,335 1200,400" stroke-opacity=".14"/>
+<path d="M0,470 C240,440 460,500 700,470 S1050,420 1200,485" stroke-opacity=".12"/>
+</g>
+<g fill="none" stroke="#8FC740" stroke-width="1.5">
+<path d="M820,250 C900,220 980,250 1000,310 C1010,370 940,400 860,385 C790,372 760,300 820,250 Z" stroke-opacity=".34"/>
+<path d="M845,275 C905,255 962,278 975,318 C985,360 935,382 878,371 C828,361 808,305 845,275 Z" stroke-opacity=".26"/>
+<path d="M868,300 C908,288 945,303 953,328 C960,355 928,368 894,361 C862,355 848,320 868,300 Z" stroke-opacity=".2"/>
+</g>
+</svg>
+    </div>
+    <div class="srh-band__inner srx-reveal" style="position:relative;z-index:1;text-align:center;max-width:960px;">
+      <span class="srh-eyebrow">Helena, Montana &middot; Section 7, since 1864</span>
+      <h1 class="srh-h1" style="margin-top:.4rem;">We read the ground <br class="srh-hero__br">before we work it.</h1>
+      <p class="srh-lead" style="margin-left:auto;margin-right:auto;text-align:center;max-width:700px;">Every claim starts with a survey. We map your systems, mark the seams worth chasing, and quote one honest number before a single stake goes in. Cloud, security, and software, built personally by a senior engineer.</p>
+      <div class="srh-hero__ctas" style="justify-content:center;">
+        <a class="srh-btn srh-btn--primary" href="/quote-sunriver-consulting">Survey My Project &rarr;</a>
+        <a class="srh-btn srh-btn--ghost" href="/schedule-a-consultation-sunriver-consulting">Schedule a Consultation</a>
+      </div>
+      <p class="srh-hero__seam">Five generations on this claim. We have been reading the land here since the Last Chance Gulch strike.</p>
+    </div>
+  </section>
+
+  {# ===== HERITAGE TIMELINE: gold-vein survey of the claim ===== #}
+  <section class="srh-band">
+    <canvas class="srh-band__canvas" data-srx-shader="smoke-veil" aria-hidden="true"></canvas>
+    <div class="srh-band__inner">
+      <div class="srx-reveal" style="text-align:center;max-width:740px;margin:0 auto clamp(34px,5vw,56px);">
+        <span class="srh-eyebrow">The claim, surveyed</span>
+        <h2 class="srh-h1">A vein you can follow back to 1864.</h2>
+        <p class="srh-lead" style="margin-inline:auto;">Same valley, same family, same rule: read the ground honestly, then do the work. Here is how the claim runs.</p>
+      </div>
+      <div class="sr-vein">
+        <div class="sr-vein__item srx-reveal">
+          <span class="sr-vein__dot" aria-hidden="true"></span>
+          <span class="sr-vein__era">1864 &middot; Last Chance Gulch</span>
+          <h3>The strike that made the town</h3>
+          <p>Four prospectors took one last chance on a gulch where Main Street runs today. The camp that grew up around that gold is the Helena we still call home.</p>
+        </div>
+        <div class="sr-vein__item srx-reveal">
+          <span class="sr-vein__dot" aria-hidden="true"></span>
+          <span class="sr-vein__era">Five generations &middot; Working the ground</span>
+          <h3>My family digs in</h3>
+          <p>Casteels have worked this valley for five generations, panning placer gravel and pulling shifts underground. Mining teaches you fast: survey before you dig, respect the people beside you, and assay every ounce of ore before you sell it.</p>
+        </div>
+        <div class="sr-vein__item srx-reveal">
+          <span class="sr-vein__dot" aria-hidden="true"></span>
+          <span class="sr-vein__era">The method &middot; Honest assays</span>
+          <h3>What the mines taught the work</h3>
+          <p>An assay tells you exactly what the rock is worth before anyone spends a season chasing it. That is how we scope software: map the ground first, one honest number, then the build.</p>
+        </div>
+        <div class="sr-vein__item srx-reveal">
+          <span class="sr-vein__dot" aria-hidden="true"></span>
+          <span class="sr-vein__era">Today &middot; SunRiver Consulting</span>
+          <h3>Same valley, new vein</h3>
+          <p>The gold in this valley now is the small businesses, schools, and agencies that keep it running. We build and secure the systems they rely on, with the care of someone whose name is on the claim.</p>
+        </div>
+      </div>
+      <div class="srh-stats srx-reveal" style="margin-top:clamp(40px,6vw,64px);justify-content:center;">
+        <div class="srh-stat"><div class="srh-stat__n">100%</div><div class="srh-stat__k">Senior-built</div></div>
+        <div class="srh-stat"><div class="srh-stat__n">1:1</div><div class="srh-stat__k">With your engineer</div></div>
+        <div class="srh-stat"><div class="srh-stat__n">Fixed</div><div class="srh-stat__k">Fee, assayed up front</div></div>
+      </div>
+    </div>
+  </section>
+
+  {# ===== SERVICES: six claims to stake ===== #}
+  <section class="srh-band">
+    <canvas class="srh-band__canvas" data-srx-shader="smoke-veil" aria-hidden="true"></canvas>
+    <div class="srh-band__inner">
+      <div class="srx-reveal" style="text-align:center;max-width:720px;margin:0 auto clamp(28px,4vw,44px);">
+        <span class="srh-eyebrow">Stake a claim</span>
+        <h2 class="srh-h1">Six veins worth working.</h2>
+        <p class="srh-lead" style="margin-inline:auto;">Pick where you want to grow. One senior engineer behind every line, and a written quote before we touch the ground.</p>
+      </div>
+      <div class="srh-cards srx-reveal">
+        <a class="srh-card" href="/app-development-sunriver-consulting"><span class="srh-card__logo"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><line x1="10.5" y1="18.5" x2="13.5" y2="18.5"/></svg></span><h3 class="srh-card__title">App Development</h3><p class="srh-card__desc">Android, iOS, desktop, and web apps your customers actually want to use.</p></a>
+        <a class="srh-card" href="/business-solutions-sunriver-consulting"><span class="srh-card__logo"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 12l9 5 9-5"/></svg></span><h3 class="srh-card__title">Business Solutions</h3><p class="srh-card__desc">AWS, HubSpot, Salesforce, Microsoft 365, ServiceNow, integrated and tuned.</p></a>
+        <a class="srh-card" href="/compliance-audits-sunriver-consulting"><span class="srh-card__logo"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 4.4-3 7.6-7 9-4-1.4-7-4.6-7-9V6l7-3z"/><path d="M9 12l2 2 4-4.5"/></svg></span><h3 class="srh-card__title">Compliance Audits</h3><p class="srh-card__desc">Penetration testing, threat modeling, WCAG and 508 audits, done right.</p></a>
+        <a class="srh-card" href="/database-solutions-sunriver-consulting"><span class="srh-card__logo"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="5.5" rx="7.5" ry="3"/><path d="M4.5 5.5v13c0 1.66 3.36 3 7.5 3s7.5-1.34 7.5-3v-13"/><path d="M4.5 12c0 1.66 3.36 3 7.5 3s7.5-1.34 7.5-3"/></svg></span><h3 class="srh-card__title">Database Solutions</h3><p class="srh-card__desc">Administration, analysis, design, and development across SQL and NoSQL.</p></a>
+        <a class="srh-card" href="/web-development-sunriver-consulting"><span class="srh-card__logo"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.5 3.8 5.7 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.7-3.8-9S9.5 5.5 12 3z"/></svg></span><h3 class="srh-card__title">Web Development</h3><p class="srh-card__desc">Custom builds and platform work for HubSpot, WordPress, and Squarespace.</p></a>
+        <a class="srh-card" href="/ai-solutions-sunriver-consulting"><span class="srh-card__logo"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l1.4 4.6L18 9l-4.6 1.4L12 15l-1.4-4.6L6 9l4.6-1.4z"/><path d="M18.5 13l.8 2.4 2.4.8-2.4.8-.8 2.4-.8-2.4-2.4-.8 2.4-.8z"/></svg></span><h3 class="srh-card__title">AI Solutions</h3><p class="srh-card__desc">Practical AI adoption: assistants, automation, and training that pays for itself.</p></a>
+      </div>
+    </div>
+  </section>
+
+  {# ===== MISSION + PULL (paper) ===== #}
+  <section class="srh-sec srh-sec--paper">
+    <div class="srh-sec__inner">
+      <div class="srh-split" style="align-items:start;">
+        <div class="srx-reveal">
+          <span class="srh-eyebrow" style="color:var(--river);">Our Mission</span>
+          <h2 class="srh-h2">Quality work, shared with everyone</h2>
+          <p class="sr-pull" style="margin-top:1.6rem;">The strike of 1864 mapped this valley. <b>We are still surveying it, only the gold is good software now.</b></p>
+        </div>
+        <div class="srx-reveal">
+          <p class="srh-lead" style="margin-top:0;color:#23332a;">We are committed to delivering exceptional service at a fraction of what our competitors charge.</p>
+          <p class="srh-lead" style="color:#56685d;">Based out of Helena, Montana, our goal is to champion successful tech adoption for individuals and businesses alike, so everyone keeps pace in a rapidly expanding environment. We believe in a real degree of quality and a love for the craft, and in spreading that to as many people as possible.</p>
+          <ul class="srh-list" style="margin-top:1.8rem;">
+            <li>One senior engineer, start to finish.</li>
+            <li>A written scope and one fixed number before the work begins.</li>
+            <li>Accounts, code, and docs that live under your name from day one.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {# ===== CLOSING CTA: reversed band, one button ===== #}
+  <section class="srh-band srh-band--rev srh-cta">
+    <canvas class="srh-band__canvas" data-srx-shader="smoke-veil" aria-hidden="true"></canvas>
+    <div class="srh-band__inner srx-reveal" style="text-align:center;">
+      <h2 class="srh-h2">Ready to grow with confidence?</h2>
+      <p class="srh-lead" style="margin-left:auto;margin-right:auto;text-align:center;">Tell us where you want to go. We will map the ground, mark the route, and put one honest number on it.</p>
+      <div class="srh-hero__ctas" style="justify-content:center;">
+        <a class="srh-btn srh-btn--primary" href="/schedule-a-consultation-sunriver-consulting">Schedule a Consultation &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  {# No-JS safety: srx-reveal defaults to opacity:0 until child.js adds srx-in, so without
+     scripting the whole page would render blank. This forces every block visible when JS is off. #}
+  <noscript>
+    <style>.srh .srx-reveal{opacity:1 !important;transform:none !important;}</style>
+  </noscript>
+
+  <style>
+    /* Home-Topo: hero tuning only. Scoped to this concept, global classes untouched. */
+    .srh .srh-hero--topo .srh-h1{font-size:clamp(2.7rem,6.4vw,5rem);line-height:1.02;letter-spacing:-.02em;}
+    .srh .srh-hero--topo .srh-lead{font-size:clamp(1.05rem,1.9vw,1.3rem);}
+    .srh .srh-hero--topo .srh-eyebrow{opacity:.92;}
+    .srh .srh-hero__seam{margin:2.6rem auto 0;max-width:600px;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;opacity:.72;color:#eafff2;}
+    @media (max-width:640px){
+      .srh .srh-hero--topo{min-height:88vh !important;}
+      .srh .srh-hero__br{display:none;}
+      .srh .srh-hero__seam{font-size:.74rem;letter-spacing:.1em;}
+    }
+  </style>
+</div>
+  {% dnd_area "flex" label="Optional extra content" %}{% end_dnd_area %}
+{% endblock body %}

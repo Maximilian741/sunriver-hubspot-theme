@@ -1,0 +1,144 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: SunRiver - Home VARIANT F (Illustrated scene)
+  screenshot_path: ../../images/template-previews/home.jpg
+-->
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+<div class="srh">
+
+  {# ===== HERO: bespoke Helena illustration is the centerpiece, smoke veil rides on top ===== #}
+  <section class="srh-band srh-hero--art" style="position:relative;overflow:hidden;">
+    <svg viewBox="0 0 1200 600" role="img" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" style="display:block;width:100%;height:100%;">
+<title>Topographic contour motif</title><desc>Gold survey contour lines, like an elevation map of the claim.</desc>
+<g fill="none" stroke="#FBC34A" stroke-width="1.6">
+<path d="M0,90 C200,50 400,140 600,100 S1000,40 1200,110" stroke-opacity=".26"/>
+<path d="M0,150 C220,110 420,200 640,160 S1010,100 1200,170" stroke-opacity=".22"/>
+<path d="M0,220 C240,180 440,260 660,225 S1020,165 1200,235" stroke-opacity=".18"/>
+<path d="M0,300 C220,260 440,340 660,305 S1030,250 1200,315" stroke-opacity=".16"/>
+<path d="M0,385 C240,350 440,420 680,390 S1040,335 1200,400" stroke-opacity=".14"/>
+<path d="M0,470 C240,440 460,500 700,470 S1050,420 1200,485" stroke-opacity=".12"/>
+</g>
+<g fill="none" stroke="#8FC740" stroke-width="1.5">
+<path d="M820,250 C900,220 980,250 1000,310 C1010,370 940,400 860,385 C790,372 760,300 820,250 Z" stroke-opacity=".34"/>
+<path d="M845,275 C905,255 962,278 975,318 C985,360 935,382 878,371 C828,361 808,305 845,275 Z" stroke-opacity=".26"/>
+<path d="M868,300 C908,288 945,303 953,328 C960,355 928,368 894,361 C862,355 848,320 868,300 Z" stroke-opacity=".2"/>
+</g>
+</svg>
+    <canvas class="srh-band__canvas" data-srx-shader="smoke-veil" aria-hidden="true"></canvas>
+    <div class="srh-band__inner srx-reveal" style="text-align:center;max-width:920px;position:relative;z-index:2;">
+      <span class="srh-eyebrow">Helena, Montana</span>
+      <h1 class="srh-h1" style="margin-top:.4rem;">We read the ground here, <br class="srh-hero__br">and we still do.</h1>
+      <p class="srh-lead" style="margin-left:auto;margin-right:auto;text-align:center;max-width:700px;">Cloud, security, and CMS work done personally by a senior engineer in the heart of Montana. One craftsman, a fixed price, and the patience to do it right.</p>
+      <div class="srh-hero__ctas" style="justify-content:center;">
+        <a class="srh-btn srh-btn--primary" href="/quote-sunriver-consulting">Get a Quick Estimate &rarr;</a>
+        <a class="srh-btn srh-btn--ghost" href="/schedule-a-consultation-sunriver-consulting">Schedule a Consultation</a>
+      </div>
+    </div>
+    {# Full-width signature illustration: the designed Helena scene #}
+    <div class="srh-hero__scene srx-reveal" style="width:100%;max-width:1100px;margin:18px auto 0;position:relative;z-index:2;">
+<svg viewBox="0 0 1200 540" role="img" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet" style="display:block;width:100%;height:auto;border-radius:22px;box-shadow:0 40px 90px -40px rgba(3,18,10,.7);">
+<title>SunRiver Helena scene</title><desc>Green and teal mountain ridges under a gold sun, with a winding gold river to the foreground.</desc>
+<defs>
+<linearGradient id="srScSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#23d800"/><stop offset="34%" stop-color="#13c46a"/><stop offset="66%" stop-color="#0b9fae"/><stop offset="100%" stop-color="#1C5B77"/></linearGradient>
+<radialGradient id="srScSun" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#FBC34A" stop-opacity="0.95"/><stop offset="45%" stop-color="#ffb24f" stop-opacity="0.35"/><stop offset="100%" stop-color="#ffb24f" stop-opacity="0"/></radialGradient>
+<linearGradient id="srScRiver" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FBC34A"/><stop offset="55%" stop-color="#8FC740"/><stop offset="100%" stop-color="#3E9DB8"/></linearGradient>
+<clipPath id="srScFrame"><rect x="0" y="0" width="1200" height="540" rx="22"/></clipPath>
+</defs>
+<g clip-path="url(#srScFrame)">
+<rect x="0" y="0" width="1200" height="540" fill="url(#srScSky)"/>
+<circle cx="930" cy="150" r="190" fill="url(#srScSun)"/><circle cx="930" cy="150" r="58" fill="#FBC34A"/>
+<path d="M0,540 L0,300 C150,250 300,292 450,255 C650,208 800,276 950,238 C1055,218 1150,262 1200,250 L1200,540 Z" fill="#2fcf9c" opacity="0.92"/>
+<path d="M0,540 L0,362 C200,300 350,346 520,320 C700,294 850,356 1000,320 C1100,300 1160,336 1200,330 L1200,540 Z" fill="#0e8fae" opacity="0.95"/>
+<path d="M0,540 L0,432 C180,394 360,426 540,404 C740,382 900,430 1080,404 C1142,396 1182,416 1200,412 L1200,540 Z" fill="#0b3b2c"/>
+<path d="M250,540 L300,452 L350,540 Z" fill="#082a20"/><path d="M330,540 L368,470 L406,540 Z" fill="#082a20"/>
+<path d="M980,540 L1024,458 L1068,540 Z" fill="#082a20"/><path d="M1050,540 L1086,478 L1122,540 Z" fill="#082a20"/>
+<path d="M566,406 C548,452 612,486 548,540 L726,540 C708,498 770,470 706,414 C666,398 604,396 566,406 Z" fill="url(#srScRiver)"/>
+<ellipse cx="636" cy="470" rx="26" ry="7" fill="#fff4d6" opacity="0.5"/>
+</g>
+<rect x="1" y="1" width="1198" height="538" rx="22" fill="none" stroke="#FBC34A" stroke-opacity="0.4" stroke-width="2"/>
+</svg>
+    </div>
+    <p class="srh-hero__seam">Five generations in this valley. The strike of 1864 made this town, and we have been working the ground here ever since.</p>
+  </section>
+
+  {# ===== SERVICES: split intro + 6 brand-logo cards (3x2) ===== #}
+  <section class="srh-band">
+    <canvas class="srh-band__canvas" data-srx-shader="smoke-veil" aria-hidden="true"></canvas>
+    <div class="srh-band__inner">
+      <div class="srh-split">
+        <div class="srx-reveal">
+          <span class="srh-eyebrow">What we do</span>
+          <h2 class="srh-h1">Pick a vein. We&rsquo;ll work it.</h2>
+          <p class="srh-lead">Six service areas, one senior engineer behind every line. Tell us where you want to grow, and we will quote it before we touch it.</p>
+        </div>
+        <div class="srh-cards srx-reveal">
+          <a class="srh-card" href="/app-development-sunriver-consulting"><span class="srh-card__logo"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><line x1="10.5" y1="18.5" x2="13.5" y2="18.5"/></svg></span><h3 class="srh-card__title">App Development</h3><p class="srh-card__desc">Android, iOS, desktop, and web apps your customers actually want to use.</p></a>
+          <a class="srh-card" href="/business-solutions-sunriver-consulting"><span class="srh-card__logo"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 12l9 5 9-5"/></svg></span><h3 class="srh-card__title">Business Solutions</h3><p class="srh-card__desc">AWS, HubSpot, Salesforce, Microsoft 365, ServiceNow, integrated and tuned.</p></a>
+          <a class="srh-card" href="/compliance-audits-sunriver-consulting"><span class="srh-card__logo"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 4.4-3 7.6-7 9-4-1.4-7-4.6-7-9V6l7-3z"/><path d="M9 12l2 2 4-4.5"/></svg></span><h3 class="srh-card__title">Compliance Audits</h3><p class="srh-card__desc">Penetration testing, threat modeling, WCAG and 508 audits, done right.</p></a>
+          <a class="srh-card" href="/database-solutions-sunriver-consulting"><span class="srh-card__logo"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="5.5" rx="7.5" ry="3"/><path d="M4.5 5.5v13c0 1.66 3.36 3 7.5 3s7.5-1.34 7.5-3v-13"/><path d="M4.5 12c0 1.66 3.36 3 7.5 3s7.5-1.34 7.5-3"/></svg></span><h3 class="srh-card__title">Database Solutions</h3><p class="srh-card__desc">Administration, analysis, design, and development across SQL and NoSQL.</p></a>
+          <a class="srh-card" href="/web-development-sunriver-consulting"><span class="srh-card__logo"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.5 3.8 5.7 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.7-3.8-9S9.5 5.5 12 3z"/></svg></span><h3 class="srh-card__title">Web Development</h3><p class="srh-card__desc">Custom builds and platform work for HubSpot, WordPress, and Squarespace.</p></a>
+          <a class="srh-card" href="/ai-solutions-sunriver-consulting"><span class="srh-card__logo"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l1.4 4.6L18 9l-4.6 1.4L12 15l-1.4-4.6L6 9l4.6-1.4z"/><path d="M18.5 13l.8 2.4 2.4.8-2.4.8-.8 2.4-.8-2.4-2.4-.8 2.4-.8z"/></svg></span><h3 class="srh-card__title">AI Solutions</h3><p class="srh-card__desc">Practical AI adoption: assistants, automation, and training that pays for itself.</p></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {# ===== MISSION + AT A GLANCE (paper) ===== #}
+  <section class="srh-sec srh-sec--paper">
+    <div class="srh-sec__inner">
+      <div class="srh-split" style="align-items:start;">
+        <div class="srx-reveal">
+          <span class="srh-eyebrow" style="color:var(--river);">Our Mission</span>
+          <h2 class="srh-h2">Quality work, shared with everyone</h2>
+          <p class="sr-pull" style="margin-top:1.6rem;">The strike of 1864 made this valley. <b>We are still mining it, only the gold is good software now.</b></p>
+        </div>
+        <div class="srx-reveal">
+          <p class="srh-lead" style="margin-top:0;color:#23332a;">We are committed to delivering exceptional service at a fraction of what our competitors charge.</p>
+          <p class="srh-lead" style="color:#56685d;">Based out of Helena, Montana, our goal is to champion successful tech adoption for individuals and businesses alike, so everyone keeps pace in a rapidly expanding environment. We believe in a real degree of quality and a love for the craft, and in spreading that to as many people as possible.</p>
+          <div class="srh-stats" style="margin-top:2.4rem;">
+            <div class="srh-stat"><div class="srh-stat__n">100%</div><div class="srh-stat__k">Senior-built</div></div>
+            <div class="srh-stat"><div class="srh-stat__n">1:1</div><div class="srh-stat__k">With your engineer</div></div>
+            <div class="srh-stat"><div class="srh-stat__n">Fixed</div><div class="srh-stat__k">Fee, not hourly</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {# ===== CLOSING CTA: reversed band, one button ===== #}
+  <section class="srh-band srh-band--rev srh-cta">
+    <canvas class="srh-band__canvas" data-srx-shader="smoke-veil" aria-hidden="true"></canvas>
+    <div class="srh-band__inner srx-reveal">
+      <h2 class="srh-h2">Ready to grow with confidence?</h2>
+      <p class="srh-lead" style="margin-left:auto;margin-right:auto;text-align:center;">Tell us where you want to go. We will show you the road, and a fixed price to get there.</p>
+      <div class="srh-hero__ctas" style="justify-content:center;">
+        <a class="srh-btn srh-btn--primary" href="/schedule-a-consultation-sunriver-consulting">Schedule a Consultation &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  {# No-JS safety: srx-reveal defaults to opacity:0 until child.js adds srx-in. Force visible when JS is off. #}
+  <noscript>
+    <style>.srh .srx-reveal{opacity:1 !important;transform:none !important;}</style>
+  </noscript>
+
+  <style>
+    /* Home-Illustrated: hero tuning only. Scoped to this concept; global classes untouched. */
+    .srh .srh-hero--art{padding-top:clamp(3.2rem,7vw,5.5rem);padding-bottom:clamp(2.4rem,5vw,4rem);}
+    .srh .srh-hero--art .srh-h1{font-size:clamp(2.6rem,6vw,4.7rem);line-height:1.03;letter-spacing:-.02em;}
+    .srh .srh-hero--art .srh-lead{font-size:clamp(1.05rem,1.9vw,1.28rem);}
+    .srh .srh-hero__scene svg{display:block;width:100%;height:auto;filter:drop-shadow(0 24px 60px rgba(4,22,13,.42));}
+    .srh .srh-hero__seam{position:relative;z-index:2;margin:2.4rem auto 0;max-width:620px;text-align:center;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;opacity:.72;color:#eafff2;}
+    .srh .srh-hero--art .srh-eyebrow{opacity:.9;}
+    @media (max-width:640px){
+      .srh .srh-hero__br{display:none;}
+      .srh .srh-hero__seam{font-size:.74rem;letter-spacing:.1em;}
+      .srh .srh-hero__scene{margin-top:12px;}
+    }
+  </style>
+</div>
+  {% dnd_area "flex" label="Optional extra content" %}{% end_dnd_area %}
+{% endblock body %}
