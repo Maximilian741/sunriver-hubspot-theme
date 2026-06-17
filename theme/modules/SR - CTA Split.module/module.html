@@ -1,0 +1,19 @@
+<section class="srh-sec srh-sec--paper">
+  <div class="srh-sec__inner">
+    <div class="srh-split" style="align-items:center;gap:clamp(24px,5vw,56px);">
+
+      <div class="srx-reveal">
+        {% if module.cta_eyebrow %}<span class="srh-eyebrow" style="color:var(--river);">{{ module.cta_eyebrow }}</span>{% endif %}
+        {% if module.cta_heading %}<h2 class="srh-h2" style="margin-bottom:.6rem;">{{ module.cta_heading }}</h2>{% endif %}
+        {% if module.cta_lead %}<p class="srh-lead" style="margin:0;">{{ module.cta_lead }}</p>{% endif %}
+      </div>
+
+      {% if module.cta_btn_text and module.cta_btn_url.href %}
+      <div class="srh-hero__ctas srx-reveal" style="justify-content:flex-end;">
+        <a class="srh-btn srh-btn--primary" href="{{ module.cta_btn_url.href }}">{{ module.cta_btn_text }}</a>
+      </div>
+      {% endif %}
+
+    </div>
+  </div>
+</section>

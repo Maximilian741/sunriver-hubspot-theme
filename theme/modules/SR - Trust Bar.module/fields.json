@@ -1,0 +1,72 @@
+[
+  {
+    "name": "eyebrow_text",
+    "label": "Eyebrow (optional, shown above the strip)",
+    "type": "text",
+    "required": false,
+    "default": "",
+    "id": "10100001-0001-0001-0001-000000000001"
+  },
+  {
+    "name": "show_eyebrow",
+    "label": "Show eyebrow",
+    "type": "boolean",
+    "required": false,
+    "default": false,
+    "id": "10100002-0001-0001-0001-000000000002"
+  },
+  {
+    "name": "marker_style",
+    "label": "Badge marker",
+    "type": "choice",
+    "display": "select",
+    "required": false,
+    "default": "check",
+    "choices": [
+      [
+        "check",
+        "Check mark"
+      ],
+      [
+        "dot",
+        "Dot"
+      ]
+    ],
+    "id": "10100003-0001-0001-0001-000000000003"
+  },
+  {
+    "name": "badges",
+    "label": "Trust badges",
+    "type": "group",
+    "occurrence": {
+      "min": 1,
+      "max": 8,
+      "default": 4
+    },
+    "default": [
+      {
+        "badge_text": "HubSpot Solutions Partner"
+      },
+      {
+        "badge_text": "Helena, MT"
+      },
+      {
+        "badge_text": "Fixed-fee work"
+      },
+      {
+        "badge_text": "WCAG / 508 accessible"
+      }
+    ],
+    "children": [
+      {
+        "name": "badge_text",
+        "label": "Badge label",
+        "type": "text",
+        "required": true,
+        "default": "Trust point",
+        "id": "10100005-0001-0001-0001-000000000005"
+      }
+    ],
+    "id": "10100004-0001-0001-0001-000000000004"
+  }
+]

@@ -1,0 +1,88 @@
+[
+  {
+    "name": "section_eyebrow",
+    "label": "Section eyebrow",
+    "type": "text",
+    "required": false,
+    "default": "Gallery",
+    "id": "10140001-0001-0001-0001-000000000001"
+  },
+  {
+    "name": "section_heading",
+    "label": "Section heading",
+    "type": "text",
+    "required": false,
+    "default": "Work from the field.",
+    "id": "10140002-0001-0001-0001-000000000002"
+  },
+  {
+    "name": "section_lead",
+    "label": "Section lead",
+    "type": "richtext",
+    "required": false,
+    "default": "<p>A look at recent builds, sites, and the places that shaped them.</p>",
+    "id": "10140003-0001-0001-0001-000000000003"
+  },
+  {
+    "name": "gallery_items",
+    "label": "Gallery images",
+    "type": "group",
+    "occurrence": {
+      "min": 2,
+      "max": 8,
+      "default": 4
+    },
+    "default": [
+      {
+        "gallery_img": {
+          "src": "https://www.sunriverconsulting.us/hubfs/pexels-gsn-travel-28539582.jpg",
+          "alt": "Montana mountains at dawn"
+        },
+        "gallery_caption": "Helena, where the work starts."
+      },
+      {
+        "gallery_img": {
+          "src": "https://www.sunriverconsulting.us/hubfs/pexels-gsn-travel-28539582.jpg",
+          "alt": "River valley landscape"
+        },
+        "gallery_caption": "Built to scale with your team."
+      },
+      {
+        "gallery_img": {
+          "src": "https://www.sunriverconsulting.us/hubfs/pexels-gsn-travel-28539582.jpg",
+          "alt": "Ridge line under open sky"
+        },
+        "gallery_caption": "Security baked in from day one."
+      },
+      {
+        "gallery_img": {
+          "src": "https://www.sunriverconsulting.us/hubfs/pexels-gsn-travel-28539582.jpg",
+          "alt": "Golden hour over the range"
+        },
+        "gallery_caption": "Shipped, tested, and owned by you."
+      }
+    ],
+    "children": [
+      {
+        "name": "gallery_img",
+        "label": "Image",
+        "type": "image",
+        "required": false,
+        "default": {
+          "src": "https://www.sunriverconsulting.us/hubfs/pexels-gsn-travel-28539582.jpg",
+          "alt": "Gallery image"
+        },
+        "id": "10140005-0001-0001-0001-000000000005"
+      },
+      {
+        "name": "gallery_caption",
+        "label": "Caption (optional)",
+        "type": "text",
+        "required": false,
+        "default": "Add a short caption.",
+        "id": "10140006-0001-0001-0001-000000000006"
+      }
+    ],
+    "id": "10140004-0001-0001-0001-000000000004"
+  }
+]

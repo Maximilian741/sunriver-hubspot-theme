@@ -1,0 +1,27 @@
+<section class="srh-sec">
+  <div class="srh-sec__inner">
+    {% if module.section_eyebrow %}<p class="srh-eyebrow">{{ module.section_eyebrow }}</p>{% endif %}
+    {% if module.section_heading %}<h2 class="srh-h2">{{ module.section_heading }}</h2>{% endif %}
+
+    {% set icons = {
+      "shield": '<path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/>',
+      "globe": '<circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.5 2.5 15 0 18"/><path d="M12 3c-2.5 2.5-2.5 15 0 18"/>',
+      "database": '<ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.66 3.13 3 7 3s7-1.34 7-3V6"/><path d="M5 12v6c0 1.66 3.13 3 7 3s7-1.34 7-3v-6"/>',
+      "spark": '<path d="M12 3l1.4 4.6L18 9l-4.6 1.4L12 15l-1.4-4.6L6 9l4.6-1.4z"/><path d="M18.5 13l.8 2.4 2.4.8-2.4.8-.8 2.4-.8-2.4-2.4-.8 2.4-.8z"/>',
+      "lock": '<rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/>',
+      "bolt": '<path d="M13 2L4 14h7l-1 8 9-12h-7z"/>'
+    } %}
+
+    <div class="srh-cards srh-cards--{{ module.columns|default('3') }}">
+      {% for it in module.features %}
+        {% set has_link = it.feature_link.href %}
+        {% if has_link %}<a class="srh-card" href="{{ it.feature_link.href }}">{% else %}<div class="srh-card">{% endif %}
+          <span class="srh-card__logo"><svg class="mono" viewBox="0 0 24 24" aria-hidden="true">{{ icons[it.feature_icon]|default(icons['shield']) }}</svg></span>
+          {% if it.feature_title %}<h3 class="srh-card__title">{{ it.feature_title }}</h3>{% endif %}
+          {% if it.feature_desc %}<div class="srh-card__desc">{{ it.feature_desc }}</div>{% endif %}
+          {% if it.feature_link_text and has_link %}<span class="srh-btn srh-btn--ghost">{{ it.feature_link_text }}</span>{% endif %}
+        {% if has_link %}</a>{% else %}</div>{% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>

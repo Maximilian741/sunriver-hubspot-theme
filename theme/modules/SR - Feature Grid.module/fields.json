@@ -1,0 +1,169 @@
+[
+  {
+    "name": "section_eyebrow",
+    "label": "Section eyebrow",
+    "type": "text",
+    "required": false,
+    "default": "Capabilities",
+    "id": "100a0001-0001-0001-0001-000000000001"
+  },
+  {
+    "name": "section_heading",
+    "label": "Section heading",
+    "type": "text",
+    "required": false,
+    "default": "Built for the work that matters.",
+    "id": "100a0002-0001-0001-0001-000000000002"
+  },
+  {
+    "name": "columns",
+    "label": "Columns",
+    "type": "choice",
+    "display": "select",
+    "required": false,
+    "choices": [
+      [
+        "2",
+        "2"
+      ],
+      [
+        "3",
+        "3"
+      ],
+      [
+        "4",
+        "4"
+      ]
+    ],
+    "default": "3",
+    "id": "100a0003-0001-0001-0001-000000000003"
+  },
+  {
+    "name": "features",
+    "label": "Features",
+    "type": "group",
+    "occurrence": {
+      "min": 3,
+      "max": 6,
+      "default": 3
+    },
+    "default": [
+      {
+        "feature_icon": "shield",
+        "feature_title": "Security first",
+        "feature_desc": "<p>Modern, audit-ready controls baked in from the start, not bolted on later.</p>",
+        "feature_link_text": "See compliance work",
+        "feature_link": {
+          "type": "EXTERNAL",
+          "href": "/compliance-audits-sunriver-consulting",
+          "content_id": null
+        }
+      },
+      {
+        "feature_icon": "globe",
+        "feature_title": "Web that performs",
+        "feature_desc": "<p>Fast, accessible sites and apps that hold up under real traffic.</p>",
+        "feature_link_text": "See web work",
+        "feature_link": {
+          "type": "EXTERNAL",
+          "href": "/web-development-sunriver-consulting",
+          "content_id": null
+        }
+      },
+      {
+        "feature_icon": "database",
+        "feature_title": "Data you can trust",
+        "feature_desc": "<p>Clean schemas, sound migrations, and queries that stay fast as you grow.</p>",
+        "feature_link_text": "See database work",
+        "feature_link": {
+          "type": "EXTERNAL",
+          "href": "/database-solutions-sunriver-consulting",
+          "content_id": null
+        }
+      }
+    ],
+    "children": [
+      {
+        "name": "feature_icon",
+        "label": "Icon",
+        "type": "choice",
+        "display": "select",
+        "required": false,
+        "choices": [
+          [
+            "shield",
+            "Shield"
+          ],
+          [
+            "globe",
+            "Globe"
+          ],
+          [
+            "database",
+            "Database"
+          ],
+          [
+            "spark",
+            "Spark"
+          ],
+          [
+            "lock",
+            "Lock"
+          ],
+          [
+            "bolt",
+            "Bolt"
+          ]
+        ],
+        "default": "shield",
+        "id": "100a0005-0001-0001-0001-000000000005"
+      },
+      {
+        "name": "feature_title",
+        "label": "Title",
+        "type": "text",
+        "required": false,
+        "default": "Feature title",
+        "id": "100a0006-0001-0001-0001-000000000006"
+      },
+      {
+        "name": "feature_desc",
+        "label": "Description",
+        "type": "richtext",
+        "required": false,
+        "default": "<p>Short description of this feature.</p>",
+        "id": "100a0007-0001-0001-0001-000000000007"
+      },
+      {
+        "name": "feature_link_text",
+        "label": "Link text (optional)",
+        "type": "text",
+        "required": false,
+        "default": "",
+        "id": "100a0008-0001-0001-0001-000000000008"
+      },
+      {
+        "name": "feature_link",
+        "label": "Link URL (optional)",
+        "type": "url",
+        "required": false,
+        "locked": false,
+        "supported_types": [
+          "EXTERNAL",
+          "CONTENT",
+          "FILE",
+          "EMAIL_ADDRESS",
+          "BLOG"
+        ],
+        "display_width": null,
+        "default": {
+          "type": "EXTERNAL",
+          "href": "/contact",
+          "content_id": null
+        },
+        "id": "100a0009-0001-0001-0001-000000000009"
+      }
+    ],
+    "id": "100a0004-0001-0001-0001-000000000004"
+  }
+]

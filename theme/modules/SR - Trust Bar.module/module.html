@@ -1,0 +1,21 @@
+<section class="srh-sec">
+  <div class="srh-sec__inner" style="padding-top:clamp(26px,4vw,40px);padding-bottom:clamp(26px,4vw,40px);">
+    {% if module.show_eyebrow and module.eyebrow_text %}
+      <span class="srh-eyebrow" style="text-align:center;">{{ module.eyebrow_text }}</span>
+    {% endif %}
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:12px 14px;">
+      {% for it in module.badges %}
+        {% if it.badge_text %}
+          <span style="display:inline-flex;align-items:center;gap:9px;padding:9px 16px;border-radius:999px;background:rgba(255,255,255,.07);border:1px solid rgba(169,240,198,.28);font-size:.92rem;font-weight:600;letter-spacing:.01em;color:#eafff2;line-height:1;white-space:nowrap;">
+            {% if module.marker_style == "dot" %}
+              <svg class="mono" viewBox="0 0 24 24" aria-hidden="true" style="width:14px;height:14px;flex:none;"><circle cx="12" cy="12" r="6" fill="#FBC34A"></circle></svg>
+            {% else %}
+              <svg class="mono" viewBox="0 0 24 24" aria-hidden="true" style="width:15px;height:15px;flex:none;"><path d="M20 6L9 17l-5-5" fill="none" stroke="#FBC34A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            {% endif %}
+            <span>{{ it.badge_text }}</span>
+          </span>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>

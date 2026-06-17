@@ -1,0 +1,26 @@
+<section class="srh-sec srh-sec--paper">
+  <div class="srh-sec__inner" style="max-width:980px;">
+    {% if module.eyebrow %}<span class="srh-eyebrow" style="color:var(--river);">{{ module.eyebrow }}</span>{% endif %}
+    {% if module.heading %}<h2 class="srh-h2">{{ module.heading }}</h2>{% endif %}
+    <div class="srh-compare srx-reveal">
+      <div class="srh-compare__col srh-compare__col--them">
+        {% if module.them_cap %}<span class="srh-compare__cap">{{ module.them_cap }}</span>{% endif %}
+        {% if module.them_headline %}<h3 class="srh-compare__h">{{ module.them_headline }}</h3>{% endif %}
+        <ul>
+          {% for it in module.them_points %}
+            {% if it.point_text %}<li>{{ it.point_text }}</li>{% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="srh-compare__col srh-compare__col--us">
+        {% if module.us_cap %}<span class="srh-compare__cap">{{ module.us_cap }}</span>{% endif %}
+        {% if module.us_headline %}<h3 class="srh-compare__h">{{ module.us_headline }}</h3>{% endif %}
+        <ul>
+          {% for it in module.us_points %}
+            {% if it.point_text %}<li>{{ it.point_text }}</li>{% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

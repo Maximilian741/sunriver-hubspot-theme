@@ -1,0 +1,24 @@
+<section class="srh-sec">
+  <div class="srh-sec__inner">
+    <div class="srh-split srx-reveal" style="grid-template-columns:1fr 1fr;align-items:center;">
+
+      {% if module.split_img.src %}
+      <div style="order:{% if module.image_side == 'right' %}2{% else %}0{% endif %};">
+        <img src="{{ module.split_img.src }}" alt="{{ module.split_img.alt }}" style="display:block;width:100%;height:auto;border-radius:18px;box-shadow:0 24px 50px -28px rgba(8,30,16,.55);">
+      </div>
+      {% endif %}
+
+      <div style="order:1;">
+        {% if module.eyebrow %}<span class="srh-eyebrow" style="color:var(--river);">{{ module.eyebrow }}</span>{% endif %}
+        {% if module.heading %}<h2 class="srh-h2">{{ module.heading }}</h2>{% endif %}
+        {% if module.body_text %}<div class="srh-lead">{{ module.body_text }}</div>{% endif %}
+        {% if module.show_cta && module.cta_text %}
+        <div class="srh-hero__ctas" style="margin-top:1.6rem;">
+          <a class="srh-btn srh-btn--primary" href="{{ module.cta_url.href }}">{{ module.cta_text }}</a>
+        </div>
+        {% endif %}
+      </div>
+
+    </div>
+  </div>
+</section>

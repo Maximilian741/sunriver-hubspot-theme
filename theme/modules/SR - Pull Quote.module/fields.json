@@ -1,0 +1,8 @@
+[ {
+  "id" : "c1000001-0001-0001-0001-000000000001",
+  "name" : "quote",
+  "label" : "Quote (bold for gold accent)",
+  "type" : "richtext",
+  "required" : true,
+  "default" : "<p>Gold settles where the river slows. <strong>So does good work.</strong></p>"
+} ]

@@ -1,0 +1,67 @@
+[
+  {
+    "name": "divider_style",
+    "label": "Divider style",
+    "type": "choice",
+    "display": "select",
+    "required": false,
+    "choices": [
+      [
+        "gold",
+        "Thin gold rule"
+      ],
+      [
+        "faint",
+        "Faint line"
+      ],
+      [
+        "space",
+        "Blank space"
+      ]
+    ],
+    "default": "gold",
+    "id": "10180001-0001-0001-0001-000000000001"
+  },
+  {
+    "name": "divider_size",
+    "label": "Vertical size",
+    "type": "choice",
+    "display": "select",
+    "required": false,
+    "choices": [
+      [
+        "s",
+        "Small"
+      ],
+      [
+        "m",
+        "Medium"
+      ],
+      [
+        "l",
+        "Large"
+      ]
+    ],
+    "default": "m",
+    "id": "10180002-0001-0001-0001-000000000002"
+  },
+  {
+    "name": "rule_width",
+    "label": "Rule width",
+    "type": "choice",
+    "display": "select",
+    "required": false,
+    "choices": [
+      [
+        "narrow",
+        "Narrow (centered accent)"
+      ],
+      [
+        "full",
+        "Full width"
+      ]
+    ],
+    "default": "narrow",
+    "id": "10180003-0001-0001-0001-000000000003"
+  }
+]

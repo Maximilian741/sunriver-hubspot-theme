@@ -1,0 +1,26 @@
+[
+  {
+    "name": "eyebrow",
+    "label": "Eyebrow",
+    "type": "text",
+    "required": false,
+    "default": "SunRiver Consulting",
+    "id": "10020001-0001-0001-0001-000000000001"
+  },
+  {
+    "name": "heading",
+    "label": "Heading",
+    "type": "text",
+    "required": true,
+    "default": "Senior engineering for Montana businesses",
+    "id": "10020002-0001-0001-0001-000000000002"
+  },
+  {
+    "name": "lead",
+    "label": "Lead line",
+    "type": "text",
+    "required": false,
+    "default": "One senior engineer who designs, builds, and stands behind the work.",
+    "id": "10020003-0001-0001-0001-000000000003"
+  }
+]

@@ -1,0 +1,56 @@
+[
+  {
+    "name": "eyebrow",
+    "label": "Eyebrow",
+    "type": "text",
+    "required": false,
+    "default": "What you get",
+    "id": "101d0001-0001-0001-0001-000000000001"
+  },
+  {
+    "name": "heading",
+    "label": "Heading",
+    "type": "text",
+    "required": false,
+    "default": "Every project, the same promises",
+    "id": "101d0002-0001-0001-0001-000000000002"
+  },
+  {
+    "name": "items",
+    "label": "Checklist items",
+    "type": "group",
+    "occurrence": {
+      "min": 2,
+      "max": 10,
+      "default": 5
+    },
+    "default": [
+      {
+        "item_text": "Senior-only work, the person who scopes it builds it"
+      },
+      {
+        "item_text": "A written scope and one fixed number before we start"
+      },
+      {
+        "item_text": "Accessible and secure from day one, WCAG and 508"
+      },
+      {
+        "item_text": "Accounts, code, and docs all under your name"
+      },
+      {
+        "item_text": "Helena roots, serving teams nationwide"
+      }
+    ],
+    "children": [
+      {
+        "name": "item_text",
+        "label": "Item text",
+        "type": "text",
+        "required": true,
+        "default": "A clear, honest deliverable",
+        "id": "101d0004-0001-0001-0001-000000000004"
+      }
+    ],
+    "id": "101d0003-0001-0001-0001-000000000003"
+  }
+]

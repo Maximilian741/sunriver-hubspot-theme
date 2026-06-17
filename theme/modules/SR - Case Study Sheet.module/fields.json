@@ -1,0 +1,71 @@
+[
+  {
+    "name": "category_text",
+    "label": "Category / status line",
+    "type": "text",
+    "required": false,
+    "default": "Accessibility & Compliance · Closed and re-tested",
+    "id": "101b0001-0001-0001-0001-000000000001"
+  },
+  {
+    "name": "headline_text",
+    "label": "Headline",
+    "type": "text",
+    "required": false,
+    "default": "A site nobody could use with a screen reader, made defensible for procurement",
+    "id": "101b0002-0001-0001-0001-000000000002"
+  },
+  {
+    "name": "problem_richtext",
+    "label": "The problem",
+    "type": "richtext",
+    "required": false,
+    "default": "<p>An organization was facing procurement and legal accessibility requirements, with a website that simply could not be used with a screen reader. Missing form labels, focus traps in modals, contrast that almost passed, and documents exported without a single tag. The clock was a contract deadline with real money behind it.</p>",
+    "id": "101b0003-0001-0001-0001-000000000003"
+  },
+  {
+    "name": "approach_richtext",
+    "label": "The approach",
+    "type": "richtext",
+    "required": false,
+    "default": "<p>We ran our three-pass method. First an automated scan to clear the easy wins, knowing tooling catches maybe a third of what is really there. Second a full manual pass: keyboard-only walkthroughs, NVDA and VoiceOver runs, zoom and reflow checks, and PDF tagging with real reading order and honest alt text. Third, the part that matters most, a prioritized remediation report written for the developers who fix it, plus the ACR and VPAT the procurement team actually asked for.</p>",
+    "id": "101b0004-0001-0001-0001-000000000004"
+  },
+  {
+    "name": "result_richtext",
+    "label": "The result",
+    "type": "richtext",
+    "required": false,
+    "default": "<p>The latest cycle closed and re-tested every critical finding rather than simply logging it. The client walked away with a defensible Accessibility Conformance Report and a site real people can use.</p>",
+    "id": "101b0005-0001-0001-0001-000000000005"
+  },
+  {
+    "name": "link_text",
+    "label": "Quiet link text",
+    "type": "text",
+    "required": false,
+    "default": "See how the audit work runs",
+    "id": "101b0006-0001-0001-0001-000000000006"
+  },
+  {
+    "name": "link_url",
+    "label": "Quiet link",
+    "type": "url",
+    "required": false,
+    "locked": false,
+    "supported_types": [
+      "EXTERNAL",
+      "CONTENT",
+      "FILE",
+      "EMAIL_ADDRESS",
+      "BLOG"
+    ],
+    "display_width": null,
+    "default": {
+      "type": "EXTERNAL",
+      "href": "/work-sunriver-consulting",
+      "content_id": null
+    },
+    "id": "101b0007-0001-0001-0001-000000000007"
+  }
+]

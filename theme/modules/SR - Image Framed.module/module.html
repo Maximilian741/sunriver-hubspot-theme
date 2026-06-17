@@ -1,0 +1,15 @@
+{# SR Image Framed, a single framed image with rounded corners + soft shadow and an optional caption. Drop into a page whose dnd_area is wrapped in .srh so the gradient/smoke shows behind it. #}
+{% set widths = { "narrow": "640px", "medium": "840px", "wide": "1040px", "full": "100%" } %}
+{% set frame_w = widths[module.max_w] %}{% if not frame_w %}{% set frame_w = "840px" %}{% endif %}
+<section class="srh-sec">
+  <div class="srh-sec__inner" style="max-width:{{ frame_w }};text-align:center;">
+    {% if module.frame_img.src %}
+      <figure style="margin:0;">
+        <img src="{{ module.frame_img.src }}" alt="{{ module.frame_img.alt }}" style="display:block;width:100%;height:auto;border-radius:18px;box-shadow:0 24px 60px rgba(8,20,16,0.45);">
+        {% if module.caption_text %}
+          <figcaption class="srh-lead" style="margin-top:1rem;font-size:0.95rem;opacity:0.78;">{{ module.caption_text }}</figcaption>
+        {% endif %}
+      </figure>
+    {% endif %}
+  </div>
+</section>

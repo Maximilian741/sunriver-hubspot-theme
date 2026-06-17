@@ -1,0 +1,15 @@
+<section class="srh-photo">
+  {% if module.bg_img.src %}<div class="srh-photo__bg" style="background-image:url('{{ module.bg_img.src }}');"></div>{% endif %}
+  <div class="srh-photo__veil"></div>
+  <div class="srh-photo__inner">
+    {% if module.cap %}<span class="srh-photo__cap">{{ module.cap }}</span>{% endif %}
+    {% if module.hero_title %}<h1 class="srh-photo__title">{{ module.hero_title }}</h1>{% endif %}
+    {% if module.sub %}<p class="srh-photo__sub">{{ module.sub }}</p>{% endif %}
+    {% if module.primary_text or module.ghost_text %}
+    <div class="srh-hero__ctas">
+      {% if module.primary_text %}<a class="srh-btn srh-btn--primary" href="{{ module.primary_url.href }}">{{ module.primary_text }} &rarr;</a>{% endif %}
+      {% if module.ghost_text %}<a class="srh-btn srh-btn--ghost" href="{{ module.ghost_url.href }}">{{ module.ghost_text }}</a>{% endif %}
+    </div>
+    {% endif %}
+  </div>
+</section>

@@ -1,0 +1,12 @@
+<section class="srh-sec">
+  <div class="srh-sec__inner" style="max-width:820px;">
+    <div class="srd-sheet" style="text-align:center;">
+      {% if module.author_img.src %}
+        <div class="srh-person__img" style="background-image:url('{{ module.author_img.src }}');" role="img" aria-label="{{ module.author_img.alt }}"></div>
+      {% endif %}
+      {% if module.quote %}<div class="sr-pull">{{ module.quote }}</div>{% endif %}
+      {% if module.author_name %}<p class="srh-person__name" style="margin-top:18px;">{{ module.author_name }}</p>{% endif %}
+      {% if module.author_role %}<p class="srh-person__role" style="text-align:center;">{{ module.author_role }}</p>{% endif %}
+    </div>
+  </div>
+</section>

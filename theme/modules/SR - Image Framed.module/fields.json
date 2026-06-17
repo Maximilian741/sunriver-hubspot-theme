@@ -1,0 +1,48 @@
+[
+  {
+    "name": "frame_img",
+    "label": "Image",
+    "type": "image",
+    "required": false,
+    "default": {
+      "src": "https://www.sunriverconsulting.us/hubfs/pexels-gsn-travel-28539582.jpg",
+      "alt": "The Helena valley under a clear Montana sky"
+    },
+    "id": "10130001-0001-0001-0001-000000000001"
+  },
+  {
+    "name": "caption_text",
+    "label": "Caption (optional)",
+    "type": "text",
+    "required": false,
+    "default": "The country that taught us patience pays off.",
+    "id": "10130002-0001-0001-0001-000000000002"
+  },
+  {
+    "name": "max_w",
+    "label": "Max width",
+    "type": "choice",
+    "display": "select",
+    "required": false,
+    "choices": [
+      [
+        "narrow",
+        "Narrow (640px)"
+      ],
+      [
+        "medium",
+        "Medium (840px)"
+      ],
+      [
+        "wide",
+        "Wide (1040px)"
+      ],
+      [
+        "full",
+        "Full width"
+      ]
+    ],
+    "default": "medium",
+    "id": "10130003-0001-0001-0001-000000000003"
+  }
+]

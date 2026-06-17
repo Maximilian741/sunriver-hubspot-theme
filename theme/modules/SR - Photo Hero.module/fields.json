@@ -1,0 +1,95 @@
+[
+  {
+    "name": "bg_img",
+    "label": "Background photo",
+    "type": "image",
+    "required": false,
+    "default": {
+      "src": "https://www.sunriverconsulting.us/hubfs/pexels-gsn-travel-28539582.jpg",
+      "alt": "Montana mountains at dusk"
+    },
+    "id": "10000001-0001-0001-0001-000000000001"
+  },
+  {
+    "name": "cap",
+    "label": "Eyebrow / cap",
+    "type": "text",
+    "required": false,
+    "default": "Helena, Montana",
+    "id": "10000002-0001-0001-0001-000000000002"
+  },
+  {
+    "name": "hero_title",
+    "label": "Title",
+    "type": "text",
+    "required": false,
+    "default": "SunRiver Consulting",
+    "id": "10000003-0001-0001-0001-000000000003"
+  },
+  {
+    "name": "sub",
+    "label": "Subtitle",
+    "type": "text",
+    "required": false,
+    "default": "Cloud, security, and CMS work done personally by a senior engineer in the heart of Montana.",
+    "id": "10000004-0001-0001-0001-000000000004"
+  },
+  {
+    "name": "primary_text",
+    "label": "Primary button text",
+    "type": "text",
+    "required": false,
+    "default": "Get a Quick Estimate",
+    "id": "10000005-0001-0001-0001-000000000005"
+  },
+  {
+    "name": "primary_url",
+    "label": "Primary button link",
+    "type": "url",
+    "required": false,
+    "locked": false,
+    "supported_types": [
+      "EXTERNAL",
+      "CONTENT",
+      "FILE",
+      "EMAIL_ADDRESS",
+      "BLOG"
+    ],
+    "display_width": null,
+    "default": {
+      "type": "EXTERNAL",
+      "href": "/quote-sunriver-consulting",
+      "content_id": null
+    },
+    "id": "10000006-0001-0001-0001-000000000006"
+  },
+  {
+    "name": "ghost_text",
+    "label": "Secondary button text",
+    "type": "text",
+    "required": false,
+    "default": "Schedule a Consultation",
+    "id": "10000007-0001-0001-0001-000000000007"
+  },
+  {
+    "name": "ghost_url",
+    "label": "Secondary button link",
+    "type": "url",
+    "required": false,
+    "locked": false,
+    "supported_types": [
+      "EXTERNAL",
+      "CONTENT",
+      "FILE",
+      "EMAIL_ADDRESS",
+      "BLOG"
+    ],
+    "display_width": null,
+    "default": {
+      "type": "EXTERNAL",
+      "href": "/schedule-a-consultation-sunriver-consulting",
+      "content_id": null
+    },
+    "id": "10000008-0001-0001-0001-000000000008"
+  }
+]

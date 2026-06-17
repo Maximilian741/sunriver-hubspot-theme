@@ -1,0 +1,93 @@
+[
+  {
+    "name": "split_img",
+    "label": "Image",
+    "type": "image",
+    "required": false,
+    "default": {
+      "src": "https://www.sunriverconsulting.us/hubfs/pexels-gsn-travel-28539582.jpg",
+      "alt": "Sun River cutting through the Montana mountains"
+    },
+    "id": "10050001-0001-0001-0001-000000000001"
+  },
+  {
+    "name": "image_side",
+    "label": "Image side",
+    "type": "choice",
+    "display": "select",
+    "required": false,
+    "choices": [
+      [
+        "left",
+        "Left"
+      ],
+      [
+        "right",
+        "Right"
+      ]
+    ],
+    "default": "left",
+    "id": "10050002-0001-0001-0001-000000000002"
+  },
+  {
+    "name": "eyebrow",
+    "label": "Eyebrow",
+    "type": "text",
+    "required": false,
+    "default": "Built in Helena",
+    "id": "10050003-0001-0001-0001-000000000003"
+  },
+  {
+    "name": "heading",
+    "label": "Heading",
+    "type": "text",
+    "required": false,
+    "default": "Senior engineering, without the agency overhead",
+    "id": "10050004-0001-0001-0001-000000000004"
+  },
+  {
+    "name": "body_text",
+    "label": "Body",
+    "type": "richtext",
+    "required": false,
+    "default": "<p>You work directly with the person writing the code. No account managers, no hand-offs, no junior team learning on your budget. Just clear scope, a fixed fee, and software that holds up after launch.</p>",
+    "id": "10050005-0001-0001-0001-000000000005"
+  },
+  {
+    "name": "show_cta",
+    "label": "Show button",
+    "type": "boolean",
+    "required": false,
+    "default": true,
+    "id": "10050006-0001-0001-0001-000000000006"
+  },
+  {
+    "name": "cta_text",
+    "label": "Button text",
+    "type": "text",
+    "required": false,
+    "default": "Start a project",
+    "id": "10050007-0001-0001-0001-000000000007"
+  },
+  {
+    "name": "cta_url",
+    "label": "Button link",
+    "type": "url",
+    "required": false,
+    "locked": false,
+    "supported_types": [
+      "EXTERNAL",
+      "CONTENT",
+      "FILE",
+      "EMAIL_ADDRESS",
+      "BLOG"
+    ],
+    "display_width": null,
+    "default": {
+      "type": "EXTERNAL",
+      "href": "/quote-sunriver-consulting",
+      "content_id": null
+    },
+    "id": "10050008-0001-0001-0001-000000000008"
+  }
+]

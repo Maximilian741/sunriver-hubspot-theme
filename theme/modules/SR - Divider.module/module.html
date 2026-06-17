@@ -1,0 +1,11 @@
+<section class="srh-sec">
+  <div class="srh-sec__inner" style="{% if module.divider_size == 's' %}padding-top:24px;padding-bottom:24px;{% elif module.divider_size == 'l' %}padding-top:96px;padding-bottom:96px;{% else %}padding-top:56px;padding-bottom:56px;{% endif %}">
+    {% if module.divider_style == 'space' %}
+      <div aria-hidden="true" style="height:1px;"></div>
+    {% elif module.divider_style == 'faint' %}
+      <hr aria-hidden="true" style="border:0;height:1px;margin:0 auto;background:rgba(255,255,255,0.14);{% if module.rule_width == 'full' %}width:100%;{% else %}width:120px;{% endif %}">
+    {% else %}
+      <hr aria-hidden="true" style="border:0;height:2px;border-radius:2px;margin:0 auto;background:#d4af37;{% if module.rule_width == 'full' %}width:100%;{% else %}width:96px;{% endif %}">
+    {% endif %}
+  </div>
+</section>

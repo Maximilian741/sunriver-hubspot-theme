@@ -1,0 +1,28 @@
+{# SR Callout Note, highlighted srh-perk card on the page gradient (.srh). #}
+<section class="srh-sec">
+  <div class="srh-sec__inner">
+    <div class="srh-perk">
+      <span class="srh-perk__ic">
+        {% if module.icon_choice == "check" %}
+          <svg viewBox="0 0 24 24" aria-hidden="true" class="mono"><path d="M20.285 6.708l-11.39 11.39-5.18-5.18 1.41-1.41 3.77 3.77 9.98-9.98z"/></svg>
+        {% elif module.icon_choice == "info" %}
+          <svg viewBox="0 0 24 24" aria-hidden="true" class="mono"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+        {% elif module.icon_choice == "shield" %}
+          <svg viewBox="0 0 24 24" aria-hidden="true" class="mono"><path d="M12 2l8 3v6c0 5-3.4 9.4-8 11-4.6-1.6-8-6-8-11V5l8-3zm-1.2 13.2l5.3-5.3-1.4-1.4-3.9 3.9-1.8-1.8-1.4 1.4 3.2 3.2z"/></svg>
+        {% elif module.icon_choice == "bell" %}
+          <svg viewBox="0 0 24 24" aria-hidden="true" class="mono"><path d="M12 22a2.4 2.4 0 002.4-2.4H9.6A2.4 2.4 0 0012 22zm7-6v-5c0-3.1-1.9-5.6-4.8-6.3V4a2.2 2.2 0 00-4.4 0v.7C6.9 5.4 5 7.9 5 11v5l-2 2v1h18v-1l-2-2z"/></svg>
+        {% elif module.icon_choice == "custom" and module.icon_path %}
+          <svg viewBox="0 0 24 24" aria-hidden="true" class="mono"><path d="{{ module.icon_path }}"/></svg>
+        {% else %}
+          <svg viewBox="0 0 24 24" aria-hidden="true" class="mono"><path d="M12 2l2.39 6.96L21.5 9l-5.75 4.18L18 20.5 12 16.3 6 20.5l2.25-7.32L2.5 9l7.11-.04L12 2z"/></svg>
+        {% endif %}
+      </span>
+      <span class="srh-perk__t">
+        {{ module.message }}
+        {% if module.link_text and module.callout_url.href %}
+          <a href="{{ module.callout_url.href }}"><b>{{ module.link_text }}</b></a>
+        {% endif %}
+      </span>
+    </div>
+  </div>
+</section>

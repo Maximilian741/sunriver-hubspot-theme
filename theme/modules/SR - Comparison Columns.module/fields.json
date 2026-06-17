@@ -1,0 +1,120 @@
+[
+  {
+    "name": "eyebrow",
+    "label": "Eyebrow",
+    "type": "text",
+    "required": false,
+    "default": "An honest comparison",
+    "id": "10090001-0001-0001-0001-000000000001"
+  },
+  {
+    "name": "heading",
+    "label": "Section heading",
+    "type": "text",
+    "required": false,
+    "default": "The same work, without the agency markup",
+    "id": "10090002-0001-0001-0001-000000000002"
+  },
+  {
+    "name": "them_cap",
+    "label": "Them column - cap label",
+    "type": "text",
+    "required": false,
+    "default": "A typical agency",
+    "id": "10090003-0001-0001-0001-000000000003"
+  },
+  {
+    "name": "them_headline",
+    "label": "Them column - headline",
+    "type": "text",
+    "required": false,
+    "default": "$30k+ and a junior on your project",
+    "id": "10090004-0001-0001-0001-000000000004"
+  },
+  {
+    "name": "them_points",
+    "label": "Them column - bullets",
+    "type": "group",
+    "occurrence": {
+      "min": 1,
+      "max": 8,
+      "default": 4
+    },
+    "default": [
+      {
+        "point_text": "Layers of overhead, offices, account managers, sales teams"
+      },
+      {
+        "point_text": "Your work handed to whoever is free, often junior"
+      },
+      {
+        "point_text": "Hourly billing that quietly rewards taking longer"
+      },
+      {
+        "point_text": "Change orders and surprise invoices"
+      }
+    ],
+    "children": [
+      {
+        "name": "point_text",
+        "label": "Bullet",
+        "type": "text",
+        "required": true,
+        "default": "A point about the other option",
+        "id": "10090006-0001-0001-0001-000000000006"
+      }
+    ],
+    "id": "10090005-0001-0001-0001-000000000005"
+  },
+  {
+    "name": "us_cap",
+    "label": "Us column - cap label",
+    "type": "text",
+    "required": false,
+    "default": "SunRiver - Helena, MT",
+    "id": "10090007-0001-0001-0001-000000000007"
+  },
+  {
+    "name": "us_headline",
+    "label": "Us column - headline",
+    "type": "text",
+    "required": false,
+    "default": "A senior engineer and a fixed price",
+    "id": "10090008-0001-0001-0001-000000000008"
+  },
+  {
+    "name": "us_points",
+    "label": "Us column - bullets",
+    "type": "group",
+    "occurrence": {
+      "min": 1,
+      "max": 8,
+      "default": 4
+    },
+    "default": [
+      {
+        "point_text": "No overhead padding the bill, you pay for the work"
+      },
+      {
+        "point_text": "The person who scopes it is the person who builds it"
+      },
+      {
+        "point_text": "Fixed fees, so faster never costs you more"
+      },
+      {
+        "point_text": "One number up front, honored to the end"
+      }
+    ],
+    "children": [
+      {
+        "name": "point_text",
+        "label": "Bullet",
+        "type": "text",
+        "required": true,
+        "default": "A point about working with SunRiver",
+        "id": "1009000a-0001-0001-0001-00000000000a"
+      }
+    ],
+    "id": "10090009-0001-0001-0001-000000000009"
+  }
+]

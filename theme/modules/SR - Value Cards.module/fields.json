@@ -1,0 +1,141 @@
+[
+  {
+    "name": "section_eyebrow",
+    "label": "Section eyebrow",
+    "type": "text",
+    "required": false,
+    "default": "Why SunRiver",
+    "id": "10070001-0001-0001-0001-000000000001"
+  },
+  {
+    "name": "section_heading",
+    "label": "Section heading",
+    "type": "text",
+    "required": false,
+    "default": "What you get working with us.",
+    "id": "10070002-0001-0001-0001-000000000002"
+  },
+  {
+    "name": "columns",
+    "label": "Columns",
+    "type": "choice",
+    "display": "select",
+    "required": false,
+    "choices": [
+      [
+        "2",
+        "2"
+      ],
+      [
+        "3",
+        "3"
+      ],
+      [
+        "4",
+        "4"
+      ]
+    ],
+    "default": "3",
+    "id": "10070003-0001-0001-0001-000000000003"
+  },
+  {
+    "name": "cards",
+    "label": "Value cards",
+    "type": "group",
+    "occurrence": {
+      "min": 2,
+      "max": 6,
+      "default": 3
+    },
+    "default": [
+      {
+        "icon_shape": "spark",
+        "icon_text": "",
+        "card_title": "Senior engineering, start to finish",
+        "card_desc": "<p>One experienced engineer owns your project end to end, so nothing falls through the cracks between hand-offs.</p>"
+      },
+      {
+        "icon_shape": "shield",
+        "icon_text": "",
+        "card_title": "Security built in",
+        "card_desc": "<p>Audit-ready controls and clean architecture from day one, not bolted on after launch.</p>"
+      },
+      {
+        "icon_shape": "bolt",
+        "icon_text": "",
+        "card_title": "Plain answers, fast",
+        "card_desc": "<p>You talk to the person doing the work. Direct timelines, honest trade-offs, real progress.</p>"
+      }
+    ],
+    "children": [
+      {
+        "name": "icon_shape",
+        "label": "Icon style",
+        "type": "choice",
+        "display": "select",
+        "required": false,
+        "choices": [
+          [
+            "spark",
+            "Spark"
+          ],
+          [
+            "bolt",
+            "Bolt"
+          ],
+          [
+            "shield",
+            "Shield"
+          ],
+          [
+            "check",
+            "Check"
+          ],
+          [
+            "gear",
+            "Gear"
+          ],
+          [
+            "star",
+            "Star"
+          ],
+          [
+            "mountain",
+            "Mountain"
+          ],
+          [
+            "text",
+            "Emoji or text (use field below)"
+          ]
+        ],
+        "default": "spark",
+        "id": "10070005-0001-0001-0001-000000000005"
+      },
+      {
+        "name": "icon_text",
+        "label": "Emoji or short text (used when Icon style is set to Emoji or text)",
+        "type": "text",
+        "required": false,
+        "default": "",
+        "id": "10070006-0001-0001-0001-000000000006"
+      },
+      {
+        "name": "card_title",
+        "label": "Title",
+        "type": "text",
+        "required": false,
+        "default": "Value title",
+        "id": "10070007-0001-0001-0001-000000000007"
+      },
+      {
+        "name": "card_desc",
+        "label": "Description",
+        "type": "richtext",
+        "required": false,
+        "default": "<p>Short, concrete description of this value.</p>",
+        "id": "10070008-0001-0001-0001-000000000008"
+      }
+    ],
+    "id": "10070004-0001-0001-0001-000000000004"
+  }
+]

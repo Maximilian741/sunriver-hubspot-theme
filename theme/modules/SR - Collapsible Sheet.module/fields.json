@@ -1,0 +1,34 @@
+[
+  {
+    "name": "meta_text",
+    "label": "Meta kicker",
+    "type": "text",
+    "required": false,
+    "default": "Field notes",
+    "id": "101a0001-0001-0001-0001-000000000001"
+  },
+  {
+    "name": "sheet_title",
+    "label": "Title",
+    "type": "text",
+    "required": false,
+    "default": "How we scope a build before you commit a dollar",
+    "id": "101a0002-0001-0001-0001-000000000002"
+  },
+  {
+    "name": "body_text",
+    "label": "Body",
+    "type": "richtext",
+    "required": false,
+    "default": "<p>Every engagement starts with a short working session where we map what you actually need against what you already have. You leave that call with a written scope, a fixed range, and a clear picture of who owns what once it ships.</p><p>No surprises later. The estimate you sign is the estimate we build to, and the recurring costs stay in your name so you are never locked into us to keep the lights on.</p>",
+    "id": "101a0003-0001-0001-0001-000000000003"
+  },
+  {
+    "name": "open_by_default",
+    "label": "Open by default",
+    "type": "boolean",
+    "required": false,
+    "default": false,
+    "id": "101a0004-0001-0001-0001-000000000004"
+  }
+]

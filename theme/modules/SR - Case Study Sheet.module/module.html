@@ -1,0 +1,17 @@
+<section class="srh-sec">
+  <div class="srh-sec__inner">
+    <div class="srd-sheet srx-reveal">
+      {% if module.category_text %}<span class="sr-news-meta">{{ module.category_text }}</span>{% endif %}
+      {% if module.headline_text %}<h2 class="srd-h1" style="font-size:clamp(1.5rem,3.4vw,2.1rem);margin-top:6px;">{{ module.headline_text }}</h2>{% endif %}
+      <div class="sr-post" style="margin-top:18px;">
+        <h3>The problem</h3>
+        {{ module.problem_richtext }}
+        <h3>The approach</h3>
+        {{ module.approach_richtext }}
+        <h3>The result</h3>
+        {{ module.result_richtext }}
+        {% if module.link_text and module.link_url.href %}<p><a href="{{ module.link_url.href }}">{{ module.link_text }} &rarr;</a></p>{% endif %}
+      </div>
+    </div>
+  </div>
+</section>

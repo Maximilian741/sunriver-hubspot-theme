@@ -1,0 +1,16 @@
+<section class="srh-sec">
+  <div class="srh-sec__inner">
+    <div class="srd-sheet srd-collapse srx-reveal{% if module.open_by_default %} is-open{% endif %}">
+      <button class="srd-head srd-collapse__head" type="button" aria-expanded="{% if module.open_by_default %}true{% else %}false{% endif %}">
+        <div>
+          {% if module.meta_text %}<span class="srd-eyebrow">{{ module.meta_text }}</span>{% endif %}
+          {% if module.sheet_title %}<h2 class="srd-h1">{{ module.sheet_title }}</h2>{% endif %}
+        </div>
+        <span class="srd-collapse__chev" aria-hidden="true">+</span>
+      </button>
+      <div class="srd-sheet__body">
+        <div class="sr-post">{{ module.body_text }}</div>
+      </div>
+    </div>
+  </div>
+</section>

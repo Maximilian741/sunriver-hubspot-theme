@@ -1,0 +1,95 @@
+[
+  {
+    "name": "eyebrow",
+    "label": "Eyebrow",
+    "type": "text",
+    "required": false,
+    "default": "The roster",
+    "id": "10170001-0001-0001-0001-000000000001"
+  },
+  {
+    "name": "heading",
+    "label": "Heading",
+    "type": "text",
+    "required": false,
+    "default": "All three of us.",
+    "id": "10170002-0001-0001-0001-000000000002"
+  },
+  {
+    "name": "people",
+    "label": "People",
+    "type": "group",
+    "occurrence": {
+      "min": 1,
+      "max": 6,
+      "default": 3
+    },
+    "default": [
+      {
+        "person_img": {
+          "src": "https://www.sunriverconsulting.us/hubfs/AI-Generated%20Media/Images/A%20pixel%20art%20man%20in%20his%20late%2020s%20posing%20for%20a%20headshott-1.png",
+          "alt": "Max Casteel"
+        },
+        "person_name": "Max Casteel",
+        "person_role": "Founder & Senior Engineer",
+        "person_bio": "Max runs SunRiver as a solo senior engineer out of Helena, Montana, handling everything from architecture to the last line of QA. Two decades of building software and securing systems, distilled into work you can trust and a person you can actually reach."
+      },
+      {
+        "person_img": {
+          "src": "https://www.sunriverconsulting.us/hubfs/AI-Generated%20Media/Images/generate%20a%20pixel%20art%20manx%20cat%20with%20tortois%20shell%20hair%20patterns.png",
+          "alt": "Noki"
+        },
+        "person_name": "Noki",
+        "person_role": "Head of Morale & Quality Assurance",
+        "person_bio": "Noki serves as SunRiver's resident morale booster and unofficial quality assurance specialist. Known for constant oversight from the nearest keyboard, Noki makes sure long work sessions include adequate breaks and that every solution meets feline-approved comfort standards."
+      },
+      {
+        "person_img": {
+          "src": "https://www.sunriverconsulting.us/hubfs/AI-Generated%20Media/Images/pixel%20art%20spannish%20fold%20cat-1.png",
+          "alt": "Moggy"
+        },
+        "person_name": "Moggy",
+        "person_role": "Director of Security & Night Operations",
+        "person_bio": "Moggy specializes in after-hours monitoring and security awareness. With a keen eye for unexpected movement and a strong commitment to nighttime patrols, Moggy helps make sure nothing goes unnoticed, especially after midnight."
+      }
+    ],
+    "children": [
+      {
+        "name": "person_img",
+        "label": "Photo",
+        "type": "image",
+        "required": false,
+        "default": {
+          "src": "",
+          "alt": ""
+        },
+        "id": "10170004-0001-0001-0001-000000000004"
+      },
+      {
+        "name": "person_name",
+        "label": "Name",
+        "type": "text",
+        "required": false,
+        "default": "Team member",
+        "id": "10170005-0001-0001-0001-000000000005"
+      },
+      {
+        "name": "person_role",
+        "label": "Role",
+        "type": "text",
+        "required": false,
+        "default": "Title",
+        "id": "10170006-0001-0001-0001-000000000006"
+      },
+      {
+        "name": "person_bio",
+        "label": "Bio",
+        "type": "richtext",
+        "required": false,
+        "default": "<p>A short line about what this person does and why clients trust them.</p>",
+        "id": "10170007-0001-0001-0001-000000000007"
+      }
+    ],
+    "id": "10170003-0001-0001-0001-000000000003"
+  }
+]

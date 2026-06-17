@@ -1,0 +1,81 @@
+[
+  {
+    "name": "icon_choice",
+    "label": "Icon",
+    "display": "select",
+    "type": "choice",
+    "choices": [
+      [
+        "spark",
+        "Spark / strike"
+      ],
+      [
+        "check",
+        "Check"
+      ],
+      [
+        "info",
+        "Info"
+      ],
+      [
+        "shield",
+        "Shield"
+      ],
+      [
+        "bell",
+        "Bell"
+      ],
+      [
+        "custom",
+        "Custom SVG path below"
+      ]
+    ],
+    "default": "spark",
+    "id": "10060001-0001-0001-0001-000000000001"
+  },
+  {
+    "name": "icon_path",
+    "label": "Custom SVG path (only used when Icon is set to Custom)",
+    "type": "text",
+    "required": false,
+    "default": "M12 2l2.39 6.96L21.5 9l-5.75 4.18L18 20.5 12 16.3 6 20.5l2.25-7.32L2.5 9l7.11-.04L12 2z",
+    "id": "10060002-0001-0001-0001-000000000002"
+  },
+  {
+    "name": "message",
+    "label": "Message (bold for ink emphasis)",
+    "type": "richtext",
+    "required": true,
+    "default": "<p><b>HubSpot Solutions Partner perk:</b> working with us secures an additional 15% off HubSpot subscriptions for our clients, on top of the fixed-fee build.</p>",
+    "id": "10060003-0001-0001-0001-000000000003"
+  },
+  {
+    "name": "link_text",
+    "label": "Link text (optional)",
+    "type": "text",
+    "required": false,
+    "default": "See pricing",
+    "id": "10060004-0001-0001-0001-000000000004"
+  },
+  {
+    "name": "callout_url",
+    "label": "Link URL (optional)",
+    "type": "url",
+    "required": false,
+    "locked": false,
+    "supported_types": [
+      "EXTERNAL",
+      "CONTENT",
+      "FILE",
+      "EMAIL_ADDRESS",
+      "BLOG"
+    ],
+    "display_width": null,
+    "default": {
+      "type": "EXTERNAL",
+      "href": "/pricing",
+      "content_id": null
+    },
+    "id": "10060005-0001-0001-0001-000000000005"
+  }
+]

@@ -1,0 +1,37 @@
+[
+  {
+    "name": "quote",
+    "label": "Quote",
+    "type": "richtext",
+    "required": false,
+    "default": "<p>Max rebuilt a portfolio of legacy reports on a modern stack and matched the old numbers <b>to the penny</b>. Calm, senior, and honest about tradeoffs the whole way through.</p>",
+    "id": "100e0001-0001-0001-0001-000000000001"
+  },
+  {
+    "name": "author_name",
+    "label": "Author name",
+    "type": "text",
+    "required": false,
+    "default": "Finance Operations Lead",
+    "id": "100e0002-0001-0001-0001-000000000002"
+  },
+  {
+    "name": "author_role",
+    "label": "Author role / company",
+    "type": "text",
+    "required": false,
+    "default": "Reporting modernization client",
+    "id": "100e0003-0001-0001-0001-000000000003"
+  },
+  {
+    "name": "author_img",
+    "label": "Author photo (avatar)",
+    "type": "image",
+    "required": false,
+    "default": {
+      "src": "",
+      "alt": ""
+    },
+    "id": "100e0004-0001-0001-0001-000000000004"
+  }
+]

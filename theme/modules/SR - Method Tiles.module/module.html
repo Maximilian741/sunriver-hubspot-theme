@@ -1,0 +1,29 @@
+<section class="srh-sec">
+  <div class="srh-sec__inner">
+    {% if module.eyebrow %}<p class="srh-eyebrow">{{ module.eyebrow }}</p>{% endif %}
+    {% if module.heading %}<h2 class="srh-h2">{{ module.heading }}</h2>{% endif %}
+    {% if module.intro %}<div class="srh-lead">{{ module.intro }}</div>{% endif %}
+
+    <div class="srh-methods">
+      {% for it in module.tiles %}
+        {% if it.tile_url.href %}
+          <a class="srh-method" href="{{ it.tile_url.href }}">
+            <span class="srh-method__ic">{{ it.tile_icon }}</span>
+            <span>
+              {% if it.tile_title %}<span class="srh-method__k">{{ it.tile_title }}</span>{% endif %}
+              {% if it.tile_sub %}<span class="srh-method__v">{{ it.tile_sub }}</span>{% endif %}
+            </span>
+          </a>
+        {% else %}
+          <div class="srh-method">
+            <span class="srh-method__ic">{{ it.tile_icon }}</span>
+            <span>
+              {% if it.tile_title %}<span class="srh-method__k">{{ it.tile_title }}</span>{% endif %}
+              {% if it.tile_sub %}<span class="srh-method__v">{{ it.tile_sub }}</span>{% endif %}
+            </span>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>

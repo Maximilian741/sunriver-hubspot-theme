@@ -1,0 +1,16 @@
+<section class="srh-sec">
+  <div class="srh-sec__inner">
+    {% if module.eyebrow %}<p class="srh-eyebrow">{{ module.eyebrow }}</p>{% endif %}
+    {% if module.heading %}<h2 class="srh-h2">{{ module.heading }}</h2>{% endif %}
+    <ul class="srh-list">
+      {% for it in module.items %}
+        {% if it.item_text %}
+        <li>
+          <svg class="mono" viewBox="0 0 24 24" aria-hidden="true" style="width:20px;height:20px;color:#FBC34A;flex:none;"><path d="M20 6 9 17l-5-5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>{{ it.item_text }}</span>
+        </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+</section>

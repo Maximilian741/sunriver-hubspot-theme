@@ -1,0 +1,55 @@
+[
+  {
+    "name": "cta_eyebrow",
+    "label": "Eyebrow",
+    "type": "text",
+    "required": false,
+    "default": "Ready when you are",
+    "id": "10110001-0001-0001-0001-000000000001"
+  },
+  {
+    "name": "cta_heading",
+    "label": "Heading",
+    "type": "text",
+    "required": false,
+    "default": "Let's talk about your project.",
+    "id": "10110002-0001-0001-0001-000000000002"
+  },
+  {
+    "name": "cta_lead",
+    "label": "Lead line",
+    "type": "text",
+    "required": false,
+    "default": "One senior engineer, start to finish. Tell me what you need and I will scope it honestly.",
+    "id": "10110003-0001-0001-0001-000000000003"
+  },
+  {
+    "name": "cta_btn_text",
+    "label": "Button text",
+    "type": "text",
+    "required": false,
+    "default": "Get a quote",
+    "id": "10110004-0001-0001-0001-000000000004"
+  },
+  {
+    "name": "cta_btn_url",
+    "label": "Button link",
+    "type": "url",
+    "required": false,
+    "locked": false,
+    "supported_types": [
+      "EXTERNAL",
+      "CONTENT",
+      "FILE",
+      "EMAIL_ADDRESS",
+      "BLOG"
+    ],
+    "display_width": null,
+    "default": {
+      "type": "EXTERNAL",
+      "href": "/quote-sunriver-consulting",
+      "content_id": null
+    },
+    "id": "10110005-0001-0001-0001-000000000005"
+  }
+]

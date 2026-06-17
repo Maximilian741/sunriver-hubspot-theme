@@ -1,0 +1,21 @@
+<section class="srh-sec">
+  <div class="srh-sec__inner">
+
+    <div style="text-align:center;max-width:720px;margin-inline:auto;">
+      {% if module.eyebrow %}<p class="srh-eyebrow">{{ module.eyebrow }}</p>{% endif %}
+      {% if module.heading %}<h2 class="srh-h2" style="margin-bottom:.8rem;">{{ module.heading }}</h2>{% endif %}
+      {% if module.lead %}<p class="srh-lead" style="margin-inline:auto;">{{ module.lead }}</p>{% endif %}
+    </div>
+
+    <div class="srh-cards" style="margin-top:2.4rem;">
+      {% for card in module.cards %}
+        <a class="srh-card" href="{{ card.card_url.href }}">
+          {% if card.card_icon %}<span class="srh-card__logo">{{ card.card_icon }}</span>{% endif %}
+          {% if card.card_title %}<h3 class="srh-card__title">{{ card.card_title }}</h3>{% endif %}
+          {% if card.card_desc %}<p class="srh-card__desc">{{ card.card_desc }}</p>{% endif %}
+        </a>
+      {% endfor %}
+    </div>
+
+  </div>
+</section>

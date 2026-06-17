@@ -1,0 +1,10 @@
+{# SR Rich Text Sheet, a white paper sheet (.srd-sheet) holding long-form richtext rendered as .sr-post. Optional eyebrow + heading above. Drop into a page whose dnd_area is wrapped in .srh so the smoke/gradient shows behind it. #}
+<section class="srh-sec">
+  <div class="srh-sec__inner" style="max-width:840px;">
+    {% if module.eyebrow %}<div class="srh-eyebrow">{{ module.eyebrow }}</div>{% endif %}
+    {% if module.heading %}<h2 class="srh-h2">{{ module.heading }}</h2>{% endif %}
+    <div class="srd-sheet">
+      <div class="sr-post">{{ module.body_text }}</div>
+    </div>
+  </div>
+</section>

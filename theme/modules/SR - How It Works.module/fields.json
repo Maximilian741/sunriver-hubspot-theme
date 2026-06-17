@@ -1,0 +1,97 @@
+[
+  {
+    "name": "eyebrow",
+    "label": "Eyebrow",
+    "type": "text",
+    "required": false,
+    "default": "How it works",
+    "id": "100b0001-0001-0001-0001-000000000001"
+  },
+  {
+    "name": "heading",
+    "label": "Heading",
+    "type": "text",
+    "required": false,
+    "default": "How working together goes",
+    "id": "100b0002-0001-0001-0001-000000000002"
+  },
+  {
+    "name": "lead",
+    "label": "Lead paragraph",
+    "type": "richtext",
+    "required": false,
+    "default": "<p>One engineer the whole way through. The same person scopes the price and writes the code, and the invoice matches the number you agreed to.</p>",
+    "id": "100b0003-0001-0001-0001-000000000003"
+  },
+  {
+    "name": "steps",
+    "label": "Steps",
+    "type": "group",
+    "occurrence": {
+      "min": 2,
+      "max": 5,
+      "default": 4
+    },
+    "default": [
+      {
+        "step_num": "01",
+        "step_title": "Talk",
+        "step_desc": "A free 15, 30, or 60 minute call with the engineer who would actually do the work.",
+        "step_icon": "<svg viewBox=\"0 0 24 24\" class=\"mono\" aria-hidden=\"true\"><path d=\"M4 5h16v11H8l-4 4z\"/><path d=\"M8 9.5h8M8 12.5h5\"/></svg>"
+      },
+      {
+        "step_num": "02",
+        "step_title": "Scope and fixed quote",
+        "step_desc": "A written plan and one number for a defined engagement, so you know the price before we start.",
+        "step_icon": "<svg viewBox=\"0 0 24 24\" class=\"mono\" aria-hidden=\"true\"><path d=\"M7 3h7l4 4v14H7z\"/><path d=\"M14 3v4h4\"/><path d=\"M9.5 12h6M9.5 15h6M9.5 18h4\"/></svg>"
+      },
+      {
+        "step_num": "03",
+        "step_title": "Build",
+        "step_desc": "Weekly check-ins and working demos, accessible and secure from the first commit.",
+        "step_icon": "<svg viewBox=\"0 0 24 24\" class=\"mono\" aria-hidden=\"true\"><path d=\"M9 8l-4 4 4 4\"/><path d=\"M15 8l4 4-4 4\"/><path d=\"M13 5l-2 14\"/></svg>"
+      },
+      {
+        "step_num": "04",
+        "step_title": "Handoff",
+        "step_desc": "Documentation, training, and every account in your name. An optional care plan from $1,000/mo if you want one.",
+        "step_icon": "<svg viewBox=\"0 0 24 24\" class=\"mono\" aria-hidden=\"true\"><rect x=\"3.5\" y=\"9\" width=\"17\" height=\"11\" rx=\"2\"/><path d=\"M8 9V6.5a4 4 0 0 1 8 0V9\"/><path d=\"M12 13v3\"/></svg>"
+      }
+    ],
+    "children": [
+      {
+        "name": "step_num",
+        "label": "Step number",
+        "type": "text",
+        "required": false,
+        "default": "01",
+        "id": "100b0005-0001-0001-0001-000000000005"
+      },
+      {
+        "name": "step_title",
+        "label": "Step title",
+        "type": "text",
+        "required": false,
+        "default": "Step",
+        "id": "100b0006-0001-0001-0001-000000000006"
+      },
+      {
+        "name": "step_desc",
+        "label": "Step description",
+        "type": "text",
+        "required": false,
+        "default": "What happens in this step and what you walk away with.",
+        "id": "100b0007-0001-0001-0001-000000000007"
+      },
+      {
+        "name": "step_icon",
+        "label": "Step icon (inline SVG)",
+        "type": "richtext",
+        "required": false,
+        "default": "<svg viewBox=\"0 0 24 24\" class=\"mono\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"8\"/><path d=\"M12 8v4l3 2\"/></svg>",
+        "id": "100b0008-0001-0001-0001-000000000008"
+      }
+    ],
+    "id": "100b0004-0001-0001-0001-000000000004"
+  }
+]

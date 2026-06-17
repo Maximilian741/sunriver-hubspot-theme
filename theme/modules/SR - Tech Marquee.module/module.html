@@ -1,0 +1,18 @@
+<section class="sr-techband">
+  <div class="sr-techband__head srx-reveal">
+    {% if module.eyebrow %}<span class="srh-eyebrow">{{ module.eyebrow }}</span>{% endif %}
+    {% if module.heading %}<h2 class="srh-h2" style="margin:0;">{{ module.heading }}</h2>{% endif %}
+  </div>
+  <div class="sr-marquee">
+    <div class="sr-marquee__track">
+      {% for it in module.tech_items %}
+        <span class="sr-tech">{{ it.tech_icon }}{% if it.tech_name %}<span class="sr-tech__n">{{ it.tech_name }}</span>{% endif %}</span>
+      {% endfor %}
+      <span class="sr-marquee__dup" aria-hidden="true">
+        {% for it in module.tech_items %}
+          <span class="sr-tech">{{ it.tech_icon }}{% if it.tech_name %}<span class="sr-tech__n">{{ it.tech_name }}</span>{% endif %}</span>
+        {% endfor %}
+      </span>
+    </div>
+  </div>
+</section>

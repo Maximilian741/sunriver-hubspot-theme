@@ -1,0 +1,116 @@
+[
+  {
+    "name": "eyebrow",
+    "label": "Eyebrow",
+    "type": "text",
+    "required": false,
+    "default": "Pick your way in",
+    "id": "101c0001-0001-0001-0001-000000000001"
+  },
+  {
+    "name": "heading",
+    "label": "Heading",
+    "type": "text",
+    "required": false,
+    "default": "Three ways to reach the engineer",
+    "id": "101c0002-0001-0001-0001-000000000002"
+  },
+  {
+    "name": "lead",
+    "label": "Lead paragraph",
+    "type": "text",
+    "required": false,
+    "default": "Whichever channel you choose, you talk to the engineer who would do the work. You reach me directly and stay with me start to finish.",
+    "id": "101c0003-0001-0001-0001-000000000003"
+  },
+  {
+    "name": "cards",
+    "label": "Channel cards",
+    "type": "group",
+    "occurrence": {
+      "min": 2,
+      "max": 4,
+      "default": 3
+    },
+    "default": [
+      {
+        "card_icon": "<svg class=\"mono\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M5 4h3l1.6 4-2 1.2a12 12 0 0 0 5.2 5.2l1.2-2 4 1.6v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z\"/></svg>",
+        "card_title": "Call (406) 616-2614",
+        "card_desc": "Rings straight through to the engineer. Best when you want a quick read on whether a project is a fit and what it would take.",
+        "card_url": {
+          "type": "EXTERNAL",
+          "href": "tel:+14066162614",
+          "content_id": null
+        }
+      },
+      {
+        "card_icon": "<svg class=\"mono\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><rect x=\"3.5\" y=\"5\" width=\"17\" height=\"16\" rx=\"2\"/><path d=\"M3.5 9.5h17M8 3.5v3M16 3.5v3\"/></svg>",
+        "card_title": "Book a consultation",
+        "card_desc": "Free 15, 30, or 60 minute sessions on the calendar. Bring the goal and any constraints, and we will scope it together at no charge.",
+        "card_url": {
+          "type": "EXTERNAL",
+          "href": "/schedule-a-consultation-sunriver-consulting",
+          "content_id": null
+        }
+      },
+      {
+        "card_icon": "<svg class=\"mono\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M6 3h9l4 4v14H6z\"/><path d=\"M15 3v4h4M9 12h6M9 16h6\"/></svg>",
+        "card_title": "Get a quote",
+        "card_desc": "Tell me the shape of the work and get a fixed fee for a defined scope. Senior pricing, honestly, for a fraction of the typical $30k agency rate.",
+        "card_url": {
+          "type": "EXTERNAL",
+          "href": "/quote-sunriver-consulting",
+          "content_id": null
+        }
+      }
+    ],
+    "children": [
+      {
+        "name": "card_icon",
+        "label": "Icon SVG (inline, use class=\"mono\" viewBox=\"0 0 24 24\")",
+        "type": "richtext",
+        "required": false,
+        "default": "<svg class=\"mono\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M5 4h3l1.6 4-2 1.2a12 12 0 0 0 5.2 5.2l1.2-2 4 1.6v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z\"/></svg>",
+        "id": "101c0005-0001-0001-0001-000000000005"
+      },
+      {
+        "name": "card_title",
+        "label": "Card title",
+        "type": "text",
+        "required": false,
+        "default": "Call (406) 616-2614",
+        "id": "101c0006-0001-0001-0001-000000000006"
+      },
+      {
+        "name": "card_desc",
+        "label": "Card one-liner",
+        "type": "text",
+        "required": false,
+        "default": "Rings straight through to the engineer.",
+        "id": "101c0007-0001-0001-0001-000000000007"
+      },
+      {
+        "name": "card_url",
+        "label": "Card link",
+        "type": "url",
+        "required": false,
+        "locked": false,
+        "supported_types": [
+          "EXTERNAL",
+          "CONTENT",
+          "FILE",
+          "EMAIL_ADDRESS",
+          "BLOG"
+        ],
+        "display_width": null,
+        "default": {
+          "type": "EXTERNAL",
+          "href": "/contact",
+          "content_id": null
+        },
+        "id": "101c0008-0001-0001-0001-000000000008"
+      }
+    ],
+    "id": "101c0004-0001-0001-0001-000000000004"
+  }
+]

@@ -1,0 +1,14 @@
+<section class="srh-band">
+  <canvas class="srh-band__canvas" data-srx-shader="smoke-veil" aria-hidden="true"></canvas>
+  <div class="srh-band__inner" style="text-align:center;max-width:920px;">
+    {% if module.eyebrow %}<span class="srh-eyebrow">{{ module.eyebrow }}</span>{% endif %}
+    {% if module.heading %}<h1 class="srh-h1">{{ module.heading }}</h1>{% endif %}
+    {% if module.lead %}<p class="srh-lead" style="margin-left:auto;margin-right:auto;">{{ module.lead }}</p>{% endif %}
+    {% if module.primary_label or module.ghost_label %}
+    <div class="srh-hero__ctas">
+      {% if module.primary_label %}<a class="srh-btn srh-btn--primary" href="{{ module.primary_url.href }}">{{ module.primary_label }} &rarr;</a>{% endif %}
+      {% if module.ghost_label %}<a class="srh-btn srh-btn--ghost" href="{{ module.ghost_url.href }}">{{ module.ghost_label }}</a>{% endif %}
+    </div>
+    {% endif %}
+  </div>
+</section>

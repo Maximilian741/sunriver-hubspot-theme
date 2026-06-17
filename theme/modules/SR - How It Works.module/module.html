@@ -1,0 +1,23 @@
+<section class="srh-sec srh-sec--paper">
+  <div class="srh-sec__inner srx-reveal" style="max-width:1040px;">
+    {% if module.eyebrow or module.heading or module.lead %}
+    <div style="text-align:center;max-width:720px;margin:0 auto 2.4rem;">
+      {% if module.eyebrow %}<span class="srh-eyebrow">{{ module.eyebrow }}</span>{% endif %}
+      {% if module.heading %}<h2 class="srh-h2" style="margin-bottom:0;">{{ module.heading }}</h2>{% endif %}
+      {% if module.lead %}<div class="srh-lead" style="margin-top:1rem;">{{ module.lead }}</div>{% endif %}
+    </div>
+    {% endif %}
+
+    <div class="srh-methods">
+      {% for step in module.steps %}
+      <div class="srh-method" style="cursor:default;">
+        <span class="srh-method__ic">{{ step.step_icon }}</span>
+        <span>
+          <span class="srh-method__k">{% if step.step_num %}{{ step.step_num }}. {% endif %}{{ step.step_title }}</span>
+          {% if step.step_desc %}<span class="srh-method__v">{{ step.step_desc }}</span>{% endif %}
+        </span>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

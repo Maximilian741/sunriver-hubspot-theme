@@ -1,0 +1,39 @@
+[
+  {
+    "name": "bar_text",
+    "label": "Announcement text",
+    "type": "text",
+    "required": true,
+    "default": "Now booking new projects for Q3. Senior engineering, fixed scope, fixed price.",
+    "id": "10030001-0001-0001-0001-000000000001"
+  },
+  {
+    "name": "link_text",
+    "label": "Link text",
+    "type": "text",
+    "required": false,
+    "default": "Get a quote",
+    "id": "10030002-0001-0001-0001-000000000002"
+  },
+  {
+    "name": "link_url",
+    "label": "Link",
+    "type": "url",
+    "required": false,
+    "locked": false,
+    "supported_types": [
+      "EXTERNAL",
+      "CONTENT",
+      "FILE",
+      "EMAIL_ADDRESS",
+      "BLOG"
+    ],
+    "display_width": null,
+    "default": {
+      "type": "EXTERNAL",
+      "href": "/quote-sunriver-consulting",
+      "content_id": null
+    },
+    "id": "10030003-0001-0001-0001-000000000003"
+  }
+]

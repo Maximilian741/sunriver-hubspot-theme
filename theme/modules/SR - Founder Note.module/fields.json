@@ -1,0 +1,82 @@
+[
+  {
+    "name": "eyebrow",
+    "label": "Eyebrow",
+    "type": "text",
+    "required": false,
+    "default": "A note from the founder",
+    "id": "10160001-0001-0001-0001-000000000001"
+  },
+  {
+    "name": "heading",
+    "label": "Heading",
+    "type": "text",
+    "required": false,
+    "default": "The honest version.",
+    "id": "10160002-0001-0001-0001-000000000002"
+  },
+  {
+    "name": "body_text",
+    "label": "Note body",
+    "type": "richtext",
+    "required": false,
+    "default": "<p>Helena started with a last-chance gold strike in 1864, and my family has worked this valley ever since. Mining teaches a few things that stick: assay the rock before you sell it, respect the people working beside you, and only promise a vein you have actually seen.</p><p>I started SunRiver to build the version I would want as the client. One senior person who scopes the work honestly, names a fixed fee before we start, and hands you everything in your name when we finish. Your domain, your hosting, your code, your logins, all held in your own hands.</p><p>That is the whole pitch. Senior work, a fair number, and a person who picks up the phone. The cats came with the deal, and they work for treats.</p>",
+    "id": "10160003-0001-0001-0001-000000000003"
+  },
+  {
+    "name": "founder_img",
+    "label": "Founder photo (optional)",
+    "type": "image",
+    "required": false,
+    "default": {
+      "src": "",
+      "alt": "Max, founder of SunRiver Consulting"
+    },
+    "id": "10160004-0001-0001-0001-000000000004"
+  },
+  {
+    "name": "signature_name",
+    "label": "Signature name",
+    "type": "text",
+    "required": false,
+    "default": "Max, Founder",
+    "id": "10160005-0001-0001-0001-000000000005"
+  },
+  {
+    "name": "signature_detail",
+    "label": "Signature detail (optional)",
+    "type": "text",
+    "required": false,
+    "default": "SunRiver Consulting, Helena MT",
+    "id": "10160006-0001-0001-0001-000000000006"
+  },
+  {
+    "name": "cta_text",
+    "label": "Button text",
+    "type": "text",
+    "required": false,
+    "default": "Get in touch",
+    "id": "10160007-0001-0001-0001-000000000007"
+  },
+  {
+    "name": "cta_url",
+    "label": "Button link",
+    "type": "url",
+    "required": false,
+    "locked": false,
+    "supported_types": [
+      "EXTERNAL",
+      "CONTENT",
+      "FILE",
+      "EMAIL_ADDRESS",
+      "BLOG"
+    ],
+    "display_width": null,
+    "default": {
+      "type": "EXTERNAL",
+      "href": "/contact",
+      "content_id": null
+    },
+    "id": "10160008-0001-0001-0001-000000000008"
+  }
+]

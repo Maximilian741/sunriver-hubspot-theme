@@ -1,0 +1,26 @@
+[
+  {
+    "name": "eyebrow",
+    "label": "Eyebrow",
+    "type": "text",
+    "required": false,
+    "default": "Field notes",
+    "id": "10040001-0001-0001-0001-000000000001"
+  },
+  {
+    "name": "heading",
+    "label": "Heading",
+    "type": "text",
+    "required": false,
+    "default": "How we work together",
+    "id": "10040002-0001-0001-0001-000000000002"
+  },
+  {
+    "name": "body_text",
+    "label": "Body",
+    "type": "richtext",
+    "required": true,
+    "default": "<h3>Plain language, real timelines</h3><p>Every project starts with a conversation about what you actually need, then a fixed scope you can read in one sitting. You own the code, the accounts, and the recurring costs from day one.</p><h3>What you can expect</h3><ul><li>A senior engineer on the work, start to finish</li><li>Weekly progress you can see, not status theater</li><li>Security and maintenance built in, not bolted on later</li></ul><p>When the build is done, you walk away with something you can run yourself or hand to anyone. That is the point.</p>",
+    "id": "10040003-0001-0001-0001-000000000003"
+  }
+]
