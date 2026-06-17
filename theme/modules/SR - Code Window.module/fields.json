@@ -1,0 +1,29 @@
+[ {
+  "id" : "fc000001-0001-0001-0001-000000000001",
+  "name" : "filename",
+  "label" : "File name",
+  "type" : "text",
+  "required" : false,
+  "default" : "deploy.sh"
+}, {
+  "id" : "fc000001-0001-0001-0001-000000000002",
+  "name" : "lang_label",
+  "label" : "Language label",
+  "type" : "text",
+  "required" : false,
+  "default" : "bash"
+}, {
+  "id" : "fc000001-0001-0001-0001-000000000003",
+  "name" : "code_body",
+  "label" : "Code (one line per paragraph)",
+  "type" : "richtext",
+  "required" : false,
+  "default" : "<p># scope it, build it, hand it over</p><p>git switch -c feature/launch</p><p>npm run build &amp;&amp; npm test</p><p>hs cms upload theme \"Atomic_Lite child\"</p><p># shipped, and it is yours to keep</p>"
+}, {
+  "id" : "fc000001-0001-0001-0001-000000000004",
+  "name" : "show_copy",
+  "label" : "Show copy button",
+  "type" : "boolean",
+  "required" : false,
+  "default" : true
+} ]

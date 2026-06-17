@@ -1,0 +1,32 @@
+{# SR Password Strength, client-side strength meter. Self-inits via module.js (all .sr-pwstrength). Drop into a page whose dnd_area is wrapped in .srh. #}
+<section class="srh-sec">
+  <div class="srh-sec__inner" style="max-width:680px;">
+    {% if module.eyebrow or module.heading or module.lead %}
+    <div style="text-align:center;margin-bottom:1.6rem;">
+      {% if module.eyebrow %}<span class="srh-eyebrow" style="color:var(--river);">{{ module.eyebrow }}</span>{% endif %}
+      {% if module.heading %}<h2 class="srh-h2">{{ module.heading }}</h2>{% endif %}
+      {% if module.lead %}<p class="srh-lead">{{ module.lead }}</p>{% endif %}
+    </div>
+    {% endif %}
+
+    <div class="sr-pwstrength">
+      <div class="sr-pwstrength__inputwrap">
+        <input type="password" class="sr-pwstrength__input" placeholder="{{ module.placeholder_text|default('Try a password', true) }}" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Password to test">
+        <button type="button" class="sr-pwstrength__toggle" aria-label="Show password" aria-pressed="false">Show</button>
+      </div>
+
+      <div class="sr-pwstrength__bar" aria-hidden="true">
+        <span class="sr-pwstrength__seg"></span><span class="sr-pwstrength__seg"></span><span class="sr-pwstrength__seg"></span><span class="sr-pwstrength__seg"></span>
+      </div>
+      <p class="sr-pwstrength__label" role="status">Start typing</p>
+
+      <ul class="sr-pwstrength__rules">
+        <li class="sr-pwstrength__rule" data-rule="len"><span class="sr-pwstrength__tick"></span> At least 12 characters</li>
+        <li class="sr-pwstrength__rule" data-rule="upper"><span class="sr-pwstrength__tick"></span> An uppercase letter</li>
+        <li class="sr-pwstrength__rule" data-rule="lower"><span class="sr-pwstrength__tick"></span> A lowercase letter</li>
+        <li class="sr-pwstrength__rule" data-rule="num"><span class="sr-pwstrength__tick"></span> A number</li>
+        <li class="sr-pwstrength__rule" data-rule="sym"><span class="sr-pwstrength__tick"></span> A symbol</li>
+      </ul>
+    </div>
+  </div>
+</section>

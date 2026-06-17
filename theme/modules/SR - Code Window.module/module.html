@@ -1,0 +1,14 @@
+{# SR Code Window, editor-style snippet with copy. Self-inits via module.js (all .sr-codewin). Drop into a page whose dnd_area is wrapped in .srh. #}
+<section class="srh-sec">
+  <div class="srh-sec__inner" style="max-width:820px;">
+    <div class="sr-codewin">
+      <div class="sr-codewin__bar">
+        <span class="sr-codewin__dots" aria-hidden="true"><i></i><i></i><i></i></span>
+        {% if module.filename %}<span class="sr-codewin__file">{{ module.filename }}</span>{% endif %}
+        {% if module.lang_label %}<span class="sr-codewin__lang">{{ module.lang_label }}</span>{% endif %}
+        {% if module.show_copy %}<button type="button" class="sr-codewin__copy">Copy</button>{% endif %}
+      </div>
+      <pre class="sr-codewin__code">{{ module.code_body }}</pre>
+    </div>
+  </div>
+</section>

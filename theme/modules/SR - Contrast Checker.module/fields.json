@@ -1,0 +1,43 @@
+[ {
+  "id" : "fa000001-0001-0001-0001-000000000001",
+  "name" : "eyebrow",
+  "label" : "Eyebrow",
+  "type" : "text",
+  "required" : false,
+  "default" : "Accessibility"
+}, {
+  "id" : "fa000001-0001-0001-0001-000000000002",
+  "name" : "heading",
+  "label" : "Heading",
+  "type" : "text",
+  "required" : false,
+  "default" : "Check your color contrast"
+}, {
+  "id" : "fa000001-0001-0001-0001-000000000003",
+  "name" : "lead",
+  "label" : "Lead",
+  "type" : "text",
+  "required" : false,
+  "default" : "WCAG asks for 4.5 to 1 on normal text and 3 to 1 on large text. Try your brand colors and see where they land. Everything runs in your browser."
+}, {
+  "id" : "fa000001-0001-0001-0001-000000000004",
+  "name" : "fg_color",
+  "label" : "Text color",
+  "type" : "color",
+  "required" : false,
+  "default" : { "color" : "#0C2114", "opacity" : 100 }
+}, {
+  "id" : "fa000001-0001-0001-0001-000000000005",
+  "name" : "bg_color",
+  "label" : "Background color",
+  "type" : "color",
+  "required" : false,
+  "default" : { "color" : "#FBC34A", "opacity" : 100 }
+}, {
+  "id" : "fa000001-0001-0001-0001-000000000006",
+  "name" : "sample_text",
+  "label" : "Sample text",
+  "type" : "text",
+  "required" : false,
+  "default" : "The quick brown fox jumps over the lazy dog."
+} ]

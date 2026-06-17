@@ -1,0 +1,41 @@
+{# SR Contrast Checker, live WCAG ratio. Self-inits via module.js (all .sr-contrast). Drop into a page whose dnd_area is wrapped in .srh. #}
+<section class="srh-sec">
+  <div class="srh-sec__inner" style="max-width:820px;">
+    {% if module.eyebrow or module.heading or module.lead %}
+    <div style="text-align:center;margin-bottom:1.6rem;">
+      {% if module.eyebrow %}<span class="srh-eyebrow" style="color:var(--river);">{{ module.eyebrow }}</span>{% endif %}
+      {% if module.heading %}<h2 class="srh-h2">{{ module.heading }}</h2>{% endif %}
+      {% if module.lead %}<p class="srh-lead">{{ module.lead }}</p>{% endif %}
+    </div>
+    {% endif %}
+
+    <div class="sr-contrast">
+      <div class="sr-contrast__controls">
+        <label class="sr-contrast__field">
+          <span class="sr-contrast__lab">Text</span>
+          <input type="color" class="sr-contrast__fg" value="{{ module.fg_color.color|default('#0C2114', true) }}" aria-label="Text color">
+        </label>
+        <label class="sr-contrast__field">
+          <span class="sr-contrast__lab">Background</span>
+          <input type="color" class="sr-contrast__bg" value="{{ module.bg_color.color|default('#FBC34A', true) }}" aria-label="Background color">
+        </label>
+        <button type="button" class="sr-contrast__swap" aria-label="Swap colors">&#8646; Swap</button>
+      </div>
+
+      <div class="sr-contrast__preview">
+        <p class="sr-contrast__sample sr-contrast__sample--lg">{{ module.sample_text|default('The quick brown fox jumps over the lazy dog.', true) }}</p>
+        <p class="sr-contrast__sample sr-contrast__sample--sm">{{ module.sample_text|default('The quick brown fox jumps over the lazy dog.', true) }}</p>
+      </div>
+
+      <div class="sr-contrast__out">
+        <div class="sr-contrast__ratio"><span class="sr-contrast__num">--</span><span class="sr-contrast__suffix">: 1</span></div>
+        <ul class="sr-contrast__badges">
+          <li class="sr-contrast__badge" data-test="aa-normal"><span class="sr-contrast__mark"></span> AA normal</li>
+          <li class="sr-contrast__badge" data-test="aaa-normal"><span class="sr-contrast__mark"></span> AAA normal</li>
+          <li class="sr-contrast__badge" data-test="aa-large"><span class="sr-contrast__mark"></span> AA large</li>
+          <li class="sr-contrast__badge" data-test="aaa-large"><span class="sr-contrast__mark"></span> AAA large</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

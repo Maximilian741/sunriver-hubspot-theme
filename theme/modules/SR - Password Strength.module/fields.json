@@ -1,0 +1,29 @@
+[ {
+  "id" : "fb000001-0001-0001-0001-000000000001",
+  "name" : "eyebrow",
+  "label" : "Eyebrow",
+  "type" : "text",
+  "required" : false,
+  "default" : "Security"
+}, {
+  "id" : "fb000001-0001-0001-0001-000000000002",
+  "name" : "heading",
+  "label" : "Heading",
+  "type" : "text",
+  "required" : false,
+  "default" : "How strong is your password?"
+}, {
+  "id" : "fb000001-0001-0001-0001-000000000003",
+  "name" : "lead",
+  "label" : "Lead",
+  "type" : "text",
+  "required" : false,
+  "default" : "Type a password to score it. This runs entirely in your browser and is never sent anywhere."
+}, {
+  "id" : "fb000001-0001-0001-0001-000000000004",
+  "name" : "placeholder_text",
+  "label" : "Input placeholder",
+  "type" : "text",
+  "required" : false,
+  "default" : "Try a password"
+} ]
