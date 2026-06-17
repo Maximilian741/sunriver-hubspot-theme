@@ -1,0 +1,16 @@
+{# SR Montana Clock, live Mountain Time + open / night-ops badge. Self-inits via module.js (all .sr-clock). Drop into a page whose dnd_area is wrapped in .srh. #}
+<section class="srh-sec">
+  <div class="srh-sec__inner" style="max-width:560px;">
+    <div class="sr-clock" data-open="{{ module.open_hour|default(9, true) }}" data-close="{{ module.close_hour|default(17, true) }}"
+         data-openmsg="{{ module.open_msg|escape }}" data-closedmsg="{{ module.closed_msg|escape }}">
+      {% if module.eyebrow %}<span class="sr-clock__cap">{{ module.eyebrow }}</span>{% endif %}
+      <div class="sr-clock__time" role="timer" aria-live="off">--:--:--</div>
+      <div class="sr-clock__date">&nbsp;</div>
+      {% if module.tz_label %}<div class="sr-clock__tz">{{ module.tz_label }}</div>{% endif %}
+      <div class="sr-clock__badge" data-state="">
+        <span class="sr-clock__beacon" aria-hidden="true"></span>
+        <span class="sr-clock__msg">Checking the time in Helena...</span>
+      </div>
+    </div>
+  </div>
+</section>

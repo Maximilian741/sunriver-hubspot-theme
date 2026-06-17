@@ -1,0 +1,14 @@
+.sr-clock { text-align:center; background:#fff; border-radius:20px; padding:clamp(24px,3.5vw,40px); box-shadow:0 28px 64px -36px rgba(4,16,10,.62); }
+.sr-clock__cap { display:block; font-family:var(--mono,"JetBrains Mono",monospace); font-size:.72rem; letter-spacing:.2em; text-transform:uppercase; color:#3E9DB8; margin-bottom:10px; }
+.sr-clock__time { font-family:var(--head,"Poppins",sans-serif); font-weight:800; font-size:clamp(2.6rem,9vw,4.4rem); line-height:1; letter-spacing:.01em; color:#0c2114; font-variant-numeric:tabular-nums; }
+.sr-clock__date { font-size:.95rem; color:#546b5b; margin-top:8px; }
+.sr-clock__tz { font-family:var(--mono,"JetBrains Mono",monospace); font-size:.7rem; letter-spacing:.16em; text-transform:uppercase; color:#8a9a90; margin-top:4px; }
+.sr-clock__badge { display:inline-flex; align-items:center; gap:9px; margin-top:18px; padding:9px 18px; border-radius:999px; background:#f1efe8; }
+.sr-clock__badge[data-state="open"] { background:rgba(33,199,0,.14); }
+.sr-clock__badge[data-state="closed"] { background:rgba(28,91,119,.12); }
+.sr-clock__beacon { width:10px; height:10px; border-radius:50%; flex:none; background:#c7c4ba; }
+.sr-clock__badge[data-state="open"] .sr-clock__beacon { background:#21c700; box-shadow:0 0 0 0 rgba(33,199,0,.5); animation:sr-clock-pulse 2.2s infinite; }
+.sr-clock__badge[data-state="closed"] .sr-clock__beacon { background:#FBC34A; }
+.sr-clock__msg { font-family:var(--head,"Poppins",sans-serif); font-weight:600; font-size:.9rem; color:#0c2114; }
+@keyframes sr-clock-pulse { 0%{box-shadow:0 0 0 0 rgba(33,199,0,.5);} 70%{box-shadow:0 0 0 8px rgba(33,199,0,0);} 100%{box-shadow:0 0 0 0 rgba(33,199,0,0);} }
+@media (prefers-reduced-motion:reduce){ .sr-clock__beacon { animation:none !important; } }

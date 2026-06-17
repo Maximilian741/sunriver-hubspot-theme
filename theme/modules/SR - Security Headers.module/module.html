@@ -1,0 +1,38 @@
+{# SR Security Headers, interactive self-check + live grade. Self-inits via module.js (all .sr-headers). Drop into a page whose dnd_area is wrapped in .srh. #}
+<section class="srh-sec">
+  <div class="srh-sec__inner" style="max-width:860px;">
+    {% if module.eyebrow or module.heading or module.lead %}
+    <div style="text-align:center;margin-bottom:1.6rem;">
+      {% if module.eyebrow %}<span class="srh-eyebrow" style="color:var(--river);">{{ module.eyebrow }}</span>{% endif %}
+      {% if module.heading %}<h2 class="srh-h2">{{ module.heading }}</h2>{% endif %}
+      {% if module.lead %}<p class="srh-lead">{{ module.lead }}</p>{% endif %}
+    </div>
+    {% endif %}
+
+    <div class="sr-headers">
+      <ul class="sr-headers__list">
+        {% for h in module.headers %}
+          <li class="sr-headers__row">
+            <label class="sr-headers__check">
+              <input type="checkbox" data-weight="{{ h.header_weight|default(10, true) }}"{% if h.header_on %} checked{% endif %}>
+              <span class="sr-headers__box" aria-hidden="true"></span>
+              <span class="sr-headers__text">
+                <span class="sr-headers__name">{{ h.header_name }}</span>
+                {% if h.header_desc %}<span class="sr-headers__desc">{{ h.header_desc }}</span>{% endif %}
+              </span>
+            </label>
+            <span class="sr-headers__pts">+{{ h.header_weight|default(10, true) }}</span>
+          </li>
+        {% endfor %}
+      </ul>
+
+      <div class="sr-headers__grade">
+        <div class="sr-headers__letter" data-grade="">--</div>
+        <div class="sr-headers__meta">
+          <div class="sr-headers__score"><span class="sr-headers__pct">0</span> / 100</div>
+          <p class="sr-headers__cap">Tick the headers you already send.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

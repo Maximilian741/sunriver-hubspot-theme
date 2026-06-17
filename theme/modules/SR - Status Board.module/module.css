@@ -1,0 +1,22 @@
+.sr-status { background:#fff; border-radius:18px; padding:clamp(18px,2.6vw,26px); box-shadow:0 24px 60px -34px rgba(4,16,10,.6); }
+.sr-status__banner { display:flex; align-items:center; gap:12px; padding:14px 18px; border-radius:14px; margin-bottom:16px; background:rgba(33,199,0,.1); }
+.sr-status__banner[data-state="degraded"] { background:rgba(240,169,46,.14); }
+.sr-status__banner[data-state="down"] { background:rgba(224,76,58,.12); }
+.sr-status__beacon { width:12px; height:12px; border-radius:50%; flex:none; background:#21c700; box-shadow:0 0 0 0 rgba(33,199,0,.5); animation:sr-status-pulse 2.2s infinite; }
+.sr-status__banner[data-state="degraded"] .sr-status__beacon { background:#f0a92e; box-shadow:0 0 0 0 rgba(240,169,46,.5); }
+.sr-status__banner[data-state="down"] .sr-status__beacon { background:#e04c3a; box-shadow:0 0 0 0 rgba(224,76,58,.5); }
+.sr-status__bannertext { font-family:var(--head,"Poppins",sans-serif); font-weight:700; color:#0c2114; }
+.sr-status__updated { margin-left:auto; font-family:var(--mono,"JetBrains Mono",monospace); font-size:.72rem; letter-spacing:.08em; text-transform:uppercase; color:#8a9a90; }
+.sr-status__list { list-style:none; margin:0; padding:0; }
+.sr-status__row { display:flex; align-items:center; gap:12px; padding:13px 6px; border-bottom:1px solid #eef1ef; }
+.sr-status__row:last-child { border-bottom:0; }
+.sr-status__dot { width:10px; height:10px; border-radius:50%; flex:none; background:#21c700; }
+.sr-status__row[data-status="Degraded"] .sr-status__dot { background:#f0a92e; }
+.sr-status__row[data-status="Down"] .sr-status__dot { background:#e04c3a; }
+.sr-status__name { font-weight:600; color:#0c2114; }
+.sr-status__note { font-size:.82rem; color:#8a9a90; }
+.sr-status__state { margin-left:auto; font-family:var(--mono,"JetBrains Mono",monospace); font-size:.74rem; letter-spacing:.1em; text-transform:uppercase; color:#1c7a3a; }
+.sr-status__row[data-status="Degraded"] .sr-status__state { color:#9a6a12; }
+.sr-status__row[data-status="Down"] .sr-status__state { color:#b14a2a; }
+@keyframes sr-status-pulse { 0%{box-shadow:0 0 0 0 rgba(33,199,0,.5);} 70%{box-shadow:0 0 0 9px rgba(33,199,0,0);} 100%{box-shadow:0 0 0 0 rgba(33,199,0,0);} }
+@media (prefers-reduced-motion:reduce){ .sr-status__beacon { animation:none; } }

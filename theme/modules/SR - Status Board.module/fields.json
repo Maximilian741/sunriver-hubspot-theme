@@ -1,0 +1,33 @@
+[ {
+  "id" : "fe000001-0001-0001-0001-000000000001",
+  "name" : "eyebrow",
+  "label" : "Eyebrow",
+  "type" : "text",
+  "required" : false,
+  "default" : "Operations"
+}, {
+  "id" : "fe000001-0001-0001-0001-000000000002",
+  "name" : "heading",
+  "label" : "Heading",
+  "type" : "text",
+  "required" : false,
+  "default" : "System status"
+}, {
+  "id" : "fe000001-0001-0001-0001-000000000003",
+  "name" : "services",
+  "label" : "Services",
+  "type" : "group",
+  "occurrence" : { "min" : 1, "max" : 16, "default" : 5 },
+  "default" : [
+    { "svc_name" : "Website and hosting", "svc_status" : "Operational", "svc_note" : "" },
+    { "svc_name" : "Email and CRM (HubSpot)", "svc_status" : "Operational", "svc_note" : "" },
+    { "svc_name" : "Client applications", "svc_status" : "Operational", "svc_note" : "" },
+    { "svc_name" : "Scheduled backups", "svc_status" : "Operational", "svc_note" : "Last run verified" },
+    { "svc_name" : "Monitoring and alerts", "svc_status" : "Operational", "svc_note" : "" }
+  ],
+  "children" : [
+    { "id" : "fe000001-0001-0001-0001-000000000010", "name" : "svc_name", "label" : "Service", "type" : "text", "default" : "Service name" },
+    { "id" : "fe000001-0001-0001-0001-000000000011", "name" : "svc_status", "label" : "Status", "type" : "choice", "display" : "select", "choices" : [ [ "Operational", "Operational" ], [ "Degraded", "Degraded" ], [ "Down", "Down" ] ], "default" : "Operational" },
+    { "id" : "fe000001-0001-0001-0001-000000000012", "name" : "svc_note", "label" : "Note (optional)", "type" : "text", "default" : "" }
+  ]
+} ]

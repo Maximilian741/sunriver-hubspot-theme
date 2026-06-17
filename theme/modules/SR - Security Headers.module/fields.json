@@ -1,0 +1,42 @@
+[ {
+  "id" : "fd000001-0001-0001-0001-000000000001",
+  "name" : "eyebrow",
+  "label" : "Eyebrow",
+  "type" : "text",
+  "required" : false,
+  "default" : "Security"
+}, {
+  "id" : "fd000001-0001-0001-0001-000000000002",
+  "name" : "heading",
+  "label" : "Heading",
+  "type" : "text",
+  "required" : false,
+  "default" : "Grade your security headers"
+}, {
+  "id" : "fd000001-0001-0001-0001-000000000003",
+  "name" : "lead",
+  "label" : "Lead",
+  "type" : "text",
+  "required" : false,
+  "default" : "Tick the headers your site already sends and watch the grade move. This is a quick self-check, not a live scan. Want the real audit? That is what we do."
+}, {
+  "id" : "fd000001-0001-0001-0001-000000000004",
+  "name" : "headers",
+  "label" : "Headers",
+  "type" : "group",
+  "occurrence" : { "min" : 1, "max" : 12, "default" : 6 },
+  "default" : [
+    { "header_name" : "Strict-Transport-Security", "header_desc" : "Forces HTTPS on every visit.", "header_weight" : 20, "header_on" : true },
+    { "header_name" : "Content-Security-Policy", "header_desc" : "Blocks injected scripts and mixed content.", "header_weight" : 25, "header_on" : false },
+    { "header_name" : "X-Content-Type-Options", "header_desc" : "Stops MIME-type sniffing.", "header_weight" : 10, "header_on" : true },
+    { "header_name" : "X-Frame-Options", "header_desc" : "Prevents clickjacking via framing.", "header_weight" : 15, "header_on" : true },
+    { "header_name" : "Referrer-Policy", "header_desc" : "Controls what referrer data leaks out.", "header_weight" : 15, "header_on" : true },
+    { "header_name" : "Permissions-Policy", "header_desc" : "Limits camera, mic, and location access.", "header_weight" : 15, "header_on" : false }
+  ],
+  "children" : [
+    { "id" : "fd000001-0001-0001-0001-000000000010", "name" : "header_name", "label" : "Header", "type" : "text", "default" : "Header-Name" },
+    { "id" : "fd000001-0001-0001-0001-000000000011", "name" : "header_desc", "label" : "What it does", "type" : "text", "default" : "What this header protects." },
+    { "id" : "fd000001-0001-0001-0001-000000000012", "name" : "header_weight", "label" : "Weight", "type" : "number", "default" : 10 },
+    { "id" : "fd000001-0001-0001-0001-000000000013", "name" : "header_on", "label" : "On by default", "type" : "boolean", "default" : false }
+  ]
+} ]

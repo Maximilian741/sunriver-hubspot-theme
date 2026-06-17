@@ -1,0 +1,22 @@
+.sr-headers { display:grid; grid-template-columns:1.5fr 1fr; gap:clamp(18px,3vw,30px); align-items:start; background:#fff; border-radius:18px; padding:clamp(20px,3vw,30px); box-shadow:0 24px 60px -34px rgba(4,16,10,.6); }
+.sr-headers__list { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:8px; }
+.sr-headers__row { display:flex; align-items:center; gap:12px; padding:10px 12px; border-radius:12px; background:#f7f8f7; }
+.sr-headers__check { display:flex; align-items:center; gap:11px; cursor:pointer; flex:1; }
+.sr-headers__check input { position:absolute; opacity:0; width:0; height:0; }
+.sr-headers__box { width:20px; height:20px; border-radius:6px; border:2px solid #cfccc2; flex:none; position:relative; transition:all .18s ease; }
+.sr-headers__check input:checked + .sr-headers__box { background:#21c700; border-color:#21c700; }
+.sr-headers__check input:checked + .sr-headers__box::after { content:""; position:absolute; left:5px; top:1.5px; width:5px; height:10px; border:solid #fff; border-width:0 2px 2px 0; transform:rotate(45deg); }
+.sr-headers__check input:focus-visible + .sr-headers__box { box-shadow:0 0 0 3px rgba(6,199,155,.35); }
+.sr-headers__name { display:block; font-family:var(--mono,"JetBrains Mono",monospace); font-size:.84rem; color:#0c2114; }
+.sr-headers__desc { display:block; font-size:.8rem; color:#6a7c70; margin-top:2px; }
+.sr-headers__pts { font-family:var(--head,"Poppins",sans-serif); font-weight:700; font-size:.8rem; color:#8a9a90; flex:none; }
+.sr-headers__grade { position:sticky; top:90px; text-align:center; background:#f1efe8; border-radius:16px; padding:24px 18px; }
+.sr-headers__letter { font-family:var(--head,"Poppins",sans-serif); font-weight:800; font-size:4rem; line-height:1; color:#546b5b; }
+.sr-headers__letter[data-grade="A"] { color:#1c9a3a; }
+.sr-headers__letter[data-grade="B"] { color:#5f9a16; }
+.sr-headers__letter[data-grade="C"] { color:#b88a12; }
+.sr-headers__letter[data-grade="D"] { color:#c4622a; }
+.sr-headers__letter[data-grade="F"] { color:#c0392b; }
+.sr-headers__score { font-family:var(--head,"Poppins",sans-serif); font-weight:700; color:#0c2114; margin-top:8px; }
+.sr-headers__cap { font-size:.86rem; color:#546b5b; margin:6px 0 0; line-height:1.4; }
+@media (max-width:640px){ .sr-headers { grid-template-columns:1fr; } .sr-headers__grade { position:static; } }

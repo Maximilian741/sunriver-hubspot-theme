@@ -1,0 +1,29 @@
+{# SR Status Board, service status with computed banner + live "updated" ticker. Self-inits via module.js (all .sr-status). Dots are pure CSS by data-status, so they work without JS. Drop into a page whose dnd_area is wrapped in .srh. #}
+<section class="srh-sec">
+  <div class="srh-sec__inner" style="max-width:760px;">
+    {% if module.eyebrow or module.heading %}
+    <div style="text-align:center;margin-bottom:1.4rem;">
+      {% if module.eyebrow %}<span class="srh-eyebrow" style="color:var(--river);">{{ module.eyebrow }}</span>{% endif %}
+      {% if module.heading %}<h2 class="srh-h2">{{ module.heading }}</h2>{% endif %}
+    </div>
+    {% endif %}
+
+    <div class="sr-status">
+      <div class="sr-status__banner" data-state="ok">
+        <span class="sr-status__beacon" aria-hidden="true"></span>
+        <span class="sr-status__bannertext">All systems operational</span>
+        <span class="sr-status__updated">checking...</span>
+      </div>
+      <ul class="sr-status__list">
+        {% for s in module.services %}
+          <li class="sr-status__row" data-status="{{ s.svc_status }}">
+            <span class="sr-status__dot" aria-hidden="true"></span>
+            <span class="sr-status__name">{{ s.svc_name }}</span>
+            {% if s.svc_note %}<span class="sr-status__note">{{ s.svc_note }}</span>{% endif %}
+            <span class="sr-status__state">{{ s.svc_status }}</span>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</section>
