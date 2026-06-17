@@ -74,42 +74,42 @@
     "default": [
       {
         "photo": {
-          "src": "https://www.sunriverconsulting.com/hubfs/gallery/sr-work-dashboard.jpg",
+          "src": "",
           "alt": "Reporting dashboard rebuilt for a Helena clinic"
         },
         "caption": "508 reporting dashboard, rebuilt from OFR to SSRS"
       },
       {
         "photo": {
-          "src": "https://www.sunriverconsulting.com/hubfs/gallery/sr-work-mobile.jpg",
+          "src": "",
           "alt": "Vital Tails mobile booking app"
         },
         "caption": "Vital Tails booking app, iOS and Android"
       },
       {
         "photo": {
-          "src": "https://www.sunriverconsulting.com/hubfs/gallery/sr-work-cloud.jpg",
+          "src": "",
           "alt": "Cloud migration architecture diagram"
         },
         "caption": "Cloud migration for a hood-cleaning route business"
       },
       {
         "photo": {
-          "src": "https://www.sunriverconsulting.com/hubfs/gallery/sr-work-security.jpg",
+          "src": "",
           "alt": "Security audit findings review"
         },
         "caption": "Security audit, findings walked through line by line"
       },
       {
         "photo": {
-          "src": "https://www.sunriverconsulting.com/hubfs/gallery/sr-work-site.jpg",
+          "src": "",
           "alt": "Marketing site launch on HubSpot"
         },
         "caption": "HubSpot site build and launch"
       },
       {
         "photo": {
-          "src": "https://www.sunriverconsulting.com/hubfs/gallery/sr-work-db.jpg",
+          "src": "",
           "alt": "Database schema cleanup"
         },
         "caption": "Database cleanup, faster queries with no downtime"
@@ -121,7 +121,7 @@
         "label": "Image",
         "type": "image",
         "default": {
-          "src": "https://www.sunriverconsulting.com/hubfs/gallery/sr-work-dashboard.jpg",
+          "src": "",
           "alt": "SunRiver project"
         },
         "responsive": true,

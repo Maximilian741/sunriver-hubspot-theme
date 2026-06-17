@@ -1,5 +1,9 @@
 .sr-lightbox { position: relative; }
 
+.sr-lightbox__thumb--ph { display:block; width:100%; cursor:default; }
+.sr-lightbox__thumb--ph .sr-lightbox__frame { display:flex; align-items:center; justify-content:center; aspect-ratio:4/3; background:linear-gradient(150deg,#1bd24a,#06c79b 55%,#0e8fae); border-radius:14px; }
+.sr-lightbox__ph { font-family:var(--mono,"JetBrains Mono",monospace); font-size:.72rem; letter-spacing:.18em; text-transform:uppercase; color:rgba(255,255,255,.85); }
+
 .sr-lightbox__grid {
   list-style: none;
   margin: 0;

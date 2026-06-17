@@ -25,6 +25,13 @@
               {% endif %}
             </button>
           </li>
+        {% else %}
+          <li class="sr-lightbox__cell">
+            <span class="sr-lightbox__thumb sr-lightbox__thumb--ph">
+              <span class="sr-lightbox__frame"><span class="sr-lightbox__ph" aria-hidden="true">Add an image</span></span>
+              {% if module.show_captions and it.caption %}<span class="sr-lightbox__cap">{{ it.caption }}</span>{% endif %}
+            </span>
+          </li>
         {% endif %}
       {% endfor %}
     </ul>

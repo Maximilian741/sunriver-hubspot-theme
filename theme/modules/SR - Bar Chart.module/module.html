@@ -6,15 +6,13 @@
       {% if module.caption %}<div class="srh-lead">{{ module.caption }}</div>{% endif %}
     {% endif %}
 
-    {% set max_value = 1 %}
-    {% for it in module.bars %}
-      {% if it.bar_value > max_value %}{% set max_value = it.bar_value %}{% endif %}
-    {% endfor %}
+    {% set max_value = module.bars|map(attribute='bar_value')|max|float %}
+    {% if not max_value or max_value <= 0 %}{% set max_value = 1 %}{% endif %}
 
     <div class="sr-barchart" data-suffix="{{ module.value_suffix }}" role="img" aria-label="{{ module.heading|default('Bar chart') }}">
       <div class="sr-barchart__plot" style="--sr-bars: {{ module.bars|length }};">
         {% for it in module.bars %}
-          {% set pct = (it.bar_value / max_value * 100)|round(2) %}
+          {% set pct = ([ it.bar_value|float / max_value * 100, 100 ]|min)|round(2) %}
           <div class="sr-barchart__col">
             <div class="sr-barchart__track">
               <div class="sr-barchart__bar" data-value="{{ it.bar_value }}" data-pct="{{ pct }}" style="height: {{ pct }}%;">

@@ -29,7 +29,7 @@
     "type": "image",
     "required": false,
     "default": {
-      "src": "https://cdn2.hubspot.net/hubfs/53/image8-2.jpg",
+      "src": "",
       "alt": "The site before the rebuild"
     },
     "id": "20030004-0001-0001-0001-000000000004"
@@ -40,7 +40,7 @@
     "type": "image",
     "required": false,
     "default": {
-      "src": "https://cdn2.hubspot.net/hubfs/53/image9-1.jpg",
+      "src": "",
       "alt": "The site after the rebuild"
     },
     "id": "20030005-0001-0001-0001-000000000005"
