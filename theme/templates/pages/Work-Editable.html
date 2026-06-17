@@ -1,0 +1,116 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: SunRiver - Selected Work (editable)
+  screenshot_path: ../../images/template-previews/home.jpg
+-->
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+<div class="srh">
+{% dnd_area "main" label="Page content" %}
+{% dnd_section %}
+  {% dnd_module path="../../modules/SR - Smoke Hero",
+    eyebrow="Selected work",
+    heading="The work, told straight.",
+    lead="SunRiver is one senior engineer in Helena, Montana, and two cats who sit on the keyboard. Here is real work, shipped and in flight, described honestly: what the problem was, how it got solved, and where each project stands right now.",
+    primary_label="Get a quick estimate",
+    primary_url={ "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null }
+  %}{% end_dnd_module %}
+{% end_dnd_section %}
+
+{% dnd_section %}
+  {% dnd_module path="../../modules/SR - Stats Grid" %}
+    {% module_attribute "stats" is_json=True %}[
+      { "stat_value": "5", "suffix": "", "stat_label": "Generations mining this valley" },
+      { "stat_value": "4", "suffix": "", "stat_label": "Projects in flight right now" },
+      { "stat_value": "100", "suffix": "%", "stat_label": "Senior-built, start to finish" },
+      { "stat_value": "Fixed", "suffix": "", "stat_label": "Fee, assayed before we start" }
+    ]{% end_module_attribute %}
+  {% end_dnd_module %}
+{% end_dnd_section %}
+
+{% dnd_section %}
+  {% dnd_module path="../../modules/SR - Section Heading",
+    eyebrow="Case studies",
+    heading="Four jobs, four honest stories.",
+    intro="<p>Two are wrapped and re-tested. Two are mid-build and labeled that way. We would rather show you the truth in motion than a polished claim we cannot back.</p>",
+    alignment="center"
+  %}{% end_dnd_module %}
+{% end_dnd_section %}
+
+{% dnd_section %}
+  {% dnd_module path="../../modules/SR - Case Study Sheet",
+    category_text="Accessibility & Compliance · Closed and re-tested",
+    headline_text="A site nobody could use with a screen reader, made defensible for procurement",
+    problem_richtext="<p>An organization was facing procurement and legal accessibility requirements, with a website that simply could not be used with a screen reader. Missing form labels, focus traps in modals, contrast that almost passed, and documents exported without a single tag. The clock was a contract deadline with real money behind it.</p>",
+    approach_richtext="<p>We ran our three-pass method. First an automated scan to clear the easy wins, knowing tooling catches maybe a third of what is really there. Second a full manual pass: keyboard-only walkthroughs, NVDA and VoiceOver runs, zoom and reflow checks, and PDF tagging with real reading order and honest alt text. Third, the part that matters most, a prioritized remediation report written for the developers who fix it, plus the ACR and VPAT the procurement team actually asked for.</p>",
+    result_richtext="<p>The latest cycle closed and re-tested every critical finding rather than simply logging it. The client walked away with a defensible Accessibility Conformance Report and a site real people can use.</p>",
+    link_text="See how the audit work runs",
+    link_url={ "type": "EXTERNAL", "href": "/compliance-audits-sunriver-consulting", "content_id": null }
+  %}{% end_dnd_module %}
+{% end_dnd_section %}
+
+{% dnd_section %}
+  {% dnd_module path="../../modules/SR - Case Study Sheet",
+    category_text="Data & Reporting · In progress",
+    headline_text="A portfolio of legacy Oracle reports, rebuilt on SSRS to the penny",
+    problem_richtext="<p>A portfolio of legacy Oracle financial reports was running on aging infrastructure. Finance depended on the numbers daily, but the stack underneath them was getting harder and riskier to keep alive.</p><p>Finance does not care that the new stack is cleaner. They care that the new report matches the old one <b>to the penny</b>.</p>",
+    approach_richtext="<p>Inventory first, then rank every report by who actually uses it, because a surprising number have not been opened in years and do not deserve a rebuild. Each surviving report becomes an SSRS RDL, parity-tested side by side against the legacy output before anyone cuts over. Subscriptions and schedules move last, once the numbers have earned trust.</p>",
+    result_richtext="<p>In progress, and honest about it: the full inventory is done and the first tranche of reports is through parity testing and ready to cut over.</p>",
+    link_text="See the database and reporting work",
+    link_url={ "type": "EXTERNAL", "href": "/database-solutions-sunriver-consulting", "content_id": null }
+  %}{% end_dnd_module %}
+{% end_dnd_section %}
+
+{% dnd_section %}
+  {% dnd_module path="../../modules/SR - Case Study Sheet",
+    category_text="Product · Our own build, in progress",
+    headline_text="Vital Tails: pet health records out of the shoebox",
+    problem_richtext="<p>Pet health records live in a shoebox of paper. The moment you need a rabies certificate is rarely the moment you can find it, and almost never the moment you have good signal.</p>",
+    approach_richtext="<p>A mobile-first, offline-friendly companion app, built the way we build for clients: accessible from the first commit. It keeps the things every owner loses track of in one place you can share with your vet.</p><ul><li>Health records and vaccine history, on the phone in your pocket</li><li>Vaccine and medication reminders before the dates sneak up</li><li>Weight tracked over time, not guessed at</li><li>Clean vet-sharing instead of a folder of photos of paper</li></ul>",
+    result_richtext="<p>In progress: core records and reminders work today, and vet-sharing is next on the bench. Our quality assurance department, Noki and Moggy, are the first two registered patients. Beta news lands soon.</p>",
+    link_text="See the app development work",
+    link_url={ "type": "EXTERNAL", "href": "/app-development-sunriver-consulting", "content_id": null }
+  %}{% end_dnd_module %}
+{% end_dnd_section %}
+
+{% dnd_section %}
+  {% dnd_module path="../../modules/SR - Case Study Sheet",
+    category_text="Field Service · Working prototype",
+    headline_text="A field-service app shaped around the truck and the overnight job",
+    problem_richtext="<p>Kitchen-exhaust cleaning is regulated, photographed, and scheduled for 2 a.m., and most crews still run it on paper and group texts. The documentation inspectors and insurers expect ends up reconstructed days later from memory.</p>",
+    approach_richtext="<p>An app built around how the job actually runs: recurring scheduling that understands service intervals, on-site before and after photo capture tied to each system, service reports generated on the spot in the spirit of NFPA 96 documentation, and a clean handoff to invoicing so the paperwork is done when the truck door closes.</p>",
+    result_richtext="<p>In progress: a working prototype, being shaped against real routes and real overnight jobs. If your operation runs on a group chat, this is the shape of the fix.</p>",
+    link_text="See the app development work",
+    link_url={ "type": "EXTERNAL", "href": "/app-development-sunriver-consulting", "content_id": null }
+  %}{% end_dnd_module %}
+{% end_dnd_section %}
+
+{% dnd_section %}
+  {% dnd_module path="../../modules/SR - How It Works",
+    eyebrow="How it works",
+    heading="Four steps, one engineer the whole way.",
+    lead="<p>The person who scopes your project is the same person who builds it. One senior engineer carries it from the first call through handoff.</p>"
+  %}
+    {% module_attribute "steps" is_json=True %}[
+      { "step_num": "1", "step_title": "Talk", "step_desc": "A free 15-, 30-, or 60-minute call straight with the engineer who would do the work.", "step_icon": "" },
+      { "step_num": "2", "step_title": "Scope and fixed quote", "step_desc": "A written plan and one number for a clearly defined engagement, assayed up front.", "step_icon": "" },
+      { "step_num": "3", "step_title": "Build", "step_desc": "Weekly check-ins and working demos, accessible and secure from the first commit.", "step_icon": "" },
+      { "step_num": "4", "step_title": "Handoff", "step_desc": "Documentation, training, and every account, domain, hosting, licenses, in your name. Optional care plan from $1,000/mo after.", "step_icon": "" }
+    ]{% end_module_attribute %}
+  {% end_dnd_module %}
+{% end_dnd_section %}
+
+{% dnd_section %}
+  {% dnd_module path="../../modules/SR - CTA Banner",
+    heading="Your project could be the next story here.",
+    subheading="Tell us what is in scope and we will send back a fixed-fee plan and one honest number.",
+    cta_text="Get a quick estimate",
+    cta_url={ "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null },
+    style="gradient"
+  %}{% end_dnd_module %}
+{% end_dnd_section %}
+{% end_dnd_area %}
+</div>
+{% endblock body %}

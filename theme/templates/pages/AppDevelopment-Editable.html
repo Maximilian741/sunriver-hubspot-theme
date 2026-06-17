@@ -1,0 +1,72 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: SunRiver - App Development (editable)
+  screenshot_path: ../../images/template-previews/home.jpg
+-->
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+<div class="srh">
+{% dnd_area "main" label="Page content" %}
+{% dnd_section %}
+  {% dnd_module path="../../modules/SR - Smoke Hero",
+    eyebrow="App Development",
+    heading="Apps built to ship, not to demo",
+    lead="We build native and cross-platform apps for Android, iOS, desktop, and the web, signed, store-ready, and accessible from the first commit. Senior engineers only, fixed fee.",
+    primary_label="Get a Quick Estimate",
+    primary_url={ "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null },
+    ghost_label="Schedule a Consultation",
+    ghost_url={ "type": "EXTERNAL", "href": "/schedule-a-consultation-sunriver-consulting", "content_id": null }
+  %}{% end_dnd_module %}
+{% end_dnd_section %}
+{% dnd_section %}
+  {% dnd_module path="../../modules/SR - Service Cards",
+    section_eyebrow="Explore",
+    section_heading="What we do."
+  %}
+    {% module_attribute "columns" %}4{% end_module_attribute %}
+    {% module_attribute "cards" is_json=True %}[
+      {
+        "icon_text": "mono:android",
+        "title": "Android",
+        "description": "<p>Kotlin and Jetpack Compose apps with Material 3, offline sync, and Play Store signing that run smoothly on low-end devices.</p>",
+        "link_text": "Learn more",
+        "card_link": { "type": "EXTERNAL", "href": "/app-development-deep-dive-sunriver-consulting#android", "content_id": null }
+      },
+      {
+        "icon_text": "mono:apple",
+        "title": "Apple / iOS",
+        "description": "<p>Swift and SwiftUI apps that follow the Human Interface Guidelines, pass App Store review, and respect App Tracking Transparency.</p>",
+        "link_text": "Learn more",
+        "card_link": { "type": "EXTERNAL", "href": "/app-development-deep-dive-sunriver-consulting#apple-ios", "content_id": null }
+      },
+      {
+        "icon_text": "mono:desktop",
+        "title": "Desktop App",
+        "description": "<p>Electron and native .NET / macOS desktop apps with code signing, notarization, and silent auto-update built in.</p>",
+        "link_text": "Learn more",
+        "card_link": { "type": "EXTERNAL", "href": "/app-development-deep-dive-sunriver-consulting#desktop-app", "content_id": null }
+      },
+      {
+        "icon_text": "mono:web",
+        "title": "Web App",
+        "description": "<p>React and Next.js apps in TypeScript over GraphQL or REST, installable as offline PWAs and tested against WCAG 2.2 AA.</p>",
+        "link_text": "Learn more",
+        "card_link": { "type": "EXTERNAL", "href": "/app-development-deep-dive-sunriver-consulting#web-app", "content_id": null }
+      }
+    ]{% end_module_attribute %}
+  {% end_dnd_module %}
+{% end_dnd_section %}
+{% dnd_section %}
+  {% dnd_module path="../../modules/SR - CTA Banner",
+    heading="Have an app to build or rescue?",
+    subheading="Tell us the platforms, the deadline, and what hurts today. We’ll scope a fixed fee and tell you honestly what we’d build first.",
+    cta_text="Get a Quick Estimate",
+    cta_url={ "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null },
+    style="gradient"
+  %}{% end_dnd_module %}
+{% end_dnd_section %}
+{% end_dnd_area %}
+</div>
+{% endblock body %}

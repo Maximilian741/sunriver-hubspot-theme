@@ -1,0 +1,19 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: SunRiver - Web Development (editable)
+  screenshot_path: ../../images/template-previews/home.jpg
+-->
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+<div class="srh">
+{% dnd_area "main" label="Page content" %}
+{% dnd_section %}{% dnd_module path="../../modules/SR - Smoke Hero", eyebrow="Web Development", heading="Websites built to last, not just launch", lead="We build custom front ends and CMS sites on the platform that fits you, React, HubSpot, Squarespace, or WordPress, fast, accessible, and handed over so you own every line. Senior engineers only, fixed fee, nationwide from Helena.", primary_label="Get a Quick Estimate", primary_url={ "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null }, ghost_label="Schedule a Consultation", ghost_url={ "type": "EXTERNAL", "href": "/schedule-a-consultation-sunriver-consulting", "content_id": null } %}{% end_dnd_module %}{% end_dnd_section %}
+
+{% dnd_section %}{% dnd_module path="../../modules/SR - Service Cards", section_eyebrow="Explore", section_heading="What we do.", columns=2 %}{% module_attribute "cards" is_json=True %}[ { "icon_text": "mono:react", "title": "Custom Website", "description": "<p>React and Next.js in TypeScript, fed by a headless CMS, built on a design system instead of one-off pages. Core Web Vitals and WCAG 2.2 AA are budgets we hit before launch, not cleanup after.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/web-development-deep-dive-sunriver-consulting#custom-website", "content_id": null } }, { "icon_text": "mono:hubspot", "title": "HubSpot", "description": "<p>Custom CMS Hub themes and HubL modules built from scratch, wired to your CRM, and extended with serverless functions where the platform stops. Editors get real drag-and-drop control without breaking the design.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/web-development-deep-dive-sunriver-consulting#hubspot-website", "content_id": null } }, { "icon_text": "mono:squarespace", "title": "Squarespace", "description": "<p>We start from a polished template, then take it further with custom CSS, real commerce, and a clean content migration. Then we train you to run it, so you aren’t paying us for every edit.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/web-development-deep-dive-sunriver-consulting#squarespace", "content_id": null } }, { "icon_text": "mono:wordpress", "title": "WordPress", "description": "<p>Custom Gutenberg themes and blocks, plugins written to be maintained instead of abandoned, and a real security and update discipline. WooCommerce when you sell, performance throughout.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/web-development-deep-dive-sunriver-consulting#wordpress", "content_id": null } } ]{% end_module_attribute %}{% end_dnd_module %}{% end_dnd_section %}
+
+{% dnd_section %}{% dnd_module path="../../modules/SR - CTA Banner", heading="Need a site built or rescued?", subheading="Tell us the platform, the deadline, and what’s broken today. We’ll scope a fixed fee and tell you honestly what we’d build first.", cta_text="Get a Quick Estimate", cta_url={ "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null }, style="gradient" %}{% end_dnd_module %}{% end_dnd_section %}
+{% end_dnd_area %}
+</div>
+{% endblock body %}

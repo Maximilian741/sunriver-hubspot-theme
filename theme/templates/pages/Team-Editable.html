@@ -1,0 +1,63 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: SunRiver - Our Team (editable)
+  screenshot_path: ../../images/template-previews/home.jpg
+-->
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+<div class="srh">
+{% dnd_area "main" label="Page content" %}
+{% dnd_section %}
+  {% dnd_module path="../../modules/SR - Smoke Hero",
+    eyebrow="Our Team",
+    heading="It’s me. And the cats.",
+    lead="SunRiver isn’t an agency with a bench. It’s one senior engineer in Helena who personally scopes, builds, and ships every project. Morale and night security are handled by staff who work for treats.",
+    primary_label="Get a Quick Estimate",
+    primary_url={ "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null },
+    ghost_label="Schedule a Consultation",
+    ghost_url={ "type": "EXTERNAL", "href": "/schedule-a-consultation-sunriver-consulting", "content_id": null }
+  %}{% end_dnd_module %}
+{% end_dnd_section %}
+
+{% dnd_section %}
+  {% dnd_module path="../../modules/SR - People Cards",
+    eyebrow="The roster",
+    heading="All three of us."
+  %}
+    {% module_attribute "people" is_json=True %}[
+      {
+        "person_img": { "src": "https://www.sunriverconsulting.us/hubfs/AI-Generated%20Media/Images/generate%20a%20pixel%20art%20manx%20cat%20with%20tortois%20shell%20hair%20patterns.png", "alt": "Noki" },
+        "person_name": "Noki",
+        "person_role": "Head of Morale & Quality Assurance",
+        "person_bio": "Noki serves as SunRiver Consulting’s resident morale booster and unofficial quality assurance specialist. Known for providing constant oversight (often from the nearest keyboard or desk surface), Noki ensures that long work sessions include adequate breaks and that all solutions meet feline-approved comfort standards."
+      },
+      {
+        "person_img": { "src": "https://www.sunriverconsulting.us/hubfs/AI-Generated%20Media/Images/A%20pixel%20art%20man%20in%20his%20late%2020s%20posing%20for%20a%20headshott-1.png", "alt": "Max Casteel" },
+        "person_name": "Max Casteel",
+        "person_role": "CEO",
+        "person_bio": "SunRiver Consulting is led by Max Casteel, a technology professional with a background in systems management, web development, cloud infrastructure, security, and accessibility. Max works directly with clients to design practical, scalable solutions that balance technical rigor with real-world usability. With experience supporting public institutions, nonprofits, and growing organizations, Max focuses on building systems that are secure, compliant, maintainable, and genuinely useful for the people who rely on them."
+      },
+      {
+        "person_img": { "src": "https://www.sunriverconsulting.us/hubfs/AI-Generated%20Media/Images/pixel%20art%20spannish%20fold%20cat-1.png", "alt": "Moggy" },
+        "person_name": "Moggy",
+        "person_role": "Director of Security & Night Operations",
+        "person_bio": "Moggy specializes in after-hours monitoring and security awareness. With a keen eye for unexpected movement and a strong commitment to nighttime patrols, Moggy helps ensure that nothing goes unnoticed, especially after midnight."
+      }
+    ]{% end_module_attribute %}
+  {% end_dnd_module %}
+{% end_dnd_section %}
+
+{% dnd_section %}
+  {% dnd_module path="../../modules/SR - CTA Banner",
+    heading="Like the sound of that?",
+    subheading="Tell me what you’re building and the engineer you just read about gets to work. The supervisors will supervise.",
+    cta_text="Schedule a Consultation",
+    cta_url={ "type": "EXTERNAL", "href": "/schedule-a-consultation-sunriver-consulting", "content_id": null },
+    style="gradient"
+  %}{% end_dnd_module %}
+{% end_dnd_section %}
+{% end_dnd_area %}
+</div>
+{% endblock body %}

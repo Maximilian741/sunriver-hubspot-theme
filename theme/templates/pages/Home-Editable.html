@@ -1,0 +1,139 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: SunRiver - Home (editable)
+  screenshot_path: ../../images/template-previews/home.jpg
+-->
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+<div class="srh">
+{% dnd_area "main" label="Page content" %}
+{% dnd_section %}
+{% dnd_module
+  path="../../modules/SR - Photo Hero",
+  bg_img={ "src": "https://www.sunriverconsulting.us/hubfs/pexels-gsn-travel-28539582.jpg", "alt": "Montana mountains" },
+  cap="Helena, Montana",
+  hero_title="SunRiver Consulting",
+  sub="Cloud, security, and CMS work done personally by a senior engineer in the heart of Montana.",
+  primary_text="Get a Quick Estimate →",
+  primary_url={ "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null },
+  ghost_text="Schedule a Consultation",
+  ghost_url={ "type": "EXTERNAL", "href": "/schedule-a-consultation-sunriver-consulting", "content_id": null }
+%}{% end_dnd_module %}
+{% end_dnd_section %}
+
+{% dnd_section %}
+{% dnd_module
+  path="../../modules/SR - Service Cards",
+  section_eyebrow="What we do",
+  section_heading="Unlock your Business’s True Potential"
+%}
+{% module_attribute "columns" %}3{% end_module_attribute %}
+{% module_attribute "cards" is_json=True %}[
+  { "icon_text": "mono:phone", "title": "App Development", "description": "<p>Android, iOS, desktop, and web apps your customers actually want to use.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/app-development-sunriver-consulting", "content_id": null } },
+  { "icon_text": "mono:layers", "title": "Business Solutions", "description": "<p>AWS, HubSpot, Salesforce, Microsoft 365, ServiceNow, integrated and tuned.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/business-solutions-sunriver-consulting", "content_id": null } },
+  { "icon_text": "mono:shield", "title": "Compliance Audits", "description": "<p>Penetration testing, threat modeling, WCAG and 508 audits, done right.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/compliance-audits-sunriver-consulting", "content_id": null } },
+  { "icon_text": "mono:database", "title": "Database Solutions", "description": "<p>Administration, analysis, design, and development across SQL and NoSQL.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/database-solutions-sunriver-consulting", "content_id": null } },
+  { "icon_text": "mono:globe", "title": "Web Development", "description": "<p>Custom builds and platform work for HubSpot, WordPress, and Squarespace.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/web-development-sunriver-consulting", "content_id": null } },
+  { "icon_text": "mono:spark", "title": "AI Solutions", "description": "<p>Practical AI adoption: assistants, automation, and training that pays for itself.</p>", "link_text": "Learn more", "card_link": { "type": "EXTERNAL", "href": "/ai-solutions-sunriver-consulting", "content_id": null } }
+]{% end_module_attribute %}
+{% end_dnd_module %}
+{% end_dnd_section %}
+
+{% dnd_section %}
+{% dnd_module
+  path="../../modules/SR - Stat Band",
+  eyebrow="Our Mission",
+  heading="Quality work, shared with everyone"
+%}
+{% module_attribute "lead_text" %}<p>We’re committed to delivering exceptional service at a fraction of what our competitors charge.</p><p>Based out of Helena, MT, our goal is to champion successful tech adoption for individuals and businesses alike, so no one is left behind in a rapidly expanding environment. We believe in a real degree of quality and love for the craft, and in spreading that to as many people as possible.</p>{% end_module_attribute %}
+{% module_attribute "stat_items" is_json=True %}[
+  { "stat_num": "100%", "stat_caption": "Senior-built" },
+  { "stat_num": "1:1", "stat_caption": "With your engineer" },
+  { "stat_num": "Fixed", "stat_caption": "Fee, not hourly" }
+]{% end_module_attribute %}
+{% end_dnd_module %}
+{% end_dnd_section %}
+
+{% dnd_section %}
+{% dnd_module
+  path="../../modules/SR - Service Cards",
+  section_eyebrow="Selected work",
+  section_heading="Proof, not promises"
+%}
+{% module_attribute "columns" %}3{% end_module_attribute %}
+{% module_attribute "cards" is_json=True %}[
+  { "icon_text": "mono:check", "title": "An audit that re-tests itself", "description": "<p>Accessibility · Section 508 / WCAG 2.2</p><p>Latest cycle closed and re-tested every critical finding, confirmed gone rather than parked behind a yellow flag, with the ACR procurement actually asked for.</p>", "link_text": "See the work", "card_link": { "type": "EXTERNAL", "href": "/work-sunriver-consulting", "content_id": null } },
+  { "icon_text": "mono:database", "title": "Legacy reports, to the penny", "description": "<p>Data & Reporting · OFR → SSRS</p><p>Rebuilding a portfolio of aging Oracle financial reports as SSRS RDLs. Inventory done, first tranche through parity testing, with the total still matching before any cutover.</p>", "link_text": "See the work", "card_link": { "type": "EXTERNAL", "href": "/work-sunriver-consulting", "content_id": null } },
+  { "icon_text": "mono:phone", "title": "Pet records out of the shoebox", "description": "<p>Our Product · Vital Tails</p><p>A mobile-first, offline-friendly companion app for health records, vaccine and med reminders, and vet-sharing. Core flows work, and Noki and Moggy are patients one and two.</p>", "link_text": "See the work", "card_link": { "type": "EXTERNAL", "href": "/work-sunriver-consulting", "content_id": null } }
+]{% end_module_attribute %}
+{% end_dnd_module %}
+{% end_dnd_section %}
+
+{% dnd_section %}
+{% dnd_module
+  path="../../modules/SR - How It Works",
+  eyebrow="How it works",
+  heading="How working together goes"
+%}
+{% module_attribute "lead" %}<p>Four steps, one engineer the whole way through. The same person scopes the price and writes the code, and the invoice matches the number you agreed to.</p>{% end_module_attribute %}
+{% module_attribute "steps" is_json=True %}[
+  { "step_num": "1", "step_title": "Talk", "step_desc": "A free 15, 30, or 60-minute call with the engineer who would actually do the work.", "step_icon": "mono:chat" },
+  { "step_num": "2", "step_title": "Scope and fixed quote", "step_desc": "A written plan and one number for a defined engagement, so you know the price before we start.", "step_icon": "mono:doc" },
+  { "step_num": "3", "step_title": "Build", "step_desc": "Weekly check-ins and working demos, accessible and secure from the first commit.", "step_icon": "mono:code" },
+  { "step_num": "4", "step_title": "Handoff", "step_desc": "Documentation, training, and every account in your name. An optional care plan from $1,000/mo if you want one.", "step_icon": "mono:lock" }
+]{% end_module_attribute %}
+{% end_dnd_module %}
+{% end_dnd_section %}
+
+{% dnd_section %}
+{% dnd_module
+  path="../../modules/SR - Tech Marquee",
+  eyebrow="Technologies we work with",
+  heading="The stacks behind the work."
+%}
+{% module_attribute "tech_items" is_json=True %}[
+  { "tech_name": "AWS", "tech_icon": "" },
+  { "tech_name": "HubSpot", "tech_icon": "" },
+  { "tech_name": "Salesforce", "tech_icon": "" },
+  { "tech_name": "Microsoft 365", "tech_icon": "" },
+  { "tech_name": "Google Analytics 4", "tech_icon": "" },
+  { "tech_name": "WordPress", "tech_icon": "" },
+  { "tech_name": "Squarespace", "tech_icon": "" },
+  { "tech_name": "React", "tech_icon": "" },
+  { "tech_name": "Next.js", "tech_icon": "" },
+  { "tech_name": "TypeScript", "tech_icon": "" },
+  { "tech_name": "Swift", "tech_icon": "" },
+  { "tech_name": "Android", "tech_icon": "" },
+  { "tech_name": "Kotlin", "tech_icon": "" },
+  { "tech_name": "Flutter", "tech_icon": "" },
+  { "tech_name": "Electron", "tech_icon": "" },
+  { "tech_name": "PostgreSQL", "tech_icon": "" },
+  { "tech_name": "MySQL", "tech_icon": "" },
+  { "tech_name": "SQL Server", "tech_icon": "" },
+  { "tech_name": "MongoDB", "tech_icon": "" },
+  { "tech_name": "Terraform", "tech_icon": "" },
+  { "tech_name": "Docker", "tech_icon": "" },
+  { "tech_name": "GitHub Actions", "tech_icon": "" },
+  { "tech_name": "Claude", "tech_icon": "" },
+  { "tech_name": "OpenAI", "tech_icon": "" },
+  { "tech_name": "Ollama", "tech_icon": "" },
+  { "tech_name": "n8n", "tech_icon": "" }
+]{% end_module_attribute %}
+{% end_dnd_module %}
+{% end_dnd_section %}
+
+{% dnd_section %}
+{% dnd_module
+  path="../../modules/SR - CTA Banner",
+  heading="Ready to grow with confidence?",
+  subheading="Tell us where you want to go. We’ll show you the road, and a fixed price to get there.",
+  cta_text="Schedule a Consultation →",
+  cta_url={ "type": "EXTERNAL", "href": "/schedule-a-consultation-sunriver-consulting", "content_id": null },
+  style="gradient"
+%}{% end_dnd_module %}
+{% end_dnd_section %}
+{% end_dnd_area %}
+</div>
+{% endblock body %}

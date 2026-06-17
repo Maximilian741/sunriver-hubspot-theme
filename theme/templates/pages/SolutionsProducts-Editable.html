@@ -1,0 +1,102 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: SunRiver - Solutions & Products (editable)
+  screenshot_path: ../../images/template-previews/home.jpg
+-->
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+<div class="srh">
+{% dnd_area "main" label="Page content" %}
+{% dnd_section %}
+  {% dnd_module
+    path="../../modules/SR - Smoke Hero",
+    eyebrow="Solutions & Products",
+    heading="Everything you need, under one roof.",
+    lead="Six service areas, one senior team, pick where you want to grow.",
+    primary_label="Get a Quick Estimate",
+    primary_url={ "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null },
+    ghost_label="Schedule a Consultation",
+    ghost_url={ "type": "EXTERNAL", "href": "/schedule-a-consultation-sunriver-consulting", "content_id": null }
+  %}{% end_dnd_module %}
+{% end_dnd_section %}
+
+{% dnd_section %}
+  {% dnd_module
+    path="../../modules/SR - Service Cards",
+    section_eyebrow="Explore",
+    section_heading="Our services."
+  %}
+    {% module_attribute "columns" %}3{% end_module_attribute %}
+    {% module_attribute "cards" is_json=True %}[
+      {
+        "icon_text": "brand:apple",
+        "title": "App Development",
+        "description": "<p>Native, cross-platform, and web apps.</p>",
+        "link_text": "Learn more",
+        "card_link": { "type": "EXTERNAL", "href": "/app-development-sunriver-consulting", "content_id": null }
+      },
+      {
+        "icon_text": "brand:aws",
+        "title": "Business Solutions",
+        "description": "<p>AWS, Microsoft 365, Salesforce, HubSpot, ServiceNow.</p>",
+        "link_text": "Learn more",
+        "card_link": { "type": "EXTERNAL", "href": "/business-solutions-sunriver-consulting", "content_id": null }
+      },
+      {
+        "icon_text": "mono:shield",
+        "title": "Compliance Audits",
+        "description": "<p>Pen testing, threat modeling, WCAG and 508.</p>",
+        "link_text": "Learn more",
+        "card_link": { "type": "EXTERNAL", "href": "/compliance-audits-sunriver-consulting", "content_id": null }
+      },
+      {
+        "icon_text": "brand:database",
+        "title": "Database Solutions",
+        "description": "<p>SQL and NoSQL administration, design, development.</p>",
+        "link_text": "Learn more",
+        "card_link": { "type": "EXTERNAL", "href": "/database-solutions-sunriver-consulting", "content_id": null }
+      },
+      {
+        "icon_text": "brand:wordpress",
+        "title": "Web Development",
+        "description": "<p>Custom, HubSpot, WordPress, Squarespace.</p>",
+        "link_text": "Learn more",
+        "card_link": { "type": "EXTERNAL", "href": "/web-development-sunriver-consulting", "content_id": null }
+      },
+      {
+        "icon_text": "mono:spark",
+        "title": "AI Solutions",
+        "description": "<p>Practical AI adoption: assistants, automation, and training that pays for itself.</p>",
+        "link_text": "Learn more",
+        "card_link": { "type": "EXTERNAL", "href": "/ai-solutions-sunriver-consulting", "content_id": null }
+      }
+    ]{% end_module_attribute %}
+  {% end_dnd_module %}
+{% end_dnd_section %}
+
+{% dnd_section %}
+  {% dnd_module
+    path="../../modules/SR - Callout Note",
+    icon_choice="custom",
+    icon_path="M15.5 8.5l-2 5-5 2 2-5 5-2z",
+    message="<p><strong>Not sure where to start?</strong> Tell us the goal and we will point you to the right area.</p>",
+    link_text="Get in touch",
+    callout_url={ "type": "EXTERNAL", "href": "/contact", "content_id": null }
+  %}{% end_dnd_module %}
+{% end_dnd_section %}
+
+{% dnd_section %}
+  {% dnd_module
+    path="../../modules/SR - CTA Banner",
+    heading="Ready to scope it?",
+    subheading="Get a fixed-fee estimate, fast.",
+    cta_text="Get a Quick Estimate",
+    cta_url={ "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null },
+    style="gradient"
+  %}{% end_dnd_module %}
+{% end_dnd_section %}
+{% end_dnd_area %}
+</div>
+{% endblock body %}

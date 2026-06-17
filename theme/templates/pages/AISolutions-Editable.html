@@ -1,0 +1,86 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: SunRiver - AI Solutions (editable)
+  screenshot_path: ../../images/template-previews/home.jpg
+-->
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+<div class="srh">
+{% dnd_area "main" label="Page content" %}
+{% dnd_section %}
+  {% dnd_module path="../../modules/SR - Smoke Hero",
+    eyebrow="AI Solutions",
+    heading="AI that earns its place, not adds hype",
+    lead="Senior, hands-on AI work for people and organizations that want real results, assistants grounded in your data, automation that holds up, and honest advice about where AI helps and where it doesn’t. Fixed fee, accessibility-first.",
+    primary_label="Get a Quick Estimate",
+    primary_url={ "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null },
+    ghost_label="Schedule a Consultation",
+    ghost_url={ "type": "EXTERNAL", "href": "/schedule-a-consultation-sunriver-consulting", "content_id": null }
+  %}{% end_dnd_module %}
+{% end_dnd_section %}
+{% dnd_section %}
+  {% dnd_module path="../../modules/SR - Service Cards",
+    section_eyebrow="Explore",
+    section_heading="What we do."
+  %}
+    {% module_attribute "columns" %}3{% end_module_attribute %}
+    {% module_attribute "cards" is_json=True %}[
+      {
+        "icon_text": "mono:compass",
+        "title": "AI Strategy & Adoption",
+        "description": "<p>We find the few places AI actually pays off, kill the hype-driven ideas that won’t, and hand you a realistic roadmap with ROI you can defend.</p><p>What’s inside: opportunity assessment, honest ROI and the “don’t” call, a staged roadmap, build vs. buy vs. wait, and change management and adoption.</p>",
+        "link_text": "Learn more",
+        "card_link": { "type": "EXTERNAL", "href": "/ai-solutions-deep-dive-sunriver-consulting#ai-strategy", "content_id": null }
+      },
+      {
+        "icon_text": "anthropic",
+        "title": "Custom AI Assistants",
+        "description": "<p>Assistants grounded in your own documents through retrieval, with citations, guardrails, and evaluations, built on the Claude or OpenAI API, not a demo that breaks in week two.</p><p>What’s inside: grounded in your data (RAG), citations you can verify, guardrails and scope, Claude and OpenAI APIs, and evaluation before launch.</p>",
+        "link_text": "Learn more",
+        "card_link": { "type": "EXTERNAL", "href": "/ai-solutions-deep-dive-sunriver-consulting#ai-assistants", "content_id": null }
+      },
+      {
+        "icon_text": "langchain",
+        "title": "Workflow Automation & Agents",
+        "description": "<p>We automate the repetitive work and build tool-using agents with a human in the loop, wired into n8n, Zapier, or custom code, and tested for the days they go sideways.</p><p>What’s inside: automate repetitive work, tool-using agents, human in the loop, integrations across n8n, Zapier and custom code, and reliability and observability.</p>",
+        "link_text": "Learn more",
+        "card_link": { "type": "EXTERNAL", "href": "/ai-solutions-deep-dive-sunriver-consulting#ai-automation", "content_id": null }
+      },
+      {
+        "icon_text": "mono:users",
+        "title": "Team & 1:1 Training",
+        "description": "<p>Plain-language coaching that teaches your people to prompt well, build everyday workflows, and judge when to trust the output.</p><p>What’s inside: prompting that works, everyday workflows, judgment on when to trust it, an approach for everyone, and reference materials that last.</p>",
+        "link_text": "Learn more",
+        "card_link": { "type": "EXTERNAL", "href": "/ai-solutions-deep-dive-sunriver-consulting#ai-training", "content_id": null }
+      },
+      {
+        "icon_text": "ollama",
+        "title": "Private & Secure AI",
+        "description": "<p>Local models with Ollama or API setups that never train on your data, with PII handled deliberately, so sensitive work never leaves a boundary you control.</p><p>What’s inside: local and self-hosted models, no training on your data, PII handling, compliance-aware design, and right-sized to the job.</p>",
+        "link_text": "Learn more",
+        "card_link": { "type": "EXTERNAL", "href": "/ai-solutions-deep-dive-sunriver-consulting#ai-private", "content_id": null }
+      },
+      {
+        "icon_text": "mono:shield",
+        "title": "AI Audits & Governance",
+        "description": "<p>We measure accuracy and hallucination, check for bias and unsafe output, and leave you a usage policy and monitoring so AI stays accountable after launch.</p><p>What’s inside: accuracy and hallucination testing, bias and safety checks, a usage policy, monitoring and drift, and responsible-use documentation.</p>",
+        "link_text": "Learn more",
+        "card_link": { "type": "EXTERNAL", "href": "/ai-solutions-deep-dive-sunriver-consulting#ai-governance", "content_id": null }
+      }
+    ]{% end_module_attribute %}
+  {% end_dnd_module %}
+{% end_dnd_section %}
+{% dnd_section %}
+  {% dnd_module path="../../modules/SR - CTA Banner",
+    heading="Curious where AI actually fits?",
+    subheading="Tell us the work you’re hoping to improve and we’ll give you a straight answer, including when the honest call is “don’t”, plus a fixed-fee plan with a senior consultant on it.",
+    cta_text="Get a Quick Estimate",
+    cta_url={ "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null },
+    style="gradient"
+  %}{% end_dnd_module %}
+{% end_dnd_section %}
+{% end_dnd_area %}
+</div>
+{% endblock body %}

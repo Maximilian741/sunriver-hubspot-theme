@@ -1,0 +1,100 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: SunRiver - Contact (editable)
+  screenshot_path: ../../images/template-previews/home.jpg
+-->
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+<div class="srh">
+{% dnd_area "main" label="Page content" %}
+{% dnd_section %}
+  {% dnd_module path="../../modules/SR - Smoke Hero",
+    eyebrow="Contact",
+    heading="Have questions? We’d love to hear from you.",
+    lead="The fastest way to reach us is by phone or email. For project intake, the quote form is usually quicker.",
+    primary_label="Get a Quick Estimate",
+    primary_url={ "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null },
+    ghost_label="Schedule a Consultation",
+    ghost_url={ "type": "EXTERNAL", "href": "/schedule-a-consultation-sunriver-consulting", "content_id": null }
+  %}{% end_dnd_module %}
+{% end_dnd_section %}
+
+{% dnd_section %}
+  {% dnd_module path="../../modules/SR - Section Heading",
+    eyebrow="Reach out",
+    heading="Three ways to get in touch",
+    alignment="center"
+  %}
+    {% module_attribute "intro" %}<p>Pick whichever fits the question.</p>{% end_module_attribute %}
+  {% end_dnd_module %}
+{% end_dnd_section %}
+
+{% dnd_section %}
+  {% dnd_module path="../../modules/SR - Service Cards",
+    section_eyebrow="",
+    section_heading=""
+  %}
+    {% module_attribute "columns" %}3{% end_module_attribute %}
+    {% module_attribute "cards" is_json=True %}[
+      {
+        "icon_text": "mono:phone",
+        "title": "Call us",
+        "description": "<p>(406) 616-2614<br>Mountain Time, Monday through Friday.</p>",
+        "link_text": "Tap to dial",
+        "card_link": { "type": "EXTERNAL", "href": "tel:+14066162614", "content_id": null }
+      },
+      {
+        "icon_text": "mono:mail",
+        "title": "Email us",
+        "description": "<p>For project inquiries or general questions, we reply within one business day.</p>",
+        "link_text": "Send a message",
+        "card_link": { "type": "EXTERNAL", "href": "mailto:hello@sunriverconsulting.us", "content_id": null }
+      },
+      {
+        "icon_text": "mono:calendar",
+        "title": "Book a call",
+        "description": "<p>Pick a 30-minute slot that works for you and we’ll come prepared.</p>",
+        "link_text": "Schedule a Consultation",
+        "card_link": { "type": "EXTERNAL", "href": "/schedule-a-consultation-sunriver-consulting", "content_id": null }
+      }
+    ]{% end_module_attribute %}
+  {% end_dnd_module %}
+{% end_dnd_section %}
+
+{% dnd_section %}
+  {% dnd_module path="../../modules/SR - Split Image Text",
+    image_side="left",
+    eyebrow="Where to find us",
+    heading="Helena, Montana, serving teams nationwide",
+    show_cta=true,
+    cta_text="Send a message",
+    cta_url={ "type": "EXTERNAL", "href": "mailto:hello@sunriverconsulting.us", "content_id": null }
+  %}
+    {% module_attribute "body_text" %}<p>We’re based in Helena and licensed to work across the United States. Most engagements run remote-first, with on-site visits for kickoff, demos, and launch.</p><ul><li>Mailing address: Helena, MT 59601</li><li>Phone: (406) 616-2614</li><li>Mountain Time business hours</li></ul>{% end_module_attribute %}
+  {% end_dnd_module %}
+{% end_dnd_section %}
+
+{% dnd_section %}
+  {% dnd_module path="../../modules/SR - Section Heading",
+    eyebrow="Contact form",
+    heading="Or send us a quick note",
+    alignment="center"
+  %}
+    {% module_attribute "intro" %}<p>Add your HubSpot contact form below using the Form module from the page editor.</p>{% end_module_attribute %}
+  {% end_dnd_module %}
+{% end_dnd_section %}
+
+{% dnd_section %}
+  {% dnd_module path="../../modules/SR - CTA Banner",
+    heading="Ready to scope a project?",
+    subheading="The quote form is the fastest path from idea to estimate.",
+    cta_text="Get a Quick Estimate",
+    cta_url={ "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null },
+    style="gradient"
+  %}{% end_dnd_module %}
+{% end_dnd_section %}
+{% end_dnd_area %}
+</div>
+{% endblock body %}

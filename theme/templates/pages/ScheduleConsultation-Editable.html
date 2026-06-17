@@ -1,0 +1,21 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: SunRiver - Remote Consultation (editable)
+  screenshot_path: ../../images/template-previews/home.jpg
+-->
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+<div class="srh">
+{% dnd_area "main" label="Page content" %}
+{% dnd_section %}{% dnd_module path="../../modules/SR - Smoke Hero", eyebrow="Remote Consultation", heading="Talk to a real engineer.", lead="Book 15, 30, or 60 free minutes with the person who’d actually do the work. Bring your questions.", primary_label="", primary_url={ "type": "EXTERNAL", "href": "", "content_id": null }, ghost_label="", ghost_url={ "type": "EXTERNAL", "href": "", "content_id": null } %}{% end_dnd_module %}{% end_dnd_section %}
+
+{% dnd_section %}{% dnd_module path="../../modules/SR - Method Tiles", eyebrow="What to expect", heading="15, 30, or 60 minutes, your call." %}{% module_attribute "tiles" is_json=True %}[ { "tile_icon": "mono:calendar", "tile_title": "Pick your length and slot", "tile_sub": "15-, 30-, or 60-minute sessions. The calendar is live.", "tile_url": { "type": "EXTERNAL", "href": "", "content_id": null } }, { "tile_icon": "mono:users", "tile_title": "You meet the actual builder", "tile_sub": "You talk directly with the senior engineer who’d run your project.", "tile_url": { "type": "EXTERNAL", "href": "", "content_id": null } }, { "tile_icon": "mono:compass", "tile_title": "Leave with a plan", "tile_sub": "Clear next steps and honest advice, even if the answer is “you don’t need us.”", "tile_url": { "type": "EXTERNAL", "href": "", "content_id": null } }, { "tile_icon": "mono:phone", "tile_title": "Prefer the phone?", "tile_sub": "(406) 616-2614 rings the same engineer.", "tile_url": { "type": "EXTERNAL", "href": "tel:+14066162614", "content_id": null } } ]{% end_module_attribute %}{% end_dnd_module %}{% end_dnd_section %}
+
+{% dnd_section %}{% dnd_module path="../../modules/SR - Rich Text Sheet", eyebrow="Book it", heading="Pick your time.", body_text="<p>Pick a length and a live slot below and the calendar books it on the spot. To embed the live scheduler, add a HubSpot Meetings module here and select your meeting link.</p>" %}{% end_dnd_module %}{% end_dnd_section %}
+
+{% dnd_section %}{% dnd_module path="../../modules/SR - CTA Banner", heading="Already know what you need?", subheading="Skip the call, send the details and get a fixed-fee quote.", cta_text="Get a Quick Estimate →", cta_url={ "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null }, style="gradient" %}{% end_dnd_module %}{% end_dnd_section %}
+{% end_dnd_area %}
+</div>
+{% endblock body %}

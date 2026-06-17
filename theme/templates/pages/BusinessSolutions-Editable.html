@@ -1,0 +1,107 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: SunRiver - Business Solutions (editable v2)
+  screenshot_path: ../../images/template-previews/home.jpg
+-->
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+<div class="srh">
+{% dnd_area "main" label="Page content" %}
+{% dnd_section %}
+  {% dnd_module path="../../modules/SR - Smoke Hero",
+    eyebrow="Business Solutions",
+    heading="Platforms that fit how your team works",
+    lead="Senior-led implementation and integration across the cloud, CMS, and CRM systems your organization already runs. Fixed-fee scopes, accessibility built in, delivered nationwide from Helena, Montana.",
+    primary_label="Get a Quick Estimate",
+    primary_url={ "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null },
+    ghost_label="Schedule a Consultation",
+    ghost_url={ "type": "EXTERNAL", "href": "/schedule-a-consultation-sunriver-consulting", "content_id": null }
+  %}{% end_dnd_module %}
+{% end_dnd_section %}
+{% dnd_section %}
+  {% dnd_module path="../../modules/SR - Service Cards",
+    section_eyebrow="Explore",
+    section_heading="What we do."
+  %}
+    {% module_attribute "columns" %}3{% end_module_attribute %}
+    {% module_attribute "cards" is_json=True %}[
+      {
+        "icon_text": "mono:cloud",
+        "title": "AWS Integration",
+        "description": "<p>VPC networking, least-privilege IAM, and Terraform-managed infrastructure for workloads you can audit and afford. We right-size for cost from the first review, not after the bill arrives. Inside: VPC &amp; networking, least-privilege IAM, ECS &amp; Lambda, RDS data layer, cost optimization, Terraform IaC.</p>",
+        "link_text": "Learn more",
+        "card_link": { "type": "EXTERNAL", "href": "/business-solutions-deep-dive-sunriver-consulting#aws-integration", "content_id": null }
+      },
+      {
+        "icon_text": "mono:file",
+        "title": "Cascade CMS",
+        "description": "<p>XSLT templating and structured content types tuned for higher-ed and government accessibility requirements. Hannon Hill Cascade CMS implementation built for the accessibility and governance standards universities and public agencies are held to. Inside: templating &amp; XSLT, structured content types, higher-ed &amp; gov fit, content migration, accessibility.</p>",
+        "link_text": "Learn more",
+        "card_link": { "type": "EXTERNAL", "href": "/business-solutions-deep-dive-sunriver-consulting#cascade-cms", "content_id": null }
+      },
+      {
+        "icon_text": "mono:gear",
+        "title": "CI/CD Pipelines",
+        "description": "<p>GitHub Actions and GitLab CI pipelines that run your tests and ship with blue-green deploys. Continuous integration and delivery that builds clean artifacts and deploys predictably, with secrets handled the way they should be. Inside: Actions &amp; GitLab CI, automated tests, blue-green deploys, secrets handling, Docker builds.</p>",
+        "link_text": "Learn more",
+        "card_link": { "type": "EXTERNAL", "href": "/business-solutions-deep-dive-sunriver-consulting#ci-cd", "content_id": null }
+      },
+      {
+        "icon_text": "mono:chart",
+        "title": "Google Analytics 4",
+        "description": "<p>Event-based tracking, Consent Mode, and BigQuery export configured so the numbers actually mean something. Set up around its event-based model, with consent handled correctly and a clean path into BigQuery. Inside: event-based model, Consent Mode, Tag Manager, conversions, BigQuery export.</p>",
+        "link_text": "Learn more",
+        "card_link": { "type": "EXTERNAL", "href": "/business-solutions-deep-dive-sunriver-consulting#google-analytics-4", "content_id": null }
+      },
+      {
+        "icon_text": "mono:layout",
+        "title": "HubSpot CMS",
+        "description": "<p>Custom HubL themes, modules, and serverless functions that editors can use without breaking the design. Fast, editor-friendly, and structured so the design holds up after launch. Inside: HubL themes &amp; modules, serverless functions, memberships, technical SEO.</p>",
+        "link_text": "Learn more",
+        "card_link": { "type": "EXTERNAL", "href": "/business-solutions-deep-dive-sunriver-consulting#hubspot-cms", "content_id": null }
+      },
+      {
+        "icon_text": "mono:users",
+        "title": "HubSpot CRM",
+        "description": "<p>Pipelines, workflow automation, and clean data so your reports reflect the business instead of the mess. Set up so HubSpot reflects how your team actually sells and serves. Inside: pipelines, workflow automation, data hygiene, reporting, integrations.</p>",
+        "link_text": "Learn more",
+        "card_link": { "type": "EXTERNAL", "href": "/business-solutions-deep-dive-sunriver-consulting#hubspot-crm", "content_id": null }
+      },
+      {
+        "icon_text": "mono:shield",
+        "title": "Microsoft 365",
+        "description": "<p>Entra ID identity, Exchange and Teams, SharePoint, and Intune brought under one set of security baselines. Identity, mail, collaboration, and device management brought together with baselines that hold. Inside: Entra ID identity, Exchange &amp; Teams, SharePoint, Intune, security baselines.</p>",
+        "link_text": "Learn more",
+        "card_link": { "type": "EXTERNAL", "href": "/business-solutions-deep-dive-sunriver-consulting#microsoft-365", "content_id": null }
+      },
+      {
+        "icon_text": "mono:cloud",
+        "title": "Salesforce CRM",
+        "description": "<p>A coherent data model with Flows and Apex/LWC where they earn their keep, plus dashboards leaders trust. Declarative Flows first, Apex and LWC when the requirement genuinely needs code. Inside: objects &amp; Flows, Apex &amp; LWC, data model, integrations, reports &amp; dashboards.</p>",
+        "link_text": "Learn more",
+        "card_link": { "type": "EXTERNAL", "href": "/business-solutions-deep-dive-sunriver-consulting#salesforce-crm", "content_id": null }
+      },
+      {
+        "icon_text": "mono:gear",
+        "title": "ServiceNow ITSM",
+        "description": "<p>Incident and change workflows, an accurate CMDB, and a service catalog people will actually use. ServiceNow configured around your processes so adoption follows naturally. Inside: incident &amp; change, CMDB, workflows, integrations, service catalog.</p>",
+        "link_text": "Learn more",
+        "card_link": { "type": "EXTERNAL", "href": "/business-solutions-deep-dive-sunriver-consulting#servicenow-itms", "content_id": null }
+      }
+    ]{% end_module_attribute %}
+  {% end_dnd_module %}
+{% end_dnd_section %}
+{% dnd_section %}
+  {% dnd_module path="../../modules/SR - CTA Banner",
+    heading="Not sure which platform is the bottleneck?",
+    subheading="Tell us what is slowing the team down and we’ll scope a fixed-fee engagement against the systems you already run.",
+    cta_text="Get a Quick Estimate",
+    cta_url={ "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null },
+    style="gradient"
+  %}{% end_dnd_module %}
+{% end_dnd_section %}
+{% end_dnd_area %}
+</div>
+{% endblock body %}

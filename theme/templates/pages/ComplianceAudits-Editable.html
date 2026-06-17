@@ -1,0 +1,72 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: SunRiver - Compliance Audits (editable)
+  screenshot_path: ../../images/template-previews/home.jpg
+-->
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+<div class="srh">
+{% dnd_area "main" label="Page content" %}
+{% dnd_section %}
+  {% dnd_module path="../../modules/SR - Smoke Hero",
+    eyebrow="Compliance Audits",
+    heading="Find the gaps before someone else does.",
+    lead="Senior-led security and accessibility audits, real attacks, real screen-reader testing, and a report your team can act on. Fixed fee, nationwide.",
+    primary_label="Get a Quick Estimate",
+    primary_url={ "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null },
+    ghost_label="Schedule a Consultation",
+    ghost_url={ "type": "EXTERNAL", "href": "/schedule-a-consultation-sunriver-consulting", "content_id": null }
+  %}{% end_dnd_module %}
+{% end_dnd_section %}
+{% dnd_section %}
+  {% dnd_module path="../../modules/SR - Service Cards",
+    section_eyebrow="Explore",
+    section_heading="What we do."
+  %}
+    {% module_attribute "columns" %}4{% end_module_attribute %}
+    {% module_attribute "cards" is_json=True %}[
+      {
+        "icon_text": "mono:shield",
+        "title": "Penetration Testing",
+        "description": "<p>Manual, senior-led penetration testing across your applications, network, and APIs, mapped to OWASP, evidenced with proof-of-concept, and written up so your engineers can fix it fast.</p>",
+        "link_text": "Learn more",
+        "card_link": { "type": "EXTERNAL", "href": "/compliance-audits-deep-dive-sunriver-consulting#penetration-testing", "content_id": null }
+      },
+      {
+        "icon_text": "mono:shield",
+        "title": "Threat Modeling",
+        "description": "<p>Structured threat modeling that maps how your system can be abused, STRIDE, data-flow diagrams, and a prioritized set of mitigations your team can act on at design time, when fixes are cheap.</p>",
+        "link_text": "Learn more",
+        "card_link": { "type": "EXTERNAL", "href": "/compliance-audits-deep-dive-sunriver-consulting#threat-modeling", "content_id": null }
+      },
+      {
+        "icon_text": "mono:globe",
+        "title": "WCAG 2.0 - 2.2",
+        "description": "<p>WCAG 2.0 through 2.2 conformance audits driven by real assistive-technology testing, not just an automated scan. You get a defensible VPAT and a remediation list your developers can work straight through.</p>",
+        "link_text": "Learn more",
+        "card_link": { "type": "EXTERNAL", "href": "/compliance-audits-deep-dive-sunriver-consulting#wcag", "content_id": null }
+      },
+      {
+        "icon_text": "mono:globe",
+        "title": "508 Compliance",
+        "description": "<p>Federal Section 508 and ICT accessibility audits, web, software, and documents, with an Accessibility Conformance Report your contracting officer can rely on, plus the remediation to back it up.</p>",
+        "link_text": "Learn more",
+        "card_link": { "type": "EXTERNAL", "href": "/compliance-audits-deep-dive-sunriver-consulting#508-compliance", "content_id": null }
+      }
+    ]{% end_module_attribute %}
+  {% end_dnd_module %}
+{% end_dnd_section %}
+{% dnd_section %}
+  {% dnd_module path="../../modules/SR - CTA Banner",
+    heading="Need to prove you are secure and accessible?",
+    subheading="Tell us what is in scope and we will send a fixed-fee plan.",
+    cta_text="Get a Quick Estimate",
+    cta_url={ "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null },
+    style="gradient"
+  %}{% end_dnd_module %}
+{% end_dnd_section %}
+{% end_dnd_area %}
+</div>
+{% endblock body %}

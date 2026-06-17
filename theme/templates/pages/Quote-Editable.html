@@ -1,0 +1,29 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: SunRiver - Get a Quote (editable)
+  screenshot_path: ../../images/template-previews/home.jpg
+-->
+{% extends "../layouts/base.html" %}
+
+{% block body %}
+<div class="srh">
+{% dnd_area "main" label="Page content" %}
+{% dnd_section %}{% dnd_module path="../../modules/SR - Page Header", eyebrow="Get a Quote", heading="Tell us the goal. Get a number.", lead="Fill this out and a senior engineer scopes it and sends a fixed-fee quote, usually within a few days." %}{% end_dnd_module %}{% end_dnd_section %}
+
+{% dnd_section %}{% dnd_module path="../../modules/SR - Rich Text Sheet", eyebrow="Your request", heading="Tell us about the project.", body_text="<p>Add your quote-request form to this sheet in the page editor, and submissions go straight to your CRM.</p><p>Want to play with the numbers first? Try the <a href=“/pricing”>estimate calculator</a>.</p>" %}{% end_dnd_module %}{% end_dnd_section %}
+
+{% dnd_section %}{% dnd_module path="../../modules/SR - How It Works", eyebrow="What happens next", heading="Here’s how it goes." %}{% module_attribute "steps" is_json=True %}[ { "step_num": "1", "step_title": "We read it, carefully", "step_desc": "A senior engineer reviews your goal, constraints, and timeline.", "step_icon": "mono:document" }, { "step_num": "2", "step_title": "We scope it in writing", "step_desc": "A short plan of what we’d build and the risks we see.", "step_icon": "mono:compass" }, { "step_num": "3", "step_title": "You get one number", "step_desc": "One number, and it doesn’t move once we start.", "step_icon": "mono:spark" } ]{% end_module_attribute %}{% end_dnd_module %}{% end_dnd_section %}
+
+{% dnd_section %}{% dnd_module path="../../modules/SR - Checklist", eyebrow="Honest starting points", heading="Where prices begin." %}{% module_attribute "items" is_json=True %}[ { "item_text": "Websites, from $7,500" }, { "item_text": "Mobile apps, from $15,000" }, { "item_text": "Cloud & DevOps, from $5,000" }, { "item_text": "Security audits, from $4,500" }, { "item_text": "Care plans, from $1,000/mo" } ]{% end_module_attribute %}{% end_dnd_module %}{% end_dnd_section %}
+
+{% dnd_section %}{% dnd_module path="../../modules/SR - Feature Grid", section_eyebrow="How the money works", section_heading="How the money works." %}{% module_attribute "columns" %}3{% end_module_attribute %}{% module_attribute "features" is_json=True %}[ { "feature_icon": "mono:lock", "feature_title": "One fixed fee, one period", "feature_desc": "The quote covers design and build for the scoped engagement, and it doesn’t move once we start.", "feature_link_text": "", "feature_link": { "type": "EXTERNAL", "href": "", "content_id": null } }, { "feature_icon": "mono:globe", "feature_title": "You own the recurring stuff", "feature_desc": "Domain, hosting, and software subscriptions are set up in YOUR accounts and billed to you directly, usually a few hundred a year. Everything stays in your name.", "feature_link_text": "", "feature_link": { "type": "EXTERNAL", "href": "", "content_id": null } }, { "feature_icon": "mono:link", "feature_title": "After launch, your choice", "feature_desc": "Run it yourself with the docs we hand over, or keep us on a care plan from $1,000/mo. Whatever suits you.", "feature_link_text": "", "feature_link": { "type": "EXTERNAL", "href": "", "content_id": null } } ]{% end_module_attribute %}{% end_dnd_module %}{% end_dnd_section %}
+
+{% dnd_section %}{% dnd_module path="../../modules/SR - Checklist", eyebrow="What to include in your request", heading="A little detail goes a long way." %}{% module_attribute "items" is_json=True %}[ { "item_text": "The goal, in one or two sentences" }, { "item_text": "Your timeline, even a rough one" }, { "item_text": "A budget band you’re comfortable with" }, { "item_text": "Links to anything similar you like" }, { "item_text": "Tools you already use (HubSpot, AWS, etc.)" } ]{% end_module_attribute %}{% end_dnd_module %}{% end_dnd_section %}
+
+{% dnd_section %}{% dnd_module path="../../modules/SR - Callout Note", icon_choice="custom", icon_path="mono:spark", message="<p><b>HubSpot Solutions Partner:</b> clients get an additional <b>15% off HubSpot subscriptions</b> through us.</p>", link_text="", callout_url={ "type": "EXTERNAL", "href": "", "content_id": null } %}{% end_dnd_module %}{% end_dnd_section %}
+
+{% dnd_section %}{% dnd_module path="../../modules/SR - CTA Banner", heading="Rather talk it through first?", subheading="Book a free consultation and bring the hard questions.", cta_text="Schedule a Consultation", cta_url={ "type": "EXTERNAL", "href": "/schedule-a-consultation-sunriver-consulting", "content_id": null }, style="gradient" %}{% end_dnd_module %}{% end_dnd_section %}
+{% end_dnd_area %}
+</div>
+{% endblock body %}
