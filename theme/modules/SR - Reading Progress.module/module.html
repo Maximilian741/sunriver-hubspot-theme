@@ -1,0 +1,20 @@
+<section class="srh-sec sr-readprog-host">
+  {% if module.prog_enabled %}
+  <div
+    class="sr-readprog sr-readprog--{{ module.prog_position }} sr-readprog--{{ module.prog_style }}{% if module.prog_track %} sr-readprog--track{% endif %}{% if module.prog_glow %} sr-readprog--glow{% endif %}"
+    data-position="{{ module.prog_position }}"
+    data-height="{{ module.prog_height }}"
+    data-target="{{ module.prog_target }}"
+    data-show-pct="{% if module.prog_show_pct %}1{% else %}0{% endif %}"
+    style="--sr-readprog-h: {{ module.prog_height }}px;"
+    role="progressbar"
+    aria-label="Reading progress"
+    aria-valuemin="0"
+    aria-valuemax="100"
+    aria-valuenow="0"
+  >
+    <div class="sr-readprog__fill"></div>
+    {% if module.prog_show_pct %}<div class="sr-readprog__pct" aria-hidden="true">0%</div>{% endif %}
+  </div>
+  {% endif %}
+</section>

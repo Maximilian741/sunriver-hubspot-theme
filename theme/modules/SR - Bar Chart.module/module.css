@@ -1,0 +1,117 @@
+.sr-barchart {
+  --sr-bc-green: #21c700;
+  --sr-bc-green2: #1bd24a;
+  --sr-bc-teal: #06c79b;
+  --sr-bc-gold: #fbc34a;
+  --sr-bc-ember: #ff7e3a;
+  margin-top: 2.2rem;
+  background: #fff;
+  border-radius: 18px;
+  padding: 2rem 1.6rem 1.4rem;
+  box-shadow: 0 18px 44px rgba(4, 18, 29, 0.16);
+}
+
+.sr-barchart__plot {
+  display: grid;
+  grid-template-columns: repeat(var(--sr-bars, 5), minmax(0, 1fr));
+  align-items: end;
+  gap: 0.9rem;
+  height: 300px;
+}
+
+.sr-barchart__col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  min-width: 0;
+}
+
+.sr-barchart__track {
+  position: relative;
+  flex: 1 1 auto;
+  width: 100%;
+  max-width: 88px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.sr-barchart__track::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: rgba(4, 18, 29, 0.12);
+}
+
+.sr-barchart__bar {
+  position: relative;
+  width: 100%;
+  min-height: 4px;
+  border-radius: 12px 12px 4px 4px;
+  background: linear-gradient(180deg, var(--sr-bc-green2), var(--sr-bc-teal) 65%, var(--sr-bc-green) 100%);
+  box-shadow: 0 6px 16px rgba(6, 199, 155, 0.28);
+  transition: height 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: height;
+}
+
+.sr-barchart__col:nth-child(3n+2) .sr-barchart__bar {
+  background: linear-gradient(180deg, var(--sr-bc-gold), var(--sr-bc-ember) 90%);
+  box-shadow: 0 6px 16px rgba(255, 126, 58, 0.26);
+}
+
+.sr-barchart__col:nth-child(3n) .sr-barchart__bar {
+  background: linear-gradient(180deg, var(--sr-bc-teal), #0e8fae 90%);
+  box-shadow: 0 6px 16px rgba(14, 143, 174, 0.26);
+}
+
+.sr-barchart__num {
+  position: absolute;
+  top: -1.7rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: clamp(0.95rem, 1.6vw, 1.25rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  color: #0c2114;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.sr-barchart__label {
+  margin-top: 0.7rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1.25;
+  text-align: center;
+  color: #546b5b;
+  letter-spacing: 0.01em;
+  word-break: break-word;
+}
+
+@media (max-width: 640px) {
+  .sr-barchart {
+    padding: 1.5rem 1rem 1.1rem;
+  }
+  .sr-barchart__plot {
+    height: 240px;
+    gap: 0.5rem;
+  }
+  .sr-barchart__label {
+    font-size: 0.72rem;
+  }
+  .sr-barchart__num {
+    font-size: 0.85rem;
+    top: -1.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sr-barchart__bar {
+    transition: none;
+  }
+}

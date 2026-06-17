@@ -1,0 +1,93 @@
+[
+  {
+    "name": "show_head",
+    "label": "Show heading",
+    "type": "boolean",
+    "required": false,
+    "default": true,
+    "id": "20100001-0001-0001-0001-000000000001"
+  },
+  {
+    "name": "eyebrow",
+    "label": "Eyebrow",
+    "type": "text",
+    "required": false,
+    "default": "By the numbers",
+    "id": "20100002-0001-0001-0001-000000000002"
+  },
+  {
+    "name": "heading",
+    "label": "Heading",
+    "type": "text",
+    "required": false,
+    "default": "Where the work shows up",
+    "id": "20100003-0001-0001-0001-000000000003"
+  },
+  {
+    "name": "caption",
+    "label": "Caption",
+    "type": "richtext",
+    "required": false,
+    "default": "<p>A quick read on the projects we ship and the systems we keep running across Helena and beyond.</p>",
+    "id": "20100004-0001-0001-0001-000000000004"
+  },
+  {
+    "name": "value_suffix",
+    "label": "Value suffix (e.g. %, k, +)",
+    "type": "text",
+    "required": false,
+    "default": "",
+    "id": "20100005-0001-0001-0001-000000000005"
+  },
+  {
+    "name": "bars",
+    "label": "Bars",
+    "type": "group",
+    "occurrence": {
+      "min": 1,
+      "max": 12,
+      "default": 5
+    },
+    "default": [
+      {
+        "bar_label": "Web builds",
+        "bar_value": 48
+      },
+      {
+        "bar_label": "App projects",
+        "bar_value": 31
+      },
+      {
+        "bar_label": "Cloud + DB",
+        "bar_value": 26
+      },
+      {
+        "bar_label": "Security audits",
+        "bar_value": 19
+      },
+      {
+        "bar_label": "Retainers",
+        "bar_value": 14
+      }
+    ],
+    "children": [
+      {
+        "name": "bar_label",
+        "label": "Bar label",
+        "type": "text",
+        "required": false,
+        "default": "Category",
+        "id": "20100007-0001-0001-0001-000000000007"
+      },
+      {
+        "name": "bar_value",
+        "label": "Value",
+        "type": "number",
+        "required": false,
+        "default": 10,
+        "id": "20100008-0001-0001-0001-000000000008"
+      }
+    ],
+    "id": "20100006-0001-0001-0001-000000000006"
+  }
+]

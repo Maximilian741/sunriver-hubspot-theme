@@ -1,0 +1,21 @@
+<section class="srh-sec">
+  {% if module.eyebrow %}<p class="srh-eyebrow">{{ module.eyebrow }}</p>{% endif %}
+  {% if module.heading %}<h2 class="srh-h2">{{ module.heading }}</h2>{% endif %}
+  {% if module.lead %}<div class="srh-lead">{{ module.lead }}</div>{% endif %}
+
+  <div class="sr-bars sr-bars--{{ module.fill_style }}{% if not module.show_percent %} sr-bars--no-pct{% endif %}">
+    {% for bar in module.bars %}
+      {% set pct = bar.percent|float %}
+      {% if pct < 0 %}{% set pct = 0 %}{% elif pct > 100 %}{% set pct = 100 %}{% endif %}
+      <div class="sr-bars__row">
+        <div class="sr-bars__head">
+          <span class="sr-bars__label">{{ bar.bar_label }}</span>
+          {% if module.show_percent %}<span class="sr-bars__pct" data-pct="{{ pct|round }}">{{ pct|round }}%</span>{% endif %}
+        </div>
+        <div class="sr-bars__track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="{{ pct|round }}" aria-label="{{ bar.bar_label }}">
+          <span class="sr-bars__fill" data-pct="{{ pct|round }}" style="width: {{ pct|round }}%;"></span>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</section>

@@ -1,0 +1,38 @@
+{# SR Tag Filter Grid, JS-driven filterable card grid. Self-inits via module.js (all .sr-tagfilter on the page). Drop into a page whose dnd_area is wrapped in .srh. Tags are derived server-side from each card's comma-separated list; JS builds the button row and filters. #}
+<section class="srh-sec">
+  <div class="srh-sec__inner">
+    {% if module.eyebrow or module.heading or module.lead %}
+    <div style="text-align:center;margin-bottom:1.8rem;">
+      {% if module.eyebrow %}<span class="srh-eyebrow" style="color:var(--river);">{{ module.eyebrow }}</span>{% endif %}
+      {% if module.heading %}<h2 class="srh-h2">{{ module.heading }}</h2>{% endif %}
+      {% if module.lead %}<p class="srh-lead">{{ module.lead }}</p>{% endif %}
+    </div>
+    {% endif %}
+
+    <div class="sr-tagfilter" data-mode="{{ module.select_mode }}" data-all-label="{{ module.all_label|escape }}" data-empty="{{ module.empty_text|escape }}">
+      {# Tag button row is built by JS from the card tags; this fallback shows the All button before JS runs. #}
+      <div class="sr-tagfilter__filters" role="group" aria-label="Filter cards by tag">
+        <button class="sr-tagfilter__btn is-on" type="button" data-tag="*">{{ module.all_label }}</button>
+      </div>
+
+      <div class="sr-tagfilter__grid">
+        {% for c in module.cards %}
+          <article class="sr-tagfilter__card" data-tags="{{ c.card_tags|escape }}">
+            {% if c.card_title %}<h3 class="sr-tagfilter__title">{{ c.card_title }}</h3>{% endif %}
+            {% if c.card_body %}<div class="sr-tagfilter__body sr-post">{{ c.card_body }}</div>{% endif %}
+            {% if c.card_tags %}
+              <ul class="sr-tagfilter__tags">
+                {% for tg in c.card_tags|split(",") %}
+                  {% set tgt = tg|trim %}
+                  {% if tgt %}<li class="sr-tagfilter__tag">{{ tgt }}</li>{% endif %}
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </article>
+        {% endfor %}
+      </div>
+
+      <p class="sr-tagfilter__empty" hidden>{{ module.empty_text }}</p>
+    </div>
+  </div>
+</section>

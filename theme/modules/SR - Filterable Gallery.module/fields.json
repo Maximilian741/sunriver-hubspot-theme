@@ -1,0 +1,121 @@
+[
+  {
+    "name": "eyebrow",
+    "label": "Eyebrow",
+    "type": "text",
+    "required": false,
+    "default": "Selected work",
+    "id": "20090001-0001-0001-0001-000000000001"
+  },
+  {
+    "name": "heading",
+    "label": "Heading",
+    "type": "text",
+    "required": false,
+    "default": "A gallery you can filter",
+    "id": "20090002-0001-0001-0001-000000000002"
+  },
+  {
+    "name": "lead",
+    "label": "Lead",
+    "type": "richtext",
+    "required": false,
+    "default": "<p>Browse the build. Tap a category to narrow it down.</p>",
+    "id": "20090003-0001-0001-0001-000000000003"
+  },
+  {
+    "name": "all_label",
+    "label": "All chip label",
+    "type": "text",
+    "required": false,
+    "default": "All",
+    "id": "20090004-0001-0001-0001-000000000004"
+  },
+  {
+    "name": "items",
+    "label": "Gallery items",
+    "type": "group",
+    "occurrence": {
+      "min": 1,
+      "max": 24,
+      "default": 6
+    },
+    "default": [
+      {
+        "item_img": {
+          "src": "",
+          "alt": "Web app dashboard"
+        },
+        "item_title": "Helena Clinic Portal",
+        "item_category": "Web"
+      },
+      {
+        "item_img": {
+          "src": "",
+          "alt": "Mobile field app"
+        },
+        "item_title": "Trailhead Field App",
+        "item_category": "Mobile"
+      },
+      {
+        "item_img": {
+          "src": "",
+          "alt": "Security audit report"
+        },
+        "item_title": "508 Compliance Audit",
+        "item_category": "Security"
+      },
+      {
+        "item_img": {
+          "src": "",
+          "alt": "Cloud architecture diagram"
+        },
+        "item_title": "Cloud Migration",
+        "item_category": "Cloud"
+      },
+      {
+        "item_img": {
+          "src": "",
+          "alt": "Database schema view"
+        },
+        "item_title": "Records Database",
+        "item_category": "Cloud"
+      },
+      {
+        "item_img": {
+          "src": "",
+          "alt": "Marketing site hero"
+        },
+        "item_title": "Outfitter Storefront",
+        "item_category": "Web"
+      }
+    ],
+    "children": [
+      {
+        "name": "item_img",
+        "label": "Image",
+        "type": "image",
+        "default": {
+          "src": "",
+          "alt": ""
+        },
+        "id": "20090006-0001-0001-0001-000000000006"
+      },
+      {
+        "name": "item_title",
+        "label": "Title",
+        "type": "text",
+        "default": "Project title",
+        "id": "20090007-0001-0001-0001-000000000007"
+      },
+      {
+        "name": "item_category",
+        "label": "Category",
+        "type": "text",
+        "default": "Web",
+        "id": "20090008-0001-0001-0001-000000000008"
+      }
+    ],
+    "id": "20090005-0001-0001-0001-000000000005"
+  }
+]

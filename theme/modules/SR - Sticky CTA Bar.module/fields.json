@@ -1,0 +1,77 @@
+[
+  {
+    "name": "message_text",
+    "label": "Message",
+    "type": "text",
+    "required": true,
+    "default": "Ready to build something solid? Let's scope it together.",
+    "id": "201a0001-0001-0001-0001-000000000001"
+  },
+  {
+    "name": "button_text",
+    "label": "Button Label",
+    "type": "text",
+    "required": true,
+    "default": "Get a Quote",
+    "id": "201a0002-0001-0001-0001-000000000002"
+  },
+  {
+    "name": "button_url",
+    "label": "Button Link",
+    "type": "url",
+    "required": false,
+    "locked": false,
+    "supported_types": [
+      "EXTERNAL",
+      "CONTENT",
+      "FILE",
+      "EMAIL_ADDRESS",
+      "BLOG"
+    ],
+    "display_width": null,
+    "default": {
+      "type": "EXTERNAL",
+      "href": "/quote-sunriver-consulting",
+      "content_id": null
+    },
+    "id": "201a0003-0001-0001-0001-000000000003"
+  },
+  {
+    "name": "scroll_threshold",
+    "label": "Scroll Threshold (pixels before bar appears)",
+    "type": "number",
+    "required": false,
+    "default": 600,
+    "id": "201a0004-0001-0001-0001-000000000004"
+  },
+  {
+    "name": "accent_style",
+    "label": "Button Accent",
+    "type": "choice",
+    "display": "select",
+    "choices": [
+      [
+        "gold",
+        "Gold"
+      ],
+      [
+        "green",
+        "Neon Green"
+      ],
+      [
+        "teal",
+        "Teal"
+      ]
+    ],
+    "default": "gold",
+    "id": "201a0005-0001-0001-0001-000000000005"
+  },
+  {
+    "name": "dismiss_label",
+    "label": "Dismiss Button Accessible Label",
+    "type": "text",
+    "required": false,
+    "default": "Dismiss this bar",
+    "id": "201a0006-0001-0001-0001-000000000006"
+  }
+]

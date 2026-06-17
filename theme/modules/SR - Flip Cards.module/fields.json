@@ -1,0 +1,136 @@
+[
+  {
+    "name": "eyebrow",
+    "label": "Eyebrow",
+    "type": "text",
+    "required": false,
+    "default": "What you get",
+    "id": "20000001-0001-0001-0001-000000000001"
+  },
+  {
+    "name": "heading",
+    "label": "Heading",
+    "type": "text",
+    "required": false,
+    "default": "Flip a card to see the detail",
+    "id": "20000002-0001-0001-0001-000000000002"
+  },
+  {
+    "name": "lead",
+    "label": "Lead text",
+    "type": "text",
+    "required": false,
+    "default": "Each card turns over to show exactly what is included, in plain language.",
+    "id": "20000003-0001-0001-0001-000000000003"
+  },
+  {
+    "name": "flip_on_hover",
+    "label": "Also flip on hover (desktop)",
+    "type": "boolean",
+    "required": false,
+    "default": false,
+    "id": "20000004-0001-0001-0001-000000000004"
+  },
+  {
+    "name": "cards",
+    "label": "Cards",
+    "type": "group",
+    "required": false,
+    "occurrence": {
+      "min": 1,
+      "max": 12,
+      "default": 3
+    },
+    "default": [
+      {
+        "front_title": "Custom software, built to last",
+        "front_teaser": "Web and mobile apps engineered end to end.",
+        "back_detail": "<p>We build the thing you actually need, not a template stretched to fit. Clean code, real documentation, and a handoff that leaves everything in your name.</p>",
+        "link_label": "Start a project",
+        "link": {
+          "type": "EXTERNAL",
+          "href": "/quote-sunriver-consulting",
+          "content_id": null
+        }
+      },
+      {
+        "front_title": "Security that gets re-tested",
+        "front_teaser": "Penetration testing and 508 / WCAG audits.",
+        "back_detail": "<p>Threat modeling, penetration testing, and accessibility audits that close every finding and then prove it with a re-test. You get a plain-English report and a fixed product.</p>",
+        "link_label": "Book an audit",
+        "link": {
+          "type": "EXTERNAL",
+          "href": "/contact",
+          "content_id": null
+        }
+      },
+      {
+        "front_title": "Cloud and data, kept healthy",
+        "front_teaser": "Infrastructure that stays fast and quiet.",
+        "back_detail": "<p>Cloud, databases, and CMS tuned for speed and uptime, monitored so issues surface before your users do. Recurring costs stay in your accounts, owned by you.</p>",
+        "link_label": "Talk it through",
+        "link": {
+          "type": "EXTERNAL",
+          "href": "/contact",
+          "content_id": null
+        }
+      }
+    ],
+    "children": [
+      {
+        "name": "front_title",
+        "label": "Front title",
+        "type": "text",
+        "required": false,
+        "default": "Card title",
+        "id": "20000006-0001-0001-0001-000000000006"
+      },
+      {
+        "name": "front_teaser",
+        "label": "Front teaser",
+        "type": "text",
+        "required": false,
+        "default": "Short teaser line for the front face.",
+        "id": "20000007-0001-0001-0001-000000000007"
+      },
+      {
+        "name": "back_detail",
+        "label": "Back detail",
+        "type": "richtext",
+        "required": false,
+        "default": "<p>The full story shows on the back of the card when it flips.</p>",
+        "id": "20000008-0001-0001-0001-000000000008"
+      },
+      {
+        "name": "link_label",
+        "label": "Back link label",
+        "type": "text",
+        "required": false,
+        "default": "Learn more",
+        "id": "20000009-0001-0001-0001-000000000009"
+      },
+      {
+        "name": "link",
+        "label": "Back link",
+        "type": "url",
+        "required": false,
+        "locked": false,
+        "supported_types": [
+          "EXTERNAL",
+          "CONTENT",
+          "FILE",
+          "EMAIL_ADDRESS",
+          "BLOG"
+        ],
+        "display_width": null,
+        "default": {
+          "type": "EXTERNAL",
+          "href": "/contact",
+          "content_id": null
+        },
+        "id": "2000000a-0001-0001-0001-00000000000a"
+      }
+    ],
+    "id": "20000005-0001-0001-0001-000000000005"
+  }
+]

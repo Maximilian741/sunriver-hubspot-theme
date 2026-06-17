@@ -1,0 +1,76 @@
+[
+  {
+    "name": "aria_label",
+    "label": "Button accessible label",
+    "type": "text",
+    "required": false,
+    "default": "Back to top",
+    "id": "20150001-0001-0001-0001-000000000001"
+  },
+  {
+    "name": "scroll_threshold",
+    "label": "Show after scrolling (pixels)",
+    "type": "number",
+    "required": false,
+    "default": 400,
+    "id": "20150002-0001-0001-0001-000000000002"
+  },
+  {
+    "name": "icon_style",
+    "label": "Icon style",
+    "type": "choice",
+    "required": false,
+    "display": "select",
+    "choices": [
+      [
+        "arrow",
+        "Arrow"
+      ],
+      [
+        "chevron",
+        "Chevron"
+      ],
+      [
+        "arrowline",
+        "Arrow with line"
+      ]
+    ],
+    "default": "arrow",
+    "id": "20150003-0001-0001-0001-000000000003"
+  },
+  {
+    "name": "show_label",
+    "label": "Show text label next to icon",
+    "type": "boolean",
+    "required": false,
+    "default": false,
+    "id": "20150004-0001-0001-0001-000000000004"
+  },
+  {
+    "name": "button_text",
+    "label": "Text label",
+    "type": "text",
+    "required": false,
+    "default": "Top",
+    "id": "20150005-0001-0001-0001-000000000005"
+  },
+  {
+    "name": "position_side",
+    "label": "Screen side",
+    "type": "choice",
+    "required": false,
+    "display": "select",
+    "choices": [
+      [
+        "right",
+        "Bottom right"
+      ],
+      [
+        "left",
+        "Bottom left"
+      ]
+    ],
+    "default": "right",
+    "id": "20150006-0001-0001-0001-000000000006"
+  }
+]

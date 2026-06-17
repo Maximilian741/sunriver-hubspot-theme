@@ -1,0 +1,38 @@
+<section class="srh-sec">
+  {% if module.show_head %}
+  <div class="srh-sec__head" style="text-align:center;max-width:760px;margin-left:auto;margin-right:auto;">
+    {% if module.eyebrow %}<span class="srh-eyebrow">{{ module.eyebrow }}</span>{% endif %}
+    {% if module.heading %}<h2 class="srh-h2">{{ module.heading }}</h2>{% endif %}
+    {% if module.lead_text %}<div class="srh-lead" style="margin-left:auto;margin-right:auto;">{{ module.lead_text }}</div>{% endif %}
+  </div>
+  {% endif %}
+
+  {% if module.rings %}
+  <div class="sr-ring sr-ring--track-{{ module.track_color }}" data-sr-ring>
+    {% for it in module.rings %}
+      {% set raw = it.ring_percent|float %}
+      {% set pct = raw %}
+      {% if pct < 0 %}{% set pct = 0 %}{% endif %}
+      {% if pct > 100 %}{% set pct = 100 %}{% endif %}
+      {% set circ = 326.726 %}
+      {% set offset = circ - (circ * pct / 100) %}
+      <div class="sr-ring__item sr-ring__item--{{ it.ring_accent }}">
+        <div class="sr-ring__dial" role="img" aria-label="{{ it.ring_label|escape }}: {{ pct|round|int }}{{ it.ring_suffix|escape }}">
+          <svg class="sr-ring__svg" viewBox="0 0 120 120" aria-hidden="true">
+            <circle class="sr-ring__track" cx="60" cy="60" r="52" />
+            <circle class="sr-ring__bar" cx="60" cy="60" r="52"
+              stroke-dasharray="{{ circ }}"
+              stroke-dashoffset="{{ offset }}"
+              data-sr-final-offset="{{ offset }}"
+              data-sr-circ="{{ circ }}" />
+          </svg>
+          <div class="sr-ring__center">
+            <span class="sr-ring__num" data-sr-target="{{ pct|round|int }}">{{ pct|round|int }}</span><span class="sr-ring__suffix">{{ it.ring_suffix }}</span>
+          </div>
+        </div>
+        {% if it.ring_label %}<div class="sr-ring__label">{{ it.ring_label }}</div>{% endif %}
+      </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+</section>

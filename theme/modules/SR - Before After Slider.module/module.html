@@ -1,0 +1,64 @@
+<section class="srh-sec">
+  {% if module.eyebrow %}<p class="srh-eyebrow">{{ module.eyebrow }}</p>{% endif %}
+  {% if module.heading %}<h2 class="srh-h2">{{ module.heading }}</h2>{% endif %}
+  {% if module.lead %}<div class="srh-lead">{{ module.lead }}</div>{% endif %}
+
+  {% set start = module.start_position %}
+  {% if start == null or start < 0 or start > 100 %}{% set start = 50 %}{% endif %}
+
+  <div class="sr-baslider"
+       data-start="{{ start }}"
+       role="group"
+       aria-label="Before and after image comparison">
+
+    <div class="sr-baslider__frame">
+
+      {% if module.before_image.src %}
+      <img class="sr-baslider__img sr-baslider__img--before"
+           src="{{ module.before_image.src }}"
+           alt="{{ module.before_image.alt }}"
+           draggable="false">
+      {% else %}
+      <div class="sr-baslider__img sr-baslider__img--before sr-baslider__img--empty"></div>
+      {% endif %}
+
+      <div class="sr-baslider__after" style="width: {{ start }}%;">
+        {% if module.after_image.src %}
+        <img class="sr-baslider__img sr-baslider__img--after"
+             src="{{ module.after_image.src }}"
+             alt="{{ module.after_image.alt }}"
+             draggable="false">
+        {% else %}
+        <div class="sr-baslider__img sr-baslider__img--after sr-baslider__img--empty"></div>
+        {% endif %}
+      </div>
+
+      {% if module.show_labels %}
+      <span class="sr-baslider__tag sr-baslider__tag--before">{{ module.before_label }}</span>
+      <span class="sr-baslider__tag sr-baslider__tag--after">{{ module.after_label }}</span>
+      {% endif %}
+
+      <button type="button"
+              class="sr-baslider__handle"
+              style="left: {{ start }}%;"
+              aria-label="Drag to compare"
+              role="slider"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              aria-valuenow="{{ start }}">
+        <span class="sr-baslider__knob" aria-hidden="true">
+          <span class="sr-baslider__arrow sr-baslider__arrow--l"></span>
+          <span class="sr-baslider__arrow sr-baslider__arrow--r"></span>
+        </span>
+        <span class="sr-baslider__line" aria-hidden="true"></span>
+      </button>
+
+    </div>
+  </div>
+
+  {% if module.cta.href and module.cta_label %}
+  <p class="sr-baslider__cta">
+    <a class="srh-btn" href="{{ module.cta.href }}">{{ module.cta_label }}</a>
+  </p>
+  {% endif %}
+</section>

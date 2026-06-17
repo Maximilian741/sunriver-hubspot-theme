@@ -1,0 +1,117 @@
+[
+  {
+    "name": "button_label",
+    "label": "Button label",
+    "type": "text",
+    "required": true,
+    "default": "See how we work",
+    "id": "20110001-0001-0001-0001-000000000001"
+  },
+  {
+    "name": "button_style",
+    "label": "Button style",
+    "type": "choice",
+    "required": false,
+    "display": "select",
+    "choices": [
+      [
+        "primary",
+        "Primary (gold gradient)"
+      ],
+      [
+        "ghost",
+        "Ghost (outline on gradient)"
+      ],
+      [
+        "solid",
+        "Solid teal"
+      ]
+    ],
+    "default": "primary",
+    "id": "20110002-0001-0001-0001-000000000002"
+  },
+  {
+    "name": "align",
+    "label": "Button alignment",
+    "type": "choice",
+    "required": false,
+    "display": "select",
+    "choices": [
+      [
+        "left",
+        "Left"
+      ],
+      [
+        "center",
+        "Center"
+      ],
+      [
+        "right",
+        "Right"
+      ]
+    ],
+    "default": "center",
+    "id": "20110003-0001-0001-0001-000000000003"
+  },
+  {
+    "name": "modal_eyebrow",
+    "label": "Modal eyebrow",
+    "type": "text",
+    "required": false,
+    "default": "How it works",
+    "id": "20110004-0001-0001-0001-000000000004"
+  },
+  {
+    "name": "modal_heading",
+    "label": "Modal heading",
+    "type": "text",
+    "required": false,
+    "default": "A clear path from idea to launch",
+    "id": "20110005-0001-0001-0001-000000000005"
+  },
+  {
+    "name": "modal_body",
+    "label": "Modal content",
+    "type": "richtext",
+    "required": false,
+    "default": "<p>We start with a short scoping call to map what you need and what it should cost. From there you get a fixed quote, a build plan, and a single point of contact for the whole project.</p><p>Every project ships accessible, secure, and documented, with all accounts and recurring costs in your name. No lock-in, no surprises.</p>",
+    "id": "20110006-0001-0001-0001-000000000006"
+  },
+  {
+    "name": "show_modal_cta",
+    "label": "Show button inside modal",
+    "type": "boolean",
+    "required": false,
+    "default": true,
+    "id": "20110007-0001-0001-0001-000000000007"
+  },
+  {
+    "name": "modal_cta_text",
+    "label": "Modal button text",
+    "type": "text",
+    "required": false,
+    "default": "Get a quote",
+    "id": "20110008-0001-0001-0001-000000000008"
+  },
+  {
+    "name": "modal_cta_url",
+    "label": "Modal button link",
+    "type": "url",
+    "required": false,
+    "locked": false,
+    "supported_types": [
+      "EXTERNAL",
+      "CONTENT",
+      "FILE",
+      "EMAIL_ADDRESS",
+      "BLOG"
+    ],
+    "display_width": null,
+    "default": {
+      "type": "EXTERNAL",
+      "href": "/quote-sunriver-consulting",
+      "content_id": null
+    },
+    "id": "20110009-0001-0001-0001-000000000009"
+  }
+]

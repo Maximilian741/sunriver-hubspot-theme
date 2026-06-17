@@ -1,0 +1,64 @@
+<section class="srh-sec">
+  <div class="srh-sec__inner" style="max-width:980px;">
+
+    {% if module.eyebrow or module.heading or module.lead %}
+    <div style="text-align:center;max-width:680px;margin:0 auto 2.2rem;">
+      {% if module.eyebrow %}<span class="srh-eyebrow">{{ module.eyebrow }}</span>{% endif %}
+      {% if module.heading %}<h2 class="srh-h2" style="margin-inline:auto;">{{ module.heading }}</h2>{% endif %}
+      {% if module.lead %}<div class="srh-lead" style="margin-inline:auto;">{{ module.lead }}</div>{% endif %}
+    </div>
+    {% endif %}
+
+    <div class="sr-estimator"
+         data-retainer-factor="{{ module.retainer_factor }}"
+         data-project-note="{{ module.project_note }}"
+         data-retainer-note="{{ module.retainer_note }}"
+         data-empty-hint="{{ module.empty_hint }}">
+
+      <div class="sr-estimator__panel">
+
+        <fieldset class="sr-estimator__fs">
+          <div class="sr-estimator__leg">{{ module.options_legend }}</div>
+          <div class="sr-estimator__chips">
+            {% for it in module.options %}
+            <label class="sr-estimator__chip" data-name="{{ it.option_label }}">
+              <input type="checkbox" data-base="{{ it.base_price }}">
+              <span>{{ it.option_label }}</span>
+            </label>
+            {% endfor %}
+          </div>
+        </fieldset>
+
+        <fieldset class="sr-estimator__fs">
+          <div class="sr-estimator__leg">{{ module.scale_legend }}</div>
+          <div class="sr-estimator__seg" data-seg="scale">
+            <button type="button" data-mult="{{ module.scale_small_mult }}">{{ module.scale_small_label }}</button>
+            <button type="button" data-mult="{{ module.scale_standard_mult }}" class="is-on">{{ module.scale_standard_label }}</button>
+            <button type="button" data-mult="{{ module.scale_large_mult }}">{{ module.scale_large_label }}</button>
+          </div>
+        </fieldset>
+
+        <fieldset class="sr-estimator__fs">
+          <div class="sr-estimator__leg">{{ module.mode_legend }}</div>
+          <div class="sr-estimator__seg" data-seg="mode">
+            <button type="button" data-mode="project" class="is-on">{{ module.mode_project_label }}</button>
+            <button type="button" data-mode="retainer">{{ module.mode_retainer_label }}</button>
+          </div>
+        </fieldset>
+
+      </div>
+
+      <div class="sr-estimator__out">
+        <span class="sr-estimator__cap">{{ module.estimate_caption }}</span>
+        <div class="sr-estimator__num"><span data-lo>&mdash;</span> &ndash; <span data-hi>&mdash;</span></div>
+        <p class="sr-estimator__mnote"><span data-modelabel>{{ module.project_note }}</span> &middot; {{ module.after_note }}</p>
+        <ul class="sr-estimator__sum" data-sum>
+          <li><span>{{ module.empty_hint }} &rarr;</span><span></span></li>
+        </ul>
+        <a class="sr-estimator__cta" href="{{ module.cta_url.href }}">{{ module.cta_label }} &rarr;</a>
+        {% if module.fineprint %}<div class="sr-estimator__fine">{{ module.fineprint }}</div>{% endif %}
+      </div>
+
+    </div>
+  </div>
+</section>

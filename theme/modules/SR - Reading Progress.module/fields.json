@@ -1,0 +1,107 @@
+[
+  {
+    "name": "prog_enabled",
+    "label": "Show reading progress bar",
+    "type": "boolean",
+    "required": false,
+    "default": true,
+    "id": "20140001-0001-0001-0001-000000000001"
+  },
+  {
+    "name": "prog_height",
+    "label": "Bar height (pixels)",
+    "type": "number",
+    "required": false,
+    "default": 5,
+    "min": 2,
+    "max": 14,
+    "step": 1,
+    "suffix": "px",
+    "id": "20140002-0001-0001-0001-000000000002"
+  },
+  {
+    "name": "prog_position",
+    "label": "Position",
+    "type": "choice",
+    "required": false,
+    "default": "top",
+    "display": "select",
+    "choices": [
+      [
+        "top",
+        "Top of viewport"
+      ],
+      [
+        "bottom",
+        "Bottom of viewport"
+      ]
+    ],
+    "id": "20140003-0001-0001-0001-000000000003"
+  },
+  {
+    "name": "prog_style",
+    "label": "Fill gradient",
+    "type": "choice",
+    "required": false,
+    "default": "goldgreen",
+    "display": "select",
+    "choices": [
+      [
+        "goldgreen",
+        "Gold to green"
+      ],
+      [
+        "greengold",
+        "Green to gold"
+      ],
+      [
+        "greenteal",
+        "Green to teal"
+      ]
+    ],
+    "id": "20140004-0001-0001-0001-000000000004"
+  },
+  {
+    "name": "prog_track",
+    "label": "Show faint track behind the fill",
+    "type": "boolean",
+    "required": false,
+    "default": true,
+    "id": "20140005-0001-0001-0001-000000000005"
+  },
+  {
+    "name": "prog_glow",
+    "label": "Soft glow under the fill",
+    "type": "boolean",
+    "required": false,
+    "default": true,
+    "id": "20140006-0001-0001-0001-000000000006"
+  },
+  {
+    "name": "prog_show_pct",
+    "label": "Show percentage chip",
+    "type": "boolean",
+    "required": false,
+    "default": false,
+    "id": "20140007-0001-0001-0001-000000000007"
+  },
+  {
+    "name": "prog_target",
+    "label": "Track scroll of",
+    "type": "choice",
+    "required": false,
+    "default": "page",
+    "display": "select",
+    "choices": [
+      [
+        "page",
+        "Whole page"
+      ],
+      [
+        "main",
+        "Main content area (first <main> or .body-container__page)"
+      ]
+    ],
+    "id": "20140008-0001-0001-0001-000000000008"
+  }
+]

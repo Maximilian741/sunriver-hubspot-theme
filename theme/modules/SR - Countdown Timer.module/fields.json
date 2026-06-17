@@ -1,0 +1,119 @@
+[
+  {
+    "name": "eyebrow",
+    "label": "Eyebrow",
+    "type": "text",
+    "required": false,
+    "default": "Mark your calendar",
+    "id": "20060001-0001-0001-0001-000000000001"
+  },
+  {
+    "name": "heading",
+    "label": "Heading",
+    "type": "text",
+    "required": false,
+    "default": "Booking closes for the next build slot",
+    "id": "20060002-0001-0001-0001-000000000002"
+  },
+  {
+    "name": "lead_text",
+    "label": "Lead (optional)",
+    "type": "richtext",
+    "required": false,
+    "default": "<p>One engineer, one project at a time. When this hits zero the current slot is spoken for, so reach out before the clock runs down.</p>",
+    "id": "20060003-0001-0001-0001-000000000003"
+  },
+  {
+    "name": "target_datetime",
+    "label": "Target date and time (ISO 8601)",
+    "type": "text",
+    "required": true,
+    "default": "2026-09-01T17:00:00",
+    "id": "20060004-0001-0001-0001-000000000004"
+  },
+  {
+    "name": "use_utc",
+    "label": "Treat target time as UTC",
+    "type": "boolean",
+    "required": false,
+    "default": false,
+    "id": "20060005-0001-0001-0001-000000000005"
+  },
+  {
+    "name": "days_label",
+    "label": "Days label",
+    "type": "text",
+    "required": false,
+    "default": "Days",
+    "id": "20060006-0001-0001-0001-000000000006"
+  },
+  {
+    "name": "hours_label",
+    "label": "Hours label",
+    "type": "text",
+    "required": false,
+    "default": "Hours",
+    "id": "20060007-0001-0001-0001-000000000007"
+  },
+  {
+    "name": "minutes_label",
+    "label": "Minutes label",
+    "type": "text",
+    "required": false,
+    "default": "Minutes",
+    "id": "20060008-0001-0001-0001-000000000008"
+  },
+  {
+    "name": "seconds_label",
+    "label": "Seconds label",
+    "type": "text",
+    "required": false,
+    "default": "Seconds",
+    "id": "20060009-0001-0001-0001-000000000009"
+  },
+  {
+    "name": "finished_text",
+    "label": "Finished message",
+    "type": "richtext",
+    "required": false,
+    "default": "<p>The clock has run down. This slot is taken, but the next one opens soon. Send a note and we will hold a spot for you.</p>",
+    "id": "2006000a-0001-0001-0001-00000000000a"
+  },
+  {
+    "name": "show_cta",
+    "label": "Show button",
+    "type": "boolean",
+    "required": false,
+    "default": true,
+    "id": "2006000b-0001-0001-0001-00000000000b"
+  },
+  {
+    "name": "cta_text",
+    "label": "Button text",
+    "type": "text",
+    "required": false,
+    "default": "Claim the slot",
+    "id": "2006000c-0001-0001-0001-00000000000c"
+  },
+  {
+    "name": "cta_url",
+    "label": "Button link",
+    "type": "url",
+    "required": false,
+    "locked": false,
+    "supported_types": [
+      "EXTERNAL",
+      "CONTENT",
+      "FILE",
+      "EMAIL_ADDRESS",
+      "BLOG"
+    ],
+    "display_width": null,
+    "default": {
+      "type": "EXTERNAL",
+      "href": "/quote-sunriver-consulting",
+      "content_id": null
+    },
+    "id": "2006000d-0001-0001-0001-00000000000d"
+  }
+]

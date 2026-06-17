@@ -1,0 +1,30 @@
+[ {
+  "id" : "ee000001-0001-0001-0001-000000000001",
+  "name" : "eyebrow",
+  "label" : "Eyebrow",
+  "type" : "text",
+  "required" : false,
+  "default" : "Explore"
+}, {
+  "id" : "ee000001-0001-0001-0001-000000000002",
+  "name" : "heading",
+  "label" : "Heading",
+  "type" : "text",
+  "required" : false,
+  "default" : "What we deliver"
+}, {
+  "id" : "ee000001-0001-0001-0001-000000000003",
+  "name" : "tabs",
+  "label" : "Tabs",
+  "type" : "group",
+  "occurrence" : { "min" : 2, "max" : 8, "default" : 3 },
+  "default" : [
+    { "tab_label" : "Build", "tab_body" : "<p>Custom web and mobile apps engineered end to end, accessible and secure from the first commit.</p>" },
+    { "tab_label" : "Secure", "tab_body" : "<p>Penetration testing, threat modeling, and WCAG / 508 audits that close and re-test every finding.</p>" },
+    { "tab_label" : "Run", "tab_body" : "<p>Cloud, databases, and CMS kept fast and healthy, with everything documented and in your name.</p>" }
+  ],
+  "children" : [
+    { "id" : "ee000001-0001-0001-0001-000000000010", "name" : "tab_label", "label" : "Tab label", "type" : "text", "default" : "Tab" },
+    { "id" : "ee000001-0001-0001-0001-000000000011", "name" : "tab_body", "label" : "Tab content", "type" : "richtext", "default" : "<p>Tab content.</p>" }
+  ]
+} ]

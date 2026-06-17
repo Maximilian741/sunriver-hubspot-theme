@@ -1,0 +1,30 @@
+<section class="srh-sec">
+  <div class="srh-sec__inner">
+    {% if module.show_head %}
+      {% if module.eyebrow %}<p class="srh-eyebrow">{{ module.eyebrow }}</p>{% endif %}
+      {% if module.heading %}<h2 class="srh-h2">{{ module.heading }}</h2>{% endif %}
+      {% if module.caption %}<div class="srh-lead">{{ module.caption }}</div>{% endif %}
+    {% endif %}
+
+    {% set max_value = 1 %}
+    {% for it in module.bars %}
+      {% if it.bar_value > max_value %}{% set max_value = it.bar_value %}{% endif %}
+    {% endfor %}
+
+    <div class="sr-barchart" data-suffix="{{ module.value_suffix }}" role="img" aria-label="{{ module.heading|default('Bar chart') }}">
+      <div class="sr-barchart__plot" style="--sr-bars: {{ module.bars|length }};">
+        {% for it in module.bars %}
+          {% set pct = (it.bar_value / max_value * 100)|round(2) %}
+          <div class="sr-barchart__col">
+            <div class="sr-barchart__track">
+              <div class="sr-barchart__bar" data-value="{{ it.bar_value }}" data-pct="{{ pct }}" style="height: {{ pct }}%;">
+                <span class="sr-barchart__num">{{ it.bar_value|round }}{{ module.value_suffix }}</span>
+              </div>
+            </div>
+            <div class="sr-barchart__label">{{ it.bar_label }}</div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>

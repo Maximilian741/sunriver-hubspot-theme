@@ -1,0 +1,83 @@
+[
+  {
+    "name": "heading_group",
+    "label": "Heading",
+    "type": "group",
+    "children": [
+      {
+        "name": "show_heading",
+        "label": "Show heading",
+        "type": "boolean",
+        "default": true,
+        "id": "20010002-0001-0001-0001-000000000002"
+      },
+      {
+        "name": "eyebrow",
+        "label": "Eyebrow",
+        "type": "text",
+        "default": "From the studio",
+        "id": "20010003-0001-0001-0001-000000000003"
+      },
+      {
+        "name": "heading",
+        "label": "Heading",
+        "type": "text",
+        "default": "What working with us looks like",
+        "id": "20010004-0001-0001-0001-000000000004"
+      },
+      {
+        "name": "lead",
+        "label": "Lead",
+        "type": "text",
+        "default": "A few notes on how we build, ship, and stay out of your way.",
+        "id": "20010005-0001-0001-0001-000000000005"
+      }
+    ],
+    "id": "20010001-0001-0001-0001-000000000001"
+  },
+  {
+    "name": "autoplay",
+    "label": "Autoplay",
+    "type": "boolean",
+    "default": false,
+    "id": "20010006-0001-0001-0001-000000000006"
+  },
+  {
+    "name": "autoplay_seconds",
+    "label": "Autoplay interval (seconds)",
+    "type": "number",
+    "default": 6,
+    "id": "20010007-0001-0001-0001-000000000007"
+  },
+  {
+    "name": "slides",
+    "label": "Slides",
+    "type": "group",
+    "occurrence": {
+      "min": 1,
+      "max": 12,
+      "default": 3
+    },
+    "default": [
+      {
+        "slide_body": "<h3>Plain talk, no runaround</h3><p>You get a real person who writes the code, not a layer of account managers. Questions get answered the same day, and you always know where the work stands.</p>"
+      },
+      {
+        "slide_body": "<h3>Ship in weeks, not quarters</h3><p>We scope tight, build in the open, and hand you something working early. Small releases mean fewer surprises and faster feedback from the people who actually use it.</p>"
+      },
+      {
+        "slide_body": "<h3>Security baked in from day one</h3><p>Audits, hardening, and sane defaults come standard. We catch the real risks before they turn into incidents, so launch day stays boring in the best way.</p>"
+      }
+    ],
+    "children": [
+      {
+        "name": "slide_body",
+        "label": "Slide content",
+        "type": "richtext",
+        "default": "<h3>Slide title</h3><p>Slide content goes here.</p>",
+        "id": "20010009-0001-0001-0001-000000000009"
+      }
+    ],
+    "id": "20010008-0001-0001-0001-000000000008"
+  }
+]

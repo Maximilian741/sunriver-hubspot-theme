@@ -1,0 +1,20 @@
+<section class="srh-sec sr-totop-host">
+  <button
+    type="button"
+    class="sr-totop sr-totop--{{ module.position_side }}{% if module.show_label and module.button_text %} sr-totop--with-label{% endif %}"
+    data-threshold="{{ module.scroll_threshold|default(400) }}"
+    aria-label="{{ module.aria_label|default('Back to top') }}"
+    title="{{ module.aria_label|default('Back to top') }}"
+    hidden>
+    <span class="sr-totop__icon" aria-hidden="true">
+      {% if module.icon_style == "chevron" %}
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 15 12 9 18 15"></polyline></svg>
+      {% elif module.icon_style == "arrowline" %}
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="8"></line><polyline points="6 12 12 6 18 12"></polyline><line x1="5" y1="4" x2="19" y2="4"></line></svg>
+      {% else %}
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="6"></line><polyline points="6 12 12 6 18 12"></polyline></svg>
+      {% endif %}
+    </span>
+    {% if module.show_label and module.button_text %}<span class="sr-totop__text">{{ module.button_text }}</span>{% endif %}
+  </button>
+</section>

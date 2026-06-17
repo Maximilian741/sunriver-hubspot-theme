@@ -1,0 +1,217 @@
+[
+  {
+    "name": "heading_group",
+    "label": "Heading",
+    "type": "group",
+    "expanded": true,
+    "default": {
+      "show_heading": true,
+      "eyebrow": "Pricing",
+      "heading": "Simple plans, no surprises",
+      "lead": "Pick a plan and switch between monthly and annual. Annual saves you two months."
+    },
+    "children": [
+      {
+        "name": "show_heading",
+        "label": "Show heading block",
+        "display": "checkbox",
+        "type": "boolean",
+        "default": true,
+        "id": "200b0002-0001-0001-0001-000000000002"
+      },
+      {
+        "name": "eyebrow",
+        "label": "Eyebrow",
+        "type": "text",
+        "default": "Pricing",
+        "id": "200b0003-0001-0001-0001-000000000003"
+      },
+      {
+        "name": "heading",
+        "label": "Heading",
+        "type": "text",
+        "default": "Simple plans, no surprises",
+        "id": "200b0004-0001-0001-0001-000000000004"
+      },
+      {
+        "name": "lead",
+        "label": "Lead text",
+        "type": "text",
+        "default": "Pick a plan and switch between monthly and annual. Annual saves you two months.",
+        "id": "200b0005-0001-0001-0001-000000000005"
+      }
+    ],
+    "id": "200b0001-0001-0001-0001-000000000001"
+  },
+  {
+    "name": "monthly_label",
+    "label": "Monthly toggle label",
+    "type": "text",
+    "default": "Monthly",
+    "id": "200b0006-0001-0001-0001-000000000006"
+  },
+  {
+    "name": "annual_label",
+    "label": "Annual toggle label",
+    "type": "text",
+    "default": "Annual",
+    "id": "200b0007-0001-0001-0001-000000000007"
+  },
+  {
+    "name": "start_annual",
+    "label": "Start on annual pricing",
+    "display": "checkbox",
+    "type": "boolean",
+    "default": false,
+    "id": "200b0008-0001-0001-0001-000000000008"
+  },
+  {
+    "name": "save_note",
+    "label": "Save-with-annual note (shows when annual is active)",
+    "type": "text",
+    "default": "Save 2 months when you pay annually",
+    "id": "200b0009-0001-0001-0001-000000000009"
+  },
+  {
+    "name": "monthly_suffix",
+    "label": "Monthly price suffix",
+    "type": "text",
+    "default": "/ mo",
+    "id": "200b000a-0001-0001-0001-00000000000a"
+  },
+  {
+    "name": "annual_suffix",
+    "label": "Annual price suffix",
+    "type": "text",
+    "default": "/ yr",
+    "id": "200b000b-0001-0001-0001-00000000000b"
+  },
+  {
+    "name": "plans",
+    "label": "Plans",
+    "type": "group",
+    "occurrence": {
+      "min": 1,
+      "max": 6,
+      "default": 3
+    },
+    "default": [
+      {
+        "plan_name": "Starter",
+        "monthly_price": "$1,800",
+        "annual_price": "$18,000",
+        "plan_summary": "For small teams getting one project done right.",
+        "plan_features": "<ul><li>One focused project</li><li>Cloud or HubSpot setup</li><li>Email support</li></ul>",
+        "cta_text": "Start here",
+        "cta_url": {
+          "type": "EXTERNAL",
+          "href": "/quote-sunriver-consulting",
+          "content_id": null
+        },
+        "featured": false
+      },
+      {
+        "plan_name": "Growth",
+        "monthly_price": "$4,200",
+        "annual_price": "$42,000",
+        "plan_summary": "An ongoing partner for teams that keep shipping.",
+        "plan_features": "<ul><li>Everything in Starter</li><li>Security hardening</li><li>Custom automations</li><li>Priority support</li></ul>",
+        "cta_text": "Most popular",
+        "cta_url": {
+          "type": "EXTERNAL",
+          "href": "/quote-sunriver-consulting",
+          "content_id": null
+        },
+        "featured": true
+      },
+      {
+        "plan_name": "Full Build",
+        "monthly_price": "$7,500",
+        "annual_price": "$75,000",
+        "plan_summary": "End-to-end ownership of a serious build.",
+        "plan_features": "<ul><li>Everything in Growth</li><li>Dedicated roadmap</li><li>Compliance support</li><li>Direct line to the founder</li></ul>",
+        "cta_text": "Talk it through",
+        "cta_url": {
+          "type": "EXTERNAL",
+          "href": "/contact",
+          "content_id": null
+        },
+        "featured": false
+      }
+    ],
+    "children": [
+      {
+        "name": "plan_name",
+        "label": "Plan name",
+        "type": "text",
+        "default": "Starter",
+        "id": "200b000d-0001-0001-0001-00000000000d"
+      },
+      {
+        "name": "monthly_price",
+        "label": "Monthly price",
+        "type": "text",
+        "default": "$1,800",
+        "id": "200b000e-0001-0001-0001-00000000000e"
+      },
+      {
+        "name": "annual_price",
+        "label": "Annual price",
+        "type": "text",
+        "default": "$18,000",
+        "id": "200b000f-0001-0001-0001-00000000000f"
+      },
+      {
+        "name": "plan_summary",
+        "label": "Summary",
+        "type": "text",
+        "default": "Plan summary",
+        "id": "200b0010-0001-0001-0001-000000000010"
+      },
+      {
+        "name": "plan_features",
+        "label": "Features (use a bullet list)",
+        "type": "richtext",
+        "default": "<ul><li>Feature one</li></ul>",
+        "id": "200b0011-0001-0001-0001-000000000011"
+      },
+      {
+        "name": "cta_text",
+        "label": "CTA text",
+        "type": "text",
+        "default": "Start here",
+        "id": "200b0012-0001-0001-0001-000000000012"
+      },
+      {
+        "name": "cta_url",
+        "label": "CTA URL",
+        "required": false,
+        "locked": false,
+        "supported_types": [
+          "EXTERNAL",
+          "CONTENT",
+          "FILE",
+          "EMAIL_ADDRESS",
+          "BLOG"
+        ],
+        "type": "url",
+        "display_width": null,
+        "default": {
+          "type": "EXTERNAL",
+          "href": "/quote-sunriver-consulting",
+          "content_id": null
+        },
+        "id": "200b0013-0001-0001-0001-000000000013"
+      },
+      {
+        "name": "featured",
+        "label": "Highlight as featured",
+        "display": "checkbox",
+        "type": "boolean",
+        "default": false,
+        "id": "200b0014-0001-0001-0001-000000000014"
+      }
+    ],
+    "id": "200b000c-0001-0001-0001-00000000000c"
+  }
+]

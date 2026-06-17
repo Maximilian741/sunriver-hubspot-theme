@@ -1,0 +1,101 @@
+.sr-countup {
+  --sr-green: #21c700;
+  --sr-green2: #1bd24a;
+  --sr-teal: #06c79b;
+  --sr-teal2: #0e8fae;
+  --sr-gold: #fbc34a;
+  --sr-ember: #ff7e3a;
+  --sr-ink: #04121d;
+
+  display: grid;
+  grid-template-columns: repeat(min(var(--sr-countup-count, 4), 4), minmax(0, 1fr));
+  gap: 1.1rem;
+  margin-top: 2.2rem;
+}
+
+@media (max-width: 900px) {
+  .sr-countup { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 480px) {
+  .sr-countup { grid-template-columns: 1fr; }
+}
+
+.sr-countup__tile {
+  position: relative;
+  text-align: center;
+  padding: 1.9rem 1.1rem;
+  border-radius: 16px;
+  background: #fff;
+  border: 1px solid rgba(6, 199, 155, 0.16);
+  box-shadow: 0 10px 30px rgba(4, 18, 29, 0.10);
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.sr-countup__tile::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 56%;
+  height: 3px;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, var(--sr-green), var(--sr-teal), var(--sr-gold));
+  border-radius: 0 0 4px 4px;
+  opacity: 0.9;
+}
+
+.sr-countup__tile:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 38px rgba(4, 18, 29, 0.16);
+  border-color: rgba(6, 199, 155, 0.4);
+}
+
+.sr-countup__value-row {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.12rem;
+  margin-bottom: 0.55rem;
+}
+
+.sr-countup__value {
+  font-size: clamp(2.5rem, 4vw, 3.3rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  background: linear-gradient(135deg, var(--sr-green), var(--sr-teal2));
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: var(--sr-teal2);
+}
+
+.sr-countup__prefix,
+.sr-countup__suffix {
+  font-size: clamp(1.3rem, 2vw, 1.7rem);
+  font-weight: 800;
+  line-height: 1;
+  background: linear-gradient(135deg, var(--sr-teal), var(--sr-gold));
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: var(--sr-gold);
+}
+
+.sr-countup__caption {
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #546b5b;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sr-countup__tile {
+    transition: none;
+  }
+  .sr-countup__tile:hover {
+    transform: none;
+  }
+}

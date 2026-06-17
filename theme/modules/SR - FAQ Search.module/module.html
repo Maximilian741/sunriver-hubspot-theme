@@ -1,0 +1,49 @@
+<section class="srh-sec sr-faqsearch-sec">
+  {% if module.eyebrow %}<p class="srh-eyebrow">{{ module.eyebrow }}</p>{% endif %}
+  {% if module.heading %}<h2 class="srh-h2">{{ module.heading }}</h2>{% endif %}
+  {% if module.lead %}<p class="srh-lead">{{ module.lead }}</p>{% endif %}
+
+  <div class="sr-faqsearch"
+       data-show-filters="{{ 'true' if module.show_filters else 'false' }}"
+       data-all-label="{{ module.all_label|escape }}"
+       data-empty-text="{{ module.empty_text|escape }}"
+       data-placeholder="{{ module.search_placeholder|escape }}">
+
+    <div class="sr-faqsearch__controls">
+      <div class="sr-faqsearch__searchwrap">
+        <span class="sr-faqsearch__icon" aria-hidden="true"></span>
+        <input type="search"
+               class="sr-faqsearch__input"
+               placeholder="{{ module.search_placeholder|escape }}"
+               aria-label="{{ module.search_placeholder|escape }}"
+               autocomplete="off">
+      </div>
+      <div class="sr-faqsearch__filters" role="group" aria-label="Filter by category"></div>
+    </div>
+
+    <p class="sr-faqsearch__empty" role="status" hidden>{{ module.empty_text }}</p>
+
+    <div class="sr-faqsearch__list">
+      {% for item in module.items %}
+        <details class="sr-faqsearch__item"
+                 data-category="{{ item.category|escape }}"
+                 data-search="{{ (item.question ~ ' ' ~ item.answer)|striptags|escape }}">
+          <summary class="sr-faqsearch__question">
+            <span class="sr-faqsearch__q-text">{{ item.question }}</span>
+            <span class="sr-faqsearch__plus" aria-hidden="true">
+              <span class="sr-faqsearch__bar sr-faqsearch__bar--h"></span>
+              <span class="sr-faqsearch__bar sr-faqsearch__bar--v"></span>
+            </span>
+          </summary>
+          <div class="sr-faqsearch__answer">{{ item.answer }}</div>
+        </details>
+      {% endfor %}
+    </div>
+
+    {% if module.cta_text %}
+      <p class="sr-faqsearch__cta">
+        <a class="sr-faqsearch__cta-link" href="{{ module.cta_link.href }}">{{ module.cta_text }}</a>
+      </p>
+    {% endif %}
+  </div>
+</section>

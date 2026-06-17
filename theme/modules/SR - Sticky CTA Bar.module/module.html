@@ -1,0 +1,20 @@
+<section class="srh-sec sr-stickycta-host" aria-hidden="false">
+  <div
+    class="sr-stickycta sr-stickycta--{{ module.accent_style }}"
+    data-threshold="{{ module.scroll_threshold|default(600) }}"
+    data-key="sr-stickycta-{{ name }}"
+    role="region"
+    aria-label="Call to action"
+    hidden
+  >
+    <div class="sr-stickycta__inner">
+      {% if module.message_text %}<p class="sr-stickycta__msg">{{ module.message_text }}</p>{% endif %}
+      <div class="sr-stickycta__actions">
+        {% if module.button_text and module.button_url.href %}<a class="sr-stickycta__btn" href="{{ module.button_url.href }}">{{ module.button_text }}</a>{% endif %}
+        <button type="button" class="sr-stickycta__close" aria-label="{{ module.dismiss_label|default('Dismiss this bar') }}">
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

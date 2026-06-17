@@ -1,0 +1,138 @@
+[
+  {
+    "name": "eyebrow",
+    "label": "Eyebrow",
+    "type": "text",
+    "required": false,
+    "default": "By the numbers",
+    "id": "20160001-0001-0001-0001-000000000001"
+  },
+  {
+    "name": "heading",
+    "label": "Heading",
+    "type": "text",
+    "required": false,
+    "default": "Projects shipped on time",
+    "id": "20160002-0001-0001-0001-000000000002"
+  },
+  {
+    "name": "lead",
+    "label": "Lead text",
+    "type": "richtext",
+    "required": false,
+    "default": "<p>Real work for Montana businesses, counted honestly.</p>",
+    "id": "20160003-0001-0001-0001-000000000003"
+  },
+  {
+    "name": "odo_prefix",
+    "label": "Number prefix",
+    "type": "text",
+    "required": false,
+    "default": "",
+    "id": "20160004-0001-0001-0001-000000000004"
+  },
+  {
+    "name": "odo_value",
+    "label": "Target number",
+    "type": "number",
+    "required": false,
+    "default": 128,
+    "id": "20160005-0001-0001-0001-000000000005"
+  },
+  {
+    "name": "odo_decimals",
+    "label": "Decimal places",
+    "type": "number",
+    "required": false,
+    "default": 0,
+    "id": "20160006-0001-0001-0001-000000000006"
+  },
+  {
+    "name": "odo_grouping",
+    "label": "Group thousands with commas",
+    "type": "boolean",
+    "required": false,
+    "default": true,
+    "id": "20160007-0001-0001-0001-000000000007"
+  },
+  {
+    "name": "odo_suffix",
+    "label": "Number suffix",
+    "type": "text",
+    "required": false,
+    "default": "+",
+    "id": "20160008-0001-0001-0001-000000000008"
+  },
+  {
+    "name": "odo_caption",
+    "label": "Caption below number",
+    "type": "text",
+    "required": false,
+    "default": "websites, apps, and security audits delivered since 2019",
+    "id": "20160009-0001-0001-0001-000000000009"
+  },
+  {
+    "name": "odo_duration",
+    "label": "Roll duration (ms)",
+    "type": "number",
+    "required": false,
+    "default": 1600,
+    "id": "2016000a-0001-0001-0001-00000000000a"
+  },
+  {
+    "name": "odo_style",
+    "label": "Animation style",
+    "type": "choice",
+    "required": false,
+    "display": "select",
+    "choices": [
+      [
+        "roll",
+        "Digit roll"
+      ],
+      [
+        "count",
+        "Count up"
+      ]
+    ],
+    "default": "roll",
+    "id": "2016000b-0001-0001-0001-00000000000b"
+  },
+  {
+    "name": "show_cta",
+    "label": "Show button",
+    "type": "boolean",
+    "required": false,
+    "default": true,
+    "id": "2016000c-0001-0001-0001-00000000000c"
+  },
+  {
+    "name": "cta_text",
+    "label": "Button text",
+    "type": "text",
+    "required": false,
+    "default": "See the work",
+    "id": "2016000d-0001-0001-0001-00000000000d"
+  },
+  {
+    "name": "cta_link",
+    "label": "Button link",
+    "type": "url",
+    "required": false,
+    "locked": false,
+    "supported_types": [
+      "EXTERNAL",
+      "CONTENT",
+      "FILE",
+      "EMAIL_ADDRESS",
+      "BLOG"
+    ],
+    "display_width": null,
+    "default": {
+      "type": "EXTERNAL",
+      "href": "/work-sunriver-consulting",
+      "content_id": null
+    },
+    "id": "2016000e-0001-0001-0001-00000000000e"
+  }
+]

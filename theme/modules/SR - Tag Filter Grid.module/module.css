@@ -1,0 +1,32 @@
+.sr-tagfilter { max-width:1080px; margin:0 auto; }
+
+.sr-tagfilter__filters { display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-bottom:26px; }
+.sr-tagfilter__btn { font-family:var(--head,"Poppins",sans-serif); font-weight:600; font-size:.92rem; color:#dff2e8; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.22); border-radius:999px; padding:9px 20px; cursor:pointer; transition:background .2s ease, color .2s ease, border-color .2s ease; }
+.sr-tagfilter__btn:hover { background:rgba(255,255,255,.16); }
+.sr-tagfilter__btn.is-on { color:#231408; background:linear-gradient(120deg,#ff7e3a,#FBC34A 60%); border-color:transparent; }
+.sr-tagfilter__btn:focus-visible { outline:2px solid #FBC34A; outline-offset:2px; }
+
+.sr-tagfilter__grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:18px; }
+
+.sr-tagfilter__card { display:flex; flex-direction:column; background:#fff; border-radius:16px; padding:clamp(20px,2.4vw,28px); box-shadow:0 24px 60px -34px rgba(4,16,10,.6); transition:transform .25s ease, box-shadow .25s ease, opacity .25s ease; }
+.sr-tagfilter__card:hover { transform:translateY(-4px); box-shadow:0 30px 70px -34px rgba(4,16,10,.7); }
+.sr-tagfilter__card.is-hidden { display:none; }
+
+.sr-tagfilter__title { font-family:var(--head,"Poppins",sans-serif); font-weight:700; font-size:1.12rem; line-height:1.3; color:#0c2114; margin:0 0 .55rem; }
+.sr-tagfilter__body { color:#546b5b; font-size:.97rem; line-height:1.6; }
+.sr-tagfilter__body p { margin:0 0 .6rem; }
+.sr-tagfilter__body p:last-child { margin-bottom:0; }
+
+.sr-tagfilter__tags { list-style:none; display:flex; flex-wrap:wrap; gap:7px; margin:auto 0 0; padding:.9rem 0 0; }
+.sr-tagfilter__tag { font-family:var(--head,"Poppins",sans-serif); font-weight:600; font-size:.72rem; letter-spacing:.03em; text-transform:uppercase; color:#0e8fae; background:rgba(14,143,174,.1); border-radius:999px; padding:4px 11px; }
+
+.sr-tagfilter__empty { text-align:center; color:#eafff2; font-size:1.02rem; margin:2rem 0 0; }
+
+@media (max-width:560px) {
+  .sr-tagfilter__grid { grid-template-columns:1fr; }
+}
+
+@media (prefers-reduced-motion:reduce) {
+  .sr-tagfilter__btn, .sr-tagfilter__card { transition:none; }
+  .sr-tagfilter__card:hover { transform:none; }
+}

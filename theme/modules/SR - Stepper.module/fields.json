@@ -1,0 +1,79 @@
+[
+  {
+    "name": "heading_group",
+    "label": "Section heading",
+    "type": "group",
+    "children": [
+      {
+        "name": "eyebrow",
+        "label": "Eyebrow",
+        "type": "text",
+        "required": false,
+        "default": "How we work",
+        "id": "200e0002-0001-0001-0001-000000000002"
+      },
+      {
+        "name": "title",
+        "label": "Heading",
+        "type": "text",
+        "required": false,
+        "default": "From first call to shipped software",
+        "id": "200e0003-0001-0001-0001-000000000003"
+      },
+      {
+        "name": "lead",
+        "label": "Lead text",
+        "type": "text",
+        "required": false,
+        "default": "Click any step to see what happens and what you walk away with.",
+        "id": "200e0004-0001-0001-0001-000000000004"
+      }
+    ],
+    "id": "200e0001-0001-0001-0001-000000000001"
+  },
+  {
+    "name": "steps",
+    "label": "Steps",
+    "type": "group",
+    "occurrence": {
+      "min": 1,
+      "max": 12,
+      "default": 4
+    },
+    "default": [
+      {
+        "step_title": "Discovery call",
+        "detail": "<p>A 30-minute call to understand the work, the people, and the deadline. You leave with a clear sense of scope and a plain answer on whether SunRiver is the right fit.</p>"
+      },
+      {
+        "step_title": "Scope and quote",
+        "detail": "<p>A written scope with milestones, a fixed price, and a timeline. No surprises, no padded hours. You own every recurring cost we set up on your behalf.</p>"
+      },
+      {
+        "step_title": "Build and check in",
+        "detail": "<p>Weekly progress you can actually see. Each milestone ships something real, gets reviewed together, and moves the project forward in the open.</p>"
+      },
+      {
+        "step_title": "Launch and support",
+        "detail": "<p>We ship it, hand over the keys, and document how it runs. Most clients move into a light monthly retainer so the work keeps paying off.</p>"
+      }
+    ],
+    "children": [
+      {
+        "name": "step_title",
+        "label": "Step title",
+        "type": "text",
+        "default": "Step title",
+        "id": "200e0006-0001-0001-0001-000000000006"
+      },
+      {
+        "name": "detail",
+        "label": "Step detail",
+        "type": "richtext",
+        "default": "<p>Describe what happens in this step.</p>",
+        "id": "200e0007-0001-0001-0001-000000000007"
+      }
+    ],
+    "id": "200e0005-0001-0001-0001-000000000005"
+  }
+]

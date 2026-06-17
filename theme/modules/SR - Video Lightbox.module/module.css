@@ -1,0 +1,90 @@
+.sr-vlightbox { position:relative; }
+
+.sr-vlightbox__trigger {
+  position:relative; display:block; width:100%; padding:0; margin:0; border:0; cursor:pointer;
+  background:#04121d; border-radius:18px; overflow:hidden;
+  box-shadow:0 28px 70px -34px rgba(4,16,10,.7);
+  aspect-ratio:16/9; line-height:0;
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+.sr-vlightbox__trigger:hover { transform:translateY(-3px); box-shadow:0 36px 84px -34px rgba(4,16,10,.75); }
+.sr-vlightbox__trigger:focus-visible { outline:3px solid var(--gold,#FBC34A); outline-offset:3px; }
+
+.sr-vlightbox__poster { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; }
+.sr-vlightbox__poster--blank { background:linear-gradient(120deg,#0e8fae,#1C5B77 60%,#04121d); }
+
+.sr-vlightbox__veil {
+  position:absolute; inset:0; display:block;
+  background:linear-gradient(180deg, rgba(4,18,29,.05) 0%, rgba(4,18,29,.18) 45%, rgba(4,18,29,.62) 100%);
+  transition:background .25s ease;
+}
+.sr-vlightbox__trigger:hover .sr-vlightbox__veil { background:linear-gradient(180deg, rgba(4,18,29,.12) 0%, rgba(4,18,29,.28) 45%, rgba(4,18,29,.7) 100%); }
+
+.sr-vlightbox__play {
+  position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+  display:flex; align-items:center; justify-content:center;
+  width:84px; height:84px; border-radius:50%;
+  color:#231408; background:linear-gradient(120deg,#ff7e3a,#FBC34A 65%);
+  box-shadow:0 16px 40px -12px rgba(255,126,58,.7);
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+.sr-vlightbox__play svg { margin-left:4px; }
+.sr-vlightbox__trigger:hover .sr-vlightbox__play { transform:translate(-50%,-50%) scale(1.08); box-shadow:0 22px 52px -12px rgba(255,126,58,.8); }
+
+.sr-vlightbox__cap {
+  position:absolute; left:0; right:0; bottom:0; display:flex; align-items:center; justify-content:space-between; gap:12px;
+  padding:18px 22px; text-align:left;
+  font-family:var(--head,"Poppins",sans-serif);
+}
+.sr-vlightbox__cap-text { color:#eafff2; font-weight:600; font-size:1.02rem; letter-spacing:.2px; }
+.sr-vlightbox__cap-time {
+  color:#231408; background:rgba(255,255,255,.92); font-weight:700; font-size:.78rem;
+  padding:4px 11px; border-radius:999px; white-space:nowrap;
+}
+
+/* Modal */
+.sr-vlightbox__modal { position:fixed; inset:0; z-index:9999; display:flex; align-items:center; justify-content:center; padding:clamp(16px,4vw,48px); }
+.sr-vlightbox__modal[hidden] { display:none; }
+.sr-vlightbox__backdrop { position:absolute; inset:0; background:rgba(2,9,15,.82); backdrop-filter:blur(4px); animation:sr-vlb-fade .25s ease; }
+
+.sr-vlightbox__dialog {
+  position:relative; width:100%; max-width:1040px;
+  animation:sr-vlb-rise .3s ease;
+}
+.sr-vlightbox__frame { position:relative; width:100%; aspect-ratio:16/9; background:#000; border-radius:16px; overflow:hidden; box-shadow:0 40px 100px -30px rgba(0,0,0,.8); }
+.sr-vlightbox__iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
+
+.sr-vlightbox__close {
+  position:absolute; top:-14px; right:-14px; z-index:2;
+  display:flex; align-items:center; justify-content:center;
+  width:46px; height:46px; border:0; border-radius:50%; cursor:pointer;
+  color:#231408; background:linear-gradient(120deg,#ff7e3a,#FBC34A 65%);
+  box-shadow:0 10px 28px -8px rgba(0,0,0,.6);
+  transition:transform .2s ease;
+}
+.sr-vlightbox__close:hover { transform:scale(1.08); }
+.sr-vlightbox__close:focus-visible { outline:3px solid #fff; outline-offset:2px; }
+
+@keyframes sr-vlb-fade { from { opacity:0; } to { opacity:1; } }
+@keyframes sr-vlb-rise { from { opacity:0; transform:translateY(14px) scale(.98); } to { opacity:1; transform:none; } }
+
+@media (max-width:560px){
+  .sr-vlightbox__play { width:64px; height:64px; }
+  .sr-vlightbox__play svg { width:26px; height:26px; }
+  .sr-vlightbox__cap { padding:14px 16px; }
+  .sr-vlightbox__cap-text { font-size:.92rem; }
+  .sr-vlightbox__close { top:-10px; right:-6px; width:42px; height:42px; }
+}
+
+@media (prefers-reduced-motion:reduce){
+  .sr-vlightbox__trigger,
+  .sr-vlightbox__trigger:hover,
+  .sr-vlightbox__play,
+  .sr-vlightbox__trigger:hover .sr-vlightbox__play,
+  .sr-vlightbox__close,
+  .sr-vlightbox__veil { transition:none; transform:none; }
+  .sr-vlightbox__trigger:hover { transform:none; }
+  .sr-vlightbox__trigger:hover .sr-vlightbox__play { transform:translate(-50%,-50%); }
+  .sr-vlightbox__backdrop,
+  .sr-vlightbox__dialog { animation:none; }
+}

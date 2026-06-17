@@ -1,0 +1,90 @@
+[
+  {
+    "name": "eyebrow",
+    "label": "Eyebrow",
+    "type": "text",
+    "required": false,
+    "default": "How we work",
+    "id": "20120001-0001-0001-0001-000000000001"
+  },
+  {
+    "name": "heading",
+    "label": "Heading",
+    "type": "text",
+    "required": false,
+    "default": "Tap a card to go deeper",
+    "id": "20120002-0001-0001-0001-000000000002"
+  },
+  {
+    "name": "lead",
+    "label": "Lead text",
+    "type": "text",
+    "required": false,
+    "default": "Each card opens to show exactly what you get, no jargon.",
+    "id": "20120003-0001-0001-0001-000000000003"
+  },
+  {
+    "name": "allow_multiple",
+    "label": "Allow several cards open at once",
+    "type": "boolean",
+    "required": false,
+    "default": true,
+    "id": "20120004-0001-0001-0001-000000000004"
+  },
+  {
+    "name": "cards",
+    "label": "Cards",
+    "type": "group",
+    "occurrence": {
+      "min": 1,
+      "max": 12,
+      "default": 4
+    },
+    "default": [
+      {
+        "card_title": "Custom software, built to last",
+        "card_teaser": "Web and mobile apps engineered end to end.",
+        "card_detail": "<p>We build the thing you actually need, not a template stretched to fit. Accessible and secure from the first commit, with clean code, real documentation, and a handoff that leaves everything in your name.</p>"
+      },
+      {
+        "card_title": "Security that gets re-tested",
+        "card_teaser": "Penetration testing and 508 / WCAG audits.",
+        "card_detail": "<p>Threat modeling, penetration testing, and accessibility audits that close every finding and then prove it with a re-test. You get a plain-English report and a fixed product, not a PDF of problems.</p>"
+      },
+      {
+        "card_title": "Cloud and data, kept healthy",
+        "card_teaser": "Infrastructure that stays fast and quiet.",
+        "card_detail": "<p>Cloud, databases, and CMS tuned for speed and uptime, monitored so issues surface before your users do. Recurring costs stay in your accounts, owned by you, with nothing locked behind us.</p>"
+      },
+      {
+        "card_title": "One person, fully accountable",
+        "card_teaser": "Work directly with the engineer doing the work.",
+        "card_detail": "<p>No account managers, no handoffs to a junior team you never met. You talk to the person writing the code, get honest timelines, and keep the 15 percent HubSpot partner perk on your subscription.</p>"
+      }
+    ],
+    "children": [
+      {
+        "name": "card_title",
+        "label": "Title",
+        "type": "text",
+        "default": "Card title",
+        "id": "20120006-0001-0001-0001-000000000006"
+      },
+      {
+        "name": "card_teaser",
+        "label": "Teaser",
+        "type": "text",
+        "default": "Short teaser line.",
+        "id": "20120007-0001-0001-0001-000000000007"
+      },
+      {
+        "name": "card_detail",
+        "label": "Expanded detail",
+        "type": "richtext",
+        "default": "<p>The full story shows here when the card is open.</p>",
+        "id": "20120008-0001-0001-0001-000000000008"
+      }
+    ],
+    "id": "20120005-0001-0001-0001-000000000005"
+  }
+]

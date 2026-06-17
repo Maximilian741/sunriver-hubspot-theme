@@ -1,0 +1,23 @@
+{# SR Tabs, JS-driven tabbed content. Self-inits via module.js (all .sr-tabs on the page). Drop into a page whose dnd_area is wrapped in .srh. #}
+<section class="srh-sec">
+  <div class="srh-sec__inner" style="max-width:920px;">
+    {% if module.eyebrow or module.heading %}
+    <div class="srx-reveal" style="text-align:center;margin-bottom:1.6rem;">
+      {% if module.eyebrow %}<span class="srh-eyebrow" style="color:var(--river);">{{ module.eyebrow }}</span>{% endif %}
+      {% if module.heading %}<h2 class="srh-h2">{{ module.heading }}</h2>{% endif %}
+    </div>
+    {% endif %}
+    <div class="sr-tabs">
+      <div class="sr-tabs__nav" role="tablist">
+        {% for t in module.tabs %}
+          <button class="sr-tabs__tab{% if loop.first %} is-on{% endif %}" type="button" role="tab" data-i="{{ loop.index0 }}">{{ t.tab_label }}</button>
+        {% endfor %}
+      </div>
+      {% for t in module.tabs %}
+        <div class="sr-tabs__panel{% if loop.first %} is-on{% endif %}" data-i="{{ loop.index0 }}">
+          <div class="sr-post">{{ t.tab_body }}</div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

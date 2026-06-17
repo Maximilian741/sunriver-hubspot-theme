@@ -1,0 +1,65 @@
+<section class="srh-sec">
+  {% if module.heading_group.show_heading %}
+    <header class="srh-head">
+      {% if module.heading_group.eyebrow %}<p class="srh-eyebrow">{{ module.heading_group.eyebrow }}</p>{% endif %}
+      {% if module.heading_group.heading %}<h2 class="srh-h2">{{ module.heading_group.heading }}</h2>{% endif %}
+      {% if module.heading_group.lead %}<p class="srh-lead">{{ module.heading_group.lead }}</p>{% endif %}
+    </header>
+  {% endif %}
+
+  <div class="sr-pricetoggle"
+       data-start-annual="{% if module.start_annual %}1{% else %}0{% endif %}">
+
+    <div class="sr-pricetoggle__switch" role="group" aria-label="Billing period">
+      <button type="button" class="sr-pricetoggle__opt is-on" data-period="monthly" aria-pressed="true">
+        {{ module.monthly_label }}
+      </button>
+      <button type="button" class="sr-pricetoggle__opt" data-period="annual" aria-pressed="false">
+        {{ module.annual_label }}
+      </button>
+      <span class="sr-pricetoggle__thumb" aria-hidden="true"></span>
+    </div>
+
+    {% if module.save_note %}
+      <p class="sr-pricetoggle__save" data-save-note hidden>{{ module.save_note }}</p>
+    {% endif %}
+
+    <div class="sr-pricetoggle__grid">
+      {% for plan in module.plans %}
+        <article class="sr-pricetoggle__card{% if plan.featured %} sr-pricetoggle__card--featured{% endif %}">
+          {% if plan.featured %}
+            <div class="sr-pricetoggle__badge">Most popular</div>
+          {% endif %}
+
+          {% if plan.plan_name %}<h3 class="sr-pricetoggle__name">{{ plan.plan_name }}</h3>{% endif %}
+
+          <div class="sr-pricetoggle__price-row">
+            <span class="sr-pricetoggle__price"
+                  data-price
+                  data-monthly="{{ plan.monthly_price }}"
+                  data-annual="{{ plan.annual_price }}">{{ plan.monthly_price }}</span>
+            <span class="sr-pricetoggle__suffix"
+                  data-suffix
+                  data-monthly="{{ module.monthly_suffix }}"
+                  data-annual="{{ module.annual_suffix }}">{{ module.monthly_suffix }}</span>
+          </div>
+
+          {% if plan.plan_summary %}
+            <p class="sr-pricetoggle__summary">{{ plan.plan_summary }}</p>
+          {% endif %}
+
+          {% if plan.plan_features %}
+            <div class="sr-pricetoggle__features">{{ plan.plan_features }}</div>
+          {% endif %}
+
+          {% if plan.cta_text %}
+            <a class="sr-pricetoggle__cta{% if plan.featured %} sr-pricetoggle__cta--featured{% endif %}"
+               href="{{ plan.cta_url.href }}">
+              {{ plan.cta_text }}
+            </a>
+          {% endif %}
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>

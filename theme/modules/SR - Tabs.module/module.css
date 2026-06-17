@@ -1,0 +1,9 @@
+.sr-tabs__nav { display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-bottom:22px; }
+.sr-tabs__tab { font-family:var(--head,"Poppins",sans-serif); font-weight:600; font-size:.95rem; color:#dff2e8; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.22); border-radius:999px; padding:9px 20px; cursor:pointer; transition:background .2s ease, color .2s ease, border-color .2s ease; }
+.sr-tabs__tab:hover { background:rgba(255,255,255,.16); }
+.sr-tabs__tab.is-on { color:#231408; background:linear-gradient(120deg,#ff7e3a,#FBC34A 60%); border-color:transparent; }
+.sr-tabs__panel { display:none; background:#fff; border-radius:16px; padding:clamp(22px,3vw,34px); box-shadow:0 24px 60px -34px rgba(4,16,10,.6); }
+.sr-tabs__panel.is-on { display:block; animation:sr-tabs-fade .35s ease; }
+.sr-tabs__panel .sr-post { color:#3c4e42; }
+@keyframes sr-tabs-fade { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:none; } }
+@media (prefers-reduced-motion:reduce){ .sr-tabs__panel.is-on { animation:none; } }

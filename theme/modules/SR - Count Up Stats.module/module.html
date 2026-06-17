@@ -1,0 +1,24 @@
+<section class="srh-sec">
+  {% if module.show_head %}
+    <div class="srh-sec__head" style="text-align:center;max-width:760px;margin:0 auto;">
+      {% if module.eyebrow %}<p class="srh-eyebrow">{{ module.eyebrow }}</p>{% endif %}
+      {% if module.heading %}<h2 class="srh-h2">{{ module.heading }}</h2>{% endif %}
+      {% if module.lead %}<p class="srh-lead">{{ module.lead }}</p>{% endif %}
+    </div>
+  {% endif %}
+
+  <div class="sr-countup" data-duration="{{ module.duration_ms|default(1600) }}" style="--sr-countup-count: {{ module.stats|length }};">
+    {% for it in module.stats %}
+      <div class="sr-countup__tile">
+        <div class="sr-countup__value-row">
+          {% if it.prefix %}<span class="sr-countup__prefix">{{ it.prefix }}</span>{% endif %}
+          <span class="sr-countup__value"
+                data-target="{{ it.target }}"
+                data-decimals="{{ it.decimals|default(0) }}">{{ it.target }}</span>
+          {% if it.suffix %}<span class="sr-countup__suffix">{{ it.suffix }}</span>{% endif %}
+        </div>
+        {% if it.caption %}<div class="sr-countup__caption">{{ it.caption }}</div>{% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</section>

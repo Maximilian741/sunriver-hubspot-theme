@@ -1,0 +1,28 @@
+<section class="srh-sec sr-odometer-sec">
+  {% if module.eyebrow %}<p class="srh-eyebrow">{{ module.eyebrow }}</p>{% endif %}
+  {% if module.heading %}<h2 class="srh-h2">{{ module.heading }}</h2>{% endif %}
+  {% if module.lead %}<div class="srh-lead">{{ module.lead }}</div>{% endif %}
+
+  {% set odo_dec = module.odo_decimals|int %}
+  {% set odo_dur = module.odo_duration|int %}
+  <div
+    class="sr-odometer"
+    data-value="{{ module.odo_value }}"
+    data-decimals="{{ odo_dec }}"
+    data-grouping="{{ module.odo_grouping }}"
+    data-duration="{{ odo_dur }}"
+    data-style="{{ module.odo_style }}">
+
+    <div class="sr-odometer__display">
+      {% if module.odo_prefix %}<span class="sr-odometer__affix sr-odometer__prefix">{{ module.odo_prefix }}</span>{% endif %}
+      <span class="sr-odometer__number" aria-live="polite">{{ module.odo_value|format_number(odo_dec) }}</span>
+      {% if module.odo_suffix %}<span class="sr-odometer__affix sr-odometer__suffix">{{ module.odo_suffix }}</span>{% endif %}
+    </div>
+
+    {% if module.odo_caption %}<p class="sr-odometer__caption">{{ module.odo_caption }}</p>{% endif %}
+
+    {% if module.show_cta and module.cta_text %}
+      <a class="sr-odometer__cta" href="{{ module.cta_link.href }}">{{ module.cta_text }}</a>
+    {% endif %}
+  </div>
+</section>

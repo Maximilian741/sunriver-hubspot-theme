@@ -1,0 +1,108 @@
+[
+  {
+    "name": "eyebrow",
+    "label": "Eyebrow",
+    "type": "text",
+    "required": false,
+    "default": "What we bring",
+    "id": "20070001-0001-0001-0001-000000000001"
+  },
+  {
+    "name": "heading",
+    "label": "Heading",
+    "type": "text",
+    "required": false,
+    "default": "Where our work is strongest",
+    "id": "20070002-0001-0001-0001-000000000002"
+  },
+  {
+    "name": "lead",
+    "label": "Lead text",
+    "type": "richtext",
+    "required": false,
+    "default": "<p>A small Helena shop with deep range. Here is how our hours land across the work we take on.</p>",
+    "id": "20070003-0001-0001-0001-000000000003"
+  },
+  {
+    "name": "fill_style",
+    "label": "Fill color",
+    "type": "choice",
+    "required": false,
+    "display": "select",
+    "choices": [
+      [
+        "gold",
+        "Gold to green"
+      ],
+      [
+        "green",
+        "Green to teal"
+      ],
+      [
+        "ember",
+        "Ember to gold"
+      ]
+    ],
+    "default": "gold",
+    "id": "20070004-0001-0001-0001-000000000004"
+  },
+  {
+    "name": "show_percent",
+    "label": "Show percent number",
+    "type": "boolean",
+    "required": false,
+    "default": true,
+    "id": "20070005-0001-0001-0001-000000000005"
+  },
+  {
+    "name": "bars",
+    "label": "Bars",
+    "type": "group",
+    "occurrence": {
+      "min": 1,
+      "max": 12,
+      "default": 5
+    },
+    "default": [
+      {
+        "bar_label": "Web development",
+        "percent": 95
+      },
+      {
+        "bar_label": "App development",
+        "percent": 88
+      },
+      {
+        "bar_label": "Security and compliance audits",
+        "percent": 92
+      },
+      {
+        "bar_label": "Database and cloud",
+        "percent": 84
+      },
+      {
+        "bar_label": "Ongoing support and retainers",
+        "percent": 78
+      }
+    ],
+    "children": [
+      {
+        "name": "bar_label",
+        "label": "Bar label",
+        "type": "text",
+        "required": true,
+        "default": "Skill",
+        "id": "20070007-0001-0001-0001-000000000007"
+      },
+      {
+        "name": "percent",
+        "label": "Percent (0 to 100)",
+        "type": "number",
+        "required": true,
+        "default": 80,
+        "id": "20070008-0001-0001-0001-000000000008"
+      }
+    ],
+    "id": "20070006-0001-0001-0001-000000000006"
+  }
+]

@@ -1,0 +1,31 @@
+{# SR Modal Button. A brand button that opens a centered, scroll-locked modal with editable richtext. Self-inits via module.js (all .sr-modal on the page). Drop into a page whose dnd_area is wrapped in .srh so the gradient/smoke sits behind it. Progressive enhancement: modal markup renders server-side but stays hidden until JS wires it open. #}
+<section class="srh-sec">
+  <div class="srh-sec__inner">
+    <div class="sr-modal" data-align="{{ module.align }}">
+
+      <button class="sr-modal__open sr-modal__open--{{ module.button_style }}" type="button" aria-haspopup="dialog" aria-expanded="false">
+        {{ module.button_label }}
+      </button>
+
+      <div class="sr-modal__backdrop" hidden>
+        <div class="sr-modal__dialog" role="dialog" aria-modal="true"
+             {% if module.modal_heading %}aria-label="{{ module.modal_heading }}"{% else %}aria-label="{{ module.button_label }}"{% endif %}>
+          <button class="sr-modal__close" type="button" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <div class="sr-modal__content">
+            {% if module.modal_eyebrow %}<span class="sr-modal__eyebrow">{{ module.modal_eyebrow }}</span>{% endif %}
+            {% if module.modal_heading %}<h2 class="sr-modal__title">{{ module.modal_heading }}</h2>{% endif %}
+            {% if module.modal_body %}<div class="sr-modal__body sr-post">{{ module.modal_body }}</div>{% endif %}
+            {% if module.show_modal_cta and module.modal_cta_text %}
+              <div class="sr-modal__actions">
+                <a class="sr-modal__cta" href="{{ module.modal_cta_url.href }}">{{ module.modal_cta_text }}</a>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

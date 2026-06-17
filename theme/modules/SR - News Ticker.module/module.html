@@ -1,0 +1,25 @@
+<section class="srh-sec sr-ticker-sec">
+  <div
+    class="sr-ticker"
+    data-speed="{{ module.ticker_speed|default(60) }}"
+    role="region"
+    aria-label="Latest news">
+    <span class="sr-ticker__label">{{ module.label_text|default('Latest') }}</span>
+    <div class="sr-ticker__viewport">
+      <div class="sr-ticker__track">
+        {% for it in module.headlines %}
+          {% if it.headline_text %}
+            <span class="sr-ticker__item">
+              {% if it.headline_url.href %}
+                <a class="sr-ticker__link" href="{{ it.headline_url.href }}">{{ it.headline_text }}</a>
+              {% else %}
+                <span class="sr-ticker__link sr-ticker__link--plain">{{ it.headline_text }}</span>
+              {% endif %}
+              <span class="sr-ticker__sep" aria-hidden="true">&bull;</span>
+            </span>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>

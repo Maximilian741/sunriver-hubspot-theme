@@ -1,0 +1,24 @@
+<![CDATA[{# SR Typewriter Heading. Static prefix + rotating typed phrase that types/deletes in a loop with a blinking caret. Self-inits via module.js (all .sr-typer on the page). Reduced motion shows the first phrase static. Drop into a page whose dnd_area is wrapped in .srh. #}
+<section class="srh-sec">
+  <div class="srh-sec__inner" style="max-width:880px;text-align:center;">
+    {% if module.eyebrow %}<span class="srh-eyebrow" style="color:var(--gold,#FBC34A);">{{ module.eyebrow }}</span>{% endif %}
+
+    <h2 class="srh-h2 sr-typer"
+        data-speed="{{ module.type_speed|default(70) }}"
+        data-hold="{{ module.hold_time|default(1500) }}">
+      {% if module.prefix_text %}<span class="sr-typer__prefix">{{ module.prefix_text }} </span>{% endif %}
+      <span class="sr-typer__rotate">
+        <span class="sr-typer__text" aria-live="polite">{% if module.phrases %}{{ module.phrases[0].phrase }}{% endif %}</span><span class="sr-typer__caret" aria-hidden="true">|</span>
+      </span>
+      <span class="sr-typer__data" hidden>
+        {% for p in module.phrases %}<span class="sr-typer__item">{{ p.phrase }}</span>{% endfor %}
+      </span>
+    </h2>
+
+    {% if module.subtext %}<div class="sr-typer__sub srh-lead">{{ module.subtext }}</div>{% endif %}
+
+    {% if module.cta_label and module.cta_link.href %}
+    <a class="srh-btn sr-typer__cta" href="{{ module.cta_link.href }}">{{ module.cta_label }}</a>
+    {% endif %}
+  </div>
+</section>]]>

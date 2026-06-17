@@ -1,0 +1,104 @@
+.sr-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 560px;
+}
+
+.sr-copy__row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: #fff;
+  border-radius: 16px;
+  padding: 14px 16px;
+  box-shadow: 0 10px 26px rgba(4, 18, 29, 0.12);
+}
+
+.sr-copy__icon {
+  flex: 0 0 auto;
+  width: 38px;
+  height: 38px;
+  border-radius: 11px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #21c700, #0e8fae);
+  overflow: hidden;
+}
+
+.sr-copy__icon img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  display: block;
+}
+
+.sr-copy__text {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.sr-copy__label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #0e8fae;
+}
+
+.sr-copy__value {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #0c2114;
+  word-break: break-all;
+  line-height: 1.3;
+}
+
+.sr-copy__btn {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 84px;
+  padding: 9px 16px;
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #04121d;
+  background: #FBC34A;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.12s ease;
+}
+
+.sr-copy__btn:hover { background: #ffce6b; }
+.sr-copy__btn:active { transform: scale(0.96); }
+.sr-copy__btn:focus-visible { outline: 3px solid rgba(14, 143, 174, 0.55); outline-offset: 2px; }
+
+.sr-copy__btn.is-done {
+  background: #1bd24a;
+  color: #04121d;
+}
+
+@media (max-width: 520px) {
+  .sr-copy__row {
+    flex-wrap: wrap;
+    gap: 10px 12px;
+  }
+  .sr-copy__btn {
+    width: 100%;
+    margin-left: 52px;
+  }
+  .sr-copy__icon + .sr-copy__text + .sr-copy__btn { margin-left: 52px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sr-copy__btn { transition: none; }
+  .sr-copy__btn:active { transform: none; }
+}

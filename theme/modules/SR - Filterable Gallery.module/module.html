@@ -1,0 +1,51 @@
+{# SR Filterable Gallery. JS-driven category filter chips, fade-in. Self-inits via module.js (all .sr-filtergal on the page). Drop into a page whose dnd_area is wrapped in .srh. #}
+<section class="srh-sec">
+  <div class="srh-sec__inner">
+    {% if module.eyebrow or module.heading or module.lead %}
+    <div style="text-align:center;margin-bottom:1.6rem;">
+      {% if module.eyebrow %}<p class="srh-eyebrow" style="color:var(--river);">{{ module.eyebrow }}</p>{% endif %}
+      {% if module.heading %}<h2 class="srh-h2">{{ module.heading }}</h2>{% endif %}
+      {% if module.lead %}<div class="srh-lead">{{ module.lead }}</div>{% endif %}
+    </div>
+    {% endif %}
+
+    {# Build a unique, ordered list of categories server-side so chips render before JS. #}
+    {% set seen = [] %}
+    <div class="sr-filtergal" data-all="{{ module.all_label|default('All', true) }}">
+      <div class="sr-filtergal__chips" role="tablist" aria-label="Filter gallery">
+        <button class="sr-filtergal__chip is-on" type="button" data-cat="__all__">{{ module.all_label|default('All', true) }}</button>
+        {% for it in module.items %}
+          {% set cat = it.item_category|trim %}
+          {% if cat and cat not in seen %}
+            {% set seen = seen + [cat] %}
+            <button class="sr-filtergal__chip" type="button" data-cat="{{ cat }}">{{ cat }}</button>
+          {% endif %}
+        {% endfor %}
+      </div>
+
+      <div class="sr-filtergal__grid">
+        {% for it in module.items %}
+          {% if it.item_img.src or it.item_title %}
+          <figure class="sr-filtergal__item is-shown" data-cat="{{ it.item_category|trim }}">
+            <div class="sr-filtergal__media">
+              {% if it.item_img.src %}
+                <img class="sr-filtergal__img" src="{{ it.item_img.src }}" alt="{{ it.item_img.alt }}" loading="lazy">
+              {% else %}
+                <span class="sr-filtergal__ph" aria-hidden="true">{{ it.item_title|truncate(2, true, '') }}</span>
+              {% endif %}
+            </div>
+            {% if it.item_title or it.item_category %}
+            <figcaption class="sr-filtergal__cap">
+              {% if it.item_title %}<span class="sr-filtergal__title">{{ it.item_title }}</span>{% endif %}
+              {% if it.item_category|trim %}<span class="sr-filtergal__tag">{{ it.item_category|trim }}</span>{% endif %}
+            </figcaption>
+            {% endif %}
+          </figure>
+          {% endif %}
+        {% endfor %}
+      </div>
+
+      <p class="sr-filtergal__empty" hidden>Nothing here yet under that category.</p>
+    </div>
+  </div>
+</section>

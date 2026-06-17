@@ -1,0 +1,150 @@
+[
+  {
+    "name": "section_eyebrow",
+    "label": "Section eyebrow",
+    "type": "text",
+    "required": false,
+    "default": "What we do",
+    "id": "20190001-0001-0001-0001-000000000001"
+  },
+  {
+    "name": "section_heading",
+    "label": "Section heading",
+    "type": "text",
+    "required": false,
+    "default": "Built for what comes next.",
+    "id": "20190002-0001-0001-0001-000000000002"
+  },
+  {
+    "name": "section_lead",
+    "label": "Section lead",
+    "type": "text",
+    "required": false,
+    "default": "Move your cursor across a card to light it up.",
+    "id": "20190003-0001-0001-0001-000000000003"
+  },
+  {
+    "name": "columns",
+    "label": "Columns",
+    "type": "choice",
+    "display": "select",
+    "required": false,
+    "choices": [
+      [
+        "2",
+        "2"
+      ],
+      [
+        "3",
+        "3"
+      ],
+      [
+        "4",
+        "4"
+      ]
+    ],
+    "default": "3",
+    "id": "20190004-0001-0001-0001-000000000004"
+  },
+  {
+    "name": "cards",
+    "label": "Spotlight cards",
+    "type": "group",
+    "occurrence": {
+      "min": 1,
+      "max": 12,
+      "default": 3
+    },
+    "default": [
+      {
+        "icon_text": "☁",
+        "title": "Cloud & Infrastructure",
+        "description": "<p>Architect, deploy, and scale on AWS, Azure, and GCP without the surprise bills.</p>",
+        "link_text": "See the work",
+        "card_link": {
+          "type": "EXTERNAL",
+          "href": "/work-sunriver-consulting",
+          "content_id": null
+        }
+      },
+      {
+        "icon_text": "🔒",
+        "title": "Security & Audits",
+        "description": "<p>Modern, audit-ready controls that hold up when someone is actually looking.</p>",
+        "link_text": "See the work",
+        "card_link": {
+          "type": "EXTERNAL",
+          "href": "/work-sunriver-consulting",
+          "content_id": null
+        }
+      },
+      {
+        "icon_text": "⚡",
+        "title": "Apps & Automation",
+        "description": "<p>Custom software, integrations, and workflow automation that actually ships.</p>",
+        "link_text": "See the work",
+        "card_link": {
+          "type": "EXTERNAL",
+          "href": "/work-sunriver-consulting",
+          "content_id": null
+        }
+      }
+    ],
+    "children": [
+      {
+        "name": "icon_text",
+        "label": "Icon (emoji or short text)",
+        "type": "text",
+        "required": false,
+        "default": "✨",
+        "id": "20190006-0001-0001-0001-000000000006"
+      },
+      {
+        "name": "title",
+        "label": "Title",
+        "type": "text",
+        "required": false,
+        "default": "Card title",
+        "id": "20190007-0001-0001-0001-000000000007"
+      },
+      {
+        "name": "description",
+        "label": "Description",
+        "type": "richtext",
+        "required": false,
+        "default": "<p>Short description of this card.</p>",
+        "id": "20190008-0001-0001-0001-000000000008"
+      },
+      {
+        "name": "link_text",
+        "label": "Link text (optional)",
+        "type": "text",
+        "required": false,
+        "default": "Learn more",
+        "id": "20190009-0001-0001-0001-000000000009"
+      },
+      {
+        "name": "card_link",
+        "label": "Card link (optional)",
+        "type": "url",
+        "required": false,
+        "locked": false,
+        "supported_types": [
+          "EXTERNAL",
+          "CONTENT",
+          "FILE",
+          "EMAIL_ADDRESS",
+          "BLOG"
+        ],
+        "display_width": null,
+        "default": {
+          "type": "EXTERNAL",
+          "href": "/contact",
+          "content_id": null
+        },
+        "id": "2019000a-0001-0001-0001-00000000000a"
+      }
+    ],
+    "id": "20190005-0001-0001-0001-000000000005"
+  }
+]

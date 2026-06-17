@@ -1,0 +1,223 @@
+[
+  {
+    "name": "eyebrow",
+    "label": "Eyebrow",
+    "type": "text",
+    "required": false,
+    "default": "Run the numbers",
+    "id": "200c0001-0001-0001-0001-000000000001"
+  },
+  {
+    "name": "heading",
+    "label": "Heading",
+    "type": "text",
+    "required": false,
+    "default": "What automating this work could save you",
+    "id": "200c0002-0001-0001-0001-000000000002"
+  },
+  {
+    "name": "lead",
+    "label": "Lead line",
+    "type": "text",
+    "required": false,
+    "default": "Drag the sliders to match your team. The estimate updates as you go.",
+    "id": "200c0003-0001-0001-0001-000000000003"
+  },
+  {
+    "name": "slider1_label",
+    "label": "Slider 1 label",
+    "type": "text",
+    "required": false,
+    "default": "Hours per week on this task",
+    "id": "200c0004-0001-0001-0001-000000000004"
+  },
+  {
+    "name": "slider1_suffix",
+    "label": "Slider 1 unit suffix",
+    "type": "text",
+    "required": false,
+    "default": " hrs",
+    "id": "200c0005-0001-0001-0001-000000000005"
+  },
+  {
+    "name": "slider1_min",
+    "label": "Slider 1 minimum",
+    "type": "number",
+    "required": false,
+    "default": 1,
+    "id": "200c0006-0001-0001-0001-000000000006"
+  },
+  {
+    "name": "slider1_max",
+    "label": "Slider 1 maximum",
+    "type": "number",
+    "required": false,
+    "default": 40,
+    "id": "200c0007-0001-0001-0001-000000000007"
+  },
+  {
+    "name": "slider1_step",
+    "label": "Slider 1 step",
+    "type": "number",
+    "required": false,
+    "default": 1,
+    "id": "200c0008-0001-0001-0001-000000000008"
+  },
+  {
+    "name": "slider1_default",
+    "label": "Slider 1 starting value",
+    "type": "number",
+    "required": false,
+    "default": 8,
+    "id": "200c0009-0001-0001-0001-000000000009"
+  },
+  {
+    "name": "slider2_label",
+    "label": "Slider 2 label",
+    "type": "text",
+    "required": false,
+    "default": "Loaded hourly rate",
+    "id": "200c000a-0001-0001-0001-00000000000a"
+  },
+  {
+    "name": "slider2_prefix",
+    "label": "Slider 2 unit prefix",
+    "type": "text",
+    "required": false,
+    "default": "$",
+    "id": "200c000b-0001-0001-0001-00000000000b"
+  },
+  {
+    "name": "slider2_min",
+    "label": "Slider 2 minimum",
+    "type": "number",
+    "required": false,
+    "default": 25,
+    "id": "200c000c-0001-0001-0001-00000000000c"
+  },
+  {
+    "name": "slider2_max",
+    "label": "Slider 2 maximum",
+    "type": "number",
+    "required": false,
+    "default": 200,
+    "id": "200c000d-0001-0001-0001-00000000000d"
+  },
+  {
+    "name": "slider2_step",
+    "label": "Slider 2 step",
+    "type": "number",
+    "required": false,
+    "default": 5,
+    "id": "200c000e-0001-0001-0001-00000000000e"
+  },
+  {
+    "name": "slider2_default",
+    "label": "Slider 2 starting value",
+    "type": "number",
+    "required": false,
+    "default": 65,
+    "id": "200c000f-0001-0001-0001-00000000000f"
+  },
+  {
+    "name": "slider3_enabled",
+    "label": "Show third slider",
+    "type": "boolean",
+    "required": false,
+    "default": true,
+    "id": "200c0010-0001-0001-0001-000000000010"
+  },
+  {
+    "name": "slider3_label",
+    "label": "Slider 3 label",
+    "type": "text",
+    "required": false,
+    "default": "Weeks worked per year",
+    "id": "200c0011-0001-0001-0001-000000000011"
+  },
+  {
+    "name": "slider3_suffix",
+    "label": "Slider 3 unit suffix",
+    "type": "text",
+    "required": false,
+    "default": " wks",
+    "id": "200c0012-0001-0001-0001-000000000012"
+  },
+  {
+    "name": "slider3_min",
+    "label": "Slider 3 minimum",
+    "type": "number",
+    "required": false,
+    "default": 40,
+    "id": "200c0013-0001-0001-0001-000000000013"
+  },
+  {
+    "name": "slider3_max",
+    "label": "Slider 3 maximum",
+    "type": "number",
+    "required": false,
+    "default": 52,
+    "id": "200c0014-0001-0001-0001-000000000014"
+  },
+  {
+    "name": "slider3_step",
+    "label": "Slider 3 step",
+    "type": "number",
+    "required": false,
+    "default": 1,
+    "id": "200c0015-0001-0001-0001-000000000015"
+  },
+  {
+    "name": "slider3_default",
+    "label": "Slider 3 starting value",
+    "type": "number",
+    "required": false,
+    "default": 50,
+    "id": "200c0016-0001-0001-0001-000000000016"
+  },
+  {
+    "name": "result_label",
+    "label": "Result label",
+    "type": "text",
+    "required": false,
+    "default": "Estimated yearly savings",
+    "id": "200c0017-0001-0001-0001-000000000017"
+  },
+  {
+    "name": "result_note",
+    "label": "Result footnote",
+    "type": "text",
+    "required": false,
+    "default": "A rough estimate based on time recovered when this work runs itself. Your actual number depends on scope.",
+    "id": "200c0018-0001-0001-0001-000000000018"
+  },
+  {
+    "name": "cta_text",
+    "label": "Button text",
+    "type": "text",
+    "required": false,
+    "default": "Get a real quote",
+    "id": "200c0019-0001-0001-0001-000000000019"
+  },
+  {
+    "name": "cta_url",
+    "label": "Button link",
+    "type": "url",
+    "required": false,
+    "locked": false,
+    "supported_types": [
+      "EXTERNAL",
+      "CONTENT",
+      "FILE",
+      "EMAIL_ADDRESS",
+      "BLOG"
+    ],
+    "display_width": null,
+    "default": {
+      "type": "EXTERNAL",
+      "href": "/quote-sunriver-consulting",
+      "content_id": null
+    },
+    "id": "200c001a-0001-0001-0001-00000000001a"
+  }
+]

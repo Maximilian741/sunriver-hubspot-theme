@@ -1,0 +1,254 @@
+[
+  {
+    "name": "eyebrow",
+    "label": "Eyebrow",
+    "type": "text",
+    "required": false,
+    "default": "Pricing, the short way",
+    "id": "200d0001-0001-0001-0001-000000000001"
+  },
+  {
+    "name": "heading",
+    "label": "Heading",
+    "type": "text",
+    "required": false,
+    "default": "Move the dials. See the number.",
+    "id": "200d0002-0001-0001-0001-000000000002"
+  },
+  {
+    "name": "lead",
+    "label": "Intro text",
+    "type": "richtext",
+    "required": false,
+    "default": "<p>A real ballpark, right here, before any form or sales call. Pick what you need below and the estimate updates as you go. Your fixed quote comes after we scope, and it holds.</p>",
+    "id": "200d0003-0001-0001-0001-000000000003"
+  },
+  {
+    "name": "options_legend",
+    "label": "Options step label",
+    "type": "text",
+    "required": false,
+    "default": "1 / What do you need?",
+    "id": "200d0004-0001-0001-0001-000000000004"
+  },
+  {
+    "name": "options",
+    "label": "Service options",
+    "type": "group",
+    "occurrence": {
+      "min": 1,
+      "max": 16,
+      "default": 6
+    },
+    "default": [
+      {
+        "option_label": "Mobile app",
+        "base_price": 18800
+      },
+      {
+        "option_label": "Web app / site",
+        "base_price": 9400
+      },
+      {
+        "option_label": "Cloud & DevOps",
+        "base_price": 6300
+      },
+      {
+        "option_label": "Database",
+        "base_price": 6300
+      },
+      {
+        "option_label": "Security audit",
+        "base_price": 5600
+      },
+      {
+        "option_label": "CRM / CMS setup",
+        "base_price": 6300
+      }
+    ],
+    "children": [
+      {
+        "name": "option_label",
+        "label": "Option label",
+        "type": "text",
+        "required": true,
+        "default": "Service option",
+        "id": "200d0006-0001-0001-0001-000000000006"
+      },
+      {
+        "name": "base_price",
+        "label": "Base price ($)",
+        "type": "number",
+        "required": true,
+        "default": 6000,
+        "id": "200d0007-0001-0001-0001-000000000007"
+      }
+    ],
+    "id": "200d0005-0001-0001-0001-000000000005"
+  },
+  {
+    "name": "scale_legend",
+    "label": "Scale step label",
+    "type": "text",
+    "required": false,
+    "default": "2 / How big is it?",
+    "id": "200d0008-0001-0001-0001-000000000008"
+  },
+  {
+    "name": "scale_small_label",
+    "label": "Small scale label",
+    "type": "text",
+    "required": false,
+    "default": "Small",
+    "id": "200d0009-0001-0001-0001-000000000009"
+  },
+  {
+    "name": "scale_small_mult",
+    "label": "Small scale multiplier",
+    "type": "number",
+    "required": false,
+    "default": 0.6,
+    "id": "200d000a-0001-0001-0001-00000000000a"
+  },
+  {
+    "name": "scale_standard_label",
+    "label": "Standard scale label",
+    "type": "text",
+    "required": false,
+    "default": "Standard",
+    "id": "200d000b-0001-0001-0001-00000000000b"
+  },
+  {
+    "name": "scale_standard_mult",
+    "label": "Standard scale multiplier",
+    "type": "number",
+    "required": false,
+    "default": 1,
+    "id": "200d000c-0001-0001-0001-00000000000c"
+  },
+  {
+    "name": "scale_large_label",
+    "label": "Large scale label",
+    "type": "text",
+    "required": false,
+    "default": "Large",
+    "id": "200d000d-0001-0001-0001-00000000000d"
+  },
+  {
+    "name": "scale_large_mult",
+    "label": "Large scale multiplier",
+    "type": "number",
+    "required": false,
+    "default": 1.9,
+    "id": "200d000e-0001-0001-0001-00000000000e"
+  },
+  {
+    "name": "mode_legend",
+    "label": "Mode step label",
+    "type": "text",
+    "required": false,
+    "default": "3 / How do you want to work?",
+    "id": "200d000f-0001-0001-0001-00000000000f"
+  },
+  {
+    "name": "mode_project_label",
+    "label": "One-time mode label",
+    "type": "text",
+    "required": false,
+    "default": "One-time project",
+    "id": "200d0010-0001-0001-0001-000000000010"
+  },
+  {
+    "name": "mode_retainer_label",
+    "label": "Retainer mode label",
+    "type": "text",
+    "required": false,
+    "default": "Monthly retainer",
+    "id": "200d0011-0001-0001-0001-000000000011"
+  },
+  {
+    "name": "retainer_factor",
+    "label": "Retainer factor (monthly portion of one-time)",
+    "type": "number",
+    "required": false,
+    "default": 0.18,
+    "id": "200d0012-0001-0001-0001-000000000012"
+  },
+  {
+    "name": "estimate_caption",
+    "label": "Estimate caption",
+    "type": "text",
+    "required": false,
+    "default": "Ballpark estimate",
+    "id": "200d0013-0001-0001-0001-000000000013"
+  },
+  {
+    "name": "project_note",
+    "label": "One-time mode note",
+    "type": "text",
+    "required": false,
+    "default": "one-time project",
+    "id": "200d0014-0001-0001-0001-000000000014"
+  },
+  {
+    "name": "retainer_note",
+    "label": "Retainer mode note",
+    "type": "text",
+    "required": false,
+    "default": "per month, ongoing",
+    "id": "200d0015-0001-0001-0001-000000000015"
+  },
+  {
+    "name": "after_note",
+    "label": "Note after mode label",
+    "type": "text",
+    "required": false,
+    "default": "your fixed quote comes after we scope.",
+    "id": "200d0016-0001-0001-0001-000000000016"
+  },
+  {
+    "name": "empty_hint",
+    "label": "Empty breakdown hint",
+    "type": "text",
+    "required": false,
+    "default": "Pick what you need",
+    "id": "200d0017-0001-0001-0001-000000000017"
+  },
+  {
+    "name": "cta_label",
+    "label": "CTA button label",
+    "type": "text",
+    "required": false,
+    "default": "Get a fixed quote",
+    "id": "200d0018-0001-0001-0001-000000000018"
+  },
+  {
+    "name": "cta_url",
+    "label": "CTA link",
+    "type": "url",
+    "required": false,
+    "locked": false,
+    "supported_types": [
+      "EXTERNAL",
+      "CONTENT",
+      "FILE",
+      "EMAIL_ADDRESS",
+      "BLOG"
+    ],
+    "display_width": null,
+    "default": {
+      "type": "EXTERNAL",
+      "href": "/quote-sunriver-consulting",
+      "content_id": null
+    },
+    "id": "200d0019-0001-0001-0001-000000000019"
+  },
+  {
+    "name": "fineprint",
+    "label": "Fine print under CTA",
+    "type": "richtext",
+    "required": false,
+    "default": "<p>The fixed fee covers design and build for the scoped engagement. Recurring third-party costs, your domain, hosting, and software subscriptions, are set up in <em>your</em> accounts and billed to you directly, so you own everything from day one.</p>",
+    "id": "200d001a-0001-0001-0001-00000000001a"
+  }
+]

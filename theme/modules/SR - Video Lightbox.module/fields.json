@@ -1,0 +1,69 @@
+[
+  {
+    "name": "eyebrow",
+    "label": "Eyebrow",
+    "type": "text",
+    "required": false,
+    "default": "Watch",
+    "id": "20130001-0001-0001-0001-000000000001"
+  },
+  {
+    "name": "heading",
+    "label": "Heading",
+    "type": "text",
+    "required": false,
+    "default": "See the work in motion",
+    "id": "20130002-0001-0001-0001-000000000002"
+  },
+  {
+    "name": "lead",
+    "label": "Lead text",
+    "type": "richtext",
+    "required": false,
+    "default": "<p>A two minute walkthrough of how we ship secure, accessible software for Montana teams.</p>",
+    "id": "20130003-0001-0001-0001-000000000003"
+  },
+  {
+    "name": "poster",
+    "label": "Poster image",
+    "type": "image",
+    "required": false,
+    "default": {
+      "src": "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1280&q=80",
+      "alt": "SunRiver Consulting team reviewing code on a shared screen"
+    },
+    "id": "20130004-0001-0001-0001-000000000004"
+  },
+  {
+    "name": "play_label",
+    "label": "Play caption (shown over poster)",
+    "type": "text",
+    "required": false,
+    "default": "Play the walkthrough",
+    "id": "20130005-0001-0001-0001-000000000005"
+  },
+  {
+    "name": "video_length",
+    "label": "Duration label (optional)",
+    "type": "text",
+    "required": false,
+    "default": "2 min",
+    "id": "20130006-0001-0001-0001-000000000006"
+  },
+  {
+    "name": "embed_url",
+    "label": "Video embed URL (YouTube/Vimeo embed link)",
+    "type": "text",
+    "required": true,
+    "default": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "id": "20130007-0001-0001-0001-000000000007"
+  },
+  {
+    "name": "video_title",
+    "label": "Video title (for accessibility)",
+    "type": "text",
+    "required": false,
+    "default": "SunRiver Consulting walkthrough",
+    "id": "20130008-0001-0001-0001-000000000008"
+  }
+]

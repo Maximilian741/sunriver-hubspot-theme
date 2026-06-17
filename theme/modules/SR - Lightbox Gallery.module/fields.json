@@ -1,0 +1,186 @@
+[
+  {
+    "name": "heading_group",
+    "label": "Heading",
+    "type": "group",
+    "expanded": true,
+    "children": [
+      {
+        "name": "eyebrow",
+        "label": "Eyebrow",
+        "type": "text",
+        "required": false,
+        "default": "Selected work",
+        "id": "200a0002-0001-0001-0001-000000000002"
+      },
+      {
+        "name": "title",
+        "label": "Title",
+        "type": "text",
+        "required": false,
+        "default": "A look at what we ship",
+        "id": "200a0003-0001-0001-0001-000000000003"
+      },
+      {
+        "name": "lead",
+        "label": "Lead",
+        "type": "richtext",
+        "required": false,
+        "default": "<p>Tap any frame to open it full size. Use the arrows, your keyboard, or swipe to move between shots.</p>",
+        "id": "200a0004-0001-0001-0001-000000000004"
+      }
+    ],
+    "id": "200a0001-0001-0001-0001-000000000001"
+  },
+  {
+    "name": "columns",
+    "label": "Columns on desktop",
+    "type": "choice",
+    "display": "select",
+    "required": false,
+    "default": "3",
+    "choices": [
+      [
+        "2",
+        "2 columns"
+      ],
+      [
+        "3",
+        "3 columns"
+      ],
+      [
+        "4",
+        "4 columns"
+      ]
+    ],
+    "id": "200a0005-0001-0001-0001-000000000005"
+  },
+  {
+    "name": "show_captions",
+    "label": "Show captions under thumbnails",
+    "type": "boolean",
+    "default": true,
+    "id": "200a0006-0001-0001-0001-000000000006"
+  },
+  {
+    "name": "items",
+    "label": "Gallery items",
+    "type": "group",
+    "occurrence": {
+      "min": 1,
+      "max": 24,
+      "default": 6
+    },
+    "default": [
+      {
+        "photo": {
+          "src": "https://www.sunriverconsulting.com/hubfs/gallery/sr-work-dashboard.jpg",
+          "alt": "Reporting dashboard rebuilt for a Helena clinic"
+        },
+        "caption": "508 reporting dashboard, rebuilt from OFR to SSRS"
+      },
+      {
+        "photo": {
+          "src": "https://www.sunriverconsulting.com/hubfs/gallery/sr-work-mobile.jpg",
+          "alt": "Vital Tails mobile booking app"
+        },
+        "caption": "Vital Tails booking app, iOS and Android"
+      },
+      {
+        "photo": {
+          "src": "https://www.sunriverconsulting.com/hubfs/gallery/sr-work-cloud.jpg",
+          "alt": "Cloud migration architecture diagram"
+        },
+        "caption": "Cloud migration for a hood-cleaning route business"
+      },
+      {
+        "photo": {
+          "src": "https://www.sunriverconsulting.com/hubfs/gallery/sr-work-security.jpg",
+          "alt": "Security audit findings review"
+        },
+        "caption": "Security audit, findings walked through line by line"
+      },
+      {
+        "photo": {
+          "src": "https://www.sunriverconsulting.com/hubfs/gallery/sr-work-site.jpg",
+          "alt": "Marketing site launch on HubSpot"
+        },
+        "caption": "HubSpot site build and launch"
+      },
+      {
+        "photo": {
+          "src": "https://www.sunriverconsulting.com/hubfs/gallery/sr-work-db.jpg",
+          "alt": "Database schema cleanup"
+        },
+        "caption": "Database cleanup, faster queries with no downtime"
+      }
+    ],
+    "children": [
+      {
+        "name": "photo",
+        "label": "Image",
+        "type": "image",
+        "default": {
+          "src": "https://www.sunriverconsulting.com/hubfs/gallery/sr-work-dashboard.jpg",
+          "alt": "SunRiver project"
+        },
+        "responsive": true,
+        "id": "200a0008-0001-0001-0001-000000000008"
+      },
+      {
+        "name": "caption",
+        "label": "Caption",
+        "type": "text",
+        "required": false,
+        "default": "Project caption",
+        "id": "200a0009-0001-0001-0001-000000000009"
+      }
+    ],
+    "id": "200a0007-0001-0001-0001-000000000007"
+  },
+  {
+    "name": "cta",
+    "label": "Footer button",
+    "type": "group",
+    "expanded": false,
+    "children": [
+      {
+        "name": "show_cta",
+        "label": "Show footer button",
+        "type": "boolean",
+        "default": true,
+        "id": "200a000b-0001-0001-0001-00000000000b"
+      },
+      {
+        "name": "cta_text",
+        "label": "Button text",
+        "type": "text",
+        "required": false,
+        "default": "See the full case studies",
+        "id": "200a000c-0001-0001-0001-00000000000c"
+      },
+      {
+        "name": "cta_link",
+        "label": "Button link",
+        "type": "url",
+        "required": false,
+        "locked": false,
+        "supported_types": [
+          "EXTERNAL",
+          "CONTENT",
+          "FILE",
+          "EMAIL_ADDRESS",
+          "BLOG"
+        ],
+        "display_width": null,
+        "default": {
+          "type": "EXTERNAL",
+          "href": "/work-sunriver-consulting",
+          "content_id": null
+        },
+        "id": "200a000d-0001-0001-0001-00000000000d"
+      }
+    ],
+    "id": "200a000a-0001-0001-0001-00000000000a"
+  }
+]

@@ -1,0 +1,30 @@
+{# SR Expandable Cards. Grid of click-to-expand cards. Self-inits via module.js (all .sr-expand on the page). Drop into a page whose dnd_area is wrapped in .srh. Progressive enhancement: panels render open server-side, JS collapses them on load. #}
+<section class="srh-sec">
+  <div class="srh-sec__inner" style="max-width:1040px;">
+    {% if module.eyebrow or module.heading or module.lead %}
+    <div class="srx-reveal" style="text-align:center;margin-bottom:1.8rem;">
+      {% if module.eyebrow %}<span class="srh-eyebrow" style="color:var(--river);">{{ module.eyebrow }}</span>{% endif %}
+      {% if module.heading %}<h2 class="srh-h2">{{ module.heading }}</h2>{% endif %}
+      {% if module.lead %}<p class="srh-lead">{{ module.lead }}</p>{% endif %}
+    </div>
+    {% endif %}
+    <div class="sr-expand" data-multiple="{% if module.allow_multiple %}1{% else %}0{% endif %}">
+      {% for c in module.cards %}
+        <div class="sr-expand__card" data-i="{{ loop.index0 }}">
+          <button class="sr-expand__head" type="button" aria-expanded="false" aria-controls="sr-expand-panel-{{ loop.index0 }}">
+            <span class="sr-expand__heading">
+              <span class="sr-expand__title">{{ c.card_title }}</span>
+              {% if c.card_teaser %}<span class="sr-expand__teaser">{{ c.card_teaser }}</span>{% endif %}
+            </span>
+            <span class="sr-expand__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="22" height="22" focusable="false"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </button>
+          <div class="sr-expand__panel" id="sr-expand-panel-{{ loop.index0 }}" role="region">
+            <div class="sr-expand__detail sr-post">{{ c.card_detail }}</div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,157 @@
+[
+  {
+    "name": "eyebrow",
+    "label": "Eyebrow",
+    "type": "text",
+    "required": false,
+    "default": "Answers",
+    "id": "20010001-0001-0001-0001-000000000001"
+  },
+  {
+    "name": "heading",
+    "label": "Heading",
+    "type": "text",
+    "required": false,
+    "default": "Frequently asked questions",
+    "id": "20010002-0001-0001-0001-000000000002"
+  },
+  {
+    "name": "lead",
+    "label": "Lead text",
+    "type": "text",
+    "required": false,
+    "default": "Search the questions we hear most. If you do not see yours, reach out and we will answer it directly.",
+    "id": "20010003-0001-0001-0001-000000000003"
+  },
+  {
+    "name": "search_placeholder",
+    "label": "Search placeholder",
+    "type": "text",
+    "required": false,
+    "default": "Search questions",
+    "id": "20010004-0001-0001-0001-000000000004"
+  },
+  {
+    "name": "show_filters",
+    "label": "Show category filter chips",
+    "type": "boolean",
+    "display": "toggle",
+    "required": false,
+    "default": true,
+    "id": "20010005-0001-0001-0001-000000000005"
+  },
+  {
+    "name": "all_label",
+    "label": "All filter label",
+    "type": "text",
+    "required": false,
+    "default": "All",
+    "id": "20010006-0001-0001-0001-000000000006"
+  },
+  {
+    "name": "empty_text",
+    "label": "No results message",
+    "type": "text",
+    "required": false,
+    "default": "No questions match that search. Try a different word or reach out to us.",
+    "id": "20010007-0001-0001-0001-000000000007"
+  },
+  {
+    "name": "items",
+    "label": "FAQ items",
+    "type": "group",
+    "occurrence": {
+      "min": 1,
+      "max": 40,
+      "default": 6
+    },
+    "default": [
+      {
+        "category": "Engagements",
+        "question": "How long does a typical engagement take?",
+        "answer": "<p>Most projects ship a measurable win within four to six weeks. Larger engagements run quarterly with weekly milestones.</p>"
+      },
+      {
+        "category": "Engagements",
+        "question": "Do you work with our existing tech stack?",
+        "answer": "<p>Yes. We meet you where you are: AWS, Azure, GCP, HubSpot, Salesforce, custom apps. We integrate rather than replace for the sake of replacing.</p>"
+      },
+      {
+        "category": "Pricing",
+        "question": "What does pricing look like?",
+        "answer": "<p>Fixed fee per milestone or a monthly retainer, depending on scope. We share a clear scope and price after a 30 minute discovery call.</p>"
+      },
+      {
+        "category": "Pricing",
+        "question": "Are recurring costs owned by us?",
+        "answer": "<p>Yes. Hosting, domains, and third party subscriptions are billed to you directly, so you keep full ownership and control.</p>"
+      },
+      {
+        "category": "Support",
+        "question": "Can you help with ongoing support?",
+        "answer": "<p>Absolutely. Most clients move into a managed services retainer once the build is shipped.</p>"
+      },
+      {
+        "category": "Support",
+        "question": "How quickly do you respond?",
+        "answer": "<p>During an active engagement we reply within one business day, and same day for anything that blocks your work.</p>"
+      }
+    ],
+    "children": [
+      {
+        "name": "category",
+        "label": "Category",
+        "type": "text",
+        "required": false,
+        "default": "General",
+        "id": "20010009-0001-0001-0001-000000000009"
+      },
+      {
+        "name": "question",
+        "label": "Question",
+        "type": "text",
+        "required": false,
+        "default": "Question?",
+        "id": "2001000a-0001-0001-0001-00000000000a"
+      },
+      {
+        "name": "answer",
+        "label": "Answer",
+        "type": "richtext",
+        "required": false,
+        "default": "<p>Answer.</p>",
+        "id": "2001000b-0001-0001-0001-00000000000b"
+      }
+    ],
+    "id": "20010008-0001-0001-0001-000000000008"
+  },
+  {
+    "name": "cta_text",
+    "label": "Footer CTA text",
+    "type": "text",
+    "required": false,
+    "default": "Still have a question?",
+    "id": "2001000c-0001-0001-0001-00000000000c"
+  },
+  {
+    "name": "cta_link",
+    "label": "Footer CTA link",
+    "type": "url",
+    "required": false,
+    "locked": false,
+    "supported_types": [
+      "EXTERNAL",
+      "CONTENT",
+      "FILE",
+      "EMAIL_ADDRESS",
+      "BLOG"
+    ],
+    "display_width": null,
+    "default": {
+      "type": "EXTERNAL",
+      "href": "/contact",
+      "content_id": null
+    },
+    "id": "2001000d-0001-0001-0001-00000000000d"
+  }
+]

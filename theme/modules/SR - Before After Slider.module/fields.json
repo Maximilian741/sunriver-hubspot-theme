@@ -1,0 +1,109 @@
+[
+  {
+    "name": "eyebrow",
+    "label": "Eyebrow",
+    "type": "text",
+    "required": false,
+    "default": "Before and after",
+    "id": "20030001-0001-0001-0001-000000000001"
+  },
+  {
+    "name": "heading",
+    "label": "Heading",
+    "type": "text",
+    "required": false,
+    "default": "Drag to see the difference",
+    "id": "20030002-0001-0001-0001-000000000002"
+  },
+  {
+    "name": "lead",
+    "label": "Lead text",
+    "type": "richtext",
+    "required": false,
+    "default": "<p>Slide the handle to compare the old site against the rebuild we shipped.</p>",
+    "id": "20030003-0001-0001-0001-000000000003"
+  },
+  {
+    "name": "before_image",
+    "label": "Before image",
+    "type": "image",
+    "required": false,
+    "default": {
+      "src": "https://cdn2.hubspot.net/hubfs/53/image8-2.jpg",
+      "alt": "The site before the rebuild"
+    },
+    "id": "20030004-0001-0001-0001-000000000004"
+  },
+  {
+    "name": "after_image",
+    "label": "After image",
+    "type": "image",
+    "required": false,
+    "default": {
+      "src": "https://cdn2.hubspot.net/hubfs/53/image9-1.jpg",
+      "alt": "The site after the rebuild"
+    },
+    "id": "20030005-0001-0001-0001-000000000005"
+  },
+  {
+    "name": "before_label",
+    "label": "Before label",
+    "type": "text",
+    "required": false,
+    "default": "Before",
+    "id": "20030006-0001-0001-0001-000000000006"
+  },
+  {
+    "name": "after_label",
+    "label": "After label",
+    "type": "text",
+    "required": false,
+    "default": "After",
+    "id": "20030007-0001-0001-0001-000000000007"
+  },
+  {
+    "name": "start_position",
+    "label": "Starting handle position (%)",
+    "type": "number",
+    "required": false,
+    "default": 50,
+    "id": "20030008-0001-0001-0001-000000000008"
+  },
+  {
+    "name": "show_labels",
+    "label": "Show before / after labels",
+    "type": "boolean",
+    "required": false,
+    "default": true,
+    "id": "20030009-0001-0001-0001-000000000009"
+  },
+  {
+    "name": "cta",
+    "label": "Button link",
+    "type": "url",
+    "required": false,
+    "locked": false,
+    "supported_types": [
+      "EXTERNAL",
+      "CONTENT",
+      "FILE",
+      "EMAIL_ADDRESS",
+      "BLOG"
+    ],
+    "display_width": null,
+    "default": {
+      "type": "EXTERNAL",
+      "href": "/work-sunriver-consulting",
+      "content_id": null
+    },
+    "id": "2003000a-0001-0001-0001-00000000000a"
+  },
+  {
+    "name": "cta_label",
+    "label": "Button label",
+    "type": "text",
+    "required": false,
+    "default": "See more of our work",
+    "id": "2003000b-0001-0001-0001-00000000000b"
+  }
+]

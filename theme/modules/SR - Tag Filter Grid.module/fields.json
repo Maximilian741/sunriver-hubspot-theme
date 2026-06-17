@@ -1,0 +1,127 @@
+[
+  {
+    "name": "eyebrow",
+    "label": "Eyebrow",
+    "type": "text",
+    "required": false,
+    "default": "Selected work",
+    "id": "20170001-0001-0001-0001-000000000001"
+  },
+  {
+    "name": "heading",
+    "label": "Heading",
+    "type": "text",
+    "required": false,
+    "default": "Browse by what we built",
+    "id": "20170002-0001-0001-0001-000000000002"
+  },
+  {
+    "name": "lead",
+    "label": "Lead text",
+    "type": "text",
+    "required": false,
+    "default": "Filter the grid by the kind of project you have in mind.",
+    "id": "20170003-0001-0001-0001-000000000003"
+  },
+  {
+    "name": "select_mode",
+    "label": "Filter behavior",
+    "type": "choice",
+    "required": false,
+    "display": "select",
+    "choices": [
+      [
+        "single",
+        "Single select (one tag at a time)"
+      ],
+      [
+        "multi",
+        "Multi select (match any chosen tag)"
+      ]
+    ],
+    "default": "single",
+    "id": "20170004-0001-0001-0001-000000000004"
+  },
+  {
+    "name": "all_label",
+    "label": "All button label",
+    "type": "text",
+    "required": false,
+    "default": "All work",
+    "id": "20170005-0001-0001-0001-000000000005"
+  },
+  {
+    "name": "empty_text",
+    "label": "Empty state text",
+    "type": "text",
+    "required": false,
+    "default": "Nothing matches that filter yet.",
+    "id": "20170006-0001-0001-0001-000000000006"
+  },
+  {
+    "name": "cards",
+    "label": "Cards",
+    "type": "group",
+    "occurrence": {
+      "min": 1,
+      "max": 24,
+      "default": 6
+    },
+    "default": [
+      {
+        "card_title": "508 + WCAG audit, City portal",
+        "card_body": "<p>Closed every accessibility finding and re-tested until the public portal passed clean.</p>",
+        "card_tags": "Accessibility, Audit, Government"
+      },
+      {
+        "card_title": "OFR reporting to SSRS",
+        "card_body": "<p>Rebuilt brittle reports into a maintainable SSRS suite the team can edit themselves.</p>",
+        "card_tags": "Data, Reporting, Cloud"
+      },
+      {
+        "card_title": "Vital Tails, vet booking app",
+        "card_body": "<p>Custom mobile booking and records app shipped end to end, secure from the first commit.</p>",
+        "card_tags": "Mobile, App, Web"
+      },
+      {
+        "card_title": "Hood-cleaning field scheduler",
+        "card_body": "<p>Replaced paper routes with a live scheduler and customer reminders that cut no-shows.</p>",
+        "card_tags": "Web, App, Automation"
+      },
+      {
+        "card_title": "Penetration test, fintech API",
+        "card_body": "<p>Threat-modeled the API, ran a full pen test, and re-tested every fix before sign-off.</p>",
+        "card_tags": "Security, Audit, Data"
+      },
+      {
+        "card_title": "Cloud migration + DB tuning",
+        "card_body": "<p>Moved a slow on-prem stack to the cloud and tuned the database for fast, healthy queries.</p>",
+        "card_tags": "Cloud, Data, Automation"
+      }
+    ],
+    "children": [
+      {
+        "name": "card_title",
+        "label": "Card title",
+        "type": "text",
+        "default": "Project title",
+        "id": "20170008-0001-0001-0001-000000000008"
+      },
+      {
+        "name": "card_body",
+        "label": "Card text",
+        "type": "richtext",
+        "default": "<p>What we built and the outcome it created.</p>",
+        "id": "20170009-0001-0001-0001-000000000009"
+      },
+      {
+        "name": "card_tags",
+        "label": "Tags (comma separated)",
+        "type": "text",
+        "default": "Web, App",
+        "id": "2017000a-0001-0001-0001-00000000000a"
+      }
+    ],
+    "id": "20170007-0001-0001-0001-000000000007"
+  }
+]

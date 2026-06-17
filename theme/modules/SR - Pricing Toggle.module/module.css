@@ -1,0 +1,272 @@
+.sr-pricetoggle {
+  --sr-green: #21c700;
+  --sr-green2: #1bd24a;
+  --sr-teal: #06c79b;
+  --sr-teal2: #0e8fae;
+  --sr-gold: #fbc34a;
+  --sr-ember: #ff7e3a;
+  --sr-ink: #04121d;
+  --sr-head: #0c2114;
+  --sr-body: #546b5b;
+}
+
+/* Toggle switch */
+.sr-pricetoggle__switch {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin: 0 auto 0.75rem;
+  padding: 5px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(6px);
+}
+
+.sr-pricetoggle {
+  text-align: center;
+}
+
+.sr-pricetoggle__opt {
+  position: relative;
+  z-index: 2;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+  font-size: 0.92rem;
+  letter-spacing: 0.01em;
+  color: #dff2e8;
+  padding: 0.55rem 1.3rem;
+  border-radius: 999px;
+  transition: color 0.25s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.sr-pricetoggle__opt.is-on {
+  color: var(--sr-ink);
+}
+
+.sr-pricetoggle__thumb {
+  position: absolute;
+  z-index: 1;
+  top: 5px;
+  bottom: 5px;
+  left: 5px;
+  width: calc(50% - 5px);
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--sr-green2), var(--sr-teal));
+  box-shadow: 0 8px 18px rgba(6, 199, 155, 0.35);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sr-pricetoggle[data-period="annual"] .sr-pricetoggle__thumb {
+  transform: translateX(100%);
+}
+
+/* Save note */
+.sr-pricetoggle__save {
+  display: inline-block;
+  margin: 0 auto 1.5rem;
+  padding: 0.35rem 0.95rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: var(--sr-ink);
+  background: linear-gradient(90deg, var(--sr-gold), #ffdd8a);
+  box-shadow: 0 6px 16px rgba(251, 195, 74, 0.4);
+}
+.sr-pricetoggle__save[hidden] {
+  display: none;
+}
+
+/* Grid */
+.sr-pricetoggle__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  align-items: stretch;
+  text-align: left;
+  margin-top: 0.5rem;
+}
+
+/* Card */
+.sr-pricetoggle__card {
+  position: relative;
+  background: #fff;
+  border-radius: 18px;
+  padding: 2.25rem 1.75rem 2rem;
+  box-shadow: 0 8px 24px rgba(4, 18, 29, 0.1);
+  border: 1px solid rgba(4, 18, 29, 0.06);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sr-pricetoggle__card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 50px rgba(6, 199, 155, 0.2);
+}
+
+.sr-pricetoggle__card--featured {
+  border: 1px solid rgba(6, 199, 155, 0.45);
+  box-shadow: 0 18px 46px rgba(6, 199, 155, 0.22);
+}
+
+.sr-pricetoggle__card--featured::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: 19px;
+  background: linear-gradient(135deg, var(--sr-green), var(--sr-teal), var(--sr-gold));
+  z-index: -1;
+  opacity: 0.55;
+  filter: blur(12px);
+}
+
+.sr-pricetoggle__badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(90deg, var(--sr-gold), #ffdd8a);
+  color: var(--sr-ink);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 999px;
+  white-space: nowrap;
+  box-shadow: 0 6px 16px rgba(251, 195, 74, 0.45);
+}
+
+.sr-pricetoggle__name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0 0 0.7rem;
+  color: var(--sr-teal2);
+}
+
+.sr-pricetoggle__price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  margin-bottom: 0.5rem;
+  min-height: 2.6rem;
+}
+
+.sr-pricetoggle__price {
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: var(--sr-head);
+  transition: opacity 0.2s ease;
+}
+
+.sr-pricetoggle__suffix {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--sr-body);
+}
+
+.sr-pricetoggle__summary {
+  font-size: 0.95rem;
+  color: var(--sr-body);
+  margin: 0 0 1.25rem;
+  line-height: 1.5;
+}
+
+.sr-pricetoggle__features {
+  flex-grow: 1;
+  margin-bottom: 1.5rem;
+}
+
+.sr-pricetoggle__features ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sr-pricetoggle__features li {
+  position: relative;
+  padding: 0.45rem 0 0.45rem 1.7rem;
+  font-size: 0.95rem;
+  color: var(--sr-head);
+  border-top: 1px solid rgba(4, 18, 29, 0.08);
+}
+
+.sr-pricetoggle__features li:first-child {
+  border-top: 0;
+}
+
+.sr-pricetoggle__features li::before {
+  content: "\2713";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.15rem;
+  height: 1.15rem;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--sr-green), var(--sr-teal));
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sr-pricetoggle__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 1.4rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  background: var(--sr-ink);
+  color: #fff;
+  transition: transform 0.2s ease, box-shadow 0.25s ease, background 0.25s ease, color 0.25s ease;
+}
+
+.sr-pricetoggle__cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(4, 18, 29, 0.25);
+  background: linear-gradient(90deg, var(--sr-green2), var(--sr-teal));
+  color: var(--sr-ink);
+}
+
+.sr-pricetoggle__cta--featured {
+  background: linear-gradient(90deg, var(--sr-green2), var(--sr-teal));
+  color: var(--sr-ink);
+  box-shadow: 0 12px 24px rgba(6, 199, 155, 0.4);
+}
+
+.sr-pricetoggle__cta--featured:hover {
+  background: linear-gradient(90deg, var(--sr-teal), var(--sr-gold));
+}
+
+@media (max-width: 600px) {
+  .sr-pricetoggle__price {
+    font-size: 2.1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sr-pricetoggle__thumb,
+  .sr-pricetoggle__opt,
+  .sr-pricetoggle__card,
+  .sr-pricetoggle__price,
+  .sr-pricetoggle__cta {
+    transition: none !important;
+  }
+}

@@ -1,0 +1,30 @@
+<section class="srh-sec">
+  {% if module.section_eyebrow %}<p class="srh-eyebrow">{{ module.section_eyebrow }}</p>{% endif %}
+  {% if module.section_heading %}<h2 class="srh-h2">{{ module.section_heading }}</h2>{% endif %}
+  {% if module.section_lead %}<p class="srh-lead">{{ module.section_lead }}</p>{% endif %}
+
+  <div class="sr-spotlight sr-spotlight--cols-{{ module.columns }}">
+    {% for item in module.cards %}
+      {% set has_link = item.card_link.href %}
+      {% if has_link %}
+        <a class="sr-spotlight__card" href="{{ item.card_link.href }}">
+      {% else %}
+        <div class="sr-spotlight__card">
+      {% endif %}
+        <span class="sr-spotlight__glow" aria-hidden="true"></span>
+        <span class="sr-spotlight__inner">
+          {% if item.icon_text %}<span class="sr-spotlight__icon" aria-hidden="true">{{ item.icon_text }}</span>{% endif %}
+          {% if item.title %}<span class="sr-spotlight__title">{{ item.title }}</span>{% endif %}
+          {% if item.description %}<span class="sr-spotlight__desc">{{ item.description }}</span>{% endif %}
+          {% if has_link and item.link_text %}
+            <span class="sr-spotlight__cta">{{ item.link_text }}<span class="sr-spotlight__arrow" aria-hidden="true">&rarr;</span></span>
+          {% endif %}
+        </span>
+      {% if has_link %}
+        </a>
+      {% else %}
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</section>

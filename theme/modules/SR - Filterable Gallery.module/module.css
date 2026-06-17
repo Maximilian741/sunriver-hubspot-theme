@@ -1,0 +1,33 @@
+.sr-filtergal { margin-top: 28px; }
+
+.sr-filtergal__chips { display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-bottom:26px; }
+.sr-filtergal__chip { font-family:var(--head,"Poppins",sans-serif); font-weight:600; font-size:.92rem; color:#dff2e8; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.22); border-radius:999px; padding:9px 20px; cursor:pointer; transition:background .2s ease, color .2s ease, border-color .2s ease; }
+.sr-filtergal__chip:hover { background:rgba(255,255,255,.16); }
+.sr-filtergal__chip.is-on { color:#231408; background:linear-gradient(120deg,#ff7e3a,#FBC34A 60%); border-color:transparent; }
+
+.sr-filtergal__grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:18px; }
+
+.sr-filtergal__item { margin:0; background:#fff; border-radius:16px; overflow:hidden; box-shadow:0 24px 60px -34px rgba(4,16,10,.6); opacity:0; transform:translateY(8px); transition:opacity .3s ease, transform .3s ease; }
+.sr-filtergal__item.is-shown { opacity:1; transform:none; }
+.sr-filtergal__item.is-fading { opacity:0; transform:translateY(8px); pointer-events:none; }
+
+.sr-filtergal__media { position:relative; aspect-ratio:4 / 3; background:linear-gradient(135deg,#0e8fae,#1bd24a); display:flex; align-items:center; justify-content:center; }
+.sr-filtergal__img { display:block; width:100%; height:100%; object-fit:cover; }
+.sr-filtergal__ph { font-family:var(--head,"Poppins",sans-serif); font-weight:700; font-size:2.4rem; color:rgba(255,255,255,.92); text-transform:uppercase; letter-spacing:.04em; }
+
+.sr-filtergal__cap { display:flex; align-items:center; justify-content:space-between; gap:10px; padding:14px 16px 16px; }
+.sr-filtergal__title { font-family:var(--head,"Poppins",sans-serif); font-weight:600; font-size:1rem; color:#0c2114; line-height:1.25; }
+.sr-filtergal__tag { flex:0 0 auto; font-size:.72rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase; color:#0e8fae; background:rgba(14,143,174,.1); border-radius:999px; padding:4px 10px; }
+
+.sr-filtergal__empty { text-align:center; color:#dff2e8; font-size:1rem; margin:8px 0 0; }
+
+@media (max-width:560px) {
+  .sr-filtergal__grid { grid-template-columns:1fr; }
+  .sr-filtergal__ph { font-size:2rem; }
+}
+
+@media (prefers-reduced-motion:reduce) {
+  .sr-filtergal__item { transition:none; opacity:1; transform:none; }
+  .sr-filtergal__item.is-fading { opacity:1; transform:none; }
+  .sr-filtergal__chip { transition:none; }
+}

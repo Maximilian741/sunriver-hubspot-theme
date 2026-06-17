@@ -1,0 +1,104 @@
+[
+  {
+    "name": "eyebrow",
+    "label": "Eyebrow",
+    "type": "text",
+    "required": false,
+    "default": "Selected work",
+    "id": "20020001-0001-0001-0001-000000000001"
+  },
+  {
+    "name": "heading",
+    "label": "Heading",
+    "type": "text",
+    "required": false,
+    "default": "A look at what we ship",
+    "id": "20020002-0001-0001-0001-000000000002"
+  },
+  {
+    "name": "lead",
+    "label": "Lead text",
+    "type": "text",
+    "required": false,
+    "default": "Real projects from the Helena shop, shot on the job.",
+    "id": "20020003-0001-0001-0001-000000000003"
+  },
+  {
+    "name": "autoplay",
+    "label": "Autoplay",
+    "type": "boolean",
+    "required": false,
+    "default": true,
+    "id": "20020004-0001-0001-0001-000000000004"
+  },
+  {
+    "name": "autoplay_seconds",
+    "label": "Seconds per slide",
+    "type": "number",
+    "required": false,
+    "default": 6,
+    "id": "20020005-0001-0001-0001-000000000005"
+  },
+  {
+    "name": "show_captions",
+    "label": "Show captions",
+    "type": "boolean",
+    "required": false,
+    "default": true,
+    "id": "20020006-0001-0001-0001-000000000006"
+  },
+  {
+    "name": "slides",
+    "label": "Slides",
+    "type": "group",
+    "occurrence": {
+      "min": 1,
+      "max": 16,
+      "default": 3
+    },
+    "default": [
+      {
+        "image": {
+          "src": "",
+          "alt": "Cloud migration whiteboard session"
+        },
+        "caption": "Mapping a cloud migration for a regional lender"
+      },
+      {
+        "image": {
+          "src": "",
+          "alt": "Security audit dashboard on a laptop"
+        },
+        "caption": "Hardening a network ahead of a compliance audit"
+      },
+      {
+        "image": {
+          "src": "",
+          "alt": "Custom app screens on a desk"
+        },
+        "caption": "A custom scheduling app built end to end"
+      }
+    ],
+    "children": [
+      {
+        "name": "image",
+        "label": "Image",
+        "type": "image",
+        "default": {
+          "src": "",
+          "alt": ""
+        },
+        "id": "20020008-0001-0001-0001-000000000008"
+      },
+      {
+        "name": "caption",
+        "label": "Caption",
+        "type": "text",
+        "required": false,
+        "default": "",
+        "id": "20020009-0001-0001-0001-000000000009"
+      }
+    ],
+    "id": "20020007-0001-0001-0001-000000000007"
+  }
+]

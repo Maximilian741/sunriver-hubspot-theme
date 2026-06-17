@@ -1,0 +1,93 @@
+[
+  {
+    "name": "heading_eyebrow",
+    "label": "Eyebrow",
+    "type": "text",
+    "required": false,
+    "default": "Common questions",
+    "id": "20000001-0001-0001-0001-000000000001"
+  },
+  {
+    "name": "heading_title",
+    "label": "Section heading",
+    "type": "text",
+    "required": false,
+    "default": "What working with us looks like",
+    "id": "20000002-0001-0001-0001-000000000002"
+  },
+  {
+    "name": "heading_lead",
+    "label": "Lead text",
+    "type": "text",
+    "required": false,
+    "default": "Open any panel for the plain answer. Everything below is how we actually run a project.",
+    "id": "20000003-0001-0001-0001-000000000003"
+  },
+  {
+    "name": "allow_multiple_open",
+    "label": "Allow multiple panels open at once",
+    "type": "boolean",
+    "required": false,
+    "default": true,
+    "id": "20000004-0001-0001-0001-000000000004"
+  },
+  {
+    "name": "panels",
+    "label": "Panels",
+    "type": "group",
+    "occurrence": {
+      "min": 1,
+      "max": 12,
+      "default": 4
+    },
+    "default": [
+      {
+        "panel_heading": "How long does a typical build take?",
+        "panel_body": "<p>Most websites land in four to six weeks. A custom app or security audit runs longer because we scope it to your real workflow first. You get a written timeline before any work starts, so there are no moving targets.</p>",
+        "panel_open": true
+      },
+      {
+        "panel_heading": "Who owns the work when it ships?",
+        "panel_body": "<p>You do. Code, accounts, domains, and recurring services are set up in your name from day one. If you ever want to move on, you walk away with everything and no lock-in.</p>",
+        "panel_open": false
+      },
+      {
+        "panel_heading": "What does a project actually cost?",
+        "panel_body": "<p>Websites start around $7.5k and apps around $15k, scoped to what you need. We send a fixed quote up front. As a HubSpot partner we can also pass through a 15% perk on eligible plans.</p>",
+        "panel_open": false
+      },
+      {
+        "panel_heading": "Do you stick around after launch?",
+        "panel_body": "<p>Yes. A monthly retainer starts at $1k and covers updates, monitoring, and a real person who answers when something breaks. You are never handed a finished site and left to figure it out alone.</p>",
+        "panel_open": false
+      }
+    ],
+    "children": [
+      {
+        "name": "panel_heading",
+        "label": "Panel heading",
+        "type": "text",
+        "required": true,
+        "default": "Panel heading",
+        "id": "20000006-0001-0001-0001-000000000006"
+      },
+      {
+        "name": "panel_body",
+        "label": "Panel body",
+        "type": "richtext",
+        "required": false,
+        "default": "<p>Write the answer here in plain language.</p>",
+        "id": "20000007-0001-0001-0001-000000000007"
+      },
+      {
+        "name": "panel_open",
+        "label": "Open by default",
+        "type": "boolean",
+        "required": false,
+        "default": false,
+        "id": "20000008-0001-0001-0001-000000000008"
+      }
+    ],
+    "id": "20000005-0001-0001-0001-000000000005"
+  }
+]

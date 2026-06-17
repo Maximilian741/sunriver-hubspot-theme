@@ -1,0 +1,102 @@
+[
+  {
+    "name": "label_text",
+    "label": "Label tag text",
+    "type": "text",
+    "required": false,
+    "default": "Latest",
+    "id": "200f0001-0001-0001-0001-000000000001"
+  },
+  {
+    "name": "ticker_speed",
+    "label": "Scroll speed (pixels per second)",
+    "type": "number",
+    "required": false,
+    "default": 60,
+    "id": "200f0002-0001-0001-0001-000000000002"
+  },
+  {
+    "name": "headlines",
+    "label": "Headlines",
+    "type": "group",
+    "occurrence": {
+      "min": 1,
+      "max": 24,
+      "default": 5
+    },
+    "default": [
+      {
+        "headline_text": "SunRiver Consulting ships a HIPAA-ready patient portal for a Helena clinic.",
+        "headline_url": {
+          "type": "EXTERNAL",
+          "href": "/work-sunriver-consulting",
+          "content_id": null
+        }
+      },
+      {
+        "headline_text": "New security audit package now starts at $4,500.",
+        "headline_url": {
+          "type": "EXTERNAL",
+          "href": "/pricing",
+          "content_id": null
+        }
+      },
+      {
+        "headline_text": "Legacy OFR system migrated to SSRS reporting with zero downtime.",
+        "headline_url": {
+          "type": "EXTERNAL",
+          "href": "/work-sunriver-consulting",
+          "content_id": null
+        }
+      },
+      {
+        "headline_text": "Vital Tails launches its scheduling app built by SunRiver.",
+        "headline_url": {
+          "type": "EXTERNAL",
+          "href": "/work-sunriver-consulting",
+          "content_id": null
+        }
+      },
+      {
+        "headline_text": "Booking spring builds now. Grab a slot before they fill.",
+        "headline_url": {
+          "type": "EXTERNAL",
+          "href": "/quote-sunriver-consulting",
+          "content_id": null
+        }
+      }
+    ],
+    "children": [
+      {
+        "name": "headline_text",
+        "label": "Headline",
+        "type": "text",
+        "required": true,
+        "default": "A short, punchy update goes here.",
+        "id": "200f0004-0001-0001-0001-000000000004"
+      },
+      {
+        "name": "headline_url",
+        "label": "Link (optional)",
+        "type": "url",
+        "required": false,
+        "locked": false,
+        "supported_types": [
+          "EXTERNAL",
+          "CONTENT",
+          "FILE",
+          "EMAIL_ADDRESS",
+          "BLOG"
+        ],
+        "display_width": null,
+        "default": {
+          "type": "EXTERNAL",
+          "href": "/contact",
+          "content_id": null
+        },
+        "id": "200f0005-0001-0001-0001-000000000005"
+      }
+    ],
+    "id": "200f0003-0001-0001-0001-000000000003"
+  }
+]

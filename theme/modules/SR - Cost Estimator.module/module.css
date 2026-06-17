@@ -1,0 +1,206 @@
+.sr-estimator {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 1.4rem;
+  align-items: start;
+  text-align: left;
+}
+
+.sr-estimator__panel {
+  background: #fff;
+  border-radius: 18px;
+  padding: 1.5rem 1.6rem;
+  box-shadow: 0 18px 44px rgba(4, 18, 29, 0.16);
+}
+
+.sr-estimator__fs {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+.sr-estimator__fs + .sr-estimator__fs {
+  margin-top: 1.4rem;
+}
+
+.sr-estimator__leg {
+  font-size: 0.74rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #0e8fae;
+  margin-bottom: 0.7rem;
+}
+
+.sr-estimator__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.sr-estimator__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.55rem 0.95rem;
+  border: 1px solid rgba(14, 143, 174, 0.28);
+  border-radius: 999px;
+  background: #f4faf7;
+  color: #0c2114;
+  font-size: 0.92rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease, transform 0.12s ease;
+  user-select: none;
+}
+.sr-estimator__chip:hover {
+  border-color: rgba(27, 210, 74, 0.55);
+}
+.sr-estimator__chip input {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  accent-color: #21c700;
+  cursor: pointer;
+}
+.sr-estimator__chip.is-on {
+  background: linear-gradient(120deg, #1bd24a, #06c79b);
+  border-color: transparent;
+  color: #04121d;
+  box-shadow: 0 8px 18px rgba(27, 210, 74, 0.32);
+}
+
+.sr-estimator__seg {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  background: #eef5f1;
+  border: 1px solid rgba(14, 143, 174, 0.2);
+  border-radius: 999px;
+  padding: 0.32rem;
+}
+.sr-estimator__seg button {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: #546b5b;
+  font: inherit;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.5rem 1.05rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.18s ease, color 0.18s ease, box-shadow 0.18s ease;
+}
+.sr-estimator__seg button:hover {
+  color: #0c2114;
+}
+.sr-estimator__seg button.is-on {
+  background: #04121d;
+  color: #eafff2;
+  box-shadow: 0 6px 14px rgba(4, 18, 29, 0.28);
+}
+
+.sr-estimator__out {
+  background: #04121d;
+  border-radius: 18px;
+  padding: 1.7rem 1.7rem 1.6rem;
+  color: #dff2e8;
+  box-shadow: 0 18px 44px rgba(4, 18, 29, 0.28);
+  position: sticky;
+  top: 1rem;
+}
+
+.sr-estimator__cap {
+  display: block;
+  font-size: 0.74rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #FBC34A;
+  margin-bottom: 0.4rem;
+}
+
+.sr-estimator__num {
+  font-size: clamp(1.7rem, 4vw, 2.4rem);
+  font-weight: 800;
+  line-height: 1.1;
+  color: #eafff2;
+}
+.sr-estimator__num [data-lo],
+.sr-estimator__num [data-hi] {
+  color: #1bd24a;
+}
+
+.sr-estimator__mnote {
+  margin: 0.6rem 0 0;
+  font-size: 0.86rem;
+  color: rgba(223, 242, 232, 0.78);
+}
+
+.sr-estimator__sum {
+  list-style: none;
+  margin: 1.1rem 0 0;
+  padding: 1.1rem 0 0;
+  border-top: 1px solid rgba(223, 242, 232, 0.16);
+}
+.sr-estimator__sum li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  font-size: 0.9rem;
+  padding: 0.32rem 0;
+  color: #dff2e8;
+}
+.sr-estimator__sum li span:last-child {
+  font-weight: 700;
+  color: #FBC34A;
+  white-space: nowrap;
+}
+
+.sr-estimator__cta {
+  display: inline-block;
+  margin-top: 1.3rem;
+  padding: 0.78rem 1.5rem;
+  border-radius: 999px;
+  background: linear-gradient(120deg, #1bd24a, #06c79b);
+  color: #04121d;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 10px 24px rgba(27, 210, 74, 0.34);
+  transition: transform 0.14s ease, box-shadow 0.18s ease;
+}
+.sr-estimator__cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(27, 210, 74, 0.44);
+}
+
+.sr-estimator__fine {
+  margin-top: 0.95rem;
+  font-size: 0.8rem;
+  line-height: 1.55;
+  color: rgba(223, 242, 232, 0.72);
+}
+.sr-estimator__fine p {
+  margin: 0;
+}
+
+@media (max-width: 760px) {
+  .sr-estimator {
+    grid-template-columns: 1fr;
+  }
+  .sr-estimator__out {
+    position: static;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sr-estimator__chip,
+  .sr-estimator__seg button,
+  .sr-estimator__cta {
+    transition: none;
+  }
+  .sr-estimator__cta:hover {
+    transform: none;
+  }
+}

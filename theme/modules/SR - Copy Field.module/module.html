@@ -1,0 +1,22 @@
+<section class="srh-sec">
+  {% if module.heading_eyebrow %}<p class="srh-eyebrow">{{ module.heading_eyebrow }}</p>{% endif %}
+  {% if module.heading_title %}<h2 class="srh-h2">{{ module.heading_title }}</h2>{% endif %}
+  {% if module.heading_lead %}<div class="srh-lead">{{ module.heading_lead }}</div>{% endif %}
+
+  <div class="sr-copy" data-copied="{{ module.copied_text|escape_attr|default('Copied', true) }}">
+    {% for it in module.copy_items %}
+      <div class="sr-copy__row">
+        {% if it.field_icon.src %}
+          <span class="sr-copy__icon"><img src="{{ it.field_icon.src }}" alt="{{ it.field_icon.alt }}" loading="lazy"></span>
+        {% endif %}
+        <span class="sr-copy__text">
+          {% if it.field_label %}<span class="sr-copy__label">{{ it.field_label }}</span>{% endif %}
+          <span class="sr-copy__value" data-copy-value="{{ it.field_value|escape_attr }}">{{ it.field_value }}</span>
+        </span>
+        <button type="button" class="sr-copy__btn" aria-label="Copy {{ it.field_label|default(it.field_value, true) }}">
+          <span class="sr-copy__btn-label">Copy</span>
+        </button>
+      </div>
+    {% endfor %}
+  </div>
+</section>

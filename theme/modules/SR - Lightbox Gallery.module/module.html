@@ -1,0 +1,56 @@
+<section class="srh-sec">
+  {% if module.heading_group.eyebrow %}<p class="srh-eyebrow">{{ module.heading_group.eyebrow }}</p>{% endif %}
+  {% if module.heading_group.title %}<h2 class="srh-h2">{{ module.heading_group.title }}</h2>{% endif %}
+  {% if module.heading_group.lead %}<div class="srh-lead">{{ module.heading_group.lead }}</div>{% endif %}
+
+  <div class="sr-lightbox" data-cols="{{ module.columns }}" data-captions="{{ module.show_captions }}">
+    <ul class="sr-lightbox__grid">
+      {% for it in module.items %}
+        {% if it.photo.src %}
+          <li class="sr-lightbox__cell">
+            <button type="button" class="sr-lightbox__thumb"
+                    data-sr-index="{{ loop.index0 }}"
+                    data-sr-src="{{ it.photo.src }}"
+                    data-sr-alt="{{ it.photo.alt }}"
+                    data-sr-caption="{{ it.caption }}"
+                    aria-haspopup="dialog">
+              <span class="sr-lightbox__frame">
+                <img class="sr-lightbox__img" src="{{ it.photo.src }}" alt="{{ it.photo.alt }}" loading="lazy">
+                <span class="sr-lightbox__zoom" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><line x1="16.5" y1="16.5" x2="21" y2="21"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+                </span>
+              </span>
+              {% if module.show_captions and it.caption %}
+                <span class="sr-lightbox__cap">{{ it.caption }}</span>
+              {% endif %}
+            </button>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+
+    {% if module.cta.show_cta and module.cta.cta_text %}
+      <div class="sr-lightbox__foot">
+        <a class="sr-lightbox__cta" href="{{ module.cta.cta_link.href }}">{{ module.cta.cta_text }}</a>
+      </div>
+    {% endif %}
+
+    <div class="sr-lightbox__overlay" role="dialog" aria-modal="true" aria-label="Image viewer" hidden>
+      <div class="sr-lightbox__backdrop" data-sr-close="1"></div>
+      <button type="button" class="sr-lightbox__close" data-sr-close="1" aria-label="Close viewer">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="18" y1="6" x2="6" y2="18"></line></svg>
+      </button>
+      <button type="button" class="sr-lightbox__nav sr-lightbox__nav--prev" data-sr-prev="1" aria-label="Previous image">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 5 8 12 15 19"></polyline></svg>
+      </button>
+      <button type="button" class="sr-lightbox__nav sr-lightbox__nav--next" data-sr-next="1" aria-label="Next image">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 5 16 12 9 19"></polyline></svg>
+      </button>
+      <figure class="sr-lightbox__stage">
+        <img class="sr-lightbox__full" src="" alt="">
+        <figcaption class="sr-lightbox__fullcap"></figcaption>
+        <span class="sr-lightbox__count"></span>
+      </figure>
+    </div>
+  </div>
+</section>

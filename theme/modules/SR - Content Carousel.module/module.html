@@ -1,0 +1,51 @@
+<section class="srh-sec">
+  {% if module.heading_group.show_heading %}
+    <header class="srh-sec__head">
+      {% if module.heading_group.eyebrow %}<p class="srh-eyebrow">{{ module.heading_group.eyebrow }}</p>{% endif %}
+      {% if module.heading_group.heading %}<h2 class="srh-h2">{{ module.heading_group.heading }}</h2>{% endif %}
+      {% if module.heading_group.lead %}<p class="srh-lead">{{ module.heading_group.lead }}</p>{% endif %}
+    </header>
+  {% endif %}
+
+  <div class="sr-carousel"
+       data-autoplay="{% if module.autoplay %}1{% else %}0{% endif %}"
+       data-interval="{{ module.autoplay_seconds|default(6) }}">
+    <div class="sr-carousel__stage">
+      <button class="sr-carousel__arrow sr-carousel__arrow--prev" type="button" aria-label="Previous slide">
+        <span aria-hidden="true">&#8249;</span>
+      </button>
+
+      <div class="sr-carousel__viewport">
+        <ul class="sr-carousel__track" role="list">
+          {% for item in module.slides %}
+            <li class="sr-carousel__slide{% if loop.first %} sr-carousel__slide--active{% endif %}"
+                role="listitem"
+                data-index="{{ loop.index0 }}"
+                {% if not loop.first %}aria-hidden="true"{% endif %}>
+              <div class="sr-carousel__card">
+                <div class="sr-carousel__content">{{ item.slide_body }}</div>
+              </div>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <button class="sr-carousel__arrow sr-carousel__arrow--next" type="button" aria-label="Next slide">
+        <span aria-hidden="true">&#8250;</span>
+      </button>
+    </div>
+
+    {% if module.slides|length > 1 %}
+      <div class="sr-carousel__dots" role="tablist" aria-label="Choose slide">
+        {% for item in module.slides %}
+          <button class="sr-carousel__dot{% if loop.first %} sr-carousel__dot--active{% endif %}"
+                  type="button"
+                  role="tab"
+                  data-index="{{ loop.index0 }}"
+                  aria-label="Go to slide {{ loop.index }}"
+                  {% if loop.first %}aria-selected="true"{% else %}aria-selected="false"{% endif %}></button>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</section>

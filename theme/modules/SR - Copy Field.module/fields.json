@@ -1,0 +1,92 @@
+[
+  {
+    "name": "heading_eyebrow",
+    "label": "Eyebrow (optional)",
+    "type": "text",
+    "required": false,
+    "default": "Get in touch",
+    "id": "20180001-0001-0001-0001-000000000001"
+  },
+  {
+    "name": "heading_title",
+    "label": "Heading (optional)",
+    "type": "text",
+    "required": false,
+    "default": "Reach SunRiver directly",
+    "id": "20180002-0001-0001-0001-000000000002"
+  },
+  {
+    "name": "heading_lead",
+    "label": "Lead text (optional)",
+    "type": "richtext",
+    "required": false,
+    "default": "<p>Copy what you need and send a note. One person reads every message.</p>",
+    "id": "20180003-0001-0001-0001-000000000003"
+  },
+  {
+    "name": "copy_items",
+    "label": "Copy fields",
+    "type": "group",
+    "occurrence": {
+      "min": 1,
+      "max": 8,
+      "default": 2
+    },
+    "default": [
+      {
+        "field_label": "Email",
+        "field_value": "hello@sunriverconsulting.com",
+        "field_icon": {
+          "src": "",
+          "alt": ""
+        }
+      },
+      {
+        "field_label": "Phone",
+        "field_value": "(406) 555-0142",
+        "field_icon": {
+          "src": "",
+          "alt": ""
+        }
+      }
+    ],
+    "children": [
+      {
+        "name": "field_label",
+        "label": "Label",
+        "type": "text",
+        "required": true,
+        "default": "Email",
+        "id": "20180005-0001-0001-0001-000000000005"
+      },
+      {
+        "name": "field_value",
+        "label": "Value to copy",
+        "type": "text",
+        "required": true,
+        "default": "hello@sunriverconsulting.com",
+        "id": "20180006-0001-0001-0001-000000000006"
+      },
+      {
+        "name": "field_icon",
+        "label": "Icon (optional)",
+        "type": "image",
+        "required": false,
+        "default": {
+          "src": "",
+          "alt": ""
+        },
+        "id": "20180007-0001-0001-0001-000000000007"
+      }
+    ],
+    "id": "20180004-0001-0001-0001-000000000004"
+  },
+  {
+    "name": "copied_text",
+    "label": "Confirmation text",
+    "type": "text",
+    "required": false,
+    "default": "Copied",
+    "id": "20180008-0001-0001-0001-000000000008"
+  }
+]

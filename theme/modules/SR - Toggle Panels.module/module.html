@@ -1,0 +1,27 @@
+<section class="srh-sec">
+  <div class="srh-sec__inner">
+    {% if module.heading_eyebrow %}<span class="srh-eyebrow">{{ module.heading_eyebrow }}</span>{% endif %}
+    {% if module.heading_title %}<h2 class="srh-h2">{{ module.heading_title }}</h2>{% endif %}
+    {% if module.heading_lead %}<p class="srh-lead">{{ module.heading_lead }}</p>{% endif %}
+
+    <div class="sr-toggle" data-multiple="{% if module.allow_multiple_open %}1{% else %}0{% endif %}">
+      {% for item in module.panels %}
+      <div class="sr-toggle__panel{% if item.panel_open %} is-open{% endif %}">
+        <h3 class="sr-toggle__title">
+          <button type="button" class="sr-toggle__head" aria-expanded="{% if item.panel_open %}true{% else %}false{% endif %}">
+            <span class="sr-toggle__label">{{ item.panel_heading }}</span>
+            <span class="sr-toggle__chev" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="20" height="20" focusable="false">
+                <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </span>
+          </button>
+        </h3>
+        <div class="sr-toggle__body">
+          <div class="sr-toggle__rich">{{ item.panel_body }}</div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,66 @@
+{# SR Savings Calculator. Live slider-driven estimate (hours * rate * weeks). Self-inits via module.js (all .sr-savings on the page). Server renders the final number so it shows before JS runs. Drop into a page whose dnd_area is wrapped in .srh. #}
+{% set s1_min = module.slider1_min %}{% set s1_max = module.slider1_max %}{% set s1_def = module.slider1_default %}
+{% set s2_min = module.slider2_min %}{% set s2_max = module.slider2_max %}{% set s2_def = module.slider2_default %}
+{% set s3_on = module.slider3_enabled %}
+{% set s3_def = s3_on ? module.slider3_default : 52 %}
+{% set base_result = (s1_def * s2_def * s3_def)|round(0, "floor")|int %}
+<section class="srh-sec">
+  <div class="srh-sec__inner" style="max-width:980px;">
+    {% if module.eyebrow or module.heading or module.lead %}
+    <div style="text-align:center;margin-bottom:1.8rem;">
+      {% if module.eyebrow %}<span class="srh-eyebrow" style="color:var(--river);">{{ module.eyebrow }}</span>{% endif %}
+      {% if module.heading %}<h2 class="srh-h2">{{ module.heading }}</h2>{% endif %}
+      {% if module.lead %}<p class="srh-lead">{{ module.lead }}</p>{% endif %}
+    </div>
+    {% endif %}
+
+    <div class="sr-savings"
+         data-weeks-fixed="{{ s3_on ? 0 : 52 }}">
+      <div class="sr-savings__panel">
+        <div class="sr-savings__controls">
+
+          <div class="sr-savings__field">
+            <div class="sr-savings__row">
+              <label class="sr-savings__label" for="{{ name }}-s1">{{ module.slider1_label }}</label>
+              <span class="sr-savings__readout" data-out="1">{{ s1_def|int }}{{ module.slider1_suffix }}</span>
+            </div>
+            <input class="sr-savings__slider" type="range" id="{{ name }}-s1" data-slider="1"
+                   min="{{ s1_min }}" max="{{ s1_max }}" step="{{ module.slider1_step }}" value="{{ s1_def }}"
+                   data-suffix="{{ module.slider1_suffix }}" aria-label="{{ module.slider1_label }}">
+          </div>
+
+          <div class="sr-savings__field">
+            <div class="sr-savings__row">
+              <label class="sr-savings__label" for="{{ name }}-s2">{{ module.slider2_label }}</label>
+              <span class="sr-savings__readout" data-out="2">{{ module.slider2_prefix }}{{ s2_def|int }}</span>
+            </div>
+            <input class="sr-savings__slider" type="range" id="{{ name }}-s2" data-slider="2"
+                   min="{{ s2_min }}" max="{{ s2_max }}" step="{{ module.slider2_step }}" value="{{ s2_def }}"
+                   data-prefix="{{ module.slider2_prefix }}" aria-label="{{ module.slider2_label }}">
+          </div>
+
+          {% if s3_on %}
+          <div class="sr-savings__field">
+            <div class="sr-savings__row">
+              <label class="sr-savings__label" for="{{ name }}-s3">{{ module.slider3_label }}</label>
+              <span class="sr-savings__readout" data-out="3">{{ s3_def|int }}{{ module.slider3_suffix }}</span>
+            </div>
+            <input class="sr-savings__slider" type="range" id="{{ name }}-s3" data-slider="3"
+                   min="{{ module.slider3_min }}" max="{{ module.slider3_max }}" step="{{ module.slider3_step }}" value="{{ s3_def }}"
+                   data-suffix="{{ module.slider3_suffix }}" aria-label="{{ module.slider3_label }}">
+          </div>
+          {% endif %}
+        </div>
+
+        <div class="sr-savings__result">
+          <span class="sr-savings__result-label">{{ module.result_label }}</span>
+          <span class="sr-savings__amount" data-amount aria-live="polite">${{ "{:,.0f}".format(base_result) }}</span>
+          {% if module.result_note %}<span class="sr-savings__note">{{ module.result_note }}</span>{% endif %}
+          {% if module.cta_text %}
+          <a class="sr-savings__cta" href="{{ module.cta_url.href }}">{{ module.cta_text }}</a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

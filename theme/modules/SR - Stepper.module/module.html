@@ -1,0 +1,46 @@
+<section class="srh-sec">
+  {% if module.heading_group.eyebrow or module.heading_group.title or module.heading_group.lead %}
+    <header class="sr-stepper__head">
+      {% if module.heading_group.eyebrow %}<p class="srh-eyebrow">{{ module.heading_group.eyebrow }}</p>{% endif %}
+      {% if module.heading_group.title %}<h2 class="srh-h2">{{ module.heading_group.title }}</h2>{% endif %}
+      {% if module.heading_group.lead %}<p class="srh-lead">{{ module.heading_group.lead }}</p>{% endif %}
+    </header>
+  {% endif %}
+
+  <div class="sr-stepper" style="--sr-stepper-count: {{ module.steps|length }};">
+    <div class="sr-stepper__rail" role="tablist" aria-label="Steps">
+      <div class="sr-stepper__track" aria-hidden="true">
+        <span class="sr-stepper__progress"></span>
+      </div>
+      {% for step in module.steps %}
+        <button
+          type="button"
+          class="sr-stepper__tab{% if loop.first %} is-active{% endif %}"
+          role="tab"
+          id="sr-stepper-tab-{{ loop.index }}"
+          aria-selected="{{ 'true' if loop.first else 'false' }}"
+          aria-controls="sr-stepper-panel-{{ loop.index }}"
+          tabindex="{{ '0' if loop.first else '-1' }}"
+          data-sr-step="{{ loop.index0 }}">
+          <span class="sr-stepper__num" aria-hidden="true">{{ loop.index }}</span>
+          <span class="sr-stepper__label">{{ step.step_title }}</span>
+        </button>
+      {% endfor %}
+    </div>
+
+    <div class="sr-stepper__panels">
+      {% for step in module.steps %}
+        <div
+          class="sr-stepper__panel{% if loop.first %} is-active{% endif %}"
+          role="tabpanel"
+          id="sr-stepper-panel-{{ loop.index }}"
+          aria-labelledby="sr-stepper-tab-{{ loop.index }}"
+          data-sr-panel="{{ loop.index0 }}"
+          {% if not loop.first %}hidden{% endif %}>
+          {% if step.step_title %}<h3 class="sr-stepper__panel-title">{{ step.step_title }}</h3>{% endif %}
+          <div class="sr-stepper__detail">{{ step.detail }}</div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

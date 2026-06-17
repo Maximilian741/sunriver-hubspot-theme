@@ -1,0 +1,213 @@
+.sr-baslider {
+  position: relative;
+  max-width: 960px;
+  margin: 0 auto;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 18px 48px rgba(4, 18, 29, 0.28);
+  background: #04121d;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+.sr-baslider__frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  cursor: ew-resize;
+}
+
+/* Older browsers without aspect-ratio fall back to a padding ratio. */
+@supports not (aspect-ratio: 16 / 9) {
+  .sr-baslider__frame {
+    height: 0;
+    padding-bottom: 56.25%;
+  }
+}
+
+.sr-baslider__img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+}
+
+.sr-baslider__img--empty {
+  background: linear-gradient(135deg, #0e8fae 0%, #1C5B77 100%);
+}
+
+.sr-baslider__img--before.sr-baslider__img--empty {
+  background: linear-gradient(135deg, #1C5B77 0%, #04121d 100%);
+}
+
+/* After layer is clipped by its width; its image stays full-frame width. */
+.sr-baslider__after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 50%;
+  overflow: hidden;
+  will-change: width;
+}
+
+.sr-baslider__after .sr-baslider__img--after {
+  width: 960px;
+  max-width: none;
+}
+
+/* Keep the after image pinned to the frame width on responsive layouts. */
+.sr-baslider__after {
+  --sr-frame-w: 100%;
+}
+
+.sr-baslider__after .sr-baslider__img {
+  width: 100vw;
+  max-width: 960px;
+}
+
+/* The after image must match frame width, not the clipped column width.
+   Use a wrapper-width trick: image fills the frame by anchoring to frame. */
+.sr-baslider .sr-baslider__after .sr-baslider__img--after {
+  width: auto;
+  height: 100%;
+  min-width: 100%;
+  left: 0;
+}
+
+.sr-baslider__tag {
+  position: absolute;
+  top: 14px;
+  z-index: 3;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #04121d;
+  pointer-events: none;
+  box-shadow: 0 4px 14px rgba(4, 18, 29, 0.3);
+}
+
+.sr-baslider__tag--before {
+  right: 14px;
+  background: #fff;
+  color: #0c2114;
+}
+
+.sr-baslider__tag--after {
+  left: 14px;
+  background: linear-gradient(135deg, #21c700 0%, #1bd24a 100%);
+  color: #04121d;
+}
+
+.sr-baslider__handle {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  height: 100%;
+  width: 56px;
+  margin: 0;
+  padding: 0;
+  transform: translateX(-50%);
+  background: transparent;
+  border: 0;
+  cursor: ew-resize;
+  z-index: 4;
+  touch-action: none;
+}
+
+.sr-baslider__handle:focus {
+  outline: none;
+}
+
+.sr-baslider__line {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 3px;
+  height: 100%;
+  transform: translateX(-50%);
+  background: #fff;
+  box-shadow: 0 0 0 1px rgba(4, 18, 29, 0.2);
+}
+
+.sr-baslider__knob {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  box-shadow: 0 6px 18px rgba(4, 18, 29, 0.35);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.sr-baslider__handle:hover .sr-baslider__knob,
+.sr-baslider--active .sr-baslider__knob {
+  transform: translate(-50%, -50%) scale(1.08);
+  box-shadow: 0 8px 22px rgba(33, 199, 0, 0.4);
+}
+
+.sr-baslider__handle:focus-visible .sr-baslider__knob {
+  box-shadow: 0 0 0 3px rgba(33, 199, 0, 0.55), 0 6px 18px rgba(4, 18, 29, 0.35);
+}
+
+.sr-baslider__arrow {
+  width: 0;
+  height: 0;
+  border-top: 6px solid transparent;
+  border-bottom: 6px solid transparent;
+}
+
+.sr-baslider__arrow--l {
+  border-right: 8px solid #0e8fae;
+}
+
+.sr-baslider__arrow--r {
+  border-left: 8px solid #0e8fae;
+}
+
+.sr-baslider__cta {
+  text-align: center;
+  margin: 22px 0 0;
+}
+
+@media (max-width: 600px) {
+  .sr-baslider {
+    border-radius: 14px;
+  }
+  .sr-baslider__tag {
+    top: 10px;
+    padding: 5px 11px;
+    font-size: 11px;
+  }
+  .sr-baslider__tag--before { right: 10px; }
+  .sr-baslider__tag--after { left: 10px; }
+  .sr-baslider__knob {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sr-baslider__knob {
+    transition: none;
+  }
+  .sr-baslider__after {
+    will-change: auto;
+  }
+}

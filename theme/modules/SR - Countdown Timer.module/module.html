@@ -1,0 +1,44 @@
+<section class="srh-sec">
+  <div class="srh-sec__inner" style="text-align:center;max-width:920px;margin-inline:auto;">
+    {% if module.eyebrow %}<span class="srh-eyebrow">{{ module.eyebrow }}</span>{% endif %}
+    {% if module.heading %}<h2 class="srh-h2">{{ module.heading }}</h2>{% endif %}
+    {% if module.lead_text %}<div class="srh-lead" style="margin-left:auto;margin-right:auto;">{{ module.lead_text }}</div>{% endif %}
+
+    <div class="sr-countdown"
+         data-target="{{ module.target_datetime }}"
+         data-utc="{% if module.use_utc %}1{% else %}0{% endif %}">
+
+      <div class="sr-countdown__clock" role="timer" aria-live="polite">
+        <div class="sr-countdown__box">
+          <span class="sr-countdown__num" data-unit="days">0</span>
+          <span class="sr-countdown__lbl">{{ module.days_label or "Days" }}</span>
+        </div>
+        <span class="sr-countdown__sep" aria-hidden="true">:</span>
+        <div class="sr-countdown__box">
+          <span class="sr-countdown__num" data-unit="hours">0</span>
+          <span class="sr-countdown__lbl">{{ module.hours_label or "Hours" }}</span>
+        </div>
+        <span class="sr-countdown__sep" aria-hidden="true">:</span>
+        <div class="sr-countdown__box">
+          <span class="sr-countdown__num" data-unit="minutes">0</span>
+          <span class="sr-countdown__lbl">{{ module.minutes_label or "Minutes" }}</span>
+        </div>
+        <span class="sr-countdown__sep" aria-hidden="true">:</span>
+        <div class="sr-countdown__box">
+          <span class="sr-countdown__num" data-unit="seconds">0</span>
+          <span class="sr-countdown__lbl">{{ module.seconds_label or "Seconds" }}</span>
+        </div>
+      </div>
+
+      {% if module.finished_text %}
+        <div class="sr-countdown__done" hidden>{{ module.finished_text }}</div>
+      {% endif %}
+
+      {% if module.show_cta and module.cta_text %}
+        <div class="sr-countdown__cta">
+          <a class="srh-btn srh-btn--primary" href="{{ module.cta_url.href }}">{{ module.cta_text }}</a>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>

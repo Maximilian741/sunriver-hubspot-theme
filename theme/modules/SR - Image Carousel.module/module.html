@@ -1,0 +1,65 @@
+{# SR Image Carousel. Self-inits via module.js (all .sr-imgcar on the page). First slide renders pre-JS so the widget is meaningful before JS runs. Drop into a page whose dnd_area is wrapped in .srh. #}
+<section class="srh-sec">
+  <div class="srh-sec__inner" style="max-width:1040px;">
+    {% if module.eyebrow or module.heading or module.lead %}
+      <div style="text-align:center;margin-bottom:1.6rem;">
+        {% if module.eyebrow %}<span class="srh-eyebrow" style="color:var(--gold);">{{ module.eyebrow }}</span>{% endif %}
+        {% if module.heading %}<h2 class="srh-h2">{{ module.heading }}</h2>{% endif %}
+        {% if module.lead %}<p class="srh-lead">{{ module.lead }}</p>{% endif %}
+      </div>
+    {% endif %}
+
+    <div class="sr-imgcar"
+         data-autoplay="{% if module.autoplay %}1{% else %}0{% endif %}"
+         data-interval="{{ module.autoplay_seconds|default(6) }}"
+         aria-roledescription="carousel"
+         aria-label="{{ module.heading|default('Selected work') }}">
+      <div class="sr-imgcar__viewport">
+        <ul class="sr-imgcar__track" role="list">
+          {% for s in module.slides %}
+            <li class="sr-imgcar__slide{% if loop.first %} is-active{% endif %}"
+                role="group"
+                aria-roledescription="slide"
+                aria-label="Slide {{ loop.index }} of {{ module.slides|length }}"
+                aria-hidden="{% if loop.first %}false{% else %}true{% endif %}"
+                data-index="{{ loop.index0 }}">
+              <figure class="sr-imgcar__figure">
+                {% if s.image.src %}
+                  <img class="sr-imgcar__img"
+                       src="{{ s.image.src }}"
+                       alt="{{ s.image.alt }}"
+                       {% if not loop.first %}loading="lazy"{% endif %}
+                       draggable="false">
+                {% else %}
+                  <div class="sr-imgcar__placeholder" aria-hidden="true">SunRiver</div>
+                {% endif %}
+                {% if module.show_captions and s.caption %}
+                  <figcaption class="sr-imgcar__caption">{{ s.caption }}</figcaption>
+                {% endif %}
+              </figure>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      {% if module.slides|length > 1 %}
+        <button class="sr-imgcar__nav sr-imgcar__nav--prev" type="button" aria-label="Previous slide">
+          <span aria-hidden="true">&#8592;</span>
+        </button>
+        <button class="sr-imgcar__nav sr-imgcar__nav--next" type="button" aria-label="Next slide">
+          <span aria-hidden="true">&#8594;</span>
+        </button>
+
+        <div class="sr-imgcar__dots" role="group" aria-label="Choose slide">
+          {% for s in module.slides %}
+            <button class="sr-imgcar__dot{% if loop.first %} is-active{% endif %}"
+                    type="button"
+                    data-index="{{ loop.index0 }}"
+                    aria-label="Go to slide {{ loop.index }}"
+                    {% if loop.first %}aria-current="true"{% endif %}></button>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
