@@ -3,10 +3,25 @@
     if (root.getAttribute('data-sr-init')) return;
     root.setAttribute('data-sr-init', '1');
 
-    var chips = [].slice.call(root.querySelectorAll('.sr-filtergal__chip'));
+    var chipBox = root.querySelector('.sr-filtergal__chips');
     var items = [].slice.call(root.querySelectorAll('.sr-filtergal__item'));
     var empty = root.querySelector('.sr-filtergal__empty');
-    if (!chips.length || !items.length) return;
+    if (!chipBox || !items.length) return;
+
+    // Build unique category chips from the items, deduped here (reliable, unlike a HubL loop accumulator).
+    var seen = {};
+    items.forEach(function (item) {
+      var cat = (item.getAttribute('data-cat') || '').trim();
+      if (!cat || seen[cat]) return;
+      seen[cat] = true;
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'sr-filtergal__chip';
+      b.setAttribute('data-cat', cat);
+      b.textContent = cat;
+      chipBox.appendChild(b);
+    });
+    var chips = [].slice.call(chipBox.querySelectorAll('.sr-filtergal__chip'));
 
     var reduce = (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) || false;
 

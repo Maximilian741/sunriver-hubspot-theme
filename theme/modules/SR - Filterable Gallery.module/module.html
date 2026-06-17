@@ -9,18 +9,10 @@
     </div>
     {% endif %}
 
-    {# Build a unique, ordered list of categories server-side so chips render before JS. #}
-    {% set seen = [] %}
+    {# JS builds the unique category chips from the items (dedup in JS avoids the HubL for-loop set-scoping trap). Server renders only the All chip. #}
     <div class="sr-filtergal" data-all="{{ module.all_label|default('All', true) }}">
       <div class="sr-filtergal__chips" role="tablist" aria-label="Filter gallery">
         <button class="sr-filtergal__chip is-on" type="button" data-cat="__all__">{{ module.all_label|default('All', true) }}</button>
-        {% for it in module.items %}
-          {% set cat = it.item_category|trim %}
-          {% if cat and cat not in seen %}
-            {% set seen = seen + [cat] %}
-            <button class="sr-filtergal__chip" type="button" data-cat="{{ cat }}">{{ cat }}</button>
-          {% endif %}
-        {% endfor %}
       </div>
 
       <div class="sr-filtergal__grid">
