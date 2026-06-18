@@ -13,9 +13,12 @@
       <div class="sr-barchart__plot" style="--sr-bars: {{ module.bars|length }};">
         {% for it in module.bars %}
           {% set pct = ([ it.bar_value|float / max_value * 100, 100 ]|min)|round(2) %}
+          {# keep tiny values legible: never paint the bar below ~6% of the track #}
+          {% set h = ([ pct, 6 ]|max)|round(2) %}
           <div class="sr-barchart__col">
             <div class="sr-barchart__track">
-              <div class="sr-barchart__bar" data-value="{{ it.bar_value }}" data-pct="{{ pct }}" style="height: {{ pct }}%;">
+              <div class="sr-barchart__bar" data-value="{{ it.bar_value }}" data-pct="{{ pct }}" style="height: {{ h }}%;">
+                <span class="sr-barchart__fill" style="animation-delay: {{ (loop.index0 * 0.09)|round(2) }}s;"></span>
                 <span class="sr-barchart__num">{{ it.bar_value|round }}{{ module.value_suffix }}</span>
               </div>
             </div>

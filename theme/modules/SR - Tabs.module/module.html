@@ -1,4 +1,5 @@
-{# SR Tabs, JS-driven tabbed content. Self-inits via module.js (all .sr-tabs on the page). Drop into a page whose dnd_area is wrapped in .srh. #}
+{# SR Tabs — pure-CSS tabbed content (hidden radio inputs drive the panels), so
+   switching works with zero JS. Drop into a page whose dnd_area is wrapped in .srh. #}
 <section class="srh-sec">
   <div class="srh-sec__inner" style="max-width:920px;">
     {% if module.eyebrow or module.heading %}
@@ -7,17 +8,21 @@
       {% if module.heading %}<h2 class="srh-h2">{{ module.heading }}</h2>{% endif %}
     </div>
     {% endif %}
+    {% set grp = name|default('srtabs') %}
     <div class="sr-tabs">
+      {% for t in module.tabs %}
+        <input class="sr-tabs__radio" type="radio" name="srtabs-{{ grp }}" id="srtab-{{ grp }}-{{ loop.index0 }}"{% if loop.first %} checked{% endif %}>
+      {% endfor %}
       <div class="sr-tabs__nav" role="tablist">
         {% for t in module.tabs %}
-          <button class="sr-tabs__tab{% if loop.first %} is-on{% endif %}" type="button" role="tab" data-i="{{ loop.index0 }}">{{ t.tab_label }}</button>
+          <label class="sr-tabs__tab" for="srtab-{{ grp }}-{{ loop.index0 }}">{{ t.tab_label }}</label>
         {% endfor %}
       </div>
-      {% for t in module.tabs %}
-        <div class="sr-tabs__panel{% if loop.first %} is-on{% endif %}" data-i="{{ loop.index0 }}">
-          <div class="sr-post">{{ t.tab_body }}</div>
-        </div>
-      {% endfor %}
+      <div class="sr-tabs__panels">
+        {% for t in module.tabs %}
+          <div class="sr-tabs__panel"><div class="sr-post">{{ t.tab_body }}</div></div>
+        {% endfor %}
+      </div>
     </div>
   </div>
 </section>

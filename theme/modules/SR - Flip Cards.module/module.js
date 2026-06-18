@@ -1,42 +1,33 @@
+/* SR - Flip Cards.
+   Cards reveal their back face on click (toggle), and optionally on hover.
+   The reveal is CSS-driven; with JS off, focus-within still reveals on click.
+   This script marks the root .sr-flip--js so the CSS uses the click-toggle path,
+   wires the toggle buttons, and enables hover-flip when configured. */
 (function () {
   function init(root) {
     if (root.getAttribute('data-sr-init')) return;
     root.setAttribute('data-sr-init', '1');
+    root.classList.add('sr-flip--js');
 
-    var reduce = (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) || false;
     var hoverFlip = root.getAttribute('data-hover') === '1';
-    var cards = [].slice.call(root.querySelectorAll('.sr-flip__card'));
-
-    if (reduce) root.classList.add('is-reduced');
-
-    function setFlipped(card, on) {
-      if (on) card.classList.add('is-flipped');
-      else card.classList.remove('is-flipped');
-      var btn = card.querySelector('.sr-flip__toggle');
-      if (btn) btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+    if (hoverFlip && window.matchMedia && window.matchMedia('(hover: hover)').matches) {
+      root.classList.add('sr-flip--hover');
     }
 
+    var cards = [].slice.call(root.querySelectorAll('.sr-flip__card'));
     cards.forEach(function (card) {
       var btn = card.querySelector('.sr-flip__toggle');
       if (!btn) return;
-
-      // Server renders cards showing the front; ensure a known JS state.
-      setFlipped(card, false);
-
+      btn.setAttribute('aria-pressed', 'false');
       btn.addEventListener('click', function () {
-        setFlipped(card, !card.classList.contains('is-flipped'));
+        var on = !card.classList.contains('is-flipped');
+        card.classList.toggle('is-flipped', on);
+        btn.setAttribute('aria-pressed', on ? 'true' : 'false');
       });
-
-      if (hoverFlip && !reduce && window.matchMedia && window.matchMedia('(hover: hover)').matches) {
-        card.addEventListener('mouseenter', function () { setFlipped(card, true); });
-        card.addEventListener('mouseleave', function () { setFlipped(card, false); });
-      }
     });
   }
 
-  function boot() {
-    [].slice.call(document.querySelectorAll('.sr-flip')).forEach(init);
-  }
+  function boot() { [].slice.call(document.querySelectorAll('.sr-flip')).forEach(init); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
   else boot();
 })();

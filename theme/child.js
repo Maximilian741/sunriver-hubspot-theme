@@ -379,7 +379,7 @@
     // (neon green -> teal -> river blue -> ink) based on document position, so
     // the transition ebbs and flows organically instead of being a flat gradient.
     var SMOKE_VEIL = COMMON +
-      'void main(){vec2 p=(gl_FragCoord.xy-0.5*u_res.xy)/u_res.y;float t=u_time*0.16;' +
+      'void main(){vec2 p=(gl_FragCoord.xy-0.5*u_res.xy)/u_res.y;float t=u_time*0.125;' +
       'vec2 q=p*1.25;q.y+=t*0.85;q+=0.72*vec2(fbm(q+t*1.3),fbm(q*1.2-t*1.05+5.0));q=warp(q,p);' +
       'float m1=fbm(q*1.25+vec2(t*0.4,0.0));float m2=fbm(q*2.4+vec2(t*0.7,t*1.8));' +
       'float dens=smoothstep(0.16,0.92,m1*0.62+m2*0.55);' +
@@ -481,6 +481,50 @@
     canvases.forEach(function (c) {
       c.setAttribute('data-srx-init', '1');
       run(c, FRAG[c.getAttribute('data-srx-shader')] || EMBER);
+    });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
+
+/* Hero card interactivity: a cursor spotlight + gentle photo parallax on the
+   .srh-photo hero. Pointer-fine devices only; respects reduced motion. */
+(function () {
+  function init() {
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var fine = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    if (reduce || !fine) return;
+
+    Array.prototype.forEach.call(document.querySelectorAll('.srh-photo'), function (hero) {
+      if (hero.getAttribute('data-srh-tilt')) return;
+      hero.setAttribute('data-srh-tilt', '1');
+      var bg = hero.querySelector('.srh-photo__bg');
+      var raf = 0, mx = 50, my = 38, bx = 0, by = 0;
+
+      function paint() {
+        raf = 0;
+        hero.style.setProperty('--mx', mx + '%');
+        hero.style.setProperty('--my', my + '%');
+        if (bg) {
+          bg.style.setProperty('--bgx', bx.toFixed(1) + 'px');
+          bg.style.setProperty('--bgy', by.toFixed(1) + 'px');
+        }
+      }
+      hero.addEventListener('pointermove', function (e) {
+        var r = hero.getBoundingClientRect();
+        if (!r.width || !r.height) return;
+        var px = (e.clientX - r.left) / r.width;
+        var py = (e.clientY - r.top) / r.height;
+        mx = px * 100; my = py * 100;
+        bx = (0.5 - px) * 24; by = (0.5 - py) * 18;
+        hero.classList.add('is-live');
+        if (!raf) raf = requestAnimationFrame(paint);
+      });
+      hero.addEventListener('pointerleave', function () {
+        hero.classList.remove('is-live');
+        mx = 50; my = 38; bx = 0; by = 0;
+        if (!raf) raf = requestAnimationFrame(paint);
+      });
     });
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);

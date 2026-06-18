@@ -7,41 +7,72 @@
   {% if start == null or start < 0 or start > 100 %}{% set start = 50 %}{% endif %}
 
   <div class="sr-baslider"
+       style="--pos: {{ start }}%;"
        data-start="{{ start }}"
        role="group"
-       aria-label="Before and after image comparison">
+       aria-label="Before and after comparison">
 
     <div class="sr-baslider__frame">
 
-      {% if module.before_image.src %}
-      <img class="sr-baslider__img sr-baslider__img--before"
-           src="{{ module.before_image.src }}"
-           alt="{{ module.before_image.alt }}"
-           draggable="false">
-      {% else %}
-      <div class="sr-baslider__img sr-baslider__img--before sr-baslider__img--empty"></div>
-      {% endif %}
-
-      <div class="sr-baslider__after" style="width: {{ start }}%;">
-        {% if module.after_image.src %}
-        <img class="sr-baslider__img sr-baslider__img--after"
-             src="{{ module.after_image.src }}"
-             alt="{{ module.after_image.alt }}"
-             draggable="false">
+      {# ---------- BEFORE (sits underneath, fills the frame) ---------- #}
+      <div class="sr-baslider__scene sr-baslider__scene--before">
+        {% if module.before_image.src %}
+          <img class="sr-baslider__img" src="{{ module.before_image.src }}" alt="{{ module.before_image.alt }}" draggable="false">
         {% else %}
-        <div class="sr-baslider__img sr-baslider__img--after sr-baslider__img--empty"></div>
+          {# Built-in "dated site" mock so the widget demonstrates a rebuild with no uploads. #}
+          <div class="sr-mock sr-mock--old" aria-hidden="true">
+            <div class="sr-mock__bar">
+              <span class="sr-mock__dot"></span><span class="sr-mock__url">www.yoursite.com/index.htm</span>
+            </div>
+            <div class="sr-mock__old-head">WELCOME TO OUR WEBSITE!!!</div>
+            <div class="sr-mock__old-nav">[ Home ] | [ Products ] | [ About Us ] | [ Contact ]</div>
+            <div class="sr-mock__old-band">&#9733; UNDER CONSTRUCTION &#9733;</div>
+            <div class="sr-mock__old-body">
+              <div class="sr-mock__old-imgbox"><span>IMAGE</span></div>
+              <div class="sr-mock__old-copy">
+                <p>Thank you for visiting our home page. We are your number one source for quality service in the local area and beyond.</p>
+                <ul><li>&raquo; Cheap prices</li><li>&raquo; Fast service</li><li>&raquo; Family owned</li></ul>
+              </div>
+            </div>
+            <div class="sr-mock__old-foot">Best viewed in 800&#215;600 &nbsp;&middot;&nbsp; Hit Counter: 000142</div>
+          </div>
+        {% endif %}
+      </div>
+
+      {# ---------- AFTER (clipped from the left edge to --pos) ---------- #}
+      <div class="sr-baslider__scene sr-baslider__scene--after">
+        {% if module.after_image.src %}
+          <img class="sr-baslider__img" src="{{ module.after_image.src }}" alt="{{ module.after_image.alt }}" draggable="false">
+        {% else %}
+          {# Built-in "modern site" mock. #}
+          <div class="sr-mock sr-mock--new" aria-hidden="true">
+            <div class="sr-mock__nav">
+              <span class="sr-mock__brand"><span class="sr-mock__logo"></span>SunRiver</span>
+              <span class="sr-mock__links"><i></i><i></i><i></i></span>
+              <span class="sr-mock__navcta">Get started</span>
+            </div>
+            <div class="sr-mock__hero">
+              <div class="sr-mock__kicker">CLOUD &middot; SECURITY &middot; CMS</div>
+              <div class="sr-mock__h">Build something that lasts.</div>
+              <div class="sr-mock__line"></div>
+              <div class="sr-mock__line sr-mock__line--short"></div>
+              <span class="sr-mock__btn">Get a quick estimate</span>
+            </div>
+            <div class="sr-mock__cards">
+              <span class="sr-mock__card"></span><span class="sr-mock__card"></span><span class="sr-mock__card"></span>
+            </div>
+          </div>
         {% endif %}
       </div>
 
       {% if module.show_labels %}
-      <span class="sr-baslider__tag sr-baslider__tag--before">{{ module.before_label }}</span>
       <span class="sr-baslider__tag sr-baslider__tag--after">{{ module.after_label }}</span>
+      <span class="sr-baslider__tag sr-baslider__tag--before">{{ module.before_label }}</span>
       {% endif %}
 
       <button type="button"
               class="sr-baslider__handle"
-              style="left: {{ start }}%;"
-              aria-label="Drag to compare"
+              aria-label="Drag to compare before and after"
               role="slider"
               aria-valuemin="0"
               aria-valuemax="100"
@@ -50,7 +81,7 @@
           <span class="sr-baslider__arrow sr-baslider__arrow--l"></span>
           <span class="sr-baslider__arrow sr-baslider__arrow--r"></span>
         </span>
-        <span class="sr-baslider__line" aria-hidden="true"></span>
+        <span class="sr-baslider__line-v" aria-hidden="true"></span>
       </button>
 
     </div>
@@ -58,7 +89,7 @@
 
   {% if module.cta.href and module.cta_label %}
   <p class="sr-baslider__cta">
-    <a class="srh-btn" href="{{ module.cta.href }}">{{ module.cta_label }}</a>
+    <a class="srh-btn srh-btn--ghost" href="{{ module.cta.href }}">{{ module.cta_label }}</a>
   </p>
   {% endif %}
 </section>

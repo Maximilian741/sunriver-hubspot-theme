@@ -1,10 +1,43 @@
 .sr-flip { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; align-items:stretch; }
-.sr-flip__card { position:relative; perspective:1400px; min-height:260px; }
-.sr-flip__inner { position:relative; width:100%; height:100%; min-height:260px; transition:transform .6s cubic-bezier(.4,0,.2,1); transform-style:preserve-3d; }
-.sr-flip__card.is-flipped .sr-flip__inner { transform:rotateY(180deg); }
-.sr-flip__face { position:absolute; inset:0; display:flex; flex-direction:column; justify-content:center; gap:.7rem; padding:clamp(20px,2.6vw,30px); background:#fff; border:1px solid rgba(4,18,13,.06); border-radius:18px; box-shadow:0 24px 60px -38px rgba(4,16,10,.6); -webkit-backface-visibility:hidden; backface-visibility:hidden; overflow:auto; }
-.sr-flip__front { z-index:2; }
-.sr-flip__back { transform:rotateY(180deg); background:linear-gradient(150deg,#06c79b 0%,#1bd24a 60%,#FBC34A 130%); border-color:transparent; box-shadow:0 30px 70px -34px rgba(6,199,155,.55); }
+
+/* Each card STACKS its two faces in one grid cell, so the card grows to the
+   tallest face (no fixed height, no clipping, no scrollbars). The reveal is
+   driven by opacity + a light rotateY, NOT by transform-style:preserve-3d, so
+   it can't break inside transformed/filtered ancestors. */
+.sr-flip__card { position:relative; display:grid; perspective:1100px; min-height:260px; }
+.sr-flip__face {
+  grid-area:1 / 1; min-width:0;
+  display:flex; flex-direction:column; justify-content:center; gap:.7rem;
+  padding:clamp(22px,2.6vw,32px);
+  border-radius:18px;
+  -webkit-backface-visibility:hidden; backface-visibility:hidden;
+  transition:opacity .4s ease, transform .55s cubic-bezier(.4,0,.2,1);
+}
+.sr-flip__front {
+  z-index:2; opacity:1; transform:rotateY(0deg);
+  background:#fff; border:1px solid rgba(4,18,13,.06);
+  box-shadow:0 24px 60px -38px rgba(4,16,10,.6);
+}
+.sr-flip__back {
+  z-index:1; opacity:0; pointer-events:none; transform:rotateY(12deg);
+  background:linear-gradient(150deg,#06c79b 0%,#1bd24a 60%,#FBC34A 130%);
+  border:1px solid transparent;
+  box-shadow:0 30px 70px -34px rgba(6,199,155,.55);
+}
+
+/* Reveal triggers: JS click-toggle (.is-flipped), hover when enabled, and
+   focus-within as the no-JS fallback (clicking the button focuses it). */
+.sr-flip__card.is-flipped .sr-flip__front,
+.sr-flip--hover .sr-flip__card:hover .sr-flip__front,
+.sr-flip:not(.sr-flip--js) .sr-flip__card:focus-within .sr-flip__front {
+  opacity:0; pointer-events:none; transform:rotateY(-12deg); z-index:1;
+}
+.sr-flip__card.is-flipped .sr-flip__back,
+.sr-flip--hover .sr-flip__card:hover .sr-flip__back,
+.sr-flip:not(.sr-flip--js) .sr-flip__card:focus-within .sr-flip__back {
+  opacity:1; pointer-events:auto; transform:rotateY(0deg); z-index:3;
+}
+
 .sr-flip__title { margin:0; font-family:var(--head,"Poppins",sans-serif); font-weight:700; font-size:1.18rem; color:#0c2114; line-height:1.25; }
 .sr-flip__teaser { margin:0; font-size:.97rem; color:#546b5b; line-height:1.5; }
 .sr-flip__toggle { display:inline-flex; align-items:center; gap:9px; align-self:flex-start; margin-top:.6rem; padding:9px 16px; border:0; border-radius:999px; cursor:pointer; font-family:inherit; font-weight:600; font-size:.93rem; color:#04121d; background:linear-gradient(120deg,#21c700,#1bd24a 70%); transition:transform .2s ease, box-shadow .2s ease; }
@@ -21,11 +54,6 @@
 @media (max-width:920px){ .sr-flip { grid-template-columns:repeat(2,minmax(0,1fr)); } }
 @media (max-width:600px){ .sr-flip { grid-template-columns:1fr; } }
 
-/* Reduced-motion and the JS fallback class: no 3D rotation, cross-fade the faces instead. */
-.sr-flip.is-reduced .sr-flip__inner { transform:none !important; }
-.sr-flip.is-reduced .sr-flip__back { transform:none; opacity:0; pointer-events:none; transition:opacity .2s ease; }
-.sr-flip.is-reduced .sr-flip__card.is-flipped .sr-flip__front { opacity:0; pointer-events:none; }
-.sr-flip.is-reduced .sr-flip__card.is-flipped .sr-flip__back { opacity:1; pointer-events:auto; }
 @media (prefers-reduced-motion:reduce){
-  .sr-flip__inner, .sr-flip__toggle, .sr-flip__link { transition:none; }
+  .sr-flip__face { transition:opacity .2s ease; transform:none !important; }
 }

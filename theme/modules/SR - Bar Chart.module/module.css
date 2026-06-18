@@ -4,10 +4,11 @@
   --sr-bc-teal: #06c79b;
   --sr-bc-gold: #fbc34a;
   --sr-bc-ember: #ff7e3a;
+  --sr-bc-track: 260px;
   margin-top: 2.2rem;
   background: #fff;
   border-radius: 18px;
-  padding: 2rem 1.6rem 1.4rem;
+  padding: 2.4rem 1.6rem 1.4rem;
   box-shadow: 0 18px 44px rgba(4, 18, 29, 0.16);
 }
 
@@ -16,22 +17,22 @@
   grid-template-columns: repeat(var(--sr-bars, 5), minmax(0, 1fr));
   align-items: end;
   gap: 0.9rem;
-  height: 300px;
 }
 
 .sr-barchart__col {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100%;
   min-width: 0;
 }
 
+/* The track has an EXPLICIT height so the bar's percentage height always
+   resolves (no dependency on flex sizing or JS). */
 .sr-barchart__track {
   position: relative;
-  flex: 1 1 auto;
   width: 100%;
   max-width: 88px;
+  height: var(--sr-bc-track);
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -47,30 +48,39 @@
   background: rgba(4, 18, 29, 0.12);
 }
 
+/* The bar reserves the correct height immediately (inline style) so the number
+   sits at the right spot. It's transparent; the colored fill animates inside. */
 .sr-barchart__bar {
   position: relative;
   width: 100%;
-  min-height: 4px;
+  min-height: 14px;
+}
+
+/* The fill is the visible colored bar. It is full-size with NO entrance
+   animation and NO JS dependency, so the bar is ALWAYS painted. (Earlier
+   versions grew the bar via JS/animation and could end up stuck at zero height
+   if that stalled, which is what left the chart looking blank.) */
+.sr-barchart__fill {
+  position: absolute;
+  inset: 0;
   border-radius: 12px 12px 4px 4px;
   background: linear-gradient(180deg, var(--sr-bc-green2), var(--sr-bc-teal) 65%, var(--sr-bc-green) 100%);
   box-shadow: 0 6px 16px rgba(6, 199, 155, 0.28);
-  transition: height 1.2s cubic-bezier(0.22, 1, 0.36, 1);
-  will-change: height;
 }
 
-.sr-barchart__col:nth-child(3n+2) .sr-barchart__bar {
+.sr-barchart__col:nth-child(3n+2) .sr-barchart__fill {
   background: linear-gradient(180deg, var(--sr-bc-gold), var(--sr-bc-ember) 90%);
   box-shadow: 0 6px 16px rgba(255, 126, 58, 0.26);
 }
 
-.sr-barchart__col:nth-child(3n) .sr-barchart__bar {
+.sr-barchart__col:nth-child(3n) .sr-barchart__fill {
   background: linear-gradient(180deg, var(--sr-bc-teal), #0e8fae 90%);
   box-shadow: 0 6px 16px rgba(14, 143, 174, 0.26);
 }
 
 .sr-barchart__num {
   position: absolute;
-  top: -1.7rem;
+  top: -1.8rem;
   left: 50%;
   transform: translateX(-50%);
   font-size: clamp(0.95rem, 1.6vw, 1.25rem);
@@ -95,10 +105,10 @@
 
 @media (max-width: 640px) {
   .sr-barchart {
-    padding: 1.5rem 1rem 1.1rem;
+    --sr-bc-track: 210px;
+    padding: 2rem 1rem 1.1rem;
   }
   .sr-barchart__plot {
-    height: 240px;
     gap: 0.5rem;
   }
   .sr-barchart__label {
@@ -107,11 +117,5 @@
   .sr-barchart__num {
     font-size: 0.85rem;
     top: -1.5rem;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .sr-barchart__bar {
-    transition: none;
   }
 }

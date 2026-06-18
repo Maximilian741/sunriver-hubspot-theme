@@ -1,82 +1,51 @@
+/* SR - Bar Chart.
+   Bars and their numbers render fully from HTML + CSS — nothing here is required
+   for the chart to be visible. This is an OPTIONAL enhancement that counts the
+   numbers up as each chart scrolls into view. A setTimeout safety net always
+   restores the real value, so a stalled requestAnimationFrame can never leave a
+   number stuck on "0". */
 (function () {
-  function ease(t) { return 1 - Math.pow(1 - t, 3); }
+  if (!('IntersectionObserver' in window)) return;
+  var reduce = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  if (reduce) return;
 
-  function animateBar(bar, reduce) {
-    var pct = parseFloat(bar.getAttribute('data-pct'));
-    if (!isFinite(pct)) pct = 0;
-    pct = Math.max(0, Math.min(100, pct));
+  function finalText(target, suffix) { return Math.round(target) + suffix; }
 
+  function countUp(bar) {
     var num = bar.querySelector('.sr-barchart__num');
-    var rawValue = parseFloat(bar.getAttribute('data-value'));
-    var target = isFinite(rawValue) ? rawValue : 0;
-    var suffix = '';
+    if (!num) return;
+    var target = parseFloat(bar.getAttribute('data-value'));
+    if (!isFinite(target)) return;
     var root = bar.closest('.sr-barchart');
-    if (root) suffix = root.getAttribute('data-suffix') || '';
+    var suffix = (root && root.getAttribute('data-suffix')) || '';
+    var dur = 900, start = null, done = false;
 
-    if (reduce) {
-      bar.style.height = pct + '%';
-      if (num) num.textContent = Math.round(target) + suffix;
-      bar.classList.add('is-shown');
-      return;
-    }
+    var safety = setTimeout(function () { if (!done) { done = true; num.textContent = finalText(target, suffix); } }, dur + 600);
 
-    bar.style.height = '0%';
-    if (num) num.textContent = '0' + suffix;
-    bar.classList.add('is-shown');
-
-    var duration = 1200;
-    var start = null;
-
+    num.textContent = '0' + suffix;
     function tick(now) {
+      if (done) return;
       if (start === null) start = now;
-      var t = Math.min(1, (now - start) / duration);
-      var eased = ease(t);
-      bar.style.height = (pct * eased) + '%';
-      if (num) num.textContent = Math.round(target * eased) + suffix;
-      if (t < 1) {
-        requestAnimationFrame(tick);
-      } else {
-        bar.style.height = pct + '%';
-        if (num) num.textContent = Math.round(target) + suffix;
-      }
+      var t = Math.min(1, (now - start) / dur);
+      var eased = 1 - Math.pow(1 - t, 3);
+      num.textContent = Math.round(target * eased) + suffix;
+      if (t < 1) { requestAnimationFrame(tick); }
+      else { done = true; clearTimeout(safety); num.textContent = finalText(target, suffix); }
     }
-
     requestAnimationFrame(tick);
   }
 
-  function initRoot(root) {
-    if (root.getAttribute('data-sr-init')) return;
-    root.setAttribute('data-sr-init', '1');
-
-    var reduce = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
-    var bars = root.querySelectorAll('.sr-barchart__bar');
+  function boot() {
+    var bars = document.querySelectorAll('.sr-barchart__bar');
     if (!bars.length) return;
-
-    if (reduce || !('IntersectionObserver' in window)) {
-      Array.prototype.forEach.call(bars, function (b) { animateBar(b, reduce); });
-      return;
-    }
-
     var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          animateBar(entry.target, false);
-          io.unobserve(entry.target);
-        }
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { countUp(e.target); io.unobserve(e.target); }
       });
-    }, { threshold: 0.35 });
-
+    }, { threshold: 0.4 });
     Array.prototype.forEach.call(bars, function (b) { io.observe(b); });
   }
 
-  function boot() {
-    var roots = document.querySelectorAll('.sr-barchart');
-    Array.prototype.forEach.call(roots, initRoot);
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', boot);
-  } else {
-    boot();
-  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
+  else boot();
 })();
