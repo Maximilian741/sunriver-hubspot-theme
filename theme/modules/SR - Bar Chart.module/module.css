@@ -54,6 +54,7 @@
   position: relative;
   width: 100%;
   min-height: 14px;
+  max-height: 100%;
 }
 
 /* The fill is the visible colored bar. It is full-size with NO entrance

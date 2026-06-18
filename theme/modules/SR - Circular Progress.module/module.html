@@ -9,25 +9,22 @@
 
   {% if module.rings %}
   <div class="sr-ring sr-ring--track-{{ module.track_color }}" data-sr-ring>
+    {# Offset is computed INLINE (in-loop {% set %} renders empty on HubSpot,
+       which left the ring with stroke-dashoffset="" and no arc). circ = 2*pi*r
+       with r=52 = 326.726. Inputs are expected 0-100. #}
     {% for it in module.rings %}
-      {% set raw = it.ring_percent|float %}
-      {% set pct = raw %}
-      {% if pct < 0 %}{% set pct = 0 %}{% endif %}
-      {% if pct > 100 %}{% set pct = 100 %}{% endif %}
-      {% set circ = 326.726 %}
-      {% set offset = circ - (circ * pct / 100) %}
       <div class="sr-ring__item sr-ring__item--{{ it.ring_accent }}">
-        <div class="sr-ring__dial" role="img" aria-label="{{ it.ring_label|escape }}: {{ pct|round|int }}{{ it.ring_suffix|escape }}">
+        <div class="sr-ring__dial" role="img" aria-label="{{ it.ring_label|escape }}: {{ it.ring_percent|float|round|int }}{{ it.ring_suffix|escape }}">
           <svg class="sr-ring__svg" viewBox="0 0 120 120" aria-hidden="true">
             <circle class="sr-ring__track" cx="60" cy="60" r="52" />
             <circle class="sr-ring__bar" cx="60" cy="60" r="52"
-              stroke-dasharray="{{ circ }}"
-              stroke-dashoffset="{{ offset }}"
-              data-sr-final-offset="{{ offset }}"
-              data-sr-circ="{{ circ }}" />
+              stroke-dasharray="326.726"
+              stroke-dashoffset="{{ (326.726 - (326.726 * (it.ring_percent|float) / 100))|round(3) }}"
+              data-sr-final-offset="{{ (326.726 - (326.726 * (it.ring_percent|float) / 100))|round(3) }}"
+              data-sr-circ="326.726" />
           </svg>
           <div class="sr-ring__center">
-            <span class="sr-ring__num" data-sr-target="{{ pct|round|int }}">{{ pct|round|int }}</span><span class="sr-ring__suffix">{{ it.ring_suffix }}</span>
+            <span class="sr-ring__num" data-sr-target="{{ it.ring_percent|float|round|int }}">{{ it.ring_percent|float|round|int }}</span><span class="sr-ring__suffix">{{ it.ring_suffix }}</span>
           </div>
         </div>
         {% if it.ring_label %}<div class="sr-ring__label">{{ it.ring_label }}</div>{% endif %}

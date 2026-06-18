@@ -4,16 +4,17 @@
   {% if module.lead %}<div class="srh-lead">{{ module.lead }}</div>{% endif %}
 
   <div class="sr-bars sr-bars--{{ module.fill_style }}{% if not module.show_percent %} sr-bars--no-pct{% endif %}">
+    {# Width is computed INLINE (in-loop {% set %} renders empty on HubSpot).
+       Out-of-range values are clamped in CSS: the fill has max-width:100% and a
+       negative width resolves to 0. #}
     {% for bar in module.bars %}
-      {% set pct = bar.percent|float %}
-      {% if pct < 0 %}{% set pct = 0 %}{% elif pct > 100 %}{% set pct = 100 %}{% endif %}
       <div class="sr-bars__row">
         <div class="sr-bars__head">
           <span class="sr-bars__label">{{ bar.bar_label }}</span>
-          {% if module.show_percent %}<span class="sr-bars__pct" data-pct="{{ pct|round }}">{{ pct|round }}%</span>{% endif %}
+          {% if module.show_percent %}<span class="sr-bars__pct" data-pct="{{ bar.percent|float|round }}">{{ bar.percent|float|round }}%</span>{% endif %}
         </div>
-        <div class="sr-bars__track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="{{ pct|round }}" aria-label="{{ bar.bar_label }}">
-          <span class="sr-bars__fill" data-pct="{{ pct|round }}" style="width: {{ pct|round }}%;"></span>
+        <div class="sr-bars__track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="{{ bar.percent|float|round }}" aria-label="{{ bar.bar_label }}">
+          <span class="sr-bars__fill" data-pct="{{ bar.percent|float|round }}" style="width: {{ bar.percent|float|round }}%;"></span>
         </div>
       </div>
     {% endfor %}
