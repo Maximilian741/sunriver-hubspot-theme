@@ -35,19 +35,8 @@
     </div>
   </section>
   {# ===== INTERACTIVE: performance + track record ===== #}
-  {% module "sr_db_barchart" path="../../modules/SR - Bar Chart" %}
-    {% module_attribute "show_head" %}true{% end_module_attribute %}
-    {% module_attribute "eyebrow" %}Before and after{% end_module_attribute %}
-    {% module_attribute "heading" %}What tuning actually buys you{% end_module_attribute %}
-    {% module_attribute "value_suffix" %} ms{% end_module_attribute %}
-    {% module_attribute "bars" is_json=True %}[ { "bar_label": "Before tuning", "bar_value": 1200 }, { "bar_label": "Indexes added", "bar_value": 480 }, { "bar_label": "Query rewrite", "bar_value": 210 }, { "bar_label": "Cached", "bar_value": 90 } ]{% end_module_attribute %}
-  {% end_module %}
-  {% module "sr_db_countup" path="../../modules/SR - Count Up Stats" %}
-    {% module_attribute "show_head" %}true{% end_module_attribute %}
-    {% module_attribute "eyebrow" %}Track record{% end_module_attribute %}
-    {% module_attribute "heading" %}Numbers that hold up{% end_module_attribute %}
-    {% module_attribute "stats" is_json=True %}[ { "target": 99.9, "prefix": "", "suffix": "%", "decimals": 1, "caption": "Uptime on managed databases" }, { "target": 0, "prefix": "", "suffix": "", "decimals": 0, "caption": "Rows lost in migration" }, { "target": 24, "prefix": "", "suffix": "/7", "decimals": 0, "caption": "Monitoring and alerts" } ]{% end_module_attribute %}
-  {% end_module %}
+  {% module "sr_db_barchart" path="../../modules/SR - Bar Chart", show_head=true, eyebrow="Before and after", heading="What tuning actually buys you", value_suffix=" ms", bars=[ { "bar_label": "Before tuning", "bar_value": 1200 }, { "bar_label": "Indexes added", "bar_value": 480 }, { "bar_label": "Query rewrite", "bar_value": 210 }, { "bar_label": "Cached", "bar_value": 90 } ] %}
+  {% module "sr_db_countup" path="../../modules/SR - Count Up Stats", show_head=true, eyebrow="Track record", heading="Numbers that hold up", stats=[ { "target": 99.9, "prefix": "", "suffix": "%", "decimals": 1, "caption": "Uptime on managed databases" }, { "target": 0, "prefix": "", "suffix": "", "decimals": 0, "caption": "Rows lost in migration" }, { "target": 24, "prefix": "", "suffix": "/7", "decimals": 0, "caption": "Monitoring and alerts" } ] %}
 
   <section class="srh-band srh-band--rev srh-cta">
     <canvas class="srh-band__canvas" data-srx-shader="smoke-veil" aria-hidden="true"></canvas>
