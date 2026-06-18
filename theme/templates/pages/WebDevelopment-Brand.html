@@ -34,6 +34,14 @@
       </div>
     </div>
   </section>
+  {# ===== INTERACTIVE: before/after + platforms ===== #}
+  {% module "sr_web_ba" path="../../modules/SR - Before After Slider", eyebrow="See the difference", heading="Before and after a rebuild", before_label="Before", after_label="After" %}
+  {% module "sr_web_tabs" path="../../modules/SR - Tabs" %}
+    {% module_attribute "eyebrow" %}Platforms{% end_module_attribute %}
+    {% module_attribute "heading" %}Built where it fits you{% end_module_attribute %}
+    {% module_attribute "tabs" is_json=True %}[ { "tab_label": "Custom", "tab_body": "<p>React and Next.js with a real design system, headless CMS, and Core Web Vitals tuned for speed and accessibility.</p>" }, { "tab_label": "HubSpot", "tab_body": "<p>Custom HubL themes and modules wired to your CRM, with serverless functions and SEO tools your team can run.</p>" }, { "tab_label": "WordPress", "tab_body": "<p>Custom blocks and plugins built to be maintained, with real security and update discipline.</p>" }, { "tab_label": "Squarespace", "tab_body": "<p>Polished templates pushed past the defaults with custom CSS, commerce, and a clean migration.</p>" } ]{% end_module_attribute %}
+  {% end_module %}
+
   <section class="srh-band srh-band--rev srh-cta">
     <canvas class="srh-band__canvas" data-srx-shader="smoke-veil" aria-hidden="true"></canvas>
     <div class="srh-band__inner srx-reveal" style="text-align:center;">

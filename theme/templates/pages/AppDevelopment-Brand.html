@@ -34,6 +34,14 @@
       </div>
     </div>
   </section>
+  {# ===== INTERACTIVE: platforms + what you get ===== #}
+  {% module "sr_app_tabs" path="../../modules/SR - Tabs" %}
+    {% module_attribute "eyebrow" %}What we build{% end_module_attribute %}
+    {% module_attribute "heading" %}One senior build, every platform{% end_module_attribute %}
+    {% module_attribute "tabs" is_json=True %}[ { "tab_label": "iOS", "tab_body": "<p>Swift and SwiftUI to the Human Interface Guidelines, shipped through TestFlight and tuned for App Store review.</p>" }, { "tab_label": "Android", "tab_body": "<p>Kotlin and Jetpack Compose with Material design, delivered through a release track you control.</p>" }, { "tab_label": "Web", "tab_body": "<p>React and Next.js in TypeScript, installable as an offline PWA, built to WCAG 2.2 AA.</p>" }, { "tab_label": "Desktop", "tab_body": "<p>Cross-platform desktop apps that feel native on Windows and macOS.</p>" } ]{% end_module_attribute %}
+  {% end_module %}
+  {% module "sr_app_flip" path="../../modules/SR - Flip Cards", eyebrow="How we work", heading="What you get with every app" %}
+
   <section class="srh-band srh-band--rev srh-cta">
     <canvas class="srh-band__canvas" data-srx-shader="smoke-veil" aria-hidden="true"></canvas>
     <div class="srh-band__inner srx-reveal" style="text-align:center;">
