@@ -35,7 +35,7 @@
     </div>
   </section>
   {# ===== INTERACTIVE: performance + track record ===== #}
-  {% module "sr_db_barchart" path="../../modules/SR - Bar Chart", show_head=true, eyebrow="Before and after", heading="What tuning actually buys you", value_suffix=" ms", bars=[ { "bar_label": "Before tuning", "bar_value": 1200 }, { "bar_label": "Indexes added", "bar_value": 480 }, { "bar_label": "Query rewrite", "bar_value": 210 }, { "bar_label": "Cached", "bar_value": 90 } ] %}
+  {% module "sr_db_barchart" path="../../modules/SR - Bar Chart", show_head=true, eyebrow="Before and after", heading="What tuning actually buys you", value_suffix=" ms", chart_max=1200, bars=[ { "bar_label": "Before tuning", "bar_value": 1200 }, { "bar_label": "Indexes added", "bar_value": 480 }, { "bar_label": "Query rewrite", "bar_value": 210 }, { "bar_label": "Cached", "bar_value": 90 } ] %}
   {% module "sr_db_countup" path="../../modules/SR - Count Up Stats", show_head=true, eyebrow="Track record", heading="Numbers that hold up", stats=[ { "target": 99.9, "prefix": "", "suffix": "%", "decimals": 1, "caption": "Uptime on managed databases" }, { "target": 0, "prefix": "", "suffix": "", "decimals": 0, "caption": "Rows lost in migration" }, { "target": 24, "prefix": "", "suffix": "/7", "decimals": 0, "caption": "Monitoring and alerts" } ] %}
 
   <section class="srh-band srh-band--rev srh-cta">

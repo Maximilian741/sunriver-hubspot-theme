@@ -40,6 +40,15 @@
     "id": "20100005-0001-0001-0001-000000000005"
   },
   {
+    "name": "chart_max",
+    "label": "Scale max (optional)",
+    "help_text": "The value that should equal a full-height bar. Leave 0 to auto-scale to the tallest bar.",
+    "type": "number",
+    "required": false,
+    "default": 0,
+    "id": "20100009-0001-0001-0001-000000000009"
+  },
+  {
     "name": "bars",
     "label": "Bars",
     "type": "group",
