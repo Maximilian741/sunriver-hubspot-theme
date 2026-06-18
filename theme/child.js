@@ -379,16 +379,17 @@
     // (neon green -> teal -> river blue -> ink) based on document position, so
     // the transition ebbs and flows organically instead of being a flat gradient.
     var SMOKE_VEIL = COMMON +
-      'void main(){vec2 p=(gl_FragCoord.xy-0.5*u_res.xy)/u_res.y;float t=u_time*0.09;' +
-      'vec2 q=p*1.25;q.y+=t*0.6;q+=0.5*vec2(fbm(q+t),fbm(q*1.2-t+5.0));q=warp(q,p);' +
-      'float m1=fbm(q*1.25);float m2=fbm(q*2.4+vec2(7.3,t*1.2));' +
+      'void main(){vec2 p=(gl_FragCoord.xy-0.5*u_res.xy)/u_res.y;float t=u_time*0.16;' +
+      'vec2 q=p*1.25;q.y+=t*0.85;q+=0.72*vec2(fbm(q+t*1.3),fbm(q*1.2-t*1.05+5.0));q=warp(q,p);' +
+      'float m1=fbm(q*1.25+vec2(t*0.4,0.0));float m2=fbm(q*2.4+vec2(t*0.7,t*1.8));' +
       'float dens=smoothstep(0.16,0.92,m1*0.62+m2*0.55);' +
       'float docY=clamp((u_doc0+(u_res.y-gl_FragCoord.y))/max(u_page,1.0),0.0,1.0);' +
+      'float dx=gl_FragCoord.x/max(u_res.x,1.0);float diag=clamp(docY*0.62+dx*0.38,0.0,1.0);' +
       'vec3 gN=vec3(0.16,0.93,0.03);vec3 gD=vec3(0.07,0.56,0.03);' +
       'vec3 tN=vec3(0.02,0.72,0.54);vec3 tD=vec3(0.02,0.32,0.28);' +
       'vec3 bN=vec3(0.12,0.52,0.68);vec3 bD=vec3(0.05,0.22,0.32);' +
       'vec3 kN=vec3(0.06,0.20,0.30);vec3 kD=vec3(0.01,0.05,0.09);' +
-      'float s1=smoothstep(0.24,0.52,docY);float s2=smoothstep(0.52,0.78,docY);float s3=smoothstep(0.78,1.0,docY);' +
+      'float s1=smoothstep(0.24,0.52,diag);float s2=smoothstep(0.52,0.78,diag);float s3=smoothstep(0.78,1.0,diag);' +
       'vec3 wisp=mix(mix(mix(gN,tN,s1),bN,s2),kN,s3);' +
       'vec3 base=mix(mix(mix(gD,tD,s1),bD,s2),kD,s3);' +
       'vec3 cool=mix(base,wisp,dens);' +
