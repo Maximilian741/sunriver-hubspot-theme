@@ -1,0 +1,49 @@
+[
+  {
+    "name": "index_eyebrow",
+    "label": "Eyebrow",
+    "type": "text",
+    "required": false,
+    "default": "The Claim Index",
+    "id": "30200001-0001-0001-0001-000000000001"
+  },
+  {
+    "name": "index_heading",
+    "label": "Heading (optional)",
+    "type": "text",
+    "required": false,
+    "default": "Where to stake your work",
+    "id": "30200002-0001-0001-0001-000000000002"
+  },
+  {
+    "name": "rows",
+    "label": "Claims",
+    "type": "group",
+    "occurrence": { "min": 1, "max": 12, "default": 6 },
+    "default": [
+      { "service_name": "Web Development", "service_desc": "Custom builds and platform work that load fast and last.", "service_meta": "HubSpot, WordPress, Squarespace" },
+      { "service_name": "App Development", "service_desc": "Native and cross-platform apps people actually use.", "service_meta": "iOS, Android, Web, Desktop" },
+      { "service_name": "Business Solutions", "service_desc": "Your tools, connected and tuned to fit how you work.", "service_meta": "AWS, HubSpot, Salesforce, 365" },
+      { "service_name": "Database Solutions", "service_desc": "Data that stays fast, correct, and recoverable.", "service_meta": "Postgres, MySQL, SQL Server, Mongo" },
+      { "service_name": "Compliance Audits", "service_desc": "Findings closed and proven with a re-test.", "service_meta": "WCAG, Section 508, pen testing" },
+      { "service_name": "AI Solutions", "service_desc": "Practical adoption that earns its keep.", "service_meta": "Assistants, automation, training" }
+    ],
+    "children": [
+      { "name": "service_name", "label": "Name", "type": "text", "required": false, "default": "Service area", "id": "30200004-0001-0001-0001-000000000004" },
+      { "name": "service_desc", "label": "Description", "type": "text", "required": false, "default": "What it is, in plain language.", "id": "30200005-0001-0001-0001-000000000005" },
+      { "name": "service_meta", "label": "Meta line", "type": "text", "required": false, "default": "Stack or timeline", "id": "30200006-0001-0001-0001-000000000006" },
+      {
+        "name": "service_link",
+        "label": "Link",
+        "type": "url",
+        "required": false,
+        "locked": false,
+        "supported_types": ["EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG"],
+        "display_width": null,
+        "default": { "type": "EXTERNAL", "href": "/contact-sunriver-consulting", "content_id": null },
+        "id": "30200007-0001-0001-0001-000000000007"
+      }
+    ],
+    "id": "30200003-0001-0001-0001-000000000003"
+  }
+]

@@ -1,0 +1,42 @@
+{# SR - Assay Score. A Pitchfork-style verdict numeral as the hero of a free
+   assessment block: the score is a typographic object filled with the .srh
+   gradient, beside an editorial verdict and dotted-leader metadata. Pure CSS. #}
+<section class="srh-sec">
+  <div class="srh-sec__inner">
+    <div class="sr-score">
+      <span class="sr-score__toprule" aria-hidden="true"></span>
+      <div class="sr-score__grid">
+
+        <div class="sr-score__figure">
+          <span class="sr-score__num">{{ module.score_value }}</span>
+          {% if module.score_suffix %}<span class="sr-score__suffix">{{ module.score_suffix }}</span>{% endif %}
+          {% if module.signed_by %}<span class="sr-score__byline">Assayed by {{ module.signed_by }}</span>{% endif %}
+        </div>
+
+        <div class="sr-score__body">
+          {% if module.eyebrow %}<p class="sr-score__eyebrow">{{ module.eyebrow }}</p>{% endif %}
+          {% if module.verdict_headline %}<h2 class="sr-score__headline">{{ module.verdict_headline }}</h2>{% endif %}
+          {% if module.verdict_body %}<div class="sr-score__text sr-post">{{ module.verdict_body }}</div>{% endif %}
+
+          {% if module.meta_rows %}
+          <dl class="sr-score__meta">
+            {% for m in module.meta_rows %}
+            <div class="sr-score__leader">
+              <dt>{{ m.meta_label }}</dt>
+              <span class="sr-score__dots" aria-hidden="true"></span>
+              <dd>{{ m.meta_value }}</dd>
+            </div>
+            {% endfor %}
+          </dl>
+          {% endif %}
+
+          {% if module.cta_text and module.cta_link.href %}
+          <p class="sr-score__cta"><a href="{{ module.cta_link.href }}">{{ module.cta_text }}</a></p>
+          {% endif %}
+        </div>
+
+      </div>
+      <span class="sr-score__botrule" aria-hidden="true"></span>
+    </div>
+  </div>
+</section>

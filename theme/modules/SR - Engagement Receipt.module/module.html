@@ -1,0 +1,42 @@
+{# SR - Engagement Receipt. A fixed-fee scope as a thermal-printer receipt:
+   mono line items with dotted price leaders, a double-rule total, scalloped
+   torn edges (CSS mask), and a rotated cancellation stamp. Pure CSS. #}
+<section class="srh-sec">
+  <div class="srh-sec__inner">
+    <div class="sr-receipt">
+
+      <div class="sr-receipt__paper">
+        <div class="sr-receipt__head">
+          <p class="sr-receipt__shop">{{ module.shop_line }}</p>
+          <p class="sr-receipt__loc">{{ module.location_line }}</p>
+        </div>
+        <div class="sr-receipt__items">
+          {% for it in module.line_items %}
+          <div class="sr-receipt__row">
+            <span class="sr-receipt__name">{{ it.item_name }}</span>
+            <span class="sr-receipt__dots" aria-hidden="true"></span>
+            <span class="sr-receipt__price">{{ it.item_price }}</span>
+          </div>
+          {% endfor %}
+        </div>
+        <div class="sr-receipt__total">
+          <span class="sr-receipt__tlabel">{{ module.total_label }}</span>
+          <span class="sr-receipt__tvalue">{{ module.total_value }}</span>
+        </div>
+        {% if module.footer_note %}<p class="sr-receipt__foot">{{ module.footer_note }}</p>{% endif %}
+
+        {% if module.stamp_text %}
+        <span class="sr-receipt__stamp" aria-hidden="true">
+          <span class="sr-receipt__stamp-in">{{ module.stamp_text }}</span>
+        </span>
+        {% endif %}
+      </div>
+
+      <div class="sr-receipt__side">
+        {% if module.side_heading %}<h2 class="sr-receipt__heading">{{ module.side_heading }}</h2>{% endif %}
+        {% if module.side_body %}<div class="sr-receipt__body sr-post">{{ module.side_body }}</div>{% endif %}
+      </div>
+
+    </div>
+  </div>
+</section>

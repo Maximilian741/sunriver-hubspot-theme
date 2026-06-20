@@ -1,0 +1,32 @@
+{# SR - Heritage Ticker. A full-bleed running ticker of the real stack + locale,
+   alternating filled and outline-stroke words with a gold separator glyph,
+   framed by double hairline rules. The list is rendered twice so the loop is
+   seamless at translateX(-50%). Pauses on hover, freezes under reduced motion,
+   and the first copy is fully legible with no animation. #}
+<section class="sr-ticker" style="--sr-ticker-speed: {{ module.speed_seconds|default(34) }}s;">
+
+  <div class="sr-ticker__track">
+    {% for it in module.items %}
+      <span class="sr-ticker__item{% if loop.index0 % 2 %} sr-ticker__item--out{% endif %}">{{ it.item_text }}</span>
+      <span class="sr-ticker__sep" aria-hidden="true">{{ module.separator_glyph }}</span>
+    {% endfor %}
+    {% for it in module.items %}
+      <span class="sr-ticker__item{% if loop.index0 % 2 %} sr-ticker__item--out{% endif %}" aria-hidden="true">{{ it.item_text }}</span>
+      <span class="sr-ticker__sep" aria-hidden="true">{{ module.separator_glyph }}</span>
+    {% endfor %}
+  </div>
+
+  {% if module.two_layer %}
+  <div class="sr-ticker__track sr-ticker__track--rev" aria-hidden="true">
+    {% for it in module.items %}
+      <span class="sr-ticker__item{% if loop.index0 % 2 == 0 %} sr-ticker__item--out{% endif %}">{{ it.item_text }}</span>
+      <span class="sr-ticker__sep">{{ module.separator_glyph }}</span>
+    {% endfor %}
+    {% for it in module.items %}
+      <span class="sr-ticker__item{% if loop.index0 % 2 == 0 %} sr-ticker__item--out{% endif %}">{{ it.item_text }}</span>
+      <span class="sr-ticker__sep">{{ module.separator_glyph }}</span>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+</section>

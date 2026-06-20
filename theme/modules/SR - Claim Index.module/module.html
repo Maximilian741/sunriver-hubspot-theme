@@ -1,0 +1,30 @@
+{# SR - Claim Index. An Awwwards-style index list of service areas, rule
+   separated, on the bare smoke band so the gradient shows through the left
+   gutter. Resting state shows every name, number, description and meta from
+   HTML + CSS; hover only indents and recolors. Numbers zero-padded inline
+   (HubSpot has no reliable printf, and in-loop {% set %} renders empty). #}
+<section class="srh-band sr-claims">
+  <canvas class="srh-band__canvas" data-srx-shader="smoke-veil" aria-hidden="true"></canvas>
+  <div class="srh-band__inner">
+    <div class="sr-claims__head">
+      {% if module.index_eyebrow %}<p class="sr-claims__eyebrow">{{ module.index_eyebrow }}</p>{% endif %}
+      {% if module.index_heading %}<h2 class="sr-claims__heading">{{ module.index_heading }}</h2>{% endif %}
+    </div>
+
+    <ul class="sr-claims__list">
+      {% for row in module.rows %}
+        <li class="sr-claims__row">
+          <a class="sr-claims__link"{% if row.service_link.href %} href="{{ row.service_link.href }}"{% endif %}>
+            <span class="sr-claims__no">{% if loop.index < 10 %}0{% endif %}{{ loop.index }} <span class="sr-claims__den">/ {% if module.rows|length < 10 %}0{% endif %}{{ module.rows|length }}</span></span>
+            <span class="sr-claims__name">{{ row.service_name }}</span>
+            <span class="sr-claims__aside">
+              <span class="sr-claims__desc">{{ row.service_desc }}</span>
+              {% if row.service_meta %}<span class="sr-claims__meta">{{ row.service_meta }}</span>{% endif %}
+            </span>
+            <span class="sr-claims__wipe" aria-hidden="true"></span>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>

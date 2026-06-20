@@ -1,0 +1,42 @@
+[
+  {
+    "name": "quote_text",
+    "label": "Quote (wrap one clause in a span with class hl to highlight it)",
+    "type": "richtext",
+    "required": false,
+    "default": "<p>I wanted one senior person who would <span class=\"hl\">answer the phone and own the outcome</span>, not a rotating cast of juniors. That is exactly what I got.</p>",
+    "id": "30500001-0001-0001-0001-000000000001"
+  },
+  {
+    "name": "author_name",
+    "label": "Author name",
+    "type": "text",
+    "required": false,
+    "default": "A Helena business owner",
+    "id": "30500002-0001-0001-0001-000000000002"
+  },
+  {
+    "name": "author_role",
+    "label": "Author role",
+    "type": "text",
+    "required": false,
+    "default": "Operations lead, services firm",
+    "id": "30500003-0001-0001-0001-000000000003"
+  },
+  {
+    "name": "author_initials",
+    "label": "Author initials (monogram)",
+    "type": "text",
+    "required": false,
+    "default": "HB",
+    "id": "30500004-0001-0001-0001-000000000004"
+  },
+  {
+    "name": "on_card",
+    "label": "Show on a white card",
+    "type": "boolean",
+    "required": false,
+    "default": true,
+    "id": "30500005-0001-0001-0001-000000000005"
+  }
+]

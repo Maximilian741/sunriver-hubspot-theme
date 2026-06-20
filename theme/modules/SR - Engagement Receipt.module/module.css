@@ -1,0 +1,90 @@
+.sr-receipt {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: clamp(28px, 5vw, 72px);
+  align-items: center;
+}
+
+/* ---- the receipt roll ---- */
+.sr-receipt__paper {
+  position: relative;
+  background: var(--paper, #fff);
+  color: var(--ink, #0c2114);
+  padding: 30px 26px 28px;
+  transform: rotate(-1.5deg);
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-variant-numeric: tabular-nums;
+  font-size: 13.5px;
+  line-height: 1.5;
+  box-shadow: 3px 4px 0 -1px rgba(4, 18, 13, 0.18);
+  /* scalloped torn edges top + bottom */
+  -webkit-mask:
+    radial-gradient(6px at 6px 0, #0000 98%, #000) 0 0 / 12px 51% repeat-x,
+    radial-gradient(6px at 6px 100%, #0000 98%, #000) 0 100% / 12px 51% repeat-x;
+  mask:
+    radial-gradient(6px at 6px 0, #0000 98%, #000) 0 0 / 12px 51% repeat-x,
+    radial-gradient(6px at 6px 100%, #0000 98%, #000) 0 100% / 12px 51% repeat-x;
+}
+
+.sr-receipt__head { text-align: center; padding-bottom: 12px; border-bottom: 1px dashed var(--ink, #0c2114); }
+.sr-receipt__shop { margin: 0; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; font-size: 13px; }
+.sr-receipt__loc { margin: 2px 0 0; text-transform: uppercase; letter-spacing: 0.14em; font-size: 10.5px; color: var(--muted, #546b5b); }
+
+.sr-receipt__items { padding: 14px 0; }
+.sr-receipt__row { display: flex; align-items: baseline; padding: 5px 0; }
+.sr-receipt__name { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 62%; }
+.sr-receipt__dots { flex: 1; border-bottom: 1px dotted #9a9a9a; margin: 0 6px; transform: translateY(-3px); }
+.sr-receipt__price { white-space: nowrap; font-weight: 700; }
+
+.sr-receipt__total {
+  display: flex; justify-content: space-between; align-items: baseline;
+  border-top: 3px double var(--ink, #0c2114);
+  margin-top: 4px; padding-top: 10px;
+}
+.sr-receipt__tlabel { font-weight: 700; letter-spacing: 0.14em; }
+.sr-receipt__tvalue { font-weight: 700; font-size: 30px; line-height: 1; color: var(--green, #21c700); }
+
+.sr-receipt__foot {
+  margin: 12px 0 0; text-align: center;
+  border-top: 1px dashed var(--ink, #0c2114); padding-top: 10px;
+  text-transform: uppercase; letter-spacing: 0.08em; font-size: 10.5px; color: var(--muted, #546b5b);
+}
+
+/* round rubber cancellation stamp */
+.sr-receipt__stamp {
+  position: absolute; right: 14px; bottom: 30px;
+  width: 92px; height: 92px; border-radius: 50%;
+  border: 2px solid currentColor;
+  color: rgba(62, 157, 184, 0.55);
+  mix-blend-mode: multiply;
+  transform: rotate(-9deg);
+  display: flex; align-items: center; justify-content: center; text-align: center;
+}
+.sr-receipt__stamp::before {
+  content: ""; position: absolute; inset: 5px; border-radius: 50%; border: 1px solid currentColor;
+}
+.sr-receipt__stamp-in {
+  font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;
+  font-size: 13px; line-height: 1.05; max-width: 70px;
+}
+
+/* ---- side copy ---- */
+.sr-receipt__heading {
+  margin: 0 0 0.7rem;
+  font-family: "Poppins", sans-serif; font-weight: 700;
+  font-size: clamp(1.6rem, 3.2vw, 2.6rem); line-height: 1.05; letter-spacing: -0.01em;
+  color: var(--ink, #0c2114);
+}
+.sr-receipt__body { color: var(--muted, #546b5b); line-height: 1.6; max-width: 46ch; }
+.sr-receipt__body p { margin: 0 0 0.8em; }
+.sr-receipt__body p:last-child { margin-bottom: 0; }
+
+/* On a gradient band (no white card behind), make side copy readable in white. */
+.srh-band .sr-receipt__heading { color: #fff; }
+.srh-band .sr-receipt__body { color: rgba(255, 255, 255, 0.86); }
+
+@media (max-width: 760px) {
+  .sr-receipt { grid-template-columns: 1fr; justify-items: center; gap: 28px; }
+  .sr-receipt__paper { transform: none; }
+  .sr-receipt__side { text-align: center; }
+}

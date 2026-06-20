@@ -1,0 +1,59 @@
+.sr-ticker {
+  position: relative;
+  overflow: hidden;
+  padding: 18px 0;
+  background: transparent;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 0 -1px rgba(255, 255, 255, 0.1), 0 -4px 0 -1px rgba(255, 255, 255, 0.1);
+}
+
+.sr-ticker__track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  white-space: nowrap;
+  will-change: transform;
+  animation: sr-ticker-run var(--sr-ticker-speed, 34s) linear infinite;
+}
+.sr-ticker__track--rev {
+  margin-top: 6px;
+  opacity: 0.45;
+  animation-direction: reverse;
+  animation-duration: calc(var(--sr-ticker-speed, 34s) * 1.35);
+}
+
+@keyframes sr-ticker-run {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.sr-ticker:hover .sr-ticker__track { animation-play-state: paused; }
+
+.sr-ticker__item {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: clamp(1.2rem, 2.6vw, 1.7rem);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #fff;
+  padding: 0 0.2em;
+}
+.sr-ticker__item--out {
+  color: transparent;
+  -webkit-text-stroke: 1px var(--sun, #FBC34A);
+  text-stroke: 1px var(--sun, #FBC34A);
+}
+
+.sr-ticker__sep {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: clamp(0.9rem, 1.8vw, 1.2rem);
+  color: var(--green, #21c700);
+  padding: 0 0.85em;
+  transform: translateY(-0.05em);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sr-ticker__track { animation: none; transform: translateX(0); }
+  .sr-ticker__track--rev { display: none; }
+}

@@ -1,0 +1,132 @@
+.sr-score {
+  position: relative;
+  background: var(--paper, #fff);
+  padding: clamp(28px, 4vw, 54px) clamp(22px, 3.4vw, 48px);
+  box-shadow: 0 26px 60px -38px rgba(4, 18, 13, 0.7);
+}
+.sr-score__toprule { display: block; height: 1px; background: rgba(4, 18, 13, 0.18); }
+.sr-score__botrule { display: block; height: 3px; background: var(--ink, #0c2114); margin-top: clamp(18px, 2.4vw, 30px); }
+
+.sr-score__grid {
+  display: grid;
+  grid-template-columns: 38fr 62fr;
+  gap: clamp(24px, 4vw, 56px);
+  align-items: start;
+  padding-top: clamp(16px, 2.2vw, 28px);
+}
+
+/* ---- the score figure ---- */
+.sr-score__figure { position: relative; }
+.sr-score__num {
+  display: block;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: clamp(5rem, 14vw, 11rem);
+  line-height: 0.82;
+  letter-spacing: -0.04em;
+  background: linear-gradient(135deg, var(--green, #21c700), var(--river, #3E9DB8) 60%, var(--deep, #1C5B77));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+/* halftone dot field, masked to fade behind the numeral */
+.sr-score__figure::before {
+  content: "";
+  position: absolute;
+  inset: -6% -4% 30% -2%;
+  background-image: radial-gradient(var(--deep, #1C5B77) 1px, transparent 1.5px);
+  background-size: 8px 8px;
+  opacity: 0.08;
+  -webkit-mask: linear-gradient(120deg, #000, transparent 70%);
+  mask: linear-gradient(120deg, #000, transparent 70%);
+  pointer-events: none;
+}
+.sr-score__suffix {
+  display: inline-block;
+  margin-top: 0.4rem;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: clamp(1rem, 1.6vw, 1.3rem);
+  letter-spacing: 0.04em;
+  color: var(--muted, #546b5b);
+}
+.sr-score__byline {
+  display: block;
+  margin-top: 0.8rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-style: italic;
+  font-size: 0.96rem;
+  color: var(--ink, #0c2114);
+  font-variant: small-caps;
+  letter-spacing: 0.02em;
+}
+
+/* ---- verdict body ---- */
+.sr-score__eyebrow {
+  margin: 0 0 0.7rem;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.74rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--deep, #1C5B77);
+}
+.sr-score__headline {
+  margin: 0 0 0.8rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: clamp(1.5rem, 3vw, 2.4rem);
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  color: var(--ink, #0c2114);
+}
+.sr-score__text { color: var(--muted, #546b5b); line-height: 1.6; max-width: 52ch; }
+.sr-score__text p { margin: 0 0 0.8em; }
+.sr-score__text p:last-child { margin-bottom: 0; }
+
+.sr-score__meta { margin: 1.6rem 0 0; }
+.sr-score__leader {
+  display: flex;
+  align-items: baseline;
+  padding: 7px 0;
+  border-bottom: 1px solid rgba(4, 18, 13, 0.08);
+}
+.sr-score__leader dt {
+  margin: 0;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted, #546b5b);
+}
+.sr-score__dots {
+  flex: 1;
+  border-bottom: 2px dotted color-mix(in srgb, var(--deep, #1C5B77) 50%, transparent);
+  margin: 0 0.6rem;
+  transform: translateY(-0.25em);
+}
+.sr-score__leader dd {
+  margin: 0;
+  font-family: "Manrope", system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--ink, #0c2114);
+}
+
+.sr-score__cta { margin: 1.8rem 0 0; }
+.sr-score__cta a {
+  display: inline-block;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  color: var(--ink, #0c2114);
+  padding: 12px 26px;
+  background: linear-gradient(120deg, var(--green, #21c700), var(--sun, #FBC34A) 130%);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.sr-score__cta a:hover { transform: translateY(-1px); box-shadow: 0 14px 28px -16px rgba(33, 199, 0, 0.7); }
+.sr-score__cta a:focus-visible { outline: 3px solid var(--deep, #1C5B77); outline-offset: 2px; }
+
+@media (max-width: 720px) {
+  .sr-score__grid { grid-template-columns: 1fr; gap: 1.4rem; }
+}

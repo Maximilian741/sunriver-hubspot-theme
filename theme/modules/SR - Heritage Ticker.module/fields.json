@@ -1,0 +1,46 @@
+[
+  {
+    "name": "items",
+    "label": "Ticker words",
+    "type": "group",
+    "occurrence": { "min": 2, "max": 30, "default": 8 },
+    "default": [
+      { "item_text": "Helena, Montana" },
+      { "item_text": "HubSpot" },
+      { "item_text": "AWS" },
+      { "item_text": "PostgreSQL" },
+      { "item_text": "WCAG 2.2" },
+      { "item_text": "Section 508" },
+      { "item_text": "Montana-built" },
+      { "item_text": "Senior engineer" }
+    ],
+    "children": [
+      { "name": "item_text", "label": "Word", "type": "text", "required": false, "default": "Word", "id": "30600002-0001-0001-0001-000000000002" }
+    ],
+    "id": "30600001-0001-0001-0001-000000000001"
+  },
+  {
+    "name": "separator_glyph",
+    "label": "Separator glyph",
+    "type": "text",
+    "required": false,
+    "default": "✦",
+    "id": "30600003-0001-0001-0001-000000000003"
+  },
+  {
+    "name": "speed_seconds",
+    "label": "Loop seconds (lower is faster)",
+    "type": "number",
+    "required": false,
+    "default": 34,
+    "id": "30600004-0001-0001-0001-000000000004"
+  },
+  {
+    "name": "two_layer",
+    "label": "Second reverse layer",
+    "type": "boolean",
+    "required": false,
+    "default": true,
+    "id": "30600005-0001-0001-0001-000000000005"
+  }
+]

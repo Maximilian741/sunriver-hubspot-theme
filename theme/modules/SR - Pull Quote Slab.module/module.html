@@ -1,0 +1,20 @@
+{# SR - Pull Quote Slab. One art-directed quote: an enormous ghosted quotation
+   glyph bleeding off the edge, a gold marker swipe on one clause (wrap it in
+   <span class="hl">), and a baseline-weighted attribution with a CSS monogram
+   disc. Pure CSS. #}
+<section class="srh-sec">
+  <div class="srh-sec__inner">
+    <figure class="sr-quote{% if module.on_card %} sr-quote--card{% endif %}">
+      <span class="sr-quote__mark" aria-hidden="true">&#8220;</span>
+      <blockquote class="sr-quote__text sr-post">{{ module.quote_text }}</blockquote>
+      <figcaption class="sr-quote__by">
+        <span class="sr-quote__rule" aria-hidden="true"></span>
+        {% if module.author_initials %}<span class="sr-quote__disc">{{ module.author_initials }}</span>{% endif %}
+        <span class="sr-quote__id">
+          <span class="sr-quote__name">{{ module.author_name }}</span>
+          {% if module.author_role %}<span class="sr-quote__role">{{ module.author_role }}</span>{% endif %}
+        </span>
+      </figcaption>
+    </figure>
+  </div>
+</section>

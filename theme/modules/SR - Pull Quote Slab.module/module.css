@@ -1,0 +1,98 @@
+.sr-quote {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: clamp(280px, 34vw, 420px);
+  padding: clamp(28px, 4vw, 60px);
+}
+.sr-quote--card {
+  background: var(--paper, #fff);
+  box-shadow: 0 26px 60px -38px rgba(4, 18, 13, 0.7);
+}
+
+/* giant ghosted quotation mark bleeding off the top-left */
+.sr-quote__mark {
+  position: absolute;
+  top: -0.18em; left: -0.04em;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 700;
+  font-size: clamp(9rem, 26vw, 20rem);
+  line-height: 1;
+  background: linear-gradient(135deg, var(--green, #21c700), var(--river, #3E9DB8));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  opacity: 0.16;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.sr-quote__text {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  width: min(72ch, 92%);
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: clamp(1.4rem, 3.4vw, 2.6rem);
+  line-height: 1.16;
+  letter-spacing: -0.01em;
+  color: var(--ink, #0c2114);
+}
+.sr-quote__text p { margin: 0; }
+
+/* gold marker swipe on the highlighted clause */
+.sr-quote__text .hl {
+  background: linear-gradient(180deg, transparent 58%, color-mix(in srgb, var(--sun, #FBC34A) 72%, transparent) 58% 94%, transparent 94%);
+  padding: 0 0.06em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+/* attribution, lower-right, baseline weighted */
+.sr-quote__by {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.85rem;
+  margin-top: clamp(1.6rem, 3vw, 2.6rem);
+}
+.sr-quote__rule {
+  grid-column: 1 / -1;
+  height: 1px;
+  background: rgba(4, 18, 13, 0.2);
+  margin-bottom: 0.9rem;
+}
+.sr-quote__disc {
+  width: 46px; height: 46px; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--green, #21c700);
+  color: var(--paper, #fff);
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.92rem; font-weight: 700; letter-spacing: 0.02em;
+}
+.sr-quote__id { display: flex; flex-direction: column; text-align: left; }
+.sr-quote__name { font-family: "Poppins", sans-serif; font-weight: 600; font-size: 1rem; color: var(--ink, #0c2114); }
+.sr-quote__role {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted, #546b5b); margin-top: 2px;
+}
+
+/* on a bare gradient band (on_card off): white type */
+.sr-quote:not(.sr-quote--card) .sr-quote__text { color: #fff; }
+.sr-quote:not(.sr-quote--card) .sr-quote__name { color: #fff; }
+.sr-quote:not(.sr-quote--card) .sr-quote__role { color: rgba(255, 255, 255, 0.7); }
+.sr-quote:not(.sr-quote--card) .sr-quote__rule { background: rgba(255, 255, 255, 0.28); }
+.sr-quote:not(.sr-quote--card) .sr-quote__mark { opacity: 0.26; }
+
+@media (max-width: 640px) {
+  .sr-quote__by { justify-content: flex-start; }
+  .sr-quote__text { width: 100%; }
+}

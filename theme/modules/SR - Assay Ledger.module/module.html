@@ -1,0 +1,42 @@
+{# SR - Assay Ledger. A 19th-century gold-assay ticket: a hairline-ruled
+   deliverables ledger beside a hand-tipped CERTIFIED panel. Pure CSS, no JS.
+   Status class is derived inline (no in-loop {% set %}, which renders empty on
+   HubSpot). #}
+<section class="srh-sec">
+  <div class="srh-sec__inner">
+    <div class="sr-ledger">
+      <span class="sr-ledger__toprule" aria-hidden="true"></span>
+
+      {% if module.section_eyebrow %}<p class="sr-ledger__eyebrow">{{ module.section_eyebrow }}</p>{% endif %}
+
+      <div class="sr-ledger__grid">
+        <div class="sr-ledger__book">
+          {% if module.assay_intro %}<div class="sr-ledger__intro sr-post">{{ module.assay_intro }}</div>{% endif %}
+          <div class="sr-ledger__rows">
+            {% for row in module.ledger_rows %}
+              <div class="sr-ledger__row" data-status="{{ row.row_status }}">
+                <span class="sr-ledger__item">{{ row.row_item }}</span>
+                <span class="sr-ledger__owner">{{ row.row_owner }}</span>
+                <span class="sr-ledger__status">{{ row.row_status }}</span>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+
+        <aside class="sr-ledger__cert">
+          <p class="sr-ledger__stamp">
+            <span class="sr-ledger__stamp-ghost" aria-hidden="true">{{ module.cert_headline }}</span>
+            <span class="sr-ledger__stamp-ink">{{ module.cert_headline }}</span>
+          </p>
+          <dl class="sr-ledger__meta">
+            <div><dt>Sample</dt><dd>{{ module.cert_sample_no }}</dd></div>
+            <div><dt>Filed</dt><dd>{{ module.cert_date }}</dd></div>
+          </dl>
+          <p class="sr-ledger__sig">{{ module.cert_signature }}</p>
+          <span class="sr-ledger__sigrule" aria-hidden="true"></span>
+          <p class="sr-ledger__sigcap">Signed, in person</p>
+        </aside>
+      </div>
+    </div>
+  </div>
+</section>

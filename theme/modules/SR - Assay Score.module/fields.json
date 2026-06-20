@@ -1,0 +1,85 @@
+[
+  {
+    "name": "eyebrow",
+    "label": "Eyebrow",
+    "type": "text",
+    "required": false,
+    "default": "Free readiness assay",
+    "id": "30300001-0001-0001-0001-000000000001"
+  },
+  {
+    "name": "score_value",
+    "label": "Score",
+    "type": "text",
+    "required": false,
+    "default": "72",
+    "id": "30300002-0001-0001-0001-000000000002"
+  },
+  {
+    "name": "score_suffix",
+    "label": "Score suffix",
+    "type": "text",
+    "required": false,
+    "default": "/100",
+    "id": "30300003-0001-0001-0001-000000000003"
+  },
+  {
+    "name": "signed_by",
+    "label": "Assayed by",
+    "type": "text",
+    "required": false,
+    "default": "M. Casteel",
+    "id": "30300004-0001-0001-0001-000000000004"
+  },
+  {
+    "name": "verdict_headline",
+    "label": "Verdict headline",
+    "type": "text",
+    "required": false,
+    "default": "Solid bones, two seams worth fixing",
+    "id": "30300005-0001-0001-0001-000000000005"
+  },
+  {
+    "name": "verdict_body",
+    "label": "Verdict body",
+    "type": "richtext",
+    "required": false,
+    "default": "<p>We map your stack, score what is holding you back, and hand you one honest read with the fixes that pay off first. No sales theatre.</p>",
+    "id": "30300006-0001-0001-0001-000000000006"
+  },
+  {
+    "name": "meta_rows",
+    "label": "Metadata rows",
+    "type": "group",
+    "occurrence": { "min": 0, "max": 8, "default": 3 },
+    "default": [
+      { "meta_label": "Sampled", "meta_value": "9 systems" },
+      { "meta_label": "Turnaround", "meta_value": "About a week" },
+      { "meta_label": "Signed", "meta_value": "M. Casteel" }
+    ],
+    "children": [
+      { "name": "meta_label", "label": "Label", "type": "text", "required": false, "default": "Label", "id": "30300008-0001-0001-0001-000000000008" },
+      { "name": "meta_value", "label": "Value", "type": "text", "required": false, "default": "Value", "id": "30300009-0001-0001-0001-000000000009" }
+    ],
+    "id": "30300007-0001-0001-0001-000000000007"
+  },
+  {
+    "name": "cta_text",
+    "label": "Button text",
+    "type": "text",
+    "required": false,
+    "default": "Get your assay",
+    "id": "3030000a-0001-0001-0001-00000000000a"
+  },
+  {
+    "name": "cta_link",
+    "label": "Button link",
+    "type": "url",
+    "required": false,
+    "locked": false,
+    "supported_types": ["EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG"],
+    "display_width": null,
+    "default": { "type": "EXTERNAL", "href": "/quote-sunriver-consulting", "content_id": null },
+    "id": "3030000b-0001-0001-0001-00000000000b"
+  }
+]

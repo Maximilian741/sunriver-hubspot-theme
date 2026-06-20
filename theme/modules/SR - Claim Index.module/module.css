@@ -1,0 +1,106 @@
+.sr-claims { position: relative; }
+.sr-claims .srh-band__inner { position: relative; z-index: 1; }
+
+.sr-claims__head { margin-bottom: clamp(1.4rem, 3vw, 2.6rem); }
+.sr-claims__eyebrow {
+  margin: 0 0 0.6rem;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.74rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--sun, #FBC34A);
+}
+.sr-claims__heading {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.4rem, 2.4vw, 2rem);
+  color: #fff;
+  letter-spacing: -0.01em;
+}
+
+.sr-claims__list { list-style: none; margin: 0; padding: 0; }
+
+.sr-claims__row { border-top: 1px solid rgba(255, 255, 255, 0.18); }
+.sr-claims__row:last-child { border-bottom: 1px solid rgba(255, 255, 255, 0.18); }
+
+.sr-claims__link {
+  position: relative;
+  display: grid;
+  grid-template-columns: 96px 1fr minmax(190px, 26%);
+  align-items: center;
+  gap: clamp(12px, 2vw, 36px);
+  padding: clamp(20px, 2.6vw, 34px) 0;
+  padding-left: clamp(6px, 3vw, 40px);
+  text-decoration: none;
+  color: #fff;
+  transition: transform 0.38s cubic-bezier(0.2, 0.7, 0.2, 1), border-color 0.38s ease;
+}
+
+.sr-claims__no {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.92);
+  white-space: nowrap;
+}
+.sr-claims__den { opacity: 0.5; }
+
+.sr-claims__name {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: clamp(2rem, 5vw, 3.9rem);
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+  color: #fff;
+  transition: color 0.3s ease;
+}
+
+.sr-claims__aside {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  text-align: right;
+}
+.sr-claims__desc {
+  font-family: "Manrope", system-ui, sans-serif;
+  font-size: 0.98rem;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.82);
+}
+.sr-claims__meta {
+  font-family: "Manrope", system-ui, sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* underline wipe under the name on hover */
+.sr-claims__wipe {
+  position: absolute;
+  left: clamp(6px, 3vw, 40px);
+  bottom: clamp(14px, 1.8vw, 24px);
+  height: 2px; width: 0;
+  background: linear-gradient(90deg, var(--green, #21c700), var(--river, #3E9DB8));
+  transition: width 0.4s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+@media (hover: hover) {
+  .sr-claims__link:hover { transform: translateX(22px); border-color: var(--sun, #FBC34A); }
+  .sr-claims__link:hover .sr-claims__name { color: var(--sun, #FBC34A); }
+  .sr-claims__link:hover .sr-claims__wipe { width: min(46%, 360px); }
+}
+.sr-claims__link:focus-visible { outline: 2px solid var(--sun, #FBC34A); outline-offset: 4px; }
+
+@media (max-width: 760px) {
+  .sr-claims__link {
+    grid-template-columns: 64px 1fr;
+    grid-template-areas: "no name" "aside aside";
+    row-gap: 0.6rem;
+  }
+  .sr-claims__no { grid-area: no; align-self: start; padding-top: 0.6rem; }
+  .sr-claims__name { grid-area: name; }
+  .sr-claims__aside { grid-area: aside; text-align: left; }
+  .sr-claims__link:hover { transform: none; }
+}
