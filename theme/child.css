@@ -698,7 +698,7 @@
    brand-logo cards (your existing look), with the smoke riding
    ON TOP as a transparent veil. NOT a dark theme.
    ============================================================ */
-.srh { --ink:#0c2114; --paper:#ffffff; --muted:#546b5b; --green:#21c700; --valley:#8FC740; --sun:#FBC34A; --gold:#f1c233; --river:#3E9DB8; --deep:#1C5B77; color:var(--ink); font-family:var(--body,"Manrope",system-ui,sans-serif); background:linear-gradient(135deg,#23d800 0%,#1bd24a 22%,#06c79b 45%,#0e8fae 65%,#1C5B77 84%,#0b2a40 100%); position:relative; isolation:isolate; }
+.srh { --ink:#0c2114; --paper:#ffffff; --muted:#546b5b; --green:#21c700; --valley:#8FC740; --sun:#FBC34A; --gold:#f1c233; --river:#3E9DB8; --deep:#1C5B77; color:var(--ink); font-family:var(--body,"Manrope",system-ui,sans-serif); background-color:#0b2a40; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E"), linear-gradient(135deg,#23d800 0%,#1bd24a 20%,#13cd77 32%,#06c79b 45%,#08bba6 55%,#0e8fae 66%,#157399 75%,#1C5B77 85%,#133f5a 93%,#0b2a40 100%); background-repeat:repeat,no-repeat; background-size:120px 120px,cover; position:relative; isolation:isolate; }
 /* page-wide smoke (injected by child.js) — runs continuously behind the cards */
 .srh__smoke { position:fixed; inset:0; width:100%; height:100%; z-index:0; pointer-events:none; }
 .srh > :not(.srh__smoke) { position:relative; z-index:1; }
@@ -720,12 +720,9 @@
 
 /* photo hero (the MT mountains) with the smoke veil + dark scrim on top */
 .srh-photo { --mx:50%; --my:38%; position:relative; overflow:hidden; isolation:isolate; min-height:clamp(420px,66vh,660px); display:grid; align-items:center; background:#0c2114; }
-.srh-photo__bg { position:absolute; inset:-3%; z-index:0; background-size:cover; background-position:center; transform:scale(1.06) translate3d(var(--bgx,0),var(--bgy,0),0); transition:transform .35s cubic-bezier(.22,1,.36,1); will-change:transform; }
+.srh-photo__bg { position:absolute; inset:0; z-index:0; background-size:cover; background-position:center; transform:scale(1.05); }
 .srh-photo__canvas { position:absolute; inset:0; width:100%; height:100%; z-index:1; pointer-events:none; }
 .srh-photo__veil { position:absolute; inset:0; z-index:1; background:linear-gradient(180deg,rgba(6,16,24,.34),rgba(6,16,24,.66)); }
-/* cursor spotlight that follows the mouse across the hero (set by child.js) */
-.srh-photo::after { content:""; position:absolute; inset:0; z-index:1; pointer-events:none; opacity:0; transition:opacity .4s ease; mix-blend-mode:screen; background:radial-gradient(460px 460px at var(--mx) var(--my), rgba(123,255,178,.20), rgba(251,195,74,.08) 42%, transparent 70%); }
-.srh-photo.is-live::after { opacity:1; }
 .srh-photo__inner { position:relative; z-index:2; width:100%; max-width:1100px; margin:0 auto; padding:clamp(48px,8vw,96px) clamp(20px,5vw,48px); text-align:center; color:#eafff0; }
 .srh-photo__cap { display:inline-block; font-family:var(--mono,"JetBrains Mono",monospace); font-size:12px; letter-spacing:.24em; text-transform:uppercase; color:#cfe9f4; margin-bottom:14px; }
 .srh-photo .srh-photo__title {
@@ -1029,7 +1026,7 @@ body.srh-modal-open { overflow:hidden; }
    the green (smoke warms green -> ember on scroll, via child.js).
    Rich: dropdowns (reuses .srh-faq), multi-column, stack chips.
    ============================================================ */
-.srd { position:relative; min-height:100vh; isolation:isolate; background:linear-gradient(135deg,#23d800 0%,#1bd24a 22%,#06c79b 45%,#0e8fae 65%,#1C5B77 84%,#0b2a40 100%); color:#0c2114; font-family:var(--body,"Manrope",system-ui,sans-serif); }
+.srd { position:relative; min-height:100vh; isolation:isolate; background-color:#0b2a40; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E"), linear-gradient(135deg,#23d800 0%,#1bd24a 20%,#13cd77 32%,#06c79b 45%,#08bba6 55%,#0e8fae 66%,#157399 75%,#1C5B77 85%,#133f5a 93%,#0b2a40 100%); background-repeat:repeat,no-repeat; background-size:120px 120px,cover; color:#0c2114; font-family:var(--body,"Manrope",system-ui,sans-serif); }
 .srd__sky { position:fixed; inset:0; z-index:0; pointer-events:none; opacity:var(--sr-warm,0); background:linear-gradient(168deg,#ffba3c 0%,#ff7e3a 24%,#d6481a 46%,#6e2410 66%,#1c0c07 85%,#070302 100%); transition:opacity .15s linear; }
 .srd__canvas { position:fixed; inset:0; width:100%; height:100%; z-index:1; pointer-events:none; }
 .srd__wrap { position:relative; z-index:2; max-width:960px; margin:0 auto; padding:clamp(26px,5vw,60px) clamp(14px,4vw,32px) clamp(50px,7vw,96px); }

@@ -306,7 +306,7 @@
       'float noise(vec2 p){vec2 i=floor(p),f=fract(p);vec2 u=f*f*(3.0-2.0*f);' +
       'return mix(mix(hash(i),hash(i+vec2(1,0)),u.x),mix(hash(i+vec2(0,1)),hash(i+vec2(1,1)),u.x),u.y);}' +
       'float fbm(vec2 p){float v=0.0,a=0.5;mat2 R=mat2(0.8,-0.6,0.6,0.8);' +
-      'for(int i=0;i<5;i++){v+=a*noise(p);p=R*p*2.05+3.1;a*=0.5;}return v;}' +
+      'for(int i=0;i<4;i++){v+=a*noise(p);p=R*p*2.05+3.1;a*=0.5;}return v;}' +
       'vec2 warp(vec2 q,vec2 pp){return q+(u_mouse-pp)*exp(-length(pp-u_mouse)*1.7)*0.5;}' +
       'vec3 SUN=vec3(0.984,0.765,0.290);vec3 VAL=vec3(0.561,0.780,0.251);' +
       'vec3 RIV=vec3(0.243,0.616,0.722);vec3 DEEP=vec3(0.110,0.357,0.467);' +
@@ -448,16 +448,30 @@
         mAim[0] = (e.clientX - r.left - r.width / 2) / r.height;
         mAim[1] = 0.5 - (e.clientY - r.top) / r.height;
       }, { passive: true });
+      // The smoke is soft, so we render it BELOW native resolution and throttle
+      // the frame rate. This is the difference between "buttery" and "brutal" on
+      // weak integrated GPUs (Surface Pro etc.). If the device still can't keep
+      // up, drop resolution and fps once more, automatically.
+      var resScale = 0.85, FRAME_MS = 1000 / 30, lastDraw = -100000, samples = 0, slow = 0, downgraded = false;
       function sizeCanvas() {
-        var dpr = Math.min(window.devicePixelRatio || 1, 1.75);
+        var dpr = Math.min(window.devicePixelRatio || 1, resScale);
         var w = Math.max(1, Math.floor(canvas.clientWidth * dpr)), h = Math.max(1, Math.floor(canvas.clientHeight * dpr));
         if (canvas.width !== w || canvas.height !== h) { canvas.width = w; canvas.height = h; gl.viewport(0, 0, w, h); }
       }
       window.addEventListener('resize', sizeCanvas);
       if ('IntersectionObserver' in window) new IntersectionObserver(function (es) { es.forEach(function (e) { visible = e.isIntersecting; }); }).observe(canvas);
-      function loop() {
+      function loop(now) {
         requestAnimationFrame(loop);
         if (!visible || document.hidden) return;
+        if (now === undefined) now = performance.now();
+        var dt = now - lastDraw;
+        if (dt < FRAME_MS) return;
+        if (!downgraded && lastDraw > 0) {
+          samples++;
+          if (dt > FRAME_MS * 2.2) slow++;
+          if (samples >= 45 && slow > 18) { downgraded = true; resScale = 0.55; FRAME_MS = 1000 / 20; sizeCanvas(); }
+        }
+        lastDraw = now;
         sizeCanvas();
         mSm[0] += (mAim[0] - mSm[0]) * 0.07; mSm[1] += (mAim[1] - mSm[1]) * 0.07;
         var wt = warmOn ? Math.min(1, (window.scrollY || window.pageYOffset || 0) / 1800) : 0;
@@ -475,56 +489,15 @@
         }
         gl.drawArrays(gl.TRIANGLES, 0, 6);
       }
-      loop();
+      requestAnimationFrame(loop);
     }
 
     canvases.forEach(function (c) {
       c.setAttribute('data-srx-init', '1');
+      // On .srh pages the per-band canvases are display:none (one page-wide smoke
+      // runs instead). Don't create a WebGL context for a hidden canvas.
+      if (window.getComputedStyle(c).display === 'none') return;
       run(c, FRAG[c.getAttribute('data-srx-shader')] || EMBER);
-    });
-  }
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
-  else init();
-})();
-
-/* Hero card interactivity: a cursor spotlight + gentle photo parallax on the
-   .srh-photo hero. Pointer-fine devices only; respects reduced motion. */
-(function () {
-  function init() {
-    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var fine = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-    if (reduce || !fine) return;
-
-    Array.prototype.forEach.call(document.querySelectorAll('.srh-photo'), function (hero) {
-      if (hero.getAttribute('data-srh-tilt')) return;
-      hero.setAttribute('data-srh-tilt', '1');
-      var bg = hero.querySelector('.srh-photo__bg');
-      var raf = 0, mx = 50, my = 38, bx = 0, by = 0;
-
-      function paint() {
-        raf = 0;
-        hero.style.setProperty('--mx', mx + '%');
-        hero.style.setProperty('--my', my + '%');
-        if (bg) {
-          bg.style.setProperty('--bgx', bx.toFixed(1) + 'px');
-          bg.style.setProperty('--bgy', by.toFixed(1) + 'px');
-        }
-      }
-      hero.addEventListener('pointermove', function (e) {
-        var r = hero.getBoundingClientRect();
-        if (!r.width || !r.height) return;
-        var px = (e.clientX - r.left) / r.width;
-        var py = (e.clientY - r.top) / r.height;
-        mx = px * 100; my = py * 100;
-        bx = (0.5 - px) * 24; by = (0.5 - py) * 18;
-        hero.classList.add('is-live');
-        if (!raf) raf = requestAnimationFrame(paint);
-      });
-      hero.addEventListener('pointerleave', function () {
-        hero.classList.remove('is-live');
-        mx = 50; my = 38; bx = 0; by = 0;
-        if (!raf) raf = requestAnimationFrame(paint);
-      });
     });
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
