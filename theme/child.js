@@ -385,10 +385,10 @@
       'float dens=smoothstep(0.16,0.92,m1*0.62+m2*0.55);' +
       'float docY=clamp((u_doc0+(u_res.y-gl_FragCoord.y))/max(u_page,1.0),0.0,1.0);' +
       'float dx=gl_FragCoord.x/max(u_res.x,1.0);float diag=clamp(docY*0.62+dx*0.38,0.0,1.0);' +
-      'vec3 gN=vec3(0.16,0.93,0.03);vec3 gD=vec3(0.07,0.56,0.03);' +
-      'vec3 tN=vec3(0.06,0.62,0.06);vec3 tD=vec3(0.03,0.30,0.05);' +
-      'vec3 bN=vec3(0.04,0.40,0.08);vec3 bD=vec3(0.02,0.18,0.05);' +
-      'vec3 kN=vec3(0.02,0.14,0.05);vec3 kD=vec3(0.004,0.045,0.02);' +
+      'vec3 gN=vec3(0.17,0.96,0.00);vec3 gD=vec3(0.08,0.62,0.03);' +
+      'vec3 tN=vec3(0.07,0.66,0.07);vec3 tD=vec3(0.04,0.38,0.07);' +
+      'vec3 bN=vec3(0.05,0.46,0.10);vec3 bD=vec3(0.03,0.27,0.09);' +
+      'vec3 kN=vec3(0.05,0.34,0.13);vec3 kD=vec3(0.025,0.22,0.09);' +
       'float s1=smoothstep(0.24,0.52,diag);float s2=smoothstep(0.52,0.78,diag);float s3=smoothstep(0.78,1.0,diag);' +
       'vec3 wisp=mix(mix(mix(gN,tN,s1),bN,s2),kN,s3);' +
       'vec3 base=mix(mix(mix(gD,tD,s1),bD,s2),kD,s3);' +
