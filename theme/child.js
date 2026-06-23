@@ -430,10 +430,10 @@
       // scroll drives the journey (mostly vertical) + a slow breathing ripple
       'float dx=gl_FragCoord.x/max(u_res.x,1.0);float diag=clamp(docY*0.82+dx*0.18+0.03*sin(u_time*0.5+p.y*0.7),0.0,1.0);' +
       // THREE neon stations: neon green -> hot neon magenta -> electric violet (no teal/blue)
-      'vec3 gN=vec3(0.40,1.00,0.24);vec3 gD=vec3(0.11,0.875,0.00);' +
-      'vec3 tN=vec3(1.00,0.36,0.88);vec3 tD=vec3(1.00,0.06,0.75);' +
-      'vec3 bN=vec3(0.79,0.55,1.00);vec3 bD=vec3(0.61,0.11,1.00);' +
-      'vec3 kN=vec3(0.79,0.55,1.00);vec3 kD=vec3(0.61,0.11,1.00);' +
+      'vec3 gN=vec3(0.36,1.00,0.20);vec3 gD=vec3(0.11,0.875,0.00);' +
+      'vec3 tN=vec3(1.00,0.70,0.32);vec3 tD=vec3(1.00,0.44,0.00);' +
+      'vec3 bN=vec3(1.00,0.44,0.24);vec3 bD=vec3(1.00,0.07,0.16);' +
+      'vec3 kN=vec3(1.00,0.44,0.24);vec3 kD=vec3(1.00,0.07,0.16);' +
       'float s1=smoothstep(0.20,0.46,diag);float s2=smoothstep(0.54,0.82,diag);float s3=smoothstep(0.86,1.0,diag);' +
       'vec3 wisp=mix(mix(mix(gN,tN,s1),bN,s2),kN,s3);wisp*=(1.0+0.08*sin(u_time*0.45));' +
       'vec3 base=mix(mix(mix(gD,tD,s1),bD,s2),kD,s3);' +
