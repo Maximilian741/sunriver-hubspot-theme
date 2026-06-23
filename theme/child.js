@@ -278,7 +278,21 @@
         + '</div>';
       document.body.appendChild(modal);
       var icEl = modal.querySelector('[data-ic]'), tEl = modal.querySelector('[data-title]'), lEl = modal.querySelector('[data-lead]'), bEl = modal.querySelector('[data-body]');
-      function openCard(card) {
+      var dlg = modal.querySelector('.srh-modal__dialog');
+      var reduceM = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+      var lastCard = null, closeTimer = null;
+
+      // Transform that maps the centered dialog back onto a card's rect, so the
+      // modal looks like it unfolds OUT of (and folds back INTO) the clicked card.
+      function foldTransform(rect) {
+        var d = dlg.getBoundingClientRect();
+        if (!d.width || !d.height || !rect.width || !rect.height) return null;
+        var sx = Math.max(0.05, rect.width / d.width), sy = Math.max(0.05, rect.height / d.height);
+        var tx = (rect.left + rect.width / 2) - (d.left + d.width / 2);
+        var ty = (rect.top + rect.height / 2) - (d.top + d.height / 2);
+        return 'translate(' + tx.toFixed(1) + 'px,' + ty.toFixed(1) + 'px) scale(' + sx.toFixed(4) + ',' + sy.toFixed(4) + ') rotateX(-18deg)';
+      }
+      function fillFrom(card) {
         var svg = card.querySelector('.srh-card__logo svg');
         icEl.innerHTML = svg ? svg.outerHTML : '';
         var t = card.querySelector('.srh-card__title'), d = card.querySelector('.srh-card__desc'), m = card.querySelector('.srh-card__more');
@@ -287,12 +301,41 @@
         bEl.innerHTML = m ? m.innerHTML : (d ? d.textContent : '');
         var ml = modal.querySelector('[data-more-link]'), href = card.getAttribute('data-href');
         if (ml) { if (href) { ml.setAttribute('href', href); ml.innerHTML = 'Learn more &rarr;'; } else { ml.setAttribute('href', '/quote-sunriver-consulting'); ml.innerHTML = 'Get a quick estimate &rarr;'; } }
-        modal.classList.add('is-open'); document.body.classList.add('srh-modal-open');
       }
-      function closeModal() { modal.classList.remove('is-open'); document.body.classList.remove('srh-modal-open'); }
+      function hardHide() {
+        modal.classList.remove('is-open'); document.body.classList.remove('srh-modal-open');
+        dlg.style.transition = 'none'; dlg.style.transform = ''; dlg.style.opacity = '';
+        void dlg.offsetWidth; dlg.style.transition = '';
+      }
+      function openCard(card) {
+        if (closeTimer) { clearTimeout(closeTimer); closeTimer = null; }
+        fillFrom(card);
+        lastCard = card;
+        modal.classList.add('is-open'); document.body.classList.add('srh-modal-open');
+        dlg.scrollTop = 0; dlg.style.transition = ''; dlg.style.opacity = '';
+        if (reduceM) { dlg.style.transform = ''; return; }
+        var start = foldTransform(card.getBoundingClientRect());
+        if (!start) { dlg.style.transform = ''; return; }
+        dlg.style.transition = 'none';
+        dlg.style.transform = start;
+        dlg.style.opacity = '0.25';
+        void dlg.offsetWidth;
+        dlg.style.transition = '';
+        dlg.style.transform = 'translate(0px,0px) scale(1,1) rotateX(0deg)';
+        dlg.style.opacity = '1';
+      }
+      function closeModal() {
+        if (reduceM || !lastCard) { hardHide(); return; }
+        var end = foldTransform(lastCard.getBoundingClientRect());
+        if (!end) { hardHide(); return; }
+        dlg.style.transform = end;
+        dlg.style.opacity = '0';
+        if (closeTimer) clearTimeout(closeTimer);
+        closeTimer = setTimeout(function () { closeTimer = null; hardHide(); }, 480);
+      }
       [].forEach.call(cards, function (c) { c.addEventListener('click', function (e) { e.preventDefault(); openCard(c); }); });
       modal.addEventListener('click', function (e) { if (e.target.hasAttribute && e.target.hasAttribute('data-close')) closeModal(); });
-      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeModal(); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal(); });
     })();
 
     var canvases = [].slice.call(document.querySelectorAll('canvas[data-srx-shader]:not([data-srx-init])'));
