@@ -427,20 +427,22 @@
       'float m1=fbm(q*1.25+vec2(t*0.4,0.0));float m2=fbm(q*2.4+vec2(t*0.7,t*1.8));' +
       'float dens=smoothstep(0.16,0.92,m1*0.62+m2*0.55);' +
       'float docY=clamp((u_doc0+(u_res.y-gl_FragCoord.y))/max(u_page,1.0),0.0,1.0);' +
-      'float dx=gl_FragCoord.x/max(u_res.x,1.0);float diag=clamp(docY*0.62+dx*0.38,0.0,1.0);' +
-      'vec3 gN=vec3(0.60,1.00,0.46);vec3 gD=vec3(0.11,0.80,0.03);' +
-      'vec3 tN=vec3(0.56,0.99,0.46);vec3 tD=vec3(0.10,0.75,0.03);' +
-      'vec3 bN=vec3(0.53,0.97,0.46);vec3 bD=vec3(0.10,0.71,0.04);' +
-      'vec3 kN=vec3(0.50,0.95,0.46);vec3 kD=vec3(0.11,0.68,0.04);' +
-      'float s1=smoothstep(0.24,0.52,diag);float s2=smoothstep(0.52,0.78,diag);float s3=smoothstep(0.78,1.0,diag);' +
-      'vec3 wisp=mix(mix(mix(gN,tN,s1),bN,s2),kN,s3);' +
+      // scroll drives the journey (mostly vertical) + a slow breathing ripple
+      'float dx=gl_FragCoord.x/max(u_res.x,1.0);float diag=clamp(docY*0.82+dx*0.18+0.03*sin(u_time*0.5+p.y*0.7),0.0,1.0);' +
+      // THREE neon stations: neon green -> hot neon magenta -> electric violet (no teal/blue)
+      'vec3 gN=vec3(0.40,1.00,0.24);vec3 gD=vec3(0.11,0.875,0.00);' +
+      'vec3 tN=vec3(1.00,0.36,0.88);vec3 tD=vec3(1.00,0.06,0.75);' +
+      'vec3 bN=vec3(0.79,0.55,1.00);vec3 bD=vec3(0.61,0.11,1.00);' +
+      'vec3 kN=vec3(0.79,0.55,1.00);vec3 kD=vec3(0.61,0.11,1.00);' +
+      'float s1=smoothstep(0.20,0.46,diag);float s2=smoothstep(0.54,0.82,diag);float s3=smoothstep(0.86,1.0,diag);' +
+      'vec3 wisp=mix(mix(mix(gN,tN,s1),bN,s2),kN,s3);wisp*=(1.0+0.08*sin(u_time*0.45));' +
       'vec3 base=mix(mix(mix(gD,tD,s1),bD,s2),kD,s3);' +
-      'vec3 cool=mix(base,wisp,dens);' +
+      'vec3 cool=mix(base,wisp,dens);cool+=wisp*pow(dens,4.0)*0.22*(0.6+0.4*sin(u_time*0.7));' +
       'vec3 emb=mix(vec3(0.16,0.05,0.02),vec3(1.0,0.45,0.10),dens);' +
       'float w=clamp(u_warm*1.15,0.0,1.0);' +
       'vec3 col=mix(cool,emb,w);' +
       'col+=(hash(gl_FragCoord.xy+u_time)-0.5)*0.02;' +
-      'float a=mix(0.34,0.95,dens);' +
+      'float a=mix(0.86,0.99,dens);' +
       // edge dissolve only for in-band canvases (u_edge=1); page-wide smoke runs uncut
       'float vy=gl_FragCoord.y/u_res.y;a*=mix(1.0,smoothstep(0.0,0.16,vy)*smoothstep(1.0,0.84,vy),u_edge);' +
       'gl_FragColor=vec4(col,a);}';
